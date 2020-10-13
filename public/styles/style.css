@@ -190,6 +190,23 @@ header li a i {
 .each_popular_city_desc {
   padding: 10px;
 }
+.favorite_bus_company_list_row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.favorite_bus_company_list_column {
+  width: 24%;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid rgb(146, 206, 255);
+}
+.favorite_bus_company_title_text {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(146, 206, 255);
+  padding: 5px;
+}
 footer {
   background-color: #140028;
   padding: 30px 0;
@@ -224,9 +241,13 @@ footer li {
   background-color: #140028;
   width: 200px;
 }
-.footer_ivorycoast_flag {
+.footer_ivorycoast_flag,
+.header_ivorycoast_flag {
   width: 15px;
   height: 10px;
+}
+.header_ivorycoast_flag {
+  margin-left: 5px;
 }
 footer a {
   text-decoration: none;
