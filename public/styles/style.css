@@ -6,6 +6,19 @@
 }
 body {
   background-color: #210340;
+  min-height: 1500px;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+.jumbotron_background {
+  position: absolute;
+  height: 100vh;
+  z-index: -1;
+  width: 100vw;
+  background: linear-gradient(rgba(0, 125, 209, 0.466), rgb(248, 75, 182)),
+    url("../images/IvoryCoastCity4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .wrapper {
   max-width: 1100px;
@@ -62,34 +75,58 @@ header li a i {
   color: orange;
 }
 .active_top_nav_link a i {
-  color: yellowgreen;
+  color: rgb(255, 23, 166);
 }
 .site_motto_container {
-  padding-top: 60px;
+  padding-top: 40px;
 }
 .site_motto {
-  padding: 60px 0;
+  padding: 50px 0;
   font-size: 2rem;
   font-weight: bolder;
-  color: white;
+  color: #cdefff;
 }
-
+#map_picture {
+  width: 200px;
+  height: 100px;
+  opacity: 0.9;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("../images/ivory-coast-regions-map.gif");
+}
 .search_tickets_form_container {
   display: flex;
   justify-content: space-between;
-  background-color: lightsalmon;
+  background-color: #210340;
   border-radius: 5px;
-  padding: 10px;
+  overflow: hidden;
+  padding: 0 10px;
 }
-.search_tickets_form_container div {
-  width: 24%;
+.search_tickets_form_container .search_fieldset {
+  margin: 10px 0;
+  width: 40%;
+  display: flex;
+
   background-color: white;
   border-radius: 5px;
 }
+#home_page_search_button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin: 0;
+  margin-right: -10px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  background-color: rgb(231, 124, 2);
+}
 .search_tickets_form_container i {
   font-size: 20px;
-  color: darkblue;
-  margin: 0 5px;
+  color: rgb(202, 131, 0);
+  margin: 0 10px;
 }
 .search_tickets_form_container input {
   width: calc(100% - 40px);
@@ -98,18 +135,79 @@ header li a i {
 }
 #trip_type_parameters li {
   display: inline;
-  color: orange;
+  color: #69fda2;
   padding: 15px;
 }
 #trip_type_parameters i {
   margin-left: 5px;
+  color: #ffcb7d;
 }
 #trip_type_parameters {
   margin: 15px 0;
 }
-#home_page_map_picture {
-  margin: 30px 0;
-  background-image: url("../images/ivory-coast-regions-map.gif");
-  border-radius: 5px;
+#home_page_display_pictures {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
   height: 300px;
+  overflow: hidden;
+}
+#home_page_display_pictures_desc {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #210340;
+}
+#home_page_display_pictures .each_display_picture {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: center;
+  width: 33.3%;
+  height: 100%;
+}
+#site_lower_section {
+  min-height: 500px;
+}
+footer {
+  background-color: #140028;
+  padding: 30px 0;
+  font-size: 13px;
+}
+.footer_row {
+  display: flex;
+  justify-content: space-between;
+}
+.footer_section_header {
+  margin-bottom: 15px;
+  color: orange;
+  font-weight: bolder;
+  font-size: 13px;
+}
+footer li {
+  list-style-type: none;
+  color: white;
+  font-size: 13px;
+}
+.footer_fld_cntn {
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.footer_fld_cntn input,
+.footer_fld_cntn select {
+  font-size: 13px;
+  border: none;
+  color: white;
+  background-color: #140028;
+  width: 200px;
+}
+.footer_ivorycoast_flag {
+  width: 15px;
+  height: 10px;
+}
+footer a {
+  text-decoration: none;
 }
