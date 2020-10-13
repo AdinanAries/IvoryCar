@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto;
+  font-size: 16px;
+}
+body {
+  background-color: #210340;
+}
+.wrapper {
+  max-width: 1100px;
+  margin: auto;
+}
+header {
+  background-color: #140028;
+}
+.header_content_container {
+  display: flex;
+  justify-content: space-between;
+}
+.site_logo_container {
+  height: 59px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 23px;
+  color: Orange;
+  font-weight: bolder;
+}
+.site_logo_container p,
+.site_logo_container span {
+  font-size: 23px;
+}
+.top_nav_main_links_container {
+  height: 100%;
+}
+header ul {
+  padding: 20px;
+}
+header li {
+  display: inline;
+
+  padding: 20px;
+}
+header li a {
+  text-decoration: none;
+  color: white;
+}
+header li a:hover {
+  color: orange;
+}
+header li a i {
+  color: sandybrown;
+  margin-right: 5px;
+}
+.active_top_nav_link {
+  border-bottom: 4px solid orange;
+  color: orange;
+  padding-bottom: 16px;
+}
+.active_top_nav_link a {
+  color: orange;
+}
+.active_top_nav_link a i {
+  color: yellowgreen;
+}
+.site_motto_container {
+  padding-top: 60px;
+}
+.site_motto {
+  padding: 60px 0;
+  font-size: 2rem;
+  font-weight: bolder;
+  color: white;
+}
+
+.search_tickets_form_container {
+  display: flex;
+  justify-content: space-between;
+  background-color: lightsalmon;
+  border-radius: 5px;
+  padding: 10px;
+}
+.search_tickets_form_container div {
+  width: 24%;
+  background-color: white;
+  border-radius: 5px;
+}
+.search_tickets_form_container i {
+  font-size: 20px;
+  color: darkblue;
+  margin: 0 5px;
+}
+.search_tickets_form_container input {
+  width: calc(100% - 40px);
+  padding: 10px 0;
+  border: none;
+}
+#trip_type_parameters li {
+  display: inline;
+  color: orange;
+  padding: 15px;
+}
+#trip_type_parameters i {
+  margin-left: 5px;
+}
+#trip_type_parameters {
+  margin: 15px 0;
+}
+#home_page_map_picture {
+  margin: 30px 0;
+  background-image: url("../images/ivory-coast-regions-map.gif");
+  border-radius: 5px;
+  height: 300px;
+}

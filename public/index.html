@@ -3,25 +3,104 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
     <link href="styles/style.css" type="text/css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
     <title>Document</title>
   </head>
   <body>
-      <header>
-          <div class="wrapper">
-
+    <header>
+      <div class="wrapper">
+        <div class="header_content_container">
+          <div class="site_logo_container">
+            <p>Ivory<span style="color: White">Car</span></p>
           </div>
-      </header>
-      <section>
-          <div class="wrapper">
-
+          <div class="top_nav_main_links_container">
+            <ul>
+              <li class="active_top_nav_link">
+                <a href="#"><i class="fa fa-bus" aria-hidden="true"></i>Cars</a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fa fa-briefcase" aria-hidden="true"></i>Packages</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fa fa-globe" aria-hidden="true"></i>Explore</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fa fa-list-ul" aria-hidden="true"></i>More</a
+                >
+              </li>
+            </ul>
           </div>
-      </section>
-      <footer>
-          <div class="wrapper">
-              
+          <div class="top_nav_other_links_container">
+            <ul>
+              <li>
+                <a href="#">Trips</a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fa fa-sign-in" aria-hidden="true"></i>Sign in</a
+                >
+              </li>
+            </ul>
           </div>
-      </footer>
+        </div>
+      </div>
+    </header>
+    <section>
+      <div class="wrapper">
+        <div class="hero_section_container">
+          <div class="site_motto_container">
+            <h1 class="site_motto">Buy your bus tickets online</h1>
+          </div>
+          <ul id="trip_type_parameters">
+            <li>
+              Round-trip
+              <i class="fa fa-caret-down" aria-hidden="true"></i>
+            </li>
+            <li>1 Adult <i class="fa fa-caret-down" aria-hidden="true"></i></li>
+            <li>
+              Bus Type <i class="fa fa-caret-down" aria-hidden="true"></i>
+            </li>
+          </ul>
+          <div class="search_tickets_form_container">
+            <div>
+              <i class="fa fa-location-arrow" aria-hidden="true"></i
+              ><input type="text" placeholder="From where" />
+            </div>
+            <div>
+              <i class="fa fa-location-arrow" aria-hidden="true"></i
+              ><input type="text" placeholder="To where" />
+            </div>
+            <div>
+              <i class="fa fa-calendar" aria-hidden="true"></i
+              ><input type="text" placeholder="From when" />
+            </div>
+            <div>
+              <i class="fa fa-calendar" aria-hidden="true"></i
+              ><input type="text" placeholder="To when" />
+            </div>
+          </div>
+          <div id="home_page_map_picture"></div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="wrapper"></div>
+    </footer>
     <script src="scripts/main_script.js" type="text/javascript" />
   </body>
 </html>
