@@ -23,6 +23,14 @@ var main_menu_language_submenu = document.getElementById(
 var other_menu_languages_option_container = document.getElementById(
   "other_menu_languages_option_container"
 );
+var hero_section_container = document.getElementsByClassName(
+  "hero_section_container"
+)[0];
+var packages_section = document.getElementsByClassName("packages_section")[0];
+var explore_section = document.getElementsByClassName("explore_section")[0];
+var jumbotron_background = document.getElementsByClassName(
+  "jumbotron_background"
+)[0];
 
 //hover event for menu languages option
 other_menu_languages_option.addEventListener("mouseover", () => {
@@ -75,16 +83,43 @@ function set_all_main_menu_items_as_not_selected() {
 main_menu_packages_option.addEventListener("click", () => {
   set_all_main_menu_items_as_not_selected();
   main_menu_packages_option.classList.add("active_top_nav_link");
+  jumbotron_background.style.display = "none";
+  render_packages_page();
 });
 
 //this sets the cars main menu option active
 main_menu_car_option.addEventListener("click", () => {
   set_all_main_menu_items_as_not_selected();
   main_menu_car_option.classList.add("active_top_nav_link");
+  jumbotron_background.style.display = "block";
+  render_cars_page();
 });
 
 //this sets the cars main menu option active
 main_menu_explore_option.addEventListener("click", () => {
   set_all_main_menu_items_as_not_selected();
   main_menu_explore_option.classList.add("active_top_nav_link");
+  jumbotron_background.style.display = "none";
+  render_explore_page();
 });
+
+//this function renders renders explore page
+function render_explore_page() {
+  packages_section.style.display = "none";
+  hero_section_container.style.display = "none";
+  explore_section.style.display = "block";
+}
+
+//this function renders renders explore page
+function render_packages_page() {
+  hero_section_container.style.display = "none";
+  explore_section.style.display = "none";
+  packages_section.style.display = "block";
+}
+
+//this function renders cars page
+function render_cars_page() {
+  packages_section.style.display = "none";
+  explore_section.style.display = "none";
+  hero_section_container.style.display = "block";
+}

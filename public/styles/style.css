@@ -21,7 +21,7 @@ body {
   background-size: cover;
 }
 .wrapper {
-  max-width: 1100px;
+  max-width: 1024px;
   margin: auto;
 }
 header {
@@ -46,7 +46,7 @@ header {
   width: 100px;
   height: 70px;
   background-color: #140028;
-  left: 527px;
+  left: 489px;
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 0.5s linear;
@@ -57,7 +57,7 @@ header {
   opacity: 1;
 }
 #main_menu_language_submenu {
-  left: 830px;
+  left: 753px;
 }
 .header_content_container {
   display: flex;
@@ -84,7 +84,7 @@ header ul {
 }
 header li {
   display: inline;
-
+  cursor: pointer;
   padding: 20px;
 }
 header li a {
@@ -109,6 +109,15 @@ header li a i {
 .active_top_nav_link a i {
   color: rgb(255, 23, 166);
 }
+.hero_section_container,
+.explore_section,
+.packages_section {
+  min-height: 90vh;
+}
+.explore_section,
+.packages_section {
+  display: none;
+}
 .site_motto_container {
   padding-top: 40px;
 }
@@ -117,6 +126,10 @@ header li a i {
   font-size: 2rem;
   font-weight: bolder;
   color: #cdefff;
+}
+.page_title {
+  font-size: 22px;
+  color: white;
 }
 #map_picture {
   width: 200px;
