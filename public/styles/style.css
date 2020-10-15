@@ -4,6 +4,9 @@
   font-family: Roboto;
   font-size: 16px;
 }
+.MenuIcon {
+  display: none;
+}
 body {
   background-color: #210340;
   min-height: 1500px;
@@ -36,7 +39,8 @@ header {
   z-index: 2;
 }
 #main_menu_more_submenu,
-#main_menu_language_submenu {
+#main_menu_language_submenu,
+#mobile_main_menu_items {
   border-top: 4px solid orange;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -58,6 +62,15 @@ header {
 }
 #main_menu_language_submenu {
   left: 753px;
+  /*left: 68.4%;*/
+}
+#mobile_main_menu_items {
+  position: absolute;
+  z-index: 2;
+  padding: 0;
+  width: 600px;
+  height: 64px;
+  left: 0;
 }
 .header_content_container {
   display: flex;
@@ -71,30 +84,44 @@ header {
   font-size: 23px;
   color: Orange;
   font-weight: bolder;
+  cursor: pointer;
 }
 .site_logo_container p,
 .site_logo_container span {
   font-size: 23px;
 }
+#top_logo_menu_icon {
+  display: none;
+  margin-left: 10px;
+  margin-top: 25px;
+  color: rgb(163, 135, 135);
+}
 .top_nav_main_links_container {
   height: 100%;
 }
-header ul {
+#mobile_top_nav_signin_btn {
+  display: none !important;
+}
+header ul,
+#mobile_main_menu_items ul {
   padding: 20px;
 }
-header li {
+header li,
+#mobile_main_menu_items li {
   display: inline;
   cursor: pointer;
   padding: 20px;
 }
-header li a {
+header li a,
+#mobile_main_menu_items li a {
   text-decoration: none;
   color: white;
 }
 header li a:hover {
   color: orange;
 }
-header li a i {
+header li a i,
+#mobile_main_menu_items li a i {
   color: sandybrown;
   margin-right: 5px;
 }
@@ -104,10 +131,10 @@ header li a i {
   padding-bottom: 16px;
 }
 .active_top_nav_link a {
-  color: orange;
+  color: orange !important;
 }
 .active_top_nav_link a i {
-  color: rgb(255, 23, 166);
+  color: rgb(255, 23, 166) !important;
 }
 .hero_section_container,
 .explore_section,
@@ -350,4 +377,223 @@ footer a {
   text-decoration: none;
   color: white;
   font-size: 13px;
+}
+
+@media only screen and (max-width: 1025px) {
+  /*top nav bar responsiveness*/
+  .wrapper {
+    margin: 0 30px;
+  }
+  .header_menu_dropdowns {
+    margin: 0 30px;
+  }
+  #top_logo_as_menu_btn {
+    cursor: pointer;
+  }
+  #top_logo_menu_icon {
+    display: block;
+  }
+  .top_nav_main_links_container {
+    display: none;
+  }
+  #main_menu_language_submenu {
+    left: calc(100vw - 380px);
+  }
+  /*.site_logo_container {
+    margin-left: 30%;
+  }*/
+  .MenuIcon {
+    width: 50px;
+    top: 18.6px;
+    left: 150px;
+    position: absolute;
+    z-index: 4;
+  }
+
+  #nav-toggle {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+  }
+
+  #nav-toggle {
+    cursor: pointer;
+    padding: 10px 35px 16px 0px;
+  }
+  #nav-toggle span,
+  #nav-toggle span:before,
+  #nav-toggle span:after {
+    cursor: pointer;
+    border-radius: 50px;
+    height: 4px;
+    width: 35px;
+    background: white;
+    position: absolute;
+    display: block;
+    content: "";
+  }
+  #nav-toggle span:before {
+    top: -10px;
+  }
+  #nav-toggle span:after {
+    bottom: -10px;
+  }
+
+  #nav-toggle span,
+  #nav-toggle span:before,
+  #nav-toggle span:after {
+    transition: all 100ms ease-in-out;
+  }
+  #nav-toggle.active span {
+    background-color: transparent;
+  }
+  #nav-toggle.active span:before,
+  #nav-toggle.active span:after {
+    top: 0;
+  }
+  #nav-toggle.active span:before {
+    transform: rotate(45deg);
+  }
+  #nav-toggle.active span:after {
+    transform: rotate(-45deg);
+  }
+  #main_menu_more_submenu {
+    position: initial !important;
+    left: 0 !important;
+  }
+
+  /*main sections responsiveness*/
+}
+
+@media only screen and (max-width: 700px) {
+  * {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  .header_menu_dropdowns {
+    width: initial !important;
+    max-width: initial !important;
+    overflow: initial !important;
+    margin: 0 !important;
+  }
+  .site_motto_container {
+    padding-top: 0;
+  }
+  .site_motto {
+    font-size: 20px;
+    text-align: center;
+  }
+  .search_fieldset {
+    flex-direction: row !important;
+  }
+  #home_page_search_button {
+    margin: 0;
+    border-radius: 4px;
+    padding: 10px 0;
+  }
+  #trip_type_parameters {
+    margin-top: 30px;
+    width: 100% !important;
+    overflow: initial;
+  }
+  #trip_type_parameters li {
+    padding: 10px !important;
+    font-size: 13px;
+  }
+  .wrapper {
+    margin: 0 10px;
+    overflow-x: hidden !important;
+  }
+  /*top navbar responsiveness*/
+  #main_menu_language_submenu {
+    position: absolute;
+    left: calc(100vw - 174px) !important;
+  }
+  #mobile_main_menu_items {
+    width: 200px;
+    height: initial !important;
+    overflow: initial !important;
+  }
+  #mobile_main_menu_items ul {
+    width: initial;
+    height: initial !important;
+    overflow: initial !important;
+  }
+  #mobile_main_menu_items li {
+    display: flex;
+    justify-content: space-between;
+  }
+  .active_top_nav_link {
+    border-bottom: none;
+  }
+  #mobile_top_nav_signin_btn {
+    display: block !important;
+  }
+  #top_nav_signin_btn {
+    display: none !important;
+  }
+  #top_nav_trip_btn {
+    display: none !important;
+  }
+  /*main section responsiveness*/
+
+  section div {
+    flex-direction: column !important;
+    width: initial !important;
+  }
+  #home_page_display_pictures {
+    height: initial !important;
+    margin-top: 30px;
+  }
+  .each_display_picture {
+    height: 250px !important;
+  }
+  #hero_section_flex_container {
+    flex-direction: column !important;
+  }
+  .jumbotron_background {
+    display: none;
+  }
+  .favorite_bus_company_title_text {
+    flex-direction: row !important;
+  }
+  .each_popular_city {
+    margin-bottom: 10px;
+  }
+  #home_page_reviews_list {
+    padding-bottom: 0;
+  }
+  .each_review_info {
+    overflow: initial;
+    margin-bottom: 60px !important;
+  }
+  .review_person_photo {
+    width: 70px !important;
+    height: 70px !important;
+    margin: auto;
+    margin-top: -45px;
+  }
+  footer .wrapper div {
+    flex-direction: column;
+    text-align: center !important;
+    height: initial !important;
+  }
+  footer p {
+    max-width: 100% !important;
+  }
+  .footer_section_header {
+    margin: 0 !important;
+    margin-top: 30px !important;
+    margin-bottom: 10px !important;
+  }
+  .favorite_bus_company_list_row {
+    margin: 0 !important;
+  }
+  .favorite_bus_company_list_column {
+    margin: 3px 0 !important;
+  }
+  .footer_fld_cntn {
+    width: 250px;
+    margin: auto !important;
+  }
 }

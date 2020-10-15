@@ -31,6 +31,28 @@ var explore_section = document.getElementsByClassName("explore_section")[0];
 var jumbotron_background = document.getElementsByClassName(
   "jumbotron_background"
 )[0];
+var mobile_main_menu_items = document.getElementById("mobile_main_menu_items");
+var top_logo_as_menu_btn = document.getElementById("top_logo_as_menu_btn");
+
+//hover event for mobile main menu
+top_logo_as_menu_btn.addEventListener("mouseover", () => {
+  if ($(window).width() < 1026) {
+    mobile_main_menu_items.style.visibility = "visible";
+    mobile_main_menu_items.style.opacity = "1";
+  }
+});
+top_logo_as_menu_btn.addEventListener("mouseout", (evnt) => {
+  mobile_main_menu_items.style.visibility = "hidden";
+  mobile_main_menu_items.style.opacity = "0";
+});
+mobile_main_menu_items.addEventListener("mouseover", () => {
+  mobile_main_menu_items.style.visibility = "visible";
+  mobile_main_menu_items.style.opacity = "1";
+});
+mobile_main_menu_items.addEventListener("mouseout", (evnt) => {
+  mobile_main_menu_items.style.visibility = "hidden";
+  mobile_main_menu_items.style.opacity = "0";
+});
 
 //hover event for menu languages option
 other_menu_languages_option.addEventListener("mouseover", () => {

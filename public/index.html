@@ -20,9 +20,19 @@
     <div class="jumbotron_background"></div>
     <header>
       <div class="wrapper">
+        <div id="HamburgerMenu" class="MenuIcon">
+          <a id="nav-toggle" href="#"><span></span></a>
+        </div>
         <div class="header_content_container">
-          <div class="site_logo_container">
-            <p>Ivory<span style="color: White">Car</span></p>
+          <div id="top_logo_as_menu_btn" style="display: flex">
+            <div class="site_logo_container">
+              <p>Ivory<span style="color: White">Car</span></p>
+            </div>
+            <i
+              id="top_logo_menu_icon"
+              class="fa fa-angle-down"
+              aria-hidden="true"
+            ></i>
           </div>
           <div class="top_nav_main_links_container">
             <ul>
@@ -57,10 +67,10 @@
           </div>
           <div class="top_nav_other_links_container">
             <ul>
-              <li>
+              <li id="top_nav_trip_btn">
                 <a href="#">Trips</a>
               </li>
-              <li>
+              <li id="top_nav_signin_btn">
                 <a href="#" style="color: goldenrod"
                   ><i class="fa fa-sign-in" aria-hidden="true"></i>Sign in</a
                 >
@@ -84,6 +94,43 @@
     </header>
     <div class="wrapper">
       <div class="header_menu_dropdowns">
+        <div id="mobile_main_menu_items">
+          <ul>
+            <li
+              id="main_menu_car_option"
+              class="top_nav_var_main_menu_item active_top_nav_link"
+            >
+              <a href="#"><i class="fa fa-bus" aria-hidden="true"></i>Cars</a>
+            </li>
+            <li
+              id="main_menu_packages_option"
+              class="top_nav_var_main_menu_item"
+            >
+              <a href="#"
+                ><i class="fa fa-briefcase" aria-hidden="true"></i>Packages</a
+              >
+            </li>
+            <li
+              id="main_menu_explore_option"
+              class="top_nav_var_main_menu_item"
+            >
+              <a href="#"
+                ><i class="fa fa-globe" aria-hidden="true"></i>Explore</a
+              >
+            </li>
+            <li id="main_menu_more_option" class="top_nav_var_main_menu_item">
+              <a href="#"><i class="fa fa-handshake-o"></i> Deals </a>
+            </li>
+            <li>
+              <a href="#"> <i class="fa fa-info"></i>Help </a>
+            </li>
+            <li id="mobile_top_nav_signin_btn">
+              <a href="#" style="color: goldenrod"
+                ><i class="fa fa-sign-in" aria-hidden="true"></i>Sign in</a
+              >
+            </li>
+          </ul>
+        </div>
         <div id="main_menu_more_submenu">
           <p style="padding-bottom: 10px; text-align: center">
             <a
@@ -138,7 +185,7 @@
       <div class="wrapper">
         <div class="hero_section_container">
           <div class="site_motto_container">
-            <div style="display: flex; justify-content: space-between">
+            <div id="hero_section_flex_container" style="display: flex; justify-content: space-between">
               <h1 class="site_motto">Buy your bus tickets online</h1>
               <div id="map_picture"></div>
             </div>
