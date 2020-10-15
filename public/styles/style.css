@@ -27,6 +27,38 @@ body {
 header {
   background-color: #140028;
 }
+.header_menu_dropdowns {
+  display: flex;
+  position: absolute;
+  top: 55px;
+  width: 100%;
+  max-width: 1100px;
+  z-index: 2;
+}
+#main_menu_more_submenu,
+#main_menu_language_submenu {
+  border-top: 4px solid orange;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 10px;
+  color: white;
+  position: relative;
+  width: 100px;
+  height: 70px;
+  background-color: #140028;
+  left: 527px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+#main_menu_more_submenu:hover,
+#main_menu_language_submenu:hover {
+  visibility: visible;
+  opacity: 1;
+}
+#main_menu_language_submenu {
+  left: 830px;
+}
 .header_content_container {
   display: flex;
   justify-content: space-between;

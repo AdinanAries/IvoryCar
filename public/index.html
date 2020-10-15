@@ -13,7 +13,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <title>IvoryCar | Home</title>
   </head>
   <body>
@@ -26,21 +26,30 @@
           </div>
           <div class="top_nav_main_links_container">
             <ul>
-              <li class="active_top_nav_link">
+              <li
+                id="main_menu_car_option"
+                class="top_nav_var_main_menu_item active_top_nav_link"
+              >
                 <a href="#"><i class="fa fa-bus" aria-hidden="true"></i>Cars</a>
               </li>
-              <li>
+              <li
+                id="main_menu_packages_option"
+                class="top_nav_var_main_menu_item"
+              >
                 <a href="#"
                   ><i class="fa fa-briefcase" aria-hidden="true"></i>Packages</a
                 >
               </li>
-              <li>
+              <li
+                id="main_menu_explore_option"
+                class="top_nav_var_main_menu_item"
+              >
                 <a href="#"
                   ><i class="fa fa-globe" aria-hidden="true"></i>Explore</a
                 >
               </li>
-              <li>
-                <a href="#"
+              <li id="main_menu_more_option" class="top_nav_var_main_menu_item">
+                <a id="main_menu_more_option_a_tag" href="#"
                   ><i class="fa fa-list-ul" aria-hidden="true"></i>More</a
                 >
               </li>
@@ -56,7 +65,7 @@
                   ><i class="fa fa-sign-in" aria-hidden="true"></i>Sign in</a
                 >
               </li>
-              <li>
+              <li id="other_menu_languages_option">
                 <a href="#" style="color: #b12900; font-size: 14px"
                   >language:
                   <img
@@ -73,6 +82,58 @@
         </div>
       </div>
     </header>
+    <div class="wrapper">
+      <div class="header_menu_dropdowns">
+        <div id="main_menu_more_submenu">
+          <p style="padding-bottom: 10px; text-align: center">
+            <a
+              href="#"
+              style="color: white; text-decoration: none; font-size: 13px"
+            >
+              Deals
+            </a>
+          </p>
+          <p
+            style="
+              padding-top: 10px;
+              border-top: 1px solid #2a4255;
+              text-align: center;
+            "
+          >
+            <a
+              href="#"
+              style="color: white; text-decoration: none; font-size: 13px"
+            >
+              Help
+            </a>
+          </p>
+        </div>
+        <div id="main_menu_language_submenu">
+          <p style="padding-bottom: 10px; text-align: center">
+            <a
+              href="#"
+              style="color: white; text-decoration: none; font-size: 13px"
+            >
+              French
+            </a>
+          </p>
+          <p
+            style="
+              padding-top: 10px;
+              border-top: 1px solid #2a4255;
+              text-align: center;
+            "
+          >
+            <a
+              href="#"
+              style="color: white; text-decoration: none; font-size: 13px"
+            >
+              English
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
     <section>
       <div class="wrapper">
         <div class="hero_section_container">
@@ -698,6 +759,6 @@
         </div>
       </div>
     </footer>
-    <script src="scripts/main_script.js" type="text/javascript" />
+    <script src="scripts/main_script.js" type="text/javascript"></script>
   </body>
 </html>
