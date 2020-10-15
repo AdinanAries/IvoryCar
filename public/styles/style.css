@@ -566,6 +566,10 @@ footer a {
   .each_review_info {
     overflow: initial;
     margin-bottom: 60px !important;
+    height: 350px;
+  }
+  .each_review_msg_info {
+    height: 300px;
   }
   .review_person_photo {
     width: 70px !important;
