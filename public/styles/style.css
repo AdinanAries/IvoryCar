@@ -4,6 +4,9 @@
   font-family: Roboto;
   font-size: 16px;
 }
+input:focus {
+  outline: none;
+}
 .MenuIcon {
   display: none;
 }
@@ -18,8 +21,9 @@ body {
   height: 100vh;
   z-index: -1;
   width: 100vw;
-  background: linear-gradient(rgba(0, 125, 209, 0.466), rgb(248, 75, 182)),
-    url("../images/IvoryCoastCity4.jpg");
+  /*background: linear-gradient(rgba(0, 125, 209, 0.466), rgb(248, 75, 182)),*/
+  background: linear-gradient(rgba(204, 241, 255, 0.37), #210340),
+    url("../images/JFKAIR.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -153,6 +157,8 @@ header li a i,
   font-size: 2rem;
   font-weight: bolder;
   color: #cdefff;
+  text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
+    0px 0px 2.9px rgba(0, 0, 0, 0.23);
 }
 .page_title {
   font-size: 22px;
@@ -165,12 +171,12 @@ header li a i,
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background-image: url("../images/ivory-coast-regions-map.gif");
+  background-image: url("../images/USA_Flag_Map.png");
 }
 .search_tickets_form_container {
   display: flex;
   justify-content: space-between;
-  background-color: #210340;
+  background-color: rgb(146, 206, 255);
   border-radius: 5px;
   overflow: hidden;
   padding: 0 10px;
@@ -193,11 +199,13 @@ header li a i,
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
-  background-color: rgb(231, 124, 2);
+  background-color: #003f7a;
 }
 .search_tickets_form_container i {
   font-size: 20px;
-  color: rgb(202, 131, 0);
+  color: rgb(231, 124, 2);
+  text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
+    0px 0px 2.9px rgba(0, 0, 0, 0.23);
   margin: 0 10px;
 }
 .search_tickets_form_container input {
@@ -206,13 +214,17 @@ header li a i,
   border: none;
 }
 #trip_type_parameters li {
+  text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
+    0px 0px 2.9px rgba(0, 0, 0, 0.23);
   display: inline;
-  color: #69fda2;
+  color: #a9ddff;
   padding: 15px;
 }
 #trip_type_parameters i {
   margin-left: 5px;
   color: #ffcb7d;
+  text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
+    0px 0px 2.9px rgba(0, 0, 0, 0.23);
 }
 #trip_type_parameters {
   margin: 15px 0;
@@ -229,7 +241,7 @@ header li a i,
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #210340;
+  background-color: #003f7a;
 }
 #home_page_display_pictures .each_display_picture {
   background-size: cover;
@@ -483,8 +495,14 @@ footer a {
     font-size: 20px;
     text-align: center;
   }
+  .search_tickets_form_container {
+    padding-bottom: 10px;
+  }
   .search_fieldset {
     flex-direction: row !important;
+  }
+  .each_display_picture_mobile_hidden {
+    display: none;
   }
   #home_page_search_button {
     margin: 0;
@@ -544,6 +562,8 @@ footer a {
   #home_page_display_pictures {
     height: initial !important;
     margin-top: 30px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
   }
   .each_display_picture {
     height: 250px !important;
