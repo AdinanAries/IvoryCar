@@ -3,6 +3,7 @@ var main_menu_car_option = document.getElementById("main_menu_car_option");
 var city_search_fieldset = document.getElementById("city_search_fieldset");
 var date_search_fieldset = document.getElementById("date_search_fieldset");
 var trip_type_parameters = document.getElementById("trip_type_parameters");
+var trip_type_param_round_trip_option_container = document.getElementById("trip_type_param_round_trip_option_container");
 var close_main_round_trip_type_options_btn = document.getElementById("close_main_round_trip_type_options_btn");
 var main_round_trip_type_options = document.getElementById("main_round_trip_type_options");
 var main_from_where_city_show_container = document.getElementById("main_from_where_city_show_container");
@@ -153,13 +154,20 @@ function render_cars_page() {
   hero_section_container.style.display = "block";
 }
 
-
-trip_type_parameters.addEventListener("click", (evnt)=>{
+trip_type_param_round_trip_option_container.addEventListener("mouseenter", (evnt)=>{
   $("#main_round_trip_type_options").slideDown("fast");
+  if($(window).width() < 700){
+    close_main_round_trip_type_options_btn.style.display = "block";
+  }
 })
+trip_type_param_round_trip_option_container.addEventListener("mouseleave", (evnt)=>{
+  $("#main_round_trip_type_options").slideUp("fast");
+  close_main_round_trip_type_options_btn.style.display = "none"
+});
 close_main_round_trip_type_options_btn.addEventListener("click", (evnt)=>{
   $("#main_round_trip_type_options").slideUp("fast");
-})
+  close_main_round_trip_type_options_btn.style.display = "none"
+});
 
 city_search_fieldset.addEventListener("focusin", (evnt)=>{
   $("#main_from_where_city_show_container").slideDown("fast");

@@ -32,7 +32,11 @@ body {
   margin: auto;
 }
 header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   background-color: #140028;
+  z-index: 10;
 }
 .header_menu_dropdowns {
   display: flex;
@@ -250,6 +254,7 @@ header li a i,
     0px 0px 2.9px rgba(0, 0, 0, 0.23);
 }
 #close_main_round_trip_type_options_btn {
+  display: none;
   cursor: pointer;
   width: fit-content;
   position: fixed;
@@ -586,7 +591,7 @@ footer a {
     font-size: 13px;
   }
   #close_main_round_trip_type_options_btn {
-    top: 210px;
+    top: 205px;
     right: 30px;
   }
   .wrapper {
