@@ -190,7 +190,8 @@ header li a i,
   display: flex;
   justify-content: space-between;
   background-color: rgb(146, 206, 255);
-  border-radius: 5px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
   padding: 0 10px;
 }
 .search_tickets_form_container .search_fieldset {
@@ -204,7 +205,6 @@ header li a i,
 #home_page_search_button {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  border-bottom-right-radius: 4px;
   border-top-right-radius: 4px;
   margin: 0;
   margin-right: -10px;
@@ -651,8 +651,8 @@ footer a {
   #home_page_display_pictures {
     height: initial !important;
     margin-top: 0;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    /*border-top-left-radius: 5px;
+    border-top-right-radius: 5px;*/
   }
   .each_display_picture {
     height: 150px !important;
