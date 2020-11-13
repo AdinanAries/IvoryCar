@@ -1,5 +1,12 @@
 //getting dom elements
 var main_menu_car_option = document.getElementById("main_menu_car_option");
+var city_search_fieldset = document.getElementById("city_search_fieldset");
+var date_search_fieldset = document.getElementById("date_search_fieldset");
+var trip_type_parameters = document.getElementById("trip_type_parameters");
+var close_main_round_trip_type_options_btn = document.getElementById("close_main_round_trip_type_options_btn");
+var main_round_trip_type_options = document.getElementById("main_round_trip_type_options");
+var main_from_where_city_show_container = document.getElementById("main_from_where_city_show_container");
+var main_from_when_date_show_container = document.getElementById("from_when_date_show_container");
 var main_menu_packages_option = document.getElementById(
   "main_menu_packages_option"
 );
@@ -145,3 +152,25 @@ function render_cars_page() {
   explore_section.style.display = "none";
   hero_section_container.style.display = "block";
 }
+
+
+trip_type_parameters.addEventListener("click", (evnt)=>{
+  $("#main_round_trip_type_options").slideDown("fast");
+})
+close_main_round_trip_type_options_btn.addEventListener("click", (evnt)=>{
+  $("#main_round_trip_type_options").slideUp("fast");
+})
+
+city_search_fieldset.addEventListener("focusin", (evnt)=>{
+  $("#main_from_where_city_show_container").slideDown("fast");
+})
+city_search_fieldset.addEventListener("focusout", (evnt)=>{
+  $("#main_from_where_city_show_container").slideUp("fast");
+})
+
+date_search_fieldset.addEventListener("focusin", (evnt)=>{
+  $("#main_from_when_date_show_container").slideDown("fast");
+})
+date_search_fieldset.addEventListener("focusout", (evnt)=>{
+  $("#main_from_when_date_show_container").slideUp("fast");
+})
