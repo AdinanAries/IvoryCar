@@ -257,7 +257,7 @@ header li a i,
   display: none;
   cursor: pointer;
   width: fit-content;
-  position: fixed;
+  position: absolute;
   z-index: 6;
   top: 210px;
   right: 30px;
