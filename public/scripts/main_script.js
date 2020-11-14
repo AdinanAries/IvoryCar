@@ -191,14 +191,14 @@ date_search_fieldset.addEventListener("focusout", (evnt)=>{
 let autocomplete = new google.maps.places.Autocomplete(from_where_search_input_fld);
 autocomplete.addListener('place_changed', function () {
   let place = autocomplete.getPlace();
-  from_where_search_display_span.innerHTML = "<span style='color: rgb(255, 102, 0);'>from </span><span style='font-weight: bolder;'>"
+  from_where_search_display_span.innerHTML = "<span style='font-size: 12px; color: rgb(255, 102, 0);'>from </span><span style='font-weight: bolder; font-size: 12px;'>"
                                               + from_where_search_input_fld.value + "</span> ";
 });
 
 let autocomplete2 = new google.maps.places.Autocomplete(to_where_search_input_fld);
 autocomplete2.addListener('place_changed', function () {
     let place = autocomplete2.getPlace();
-    to_where_search_display_span.innerHTML = "<span style='color: rgb(255, 102, 0);'>to </span><span style='font-weight: bolder;'>" 
+    to_where_search_display_span.innerHTML = "<span style='color: rgb(255, 102, 0); font-size: 12px;'>to </span><span style='font-weight: bolder; font-size: 12px;'>" 
                                               + to_where_search_input_fld.value + "</span>";
 });
 
