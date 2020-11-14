@@ -289,13 +289,34 @@ header li a i,
   box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
     0px 0px 2.9px rgba(0, 0, 0, 0.23);
 }
+#people_also_searched_list_div {
+  padding: 5px;
+}
+.people_also_searched_list_item {
+  color: rgb(0, 127, 177);
+  font-size: 12px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.people_also_searched_list_item:hover {
+  text-decoration: underline;
+}
+.people_also_searched_list_item span {
+  color: rgb(0, 127, 177);
+  font-size: 12px;
+  font-weight: bolder;
+}
+.people_also_searched_list_item i {
+  font-size: 12px;
+  color: rgb(0, 177, 139);
+  text-shadow: none;
+}
 #more_options_date_show_container {
   margin-top: 285px;
   background-color: #a9ddff;
   padding: 10px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-
   overflow: hidden;
 }
 #more_options_date_show_container p {
@@ -667,6 +688,7 @@ footer a {
   }
   .sections_title_h1 {
     margin-top: 30px !important;
+    font-size: 18px !important;
   }
   .site_motto_container {
     padding-top: 0;
@@ -769,6 +791,9 @@ footer a {
   .each_display_picture {
     height: 150px !important;
   }
+  .hero_section_container {
+    min-height: 560px;
+  }
   #hero_section_flex_container {
     flex-direction: column !important;
   }
@@ -821,4 +846,34 @@ footer a {
     width: 250px;
     margin: auto !important;
   }
+}
+@media only screen and (max-width: 413px) {
+  .ui-datepicker {
+    margin-left: -1.5em !important;
+  }
+}
+@media only screen and (max-width: 377px) {
+  .ui-datepicker {
+    margin-left: -1.1em !important;
+  }
+}
+@media only screen and (max-width: 360px) {
+  .ui-datepicker {
+    margin-left: -0.65em !important;
+  }
+}
+@media only screen and (max-width: 322px) {
+  .ui-datepicker {
+    margin-left: -1.1em !important;
+    font-size: 10px !important;
+    width: 260px !important;
+  }
+  .ui-datepicker span,
+  .ui-datepicker p {
+    font-size: 10px !important;
+  }
+  /*.ui-datepicker {
+    margin-left: -3.65em !important;
+    font-size: 10px !important;
+  }*/
 }
