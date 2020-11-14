@@ -7,13 +7,16 @@
       href="https://fonts.googleapis.com/css?family=Roboto"
       rel="stylesheet"
     />
-    <link href="styles/style.css" type="text/css" rel="stylesheet" />
-
+    
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="scripts/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="./scripts/jquery-ui-1.12.1.custom/jquery-ui.min.css"/>
+
+    <link href="styles/style.css" type="text/css" rel="stylesheet" />
     <title>IvoryCar | Home</title>
   </head>
   <body>
@@ -231,7 +234,14 @@
             <div id="date_search_fieldset" class="search_fieldset">
               <div>
                 <i class="fa fa-calendar" aria-hidden="true"></i
-                ><input type="text" placeholder="From when" />
+                ><input onclick="jqueryHelper1()" id="from_when_search_input" type="text" placeholder="From when" />
+                <script>
+                  function jqueryHelper1(){
+                    if($(window).width() > 700){
+                      document.getElementsByClassName('ui-datepicker')[0].classList.remove('secondJQuery');
+                    }
+                  }
+                </script>
               </div>
               <div>
                 <span
@@ -241,7 +251,13 @@
                     margin: 0 10px;
                   "
                   >|</span
-                ><input type="text" placeholder="To when" />
+              ><input onclick="jqueryHelper2()" id="from_to_search_input" type="text" placeholder="To when" />
+              <script>
+                function jqueryHelper2(){
+                  if($(window).width() > 700)
+                    document.getElementsByClassName('ui-datepicker')[0].classList.add('secondJQuery');
+                }
+              </script>
               </div>
               <div id="main_from_when_date_show_container" class="from_when_date_show_container"></div>
             </div>

@@ -182,3 +182,7 @@ date_search_fieldset.addEventListener("focusin", (evnt)=>{
 date_search_fieldset.addEventListener("focusout", (evnt)=>{
   $("#main_from_when_date_show_container").slideUp("fast");
 })
+
+
+  $("#from_when_search_input").datepicker({minDate: 0});
+  $("#from_to_search_input").datepicker({minDate: 0});
