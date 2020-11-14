@@ -16,6 +16,10 @@
     <script src="scripts/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="./scripts/jquery-ui-1.12.1.custom/jquery-ui.min.css"/>
 
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoltHbe0FsMkNbMCAbY5dRYBjxwkdSVQQ&libraries=places"></script>
+
+
     <link href="styles/style.css" type="text/css" rel="stylesheet" />
     <title>IvoryCar | Home</title>
   </head>
@@ -217,7 +221,7 @@
             <div id="city_search_fieldset" class="search_fieldset">
               <div>
                 <i class="fa fa-location-arrow" aria-hidden="true"></i
-                ><input type="text" placeholder="From where" />
+                ><input id="from_where_search_input_fld" type="text" placeholder="From where" />
               </div>
               <div>
                 <span
@@ -227,9 +231,13 @@
                     margin: 0 10px;
                   "
                   >|</span
-                ><input type="text" placeholder="To where" />
+                ><input id="to_where_search_input_fld" type="text" placeholder="To where" />
               </div>
-              <div id="main_from_where_city_show_container" class="from_where_city_show_container"></div>
+              <div id="main_from_where_city_show_container" class="from_where_city_show_container">
+                <div style="margin-top: 50px;">
+                  <p style="margin: 10px; color:rgb(0, 151, 211); text-align: center;">Search History</p>
+                </div>
+              </div>
             </div>
             <div id="date_search_fieldset" class="search_fieldset">
               <div>

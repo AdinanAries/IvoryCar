@@ -7,7 +7,10 @@ var trip_type_param_round_trip_option_container = document.getElementById("trip_
 var close_main_round_trip_type_options_btn = document.getElementById("close_main_round_trip_type_options_btn");
 var main_round_trip_type_options = document.getElementById("main_round_trip_type_options");
 var main_from_where_city_show_container = document.getElementById("main_from_where_city_show_container");
-var main_from_when_date_show_container = document.getElementById("from_when_date_show_container");
+var main_from_when_date_show_container = document.getElementById("main_from_when_date_show_container");
+var to_where_search_input_fld = document.getElementById("to_where_search_input_fld");
+var from_where_search_input_fld = document.getElementById("from_where_search_input_fld");
+var ui_datepicker = document.getElementsByClassName("ui-datepicker")[0];
 var main_menu_packages_option = document.getElementById(
   "main_menu_packages_option"
 );
@@ -183,6 +186,15 @@ date_search_fieldset.addEventListener("focusout", (evnt)=>{
   $("#main_from_when_date_show_container").slideUp("fast");
 })
 
+let autocomplete = new google.maps.places.Autocomplete(from_where_search_input_fld);
+autocomplete.addListener('place_changed', function () {
+  let place = autocomplete.getPlace();
+});
 
-  $("#from_when_search_input").datepicker({minDate: 0});
-  $("#from_to_search_input").datepicker({minDate: 0});
+let autocomplete2 = new google.maps.places.Autocomplete(to_where_search_input_fld);
+autocomplete2.addListener('place_changed', function () {
+    let place = autocomplete2.getPlace();
+});
+
+$("#from_when_search_input").datepicker({minDate: 0});
+$("#from_to_search_input").datepicker({minDate: 0});

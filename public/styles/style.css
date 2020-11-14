@@ -704,6 +704,13 @@ footer a {
     margin-left: 0;
     width: 100% !important;
   }
+  #more_options_date_show_list {
+    flex-direction: row !important;
+    justify-content: space-between;
+  }
+  .more_options_date_show_item {
+    width: 21% !important;
+  }
   #trip_type_parameters li {
     padding: 10px !important;
     font-size: 13px;
