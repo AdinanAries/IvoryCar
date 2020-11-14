@@ -21,8 +21,12 @@
 .ui-datepicker div,
 .ui-datepicker a span.ui-icon {
   border: none !important;
-  background-color: rgb(184, 223, 255) !important;
+  background-color: rgb(173, 255, 255) !important;
   color: #003f7a !important;
+}
+.ui-datepicker-header {
+  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
+    0px 0px 2.9px rgba(0, 0, 0, 0.23);
 }
 .ui-datepicker a {
   background: none !important;
@@ -31,10 +35,13 @@
   background-color: #003f7a !important;
   border-radius: 3px !important;
   font-size: 14px !important;
+  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
+    0px 0px 2.9px rgba(0, 0, 0, 0.33);
 }
 .ui-datepicker a.ui-corner-all {
   border: none !important;
-  background-color: rgb(184, 223, 255) !important;
+  background-color: rgb(173, 255, 255) !important;
+  box-shadow: none !important;
 }
 .ui-datepicker a:hover {
   background-color: #e25a00 !important;
