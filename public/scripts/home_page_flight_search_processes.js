@@ -1,5 +1,13 @@
 //Global data
 
+var flight_search_flight_class = {
+    f_class: "Economy"
+}
+
+var flight_search_trip_round = {
+    t_round: "Round-trip"
+}
+
 var flight_search_number_of_people = {
     types_of_people_added: ["adults"],
     total_number_of_people: 1,
@@ -32,6 +40,14 @@ var flight_search_number_of_people = {
         price: 115000
     }
 }
+
+
+function set_flight_class_for_search(f_class_param){
+    flight_search_flight_class.f_class = f_class_param;
+    document.getElementById("trip_type_param_flight_class_option").innerHTML = `${f_class_param} 
+    <i class="fa fa-caret-down" aria-hidden="true"></i>`;
+}
+
 
 function add_person_to_flight_search(person_type){
     if(flight_search_number_of_people.total_number_of_people >= 15){
