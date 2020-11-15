@@ -1,4 +1,49 @@
 //getting dom elements
+
+var trip_type_param_number_of_people_option = document.getElementById("trip_type_param_number_of_people_option");
+var trip_type_param_flight_class_option = document.getElementById("trip_type_param_flight_class_option");
+var trip_type_param_round_trip_option = document.getElementById("trip_type_param_round_trip_option");
+
+var number_of_people_round_trip_type_options_item = document.getElementById("number_of_people_round_trip_type_options_item");
+var flight_class_round_trip_type_options_item = document.getElementById("flight_class_round_trip_type_options_item");
+var oneway_or_round_trip_type_options_item = document.getElementById("oneway_or_round_trip_type_options_item");
+
+trip_type_param_number_of_people_option.addEventListener("click", (evnt) => {
+  trip_type_param_flight_class_option.style.color = "#a9ddff";
+  trip_type_param_round_trip_option.style.color = "#a9ddff";
+  trip_type_param_number_of_people_option.style.color = "#ffcb7d";
+
+  number_of_people_round_trip_type_options_item.style.display = "block";
+  flight_class_round_trip_type_options_item.style.display = "none";
+  oneway_or_round_trip_type_options_item.style.display = "none";
+
+})
+
+trip_type_param_flight_class_option.addEventListener("click", (evnt) => {
+  trip_type_param_flight_class_option.style.color = "#ffcb7d";
+  trip_type_param_round_trip_option.style.color = "#a9ddff";
+  trip_type_param_number_of_people_option.style.color = "#a9ddff";
+
+  number_of_people_round_trip_type_options_item.style.display = "none";
+  flight_class_round_trip_type_options_item.style.display = "block";
+  oneway_or_round_trip_type_options_item.style.display = "none";
+
+})
+
+trip_type_param_round_trip_option.addEventListener("click", (evnt) => {
+  trip_type_param_flight_class_option.style.color = "#a9ddff";
+  trip_type_param_round_trip_option.style.color = "#ffcb7d";
+  trip_type_param_number_of_people_option.style.color = "#a9ddff";
+
+  number_of_people_round_trip_type_options_item.style.display = "none";
+  flight_class_round_trip_type_options_item.style.display = "none";
+  oneway_or_round_trip_type_options_item.style.display = "block";
+
+})
+
+
+
+
 var main_menu_car_option = document.getElementById("main_menu_car_option");
 var city_search_fieldset = document.getElementById("city_search_fieldset");
 var date_search_fieldset = document.getElementById("date_search_fieldset");

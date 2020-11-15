@@ -346,20 +346,58 @@ header li a i,
   text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
     0px 0px 2.9px rgba(0, 0, 0, 0.23);
   display: inline;
-  color: #a9ddff;
   padding: 15px;
+}
+#trip_type_param_number_of_people_option,
+#trip_type_param_flight_class_option {
+  color: #a9ddff;
+}
+#trip_type_param_round_trip_option {
+  color: #ffcb7d;
 }
 #trip_type_parameters li:hover {
   color: #ffcb7d;
 }
-#trip_type_param_round_trip_option {
-  color: #ffcb7d !important;
-}
+
 #trip_type_parameters i {
   margin-left: 5px;
   color: #ffcb7d;
   text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
     0px 0px 2.9px rgba(0, 0, 0, 0.23);
+}
+.round_trip_type_options_item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+}
+.round_trip_type_options_item p {
+  margin-bottom: 10px;
+}
+.round_trip_type_options_item p input[type="radio"] {
+  margin-right: 5px;
+}
+.each_round_trip_options_person_selector {
+  display: flex !important;
+  justify-content: space-between !important;
+  padding: 10px 0;
+}
+.each_round_trip_options_person_type span {
+  margin-left: 10px;
+  color: #838ead;
+}
+.each_round_trip_options_increase_person_div {
+  display: flex !important;
+  justify-content: space-between !important;
+  min-width: 80px !important;
+}
+.each_round_trip_options_increase_person_btn {
+  text-align: center;
+  width: 25px;
+  background-color: #e25a00;
+  border-radius: 4px;
+  color: white;
+  border: 1px solid #80e1ff;
 }
 #close_main_round_trip_type_options_btn {
   display: none;
@@ -388,13 +426,15 @@ header li a i,
   width: 380px;
   border-radius: 5px;
   background-color: rgb(0, 118, 148);
+  color: #80e1ff;
+  text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
+    0px 0px 2.9px rgba(0, 0, 0, 0.23);
   box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
     0px 0px 2.9px rgba(0, 0, 0, 0.23);
 }
 .round_trip_type_options_content {
   padding: 15px 0;
   width: 100%;
-  min-height: 180px;
   background-color: #194f81;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -722,6 +762,12 @@ footer a {
     width: 100% !important;
     overflow: initial;
   }
+  .each_round_trip_options_person_selector {
+    flex-direction: row !important;
+  }
+  .each_round_trip_options_increase_person_div {
+    flex-direction: row !important;
+  }
   .round_trip_type_options {
     margin-left: 0;
     width: 100% !important;
@@ -872,8 +918,4 @@ footer a {
   .ui-datepicker p {
     font-size: 10px !important;
   }
-  /*.ui-datepicker {
-    margin-left: -3.65em !important;
-    font-size: 10px !important;
-  }*/
 }
