@@ -156,6 +156,22 @@ function add_person_to_flight_search(person_type){
             flight_search_number_of_people.toddlers.number += 1;
             flight_search_number_of_people.total_number_of_people += 1;
 
+            if(flight_search_number_of_people.adults.number === 0){
+                
+                flight_search_number_of_people.adults.number += 1;
+                flight_search_number_of_people.total_number_of_people += 1;
+
+                let item = flight_search_number_of_people.types_of_people_added.find( person => {
+                    return person === "adults"
+                });
+    
+                if(!item){
+                    flight_search_number_of_people.types_of_people_added.push("adults");
+                }
+    
+                document.getElementById("number_of_adults_count").innerText = flight_search_number_of_people.adults.number;
+            }
+
             let item = flight_search_number_of_people.types_of_people_added.find( person => {
                 return person === "toddlers"
             });
@@ -169,6 +185,22 @@ function add_person_to_flight_search(person_type){
         }else if(person_type === "Infant"){
             flight_search_number_of_people.infants.number += 1;
             flight_search_number_of_people.total_number_of_people += 1;
+
+            if(flight_search_number_of_people.adults.number === 0){
+
+                flight_search_number_of_people.adults.number += 1;
+                flight_search_number_of_people.total_number_of_people += 1;
+
+                let item = flight_search_number_of_people.types_of_people_added.find( person => {
+                    return person === "adults"
+                });
+    
+                if(!item){
+                    flight_search_number_of_people.types_of_people_added.push("adults");
+                }
+    
+                document.getElementById("number_of_adults_count").innerText = flight_search_number_of_people.adults.number;
+            }
 
             let item = flight_search_number_of_people.types_of_people_added.find( person => {
                 return person === "infants"
@@ -237,22 +269,29 @@ function remove_person_from_flight_search(person_type){
     else{
         if(person_type === "Adult"){
 
-            if(flight_search_number_of_people.adults.number > 0){
-                flight_search_number_of_people.adults.number -= 1;
-                flight_search_number_of_people.total_number_of_people -= 1;
-            }
+            if( (flight_search_number_of_people.infants.number > 0 ||
+                flight_search_number_of_people.toddlers.number > 0) &&
+                flight_search_number_of_people.adults.number <= 1){
+                    //do nothing
+                }else{
 
-            let item = flight_search_number_of_people.types_of_people_added.find( person => {
-                return person === "adults"
-            });
-
-            if(item){
-                if(flight_search_number_of_people.adults.number === 0)
-                    flight_search_number_of_people.types_of_people_added.splice (
-                        flight_search_number_of_people.types_of_people_added.indexOf("adults"), 1);
-            }
-
-            document.getElementById("number_of_adults_count").innerText = flight_search_number_of_people.adults.number;
+                    if(flight_search_number_of_people.adults.number > 0){
+                        flight_search_number_of_people.adults.number -= 1;
+                        flight_search_number_of_people.total_number_of_people -= 1;
+                    }
+        
+                    let item = flight_search_number_of_people.types_of_people_added.find( person => {
+                        return person === "adults"
+                    });
+        
+                    if(item){
+                        if(flight_search_number_of_people.adults.number === 0)
+                            flight_search_number_of_people.types_of_people_added.splice (
+                                flight_search_number_of_people.types_of_people_added.indexOf("adults"), 1);
+                    }
+        
+                    document.getElementById("number_of_adults_count").innerText = flight_search_number_of_people.adults.number;
+                }
 
         }else if(person_type === "Student"){
 
@@ -370,8 +409,18 @@ function remove_person_from_flight_search(person_type){
 
         }
 
+        
         document.getElementById("number_of_people_indicator").style.display = "none";
         document.getElementById("number_of_people_indicator").innerHTML = "";
+
+        if( (flight_search_number_of_people.infants.number > 0 ||
+            flight_search_number_of_people.toddlers.number > 0) &&
+            flight_search_number_of_people.adults.number <= 1){
+                
+                document.getElementById("number_of_people_indicator").style.display = "block";
+                document.getElementById("number_of_people_indicator").innerHTML = 
+                "<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> a toddler or infant search must include at least one adult";
+            }
 
     }
 
