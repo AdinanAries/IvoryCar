@@ -248,4 +248,4 @@ autocomplete2.addListener('place_changed', function () {
 });
 
 $("#from_when_search_input").datepicker({minDate: 0});
-$("#from_to_search_input").datepicker({minDate: 0});
+$("#to_when_search_input").datepicker({minDate: 0});
