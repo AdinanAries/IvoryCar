@@ -217,8 +217,8 @@
                 <div class="round_trip_type_options_content">
                     <!--p style="text-align: center; color: white; text-shadow: initial;">Trip Options</p-->
                     <div id="oneway_or_round_trip_type_options_item" class="round_trip_type_options_item">
-                      <p ><input id="roundtrip_radio_option" checked="true" type="radio" name="round_or_single_trip" > <label for="roundtrip_radio_option">Round-Tript</label></p>
-                      <p><input id="oneway_radio_option" type="radio" name="round_or_single_trip" > <label for="oneway_radio_option">One-Way</label></p>
+                      <p onclick="set_flight_trip_round_for_search('Round-trip');"><input id="roundtrip_radio_option" checked="true" type="radio" name="round_or_single_trip" > <label for="roundtrip_radio_option">Round-Tript</label></p>
+                      <p onclick="set_flight_trip_round_for_search('One-way');"><input id="oneway_radio_option" type="radio" name="round_or_single_trip" > <label for="oneway_radio_option">One-Way</label></p>
                     </div>
 
                     <div id="flight_class_round_trip_type_options_item" style="display: none;" class="round_trip_type_options_item">
@@ -309,11 +309,11 @@
           </div>
           <div class="search_tickets_form_container">
             <div id="city_search_fieldset" class="search_fieldset">
-              <div>
+              <div id="from_where_city_input_container">
                 <i class="fa fa-location-arrow" aria-hidden="true"></i
                 ><input id="from_where_search_input_fld" type="text" placeholder="From where" />
               </div>
-              <div>
+              <div id="to_where_city_input_container">
                 <span
                   style="
                     font-size: 25px;
@@ -407,7 +407,7 @@
               </div>
             </div>
             <div id="date_search_fieldset" class="search_fieldset">
-              <div>
+              <div id="from_when_date_input_container">
                 <i class="fa fa-calendar" aria-hidden="true"></i
                 ><input onclick="jqueryHelper1()" readonly="readonly" id="from_when_search_input" type="text" placeholder="Depature" />
                 <script>
@@ -418,7 +418,7 @@
                   }
                 </script>
               </div>
-              <div>
+              <div id="to_when_date_input_container">
                 <span
                   style="
                     font-size: 25px;
@@ -426,7 +426,7 @@
                     margin: 0 10px;
                   "
                   >|</span
-              ><input onclick="jqueryHelper2()" readonly="readonly" id="from_to_search_input" type="text" placeholder="Return" />
+              ><input onclick="jqueryHelper2()" readonly="readonly" id="to_when_search_input" type="text" placeholder="Return" />
               <script>
                 function jqueryHelper2(){
                   if($(window).width() > 700)

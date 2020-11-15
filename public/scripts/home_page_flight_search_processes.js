@@ -41,6 +41,32 @@ var flight_search_number_of_people = {
     }
 }
 
+function set_flight_trip_round_for_search(f_trip_round){
+    flight_search_trip_round.t_round = f_trip_round;
+    document.getElementById("trip_type_param_round_trip_option").innerHTML = `${f_trip_round} 
+    <i class="fa fa-caret-down" aria-hidden="true"></i>`;
+
+    if(f_trip_round === "One-way"){
+        document.getElementById("to_where_city_input_container").style.display = "none";
+        document.getElementById("to_when_date_input_container").style.display = "none";
+        document.getElementById("from_where_city_input_container").style.width = "100%";
+        document.getElementById("from_when_date_input_container").style.width = "100%";
+        document.getElementById("from_where_search_input_fld").style.width = "calc(100% - 40px)";
+        document.getElementById("from_when_search_input").style.width = "calc(100% - 40px)";
+        document.getElementById("to_where_search_display_span").innerHTML = "";
+    }else{
+        document.getElementById("to_where_city_input_container").style.display = "block";
+        document.getElementById("to_when_date_input_container").style.display = "block";
+        document.getElementById("from_where_city_input_container").style.width = "50%";
+        document.getElementById("from_when_date_input_container").style.width = "50%";
+        document.getElementById("from_where_search_input_fld").style.width = "calc(100% - 40px)";
+        document.getElementById("from_when_search_input").style.width = "calc(100% - 40px)";
+        document.getElementById("to_where_search_display_span").innerHTML = `<span style="font-size: 12px;">
+                and 
+                <span style="font-weight: bolder; font-size: 12px;">destination</span> above
+            </span>`;
+    }
+}
 
 function set_flight_class_for_search(f_class_param){
     flight_search_flight_class.f_class = f_class_param;
