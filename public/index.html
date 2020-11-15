@@ -207,7 +207,7 @@
                 <i class="fa fa-caret-down" aria-hidden="true"></i>
               </li>
               <li id="trip_type_param_number_of_people_option">
-                1 Adult 
+                1 adult 
                 <i class="fa fa-caret-down" aria-hidden="true"></i></li>
               <li id="trip_type_param_flight_class_option">
                 Economy 
@@ -233,59 +233,75 @@
                       <div class="each_round_trip_options_person_selector">
                         <div class="each_round_trip_options_person_type">Adults <span>18-64</span></div>
                         <div class="each_round_trip_options_increase_person_div">
-                          <div class="each_round_trip_options_increase_person_btn">-</div>
-                          <div>1</div>
-                          <div class="each_round_trip_options_increase_person_btn">+</div>
+                          <div onclick="remove_person_from_flight_search('Adult');"
+                            class="each_round_trip_options_increase_person_btn">-</div>
+                          <div id="number_of_adults_count">1</div>
+                          <div onclick="add_person_to_flight_search('Adult');"
+                            class="each_round_trip_options_increase_person_btn">+</div>
                         </div>
                       </div>
                       <div class="each_round_trip_options_person_selector">
                         <div class="each_round_trip_options_person_type">Students <span>over 18</span></div>
                         <div class="each_round_trip_options_increase_person_div">
-                          <div class="each_round_trip_options_increase_person_btn">-</div>
-                          <div>0</div>
-                          <div class="each_round_trip_options_increase_person_btn">+</div>
+                          <div onclick="remove_person_from_flight_search('Student');"
+                            class="each_round_trip_options_increase_person_btn">-</div>
+                          <div id="number_of_students_count">0</div>
+                          <div onclick="add_person_to_flight_search('Student');"
+                              class="each_round_trip_options_increase_person_btn">+</div>
                         </div>
                       </div>
                       <div class="each_round_trip_options_person_selector">
                         <div class="each_round_trip_options_person_type">Seniors <span>65+</span></div>
                         <div class="each_round_trip_options_increase_person_div">
-                          <div class="each_round_trip_options_increase_person_btn">-</div>
-                          <div>0</div>
-                          <div class="each_round_trip_options_increase_person_btn">+</div>
+                          <div onclick="remove_person_from_flight_search('Senior');"
+                            class="each_round_trip_options_increase_person_btn">-</div>
+                          <div id="number_of_seniors_count">0</div>
+                          <div onclick="add_person_to_flight_search('Senior');"
+                            class="each_round_trip_options_increase_person_btn">+</div>
                         </div>
                       </div>
                       <div class="each_round_trip_options_person_selector">
                         <div class="each_round_trip_options_person_type">Youth <span>12-17</span></div>
                         <div class="each_round_trip_options_increase_person_div">
-                          <div class="each_round_trip_options_increase_person_btn">-</div>
-                          <div>0</div>
-                          <div class="each_round_trip_options_increase_person_btn">+</div>
+                          <div onclick="remove_person_from_flight_search('Youth');"
+                            class="each_round_trip_options_increase_person_btn">-</div>
+                          <div id="number_of_youth_count">0</div>
+                          <div onclick="add_person_to_flight_search('Youth');"
+                            class="each_round_trip_options_increase_person_btn">+</div>
                         </div>
                       </div>
                       <div class="each_round_trip_options_person_selector">
                         <div class="each_round_trip_options_person_type">Child <span>2-11</span></div>
                         <div class="each_round_trip_options_increase_person_div">
-                          <div class="each_round_trip_options_increase_person_btn">-</div>
-                          <div>0</div>
-                          <div class="each_round_trip_options_increase_person_btn">+</div>
+                          <div onclick="remove_person_from_flight_search('Child');"
+                            class="each_round_trip_options_increase_person_btn">-</div>
+                          <div id="number_of_children_count">0</div>
+                          <div onclick="add_person_to_flight_search('Child');"
+                            class="each_round_trip_options_increase_person_btn">+</div>
                         </div>
                       </div>
                       <div class="each_round_trip_options_person_selector">
                         <div class="each_round_trip_options_person_type">Toddler in own seat <span>under 2</span></div>
                         <div class="each_round_trip_options_increase_person_div">
-                          <div class="each_round_trip_options_increase_person_btn">-</div>
-                          <div>0</div>
-                          <div class="each_round_trip_options_increase_person_btn">+</div>
+                          <div onclick="remove_person_from_flight_search('Toddler');"
+                            class="each_round_trip_options_increase_person_btn">-</div>
+                          <div id="number_of_toddlers_count">0</div>
+                          <div onclick="add_person_to_flight_search('Toddler');"
+                              class="each_round_trip_options_increase_person_btn">+</div>
                         </div>
                       </div>
                       <div class="each_round_trip_options_person_selector">
                         <div class="each_round_trip_options_person_type">Infant on lap <span>under 2</span></div>
                         <div class="each_round_trip_options_increase_person_div">
-                          <div class="each_round_trip_options_increase_person_btn">-</div>
-                          <div>0</div>
-                          <div class="each_round_trip_options_increase_person_btn">+</div>
+                          <div onclick="remove_person_from_flight_search('Infant');"
+                            class="each_round_trip_options_increase_person_btn">-</div>
+                          <div id="number_of_infants_count">0</div>
+                          <div onclick="add_person_to_flight_search('Infant');"
+                            class="each_round_trip_options_increase_person_btn">+</div>
                         </div>
                       </div>
+
+                      <div id="number_of_people_indicator"></div>
                     </div>
                 </div>
               </div>
@@ -324,7 +340,7 @@
                     </span>
                   </p>
 
-                  <p style="margin: 10px; margin-top: 20px; font-size: 12px; color:rgb(255, 102, 0); font-weight: bolder;">
+                  <p style="margin: 10px; margin-bottom: 0;margin-top: 20px; font-size: 12px; color:rgb(255, 102, 0); font-weight: bolder;">
                     People from New York also searched:</p>
                   <div id="people_also_searched_list_div">
                     <p class="people_also_searched_list_item">
@@ -469,7 +485,7 @@
                 <span style="color: white; margin: 0 5px">|</span> No wasting of your 
                 time here
                 <span style="color: white; margin: 0 5px">|</span> Get the best ever
-                flight deals
+                flight deals here
               </p>
             </div>
           </div>
@@ -1045,5 +1061,6 @@
       </div>
     </footer>
     <script src="scripts/main_script.js" type="text/javascript"></script>
+    <script src="scripts/home_page_flight_search_processes.js" type="text/javascript"></script>
   </body>
 </html>

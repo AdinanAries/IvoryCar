@@ -432,6 +432,22 @@ header li a i,
   box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
     0px 0px 2.9px rgba(0, 0, 0, 0.23);
 }
+#number_of_people_indicator {
+  border-top: 1px solid #ffcb7d;
+  padding-top: 15px;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 13px;
+  color: #ffcb7d;
+  text-shadow: none;
+  display: none;
+}
+#number_of_people_indicator i {
+  margin-right: 5px;
+  color: red;
+  font-size: 13px;
+  text-shadow: none;
+}
 .round_trip_type_options_content {
   padding: 15px 0;
   width: 100%;
