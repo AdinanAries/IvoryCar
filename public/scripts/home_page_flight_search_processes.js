@@ -1,3 +1,6 @@
+//dom elements
+var home_page_search_button = document.getElementById("home_page_search_button");
+
 //Global data
 
 var flight_search_flight_class = {
@@ -463,3 +466,13 @@ function remove_person_from_flight_search(person_type){
     /*alert("number of people: " + flight_search_number_of_people.total_number_of_people)
     alert("types of people " +  flight_search_number_of_people.types_of_people_added)*/
 }
+
+
+//Going to search page
+let search_for_flights = () =>{
+    window.location.href = "./search_results_page.html";
+}
+
+home_page_search_button.addEventListener("click", () =>{
+    search_for_flights();
+});

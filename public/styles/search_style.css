@@ -58,7 +58,6 @@ input:focus {
 }
 body {
   background-color: #210340;
-  min-height: 1500px;
   max-width: 100vw;
   overflow-x: hidden;
 }
@@ -78,53 +77,11 @@ body {
   margin: auto;
 }
 header {
-  position: -webkit-sticky;
-  position: sticky;
+  width: 100vw;
+  position: fixed;
   top: 0;
   background-color: #140028;
   z-index: 10;
-}
-.header_menu_dropdowns {
-  display: flex;
-  position: absolute;
-  top: 55px;
-  width: 100%;
-  max-width: 1100px;
-  z-index: 10;
-}
-#main_menu_more_submenu,
-#main_menu_language_submenu,
-#mobile_main_menu_items {
-  border-top: 4px solid orange;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  padding: 10px;
-  color: white;
-  position: relative;
-  width: 100px;
-  height: 70px;
-  background-color: #140028;
-  left: 489px;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.5s linear;
-}
-#main_menu_more_submenu:hover,
-#main_menu_language_submenu:hover {
-  visibility: visible;
-  opacity: 1;
-}
-#main_menu_language_submenu {
-  left: 753px;
-  /*left: 68.4%;*/
-}
-#mobile_main_menu_items {
-  position: absolute;
-  z-index: 10;
-  padding: 0;
-  width: 600px;
-  height: 64px;
-  left: 0;
 }
 .header_content_container {
   display: flex;
@@ -144,56 +101,17 @@ header {
 .site_logo_container span {
   font-size: 23px;
 }
-#top_logo_menu_icon {
-  display: none;
-  margin-left: 10px;
-  margin-top: 25px;
-  color: rgb(163, 135, 135);
+.site_logo_container p,
+.site_logo_container span {
+  font-size: 23px;
 }
-.top_nav_main_links_container {
-  height: 100%;
-}
-#mobile_top_nav_signin_btn {
-  display: none !important;
-}
-header ul,
-#mobile_main_menu_items ul {
-  padding: 20px;
-}
-header li,
-#mobile_main_menu_items li {
-  display: inline;
-  cursor: pointer;
-  padding: 20px;
-}
-header li a,
-#mobile_main_menu_items li a {
-  text-decoration: none;
-  color: white;
-}
-header li a:hover {
-  color: orange;
-}
-header li a i,
-#mobile_main_menu_items li a i {
-  color: sandybrown;
-  margin-right: 5px;
-}
-.active_top_nav_link {
-  border-bottom: 4px solid orange;
-  color: orange;
-  padding-bottom: 16px;
-}
-.active_top_nav_link a {
-  color: orange !important;
-}
-.active_top_nav_link a i {
-  color: rgb(255, 23, 166) !important;
-}
-.hero_section_container,
-.explore_section,
-.packages_section {
-  /*min-height: 80vh;*/
+.hero_section_container {
+  padding-bottom: 10px !important;
+  position: fixed !important;
+  width: 100vw;
+  top: 10px !important;
+  z-index: 2;
+  background-color: #140028;
 }
 .sections_title_h1 {
   font-size: 23px;
@@ -207,37 +125,15 @@ header li a i,
 .packages_section {
   display: none;
 }
-.site_motto_container {
-  padding-top: 40px;
-}
-.site_motto {
-  padding: 30px 0;
-  padding-bottom: 10px;
-  font-size: 2rem;
-  font-weight: bolder;
-  color: #cdefff;
-  text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
-    0px 0px 2.9px rgba(0, 0, 0, 0.23);
-}
 .page_title {
   font-size: 22px;
   color: white;
-}
-#map_picture {
-  width: 200px;
-  height: 100px;
-  opacity: 0.9;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-image: url("../images/USA_Flag_Map.png");
 }
 .search_tickets_form_container {
   display: flex;
   justify-content: space-between;
   background-color: rgb(146, 206, 255);
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
+  border-radius: 5px;
   padding: 0 10px;
 }
 .search_tickets_form_container .search_fieldset {
@@ -249,9 +145,9 @@ header li a i,
   border-radius: 5px;
 }
 #home_page_search_button {
+  border-radius: 4px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  border-top-right-radius: 4px;
   margin: 0;
   margin-right: -10px;
   width: 150px;
@@ -411,6 +307,7 @@ header li a i,
     0px 0px 2.9px rgba(0, 0, 0, 0.23);
 }
 #trip_type_parameters {
+  padding-top: 50px;
   margin: 15px 0;
   position: relative;
   z-index: 5;
@@ -456,150 +353,8 @@ header li a i,
   border-bottom-right-radius: 5px;
   border-top: 1px solid #ffcb7d;
 }
-#home_page_display_pictures {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-}
-#home_page_display_pictures_desc {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #003f7a;
-}
-#home_page_display_pictures .each_display_picture {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: center;
-  width: 33.3%;
-  height: 100%;
-}
 #site_lower_section {
   min-height: 500px;
-}
-#most_searched_cities_list_container {
-  display: flex;
-  justify-content: space-between;
-}
-.each_popular_city {
-  width: 24%;
-  display: flex;
-  flex-direction: column;
-  height: 270px;
-  border-radius: 5px;
-  overflow: hidden;
-  background-color: rgb(230, 245, 92);
-}
-.each_popular_city img {
-  width: 100%;
-  height: 130px !important;
-  object-fit: cover;
-  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
-    0px 0px 2.9px rgba(0, 0, 0, 0.43);
-}
-.each_popular_city_desc {
-  padding: 10px;
-}
-.favorite_bus_company_list_row {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
-}
-.favorite_bus_company_list_column {
-  width: 33%;
-  min-height: 30px;
-  border-radius: 5px;
-  /*border: 1px solid rgb(146, 206, 255);*/
-  padding: 10px 0;
-}
-.favorite_bus_company_title_text {
-  display: flex;
-  justify-content: space-between;
-  color: rgb(146, 206, 255);
-  padding: 10px;
-}
-.favorite_bus_company_info {
-  margin: 0 10px;
-  padding: 10px 0;
-  border-top: 1px solid rgb(146, 206, 255);
-  background-color: #ebf9ff;
-  min-height: 100px;
-}
-.favorite_bus_company_info a {
-  text-decoration: none;
-  color: #194f81;
-}
-.favorite_bus_company_info p {
-  font-size: 14px;
-  cursor: pointer;
-  margin: 5px 10px;
-}
-.favorite_bus_company_info a:hover {
-  color: #e25a00;
-}
-.favorite_bus_company_info i {
-  margin: 0 10px;
-  color: #ff9900;
-}
-#home_page_reviews_list {
-  padding: 70px 0;
-  display: flex;
-  justify-content: space-between;
-}
-.each_review_info {
-  border-top: 8px solid orange;
-  border-bottom: 5px solid orange;
-  height: 300px;
-  background-color: white;
-  border-radius: 5px;
-  width: 32%;
-}
-.review_person_photo {
-  width: 70px;
-  height: 70px;
-  border: 3px solid orange;
-  background-color: #140028;
-  overflow: hidden;
-  border-radius: 100%;
-  margin: auto;
-  margin-top: -45px;
-}
-.review_person_photo img {
-  width: 70px;
-  height: auto;
-}
-.each_review_msg_info {
-  height: 300px;
-  padding: 10px;
-  overflow: hidden;
-}
-.review_person_name {
-  text-align: center;
-  color: #b15416;
-  margin: 5px 0;
-  font-size: 19px !important;
-  font-weight: bolder;
-}
-.review_date {
-  font-size: 13px;
-  color: rgb(245, 105, 105);
-}
-.review_msg {
-  padding: 0 10px;
-  margin-bottom: 30px;
-  color: rgb(18, 2, 39);
-  text-align: justify;
-}
-.review_person_city {
-  color: rgb(126, 88, 53);
-  font-weight: bolder;
-  text-align: center;
-  margin-top: 5px;
-  margin-bottom: 30px;
 }
 footer {
   background-color: #140028;
@@ -635,13 +390,9 @@ footer li {
   background-color: #140028;
   width: 200px;
 }
-.footer_ivorycoast_flag,
-.header_ivorycoast_flag {
+.footer_ivorycoast_flag {
   width: 15px;
   height: 10px;
-}
-.header_ivorycoast_flag {
-  margin-left: 5px;
 }
 footer a {
   text-decoration: none;
@@ -654,97 +405,12 @@ footer a {
   .wrapper {
     margin: 0 30px;
   }
-  .header_menu_dropdowns {
-    margin: 0 30px;
-  }
-  #top_logo_as_menu_btn {
-    cursor: pointer;
-  }
-  #top_logo_menu_icon {
-    display: block;
-  }
-  .top_nav_main_links_container {
-    display: none;
-  }
-  #main_menu_language_submenu {
-    left: calc(100vw - 380px);
-  }
-  /*.site_logo_container {
-    margin-left: 30%;
-  }*/
-  .MenuIcon {
-    width: 50px;
-    top: 18.6px;
-    left: 150px;
-    position: absolute;
-    z-index: 4;
-  }
-
-  #nav-toggle {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-  }
-
-  #nav-toggle {
-    cursor: pointer;
-    padding: 10px 35px 16px 0px;
-  }
-  #nav-toggle span,
-  #nav-toggle span:before,
-  #nav-toggle span:after {
-    cursor: pointer;
-    border-radius: 50px;
-    height: 4px;
-    width: 35px;
-    background: white;
-    position: absolute;
-    display: block;
-    content: "";
-  }
-  #nav-toggle span:before {
-    top: -10px;
-  }
-  #nav-toggle span:after {
-    bottom: -10px;
-  }
-
-  #nav-toggle span,
-  #nav-toggle span:before,
-  #nav-toggle span:after {
-    transition: all 100ms ease-in-out;
-  }
-  #nav-toggle.active span {
-    background-color: transparent;
-  }
-  #nav-toggle.active span:before,
-  #nav-toggle.active span:after {
-    top: 0;
-  }
-  #nav-toggle.active span:before {
-    transform: rotate(45deg);
-  }
-  #nav-toggle.active span:after {
-    transform: rotate(-45deg);
-  }
-  #main_menu_more_submenu {
-    position: initial !important;
-    left: 0 !important;
-  }
-
-  /*main sections responsiveness*/
 }
 
 @media only screen and (max-width: 700px) {
   * {
     max-width: 100vw;
-    overflow-x: hidden;
-  }
-  .header_menu_dropdowns {
-    width: initial !important;
-    max-width: initial !important;
     overflow: initial !important;
-    margin: 0 !important;
   }
   .sections_title_h1 {
     margin-top: 30px !important;
@@ -760,7 +426,6 @@ footer a {
   }
   .search_tickets_form_container {
     padding-bottom: 10px;
-    overflow: initial !important;
   }
   .search_fieldset {
     flex-direction: row !important;
@@ -768,9 +433,6 @@ footer a {
   }
   #city_search_fieldset {
     z-index: 4 !important;
-  }
-  .each_display_picture_mobile_hidden {
-    display: none;
   }
   #home_page_search_button {
     margin: 0;
@@ -814,39 +476,6 @@ footer a {
     margin: 0 10px;
     overflow-x: hidden !important;
   }
-  /*top navbar responsiveness*/
-  #main_menu_language_submenu {
-    position: absolute;
-    left: calc(100vw - 174px) !important;
-  }
-  #mobile_main_menu_items {
-    width: 200px;
-    height: initial !important;
-    overflow: initial !important;
-  }
-  #mobile_main_menu_items ul {
-    width: initial;
-    height: initial !important;
-    overflow: initial !important;
-  }
-  #mobile_main_menu_items li {
-    display: flex;
-    justify-content: space-between;
-  }
-  .active_top_nav_link {
-    border-bottom: none;
-  }
-  #mobile_top_nav_signin_btn {
-    display: block !important;
-  }
-  #top_nav_signin_btn {
-    display: none !important;
-  }
-  #top_nav_trip_btn {
-    display: none !important;
-  }
-  /*main section responsiveness*/
-
   section div {
     flex-direction: column !important;
     width: initial !important;
@@ -857,11 +486,8 @@ footer a {
     /*border-top-left-radius: 5px;
     border-top-right-radius: 5px;*/
   }
-  .each_display_picture {
-    height: 150px !important;
-  }
   .hero_section_container {
-    min-height: 560px;
+    overflow: initial !important;
   }
   #hero_section_flex_container {
     flex-direction: column !important;
@@ -869,32 +495,7 @@ footer a {
   .jumbotron_background {
     display: none;
   }
-  .favorite_bus_company_title_text {
-    flex-direction: row !important;
-  }
-  .each_popular_city {
-    margin-bottom: 10px;
-  }
-  .each_popular_city img {
-    object-fit: cover !important;
-  }
-  #home_page_reviews_list {
-    padding-bottom: 0;
-  }
-  .each_review_info {
-    overflow: initial;
-    margin-bottom: 60px !important;
-    height: 290px;
-  }
-  .each_review_msg_info {
-    height: 270px;
-  }
-  .review_person_photo {
-    width: 70px !important;
-    height: 70px !important;
-    margin: auto;
-    margin-top: -45px;
-  }
+
   footer .wrapper div {
     flex-direction: column;
     text-align: center !important;
