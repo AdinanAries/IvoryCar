@@ -1,5 +1,6 @@
 //getting dom elements
 
+var logo_as_home_btn = document.getElementById("logo_as_home_btn");
 var trip_type_param_number_of_people_option = document.getElementById("trip_type_param_number_of_people_option");
 var trip_type_param_flight_class_option = document.getElementById("trip_type_param_flight_class_option");
 var trip_type_param_round_trip_option = document.getElementById("trip_type_param_round_trip_option");
@@ -45,7 +46,6 @@ var city_search_fieldset = document.getElementById("city_search_fieldset");
 var date_search_fieldset = document.getElementById("date_search_fieldset");
 var trip_type_parameters = document.getElementById("trip_type_parameters");
 var trip_type_param_round_trip_option_container = document.getElementById("trip_type_param_round_trip_option_container");
-var close_main_round_trip_type_options_btn = document.getElementById("close_main_round_trip_type_options_btn");
 var main_round_trip_type_options = document.getElementById("main_round_trip_type_options");
 var main_from_where_city_show_container = document.getElementById("main_from_where_city_show_container");
 var main_from_when_date_show_container = document.getElementById("main_from_when_date_show_container");
@@ -57,17 +57,9 @@ var ui_datepicker = document.getElementsByClassName("ui-datepicker")[0];
 
 trip_type_param_round_trip_option_container.addEventListener("mouseenter", (evnt)=>{
   $("#main_round_trip_type_options").slideDown("fast");
-  if($(window).width() < 700){
-    close_main_round_trip_type_options_btn.style.display = "block";
-  }
 })
 trip_type_param_round_trip_option_container.addEventListener("mouseleave", (evnt)=>{
   $("#main_round_trip_type_options").slideUp("fast");
-  close_main_round_trip_type_options_btn.style.display = "none"
-});
-close_main_round_trip_type_options_btn.addEventListener("click", (evnt)=>{
-  $("#main_round_trip_type_options").slideUp("fast");
-  close_main_round_trip_type_options_btn.style.display = "none"
 });
 
 city_search_fieldset.addEventListener("focusin", (evnt)=>{
@@ -98,5 +90,34 @@ autocomplete2.addListener('place_changed', function () {
                                               + to_where_search_input_fld.value + "</span>";
 });
 
+
+logo_as_home_btn.addEventListener("click", ()=>{
+  window.location.href = "/";
+})
+
 $("#from_when_search_input").datepicker({minDate: 0});
 $("#to_when_search_input").datepicker({minDate: 0});
+
+
+
+var hero_section_container = document.querySelector(".hero_section_container"); 
+        /* Gets the amount of height 
+        of the element from the 
+        viewport and adds the 
+        pageYOffset to get the height 
+        relative to the page */ 
+        var currStickyPos =  
+        hero_section_container.getBoundingClientRect().top + window.pageYOffset; 
+  
+        window.onscroll = function() { 
+            /* Check if the current Y offset 
+            is greater than the position of 
+            the element */ 
+            if (window.pageYOffset > currStickyPos) { 
+              hero_section_container.style.position = "fixed"; 
+              hero_section_container.style.top = "0px"; 
+            } else { 
+              hero_section_container.style.position = "initial"; 
+              hero_section_container.style.top = "initial"; 
+            } 
+        }

@@ -60,6 +60,7 @@ body {
   background-color: #210340;
   max-width: 100vw;
   overflow-x: hidden;
+  min-height: 1500px;
 }
 .jumbotron_background {
   position: absolute;
@@ -77,11 +78,7 @@ body {
   margin: auto;
 }
 header {
-  width: 100vw;
-  position: fixed;
-  top: 0;
   background-color: #140028;
-  z-index: 10;
 }
 .header_content_container {
   display: flex;
@@ -106,10 +103,9 @@ header {
   font-size: 23px;
 }
 .hero_section_container {
-  padding-bottom: 10px !important;
-  position: fixed !important;
+  padding-bottom: 10px;
+  padding-top: 1px;
   width: 100vw;
-  top: 10px !important;
   z-index: 2;
   background-color: #140028;
 }
@@ -132,24 +128,16 @@ header {
 .search_tickets_form_container {
   display: flex;
   justify-content: space-between;
-  background-color: rgb(146, 206, 255);
   border-radius: 5px;
-  padding: 0 10px;
 }
 .search_tickets_form_container .search_fieldset {
-  margin: 10px 0;
   width: 40%;
   display: flex;
-
   background-color: white;
   border-radius: 5px;
 }
 #home_page_search_button {
   border-radius: 4px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin: 0;
-  margin-right: -10px;
   width: 150px;
   display: flex;
   flex-direction: column;
@@ -295,19 +283,7 @@ header {
   color: white;
   border: 1px solid #80e1ff;
 }
-#close_main_round_trip_type_options_btn {
-  display: none;
-  cursor: pointer;
-  width: fit-content;
-  position: absolute;
-  z-index: 6;
-  top: 210px;
-  right: 30px;
-  text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
-    0px 0px 2.9px rgba(0, 0, 0, 0.23);
-}
 #trip_type_parameters {
-  padding-top: 50px;
   margin: 15px 0;
   position: relative;
   z-index: 5;
@@ -316,8 +292,8 @@ header {
 .round_trip_type_options {
   display: none;
   position: absolute;
-  margin-top: -35px;
-  padding-top: 55px;
+  margin-top: -30px;
+  padding-top: 45px;
   z-index: -1;
   margin-left: -10px;
   width: 380px;
@@ -429,6 +405,8 @@ footer a {
   }
   .search_fieldset {
     flex-direction: row !important;
+    margin-bottom: 10px;
+    padding: 1px 0;
     overflow: initial !important;
   }
   #city_search_fieldset {
@@ -440,7 +418,7 @@ footer a {
     padding: 10px 0;
   }
   #trip_type_parameters {
-    margin-top: 30px;
+    margin-top: 15px;
     width: 100% !important;
     overflow: initial;
   }
@@ -452,6 +430,8 @@ footer a {
   }
   .round_trip_type_options {
     margin-left: 0;
+    margin-top: -30px !important;
+    padding-top: 40px;
     width: 100% !important;
   }
   .each_round_trip_options_increase_person_btn {
@@ -468,13 +448,9 @@ footer a {
     padding: 10px !important;
     font-size: 13px;
   }
-  #close_main_round_trip_type_options_btn {
-    top: 140px;
-    right: 30px;
-  }
   .wrapper {
     margin: 0 10px;
-    overflow-x: hidden !important;
+    overflow-y: initial !important;
   }
   section div {
     flex-direction: column !important;
@@ -487,7 +463,9 @@ footer a {
     border-top-right-radius: 5px;*/
   }
   .hero_section_container {
+    padding-top: 1px;
     overflow: initial !important;
+    padding-bottom: 0;
   }
   #hero_section_flex_container {
     flex-direction: column !important;
