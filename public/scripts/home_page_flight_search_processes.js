@@ -264,6 +264,8 @@ function add_person_to_flight_search(person_type){
 
 
 function remove_person_from_flight_search(person_type){
+    let adult_subract_clicked = false;
+
     if(flight_search_number_of_people.total_number_of_people <= 1){
         document.getElementById("number_of_people_indicator").style.display = "block";
         document.getElementById("number_of_people_indicator").innerHTML = 
@@ -271,7 +273,7 @@ function remove_person_from_flight_search(person_type){
     }
     else{
         if(person_type === "Adult"){
-
+            adult_subract_clicked = true;
             if( (flight_search_number_of_people.infants.number > 0 ||
                 flight_search_number_of_people.toddlers.number > 0) &&
                 flight_search_number_of_people.adults.number <= 1){
@@ -418,7 +420,8 @@ function remove_person_from_flight_search(person_type){
 
         if( (flight_search_number_of_people.infants.number > 0 ||
             flight_search_number_of_people.toddlers.number > 0) &&
-            flight_search_number_of_people.adults.number <= 1){
+            flight_search_number_of_people.adults.number <= 1 &&
+            adult_subract_clicked ){
                 
                 document.getElementById("number_of_people_indicator").style.display = "block";
                 document.getElementById("number_of_people_indicator").innerHTML = 
