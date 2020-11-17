@@ -4,6 +4,9 @@
   font-family: Roboto;
   font-size: 16px;
 }
+a {
+  text-decoration: none;
+}
 .ui-datepicker {
   z-index: 10;
   width: 300px;
@@ -79,9 +82,29 @@ body {
 header {
   background-color: #140028;
 }
+.header_lang_flag {
+  width: 15px;
+  height: auto;
+  margin-right: 10px;
+}
 .header_content_container {
   display: flex;
   justify-content: space-between;
+}
+.top_nav_links ul {
+  height: 100%;
+  padding-top: 20px;
+}
+.top_nav_links ul li {
+  color: white;
+  padding: 20px;
+  display: inline;
+}
+.top_nav_links ul a {
+  color: white;
+}
+.top_nav_links ul li i {
+  margin-right: 10px;
 }
 .site_logo_container {
   height: 59px;
