@@ -134,10 +134,33 @@ header {
 #site_lower_section {
   min-height: 500px;
 }
+.site_lower_section_tabs_option {
+  width: 33%;
+  padding: 20px 0;
+}
+.site_lower_section_tabs_option_content {
+  min-height: 40px;
+  text-align: center;
+}
+.site_lower_section_tabs_option_content p {
+  color: white;
+  font-size: 18px;
+}
 .site_lower_section_top_area {
   padding: 5px;
   background-color: #140028;
   min-height: 200px;
+}
+.site_lower_section_tabs {
+  width: 100%;
+  display: flex;
+  background-color: rgb(192, 83, 83);
+  border-radius: 4px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+.site_lower_section_tabs .active {
+  background-color: rgb(212, 48, 48);
 }
 .site_lower_section_content {
   width: 100%;
@@ -145,14 +168,49 @@ header {
   justify-self: space-between;
 }
 .site_lower_section_left {
-  width: 10%;
+  padding-top: 10px;
+  width: 20%;
   min-height: 500px;
 }
+.site_lower_left_section_part {
+  border-bottom: 1px solid #5d526d;
+  min-height: 150px;
+  margin-right: 20px;
+}
+.site_lower_left_section_last_part {
+  min-height: 150px;
+  margin-right: 20px;
+}
+.site_lower_left_section_part_title_container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+.site_lower_left_section_part_title_container i {
+  color: #b9b5c0;
+  font-size: 19px;
+}
+.site_lower_left_section_part_title {
+  color: white;
+  font-weight: bolder;
+}
+.trip_advisor_card {
+  background-color: #4b2e68;
+  min-height: 150px;
+  border-radius: 5px;
+  padding: 10px;
+}
+.trip_advisor_card_top {
+  min-height: 100px;
+  border-bottom: 1px solid #9980af;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
 .site_lower_section_middle {
-  width: 72%;
+  width: 60%;
 }
 .site_lower_section_right {
-  width: 15%;
+  width: 19%;
   min-height: 500px;
 }
 .each_ticket_item {
@@ -240,6 +298,22 @@ header {
   margin-top: 60px;
   margin-bottom: 20px;
   min-height: 500px;
+}
+.site_lower_section_right_top_ad,
+.site_lower_section_right_bottom_ad {
+  margin-top: 10px;
+  margin-left: 20px;
+  min-height: 600px;
+  background-image: url(../images/VerticalBannerAd.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 4px;
+}
+.site_lower_section_right_bottom_ad {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  min-height: 300px;
+  background-image: url(../images/book-jacket-web-banners.jpg);
 }
 .explore_section,
 .packages_section {
