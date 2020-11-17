@@ -127,7 +127,7 @@ header {
 .hero_section_container {
   padding-bottom: 10px;
   padding-top: 1px;
-  width: 100vw;
+  width: calc(100vw - 20px);
   z-index: 2;
   background-color: #140028;
 }
@@ -579,6 +579,7 @@ footer a {
     width: initial !important;
   }
   .hero_section_container {
+    min-width: calc(100vw - 20px);
     padding-top: 1px;
     overflow: initial !important;
     padding-bottom: 0;
