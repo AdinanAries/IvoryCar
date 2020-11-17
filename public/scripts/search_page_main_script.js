@@ -115,7 +115,7 @@ var hero_section_container = document.querySelector(".hero_section_container");
             the element */ 
             if (window.pageYOffset > currStickyPos) { 
               hero_section_container.style.position = "fixed"; 
-              hero_section_container.style.top = "0px"; 
+              hero_section_container.style.top = "0px";
             } else { 
               hero_section_container.style.position = "initial"; 
               hero_section_container.style.top = "initial"; 
