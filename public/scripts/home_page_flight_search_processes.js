@@ -267,9 +267,31 @@ function remove_person_from_flight_search(person_type){
     let adult_subract_clicked = false;
 
     if(flight_search_number_of_people.total_number_of_people <= 1){
-        document.getElementById("number_of_people_indicator").style.display = "block";
-        document.getElementById("number_of_people_indicator").innerHTML = 
-        "<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> minimum of 1 person allowed";
+        if(person_type === "Adult" && flight_search_number_of_people.adults.number === 1){
+            document.getElementById("number_of_people_indicator").style.display = "block";
+            document.getElementById("number_of_people_indicator").innerHTML = 
+            "<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> minimum of 1 person allowed";
+        }
+        if(person_type === "Student" && flight_search_number_of_people.students.number === 1){
+            document.getElementById("number_of_people_indicator").style.display = "block";
+            document.getElementById("number_of_people_indicator").innerHTML = 
+            "<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> minimum of 1 person allowed";
+        }
+        if(person_type === "Senior" && flight_search_number_of_people.seniors.number === 1){
+            document.getElementById("number_of_people_indicator").style.display = "block";
+            document.getElementById("number_of_people_indicator").innerHTML = 
+            "<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> minimum of 1 person allowed";
+        }
+        if(person_type === "Youth" && flight_search_number_of_people.youth.number === 1){
+            document.getElementById("number_of_people_indicator").style.display = "block";
+            document.getElementById("number_of_people_indicator").innerHTML = 
+            "<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> minimum of 1 person allowed";
+        }
+        if(person_type === "Child" && flight_search_number_of_people.children.number === 1){
+            document.getElementById("number_of_people_indicator").style.display = "block";
+            document.getElementById("number_of_people_indicator").innerHTML = 
+            "<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> minimum of 1 person allowed";
+        }
     }
     else{
         if(person_type === "Adult"){

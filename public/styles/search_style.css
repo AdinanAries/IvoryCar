@@ -314,9 +314,51 @@ header {
   border-radius: 4px;
 }
 .each_ticket_item_top {
-  width: 100%;
-  min-height: 50px;
-  border-bottom: 1px solid #dbdbdb;
+  padding: 15px 10px;
+  border-bottom: 1px solid #d1d1d1;
+  display: flex;
+  flex-direction: row !important;
+  justify-content: space-between;
+}
+.each_ticket_item_top div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.each_ticket_item_top div p {
+  font-size: 14px;
+}
+.each_ticket_item_top_show_more_btn {
+  border: 1px solid #00284e;
+  border-radius: 4px;
+  color: #00284e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 35px;
+  font-weight: bolder;
+  font-size: 14px;
+  width: 100px;
+}
+.each_ticket_item_main_extra {
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: row !important;
+  justify-content: space-between;
+  background-color: #e2e2e2;
+  border-bottom: 1px solid #d1d1d1;
+}
+.each_ticket_item_main_extra span {
+  color: white;
+  font-size: 13px;
+  margin-right: 5px;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+.each_ticket_item_main_extra span i {
+  font-size: 15px;
+  margin: 0 5px;
 }
 .each_ticket_item_main {
   display: flex;
@@ -360,6 +402,7 @@ header {
 }
 .each_ticket_item_main_right {
   background-color: #e2e2e2;
+  border-left: 1px solid #d1d1d1;
   border-bottom-right-radius: 4px;
   width: 29%;
   padding: 10px;
