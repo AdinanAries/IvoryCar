@@ -198,7 +198,7 @@ header {
 .site_lower_section_top_area {
   padding: 5px;
   background-color: #140028;
-  min-height: 170px;
+  padding-bottom: 10px;
 }
 .site_lower_section_tabs {
   width: 100%;
