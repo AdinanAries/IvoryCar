@@ -198,7 +198,7 @@ header {
 .site_lower_section_top_area {
   padding: 5px;
   background-color: #140028;
-  min-height: 200px;
+  min-height: 170px;
 }
 .site_lower_section_tabs {
   width: 100%;
@@ -222,11 +222,13 @@ header {
   min-height: 500px;
 }
 .site_lower_left_section_part {
+  padding: 10px 0;
   border-bottom: 1px solid #5d526d;
   min-height: 150px;
   margin-right: 20px;
 }
 .site_lower_left_section_last_part {
+  padding: 10px 0;
   min-height: 150px;
   margin-right: 20px;
 }
@@ -243,6 +245,13 @@ header {
 .site_lower_left_section_part_title {
   color: white;
   font-weight: bolder;
+}
+.site_lower_left_section_last_part_settings_itemset_title {
+  color: rgb(166, 225, 243);
+  font-weight: bolder;
+  margin-bottom: 0;
+  margin-top: 20px;
+  font-size: 14px;
 }
 .trip_advisor_card {
   background-color: #4b2e68;
