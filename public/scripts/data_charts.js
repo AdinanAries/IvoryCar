@@ -13,6 +13,7 @@ var lineChart = new Chart(ctx, {
             borderColor: "rgb(255,255,255)",
             borderWidth: 1,
             pointBackgroundColor: "#535353",
+            pointRadius: 7,
             data: [213.5,133.2,453.3,344.58,543.32,665.16,137.44,224.5,212.4,453.3,344.58,143.32,165.16,337.44]
         }]
     },
