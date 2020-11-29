@@ -880,7 +880,31 @@ footer a {
   .jumbotron_background {
     display: none;
   }
-
+  .site_lower_section_tabs {
+    flex-direction: row !important;
+    justify-content: space-between;
+    width: auto !important;
+    overflow: hidden !important;
+    padding: 0;
+  }
+  .site_lower_section_tabs_option {
+    width: 33% !important;
+  }
+  .site_lower_section_tabs_option_content p strong {
+    font-size: 13px !important;
+  }
+  .site_lower_section_tabs_option_content div p {
+    font-size: 12px !important;
+  }
+  .site_lower_section_tabs_option_content div p .fa-circle {
+    font-size: 9px !important;
+  }
+  .site_lower_section_tabs_option_content_middle_dot {
+    margin-top: -2px !important;
+  }
+  .site_lower_section_tabs_option_content span {
+    font-size: 13px !important;
+  }
   footer .wrapper div {
     flex-direction: column;
     text-align: center !important;
