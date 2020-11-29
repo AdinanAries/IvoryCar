@@ -740,7 +740,9 @@ header {
   border-bottom-right-radius: 5px;
   border-top: 1px solid #ffcb7d;
 }
-
+.COVID_policy_mobile {
+  display: none;
+}
 footer {
   background-color: #140028;
   padding: 30px 0;
@@ -796,6 +798,32 @@ footer a {
   * {
     max-width: 100vw;
     overflow: initial !important;
+  }
+  #top_nav_signin_btn {
+    display: none;
+  }
+  #top_nav_trip_btn {
+    display: none;
+  }
+  .site_lower_section_left {
+    /*display: none;*/
+  }
+  .site_lower_left_section_part,
+  .site_lower_left_section_last_part {
+    margin-right: 0;
+  }
+  .site_lower_left_section_part_title {
+    color: #e25a00;
+  }
+  .takeoff_landing_switch div {
+    width: 50% !important;
+  }
+  .site_lower_section_right_top_ad,
+  .site_lower_section_right_bottom_ad {
+    margin-left: 0;
+  }
+  .site_lower_left_section_part_title_container {
+    flex-direction: row !important;
   }
   .sections_title_h1 {
     margin-top: 30px !important;
@@ -873,6 +901,18 @@ footer a {
   }
   .site_lower_section_content {
     flex-direction: column;
+  }
+  .view_deal_button {
+    margin-top: 10px;
+  }
+  .ticket_item_price_display {
+    margin-top: 10px;
+  }
+  .COVID_policy_desktop {
+    display: none;
+  }
+  .COVID_policy_mobile {
+    display: block;
   }
   #hero_section_flex_container {
     flex-direction: column !important;
