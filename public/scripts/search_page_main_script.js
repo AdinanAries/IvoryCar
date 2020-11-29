@@ -6,6 +6,7 @@ var trip_type_param_flight_class_option = document.getElementById("trip_type_par
 var trip_type_param_round_trip_option = document.getElementById("trip_type_param_round_trip_option");
 
 var MobilehowSearchFormInputsBtn = document.getElementById("MobilehowSearchFormInputsBtn");
+var search_tickets_form_container = document.getElementsByClassName("search_tickets_form_container")[0];
 
 var number_of_people_round_trip_type_options_item = document.getElementById("number_of_people_round_trip_type_options_item");
 var flight_class_round_trip_type_options_item = document.getElementById("flight_class_round_trip_type_options_item");
@@ -116,46 +117,60 @@ var hero_section_container = document.querySelector(".hero_section_container");
             is greater than the position of 
             the element */ 
             if (window.pageYOffset > currStickyPos) { 
+
               hero_section_container.style.position = "fixed"; 
               hero_section_container.style.top = "0px";
               document.body.style.paddingTop = "100px";
 
               if($(window).width() < 1000){
+
                 city_search_fieldset.style.transition = "none";
                 date_search_fieldset.style.transition = "none";
                 city_search_fieldset.style.opacity = 0;
                 date_search_fieldset.style.opacity = 0;
                 home_page_search_button.style.opacity = 0;
+
                 $("#city_search_fieldset").slideUp("fast");
                 $("#date_search_fieldset").slideUp("fast");
                 $("#home_page_search_button").slideUp("fast");
-                hero_section_container.style.minWidth = "100vw";
                 MobilehowSearchFormInputsBtn.style.display = "block";
+
+                if($(window).width() < 450)
+                  hero_section_container.style.minWidth = "100vw";
+
               }
             } else { 
+
               hero_section_container.style.position = "initial"; 
               hero_section_container.style.top = "initial"; 
               document.body.style.paddingTop = "0";
+
               $("#city_search_fieldset").slideDown("fast");
               $("#date_search_fieldset").slideDown("fast");
               $("#home_page_search_button").slideDown("fast");
-              hero_section_container.style.minWidth = "calc(100vw - 20px)";
+              MobilehowSearchFormInputsBtn.style.display = "none";
+
+              if($(window).width() < 450)
+                hero_section_container.style.minWidth = "calc(100vw - 20px)";
+
               city_search_fieldset.style.display = "flex";
               date_search_fieldset.style.display = "flex";
+
               city_search_fieldset.style.transition = "opacity 2s";
               date_search_fieldset.style.transition = "opacity 2s";
               city_search_fieldset.style.opacity = 1;
               date_search_fieldset.style.opacity = 1;
               home_page_search_button.style.opacity = 1;
-              MobilehowSearchFormInputsBtn.style.display = "none";
+              
             } 
         }
 
         MobilehowSearchFormInputsBtn.addEventListener("click", (evnt)=>{
-          $("#city_search_fieldset").slideDown("fast");
+          
+              $("#city_search_fieldset").slideDown("fast");
               $("#date_search_fieldset").slideDown("fast");
               $("#home_page_search_button").slideDown("fast");
-              hero_section_container.style.minWidth = "calc(100vw - 20px)";
+
               city_search_fieldset.style.display = "flex";
               date_search_fieldset.style.display = "flex";
               city_search_fieldset.style.transition = "opacity 2s";
@@ -164,4 +179,16 @@ var hero_section_container = document.querySelector(".hero_section_container");
               date_search_fieldset.style.opacity = 1;
               home_page_search_button.style.opacity = 1;
               MobilehowSearchFormInputsBtn.style.display = "none";
+        })
+
+        document.getElementById("show_search_results_options_btn").addEventListener("click", (evnt)=>{
+            if(document.getElementById("site_lower_section_left_container").style.display === "block"){
+              $("#site_lower_section_left_container").slideUp("fast");
+              document.getElementById("site_lower_section_left_container").style.display = "none";
+              document.getElementById("search_settings_angle_down").style.transform = "rotate(360deg)";
+            }else{
+              $("#site_lower_section_left_container").slideDown("fast");
+              document.getElementById("site_lower_section_left_container").style.display = "block";
+              document.getElementById("search_settings_angle_down").style.transform = "rotate(180deg)";
+            }
         })

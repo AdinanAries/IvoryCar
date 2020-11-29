@@ -743,6 +743,9 @@ header {
 .COVID_policy_mobile {
   display: none;
 }
+#show_search_results_options_btn {
+  display: none;
+}
 footer {
   background-color: #140028;
   padding: 30px 0;
@@ -806,7 +809,10 @@ footer a {
     display: none;
   }
   .site_lower_section_left {
-    /*display: none;*/
+    display: none;
+  }
+  #show_search_results_options_btn {
+    display: block;
   }
   .site_lower_left_section_part,
   .site_lower_left_section_last_part {
