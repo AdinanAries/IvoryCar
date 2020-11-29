@@ -122,21 +122,21 @@ var hero_section_container = document.querySelector(".hero_section_container");
               hero_section_container.style.top = "0px";
               document.body.style.paddingTop = "100px";
 
-              if($(window).width() < 1000){
+              if($(window).width() < 700){
+                document.body.style.paddingTop = "200px";
+              }
 
-                city_search_fieldset.style.transition = "none";
-                date_search_fieldset.style.transition = "none";
-                city_search_fieldset.style.opacity = 0;
-                date_search_fieldset.style.opacity = 0;
-                home_page_search_button.style.opacity = 0;
-
-                $("#city_search_fieldset").slideUp("fast");
-                $("#date_search_fieldset").slideUp("fast");
-                $("#home_page_search_button").slideUp("fast");
+              if($(window).width() < 700 && window.pageYOffset > (currStickyPos + 210)){
+                
+                city_search_fieldset.style.display = "none";
+                date_search_fieldset.style.display = "none";
+                home_page_search_button.style.display = "none";
+                MobilehowSearchFormInputsBtn.style.display = "none";
                 MobilehowSearchFormInputsBtn.style.display = "block";
 
-                if($(window).width() < 450)
+                if($(window).width() < 450){
                   hero_section_container.style.minWidth = "100vw";
+                }
 
               }
             } else { 
@@ -145,28 +145,26 @@ var hero_section_container = document.querySelector(".hero_section_container");
               hero_section_container.style.top = "initial"; 
               document.body.style.paddingTop = "0";
 
-              $("#city_search_fieldset").slideDown("fast");
-              $("#date_search_fieldset").slideDown("fast");
-              $("#home_page_search_button").slideDown("fast");
-              MobilehowSearchFormInputsBtn.style.display = "none";
-
               if($(window).width() < 450)
                 hero_section_container.style.minWidth = "calc(100vw - 20px)";
 
               city_search_fieldset.style.display = "flex";
               date_search_fieldset.style.display = "flex";
 
-              city_search_fieldset.style.transition = "opacity 2s";
-              date_search_fieldset.style.transition = "opacity 2s";
-              city_search_fieldset.style.opacity = 1;
-              date_search_fieldset.style.opacity = 1;
-              home_page_search_button.style.opacity = 1;
+              city_search_fieldset.style.display = "flex";
+              date_search_fieldset.style.display = "flex";
+              home_page_search_button.style.display = "flex";
+              MobilehowSearchFormInputsBtn.style.display = "none";
               
             } 
         }
 
         MobilehowSearchFormInputsBtn.addEventListener("click", (evnt)=>{
-          
+
+            city_search_fieldset.style.opacity = 0;
+            date_search_fieldset.style.opacity = 0;
+            home_page_search_button.style.opacity = 0;
+
               $("#city_search_fieldset").slideDown("fast");
               $("#date_search_fieldset").slideDown("fast");
               $("#home_page_search_button").slideDown("fast");
@@ -175,6 +173,7 @@ var hero_section_container = document.querySelector(".hero_section_container");
               date_search_fieldset.style.display = "flex";
               city_search_fieldset.style.transition = "opacity 2s";
               date_search_fieldset.style.transition = "opacity 2s";
+              home_page_search_button.style.transition = "opacity 2s";
               city_search_fieldset.style.opacity = 1;
               date_search_fieldset.style.opacity = 1;
               home_page_search_button.style.opacity = 1;
