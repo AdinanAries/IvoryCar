@@ -112,7 +112,15 @@ var hero_section_container = document.querySelector(".hero_section_container");
         var currStickyPos =  
         hero_section_container.getBoundingClientRect().top + window.pageYOffset; 
   
-        window.onscroll = function() { 
+        window.onscroll = function() {
+          
+            if($(window).width() < 700 && window.pageYOffset > (currStickyPos - 100)){
+              city_search_fieldset.style.display = "flex";
+              date_search_fieldset.style.display = "flex";
+              home_page_search_button.style.display = "flex";
+              MobilehowSearchFormInputsBtn.style.display = "none";
+            }
+
             /* Check if the current Y offset 
             is greater than the position of 
             the element */ 
@@ -140,22 +148,20 @@ var hero_section_container = document.querySelector(".hero_section_container");
 
               }
             } else { 
-
-              hero_section_container.style.position = "initial"; 
-              hero_section_container.style.top = "initial"; 
-              document.body.style.paddingTop = "0";
-
-              if($(window).width() < 450)
-                hero_section_container.style.minWidth = "calc(100vw - 20px)";
-
-              city_search_fieldset.style.display = "flex";
-              date_search_fieldset.style.display = "flex";
-
+              
               city_search_fieldset.style.display = "flex";
               date_search_fieldset.style.display = "flex";
               home_page_search_button.style.display = "flex";
               MobilehowSearchFormInputsBtn.style.display = "none";
-              
+
+
+              if($(window).width() < 450)
+                hero_section_container.style.minWidth = "calc(100vw - 20px)";
+
+              document.body.style.paddingTop = "0";
+              hero_section_container.style.position = "initial"; 
+              hero_section_container.style.top = "initial"; 
+
             } 
         }
 
