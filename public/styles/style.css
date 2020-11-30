@@ -170,6 +170,10 @@ header li,
   cursor: pointer;
   padding: 20px;
 }
+#mobile_main_menu_items li {
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
 header li a,
 #mobile_main_menu_items li a {
   text-decoration: none;
