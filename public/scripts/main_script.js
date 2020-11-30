@@ -1,5 +1,8 @@
 //getting dom elements
 
+var header_menu_dropdowns = document.getElementById("header_menu_dropdowns_container");
+var top_logo_menu_icon = document.getElementById("top_logo_menu_icon");
+
 var trip_type_param_number_of_people_option = document.getElementById("trip_type_param_number_of_people_option");
 var trip_type_param_flight_class_option = document.getElementById("trip_type_param_flight_class_option");
 var trip_type_param_round_trip_option = document.getElementById("trip_type_param_round_trip_option");
@@ -93,60 +96,85 @@ var mobile_main_menu_items = document.getElementById("mobile_main_menu_items");
 var top_logo_as_menu_btn = document.getElementById("top_logo_as_menu_btn");
 
 //hover event for mobile main menu
-top_logo_as_menu_btn.addEventListener("mouseover", () => {
+top_logo_as_menu_btn.addEventListener("click", () => {
   if ($(window).width() < 1026) {
-    mobile_main_menu_items.style.visibility = "visible";
-    mobile_main_menu_items.style.opacity = "1";
+    if(header_menu_dropdowns.style.display === "flex"){
+      top_logo_menu_icon.style.transform = "rotate(360deg)";
+      top_logo_menu_icon.style.marginTop = "23px";
+      top_logo_menu_icon.style.marginBottom = "0"
+      header_menu_dropdowns.style.display = "none";
+      mobile_main_menu_items.style.visibility = "hidden";
+      mobile_main_menu_items.style.opacity = "0";
+    }else{
+      top_logo_menu_icon.style.transform = "rotate(180deg)";
+      top_logo_menu_icon.style.marginTop = "0";
+      top_logo_menu_icon.style.marginBottom = "23px"
+      header_menu_dropdowns.style.display = "flex";
+      mobile_main_menu_items.style.visibility = "visible";
+      mobile_main_menu_items.style.opacity = "1";
+    }
+    
   }
 });
-top_logo_as_menu_btn.addEventListener("mouseout", (evnt) => {
+/*top_logo_as_menu_btn.addEventListener("mouseout", (evnt) => {
+  header_menu_dropdowns.style.display = "none";
   mobile_main_menu_items.style.visibility = "hidden";
   mobile_main_menu_items.style.opacity = "0";
-});
+});*/
 mobile_main_menu_items.addEventListener("mouseover", () => {
+  header_menu_dropdowns.style.display = "flex";
   mobile_main_menu_items.style.visibility = "visible";
   mobile_main_menu_items.style.opacity = "1";
 });
 mobile_main_menu_items.addEventListener("mouseout", (evnt) => {
+  header_menu_dropdowns.style.display = "none";
   mobile_main_menu_items.style.visibility = "hidden";
   mobile_main_menu_items.style.opacity = "0";
 });
 
 //hover event for menu languages option
 other_menu_languages_option.addEventListener("mouseover", () => {
+  header_menu_dropdowns.style.display = "flex";
   main_menu_language_submenu.style.visibility = "visible";
   main_menu_language_submenu.style.opacity = "1";
 });
 other_menu_languages_option.addEventListener("mouseout", (evnt) => {
+  header_menu_dropdowns.style.display = "none";
   main_menu_language_submenu.style.visibility = "hidden";
   main_menu_language_submenu.style.opacity = "0";
 });
 main_menu_language_submenu.addEventListener("mouseover", () => {
+  header_menu_dropdowns.style.display = "flex";
   main_menu_language_submenu.style.visibility = "visible";
   main_menu_language_submenu.style.opacity = "1";
 });
 main_menu_language_submenu.addEventListener("mouseout", (evnt) => {
+  header_menu_dropdowns.style.display = "none";
   main_menu_language_submenu.style.visibility = "hidden";
   main_menu_language_submenu.style.opacity = "0";
 });
 
 //hover event for menu more option
 main_menu_more_option.addEventListener("mouseover", () => {
+  header_menu_dropdowns.style.display = "flex";
   main_menu_more_option_a_tag.style.color = "orange";
   main_menu_more_submenu.style.visibility = "visible";
   main_menu_more_submenu.style.opacity = "1";
 });
 main_menu_more_option.addEventListener("mouseout", (evnt) => {
+  header_menu_dropdowns.style.display = "none";
   main_menu_more_option_a_tag.style.color = "white";
   main_menu_more_submenu.style.visibility = "hidden";
   main_menu_more_submenu.style.opacity = "0";
 });
 main_menu_more_submenu.addEventListener("mouseover", () => {
+  header_menu_dropdowns.style.display = "flex";
   main_menu_more_option_a_tag.style.color = "orange";
   main_menu_more_submenu.style.visibility = "visible";
   main_menu_more_submenu.style.opacity = "1";
 });
 main_menu_more_submenu.addEventListener("mouseout", (evnt) => {
+  header_menu_dropdowns.style.display = "none";
   main_menu_more_option_a_tag.style.color = "white";
   main_menu_more_submenu.style.visibility = "hidden";
   main_menu_more_submenu.style.opacity = "0";
