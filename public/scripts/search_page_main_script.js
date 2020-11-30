@@ -144,11 +144,12 @@ var hero_section_container = document.querySelector(".hero_section_container");
                 MobilehowSearchFormInputsBtn.style.display = "none";
                 MobilehowSearchFormInputsBtn.style.display = "block";
 
-                if($(window).width() < 450){
-                  hero_section_container.style.minWidth = "100vw";
-                }
-
               }
+
+              if($(window).width() < 450){
+                hero_section_container.style.minWidth = "100vw";
+              }
+
             } else { 
               
               city_search_fieldset.style.display = "flex";
@@ -160,7 +161,7 @@ var hero_section_container = document.querySelector(".hero_section_container");
               if($(window).width() < 450)
                 hero_section_container.style.minWidth = "calc(100vw - 20px)";
 
-                mobile_search_change_type_of_service.style.paddingTop = 0;
+              mobile_search_change_type_of_service.style.paddingTop = 0;
               document.body.style.paddingTop = "0";
               hero_section_container.style.position = "initial"; 
               hero_section_container.style.top = "initial"; 
@@ -199,4 +200,97 @@ var hero_section_container = document.querySelector(".hero_section_container");
               document.getElementById("site_lower_section_left_container").style.display = "block";
               document.getElementById("search_settings_angle_down").style.transform = "rotate(180deg)";
             }
+        })
+
+
+        //Adding toggle functions for showing and hiding settings areas
+
+        //stop settings
+        var main_stops_settings_container = document.getElementById("main_stops_settings_container");
+        main_stops_settings_container.style.display = "none";
+
+        document.getElementById("toggle_show_stops_settings_btn").addEventListener("click", (evnt)=>{
+          
+          if(main_stops_settings_container.style.display === "none"){
+            document.getElementById("toggle_show_stops_settings_btn_i").style.transform = "rotate(360deg)";
+            $("#main_stops_settings_container").slideDown("fast");
+          }else{
+            document.getElementById("toggle_show_stops_settings_btn_i").style.transform = "rotate(180deg)";
+            $("#main_stops_settings_container").slideUp("fast");
+          }
+        })
+
+        //flexible options settings
+        var main_flexible_options_settings_container = document.getElementById("main_flexible_options_settings_container");
+        main_flexible_options_settings_container.style.display = "none";
+
+        document.getElementById("toggle_show_flexible_options_settings_btn").addEventListener("click", (evnt)=>{
+         
+          if(main_flexible_options_settings_container.style.display === "none"){
+            document.getElementById("toggle_show_flexible_options_settings_btn_i").style.transform = "rotate(360deg)";
+            $("#main_flexible_options_settings_container").slideDown("fast");
+          }else{
+            document.getElementById("toggle_show_flexible_options_settings_btn_i").style.transform = "rotate(180deg)";
+            $("#main_flexible_options_settings_container").slideUp("fast");
+          }
+        })
+
+        //airports settings
+        var main_airports_settings_container = document.getElementById("main_airports_settings_container");
+        main_airports_settings_container.style.display = "none";
+
+        document.getElementById("toggle_airports_settings_btn").addEventListener("click", (evnt)=>{
+         
+          if(main_airports_settings_container.style.display === "none"){
+            document.getElementById("toggle_airports_settings_btn_i").style.transform = "rotate(360deg)";
+            $("#main_airports_settings_container").slideDown("fast");
+          }else{
+            document.getElementById("toggle_airports_settings_btn_i").style.transform = "rotate(180deg)";
+            $("#main_airports_settings_container").slideUp("fast");
+          }
+        })
+
+        //transport types settings
+        var main_transport_types_settings_container = document.getElementById("main_transport_types_settings_container");
+        main_transport_types_settings_container.style.display = "none";
+
+        document.getElementById("toggle_transport_types_settings_btn").addEventListener("click", (evnt)=>{
+         
+          if(main_transport_types_settings_container.style.display === "none"){
+            document.getElementById("toggle_transport_types_settings_btn_i").style.transform = "rotate(360deg)";
+            $("#main_transport_types_settings_container").slideDown("fast");
+          }else{
+            document.getElementById("toggle_transport_types_settings_btn_i").style.transform = "rotate(180deg)";
+            $("#main_transport_types_settings_container").slideUp("fast");
+          }
+        })
+
+        //times settings
+        var main_times_settings_container = document.getElementById("main_times_settings_container");
+        main_times_settings_container.style.display = "none";
+
+        document.getElementById("toggle_times_settings_btn").addEventListener("click", (evnt)=>{
+         
+          if(main_times_settings_container.style.display === "none"){
+            document.getElementById("toggle_times_settings_btn_i").style.transform = "rotate(360deg)";
+            $("#main_times_settings_container").slideDown("fast");
+          }else{
+            document.getElementById("toggle_times_settings_btn_i").style.transform = "rotate(180deg)";
+            $("#main_times_settings_container").slideUp("fast");
+          }
+        })
+
+        //airlines settings
+        var main_airlines_settings_container = document.getElementById("main_airlines_settings_container");
+        main_airlines_settings_container.style.display = "none";
+
+        document.getElementById("toggle_airlines_settings_btn").addEventListener("click", (evnt)=>{
+         
+          if(main_airlines_settings_container.style.display === "none"){
+            document.getElementById("toggle_airlines_settings_btn_i").style.transform = "rotate(360deg)";
+            $("#main_airlines_settings_container").slideDown("fast");
+          }else{
+            document.getElementById("toggle_airlines_settings_btn_i").style.transform = "rotate(180deg)";
+            $("#main_airlines_settings_container").slideUp("fast");
+          }
         })

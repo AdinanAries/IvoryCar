@@ -57,7 +57,7 @@
                 class="top_nav_var_main_menu_item"
               >
                 <a href="#"
-                  ><i class="fa fa-car" aria-hidden="true"></i>Car Rentals</a
+                  ><i class="fa fa-car" aria-hidden="true"></i>Cars</a
                 >
               </li>
               <li id="top_nav_trip_btn">
@@ -108,9 +108,17 @@
                 class="top_nav_var_main_menu_item"
               >
                 <a href="#"
-                  ><i class="fa fa-car" aria-hidden="true"></i>Car Rentals</a
+                  ><i class="fa fa-car" aria-hidden="true"></i>Cars</a
                 >
               </div>
+              <div
+              id="mobile_menu_packages_option"
+              class="top_nav_var_main_menu_item"
+            >
+              <a href="#"
+                ><i class="fa fa-suitcase" aria-hidden="true"></i>Packages</a
+              >
+            </div>
           </div>
           <div id="trip_type_param_round_trip_option_container" style="overflow: initial !important; width: fit-content;">
             <ul id="trip_type_parameters">
@@ -398,11 +406,11 @@
               <p style="color: white; margin-top: 15px;">848 of 848 flights</p>
             </div>
             <div class="site_lower_left_section_part">
-              <div class="site_lower_left_section_part_title_container">
+              <div  id="toggle_show_stops_settings_btn" class="site_lower_left_section_part_title_container">
                 <p class="site_lower_left_section_part_title">Stops</p>
-                <i class="fa fa-angle-up" aria-hidden="true"></i>
+                <i id="toggle_show_stops_settings_btn_i"class="fa fa-angle-up" aria-hidden="true"></i>
               </div>
-              <div class="site_lower_left_section_last_part_settings">
+              <div id="main_stops_settings_container" class="site_lower_left_section_last_part_settings">
                 <div class="each_site_lower_left_section_last_part_setting">
                   <div class="each_site_lower_left_section_last_part_setting_left">
                     <input type="checkbox"/> 
@@ -427,11 +435,11 @@
               </div>
             </div>
             <div class="site_lower_left_section_part">
-              <div class="site_lower_left_section_part_title_container">
+              <div  id="toggle_show_flexible_options_settings_btn" class="site_lower_left_section_part_title_container">
                 <p class="site_lower_left_section_part_title">Flexible options</p>
-                <i class="fa fa-angle-up" aria-hidden="true"></i>
+                <i id="toggle_show_flexible_options_settings_btn_i" class="fa fa-angle-up" aria-hidden="true"></i>
               </div>
-              <div class="site_lower_left_section_last_part_settings">
+              <div id="main_flexible_options_settings_container" class="site_lower_left_section_last_part_settings">
                 <div class="each_site_lower_left_section_last_part_setting">
                   <div class="each_site_lower_left_section_last_part_setting_left">
                     <input type="checkbox"/> 
@@ -441,11 +449,11 @@
               </div>
             </div>
             <div class="site_lower_left_section_part">
-              <div class="site_lower_left_section_part_title_container">
+              <div id="toggle_airports_settings_btn" class="site_lower_left_section_part_title_container">
                 <p class="site_lower_left_section_part_title">Airports</p>
-                <i class="fa fa-angle-up" aria-hidden="true"></i>
+                <i id="toggle_airports_settings_btn_i" class="fa fa-angle-up" aria-hidden="true"></i>
               </div>
-              <div class="site_lower_left_section_last_part_settings">
+              <div id="main_airports_settings_container" class="site_lower_left_section_last_part_settings">
                 <p class="site_lower_left_section_last_part_settings_itemset_title">Hartford</p>
                 <div class="each_site_lower_left_section_last_part_setting">
                   <div class="each_site_lower_left_section_last_part_setting_left">
@@ -465,11 +473,11 @@
               </div>
             </div>
             <div class="site_lower_left_section_part">
-              <div class="site_lower_left_section_part_title_container">
+              <div id="toggle_transport_types_settings_btn" class="site_lower_left_section_part_title_container">
                 <p class="site_lower_left_section_part_title">Transportation types</p>
-                <i class="fa fa-angle-up" aria-hidden="true"></i>
+                <i id="toggle_transport_types_settings_btn_i" class="fa fa-angle-up" aria-hidden="true"></i>
               </div>
-              <div class="site_lower_left_section_last_part_settings">
+              <div id="main_transport_types_settings_container" class="site_lower_left_section_last_part_settings">
                 <div class="each_site_lower_left_section_last_part_setting">
                   <div class="each_site_lower_left_section_last_part_setting_left">
                     <input type="checkbox" checked="true"/> 
@@ -487,11 +495,11 @@
               </div>
             </div>
             <div class="site_lower_left_section_part">
-              <div style="margin-bottom: 15px;" class="site_lower_left_section_part_title_container">
+              <div id="toggle_times_settings_btn" style="margin-bottom: 15px;" class="site_lower_left_section_part_title_container">
                 <p class="site_lower_left_section_part_title">Times</p>
-                <i class="fa fa-angle-up" aria-hidden="true"></i>
+                <i id="toggle_times_settings_btn_i" class="fa fa-angle-up" aria-hidden="true"></i>
               </div>
-              <div class="site_lower_left_section_last_part_settings">
+              <div id="main_times_settings_container" class="site_lower_left_section_last_part_settings">
                 <div class="takeoff_landing_switch">
                   <div class="active">Take-off</div>
                   <div>Landing</div>
@@ -527,11 +535,11 @@
               </div>
             </div>
             <div class="site_lower_left_section_last_part">
-              <div class="site_lower_left_section_part_title_container">
+              <div id="toggle_airlines_settings_btn" class="site_lower_left_section_part_title_container">
                 <p class="site_lower_left_section_part_title">Airlines</p>
-                <i class="fa fa-angle-up" aria-hidden="true"></i>
+                <i id="toggle_airlines_settings_btn_i" class="fa fa-angle-up" aria-hidden="true"></i>
               </div>
-              <div class="site_lower_left_section_last_part_settings">
+              <div id="main_airlines_settings_container" class="site_lower_left_section_last_part_settings">
                 <div class="each_site_lower_left_section_last_part_setting">
                   <div class="each_site_lower_left_section_last_part_setting_left">
                     <input type="checkbox" checked="true"/> 

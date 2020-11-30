@@ -239,10 +239,15 @@ header {
 .site_lower_left_section_part_title_container i {
   color: #b9b5c0;
   font-size: 19px;
+  transform: rotate(180deg);
 }
 .site_lower_left_section_part_title {
+  cursor: pointer;
   color: white;
   font-weight: bolder;
+}
+.site_lower_left_section_last_part_settings {
+  display: none;
 }
 .site_lower_left_section_last_part_settings_itemset_title {
   color: rgb(166, 225, 243);
@@ -827,12 +832,14 @@ footer a {
     justify-content: space-between;
     padding: 0 10px;
   }
+  #mobile_search_change_type_of_service div a {
+    color: white;
+    font-size: 12px;
+  }
   #mobile_search_change_type_of_service div i {
     color: rgb(231, 124, 2);
     margin-right: 5px;
-  }
-  #mobile_search_change_type_of_service div a {
-    color: white;
+    font-size: 18px;
   }
   .site_lower_section_left {
     display: none;
