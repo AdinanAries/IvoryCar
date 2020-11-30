@@ -171,9 +171,11 @@ header li,
   padding: 20px;
 }
 #mobile_main_menu_items li {
+  padding: 0;
   padding-top: 10px;
   padding-bottom: 5px;
 }
+
 header li a,
 #mobile_main_menu_items li a {
   text-decoration: none;
@@ -186,6 +188,9 @@ header li a i,
 #mobile_main_menu_items li a i {
   color: sandybrown;
   margin-right: 5px;
+}
+#mobile_main_menu_items li a i {
+  margin-right: 15px;
 }
 .active_top_nav_link {
   border-bottom: 4px solid orange;
