@@ -155,6 +155,7 @@ main_menu_more_submenu.addEventListener("mouseout", (evnt) => {
 //this function reset all main menu items non active state
 function set_all_main_menu_items_as_not_selected() {
   top_nav_var_main_menu_items.forEach((menuItem) => {
+    menuItem.classList.remove("active_top_nav_submenu_link");
     menuItem.classList.remove("active_top_nav_link");
   });
 }
@@ -162,7 +163,8 @@ function set_all_main_menu_items_as_not_selected() {
 //this sets the packages main menu option active
 main_menu_packages_option.addEventListener("click", () => {
   set_all_main_menu_items_as_not_selected();
-  main_menu_packages_option.classList.add("active_top_nav_link");
+  main_menu_more_option.classList.add("active_top_nav_link");
+  main_menu_packages_option.classList.add("active_top_nav_submenu_link");
   jumbotron_background.style.display = "none";
   render_packages_page();
 });
@@ -177,8 +179,10 @@ main_menu_car_option.addEventListener("click", () => {
 
 //this sets the cars main menu option active
 main_menu_explore_option.addEventListener("click", () => {
+
   set_all_main_menu_items_as_not_selected();
-  main_menu_explore_option.classList.add("active_top_nav_link");
+  main_menu_more_option.classList.add("active_top_nav_link");
+  main_menu_explore_option.classList.add("active_top_nav_submenu_link");
   jumbotron_background.style.display = "none";
   render_explore_page();
 });

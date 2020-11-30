@@ -53,19 +53,17 @@
                 <a href="#"><i class="fa fa-plane" aria-hidden="true"></i>Flights</a>
               </li>
               <li
-                id="main_menu_packages_option"
                 class="top_nav_var_main_menu_item"
               >
                 <a href="#"
-                  ><i class="fa fa-briefcase" aria-hidden="true"></i>Packages</a
+                  ><i class="fa fa-bed" aria-hidden="true"></i>Hotels</a
                 >
               </li>
               <li
-                id="main_menu_explore_option"
                 class="top_nav_var_main_menu_item"
               >
                 <a href="#"
-                  ><i class="fa fa-globe" aria-hidden="true"></i>Explore</a
+                  ><i class="fa fa-car" aria-hidden="true"></i>Car Rentals</a
                 >
               </li>
               <li id="main_menu_more_option" class="top_nav_var_main_menu_item">
@@ -103,17 +101,19 @@
       </div>
     </header>
     <div class="wrapper">
+      <!--Begin DropDowns Container-->
       <div class="header_menu_dropdowns">
+        <!--Begin Mobile DropDown-->
         <div id="mobile_main_menu_items">
           <ul>
             <li
-              id="main_menu_car_option"
+              id="mobile_menu_car_option"
               class="top_nav_var_main_menu_item active_top_nav_link"
             >
               <a href="#"><i class="fa fa-plane" aria-hidden="true"></i>Flights</a>
             </li>
             <li
-              id="main_menu_packages_option"
+              id="mobile_menu_packages_option"
               class="top_nav_var_main_menu_item"
             >
               <a href="#"
@@ -121,14 +121,14 @@
               >
             </li>
             <li
-              id="main_menu_explore_option"
+              id="mobile_menu_explore_option"
               class="top_nav_var_main_menu_item"
             >
               <a href="#"
                 ><i class="fa fa-globe" aria-hidden="true"></i>Explore</a
               >
             </li>
-            <li id="main_menu_more_option" class="top_nav_var_main_menu_item">
+            <li id="mobile_menu_deals_option" class="top_nav_var_main_menu_item">
               <a href="#"><i class="fa fa-suitcase" aria-hidden="true"></i>Deals </a>
             </li>
             <li>
@@ -141,18 +141,42 @@
             </li>
           </ul>
         </div>
+        <!--End Mobile DropDown-->
+        <!--Begin More Submenu-->
         <div id="main_menu_more_submenu">
-          <p style="padding-bottom: 10px; text-align: center">
+          <p style="padding: 10px 0; text-align: center"
+                id="main_menu_packages_option"
+                class="top_nav_var_main_menu_item"
+              >
+                <a href="#"
+                   style="color: white; text-decoration: none; font-size: 13px"
+                  >
+                  <i style="margin-right: 5px;" class="fa fa-suitcase" aria-hidden="true"></i>Packages</a
+                >
+          </p>
+          <p style="padding-bottom: 10px; padding-top: 5px; text-align: center"
+                id="main_menu_explore_option"
+                class="top_nav_var_main_menu_item"
+              >
+                <a href="#"
+                   style="color: white; text-decoration: none; font-size: 13px"
+                  >
+                  <i style="margin-right: 5px;" class="fa fa-globe" aria-hidden="true"></i>Explore</a
+                >
+          </p>
+          <p style="padding-bottom: 10px; padding-top: 5px; text-align: center"
+             class="top_nav_var_main_menu_item"
+          >
             <a
               href="#"
               style="color: white; text-decoration: none; font-size: 13px"
             >
-              Deals
+              <i style="margin-right: 5px;" aria-hidden="true" class="fa fa-briefcase"></i>Deals
             </a>
           </p>
           <p
             style="
-              padding-top: 10px;
+              padding: 10px; margin-top: 5px;
               border-top: 1px solid #2a4255;
               text-align: center;
             "
@@ -161,10 +185,12 @@
               href="#"
               style="color: white; text-decoration: none; font-size: 13px"
             >
-              Help
+            <i style="margin-right: 5px;" class="fa fa-question" aria-hidden="true"></i>Help
             </a>
           </p>
         </div>
+        <!--End More Submenu-->
+        <!--Begin Site Lang SubMenu-->
         <div id="main_menu_language_submenu">
           <p style="padding-bottom: 10px; text-align: center">
             <a
@@ -189,7 +215,9 @@
             </a>
           </p>
         </div>
+        <!--End Site Lang SubMenu-->
       </div>
+      <!--End DropDowns Container-->
     </div>
     <section>
       <div class="wrapper">

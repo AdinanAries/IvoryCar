@@ -109,6 +109,9 @@ header {
   opacity: 0;
   transition: visibility 0s, opacity 0.5s linear;
 }
+#main_menu_more_submenu {
+  height: auto !important;
+}
 #main_menu_more_submenu:hover,
 #main_menu_language_submenu:hover {
   visibility: visible;
@@ -188,6 +191,13 @@ header li a i,
   color: orange !important;
 }
 .active_top_nav_link a i {
+  color: rgb(255, 23, 166) !important;
+}
+.active_top_nav_submenu_link,
+.active_top_nav_submenu_link a {
+  color: orange !important;
+}
+.active_top_nav_submenu_link a i {
   color: rgb(255, 23, 166) !important;
 }
 .hero_section_container,

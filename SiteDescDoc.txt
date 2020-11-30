@@ -1,0 +1,7 @@
+With my own site I can collect user emails and actively keep them coming back..
+I'm  a web developer and this website will add a boost to my resume
+I already had the site built before I discovered about these other options
+And I also see myself doing this for long term
+I also want to be able to provide my customers insights from data analysis or machine learning
+My site, without violating any of the api rules, will contain additional functions beyond the provisions of the api.
+like -> ads on the site.

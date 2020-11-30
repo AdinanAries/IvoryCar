@@ -2,7 +2,7 @@ var ctx = $("#line-chart");
 
 
 var lineChart = new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
         labels: [
             "Mon, Dec 11","Tue, Dec 12","Wed, Dec 13","Thu, Dec 14","Fri, Dec 15","Sat, Dec 17","Sun, Dec 18","Mon, Dec 19","Tue, Dec 20","Wed, Dec 21","Thu, Dec 22","Fri, Dec 23","Sat, Dec 24","Sun, Dec 25"

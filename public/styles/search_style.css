@@ -746,6 +746,10 @@ header {
 #show_search_results_options_btn {
   display: none;
 }
+#mobile_search_change_type_of_service {
+  padding-top: 0;
+  display: none;
+}
 footer {
   background-color: #140028;
   padding: 30px 0;
@@ -807,6 +811,29 @@ footer a {
   }
   #top_nav_trip_btn {
     display: none;
+  }
+  #main_menu_flights_option {
+    display: none;
+  }
+  #main_menu_hotels_option {
+    display: none;
+  }
+  #main_menu_car_rentals_option {
+    display: none;
+  }
+  #mobile_search_change_type_of_service {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-between;
+    padding: 0 10px;
+    padding-top: 15px;
+  }
+  #mobile_search_change_type_of_service div i {
+    color: rgb(231, 124, 2);
+    margin-right: 5px;
+  }
+  #mobile_search_change_type_of_service div a {
+    color: white;
   }
   .site_lower_section_left {
     display: none;
