@@ -6,6 +6,7 @@ var trip_type_param_flight_class_option = document.getElementById("trip_type_par
 var trip_type_param_round_trip_option = document.getElementById("trip_type_param_round_trip_option");
 
 var MobilehowSearchFormInputsBtn = document.getElementById("MobilehowSearchFormInputsBtn");
+var mobile_search_change_type_of_service = document.getElementById("mobile_search_change_type_of_service");
 var search_tickets_form_container = document.getElementsByClassName("search_tickets_form_container")[0];
 
 var number_of_people_round_trip_type_options_item = document.getElementById("number_of_people_round_trip_type_options_item");
@@ -128,6 +129,7 @@ var hero_section_container = document.querySelector(".hero_section_container");
 
               hero_section_container.style.position = "fixed"; 
               hero_section_container.style.top = "0px";
+              mobile_search_change_type_of_service.style.paddingTop = "15px";
               document.body.style.paddingTop = "100px";
 
               if($(window).width() < 700){
@@ -158,6 +160,7 @@ var hero_section_container = document.querySelector(".hero_section_container");
               if($(window).width() < 450)
                 hero_section_container.style.minWidth = "calc(100vw - 20px)";
 
+                mobile_search_change_type_of_service.style.paddingTop = 0;
               document.body.style.paddingTop = "0";
               hero_section_container.style.position = "initial"; 
               hero_section_container.style.top = "initial"; 

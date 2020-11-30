@@ -826,7 +826,6 @@ footer a {
     flex-direction: row !important;
     justify-content: space-between;
     padding: 0 10px;
-    padding-top: 15px;
   }
   #mobile_search_change_type_of_service div i {
     color: rgb(231, 124, 2);
