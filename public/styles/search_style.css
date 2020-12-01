@@ -154,6 +154,18 @@ header {
 }
 .top_nav_links ul li i {
   margin-right: 10px;
+  color: rgb(231, 124, 2);
+}
+.active_top_nav_link {
+  border-bottom: 4px solid orange;
+  color: orange;
+  padding-bottom: 16px;
+}
+.active_top_nav_link a {
+  color: orange !important;
+}
+.active_top_nav_link a i {
+  color: rgb(255, 23, 166) !important;
 }
 .site_logo_container {
   height: 59px;
