@@ -164,7 +164,12 @@ header {
 .active_top_nav_link a {
   color: orange !important;
 }
-.active_top_nav_link a i {
+.active_mobile_nav_link a {
+  color: white !important;
+  font-weight: bolder;
+}
+.active_top_nav_link a i,
+.active_mobile_nav_link a i {
   color: rgb(255, 23, 166) !important;
 }
 .site_logo_container {
@@ -435,13 +440,17 @@ header {
   font-size: 14px;
   width: 100px;
 }
+.each_ticket_item_main_extra_container {
+  background-color: #e2e2e2;
+  border-bottom: 1px solid #d1d1d1;
+}
 .each_ticket_item_main_extra {
   padding: 15px 10px;
   display: flex;
   flex-direction: row !important;
   justify-content: space-between;
-  background-color: #e2e2e2;
-  border-bottom: 1px solid #d1d1d1;
+  cursor: pointer;
+  transition: all 0.5s;
 }
 .each_ticket_item_main_extra span {
   color: white;
@@ -453,6 +462,63 @@ header {
 .each_ticket_item_main_extra span i {
   font-size: 15px;
   margin: 0 5px;
+}
+.flight_ticket_item_details {
+  display: none;
+  min-height: 400px;
+  padding: 10px;
+}
+.flight_ticket_item_details_section_content {
+  min-height: 150px;
+  border-radius: 4px;
+  background-color: white;
+  border: 1px solid #c9c9c9;
+  /*box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
+    0px 0px 2.9px rgba(0, 0, 0, 0.33);*/
+}
+.flight_ticket_item_details_top_options {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.flight_ticket_item_details_each_top_option {
+  font-weight: bolder;
+  font-size: 14px;
+  border-bottom: 3px solid #6793b8;
+  color: #6793b8;
+  text-align: center;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+}
+.flight_ticket_item_details_each_top_option:hover {
+  color: #003261;
+}
+.flight_ticket_item_details_top_options .active {
+  border-bottom: 3px solid #003261;
+  color: #003261;
+}
+.flight_ticket_item_details_section_content_title {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  padding-top: 20px;
+}
+.flight_ticket_item_details_section_content_title p {
+  font-size: 14px;
+  font-weight: bolder;
+}
+.flight_ticket_item_details_section_content_title span {
+  color: #636363;
+  font-size: 14px;
+  margin-left: 15px;
+}
+.flight_ticket_item_details_section_content_title input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
 }
 .each_ticket_item_main {
   display: flex;
@@ -845,7 +911,7 @@ footer a {
     padding: 0 10px;
   }
   #mobile_search_change_type_of_service div a {
-    color: white;
+    color: rgba(204, 241, 255, 0.603);
     font-size: 12px;
   }
   #mobile_search_change_type_of_service div i {

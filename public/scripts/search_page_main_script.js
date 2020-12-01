@@ -293,4 +293,17 @@ var hero_section_container = document.querySelector(".hero_section_container");
             document.getElementById("toggle_airlines_settings_btn_i").style.transform = "rotate(180deg)";
             $("#main_airlines_settings_container").slideUp("fast");
           }
-        })
+        });
+
+      function  toggle_show_flight_ticket_item_details(number){
+        let flight_ticket_item_details = ("flight_ticket_item_details" + number);
+        let see_flight_details_angle_down = ("see_flight_details_angle_down" + number)
+        if(document.getElementById(flight_ticket_item_details).style.display === "block"){
+          $("#"+flight_ticket_item_details).slideUp("fast");
+          document.getElementById(see_flight_details_angle_down).style.transform = "rotate(360deg)";
+
+        }else{
+          $("#"+flight_ticket_item_details).slideDown("fast");
+          document.getElementById(see_flight_details_angle_down).style.transform = "rotate(180deg)";
+        }
+      }
