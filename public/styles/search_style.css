@@ -406,11 +406,115 @@ header {
   min-height: 500px;
 }
 .each_ticket_item {
+  position: relative;
   width: 100%;
   margin: 10px 0;
   background-color: white;
   border-radius: 4px;
   overflow: hidden !important;
+}
+.each_ticket_item:hover .share_each_ticket_item_btn {
+  display: flex;
+}
+.share_each_ticket_item_btn {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  top: 53px;
+  left: 30px;
+  position: absolute;
+  width: 45px !important;
+  height: 25px;
+  padding-top: 5px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
+    0px 0px 2.9px rgba(0, 0, 0, 0.33);
+  transition: all 0.5s;
+}
+.share_each_ticket_item_btn_for_small_cards {
+  top: 70px;
+}
+.share_each_ticket_item_btn:hover {
+  height: 45px;
+}
+.share_each_ticket_item_btn:hover .share_each_ticket_item_btn_txt {
+  display: block;
+}
+.share_each_ticket_item_btn_txt {
+  display: none;
+  font-size: 10px;
+  transition: all 0.5s;
+}
+.each_ticket_item_emogi_and_rating {
+  position: relative;
+}
+.each_ticket_item_emogi_and_rating:hover .bubble_popup {
+  display: block;
+}
+.bubble_popup {
+  display: none;
+  top: -13px;
+  left: -265px;
+  position: absolute;
+  font-family: arial;
+  font-size: 1.1em;
+  background: white;
+  border-radius: 4px;
+  padding: 10px;
+  width: 250px;
+  height: 150px;
+  box-shadow: 0px 1.6px 10.6px rgba(0, 0, 0, 0.2),
+    0px 0px 10.9px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s;
+  font-size: 12px;
+}
+.arrow_on_bottom::after {
+  /* [THESE WILL CREATE THE TRIANGLE] */
+  content: "";
+  border: 20px solid transparent;
+  border-top-color: #a53d38;
+  border-bottom: 0;
+  /* [THESE WILL POSITION THE TRIANGLE] */
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  margin-left: -20px;
+}
+
+.arrow_on_top::after {
+  content: "";
+  border: 20px solid transparent;
+  border-bottom-color: #a53d38;
+  border-top: 0;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  margin-left: -20px;
+}
+
+.arrow_on_left_side::after {
+  content: "";
+  border: 20px solid transparent;
+  border-right-color: #a53d38;
+  border-left: 0;
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  margin-top: -20px;
+}
+
+.arrow_on_right_side::after {
+  content: "";
+  border: 8px solid transparent;
+  border-left-color: white;
+  border-right: 0;
+  position: absolute;
+  right: -8px;
+  top: 35px;
+  margin-top: -20px;
 }
 .each_ticket_item_top {
   padding: 15px 10px;
@@ -1030,6 +1134,11 @@ footer a {
   }
   .COVID_policy_mobile {
     display: block;
+  }
+  .bubble_popup {
+    left: -247px !important;
+    width: 230px !important;
+    height: 250px;
   }
   #hero_section_flex_container {
     flex-direction: column !important;
