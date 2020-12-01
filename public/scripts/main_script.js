@@ -1,5 +1,12 @@
 //getting dom elements
 
+var hotels__search_form_container = document.getElementById("hotels__search_form_container");
+var flights_search_tickets_form_container = document.getElementById("flights_search_tickets_form_container");
+var car_rentals_search_form_container = document.getElementById("car_rentals_search_form_container");
+var main_menu_hotels_option = document.getElementById("main_menu_hotels_option");
+var main_menu_car_rentals_option = document.getElementById("main_menu_car_rentals_option");
+
+
 var header_menu_dropdowns = document.getElementById("header_menu_dropdowns_container");
 var top_logo_menu_icon = document.getElementById("top_logo_menu_icon");
 
@@ -197,12 +204,46 @@ main_menu_packages_option.addEventListener("click", () => {
   render_packages_page();
 });
 
-//this sets the cars main menu option active
+//function to show flights search form
 main_menu_car_option.addEventListener("click", () => {
+  hotels__search_form_container.style.display = "none";
+  car_rentals_search_form_container.style.display = "none";
+  flights_search_tickets_form_container.style.display = "flex"
   set_all_main_menu_items_as_not_selected();
   main_menu_car_option.classList.add("active_top_nav_link");
   jumbotron_background.style.display = "block";
   render_cars_page();
+  document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/JFKAIR.jpg')";
+  document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/travel-4.jpg')";
+  document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/633637768_flight-attendant.jpg')";
+});
+
+//function to show hotels search form
+main_menu_hotels_option.addEventListener("click", () => {
+  hotels__search_form_container.style.display = "flex";
+  flights_search_tickets_form_container.style.display = "none"
+  car_rentals_search_form_container.style.display = "none";
+  set_all_main_menu_items_as_not_selected();
+  main_menu_hotels_option.classList.add("active_top_nav_link");
+  jumbotron_background.style.display = "block";
+  render_cars_page();
+  document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/HotelPic.jpg')";
+  document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/HotelPic2.jpg')";
+  document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/HotelPic3.jpg')";
+});
+
+//function to show car rentals search form
+main_menu_car_rentals_option.addEventListener("click", () => {
+  hotels__search_form_container.style.display = "none";
+  car_rentals_search_form_container.style.display = "flex";
+  flights_search_tickets_form_container.style.display = "none"
+  set_all_main_menu_items_as_not_selected();
+  main_menu_car_rentals_option.classList.add("active_top_nav_link");
+  jumbotron_background.style.display = "block";
+  render_cars_page();
+  document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/CarRentals.png')";
+  document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/CarRentals2.jpg')";
+  document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/CarRentals3.jpg')";
 });
 
 //this sets the cars main menu option active

@@ -498,6 +498,8 @@ header li a i,
   background-position-x: center;
   width: 33.3%;
   height: 100%;
+  -webkit-transition: background-image 0.2s ease-in-out;
+  transition: background-image 0.2s ease-in-out;
 }
 #site_lower_section {
   min-height: 500px;
