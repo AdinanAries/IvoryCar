@@ -459,6 +459,7 @@ header {
   top: -13px;
   left: -265px;
   position: absolute;
+  z-index: 2;
   font-family: arial;
   font-size: 1.1em;
   background: white;
@@ -673,6 +674,31 @@ header {
   flex-direction: column;
   justify-content: flex-end;
 }
+.ticket_item_entitlements_display {
+  cursor: pointer;
+  position: relative;
+  color: rgb(104, 104, 104);
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.ticket_item_entitlements_display:hover
+  .ticket_item_entitlements_content_display {
+  display: block;
+}
+.ticket_item_entitlements_content_display {
+  display: none;
+  width: 140px;
+  height: 180px;
+  position: absolute;
+  top: -110px;
+  left: -153px;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0px 1.6px 10.6px rgba(0, 0, 0, 0.2),
+    0px 0px 10.9px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s;
+  font-size: 12px;
+}
 .view_deal_button {
   height: 40px;
   display: flex;
@@ -683,6 +709,7 @@ header {
   background-color: #194f81;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
 }
 .ticket_item_price_display {
   font-size: 26px;
