@@ -12,6 +12,10 @@ var hotels_accommodations_parameters = document.getElementById("hotels_accommoda
 var main_hotels_accommodations_parameters_options = document.getElementById("main_hotels_accommodations_parameters_options");
 var car_rentals_pickup_time_parameters = document.getElementById("car_rentals_pickup_time_parameters");
 
+var from_when_search_input = document.getElementById("from_when_search_input");
+var to_when_search_input = document.getElementById("to_when_search_input");
+
+
 var header_menu_dropdowns = document.getElementById("header_menu_dropdowns_container");
 var top_logo_menu_icon = document.getElementById("top_logo_menu_icon");
 
@@ -344,6 +348,43 @@ city_search_fieldset.addEventListener("focusin", (evnt)=>{
 })
 city_search_fieldset.addEventListener("focusout", (evnt)=>{
   $("#main_from_where_city_show_container").slideUp("fast");
+  document.getElementById("airports_exchange_search_fields_values_icon").style.display = "block";
+  document.getElementById("from_where_city_input_container").style.minWidth = "42%";
+  document.getElementById("to_where_city_input_container").style.minWidth = "42%";
+})
+
+from_where_search_input_fld.addEventListener("focusin", ()=>{
+  if($(document).width() < 700){
+    document.getElementById("airports_exchange_search_fields_values_icon").style.display = "none";
+    document.getElementById("from_where_city_input_container").style.minWidth = "80%";
+    document.getElementById("to_where_city_input_container").style.minWidth = "20%";
+  }
+})
+to_where_search_input_fld.addEventListener("focusin", ()=>{
+  if($(document).width() < 700){
+    document.getElementById("airports_exchange_search_fields_values_icon").style.display = "none";
+    document.getElementById("from_where_city_input_container").style.minWidth = "20%";
+    document.getElementById("to_where_city_input_container").style.minWidth = "80%";
+  }
+})
+from_where_search_input_fld.addEventListener("focusout", ()=>{
+  if($(document).width() < 700){
+    document.getElementById("airports_exchange_search_fields_values_icon").style.display = "block";
+    document.getElementById("from_where_city_input_container").style.minWidth = "42%";
+    document.getElementById("to_where_city_input_container").style.minWidth = "42%";
+  }
+})
+to_where_search_input_fld.addEventListener("focusout", ()=>{
+  if($(document).width() < 700){
+    document.getElementById("airports_exchange_search_fields_values_icon").style.display = "block";
+    document.getElementById("from_where_city_input_container").style.minWidth = "42%";
+    document.getElementById("to_where_city_input_container").style.minWidth = "42%";
+  }
+})
+city_search_fieldset_done_btn.addEventListener("click", ()=>{
+  document.getElementById("airports_exchange_search_fields_values_icon").style.display = "block";
+  document.getElementById("from_where_city_input_container").style.minWidth = "42%";
+  document.getElementById("to_where_city_input_container").style.minWidth = "42%";
 })
 /*ui_datepicker_div.addEventListener("mouseenter", (evnt)=>{
   $("#main_from_where_city_show_container").slideDown("fast");

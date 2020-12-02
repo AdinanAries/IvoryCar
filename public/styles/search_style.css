@@ -1091,8 +1091,7 @@ footer a {
     margin: auto;
     padding: 5px;
     padding-top: 2px;
-    margin-left: -20px;
-    margin-right: 20px;
+    margin-right: 10px;
     overflow: initial;
   }
   .site_lower_section_left {
@@ -1131,7 +1130,6 @@ footer a {
     text-align: center;
   }
   .search_tickets_form_container {
-    padding-bottom: 10px;
     margin-bottom: 5px;
   }
   .search_fieldset {
@@ -1145,6 +1143,7 @@ footer a {
   }
   #home_page_search_button {
     margin: 0 10px;
+    margin-bottom: 10px;
     border-radius: 4px;
     padding: 10px 0;
   }
