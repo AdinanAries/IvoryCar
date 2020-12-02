@@ -229,18 +229,15 @@
           <div class="search_tickets_form_container">
             <div id="city_search_fieldset" class="search_fieldset">
               <div id="from_where_city_input_container">
-                <i class="fa fa-location-arrow" aria-hidden="true"></i
+                <i class="fa fa-map-marker" aria-hidden="true"></i
                 ><input id="from_where_search_input_fld" type="text" placeholder="From where" />
               </div>
+              <div id="airports_exchange_search_fields_values_icon" class="exchange_search_fields_values_icon">
+                <i style="color: white;" class="fa fa-exchange" aria-hidden="true"></i>
+              </div>
               <div id="to_where_city_input_container">
-                <span
-                  style="
-                    font-size: 25px;
-                    color: rgb(233, 128, 0);
-                    margin: 0 10px;
-                  "
-                  >|</span
-                ><input id="to_where_search_input_fld" type="text" placeholder="To where" />
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <input id="to_where_search_input_fld" type="text" placeholder="To where" />
               </div>
               <div id="main_from_where_city_show_container" class="from_where_city_show_container">
                 <div style="margin-top: 50px;">
@@ -338,14 +335,8 @@
                 </script>
               </div>
               <div id="to_when_date_input_container">
-                <span
-                  style="
-                    font-size: 25px;
-                    color: rgb(233, 128, 0);
-                    margin: 0 10px;
-                  "
-                  >|</span
-              ><input onclick="jqueryHelper2()" readonly="readonly" id="to_when_search_input" type="text" placeholder="Return" />
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <input onclick="jqueryHelper2()" readonly="readonly" id="to_when_search_input" type="text" placeholder="Return" />
               <script>
                 function jqueryHelper2(){
                   if($(window).width() > 700)

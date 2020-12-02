@@ -64,7 +64,7 @@ input[type="radio"]:checked {
   display: none;
   padding: 10px 20px;
   position: absolute;
-  margin-left: -10px !important;
+  margin-left: 5px !important;
 }
 .secondJQuery {
   margin-left: -205px !important;
@@ -756,11 +756,11 @@ header {
   border-radius: 5px;
 }
 .search_tickets_form_container .search_fieldset {
-  width: 40%;
+  margin: 10px 0;
+  width: 42%;
   display: flex;
   background-color: white;
   border-radius: 5px;
-  padding: 10px 0;
 }
 /*#home_page_search_button {
   border-radius: 4px;
@@ -788,16 +788,36 @@ header {
   background-color: #003f7a;
 }
 .search_tickets_form_container i {
-  font-size: 20px;
+  font-size: 15px;
   color: rgb(231, 124, 2);
   text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
     0px 0px 2.9px rgba(0, 0, 0, 0.23);
   margin: 0 10px;
 }
+.exchange_search_fields_values_icon {
+  cursor: pointer;
+  font-size: 20px;
+  margin: 5px 0;
+  margin-left: -20px;
+  margin-right: 35px;
+  padding: 5;
+  border-radius: 4px;
+  background-color: #003f7a;
+  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
+    0px 0px 2.9px rgba(0, 0, 0, 0.23);
+}
 .search_tickets_form_container input {
-  width: calc(100% - 40px);
+  width: calc(100% - 50px);
   padding: 10px 0;
+  margin: 0;
   border: none;
+}
+#hotels_where_city_input_container {
+  width: 100%;
+}
+.search_fieldset {
+  position: relative !important;
+  z-index: 3 !important;
 }
 .search_fieldset {
   position: relative !important;
@@ -1067,6 +1087,14 @@ footer a {
     margin-right: 5px;
     font-size: 18px;
   }
+  .exchange_search_fields_values_icon {
+    margin: auto;
+    padding: 5px;
+    padding-top: 2px;
+    margin-left: -20px;
+    margin-right: 20px;
+    overflow: initial;
+  }
   .site_lower_section_left {
     display: none;
   }
@@ -1104,6 +1132,7 @@ footer a {
   }
   .search_tickets_form_container {
     padding-bottom: 10px;
+    margin-bottom: 5px;
   }
   .search_fieldset {
     flex-direction: row !important;

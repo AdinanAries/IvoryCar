@@ -116,6 +116,7 @@ var hero_section_container = document.querySelector(".hero_section_container");
         window.onscroll = function() {
           
             if($(window).width() < 700 && window.pageYOffset > (currStickyPos - 100)){
+              search_tickets_form_container.style.display = "flex";
               city_search_fieldset.style.display = "flex";
               date_search_fieldset.style.display = "flex";
               home_page_search_button.style.display = "flex";
@@ -138,6 +139,7 @@ var hero_section_container = document.querySelector(".hero_section_container");
 
               if($(window).width() < 700 && window.pageYOffset > (currStickyPos + 210)){
                 
+                search_tickets_form_container.style.display = "none";
                 city_search_fieldset.style.display = "none";
                 date_search_fieldset.style.display = "none";
                 home_page_search_button.style.display = "none";
@@ -152,6 +154,7 @@ var hero_section_container = document.querySelector(".hero_section_container");
 
             } else { 
               
+              search_tickets_form_container.style.display = "flex";
               city_search_fieldset.style.display = "flex";
               date_search_fieldset.style.display = "flex";
               home_page_search_button.style.display = "flex";
@@ -174,16 +177,20 @@ var hero_section_container = document.querySelector(".hero_section_container");
             city_search_fieldset.style.opacity = 0;
             date_search_fieldset.style.opacity = 0;
             home_page_search_button.style.opacity = 0;
+            search_tickets_form_container.style.opacity = 0;
 
               $("#city_search_fieldset").slideDown("fast");
               $("#date_search_fieldset").slideDown("fast");
               $("#home_page_search_button").slideDown("fast");
 
+              search_tickets_form_container.style.display = "flex";
               city_search_fieldset.style.display = "flex";
               date_search_fieldset.style.display = "flex";
               city_search_fieldset.style.transition = "opacity 2s";
               date_search_fieldset.style.transition = "opacity 2s";
               home_page_search_button.style.transition = "opacity 2s";
+              search_tickets_form_container.style.transition = "opacity 2s";
+              search_tickets_form_container.style.opacity = 1;
               city_search_fieldset.style.opacity = 1;
               date_search_fieldset.style.opacity = 1;
               home_page_search_button.style.opacity = 1;

@@ -351,6 +351,83 @@
                 </div>
               </div>
             </ul>
+            <ul style="display: none;" id="hotels_accommodations_parameters">
+              <li id="hotels_accommodations_parameters_option">
+                  1 room, 1 traveler
+                  <i class="fa fa-caret-down" aria-hidden="true"></i>
+              </li>
+              <div id="main_hotels_accommodations_parameters_options" class="round_trip_type_options">
+                <div class="round_trip_type_options_content">
+                  <div style="padding: 0 10px;">
+                    <div class="each_round_trip_options_person_selector">
+                      <div class="each_round_trip_options_person_type">Rooms</div>
+                      <div class="each_round_trip_options_increase_person_div">
+                        <div onclick="remove_room_from_hotel_search('Adult');"
+                          class="each_round_trip_options_increase_person_btn">-</div>
+                        <div id="number_of_rooms_count">1</div>
+                        <div onclick="add_room_to_hotel_search('Adult');"
+                          class="each_round_trip_options_increase_person_btn">+</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="padding: 0 10px;">
+                    <p style="color: rgb(255, 102, 0); font-size: 12px;
+                           margin-top: 15px">
+                    Room 1</p>
+                    <div style="margin-top: -5px;" class="each_round_trip_options_person_selector">
+                      <div style="margin-left: 15px;" class="each_round_trip_options_person_type">Adults</div>
+                      <div class="each_round_trip_options_increase_person_div">
+                        <div onclick="remove_traveler_from_hotel_search('Adult');"
+                          class="each_round_trip_options_increase_person_btn">-</div>
+                        <div id="number_of_rooms_count">1</div>
+                        <div onclick="add_traveler_to_hotel_search('Adult');"
+                          class="each_round_trip_options_increase_person_btn">+</div>
+                      </div>
+                    </div>
+                    <div style="margin-top: -10px;" class="each_round_trip_options_person_selector">
+                      <div style="margin-left: 15px;" class="each_round_trip_options_person_type">Children</div>
+                      <div class="each_round_trip_options_increase_person_div">
+                        <div onclick="remove_traveler_from_hotel_search('Child');"
+                          class="each_round_trip_options_increase_person_btn">-</div>
+                        <div id="number_of_rooms_count">0</div>
+                        <div onclick="add_traveler_to_hotel_search('Child');"
+                          class="each_round_trip_options_increase_person_btn">+</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ul>
+            <ul style="display: none;" id="car_rentals_pickup_time_parameters">
+              <li id="car_rentals_pickup_time_parameters_option">
+                  Pickup and Drop-off Time
+                  <i class="fa fa-caret-down" aria-hidden="true"></i>
+              </li>
+              <div id="car_rentals_pickup_time_parameters_options" class="round_trip_type_options">
+                <div class="round_trip_type_options_content">
+                  <div style="padding: 0 10px;">
+                    <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                      <div>
+                        <p>Pickup</p>
+                      </div>
+                      <div>
+                        <input style="padding: 10px; border-radius: 4px; border: none;" type="text" placeholder="pick a time" />
+                      </div>
+                    </div>
+                  </div>
+                  <div style="padding: 0 10px; margin-top: 10px;">
+                    <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                      <div>
+                        <p>Drop-off</p>
+                      </div>
+                      <div>
+                        <input style="padding: 10px; border-radius: 4px; border: none;" type="text" placeholder="pick a time" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ul>
           </div>
           <!--Begin Flight Tickets Form Container-->
           <div id="flights_search_tickets_form_container" class="search_tickets_form_container">
@@ -359,8 +436,8 @@
                 <i class="fa fa-map-marker" aria-hidden="true"></i
                 ><input id="from_where_search_input_fld" type="text" placeholder="From where" />
               </div>
-              <div class="exchange_search_fields_values_icon">
-                <i style="color: #003f7a;" class="fa fa-exchange" aria-hidden="true"></i>
+              <div id="airports_exchange_search_fields_values_icon" class="exchange_search_fields_values_icon">
+                <i style="color: white;" class="fa fa-exchange" aria-hidden="true"></i>
               </div>
               <div id="to_where_city_input_container">
                 <i class="fa fa-map-marker" aria-hidden="true"></i
@@ -461,9 +538,7 @@
                   }
                 </script>
               </div>
-              <div class="exchange_search_fields_values_icon">
-                  <i style="color: #003f7a;" class="fa fa-exchange" aria-hidden="true"></i>
-              </div>
+              
               <div id="to_when_date_input_container">
                 <i class="fa fa-calendar" aria-hidden="true"></i
                   ><input onclick="jqueryHelper2()" readonly="readonly" id="to_when_search_input" type="text" placeholder="Return" />
@@ -578,9 +653,6 @@
                   }
                 </script>
               </div>
-              <div class="exchange_search_fields_values_icon">
-                <i style="color: #003f7a;" class="fa fa-exchange" aria-hidden="true"></i>
-            </div>
               <div id="hotels_to_when_date_input_container">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
                 <input onclick="jqueryHelper2()" readonly="readonly" id="hotels_to_when_search_input" type="text" placeholder="Checkout" />
@@ -616,7 +688,7 @@
                 ><input id="car_rentals_from_where_search_input_fld" type="text" placeholder="Pickup" />
               </div>
               <div class="exchange_search_fields_values_icon">
-                <i style="color: #003f7a;" class="fa fa-exchange" aria-hidden="true"></i>
+                <i style="color: white;" class="fa fa-exchange" aria-hidden="true"></i>
             </div>
               <div id="car_rentals_to_where_city_input_container">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -713,9 +785,7 @@
                   }
                 </script>
               </div>
-              <div class="exchange_search_fields_values_icon">
-                <i style="color: #003f7a;" class="fa fa-exchange" aria-hidden="true"></i>
-              </div>
+              
               <div id="car_rentals_to_when_date_input_container">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
                 <input onclick="jqueryHelper2()" readonly="readonly" id="car_rentals_to_when_search_input" type="text" placeholder="Drop-off Date" />
