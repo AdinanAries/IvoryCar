@@ -1,6 +1,6 @@
 //dom elements
 var home_page_search_button = document.getElementById("home_page_search_button");
-
+var home_page_hotels_search_button = document.getElementById("home_page_hotels_search_button");
 //Global data
 
 var flight_search_flight_class = {
@@ -499,5 +499,9 @@ let search_for_flights = () =>{
 }
 
 home_page_search_button.addEventListener("click", () =>{
+    search_for_flights();
+});
+
+home_page_hotels_search_button.addEventListener("click", () =>{
     search_for_flights();
 });

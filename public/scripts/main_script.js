@@ -6,6 +6,7 @@ var car_rentals_search_form_container = document.getElementById("car_rentals_sea
 var main_menu_hotels_option = document.getElementById("main_menu_hotels_option");
 var main_menu_car_rentals_option = document.getElementById("main_menu_car_rentals_option");
 
+var more_options_date_show_container = document.getElementById("more_options_date_show_container");
 
 var header_menu_dropdowns = document.getElementById("header_menu_dropdowns_container");
 var top_logo_menu_icon = document.getElementById("top_logo_menu_icon");
@@ -57,17 +58,37 @@ trip_type_param_round_trip_option.addEventListener("click", (evnt) => {
 var main_menu_car_option = document.getElementById("main_menu_car_option");
 var city_search_fieldset = document.getElementById("city_search_fieldset");
 var date_search_fieldset = document.getElementById("date_search_fieldset");
-var trip_type_parameters = document.getElementById("trip_type_parameters");
-var trip_type_param_round_trip_option_container = document.getElementById("trip_type_param_round_trip_option_container");
-var close_main_round_trip_type_options_btn = document.getElementById("close_main_round_trip_type_options_btn");
-var main_round_trip_type_options = document.getElementById("main_round_trip_type_options");
-var main_from_where_city_show_container = document.getElementById("main_from_where_city_show_container");
-var main_from_when_date_show_container = document.getElementById("main_from_when_date_show_container");
 var to_where_search_input_fld = document.getElementById("to_where_search_input_fld");
 var from_where_search_input_fld = document.getElementById("from_where_search_input_fld");
 var from_where_search_display_span = document.getElementById("from_where_search_display_span");
 var to_where_search_display_span = document.getElementById("to_where_search_display_span");
+var main_from_where_city_show_container = document.getElementById("main_from_where_city_show_container");
+var main_from_when_date_show_container = document.getElementById("main_from_when_date_show_container");
+
+var hotels_city_search_fieldset = document.getElementById("hotels_city_search_fieldset");
+var hotels_date_search_fieldset = document.getElementById("hotels_date_search_fieldset");
+var hotels_where_search_input_fld = document.getElementById("hotels_where_search_input_fld");
+var hotels_from_where_search_display_span = document.getElementById("hotels_from_where_search_display_span");
+var hotels_main_where_city_show_container = document.getElementById("hotels_main_from_where_city_show_container");
+var hotels_main_from_when_date_show_container = document.getElementById("main_from_when_date_show_container");
+
+var car_rentals_city_search_fieldset = document.getElementById("car_rentals_city_search_fieldset");
+var car_rentals_date_search_fieldset = document.getElementById("car_rentals_date_search_fieldset");
+var car_rentals_to_where_search_input_fld = document.getElementById("car_rentals_to_where_search_input_fld");
+var car_rentals_from_where_search_input_fld = document.getElementById("car_rentals_from_where_search_input_fld");
+var car_rentals_from_where_search_display_span = document.getElementById("car_rentals_from_where_search_display_span");
+var car_rentals_to_where_search_display_span = document.getElementById("car_rentals_to_where_search_display_span");
+var car_rentals_main_from_where_city_show_container = document.getElementById("car_rentals_main_from_where_city_show_container");
+var car_rentals_main_from_when_date_show_container = document.getElementById("car_rentals_main_from_when_date_show_container");
+
+var trip_type_parameters = document.getElementById("trip_type_parameters");
+var trip_type_param_round_trip_option_container = document.getElementById("trip_type_param_round_trip_option_container");
+var close_main_round_trip_type_options_btn = document.getElementById("close_main_round_trip_type_options_btn");
+var main_round_trip_type_options = document.getElementById("main_round_trip_type_options");
+
+
 var ui_datepicker = document.getElementsByClassName("ui-datepicker")[0];
+var ui_datepicker_div = document.getElementById("ui-datepicker-div");
 var main_menu_packages_option = document.getElementById(
   "main_menu_packages_option"
 );
@@ -277,7 +298,7 @@ function render_cars_page() {
   hero_section_container.style.display = "block";
 }
 
-trip_type_param_round_trip_option_container.addEventListener("mouseenter", (evnt)=>{
+trip_type_param_round_trip_option_container.addEventListener("click", (evnt)=>{
   $("#main_round_trip_type_options").slideDown("fast");
   if($(window).width() < 700){
     close_main_round_trip_type_options_btn.style.display = "block";
@@ -298,12 +319,47 @@ city_search_fieldset.addEventListener("focusin", (evnt)=>{
 city_search_fieldset.addEventListener("focusout", (evnt)=>{
   $("#main_from_where_city_show_container").slideUp("fast");
 })
+/*ui_datepicker_div.addEventListener("mouseenter", (evnt)=>{
+  $("#main_from_where_city_show_container").slideDown("fast");
+});*/
+
+hotels_city_search_fieldset.addEventListener("focusin", (evnt)=>{
+  $("#hotels_main_where_city_show_container").slideDown("fast");
+})
+
+hotels_city_search_fieldset.addEventListener("focusout", (evnt)=>{
+  $("#hotels_main_where_city_show_container").slideUp("fast");
+})
+
+car_rentals_city_search_fieldset.addEventListener("focusin", (evnt)=>{
+  $("#car_rentals_main_from_where_city_show_container").slideDown("fast");
+})
+car_rentals_city_search_fieldset.addEventListener("focusout", (evnt)=>{
+  $("#car_rentals_main_from_where_city_show_container").slideUp("fast");
+})
 
 date_search_fieldset.addEventListener("focusin", (evnt)=>{
   $("#main_from_when_date_show_container").slideDown("fast");
 })
 date_search_fieldset.addEventListener("focusout", (evnt)=>{
   $("#main_from_when_date_show_container").slideUp("fast");
+})
+/*ui_datepicker_header.addEventListener("click", (evnt)=>{
+  $("#main_from_when_date_show_container").slideDown("fast");
+})*/
+
+hotels_date_search_fieldset.addEventListener("click", (evnt)=>{
+  $("#hotels_main_from_when_date_show_container").slideDown("fast");
+})
+hotels_date_search_fieldset.addEventListener("focusout", (evnt)=>{
+  $("#hotels_main_from_when_date_show_container").slideUp("fast");
+})
+
+car_rentals_date_search_fieldset.addEventListener("focusin", (evnt)=>{
+  $("#car_rentals_main_from_when_date_show_container").slideDown("fast");
+})
+car_rentals_date_search_fieldset.addEventListener("focusout", (evnt)=>{
+  $("#car_rentals_main_from_when_date_show_container").slideUp("fast");
 })
 
 let autocomplete = new google.maps.places.Autocomplete(from_where_search_input_fld);
@@ -320,5 +376,36 @@ autocomplete2.addListener('place_changed', function () {
                                               + to_where_search_input_fld.value + "</span>";
 });
 
+let autocomplete3 = new google.maps.places.Autocomplete(hotels_where_search_input_fld);
+autocomplete3.addListener('place_changed', function () {
+    let place = autocomplete3.getPlace();
+    hotels_from_where_search_display_span.innerHTML = "<span style='color: rgb(255, 102, 0); font-size: 12px;'>Hotels from </span><span style='font-weight: bolder; font-size: 12px;'>" 
+                                              + hotels_where_search_input_fld.value + "</span>";
+});
+
+let autocomplete4 = new google.maps.places.Autocomplete(car_rentals_from_where_search_input_fld);
+autocomplete4.addListener('place_changed', function () {
+    let place = autocomplete4.getPlace();
+    from_where_search_display_span.innerHTML = "<span style='font-size: 12px; color: rgb(255, 102, 0);'>from </span><span style='font-weight: bolder; font-size: 12px;'>" 
+                                              + car_rentals_from_where_search_input_fld.value + "</span>";
+});
+
+let autocomplete5 = new google.maps.places.Autocomplete(car_rentals_to_where_search_input_fld);
+autocomplete5.addListener('place_changed', function () {
+    let place = autocomplete5.getPlace();
+    car_rentals_to_where_search_display_span.innerHTML = "<span style='color: rgb(255, 102, 0); font-size: 12px;'>to </span><span style='font-weight: bolder; font-size: 12px;'>" 
+                                              + car_rentals_to_where_search_input_fld.value + "</span>";
+});
+
 $("#from_when_search_input").datepicker({minDate: 0});
 $("#to_when_search_input").datepicker({minDate: 0});
+$("#hotels_from_when_search_input").datepicker({minDate: 0});
+$("#hotels_to_when_search_input").datepicker({minDate: 0});
+$("#car_rentals_from_when_search_input").datepicker({minDate: 0});
+$("#car_rentals_to_when_search_input").datepicker({minDate: 0});
+
+
+/*var divs = document.getElementsByTagName('div');
+for (var i = 0, len = divs.length; i < len; i++){
+    divs[i].setAttribute('tabindex', '0');
+}*/

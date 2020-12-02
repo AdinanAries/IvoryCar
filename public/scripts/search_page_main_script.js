@@ -59,7 +59,7 @@ var from_where_search_display_span = document.getElementById("from_where_search_
 var to_where_search_display_span = document.getElementById("to_where_search_display_span");
 var ui_datepicker = document.getElementsByClassName("ui-datepicker")[0];
 
-trip_type_param_round_trip_option_container.addEventListener("mouseenter", (evnt)=>{
+trip_type_param_round_trip_option_container.addEventListener("click", (evnt)=>{
   $("#main_round_trip_type_options").slideDown("fast");
 })
 trip_type_param_round_trip_option_container.addEventListener("mouseleave", (evnt)=>{

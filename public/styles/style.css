@@ -4,13 +4,15 @@
   font-family: Roboto;
   font-size: 16px;
 }
+div:focus {
+  outline: none !important;
+}
 .ui-datepicker {
   z-index: 10;
   width: 300px;
   border: none !important;
   color: #e25a00 !important;
   display: none;
-  background: none !important;
   padding: 10px 20px;
   position: absolute;
   margin-left: -10px !important;
@@ -256,20 +258,23 @@ header li a i,
 .search_tickets_form_container {
   display: flex;
   justify-content: space-between;
-  background-color: rgb(146, 206, 255);
+  /*background-color: rgb(146, 206, 255);*/
+  background-color: white;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   padding: 0 10px;
+  /*border-bottom: 1px solid #c2c2c2;*/
 }
 .search_tickets_form_container .search_fieldset {
   margin: 10px 0;
-  width: 40%;
+  width: 42%;
   display: flex;
-
   background-color: white;
   border-radius: 5px;
 }
-#home_page_search_button {
+#home_page_search_button,
+#home_page_hotels_search_button,
+#home_page_car_rentals_search_button {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-top-right-radius: 4px;
@@ -283,16 +288,25 @@ header li a i,
   background-color: #003f7a;
 }
 .search_tickets_form_container i {
-  font-size: 20px;
+  font-size: 15px;
   color: rgb(231, 124, 2);
   text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
     0px 0px 2.9px rgba(0, 0, 0, 0.23);
   margin: 0 10px;
 }
-.search_tickets_form_container input {
-  width: calc(100% - 40px);
+.exchange_search_fields_values_icon {
+  margin-left: -20px;
+  margin-right: 40px;
   padding: 10px 0;
+}
+.search_tickets_form_container input {
+  width: calc(100% - 50px);
+  padding: 10px 0;
+  margin: 0;
   border: none;
+}
+#hotels_where_city_input_container {
+  width: 100%;
 }
 .search_fieldset {
   position: relative !important;
@@ -332,7 +346,9 @@ header li a i,
   color: rgb(0, 177, 139);
   text-shadow: none;
 }
-#more_options_date_show_container {
+#more_options_date_show_container,
+#hotels_more_options_date_show_container,
+#car_rentals_more_options_date_show_container {
   margin-top: 285px;
   background-color: #a9ddff;
   padding: 10px;
@@ -340,13 +356,17 @@ header li a i,
   border-bottom-right-radius: 5px;
   overflow: hidden;
 }
-#more_options_date_show_container p {
+#more_options_date_show_container p,
+#hotels_more_options_date_show_container p,
+#car_rentals_more_options_date_show_container p {
   font-size: 12px;
   font-weight: bolder;
   color: #003f7a;
   margin-bottom: 10px;
 }
-#more_options_date_show_list {
+#more_options_date_show_list,
+#hotels_more_options_date_show_list,
+#car_rentals_more_options_date_show_list {
   display: flex;
   justify-content: space-between;
 }
@@ -810,13 +830,17 @@ footer a {
     flex-direction: row !important;
     overflow: initial !important;
   }
-  #city_search_fieldset {
+  #city_search_fieldset,
+  #hotels_city_search_fieldset,
+  #car_rentals_city_search_fieldset {
     z-index: 4 !important;
   }
   .each_display_picture_mobile_hidden {
     display: none;
   }
-  #home_page_search_button {
+  #home_page_search_button,
+  #home_page_hotels_search_button,
+  #home_page_car_rentals_search_button {
     margin: 0;
     border-radius: 4px;
     padding: 10px 0;
@@ -851,6 +875,7 @@ footer a {
     font-size: 13px;
   }
   #close_main_round_trip_type_options_btn {
+    display: none !important;
     top: 140px;
     right: 30px;
   }
@@ -957,6 +982,9 @@ footer a {
   .footer_fld_cntn {
     width: 250px;
     margin: auto !important;
+  }
+  .ui-datepicker {
+    background: none !important;
   }
 }
 @media only screen and (max-width: 413px) {
