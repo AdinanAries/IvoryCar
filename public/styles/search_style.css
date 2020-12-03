@@ -762,6 +762,9 @@ header {
   background-color: white;
   border-radius: 5px;
 }
+.search_fieldset div {
+  transition: 0.5s !important;
+}
 /*#home_page_search_button {
   border-radius: 4px;
   width: 150px;
@@ -857,7 +860,9 @@ header {
   color: rgb(0, 177, 139);
   text-shadow: none;
 }
-#more_options_date_show_container {
+#more_options_date_show_container,
+#hotels_more_options_date_show_container,
+#car_rentals_more_options_date_show_container {
   margin-top: 285px;
   background-color: #a9ddff;
   padding: 10px;
@@ -865,13 +870,17 @@ header {
   border-bottom-right-radius: 5px;
   overflow: hidden;
 }
-#more_options_date_show_container p {
+#more_options_date_show_container p,
+#hotels_more_options_date_show_container p,
+#car_rentals_more_options_date_show_container p {
   font-size: 12px;
   font-weight: bolder;
   color: #003f7a;
   margin-bottom: 10px;
 }
-#more_options_date_show_list {
+#more_options_date_show_list,
+#hotels_more_options_date_show_list,
+#car_rentals_more_options_date_show_list {
   display: flex;
   justify-content: space-between;
 }
@@ -888,24 +897,32 @@ header {
   box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
     0px 0px 2.9px rgba(0, 0, 0, 0.23);
 }
-#trip_type_parameters li {
+#trip_type_parameters li,
+#hotels_accommodations_parameters li,
+#car_rentals_pickup_time_parameters li {
   text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
     0px 0px 2.9px rgba(0, 0, 0, 0.23);
   display: inline;
   padding: 15px;
 }
 #trip_type_param_number_of_people_option,
-#trip_type_param_flight_class_option {
+#trip_type_param_flight_class_option,
+#hotels_accommodations_parameters_option,
+#car_rentals_pickup_time_parameters_option {
   color: #a9ddff;
 }
 #trip_type_param_round_trip_option {
   color: #ffcb7d;
 }
-#trip_type_parameters li:hover {
+#trip_type_parameters li:hover,
+#hotels_accommodations_parameters li:hover,
+#car_rentals_pickup_time_parameters li:hover {
   color: #ffcb7d;
 }
 
-#trip_type_parameters i {
+#trip_type_parameters i,
+#hotels_accommodations_parameters i,
+#car_rentals_pickup_time_parameters i {
   margin-left: 5px;
   color: #ffcb7d;
   text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
@@ -945,7 +962,9 @@ header {
   color: white;
   border: 1px solid #80e1ff;
 }
-#trip_type_parameters {
+#trip_type_parameters,
+#hotels_accommodations_parameters,
+#car_rentals_pickup_time_parameters {
   margin: 15px 0;
   position: relative;
   z-index: 5;

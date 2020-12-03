@@ -1,5 +1,7 @@
 //getting dom elements
 
+var city_search_fieldset_done_btn = document.getElementById("city_search_fieldset_done_btn");
+
 var hotels__search_form_container = document.getElementById("hotels__search_form_container");
 var flights_search_tickets_form_container = document.getElementById("flights_search_tickets_form_container");
 var car_rentals_search_form_container = document.getElementById("car_rentals_search_form_container");
@@ -14,7 +16,6 @@ var car_rentals_pickup_time_parameters = document.getElementById("car_rentals_pi
 
 var from_when_search_input = document.getElementById("from_when_search_input");
 var to_when_search_input = document.getElementById("to_when_search_input");
-
 
 var header_menu_dropdowns = document.getElementById("header_menu_dropdowns_container");
 var top_logo_menu_icon = document.getElementById("top_logo_menu_icon");
@@ -59,9 +60,6 @@ trip_type_param_round_trip_option.addEventListener("click", (evnt) => {
   oneway_or_round_trip_type_options_item.style.display = "block";
 
 })
-
-
-
 
 var main_menu_car_option = document.getElementById("main_menu_car_option");
 var city_search_fieldset = document.getElementById("city_search_fieldset");

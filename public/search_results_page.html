@@ -225,8 +225,86 @@
                 </div>
               </div>
             </ul>
+            <ul style="display: none;" id="hotels_accommodations_parameters">
+              <li id="hotels_accommodations_parameters_option">
+                  1 room, 1 traveler
+                  <i class="fa fa-caret-down" aria-hidden="true"></i>
+              </li>
+              <div id="main_hotels_accommodations_parameters_options" class="round_trip_type_options">
+                <div class="round_trip_type_options_content">
+                  <div style="padding: 0 10px;">
+                    <div class="each_round_trip_options_person_selector">
+                      <div class="each_round_trip_options_person_type">Rooms</div>
+                      <div class="each_round_trip_options_increase_person_div">
+                        <div onclick="remove_room_from_hotel_search('Adult');"
+                          class="each_round_trip_options_increase_person_btn">-</div>
+                        <div id="number_of_rooms_count">1</div>
+                        <div onclick="add_room_to_hotel_search('Adult');"
+                          class="each_round_trip_options_increase_person_btn">+</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="padding: 0 10px;">
+                    <p style="color: rgb(255, 102, 0); font-size: 12px;
+                           margin-top: 15px">
+                    Room 1</p>
+                    <div style="margin-top: -5px;" class="each_round_trip_options_person_selector">
+                      <div style="margin-left: 15px;" class="each_round_trip_options_person_type">Adults</div>
+                      <div class="each_round_trip_options_increase_person_div">
+                        <div onclick="remove_traveler_from_hotel_search('Adult');"
+                          class="each_round_trip_options_increase_person_btn">-</div>
+                        <div id="number_of_rooms_count">1</div>
+                        <div onclick="add_traveler_to_hotel_search('Adult');"
+                          class="each_round_trip_options_increase_person_btn">+</div>
+                      </div>
+                    </div>
+                    <div style="margin-top: -10px;" class="each_round_trip_options_person_selector">
+                      <div style="margin-left: 15px;" class="each_round_trip_options_person_type">Children</div>
+                      <div class="each_round_trip_options_increase_person_div">
+                        <div onclick="remove_traveler_from_hotel_search('Child');"
+                          class="each_round_trip_options_increase_person_btn">-</div>
+                        <div id="number_of_rooms_count">0</div>
+                        <div onclick="add_traveler_to_hotel_search('Child');"
+                          class="each_round_trip_options_increase_person_btn">+</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ul>
+            <ul style="display: none;" id="car_rentals_pickup_time_parameters">
+              <li id="car_rentals_pickup_time_parameters_option">
+                  Pickup and Drop-off Time
+                  <i class="fa fa-caret-down" aria-hidden="true"></i>
+              </li>
+              <div id="car_rentals_pickup_time_parameters_options" class="round_trip_type_options">
+                <div class="round_trip_type_options_content">
+                  <div style="padding: 0 10px;">
+                    <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                      <div>
+                        <p>Pickup</p>
+                      </div>
+                      <div>
+                        <input style="padding: 10px; border-radius: 4px; border: none;" type="text" placeholder="pick a time" />
+                      </div>
+                    </div>
+                  </div>
+                  <div style="padding: 0 10px; margin-top: 10px;">
+                    <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                      <div>
+                        <p>Drop-off</p>
+                      </div>
+                      <div>
+                        <input style="padding: 10px; border-radius: 4px; border: none;" type="text" placeholder="pick a time" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ul>
           </div>
-          <div class="search_tickets_form_container">
+          <!--Begin Flight Search Form Container-->
+          <div id="flights_search_tickets_form_container" class="search_tickets_form_container">
             <div id="city_search_fieldset" class="search_fieldset">
               <div id="from_where_city_input_container">
                 <i class="fa fa-map-marker" aria-hidden="true"></i
@@ -268,7 +346,6 @@
                       </span>
                     </p>
                     <p class="people_also_searched_list_item">
-                      <!--fa-check means there's available tickets-->
                       <i aria-hidden="true" class="fa fa-check"></i>
                        from <span>New York, USA</span>
                        to <span>California, USA</span>
@@ -277,7 +354,6 @@
                       </span>
                     </p>
                     <p class="people_also_searched_list_item">
-                      <!--fa-times means there's no available tickets-->
                       <i aria-hidden="true" style="color:rgb(197, 0, 0);" class="fa fa-times"></i>
                        from <span>New York, USA</span>
                        to <span>Ontario, Canada</span>
@@ -309,15 +385,10 @@
                         $$$$
                       </span>
                     </p>
-                    <p class="people_also_searched_list_item">
-                      <!--fa-check means there's available tickets-->
-                      <i aria-hidden="true" class="fa fa-check"></i>
-                       from <span>New York, USA</span>
-                       to <span>Washington DC, USA</span>
-                       <span style="margin-left: 10px; color:rgb(0, 177, 139); font-size: 12px;">
-                        $$
-                      </span>
-                    </p>
+                    <div id="city_search_fieldset_done_btn" style="color: white; font-size: 14px; font-weight: bolder; background-color: #023057; border-radius: 4px;
+                        display: flex; flex-direction: column; justify-content: center; height: 40px; text-align: center; margin: 10px;">
+                      Done
+                    </div>
                   </div>
                 </div>
               </div>
@@ -346,13 +417,18 @@
               </div>
               <div id="main_from_when_date_show_container" class="from_when_date_show_container">
                 <div id="more_options_date_show_container">
-                  <p>Estimated Prices</p>
+                  <div id="dates_search_fieldset_done_btn" style="color: white; font-size: 14px; font-weight: bolder; background-color: #023057; border-radius: 4px;
+                        box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2), 0px 0px 2.9px rgba(0, 0, 0, 0.23); 
+                        display: flex; flex-direction: column; justify-content: center; height: 40px; text-align: center; margin: 0 10px;">
+                      Done
+                    </div>
+                  <!--p>Estimated Prices</p>
                   <div id="more_options_date_show_list">
                     <div style="background-color: rgb(0, 151, 211)" class="more_options_date_show_item">$212 +</div>
                     <div style="background-color: rgb(255, 153, 0)" class="more_options_date_show_item">$324 +</div>
                     <div style="background-color: rgb(255, 102, 0)" class="more_options_date_show_item">$465 +</div>
                     <div style="background-color: red" class="more_options_date_show_item">$504 +</div>
-                </div>
+                </div-->
                 </div>
               </div>
             </div>
@@ -360,6 +436,259 @@
               <p style="color: white; text-align: center">Search</p>
             </div>
           </div>
+          <!--End Flight Search Form Container-->
+          <!--Begin Hotels Search Form Container-->
+          <div style="display: none;" id="hotels__search_form_container" class="search_tickets_form_container">
+            <div id="hotels_city_search_fieldset" class="search_fieldset">
+              <div id="hotels_where_city_input_container">
+                <i class="fa fa-map-marker" aria-hidden="true"></i
+                ><input id="hotels_where_search_input_fld" type="text" placeholder="Where" />
+              </div>
+              <div id="hotels_main_where_city_show_container" class="from_where_city_show_container">
+                <div style="margin-top: 50px;">
+                  <p style="margin: 10px; margin-bottom: 0; font-size: 12px; color:rgb(255, 102, 0); font-weight: bolder;">You've Entered:</p>
+                  <p style="margin: 10px; margin-top: 0; font-size: 11px; color:rgb(0, 127, 177);"> 
+                    <span id="hotels_from_where_search_display_span">
+                      <span style="font-size: 12px;">
+                        <i style="color: red; margin-right: 5px; font-size: 12px; text-shadow: none;" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                        Please enter <span style="font-weight: bolder; font-size: 12px;">where you're going to</span> 
+                      </span>
+                    </span>
+                  </p>
+
+                  <p style="margin: 10px; margin-bottom: 0;margin-top: 20px; font-size: 12px; color:rgb(255, 102, 0); font-weight: bolder;">
+                    People from New York also searched:</p>
+                  <div id="hotels_people_also_searched_list_div">
+                    <p class="people_also_searched_list_item">
+                      <i aria-hidden="true" class="fa fa-check"></i>
+                       hotel in <span>New York, USA</span>
+                       <span style="margin-left: 10px; color:rgb(0, 177, 139);">
+                        $
+                      </span>
+                    </p>
+                    <p class="people_also_searched_list_item">
+                      <i aria-hidden="true" class="fa fa-check"></i>
+                       hotels in <span>Ontario, Canada</span>
+                       <span style="margin-left: 10px; color:rgb(0, 177, 139); font-size: 12px;">
+                        $$
+                      </span>
+                    </p>
+                    <p class="people_also_searched_list_item">
+                      <i aria-hidden="true" style="color:rgb(197, 0, 0);" class="fa fa-times"></i>
+                       hotels in <span>Roma, Italy</span>
+                       <span style="margin-left: 10px; color:rgb(0, 177, 139); font-size: 12px;">
+                        $$$
+                      </span>
+                    </p>
+                    <p class="people_also_searched_list_item">
+                      <i aria-hidden="true" class="fa fa-check"></i>
+                       hotels in <span>Ciaro, Egypt</span>
+                       <span style="margin-left: 10px; color:rgb(197, 0, 0); font-size: 12px;">
+                        $$$$
+                      </span>
+                    </p>
+                    <p class="people_also_searched_list_item">
+                      <i aria-hidden="true" class="fa fa-check"></i>
+                       hotels in <span>Paris, France</span>
+                       <span style="margin-left: 10px; color:rgb(197, 0, 0); font-size: 12px;">
+                        $$$$
+                      </span>
+                    </p>
+                    <p class="people_also_searched_list_item">
+                      <i aria-hidden="true" class="fa fa-check"></i>
+                       hotels in <span>California, USA</span>
+                       <span style="margin-left: 10px; color:rgb(197, 0, 0); font-size: 12px;">
+                        $$$$
+                      </span>
+                    </p>
+                    <div id="hotels_city_search_fieldset_done_btn" style="color: white; font-size: 14px; font-weight: bolder; background-color: #023057; border-radius: 4px;
+                        box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2), 0px 0px 2.9px rgba(0, 0, 0, 0.23); 
+                        display: flex; flex-direction: column; justify-content: center; height: 40px; text-align: center; margin: 10px;">
+                      Done
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="hotels_date_search_fieldset" class="search_fieldset">
+              <div id="hotels_from_when_date_input_container">
+                <i class="fa fa-calendar" aria-hidden="true"></i
+                ><input onclick="jqueryHelper1()" readonly="readonly" id="hotels_from_when_search_input" type="text" placeholder="Checkin" />
+                <script>
+                  function jqueryHelper1(){
+                    if($(window).width() > 700){
+                      document.getElementsByClassName('ui-datepicker')[0].classList.remove('secondJQuery');
+                    }
+                  }
+                </script>
+              </div>
+              <div id="hotels_to_when_date_input_container">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <input onclick="jqueryHelper2()" readonly="readonly" id="hotels_to_when_search_input" type="text" placeholder="Checkout" />
+              <script>
+                function jqueryHelper2(){
+                  if($(window).width() > 700)
+                    document.getElementsByClassName('ui-datepicker')[0].classList.add('secondJQuery');
+                }
+              </script>
+              </div>
+              <div id="hotels_main_from_when_date_show_container" class="from_when_date_show_container">
+                <div id="hotels_more_options_date_show_container">
+                  <div id="hotels_date_search_fieldset_done_btn" style="color: white; font-size: 14px; font-weight: bolder; background-color: #023057; border-radius: 4px;
+                        box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2), 0px 0px 2.9px rgba(0, 0, 0, 0.23); 
+                        display: flex; flex-direction: column; justify-content: center; height: 40px; text-align: center; margin: 0 10px;">
+                      Done
+                    </div>
+                  <!--p>Estimated Prices</p>
+                  <div id="hotels_more_options_date_show_list" style="flex-direction: row !important;">
+                    <div style="background-color: rgb(0, 151, 211)" class="more_options_date_show_item">$212 +</div>
+                    <div style="background-color: rgb(255, 153, 0)" class="more_options_date_show_item">$324 +</div>
+                    <div style="background-color: rgb(255, 102, 0)" class="more_options_date_show_item">$465 +</div>
+                    <div style="background-color: red" class="more_options_date_show_item">$504 +</div>
+                </div-->
+                </div>
+              </div>
+            </div>
+            <div id="home_page_hotels_search_button">
+              <p style="color: white; text-align: center">Search</p>
+            </div>
+          </div>
+          <!--End Hotels Search Form Container-->
+          <!--Begin Car Rentals Search Form Container-->
+          <div style="display: none;" id="car_rentals_search_form_container" class="search_tickets_form_container">
+            <div id="car_rentals_city_search_fieldset" class="search_fieldset">
+              <div id="car_rentals_from_where_city_input_container">
+                <i class="fa fa-map-marker" aria-hidden="true"></i
+                ><input id="car_rentals_from_where_search_input_fld" type="text" placeholder="Pickup" />
+              </div>
+              <div id="car_rentals_exchange_search_fields_values_icon" class="exchange_search_fields_values_icon">
+                <i style="color: white;" class="fa fa-exchange" aria-hidden="true"></i>
+            </div>
+              <div id="car_rentals_to_where_city_input_container">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <input id="car_rentals_to_where_search_input_fld" type="text" placeholder="Drop-off" />
+              </div>
+              <div id="car_rentals_main_from_where_city_show_container" class="from_where_city_show_container">
+                <div style="margin-top: 50px;">
+                  <p style="margin: 10px; margin-bottom: 0; font-size: 12px; color:rgb(255, 102, 0); font-weight: bolder;">You've Entered:</p>
+                  <p style="margin: 10px; margin-top: 0; font-size: 11px; color:rgb(0, 127, 177);"> 
+                    <span id="car_rentalsfrom_where_search_display_span">
+                      <span style="font-size: 12px;">
+                        <i style="color: red; margin-right: 5px; font-size: 12px; text-shadow: none;" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                        Please enter <span style="font-weight: bolder; font-size: 12px;">where you're flying from</span> 
+                      </span>
+                    </span>
+                    <span id="car_rentals_to_where_search_display_span">
+                      <span style="font-size: 12px;">
+                        and 
+                        <span style="font-weight: bolder; font-size: 12px;">destination</span> above
+                    </span>
+                  </p>
+                  <p style="margin: 10px; margin-bottom: 0;margin-top: 20px; font-size: 12px; color:rgb(255, 102, 0); font-weight: bolder;">
+                    People from New York also searched:</p>
+                  <div id="car_rentals_people_also_searched_list_div">
+                    <p class="people_also_searched_list_item">
+                      <i aria-hidden="true" class="fa fa-check"></i>
+                       from <span>New York, USA</span>
+                       to <span>Atlanta, USA</span>
+                       <span style="margin-left: 10px; color:rgb(0, 177, 139);">
+                        $
+                      </span>
+                    </p>
+                    <p class="people_also_searched_list_item">
+                      <i aria-hidden="true" class="fa fa-check"></i>
+                       from <span>New York, USA</span>
+                       to <span>California, USA</span>
+                       <span style="margin-left: 10px; color:rgb(0, 177, 139); font-size: 12px;">
+                        $$
+                      </span>
+                    </p>
+                    <p class="people_also_searched_list_item">
+                      <i aria-hidden="true" style="color:rgb(197, 0, 0);" class="fa fa-times"></i>
+                       from <span>New York, USA</span>
+                       to <span>Ontario, Canada</span>
+                       <span style="margin-left: 10px; color:rgb(0, 177, 139); font-size: 12px;">
+                        $$$
+                      </span>
+                    </p>
+                    <p class="people_also_searched_list_item">
+                      <i aria-hidden="true" class="fa fa-check"></i>
+                       from <span>New York, USA</span>
+                       to <span>Roma, Italy</span>
+                       <span style="margin-left: 10px; color:rgb(197, 0, 0); font-size: 12px;">
+                        $$$$
+                      </span>
+                    </p>
+                    <p class="people_also_searched_list_item">
+                      <i aria-hidden="true" class="fa fa-check"></i>
+                       from <span>New York, USA</span>
+                       to <span>Paris, France</span>
+                       <span style="margin-left: 10px; color:rgb(197, 0, 0); font-size: 12px;">
+                        $$$$
+                      </span>
+                    </p>
+                    <p class="people_also_searched_list_item">
+                      <i aria-hidden="true" class="fa fa-check"></i>
+                       from <span>New York, USA</span>
+                       to <span>Cairo, Egypt</span>
+                       <span style="margin-left: 10px; color:rgb(197, 0, 0); font-size: 12px;">
+                        $$$$
+                      </span>
+                    </p>
+                    <div id="car_rentals_city_search_fieldset_done_btn" style="color: white; font-size: 14px; font-weight: bolder; background-color: #023057; border-radius: 4px;
+                        box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2), 0px 0px 2.9px rgba(0, 0, 0, 0.23); 
+                        display: flex; flex-direction: column; justify-content: center; height: 40px; text-align: center; margin: 10px;">
+                      Done
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="car_rentals_date_search_fieldset" class="search_fieldset">
+              <div id="car_rentals_from_when_date_input_container">
+                <i class="fa fa-calendar" aria-hidden="true"></i
+                ><input onclick="jqueryHelper1()" readonly="readonly" id="car_rentals_from_when_search_input" type="text" placeholder="Pickup Date" />
+                <script>
+                  function jqueryHelper1(){
+                    if($(window).width() > 700){
+                      document.getElementsByClassName('ui-datepicker')[0].classList.remove('secondJQuery');
+                    }
+                  }
+                </script>
+              </div>
+              
+              <div id="car_rentals_to_when_date_input_container">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <input onclick="jqueryHelper2()" readonly="readonly" id="car_rentals_to_when_search_input" type="text" placeholder="Drop-off Date" />
+              <script>
+                function jqueryHelper2(){
+                  if($(window).width() > 700)
+                    document.getElementsByClassName('ui-datepicker')[0].classList.add('secondJQuery');
+                }
+              </script>
+              </div>
+              <div id="car_rentals_main_from_when_date_show_container" class="from_when_date_show_container">
+                <div id="car_rentals_more_options_date_show_container">
+                  <div id="car_rentals_date_fieldset_done_btn" style="color: white; font-size: 14px; font-weight: bolder; background-color: #023057; border-radius: 4px;
+                        box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2), 0px 0px 2.9px rgba(0, 0, 0, 0.23); 
+                        display: flex; flex-direction: column; justify-content: center; height: 40px; text-align: center; margin: 0 10px;">
+                      Done
+                    </div>
+                  <!--p>Estimated Prices</p>
+                  <div id="car_rentals_more_options_date_show_list" style="flex-direction: row !important;">
+                    <div style="background-color: rgb(0, 151, 211)" class="more_options_date_show_item">$212 +</div>
+                    <div style="background-color: rgb(255, 153, 0)" class="more_options_date_show_item">$324 +</div>
+                    <div style="background-color: rgb(255, 102, 0)" class="more_options_date_show_item">$465 +</div>
+                    <div style="background-color: red" class="more_options_date_show_item">$504 +</div>
+                </div-->
+                </div>
+              </div>
+            </div>
+            <div id="home_page_car_rentals_search_button">
+              <p style="color: white; text-align: center">Search</p>
+            </div>
+          </div>
+          <!--End Car Rentals Search Form Container-->
         </div>
       </div>
     </section>
