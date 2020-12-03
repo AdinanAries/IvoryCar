@@ -1182,9 +1182,7 @@ footer a {
   }
   .from_when_date_show_container,
   .from_where_city_show_container {
-    width: 98% !important;
-    margin-left: 4px !important;
-    overflow:  hidden !important;
+    box-shadow: initial !important;
   }
   #home_page_search_button,
   #home_page_hotels_search_button,
