@@ -838,6 +838,9 @@ footer a {
     width: 100vw;
     top: 0;
   }
+  .jumbotron_background {
+    display: none !important;
+  }
   .search_tickets_form_container i {
     overflow: initial;
   }
@@ -959,9 +962,6 @@ footer a {
   }
   #hero_section_flex_container {
     flex-direction: column !important;
-  }
-  .jumbotron_background {
-    display: none;
   }
   .favorite_bus_company_title_text {
     flex-direction: row !important;
