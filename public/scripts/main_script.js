@@ -131,6 +131,10 @@ var jumbotron_background = document.getElementsByClassName(
 var mobile_main_menu_items = document.getElementById("mobile_main_menu_items");
 var top_logo_as_menu_btn = document.getElementById("top_logo_as_menu_btn");
 
+var mobile_menu_hotels_option = document.getElementById("mobile_menu_hotels_option");
+var mobile_menu_car_rentals_option = document.getElementById("mobile_menu_car_rentals_option");
+var mobile_menu_car_option = document.getElementById("mobile_menu_car_option");
+
 //hover event for mobile main menu
 top_logo_as_menu_btn.addEventListener("click", () => {
   if ($(window).width() < 1026) {
@@ -253,6 +257,32 @@ main_menu_car_option.addEventListener("click", () => {
   document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/633637768_flight-attendant.jpg')";
 });
 
+mobile_menu_car_option.addEventListener("click", () => {
+  
+  top_logo_menu_icon.style.transform = "rotate(360deg)";
+  top_logo_menu_icon.style.marginTop = "23px";
+  top_logo_menu_icon.style.marginBottom = "0"
+  header_menu_dropdowns.style.display = "none";
+  mobile_main_menu_items.style.visibility = "hidden";
+  mobile_main_menu_items.style.opacity = "0";
+
+  trip_type_parameters.style.display = "block";
+  hotels_accommodations_parameters.style.display = "none";
+  car_rentals_pickup_time_parameters.style.display = "none";
+
+  car_rentals_search_form_container.style.display = "none";
+  flights_search_tickets_form_container.style.display = "flex"
+  hotels__search_form_container.style.display = "none";
+  
+  set_all_main_menu_items_as_not_selected();
+  main_menu_car_option.classList.add("active_top_nav_link");
+  jumbotron_background.style.display = "block";
+  render_cars_page();
+  document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/JFKAIR.jpg')";
+  document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/travel-4.jpg')";
+  document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/633637768_flight-attendant.jpg')";
+});
+
 //function to show hotels search form
 main_menu_hotels_option.addEventListener("click", () => {
   
@@ -272,9 +302,59 @@ main_menu_hotels_option.addEventListener("click", () => {
   document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/HotelPic3.jpg')";
 });
 
+mobile_menu_hotels_option.addEventListener("click", () => {
+  
+  top_logo_menu_icon.style.transform = "rotate(360deg)";
+  top_logo_menu_icon.style.marginTop = "23px";
+  top_logo_menu_icon.style.marginBottom = "0"
+  header_menu_dropdowns.style.display = "none";
+  mobile_main_menu_items.style.visibility = "hidden";
+  mobile_main_menu_items.style.opacity = "0";
+
+  hotels_accommodations_parameters.style.display = "block";
+  car_rentals_pickup_time_parameters.style.display = "none";
+  trip_type_parameters.style.display = "none";
+
+  flights_search_tickets_form_container.style.display = "none";
+  hotels__search_form_container.style.display = "flex";
+  car_rentals_search_form_container.style.display = "none";
+  set_all_main_menu_items_as_not_selected();
+  main_menu_hotels_option.classList.add("active_top_nav_link");
+  jumbotron_background.style.display = "block";
+  render_cars_page();
+  document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/HotelPic.jpg')";
+  document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/HotelPic2.jpg')";
+  document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/HotelPic3.jpg')";
+});
+
 //function to show car rentals search form
 main_menu_car_rentals_option.addEventListener("click", () => {
 
+  trip_type_parameters.style.display = "none";
+  hotels_accommodations_parameters.style.display = "none";
+  car_rentals_pickup_time_parameters.style.display = "block";
+
+  hotels__search_form_container.style.display = "none";
+  car_rentals_search_form_container.style.display = "flex";
+  flights_search_tickets_form_container.style.display = "none"
+  set_all_main_menu_items_as_not_selected();
+  main_menu_car_rentals_option.classList.add("active_top_nav_link");
+  jumbotron_background.style.display = "block";
+  render_cars_page();
+  document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/CarRentals.png')";
+  document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/CarRentals2.jpg')";
+  document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/CarRentals3.jpg')";
+});
+
+mobile_menu_car_rentals_option.addEventListener("click", () => {
+
+  top_logo_menu_icon.style.transform = "rotate(360deg)";
+  top_logo_menu_icon.style.marginTop = "23px";
+  top_logo_menu_icon.style.marginBottom = "0"
+  header_menu_dropdowns.style.display = "none";
+  mobile_main_menu_items.style.visibility = "hidden";
+  mobile_main_menu_items.style.opacity = "0";
+  
   trip_type_parameters.style.display = "none";
   hotels_accommodations_parameters.style.display = "none";
   car_rentals_pickup_time_parameters.style.display = "block";
@@ -327,20 +407,19 @@ trip_type_param_round_trip_option_container.addEventListener("click", (evnt)=>{
   $("#main_hotels_accommodations_parameters_options").slideDown("fast");
   $("#car_rentals_pickup_time_parameters_options").slideDown("fast");
   if($(window).width() < 700){
-    //close_main_round_trip_type_options_btn.style.display = "block";
+    close_main_round_trip_type_options_btn.style.display = "block";
   }
 });
 trip_type_param_round_trip_option_container.addEventListener("mouseleave", (evnt)=>{
   $("#car_rentals_pickup_time_parameters_options").slideUp("fast");
   $("#main_hotels_accommodations_parameters_options").slideUp("fast");
   $("#main_round_trip_type_options").slideUp("fast");
-  
-  //close_main_round_trip_type_options_btn.style.display = "none"
+  close_main_round_trip_type_options_btn.style.display = "none";
 });
 
 close_main_round_trip_type_options_btn.addEventListener("click", (evnt)=>{
   $("#main_round_trip_type_options").slideUp("fast");
-  close_main_round_trip_type_options_btn.style.display = "none"
+  close_main_round_trip_type_options_btn.style.display = "none";
 });
 
 city_search_fieldset.addEventListener("focusin", (evnt)=>{
@@ -354,32 +433,24 @@ city_search_fieldset.addEventListener("focusout", (evnt)=>{
 })
 
 from_where_search_input_fld.addEventListener("focusin", ()=>{
-  if($(document).width() < 700){
     document.getElementById("airports_exchange_search_fields_values_icon").style.display = "none";
     document.getElementById("from_where_city_input_container").style.minWidth = "80%";
     document.getElementById("to_where_city_input_container").style.minWidth = "20%";
-  }
 })
 to_where_search_input_fld.addEventListener("focusin", ()=>{
-  if($(document).width() < 700){
     document.getElementById("airports_exchange_search_fields_values_icon").style.display = "none";
     document.getElementById("from_where_city_input_container").style.minWidth = "20%";
     document.getElementById("to_where_city_input_container").style.minWidth = "80%";
-  }
 })
 from_where_search_input_fld.addEventListener("focusout", ()=>{
-  if($(document).width() < 700){
     document.getElementById("airports_exchange_search_fields_values_icon").style.display = "block";
     document.getElementById("from_where_city_input_container").style.minWidth = "42%";
     document.getElementById("to_where_city_input_container").style.minWidth = "42%";
-  }
 })
 to_where_search_input_fld.addEventListener("focusout", ()=>{
-  if($(document).width() < 700){
     document.getElementById("airports_exchange_search_fields_values_icon").style.display = "block";
     document.getElementById("from_where_city_input_container").style.minWidth = "42%";
     document.getElementById("to_where_city_input_container").style.minWidth = "42%";
-  }
 })
 city_search_fieldset_done_btn.addEventListener("click", ()=>{
   document.getElementById("airports_exchange_search_fields_values_icon").style.display = "block";
@@ -389,6 +460,39 @@ city_search_fieldset_done_btn.addEventListener("click", ()=>{
 /*ui_datepicker_div.addEventListener("mouseenter", (evnt)=>{
   $("#main_from_where_city_show_container").slideDown("fast");
 });*/
+
+car_rentals_city_search_fieldset.addEventListener("focusout", (evnt)=>{
+  $("#main_from_where_city_show_container").slideUp("fast");
+  document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "block";
+  document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "42%";
+  document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "42%";
+})
+
+car_rentals_from_where_search_input_fld.addEventListener("focusin", ()=>{
+    document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "none";
+    document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "80%";
+    document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "20%";
+})
+car_rentals_to_where_search_input_fld.addEventListener("focusin", ()=>{
+    document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "none";
+    document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "20%";
+    document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "80%";
+})
+car_rentals_from_where_search_input_fld.addEventListener("focusout", ()=>{
+    document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "block";
+    document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "42%";
+    document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "42%";
+})
+car_rentals_to_where_search_input_fld.addEventListener("focusout", ()=>{
+    document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "block";
+    document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "42%";
+    document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "42%";
+})
+car_rentals_city_search_fieldset_done_btn.addEventListener("click", ()=>{
+  document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "block";
+  document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "42%";
+  document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "42%";
+})
 
 hotels_city_search_fieldset.addEventListener("focusin", (evnt)=>{
   $("#hotels_main_where_city_show_container").slideDown("fast");
@@ -415,7 +519,7 @@ date_search_fieldset.addEventListener("focusout", (evnt)=>{
   $("#main_from_when_date_show_container").slideDown("fast");
 })*/
 
-hotels_date_search_fieldset.addEventListener("click", (evnt)=>{
+hotels_date_search_fieldset.addEventListener("focusin", (evnt)=>{
   $("#hotels_main_from_when_date_show_container").slideDown("fast");
 })
 hotels_date_search_fieldset.addEventListener("focusout", (evnt)=>{

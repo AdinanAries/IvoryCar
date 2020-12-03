@@ -172,11 +172,6 @@ header li,
   cursor: pointer;
   padding: 20px;
 }
-#mobile_main_menu_items li {
-  padding: 0;
-  padding-top: 10px;
-  padding-bottom: 5px;
-}
 
 header li a,
 #mobile_main_menu_items li a {
@@ -301,7 +296,6 @@ header li a i,
   cursor: pointer;
   font-size: 20px;
   margin: 5px 0;
-  margin-left: -20px;
   margin-right: 35px;
   padding: 5;
   border-radius: 4px;
@@ -798,7 +792,36 @@ footer a {
     position: initial !important;
     left: 0 !important;
   }
-
+  #mobile_main_menu_items {
+    position: fixed;
+    top: 50;
+    width: 100vw;
+    height: calc(100vh - 50px) !important;
+    left: 0;
+    overflow: initial !important;
+  }
+  #mobile_main_menu_items li {
+    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 5px;
+  }
+  #mobile_main_menu_items ul {
+    width: initial;
+    height: initial !important;
+    overflow: initial !important;
+  }
+  #mobile_main_menu_items li {
+    display: flex;
+    justify-content: space-between;
+    border: none !important;
+  }
+  .exchange_search_fields_values_icon {
+    margin: auto;
+    padding: 5px;
+    padding-top: 2px;
+    margin-right: 10px;
+    overflow: initial;
+  }
   /*main sections responsiveness*/
 }
 
@@ -815,23 +838,8 @@ footer a {
     width: 100vw;
     top: 0;
   }
-  .exchange_search_fields_values_icon {
-    margin: auto;
-    padding: 5px;
-    padding-top: 2px;
-    margin-right: 10px;
-    overflow: initial;
-  }
   .search_tickets_form_container i {
     overflow: initial;
-  }
-  #mobile_main_menu_items {
-    position: fixed;
-    top: 50;
-    width: 100vw;
-    height: calc(100vh - 50px) !important;
-    left: 0;
-    overflow: initial !important;
   }
   .header_menu_dropdowns {
     width: initial !important;
@@ -907,7 +915,6 @@ footer a {
     font-size: 13px;
   }
   #close_main_round_trip_type_options_btn {
-    display: none !important;
     top: 140px;
     right: 30px;
   }
@@ -919,16 +926,6 @@ footer a {
   #main_menu_language_submenu {
     position: absolute;
     left: calc(100vw - 174px) !important;
-  }
-
-  #mobile_main_menu_items ul {
-    width: initial;
-    height: initial !important;
-    overflow: initial !important;
-  }
-  #mobile_main_menu_items li {
-    display: flex;
-    justify-content: space-between;
   }
   .active_top_nav_link {
     border-bottom: none;
