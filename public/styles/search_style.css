@@ -1160,7 +1160,10 @@ footer a {
   #city_search_fieldset {
     z-index: 4 !important;
   }
-  #home_page_search_button {
+
+  #home_page_search_button,
+  #home_page_hotels_search_button,
+  #home_page_car_rentals_search_button {
     margin: 0 10px;
     margin-bottom: 10px;
     border-radius: 4px;
