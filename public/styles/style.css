@@ -282,7 +282,11 @@ header li a i,
   text-align: center;
 }
 .search_fieldset div {
-  transition: 0.5s !important;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 #home_page_search_button,
 #home_page_hotels_search_button,

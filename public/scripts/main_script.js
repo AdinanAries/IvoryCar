@@ -421,49 +421,66 @@ close_main_round_trip_type_options_btn.addEventListener("click", (evnt)=>{
 });
 
 city_search_fieldset.addEventListener("focusin", (evnt)=>{
-  $("#main_from_where_city_show_container").slideDown("fast");
+    $("#main_from_where_city_show_container").slideDown("fast");
 })
 city_search_fieldset.addEventListener("focusout", (evnt)=>{
   $("#main_from_where_city_show_container").slideUp("fast");
   document.getElementById("airports_exchange_search_fields_values_icon").style.display = "block";
-  document.getElementById("from_where_city_input_container").style.minWidth = "42%";
-  document.getElementById("to_where_city_input_container").style.minWidth = "42%";
   document.getElementById("from_where_city_input_container").style.display = "block";
   document.getElementById("to_where_city_input_container").style.display = "block";
+  setTimeout(()=>{
+    document.getElementById("from_where_city_input_container").style.minWidth = "42%";
+    document.getElementById("to_where_city_input_container").style.minWidth = "42%";
+  },100);
 })
 
 from_where_search_input_fld.addEventListener("focusin", ()=>{
-    document.getElementById("airports_exchange_search_fields_values_icon").style.display = "none";
-    document.getElementById("from_where_city_input_container").style.minWidth = "90%";
-    document.getElementById("to_where_city_input_container").style.minWidth = "10%";
-    document.getElementById("to_where_city_input_container").style.display = "none";
+      setTimeout(()=>{
+          document.getElementById("from_where_city_input_container").style.minWidth = "90%";
+          document.getElementById("to_where_city_input_container").style.minWidth = "10%";
+      },200);
+      setTimeout(()=>{
+        document.getElementById("airports_exchange_search_fields_values_icon").style.display = "none";
+        document.getElementById("to_where_city_input_container").style.display = "none";
+      }, 400);
+    
 })
 to_where_search_input_fld.addEventListener("focusin", ()=>{
-    document.getElementById("airports_exchange_search_fields_values_icon").style.display = "none";
-    document.getElementById("from_where_city_input_container").style.minWidth = "10%";
-    document.getElementById("from_where_city_input_container").style.display = "none";
-    document.getElementById("to_where_city_input_container").style.minWidth = "90%";
+      setTimeout(()=>{
+        document.getElementById("from_where_city_input_container").style.minWidth = "10%";
+        document.getElementById("to_where_city_input_container").style.minWidth = "90%";
+      },200);
+      setTimeout(()=>{
+        document.getElementById("airports_exchange_search_fields_values_icon").style.display = "none";
+        document.getElementById("from_where_city_input_container").style.display = "none";
+      },600);
 })
 from_where_search_input_fld.addEventListener("focusout", ()=>{
     document.getElementById("airports_exchange_search_fields_values_icon").style.display = "block";
-    document.getElementById("from_where_city_input_container").style.minWidth = "42%";
-    document.getElementById("to_where_city_input_container").style.minWidth = "42%";
     document.getElementById("from_where_city_input_container").style.display = "block";
     document.getElementById("to_where_city_input_container").style.display = "block";
+    setTimeout(()=>{
+      document.getElementById("from_where_city_input_container").style.minWidth = "42%";
+      document.getElementById("to_where_city_input_container").style.minWidth = "42%";
+    },100);
 })
 to_where_search_input_fld.addEventListener("focusout", ()=>{
     document.getElementById("airports_exchange_search_fields_values_icon").style.display = "block";
-    document.getElementById("from_where_city_input_container").style.minWidth = "42%";
-    document.getElementById("to_where_city_input_container").style.minWidth = "42%";
     document.getElementById("from_where_city_input_container").style.display = "block";
     document.getElementById("to_where_city_input_container").style.display = "block";
+    setTimeout(()=>{
+      document.getElementById("from_where_city_input_container").style.minWidth = "42%";
+      document.getElementById("to_where_city_input_container").style.minWidth = "42%";
+    },100);
 })
 city_search_fieldset_done_btn.addEventListener("click", ()=>{
   document.getElementById("airports_exchange_search_fields_values_icon").style.display = "block";
-  document.getElementById("from_where_city_input_container").style.minWidth = "42%";
-  document.getElementById("to_where_city_input_container").style.minWidth = "42%";
   document.getElementById("from_where_city_input_container").style.display = "block";
   document.getElementById("to_where_city_input_container").style.display = "block";
+  setTimeout(()=>{
+    document.getElementById("from_where_city_input_container").style.minWidth = "42%";
+    document.getElementById("to_where_city_input_container").style.minWidth = "42%";
+  },100);
 })
 /*ui_datepicker_div.addEventListener("mouseenter", (evnt)=>{
   $("#main_from_where_city_show_container").slideDown("fast");
@@ -472,44 +489,60 @@ city_search_fieldset_done_btn.addEventListener("click", ()=>{
 car_rentals_city_search_fieldset.addEventListener("focusout", (evnt)=>{
   $("#main_from_where_city_show_container").slideUp("fast");
   document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "block";
-  document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "42%";
-  document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "42%";
   document.getElementById("from_where_city_input_container").style.display = "block";
   document.getElementById("to_where_city_input_container").style.display = "block";
+  setTimeout(()=>{
+    document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "42%";
+    document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "42%";
+  }, 100);
 })
 
 car_rentals_from_where_search_input_fld.addEventListener("focusin", ()=>{
-    document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "none";
-    document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "90%";
-    document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "10%";
-    document.getElementById("car_rentals_to_where_city_input_container").style.display = "none";
+    setTimeout(()=>{
+      document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "90%";
+      document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "10%";
+    },200);
+    setTimeout(()=>{
+      document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "none";
+      document.getElementById("car_rentals_to_where_city_input_container").style.display = "none";
+    }, 400);
 })
 car_rentals_to_where_search_input_fld.addEventListener("focusin", ()=>{
-    document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "none";
-    document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "10%";
-    document.getElementById("car_rentals_from_where_city_input_container").style.display = "none";
-    document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "90%";
+    setTimeout(()=>{
+      document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "10%";
+      document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "90%";
+    }, 200);
+    setTimeout(()=>{
+      document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "none";
+      document.getElementById("car_rentals_from_where_city_input_container").style.display = "none";
+    },600);
 })
 car_rentals_from_where_search_input_fld.addEventListener("focusout", ()=>{
     document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "block";
-    document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "42%";
-    document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "42%";
     document.getElementById("car_rentals_from_where_city_input_container").style.display = "block";
-  document.getElementById("car_rentals_to_where_city_input_container").style.display = "block";
+    document.getElementById("car_rentals_to_where_city_input_container").style.display = "block";
+    setTimeout(()=>{
+      document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "42%";
+      document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "42%";
+    }, 100);
 })
 car_rentals_to_where_search_input_fld.addEventListener("focusout", ()=>{
     document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "block";
-    document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "42%";
-    document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "42%";
     document.getElementById("car_rentals_from_where_city_input_container").style.display = "block";
-  document.getElementById("car_rentals_to_where_city_input_container").style.display = "block";
+    document.getElementById("car_rentals_to_where_city_input_container").style.display = "block";
+    setTimeout(()=>{
+      document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "42%";
+      document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "42%";
+    }, 100);
 })
 car_rentals_city_search_fieldset_done_btn.addEventListener("click", ()=>{
   document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "block";
-  document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "42%";
-  document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "42%";
   document.getElementById("car_rentals_from_where_city_input_container").style.display = "block";
   document.getElementById("car_rentals_to_where_city_input_container").style.display = "block";
+  setTimeout(()=>{
+    document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "42%";
+    document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "42%";
+  }, 100);
 })
 
 hotels_city_search_fieldset.addEventListener("focusin", (evnt)=>{
