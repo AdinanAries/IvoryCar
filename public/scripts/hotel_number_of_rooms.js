@@ -146,7 +146,8 @@ function add_a_adult(number, room_number){
 
     let room_index = room_number - 1;
     
-    if(hotel_rooms_and_travelers.rooms[room_index].rooms_total_adults > 3 ){
+    if((hotel_rooms_and_travelers.rooms[room_index].rooms_total_adults 
+        + hotel_rooms_and_travelers.rooms[room_index].children.rooms_total_children) > 3 ){
         if((hotel_rooms_and_travelers.total_guest/hotel_rooms_and_travelers.total_rooms) > 3){
             add_a_room();
         }
@@ -189,7 +190,9 @@ function add_a_child(number, room_number){
 
     let room_index = room_number - 1;
     
-    if(hotel_rooms_and_travelers.rooms[room_index].children.rooms_total_children > 3 ){
+    if((hotel_rooms_and_travelers.rooms[room_index].children.rooms_total_children 
+        + hotel_rooms_and_travelers.rooms[room_index].rooms_total_adults)
+        > 3 ){
         if((hotel_rooms_and_travelers.total_guest/hotel_rooms_and_travelers.total_rooms) > 3){
             add_a_room();
         }
