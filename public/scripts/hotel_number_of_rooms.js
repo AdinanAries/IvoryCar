@@ -123,9 +123,12 @@ function remov_a_room(){
         hotel_rooms_and_travelers.total_guest -= 
         hotel_rooms_and_travelers.rooms[(hotel_rooms_and_travelers.rooms.length - 1)].children.rooms_total_children;
 
+        hotel_rooms_and_travelers.total_guest -= 
+        hotel_rooms_and_travelers.rooms[(hotel_rooms_and_travelers.rooms.length - 1)].rooms_total_adults;
+        hotel_rooms_and_travelers.rooms_total_adults -= 
+        hotel_rooms_and_travelers.rooms[(hotel_rooms_and_travelers.rooms.length - 1)].rooms_total_adults;;
+        
         hotel_rooms_and_travelers.total_rooms -= 1;
-        hotel_rooms_and_travelers.total_guest -= 1;
-        hotel_rooms_and_travelers.rooms_total_adults -= 1;
         hotel_rooms_and_travelers.rooms.pop();
 
         //remove last element from html list div
