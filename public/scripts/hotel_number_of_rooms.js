@@ -146,16 +146,23 @@ function add_a_adult(number, room_number){
 
     let room_index = room_number - 1;
     
-    hotel_rooms_and_travelers.total_guest += 1;
-    hotel_rooms_and_travelers.total_adults += 1;
-    hotel_rooms_and_travelers.rooms[room_index].rooms_total_adults += 1;
+    if(hotel_rooms_and_travelers.rooms[room_index].rooms_total_adults > 3 ){
+        if((hotel_rooms_and_travelers.total_guest/hotel_rooms_and_travelers.total_rooms) > 3){
+            add_a_room();
+        }
+    }else{
 
-    let rooms_total_adults = hotel_rooms_and_travelers.rooms[room_index].rooms_total_adults;
+        hotel_rooms_and_travelers.total_guest += 1;
+        hotel_rooms_and_travelers.total_adults += 1;
+        hotel_rooms_and_travelers.rooms[room_index].rooms_total_adults += 1;
 
-    let hotels_number_of_adults_count = "hotels_number_of_adults_count" + number;
+        let rooms_total_adults = hotel_rooms_and_travelers.rooms[room_index].rooms_total_adults;
 
-    document.getElementById(hotels_number_of_adults_count).innerText = rooms_total_adults;
-    render_total_rooms_and_travelers()
+        let hotels_number_of_adults_count = "hotels_number_of_adults_count" + number;
+
+        document.getElementById(hotels_number_of_adults_count).innerText = rooms_total_adults;
+        render_total_rooms_and_travelers()
+    }
 }
 
 function remove_a_adult(number, room_number){
@@ -182,48 +189,53 @@ function add_a_child(number, room_number){
 
     let room_index = room_number - 1;
     
-    hotel_rooms_and_travelers.total_guest += 1;
-    hotel_rooms_and_travelers.total_children += 1;
-    hotel_rooms_and_travelers.rooms[room_index].children.rooms_total_children += 1;
-    hotel_rooms_and_travelers.rooms[room_index].children.rooms_children.push({child_age: 0.5})
+    if(hotel_rooms_and_travelers.rooms[room_index].children.rooms_total_children > 3 ){
+        if((hotel_rooms_and_travelers.total_guest/hotel_rooms_and_travelers.total_rooms) > 3){
+            add_a_room();
+        }
+    }else{
+        hotel_rooms_and_travelers.total_guest += 1;
+        hotel_rooms_and_travelers.total_children += 1;
+        hotel_rooms_and_travelers.rooms[room_index].children.rooms_total_children += 1;
+        hotel_rooms_and_travelers.rooms[room_index].children.rooms_children.push({child_age: 0.5})
 
-    let rooms_total_children = hotel_rooms_and_travelers.rooms[room_index].children.rooms_total_children;
+        let rooms_total_children = hotel_rooms_and_travelers.rooms[room_index].children.rooms_total_children;
 
-    let hotels_number_of_children_count = "hotels_number_of_children_count" + number;
-    document.getElementById(hotels_number_of_children_count).innerText = rooms_total_children;
+        let hotels_number_of_children_count = "hotels_number_of_children_count" + number;
+        document.getElementById(hotels_number_of_children_count).innerText = rooms_total_children;
 
-    let children_list_container_id = "hotels_search_form_room_children_list" + number;
-    let hotels_search_form_room_children_list = document.getElementById(children_list_container_id);
-    let div = document.createElement("div")
+        let children_list_container_id = "hotels_search_form_room_children_list" + number;
+        let hotels_search_form_room_children_list = document.getElementById(children_list_container_id);
+        let div = document.createElement("div")
 
-    div.innerHTML = `
-        <p style="margin-bottom: 5px; color: rgb(255, 102, 0); font-size: 12px;">
-        Child ${hotel_rooms_and_travelers.rooms[room_index].children.rooms_total_children} Age:</p>
-        <select>
-            <option>under 1</option>
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-            <option>12</option>
-            <option>13</option>
-            <option>14</option>
-            <option>15</option>
-            <option>16</option>
-            <option>17</option>
-        </select>
-    `;
+        div.innerHTML = `
+            <p style="margin-bottom: 5px; color: rgb(255, 102, 0); font-size: 12px;">
+            Child ${hotel_rooms_and_travelers.rooms[room_index].children.rooms_total_children} Age:</p>
+            <select>
+                <option>Under 1</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+            </select>
+        `;
 
-    hotels_search_form_room_children_list.appendChild(div);
-    render_total_rooms_and_travelers()
+        hotels_search_form_room_children_list.appendChild(div);
+        render_total_rooms_and_travelers()
+    }
 
 }
 

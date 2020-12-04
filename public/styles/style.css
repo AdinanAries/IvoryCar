@@ -537,13 +537,32 @@ header li a i,
   max-height: 300px !important;
   overflow-y: auto !important;
 }
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(231, 124, 2);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 .hotels_search_form_room_children_list {
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
 }
 .hotels_search_form_room_children_list div select {
-  width: 100px;
+  width: 95px;
   padding: 10px;
   margin-bottom: 10px;
   margin-right: 10px;
