@@ -236,37 +236,41 @@
                     <div class="each_round_trip_options_person_selector">
                       <div class="each_round_trip_options_person_type">Rooms</div>
                       <div class="each_round_trip_options_increase_person_div">
-                        <div onclick="remove_room_from_hotel_search('Adult');"
+                        <div onclick="remov_a_room();"
                           class="each_round_trip_options_increase_person_btn">-</div>
                         <div id="number_of_rooms_count">1</div>
-                        <div onclick="add_room_to_hotel_search('Adult');"
+                        <div onclick="add_a_room();"
                           class="each_round_trip_options_increase_person_btn">+</div>
                       </div>
                     </div>
                   </div>
-                  <div style="padding: 0 10px;">
-                    <p style="color: rgb(255, 102, 0); font-size: 12px;
-                           margin-top: 15px">
-                    Room 1</p>
-                    <div style="margin-top: -5px;" class="each_round_trip_options_person_selector">
-                      <div style="margin-left: 15px;" class="each_round_trip_options_person_type">Adults</div>
-                      <div class="each_round_trip_options_increase_person_div">
-                        <div onclick="remove_traveler_from_hotel_search('Adult');"
-                          class="each_round_trip_options_increase_person_btn">-</div>
-                        <div id="number_of_rooms_count">1</div>
-                        <div onclick="add_traveler_to_hotel_search('Adult');"
-                          class="each_round_trip_options_increase_person_btn">+</div>
+                  <div id="hotels_search_form_rooms_list">
+                    <div style="padding: 0 10px;">
+                      <p style="color: rgb(255, 102, 0); font-size: 12px;
+                            margin-top: 15px">
+                      Room 1</p>
+                      <div style="margin-top: -5px;" class="each_round_trip_options_person_selector">
+                        <div style="margin-left: 15px;" class="each_round_trip_options_person_type">Adults</div>
+                        <div class="each_round_trip_options_increase_person_div">
+                          <div onclick="remove_a_adult(1,1);"
+                            class="each_round_trip_options_increase_person_btn">-</div>
+                          <div id="hotels_number_of_adults_count1">1</div>
+                          <div onclick="add_a_adult(1,1);"
+                            class="each_round_trip_options_increase_person_btn">+</div>
+                        </div>
                       </div>
-                    </div>
-                    <div style="margin-top: -10px;" class="each_round_trip_options_person_selector">
-                      <div style="margin-left: 15px;" class="each_round_trip_options_person_type">Children</div>
-                      <div class="each_round_trip_options_increase_person_div">
-                        <div onclick="remove_traveler_from_hotel_search('Child');"
-                          class="each_round_trip_options_increase_person_btn">-</div>
-                        <div id="number_of_rooms_count">0</div>
-                        <div onclick="add_traveler_to_hotel_search('Child');"
-                          class="each_round_trip_options_increase_person_btn">+</div>
+                      <div style="margin-top: -10px;" class="each_round_trip_options_person_selector">
+                        <div style="margin-left: 15px;" class="each_round_trip_options_person_type">Children</div>
+                        <div class="each_round_trip_options_increase_person_div">
+                          <div onclick="remove_a_child(1,1);"
+                            class="each_round_trip_options_increase_person_btn">-</div>
+                          <div id="hotels_number_of_children_count1">0</div>
+                          <div onclick="add_a_child(1, 1);"
+                            class="each_round_trip_options_increase_person_btn">+</div>
+                        </div>
                       </div>
+                      <div style="flex-direction: row !important;" class="hotels_search_form_room_children_list" id="hotels_search_form_room_children_list1">
+                      <div>
                     </div>
                   </div>
                 </div>
@@ -417,9 +421,9 @@
               <div style="padding-bottom: 0 !important;" id="main_from_when_date_show_container" class="from_when_date_show_container">
                 <div id="more_options_date_show_container">
                   <div id="dates_search_fieldset_done_btn" style="color: white; font-size: 14px; font-weight: bolder; background-color: #023057; border-radius: 4px;
-                        box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2), 0px 0px 2.9px rgba(0, 0, 0, 0.23); 
+                        box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2), 0px 0px 2.9px rgba(0, 0, 0, 0.23); cursor: pointer;
                         display: flex; flex-direction: column; justify-content: center; height: 40px; text-align: center; margin: 0 10px;">
-                      Done
+                      Cancel
                     </div>
                   <!--p>Estimated Prices</p>
                   <div id="more_options_date_show_list">
@@ -532,9 +536,9 @@
               <div style="padding-bottom: 0 !important;" id="hotels_main_from_when_date_show_container" class="from_when_date_show_container">
                 <div id="hotels_more_options_date_show_container">
                   <div id="hotels_date_search_fieldset_done_btn" style="color: white; font-size: 14px; font-weight: bolder; background-color: #023057; border-radius: 4px;
-                        box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2), 0px 0px 2.9px rgba(0, 0, 0, 0.23); 
+                        box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2), 0px 0px 2.9px rgba(0, 0, 0, 0.23); cursor: pointer;
                         display: flex; flex-direction: column; justify-content: center; height: 40px; text-align: center; margin: 0 10px;">
-                      Done
+                      Cancel
                     </div>
                   <!--p>Estimated Prices</p>
                   <div id="hotels_more_options_date_show_list" style="flex-direction: row !important;">
@@ -665,9 +669,9 @@
               <div style="padding-bottom: 0 !important;" id="car_rentals_main_from_when_date_show_container" class="from_when_date_show_container">
                 <div id="car_rentals_more_options_date_show_container">
                   <div id="car_rentals_date_fieldset_done_btn" style="color: white; font-size: 14px; font-weight: bolder; background-color: #023057; border-radius: 4px;
-                        box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2), 0px 0px 2.9px rgba(0, 0, 0, 0.23); 
+                        box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2), 0px 0px 2.9px rgba(0, 0, 0, 0.23); cursor: pointer;
                         display: flex; flex-direction: column; justify-content: center; height: 40px; text-align: center; margin: 0 10px;">
-                      Done
+                      Cancel
                     </div>
                   <!--p>Estimated Prices</p>
                   <div id="car_rentals_more_options_date_show_list" style="flex-direction: row !important;">
@@ -1554,6 +1558,7 @@
       </div>
     </footer>
     <script src="scripts/search_page_main_script.js" type="text/javascript"></script>
+    <script src="scripts/hotel_number_of_rooms.js" type="text/javascript"></script>
     <script src="scripts/home_page_flight_search_processes.js" type="text/javascript"></script>
     <script src="scripts/data_charts.js" type="text/javascript"></script>
   </body>

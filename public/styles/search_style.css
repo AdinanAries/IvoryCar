@@ -1223,6 +1223,26 @@ footer a {
     padding: 10px !important;
     font-size: 13px;
   }
+  #hotels_search_form_rooms_list {
+    max-height: 300px !important;
+    overflow-y: auto !important;
+  }
+  .hotels_search_form_room_children_list {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .hotels_search_form_room_children_list div select {
+    width: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  .hotels_search_form_room_children_list div select:focus {
+    outline: none;
+  }
   .wrapper {
     margin: 0 10px;
     overflow-y: initial !important;
