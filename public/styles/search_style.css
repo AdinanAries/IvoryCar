@@ -1027,7 +1027,45 @@ header {
 }
 #hotels_search_form_rooms_list {
   max-height: 300px !important;
-  overflow-y: auto !important;
+  overflow-y: scroll !important;
+  background-color: white;
+}
+
+#hotels_search_form_rooms_list .each_round_trip_options_person_type {
+  color: #363636 !important;
+  text-shadow: none !important;
+}
+#hotels_search_form_rooms_list .each_round_trip_options_increase_person_btn {
+  background-color: #194f81 !important;
+  border: 1px solid #00284e !important;
+}
+.hotels_number_of_items_count {
+  color: #2769a7 !important;
+  text-shadow: none !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /*background: #f1f1f1;*/
+  background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(231, 124, 2);
+  border-top: 10px solid #140028;
+  border-bottom: 10px solid #140028;
+  border-radius: 100px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #e25a00;
 }
 .hotels_search_form_room_children_list {
   padding: 10px;
@@ -1038,7 +1076,7 @@ header {
   width: 95px;
   padding: 10px;
   margin-bottom: 10px;
-  border: none;
+  border: 1px solid #00284e !important;
   border-radius: 4px;
   margin-right: 10px;
 }

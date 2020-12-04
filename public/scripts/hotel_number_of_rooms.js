@@ -79,14 +79,14 @@ function add_a_room(){
     let div = document.createElement("div");
     div.innerHTML = `
     <div style="padding: 0 10px;">
-            <p style="color: rgb(255, 102, 0); font-size: 12px; margin-top: 15px">
+            <p style="color: rgb(255, 102, 0);margin-top: 15px; font-weight: bolder; text-shadow: none !important;">
             Room ${hotel_rooms_and_travelers.total_rooms}</p>
             <div style="margin-top: -5px;" class="each_round_trip_options_person_selector">
             <div style="margin-left: 15px;" class="each_round_trip_options_person_type">Adults</div>
             <div class="each_round_trip_options_increase_person_div">
                 <div onclick="remove_a_adult(${element_unique_id_number}, ${hotel_rooms_and_travelers.rooms.length});"
                 class="each_round_trip_options_increase_person_btn">-</div>
-                <div id="hotels_number_of_adults_count${element_unique_id_number}">1</div>
+                <div class="hotels_number_of_items_count" id="hotels_number_of_adults_count${element_unique_id_number}">1</div>
                 <div onclick="add_a_adult(${element_unique_id_number}, ${hotel_rooms_and_travelers.rooms.length});"
                 class="each_round_trip_options_increase_person_btn">+</div>
             </div>
@@ -96,7 +96,7 @@ function add_a_room(){
             <div class="each_round_trip_options_increase_person_div">
                 <div onclick="remove_a_child(${element_unique_id_number}, ${hotel_rooms_and_travelers.rooms.length});"
                 class="each_round_trip_options_increase_person_btn">-</div>
-                <div id="hotels_number_of_children_count${element_unique_id_number}">0</div>
+                <div class="hotels_number_of_items_count" id="hotels_number_of_children_count${element_unique_id_number}">0</div>
                 <div onclick="add_a_child(${element_unique_id_number}, ${hotel_rooms_and_travelers.rooms.length})"
                 class="each_round_trip_options_increase_person_btn">+</div>
             </div>
@@ -212,7 +212,7 @@ function add_a_child(number, room_number){
         let div = document.createElement("div")
 
         div.innerHTML = `
-            <p style="margin-bottom: 5px; color: rgb(255, 102, 0); font-size: 12px;">
+            <p style="margin-bottom: 5px; color: #00284e; text-shadow: none !important; font-size: 14px; font-weight: bolder;">
             Child ${hotel_rooms_and_travelers.rooms[room_index].children.rooms_total_children} Age:</p>
             <select>
                 <option>Under 1</option>
