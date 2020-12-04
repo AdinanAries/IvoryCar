@@ -255,8 +255,6 @@ header li a i,
   justify-content: space-between;
   /*background-color: rgb(146, 206, 255);*/
   background-color: white;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
   padding: 0 10px;
   /*border-bottom: 1px solid #c2c2c2;*/
 }
@@ -293,7 +291,6 @@ header li a i,
 #home_page_car_rentals_search_button {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  border-top-right-radius: 4px;
   margin: 0;
   margin-right: -10px;
   width: 150px;
@@ -301,7 +298,8 @@ header li a i,
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
-  background-color: #003f7a;
+  /*background-color: #003f7a;*/
+  background-color: #00284e;
 }
 .search_tickets_form_container i {
   font-size: 15px;
@@ -538,7 +536,6 @@ header li a i,
   overflow-y: scroll !important;
   background-color: white;
 }
-/**/
 #hotels_search_form_rooms_list .each_round_trip_options_person_type {
   color: #363636 !important;
   text-shadow: none !important;
@@ -551,7 +548,58 @@ header li a i,
   color: #00284e !important;
   text-shadow: none !important;
 }
-
+/*-------------------------*/
+.current_search_results_filter_options {
+  border: 1px solid #b0a4be;
+  border-radius: 4px;
+  padding: 10px;
+}
+.each_additional_search_inputs_and_Option p {
+  margin-top: 5px;
+  margin-right: 10px;
+  font-size: 12px;
+  color: white;
+}
+.current_search_results_filter_options:focus {
+  outline: none;
+}
+#additional_search_inputs_and_Options {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 10px;
+  background-color: #003f7a;
+  display: flex;
+  justify-content: space-between;
+}
+.each_additional_search_inputs_and_Option {
+  padding: 10px;
+}
+.each_additional_search_inputs_and_Option input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  margin-bottom: -10px;
+  margin-right: 5px;
+  border-radius: 4px;
+  border: 3px solid #838ead;
+}
+.each_additional_search_inputs_and_Option span {
+  font-size: 13px;
+  color: lightsalmon;
+  cursor: pointer;
+}
+.each_additional_search_inputs_and_Option i {
+  color: white;
+  margin-right: 5px;
+}
+.add_flight_btn {
+  background-color: rgb(0, 127, 177);
+  border-radius: 4px;
+  text-align: center;
+}
+.add_flight_btn span {
+  color: white;
+}
+/*------------------*/
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -813,6 +861,17 @@ footer a {
   /*.site_logo_container {
     margin-left: 30%;
   }*/
+  #additional_search_inputs_and_Options {
+    border-bottom: none;
+  }
+  .current_search_results_filter_options {
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
+  .each_additional_search_inputs_and_Option p {
+    margin: 0;
+    margin-top: 10px;
+  }
   .MenuIcon {
     width: 50px;
     top: 18.6px;
