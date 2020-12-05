@@ -561,27 +561,27 @@ car_rentals_city_search_fieldset.addEventListener("focusout", (evnt)=>{
 })
 
 date_search_fieldset.addEventListener("focusin", (evnt)=>{
-  $("#main_from_when_date_show_container").slideDown("fast");
+  //$("#main_from_when_date_show_container").slideDown("fast");
 })
 date_search_fieldset.addEventListener("focusout", (evnt)=>{
-  $("#main_from_when_date_show_container").slideUp("fast");
+  //$("#main_from_when_date_show_container").slideUp("fast");
 })
 /*ui_datepicker_header.addEventListener("click", (evnt)=>{
   $("#main_from_when_date_show_container").slideDown("fast");
 })*/
 
 hotels_date_search_fieldset.addEventListener("focusin", (evnt)=>{
-  $("#hotels_main_from_when_date_show_container").slideDown("fast");
+  //$("#hotels_main_from_when_date_show_container").slideDown("fast");
 })
 hotels_date_search_fieldset.addEventListener("focusout", (evnt)=>{
-  $("#hotels_main_from_when_date_show_container").slideUp("fast");
+  //$("#hotels_main_from_when_date_show_container").slideUp("fast");
 })
 
 car_rentals_date_search_fieldset.addEventListener("focusin", (evnt)=>{
-  $("#car_rentals_main_from_when_date_show_container").slideDown("fast");
+  //$("#car_rentals_main_from_when_date_show_container").slideDown("fast");
 })
 car_rentals_date_search_fieldset.addEventListener("focusout", (evnt)=>{
-  $("#car_rentals_main_from_when_date_show_container").slideUp("fast");
+  //$("#car_rentals_main_from_when_date_show_container").slideUp("fast");
 })
 
 let autocomplete = new google.maps.places.Autocomplete(from_where_search_input_fld);
