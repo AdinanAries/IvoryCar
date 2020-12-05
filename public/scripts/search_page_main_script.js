@@ -823,6 +823,13 @@ function edit_from_where_of_added_flight(number){
       each_added_flight_from_where_input.innerText = from_where_search_input_fld.value;
       from_where_search_input_fld.value = '';
       $("#multi_city_search_inputs_display").slideDown("fast");
+
+      if($(window).width() < 1026){
+        $('html, body').animate({
+            scrollTop: 0
+          }, 500);
+      }
+
       from_where_search_input_fld.removeEventListener("focusout", current_focus_out_func);
     }
     current_onchange_func = function(){
@@ -857,6 +864,13 @@ function edit_to_where_of_added_flight(number){
     each_added_flight_to_where_input.innerText = to_where_search_input_fld.value;
     to_where_search_input_fld.value = '';
     $("#multi_city_search_inputs_display").slideDown("fast");
+
+    if($(window).width() < 1026){
+      $('html, body').animate({
+          scrollTop: 0
+        }, 500);
+    }
+
     to_where_search_input_fld.removeEventListener("focusout",current_focus_out_func);
   }
   current_onchange_func = function(){
