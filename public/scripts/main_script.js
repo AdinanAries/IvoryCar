@@ -668,16 +668,18 @@ function add_a_flight(setting_number){
   div.innerHTML = `
         <div class="each_multi_city_search_inputs_display">
         <div style="display: flex; flex-direction: row !important; padding: 0;">
-          <div onclick="edit_from_where_of_added_flight(${globalFlightId});" style="margin-right: 15px;">
+          <div onclick="edit_from_where_of_added_flight(${globalFlightId});" style="margin-right: 15px; min-width: 150px;">
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
-            <p style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">From </p>
+            <p style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
+            <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 5px; color: white;"></i>From </p>
             <p id="each_added_flight_from_where_input${globalFlightId}" style="color: white; margin: 5px; font-size: 14px">
             From where
             </p>
           </div>
           <div onclick="edit_to_where_of_added_flight(${globalFlightId})">
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
-            <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">to </p>
+            <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
+            <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 5px; color: white;"></i>To </p>
             <p id="each_added_flight_to_where_input${globalFlightId}" style="color: white; margin: 5px; font-size: 14px">
             To where
             </p>
@@ -687,17 +689,19 @@ function add_a_flight(setting_number){
           <div onclick="edit_from_when_of_added_flight(${globalFlightId});"  style="margin-right: 15px;">
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
-            <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">Depature </p>
-            <p id="each_added_flight_from_when_input${globalFlightId}" style="color: white; margin: 5px; font-size: 14px">
-            Depature Date
-            </p>
+            <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
+            <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 5px; color: white;"></i>Depature </p>
+            <input type="text" id="each_added_flight_from_when_input${globalFlightId}" 
+              style="color: white; margin: 5px; font-size: 14px;  background: none; border: none;" placeholder="Departure date" value="" />
+            
           </div>
           <div onclick="edit_to_when_of_added_flight(${globalFlightId});">
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
-            <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">Return </p>
-            <p id="each_added_flight_to_when_input${globalFlightId}" style="color: white; margin: 5px; font-size: 14px">
-            Return Date
-            </p>
+            <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
+            <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 5px; color: white;"></i>Return </p>
+            <input type="text" id="each_added_flight_to_when_input${globalFlightId}" 
+              style="color: white; margin: 5px; font-size: 14px; background: none; border: none;" placeholder="Return date" value="" />
+            
           </div>
         </div>
         <div class="each_multi_city_search_inputs_display_close_edit_btns">
@@ -716,6 +720,7 @@ function add_a_flight(setting_number){
     $("#"+div.id).slideDown("fast");
   }, 200);
 
+  initialize_date_chooser(("each_added_flight_from_when_input"+globalFlightId), ("each_added_flight_to_when_input"+globalFlightId));
   
 }
 
@@ -748,9 +753,11 @@ function edit_from_where_of_added_flight(number){
       $("#multi_city_search_inputs_display").slideDown("fast");
 
       from_where_search_input_fld.removeEventListener("change", current_onchange_func);
+      from_where_search_input_fld.removeEventListener("focusout", current_onchange_func);
     };
 
     from_where_search_input_fld.addEventListener("change", current_onchange_func);
+    from_where_search_input_fld.addEventListener("focusout", current_onchange_func);
     
 
 }
@@ -779,51 +786,23 @@ function edit_to_where_of_added_flight(number){
     $("#multi_city_search_inputs_display").slideDown("fast");
 
     to_where_search_input_fld.removeEventListener("change",current_onchange_func);
+    to_where_search_input_fld.removeEventListener("focusout",current_onchange_func);
   }
 
   to_where_search_input_fld.addEventListener("change",current_onchange_func);
+  to_where_search_input_fld.addEventListener("focusout",current_onchange_func);
   
 }
 
 function edit_from_when_of_added_flight(number){
   
-  $("#multi_city_search_inputs_display").slideUp();
-  
-  if($(window).width() < 1026){
-    $('html, body').animate({
-        scrollTop: 90
-      }, 500);
-  }
-
-  from_when_search_input.focus();
-
-  from_when_search_input.removeEventListener("change",current_onchange_func);
-
-  current_onchange_func = function(){
-    document.getElementById(("each_added_flight_from_when_input"+number)).innerText = from_when_search_input.value;
-  }
-
-  from_when_search_input.addEventListener("change",current_onchange_func);
 }
 
 function edit_to_when_of_added_flight(number){
-  
-  $("#multi_city_search_inputs_display").slideUp();
-  
-  if($(window).width() < 1026){
-    $('html, body').animate({
-        scrollTop: 90
-      }, 500);
-  }
 
-  to_when_search_input.focus();
+}
 
-  to_when_search_input.removeEventListener("focusout",current_onchange_func);
-
-  current_onchange_func = function(){
-    alert(to_when_search_input.value);
-    document.getElementById(("each_added_flight_to_when_input"+number)).innerText = to_when_search_input.value;
-  }
-
-  to_when_search_input.addEventListener("focusout",current_onchange_func);
+function initialize_date_chooser(first_input_Id, second_input_id){
+  $("#"+first_input_Id).datepicker({minDate: 0});
+  $("#"+second_input_id).datepicker({minDate: 0});
 }
