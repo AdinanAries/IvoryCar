@@ -57,7 +57,7 @@ input[type="radio"]:checked {
   box-shadow: inset 20px 0 0 0 #4ed164;
 }*/
 .ui-datepicker {
-  z-index: 10;
+  z-index: 5 !important;
   width: 300px;
   border: none !important;
   color: #e25a00 !important;

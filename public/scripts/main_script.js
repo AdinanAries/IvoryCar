@@ -636,6 +636,9 @@ var globalFlightId = 0;
 var current_onchange_func = function(){
   return null;
 };
+var current_focus_out_func =function(){
+  return null;
+};
 
 //Add Flight functions
 
@@ -668,7 +671,7 @@ function add_a_flight(setting_number){
   div.innerHTML = `
         <div class="each_multi_city_search_inputs_display">
         <div style="display: flex; flex-direction: row !important; padding: 0;">
-          <div onclick="edit_from_where_of_added_flight(${globalFlightId});" style="margin-right: 15px; min-width: 150px;">
+          <div onclick="edit_from_where_of_added_flight(${globalFlightId});" style="margin-right: 15px;">
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
             <p style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
             <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 5px; color: white;"></i>From </p>
@@ -745,6 +748,10 @@ function edit_from_where_of_added_flight(number){
 
     from_where_search_input_fld.focus();
 
+    current_focus_out_func = function(){
+      from_where_search_input_fld.blur();
+      $("#multi_city_search_inputs_display").slideDown("fast");
+    }
     current_onchange_func = function(){
       //console.log(each_added_flight_from_where_input);
       each_added_flight_from_where_input.innerText = from_where_search_input_fld.value;
@@ -753,11 +760,11 @@ function edit_from_where_of_added_flight(number){
       $("#multi_city_search_inputs_display").slideDown("fast");
 
       from_where_search_input_fld.removeEventListener("change", current_onchange_func);
-      from_where_search_input_fld.removeEventListener("focusout", current_onchange_func);
+      from_where_search_input_fld.removeEventListener("focusout", current_focus_out_func);
     };
 
     from_where_search_input_fld.addEventListener("change", current_onchange_func);
-    from_where_search_input_fld.addEventListener("focusout", current_onchange_func);
+    from_where_search_input_fld.addEventListener("focusout", current_focus_out_func);
     
 
 }
@@ -778,6 +785,10 @@ function edit_to_where_of_added_flight(number){
 
   to_where_search_input_fld.focus();
 
+  current_focus_out_func = function(){
+    to_where_search_input_fld.blur();
+    $("#multi_city_search_inputs_display").slideDown("fast");
+  }
   current_onchange_func = function(){
     //console.log(each_added_flight_to_where_input);
     each_added_flight_to_where_input.innerText = to_where_search_input_fld.value;
@@ -785,21 +796,21 @@ function edit_to_where_of_added_flight(number){
     to_where_search_input_fld.blur();
     $("#multi_city_search_inputs_display").slideDown("fast");
 
-    to_where_search_input_fld.removeEventListener("change",current_onchange_func);
+    to_where_search_input_fld.removeEventListener("change",current_focus_out_func);
     to_where_search_input_fld.removeEventListener("focusout",current_onchange_func);
   }
 
-  to_where_search_input_fld.addEventListener("change",current_onchange_func);
+  to_where_search_input_fld.addEventListener("change",current_focus_out_func);
   to_where_search_input_fld.addEventListener("focusout",current_onchange_func);
   
 }
 
 function edit_from_when_of_added_flight(number){
-  
+  //flights_search_tickets_form_container.style.opacity = 0;
 }
 
 function edit_to_when_of_added_flight(number){
-
+  //flights_search_tickets_form_container.style.opacity = 0;
 }
 
 function initialize_date_chooser(first_input_Id, second_input_id){
