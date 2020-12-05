@@ -632,61 +632,106 @@ for (var i = 0, len = divs.length; i < len; i++){
     divs[i].setAttribute('tabindex', '0');
 }*/
 
+var globalFlightId = 0;
+var current_onchange_func = function(){
+  return null;
+};
 
 //Add Flight functions
 
-function add_a_flight(){
+function add_a_flight(setting_number){
 
-  document.getElementById("multiple_city_search_option").setAttribute("checked", true);
+  globalFlightId++;
 
   let multi_city_search_inputs_display = document.getElementById("multi_city_search_inputs_display");
 
-  setTimeout(()=>{
-    $("#multi_city_search_inputs_display").slideDown();
-  }, 100);
-  
+  if(setting_number == 1){
+    document.getElementById("multiple_city_search_option").checked = true;
+  }
+  if(setting_number == 0){
+
+    if(document.getElementById("multiple_city_search_option").checked === true){
+      //this is where to reset everything
+      $("#multi_city_search_inputs_display").slideUp("fast");
+      setTimeout(()=>{
+        multi_city_search_inputs_display.innerHTML = ``;
+      })
+      
+      return null;
+    }
+  }
+
   let div = document.createElement("div");
+  div.id = "each_added_flight" + globalFlightId;
+  div.style.display = "none";
 
   div.innerHTML = `
         <div class="each_multi_city_search_inputs_display">
-        <div style="display: flex; flex-direction: row !important; padding: 0;" onclick="edit_from_where_of_added_flight();">
-          <div style="margin-right: 15px;">
+        <div style="display: flex; flex-direction: row !important; padding: 0;">
+          <div onclick="edit_from_where_of_added_flight(${globalFlightId});" style="margin-right: 15px;">
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
             <p style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">From </p>
-            <p style="color: white; margin: 5px; font-size: 14px">Kumasi, Ghana</p>
+            <p id="each_added_flight_from_where_input${globalFlightId}" style="color: white; margin: 5px; font-size: 14px">
+            From where
+            </p>
           </div>
-          <div>
+          <div onclick="edit_to_where_of_added_flight(${globalFlightId})">
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
             <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">to </p>
-            <p style="color: white; margin: 5px; font-size: 14px">Accra, Ghana</p>
+            <p id="each_added_flight_to_where_input${globalFlightId}" style="color: white; margin: 5px; font-size: 14px">
+            To where
+            </p>
           </div>
         </div>
         <div style="display: flex; flex-direction: row !important; padding: 0;">
-          <div  style="margin-right: 15px;">
+          <div onclick="edit_from_when_of_added_flight(${globalFlightId});"  style="margin-right: 15px;">
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
             <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">Depature </p>
-            <p style="color: white; margin: 5px; font-size: 14px">12/4/2020</p>
+            <p id="each_added_flight_from_when_input${globalFlightId}" style="color: white; margin: 5px; font-size: 14px">
+            Depature Date
+            </p>
           </div>
-          <div>
+          <div onclick="edit_to_when_of_added_flight(${globalFlightId});">
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
             <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">Return </p>
-            <p style="color: white; margin: 5px; font-size: 14px">12/4/2020</p>
+            <p id="each_added_flight_to_when_input${globalFlightId}" style="color: white; margin: 5px; font-size: 14px">
+            Return Date
+            </p>
           </div>
         </div>
         <div class="each_multi_city_search_inputs_display_close_edit_btns">
-          <p><i class="fa fa-times" aria-hidden="true"></i></p>
+          <p><i onclick="remove_a_flight(${globalFlightId});" class="fa fa-times" aria-hidden="true"></i></p>
         </div>
       </div>
   `;
+
   multi_city_search_inputs_display.appendChild(div);
+
+  setTimeout(()=>{
+    $("#multi_city_search_inputs_display").slideDown("fast");
+  }, 100);
+
+  setTimeout(()=>{
+    $("#"+div.id).slideDown("fast");
+  }, 200);
+
   
 }
 
-function edit_from_where_of_added_flight(){
+function remove_a_flight(id){
+  let flight_id = "each_added_flight"+id;
+  $("#"+flight_id).slideUp("fast");
+}
 
-    $("#multi_city_search_inputs_display").slideUp();
-    
+function edit_from_where_of_added_flight(number){
+  
+  let thisId = ("each_added_flight_from_where_input"+number);
+
+  let each_added_flight_from_where_input =  document.getElementById(thisId);
+
+    $("#multi_city_search_inputs_display").slideUp("fast");
+
     if($(window).width() < 1026){
       $('html, body').animate({
           scrollTop: 90
@@ -695,11 +740,90 @@ function edit_from_where_of_added_flight(){
 
     from_where_search_input_fld.focus();
 
-    if(from_where_search_input_fld.value === "" || to_where_search_input_fld.value === "" 
-    || from_when_search_input.value === "" || to_when_search_input.value === "")
-    {
-      //document.getElementById("main_add_flight_btn").style.backgroundColor = "darkgrey";
-    }else{
-      //document.getElementById("main_add_flight_btn").style.backgroundColor = "rgb(0, 127, 177)";
-    }
+    current_onchange_func = function(){
+      //console.log(each_added_flight_from_where_input);
+      each_added_flight_from_where_input.innerText = from_where_search_input_fld.value;
+      from_where_search_input_fld.value = '';
+      from_where_search_input_fld.blur();
+      $("#multi_city_search_inputs_display").slideDown("fast");
+
+      from_where_search_input_fld.removeEventListener("change", current_onchange_func);
+    };
+
+    from_where_search_input_fld.addEventListener("change", current_onchange_func);
+    
+
+}
+
+function edit_to_where_of_added_flight(number){
+  
+  let thisId = ("each_added_flight_to_where_input"+number);
+
+  let each_added_flight_to_where_input =  document.getElementById(thisId);
+
+  $("#multi_city_search_inputs_display").slideUp();
+  
+  if($(window).width() < 1026){
+    $('html, body').animate({
+        scrollTop: 90
+      }, 500);
+  }
+
+  to_where_search_input_fld.focus();
+
+  current_onchange_func = function(){
+    //console.log(each_added_flight_to_where_input);
+    each_added_flight_to_where_input.innerText = to_where_search_input_fld.value;
+    to_where_search_input_fld.value = '';
+    to_where_search_input_fld.blur();
+    $("#multi_city_search_inputs_display").slideDown("fast");
+
+    to_where_search_input_fld.removeEventListener("change",current_onchange_func);
+  }
+
+  to_where_search_input_fld.addEventListener("change",current_onchange_func);
+  
+}
+
+function edit_from_when_of_added_flight(number){
+  
+  $("#multi_city_search_inputs_display").slideUp();
+  
+  if($(window).width() < 1026){
+    $('html, body').animate({
+        scrollTop: 90
+      }, 500);
+  }
+
+  from_when_search_input.focus();
+
+  from_when_search_input.removeEventListener("change",current_onchange_func);
+
+  current_onchange_func = function(){
+    document.getElementById(("each_added_flight_from_when_input"+number)).innerText = from_when_search_input.value;
+  }
+
+  from_when_search_input.addEventListener("change",current_onchange_func);
+}
+
+function edit_to_when_of_added_flight(number){
+  
+  $("#multi_city_search_inputs_display").slideUp();
+  
+  if($(window).width() < 1026){
+    $('html, body').animate({
+        scrollTop: 90
+      }, 500);
+  }
+
+  to_when_search_input.focus();
+
+  to_when_search_input.removeEventListener("focusout",current_onchange_func);
+
+  current_onchange_func = function(){
+    alert(to_when_search_input.value);
+    document.getElementById(("each_added_flight_to_when_input"+number)).innerText = to_when_search_input.value;
+  }
+
+  to_when_search_input.addEventListener("focusout",current_onchange_func);
 }
