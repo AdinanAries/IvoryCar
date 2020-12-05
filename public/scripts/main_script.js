@@ -742,7 +742,7 @@ function edit_from_where_of_added_flight(number){
 
     if($(window).width() < 1026){
       $('html, body').animate({
-          scrollTop: 90
+          scrollTop: 195
         }, 500);
     }
 
@@ -776,7 +776,7 @@ function edit_to_where_of_added_flight(number){
   
   if($(window).width() < 1026){
     $('html, body').animate({
-        scrollTop: 90
+        scrollTop: 195
       }, 500);
   }
 

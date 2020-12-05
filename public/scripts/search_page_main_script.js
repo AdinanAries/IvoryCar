@@ -476,7 +476,10 @@ var hero_section_container = document.querySelector(".hero_section_container");
                 document.body.style.paddingTop = "200px";
               }
 
-              if($(window).width() < 700 && window.pageYOffset > (currStickyPos + 210)){
+              if($(window).width() < 700 && window.pageYOffset > (currStickyPos + 210) 
+                  && (document.activeElement !== city_search_fieldset 
+                    || document.activeElement !== date_search_fieldset)
+                ){
                 
                 document.getElementById("additional_search_inputs_and_Options").style.display = "none";
                 city_search_fieldset.style.display = "none";
@@ -810,7 +813,7 @@ function edit_from_where_of_added_flight(number){
 
     if($(window).width() < 1026){
       $('html, body').animate({
-          scrollTop: 90
+          scrollTop: 195
         }, 500);
     }
 
@@ -844,7 +847,7 @@ function edit_to_where_of_added_flight(number){
   
   if($(window).width() < 1026){
     $('html, body').animate({
-        scrollTop: 90
+        scrollTop: 195
       }, 500);
   }
 
