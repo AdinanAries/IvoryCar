@@ -762,7 +762,7 @@ function add_a_flight(setting_number){
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
             <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
             <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 5px; color: white;"></i>Depature </p>
-            <input type="text" id="each_added_flight_from_when_input${globalFlightId}" 
+            <input type="text" id="each_added_flight_from_when_input${globalFlightId}" readonly="true"
               style="max-width: 100px; color: white; margin: 5px; font-size: 14px;  background: none; border: none;" placeholder="Departure date" value="" />
             
           </div>
@@ -770,7 +770,7 @@ function add_a_flight(setting_number){
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
             <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
             <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 5px; color: white;"></i>Return </p>
-            <input type="text" id="each_added_flight_to_when_input${globalFlightId}" 
+            <input type="text" id="each_added_flight_to_when_input${globalFlightId}" readonly="true"
               style="max-width: 100px; color: white; margin: 5px; font-size: 14px; background: none; border: none;" placeholder="Return date" value="" />
             
           </div>
