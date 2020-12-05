@@ -817,18 +817,15 @@ function edit_from_where_of_added_flight(number){
     from_where_search_input_fld.focus();
 
     current_focus_out_func = function(){
-      from_where_search_input_fld.blur();
-      $("#multi_city_search_inputs_display").slideDown("fast");
-    }
-    current_onchange_func = function(){
-      console.log(each_added_flight_from_where_input);
       each_added_flight_from_where_input.innerText = from_where_search_input_fld.value;
       from_where_search_input_fld.value = '';
-      from_where_search_input_fld.blur();
       $("#multi_city_search_inputs_display").slideDown("fast");
-
-      from_where_search_input_fld.removeEventListener("change", current_onchange_func);
       from_where_search_input_fld.removeEventListener("focusout", current_focus_out_func);
+    }
+    current_onchange_func = function(){
+      //console.log(each_added_flight_from_where_input);
+      from_where_search_input_fld.blur();
+      from_where_search_input_fld.removeEventListener("change", current_onchange_func);
     };
 
     from_where_search_input_fld.addEventListener("change", current_onchange_func);
@@ -854,18 +851,15 @@ function edit_to_where_of_added_flight(number){
   to_where_search_input_fld.focus();
 
   current_focus_out_func = function(){
-    to_where_search_input_fld.blur();
-    $("#multi_city_search_inputs_display").slideDown("fast");
-  }
-  current_onchange_func = function(){
-    console.log(each_added_flight_to_where_input);
     each_added_flight_to_where_input.innerText = to_where_search_input_fld.value;
     to_where_search_input_fld.value = '';
-    to_where_search_input_fld.blur();
     $("#multi_city_search_inputs_display").slideDown("fast");
-
-    to_where_search_input_fld.removeEventListener("change",current_onchange_func);
     to_where_search_input_fld.removeEventListener("focusout",current_focus_out_func);
+  }
+  current_onchange_func = function(){
+    //console.log(each_added_flight_to_where_input);
+    to_where_search_input_fld.blur();
+    to_where_search_input_fld.removeEventListener("change",current_onchange_func);
   }
 
   to_where_search_input_fld.addEventListener("change",current_onchange_func);
