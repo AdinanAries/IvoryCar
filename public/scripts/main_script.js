@@ -631,3 +631,75 @@ $("#car_rentals_to_when_search_input").datepicker({minDate: 0});
 for (var i = 0, len = divs.length; i < len; i++){
     divs[i].setAttribute('tabindex', '0');
 }*/
+
+
+//Add Flight functions
+
+function add_a_flight(){
+
+  document.getElementById("multiple_city_search_option").setAttribute("checked", true);
+
+  let multi_city_search_inputs_display = document.getElementById("multi_city_search_inputs_display");
+
+  setTimeout(()=>{
+    $("#multi_city_search_inputs_display").slideDown();
+  }, 100);
+  
+  let div = document.createElement("div");
+
+  div.innerHTML = `
+        <div class="each_multi_city_search_inputs_display">
+        <div style="display: flex; flex-direction: row !important; padding: 0;" onclick="edit_from_where_of_added_flight();">
+          <div style="margin-right: 15px;">
+            <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
+            <p style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">From </p>
+            <p style="color: white; margin: 5px; font-size: 14px">Kumasi, Ghana</p>
+          </div>
+          <div>
+            <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
+            <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">to </p>
+            <p style="color: white; margin: 5px; font-size: 14px">Accra, Ghana</p>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: row !important; padding: 0;">
+          <div  style="margin-right: 15px;">
+            <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
+            <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
+            <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">Depature </p>
+            <p style="color: white; margin: 5px; font-size: 14px">12/4/2020</p>
+          </div>
+          <div>
+            <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
+            <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">Return </p>
+            <p style="color: white; margin: 5px; font-size: 14px">12/4/2020</p>
+          </div>
+        </div>
+        <div class="each_multi_city_search_inputs_display_close_edit_btns">
+          <p><i class="fa fa-times" aria-hidden="true"></i></p>
+        </div>
+      </div>
+  `;
+  multi_city_search_inputs_display.appendChild(div);
+  
+}
+
+function edit_from_where_of_added_flight(){
+
+    $("#multi_city_search_inputs_display").slideUp();
+    
+    if($(window).width() < 1026){
+      $('html, body').animate({
+          scrollTop: 90
+        }, 500);
+    }
+
+    from_where_search_input_fld.focus();
+
+    if(from_where_search_input_fld.value === "" || to_where_search_input_fld.value === "" 
+    || from_when_search_input.value === "" || to_when_search_input.value === "")
+    {
+      //document.getElementById("main_add_flight_btn").style.backgroundColor = "darkgrey";
+    }else{
+      //document.getElementById("main_add_flight_btn").style.backgroundColor = "rgb(0, 127, 177)";
+    }
+}

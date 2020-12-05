@@ -457,6 +457,8 @@ var hero_section_container = document.querySelector(".hero_section_container");
               home_page_car_rentals_search_button.style.display = "flex";
               home_page_hotels_search_button.style.display = "flex";
               MobilehowSearchFormInputsBtn.style.display = "none";
+              document.getElementById("additional_search_inputs_and_Options").style.display = "flex";
+              //$("#multi_city_search_inputs_display").slideDown("fast");
             }
 
             /* Check if the current Y offset 
@@ -468,6 +470,7 @@ var hero_section_container = document.querySelector(".hero_section_container");
               hero_section_container.style.top = "0px";
               mobile_search_change_type_of_service.style.paddingTop = "15px";
               document.body.style.paddingTop = "100px";
+              $("#multi_city_search_inputs_display").slideUp("fast");
 
               if($(window).width() < 700){
                 document.body.style.paddingTop = "200px";
@@ -475,6 +478,7 @@ var hero_section_container = document.querySelector(".hero_section_container");
 
               if($(window).width() < 700 && window.pageYOffset > (currStickyPos + 210)){
                 
+                document.getElementById("additional_search_inputs_and_Options").style.display = "none";
                 city_search_fieldset.style.display = "none";
                 car_rentals_city_search_fieldset.style.display = "none";
                 hotels_city_search_fieldset.style.display = "none";
@@ -495,6 +499,10 @@ var hero_section_container = document.querySelector(".hero_section_container");
 
             } else { 
               
+              document.getElementById("additional_search_inputs_and_Options").style.display = "flex";
+
+              $("#multi_city_search_inputs_display").slideDown("fast");
+
               city_search_fieldset.style.display = "flex";
               car_rentals_city_search_fieldset.style.display = "flex";
               hotels_city_search_fieldset.style.display = "flex";
@@ -519,6 +527,10 @@ var hero_section_container = document.querySelector(".hero_section_container");
         }
 
         MobilehowSearchFormInputsBtn.addEventListener("click", (evnt)=>{
+
+            document.getElementById("additional_search_inputs_and_Options").style.display = "flex";
+
+            $("#multi_city_search_inputs_display").slideDown("fast");
 
             city_search_fieldset.style.opacity = 0;
             car_rentals_city_search_fieldset.style.opacity = 0;
@@ -684,3 +696,76 @@ var hero_section_container = document.querySelector(".hero_section_container");
           document.getElementById(see_flight_details_angle_down).style.transform = "rotate(180deg)";
         }
       }
+
+
+
+      //Add Flight functions
+
+function add_a_flight(){
+
+  document.getElementById("multiple_city_search_option").setAttribute("checked", true);
+
+  let multi_city_search_inputs_display = document.getElementById("multi_city_search_inputs_display");
+  
+  setTimeout(()=>{
+    $("#multi_city_search_inputs_display").slideDown();
+  }, 100);
+
+  let div = document.createElement("div");
+
+  div.innerHTML = `
+        <div class="each_multi_city_search_inputs_display">
+        <div style="display: flex; flex-direction: row !important; padding: 0;" onclick="edit_from_where_of_added_flight();">
+          <div style="margin-right: 15px;">
+            <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
+            <p style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">From </p>
+            <p style="color: white; margin: 5px; font-size: 14px">Kumasi, Ghana</p>
+          </div>
+          <div>
+            <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
+            <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">to </p>
+            <p style="color: white; margin: 5px; font-size: 14px">Accra, Ghana</p>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: row !important; padding: 0;">
+          <div  style="margin-right: 15px;">
+            <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
+            <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
+            <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">Depature </p>
+            <p style="color: white; margin: 5px; font-size: 14px">12/4/2020</p>
+          </div>
+          <div>
+            <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
+            <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">Return </p>
+            <p style="color: white; margin: 5px; font-size: 14px">12/4/2020</p>
+          </div>
+        </div>
+        <div class="each_multi_city_search_inputs_display_close_edit_btns">
+          <p><i class="fa fa-times" aria-hidden="true"></i></p>
+        </div>
+      </div>
+  `;
+  multi_city_search_inputs_display.appendChild(div);
+  
+}
+
+function edit_from_where_of_added_flight(){
+
+  $("#multi_city_search_inputs_display").slideUp();
+
+  if($(window).width() < 1026){
+    $('html, body').animate({
+        scrollTop: 90
+      }, 500);
+  }
+
+  from_where_search_input_fld.focus();
+
+  if(from_where_search_input_fld.value === "" || to_where_search_input_fld.value === "" 
+  || from_when_search_input.value === "" || to_when_search_input.value === "")
+  {
+    //document.getElementById("main_add_flight_btn").style.backgroundColor = "darkgrey";
+  }else{
+    //document.getElementById("main_add_flight_btn").style.backgroundColor = "rgb(0, 127, 177)";
+  }
+}
