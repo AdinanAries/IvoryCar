@@ -1235,7 +1235,9 @@ footer a {
   color: white;
   font-size: 13px;
 }
-
+#other_menu_languages_option {
+  padding-right: 0 !important;
+}
 @media only screen and (max-width: 1025px) {
   /*top nav bar responsiveness*/
   .wrapper {
