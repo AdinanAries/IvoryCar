@@ -65,15 +65,15 @@ body {
   overflow-x: hidden !important;
 }
 .jumbotron_background {
+  transition: all 0.5s;
   position: absolute;
   height: 100vh;
   z-index: -1;
   width: 100vw;
-  /*background: linear-gradient(rgba(0, 125, 209, 0.466), rgb(248, 75, 182)),*/
   background: linear-gradient(rgba(204, 241, 255, 0.37), #210340),
     url("../images/JFKAIR.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
 }
 .wrapper {
   max-width: 1024px;
@@ -140,14 +140,16 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 23px;
-  color: Orange;
-  font-weight: bolder;
+  font-size: 20px;
+  color: white;
   cursor: pointer;
 }
-.site_logo_container p,
-.site_logo_container span {
-  font-size: 23px;
+.site_logo_container p {
+  font-size: 18px;
+  /*font-family: "Bungee";*/
+  font-family: "Audiowide";
+  letter-spacing: 1px;
+  font-weight: bolder;
 }
 #top_logo_menu_icon {
   display: none;

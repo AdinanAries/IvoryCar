@@ -250,6 +250,15 @@ main_menu_car_option.addEventListener("click", () => {
   main_menu_car_option.classList.add("active_top_nav_link");
   jumbotron_background.style.display = "block";
   render_cars_page();
+
+  jumbotron_background.style.opacity = 0;
+  setTimeout(()=>{
+    jumbotron_background.style.background = "linear-gradient(rgba(204, 241, 255, 0.37), #210340), url('../images/JFKAIR.jpg')";
+  }, 500);
+  setTimeout(()=>{
+    jumbotron_background.style.opacity = 1;
+  },700);
+
   document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/JFKAIR.jpg')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/travel-4.jpg')";
   document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/633637768_flight-attendant.jpg')";
@@ -276,6 +285,7 @@ mobile_menu_car_option.addEventListener("click", () => {
   main_menu_car_option.classList.add("active_top_nav_link");
   jumbotron_background.style.display = "block";
   render_cars_page();
+
   document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/JFKAIR.jpg')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/travel-4.jpg')";
   document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/633637768_flight-attendant.jpg')";
@@ -295,6 +305,15 @@ main_menu_hotels_option.addEventListener("click", () => {
   main_menu_hotels_option.classList.add("active_top_nav_link");
   jumbotron_background.style.display = "block";
   render_cars_page();
+
+  jumbotron_background.style.opacity = 0;
+  setTimeout(()=>{
+    jumbotron_background.style.background = "linear-gradient(rgba(204, 241, 255, 0.37), #210340), url('../images/hotelsBackground2.jpg')";
+  }, 500);
+  setTimeout(()=>{
+    jumbotron_background.style.opacity = 1;
+  },700);
+  
   document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/HotelPic.jpg')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/HotelPic2.jpg')";
   document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/HotelPic3.jpg')";
@@ -320,6 +339,7 @@ mobile_menu_hotels_option.addEventListener("click", () => {
   main_menu_hotels_option.classList.add("active_top_nav_link");
   jumbotron_background.style.display = "block";
   render_cars_page();
+
   document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/HotelPic.jpg')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/HotelPic2.jpg')";
   document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/HotelPic3.jpg')";
@@ -339,6 +359,15 @@ main_menu_car_rentals_option.addEventListener("click", () => {
   main_menu_car_rentals_option.classList.add("active_top_nav_link");
   jumbotron_background.style.display = "block";
   render_cars_page();
+
+  jumbotron_background.style.opacity = 0;
+  setTimeout(()=>{
+    jumbotron_background.style.background = "linear-gradient(rgba(204, 241, 255, 0.37), #210340), url('../images/carBackgroundPic3.jpg')";
+  }, 500);
+  setTimeout(()=>{
+    jumbotron_background.style.opacity = 1;
+  },700);
+
   document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/CarRentals.png')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/CarRentals2.jpg')";
   document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/CarRentals3.jpg')";
@@ -364,6 +393,10 @@ mobile_menu_car_rentals_option.addEventListener("click", () => {
   main_menu_car_rentals_option.classList.add("active_top_nav_link");
   jumbotron_background.style.display = "block";
   render_cars_page();
+
+  jumbotron_background.style.background = "linear-gradient(rgba(204, 241, 255, 0.37), #210340), url('../images/carBackgroundPic3.jpg')";
+  jumbotron_background.style.backgroundSize = "cover";
+  jumbotron_background.style.backgroundRepeat = "no-repeat";
   document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/CarRentals.png')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/CarRentals2.jpg')";
   document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/CarRentals3.jpg')";
@@ -679,7 +712,7 @@ function add_a_flight(setting_number){
             From where
             </p>
           </div>
-          <div onclick="edit_to_where_of_added_flight(${globalFlightId})">
+          <div onclick="edit_to_where_of_added_flight(${globalFlightId});" style="margin-right: 20px;">
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
             <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
             <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 5px; color: white;"></i>To </p>
@@ -695,7 +728,7 @@ function add_a_flight(setting_number){
             <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
             <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 5px; color: white;"></i>Depature </p>
             <input type="text" id="each_added_flight_from_when_input${globalFlightId}" readonly="true"
-              style="color: white; margin: 5px; font-size: 14px;  background: none; border: none;" placeholder="Departure date" value="" />
+              style="max-width: 100px; color: white; margin: 5px; font-size: 14px;  background: none; border: none;" placeholder="Departure date" value="" />
             
           </div>
           <div onclick="edit_to_when_of_added_flight(${globalFlightId});">
@@ -703,7 +736,7 @@ function add_a_flight(setting_number){
             <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
             <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 5px; color: white;"></i>Return </p>
             <input type="text" id="each_added_flight_to_when_input${globalFlightId}" readonly="true"
-              style="color: white; margin: 5px; font-size: 14px; background: none; border: none;" placeholder="Return date" value="" />
+              style="max-width: 100px; color: white; margin: 5px; font-size: 14px; background: none; border: none;" placeholder="Return date" value="" />
             
           </div>
         </div>

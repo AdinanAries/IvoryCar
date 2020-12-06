@@ -758,7 +758,7 @@ function add_a_flight(setting_number){
             From where
             </p>
           </div>
-          <div onclick="edit_to_where_of_added_flight(${globalFlightId})">
+          <div onclick="edit_to_where_of_added_flight(${globalFlightId})" style="margin-right: 20px;">
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
             <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
             <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 5px; color: white;"></i>To </p>
