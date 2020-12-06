@@ -70,10 +70,11 @@ body {
   height: 100vh;
   z-index: -1;
   width: 100vw;
-  background: linear-gradient(rgba(204, 241, 255, 0.37), #210340),
-    url("../images/JFKAIR.jpg");
+  background: linear-gradient(rgba(204, 241, 255, 0), #210340),
+    url("../images/flightsBg.jpg");
   background-repeat: no-repeat !important;
   background-size: cover !important;
+  background-position: bottom !important;
 }
 .wrapper {
   max-width: 1024px;
@@ -144,8 +145,9 @@ header {
   color: white;
   cursor: pointer;
 }
-.site_logo_container p {
-  font-size: 18px;
+.site_logo_container p,
+.site_logo_container span {
+  font-size: 23px;
   /*font-family: "Bungee";*/
   font-family: "Audiowide";
   letter-spacing: 1px;
@@ -691,6 +693,7 @@ header li a i,
 }
 #home_page_display_pictures {
   display: flex;
+  display: none;
   justify-content: space-between;
   width: 100%;
   height: 200px;
@@ -1016,7 +1019,9 @@ footer a {
   #multi_city_search_inputs_display {
     max-height: 300px;
   }
-
+  #footer_logo_txt {
+    text-align: center !important;
+  }
   /*main sections responsiveness*/
 }
 

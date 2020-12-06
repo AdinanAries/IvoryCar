@@ -180,7 +180,8 @@ header {
   color: white;
   cursor: pointer;
 }
-.site_logo_container p {
+.site_logo_container p,
+.site_logo_container span {
   font-family: "Audiowide";
   letter-spacing: 1px;
   font-weight: bolder;

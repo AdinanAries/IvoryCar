@@ -253,15 +253,16 @@ main_menu_car_option.addEventListener("click", () => {
 
   jumbotron_background.style.opacity = 0;
   setTimeout(()=>{
-    jumbotron_background.style.background = "linear-gradient(rgba(204, 241, 255, 0.37), #210340), url('../images/JFKAIR.jpg')";
+    jumbotron_background.style.background = "linear-gradient(rgba(204, 241, 255, 0), #210340), url('../images/flightsBg.jpg')";
   }, 500);
   setTimeout(()=>{
     jumbotron_background.style.opacity = 1;
   },700);
 
-  document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/JFKAIR.jpg')";
+  /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/JFKAIR.jpg')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/travel-4.jpg')";
-  document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/633637768_flight-attendant.jpg')";
+  document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/633637768_flight-attendant.jpg')";*/
+
 });
 
 mobile_menu_car_option.addEventListener("click", () => {
@@ -286,9 +287,10 @@ mobile_menu_car_option.addEventListener("click", () => {
   jumbotron_background.style.display = "block";
   render_cars_page();
 
-  document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/JFKAIR.jpg')";
+  /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/flightsBg.jpg')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/travel-4.jpg')";
-  document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/633637768_flight-attendant.jpg')";
+  document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/633637768_flight-attendant.jpg')";*/
+
 });
 
 //function to show hotels search form
@@ -308,15 +310,17 @@ main_menu_hotels_option.addEventListener("click", () => {
 
   jumbotron_background.style.opacity = 0;
   setTimeout(()=>{
-    jumbotron_background.style.background = "linear-gradient(rgba(204, 241, 255, 0.37), #210340), url('../images/hotelsBackground2.jpg')";
+    jumbotron_background.style.background = "linear-gradient(rgba(204, 241, 255, 0), #210340), url('../images/HotelPic2.jpg')";
+    jumbotron_background.backgroundPosition = "bottom";
   }, 500);
   setTimeout(()=>{
     jumbotron_background.style.opacity = 1;
   },700);
   
-  document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/HotelPic.jpg')";
+  /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/HotelPic.jpg')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/HotelPic2.jpg')";
-  document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/HotelPic3.jpg')";
+  document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/HotelPic3.jpg')";*/
+
 });
 
 mobile_menu_hotels_option.addEventListener("click", () => {
@@ -340,9 +344,10 @@ mobile_menu_hotels_option.addEventListener("click", () => {
   jumbotron_background.style.display = "block";
   render_cars_page();
 
-  document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/HotelPic.jpg')";
+  /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/HotelPic.jpg')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/HotelPic2.jpg')";
-  document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/HotelPic3.jpg')";
+  document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/HotelPic3.jpg')";*/
+
 });
 
 //function to show car rentals search form
@@ -362,15 +367,16 @@ main_menu_car_rentals_option.addEventListener("click", () => {
 
   jumbotron_background.style.opacity = 0;
   setTimeout(()=>{
-    jumbotron_background.style.background = "linear-gradient(rgba(204, 241, 255, 0.37), #210340), url('../images/carBackgroundPic3.jpg')";
+    jumbotron_background.style.background = "linear-gradient(rgba(204, 241, 255, 0), #210340), url('../images/carBackgroundPic3.jpg')";
   }, 500);
   setTimeout(()=>{
     jumbotron_background.style.opacity = 1;
   },700);
 
-  document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/CarRentals.png')";
+  /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/CarRentals.png')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/CarRentals2.jpg')";
-  document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/CarRentals3.jpg')";
+  document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/CarRentals3.jpg')";*/
+
 });
 
 mobile_menu_car_rentals_option.addEventListener("click", () => {
@@ -394,12 +400,10 @@ mobile_menu_car_rentals_option.addEventListener("click", () => {
   jumbotron_background.style.display = "block";
   render_cars_page();
 
-  jumbotron_background.style.background = "linear-gradient(rgba(204, 241, 255, 0.37), #210340), url('../images/carBackgroundPic3.jpg')";
-  jumbotron_background.style.backgroundSize = "cover";
-  jumbotron_background.style.backgroundRepeat = "no-repeat";
-  document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/CarRentals.png')";
+  /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/CarRentals.png')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/CarRentals2.jpg')";
-  document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/CarRentals3.jpg')";
+  document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/CarRentals3.jpg')";*/
+
 });
 
 //this sets the cars main menu option active
