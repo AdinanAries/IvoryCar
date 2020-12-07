@@ -186,6 +186,9 @@ header {
   letter-spacing: 1px;
   font-weight: bolder;
 }
+.site_logo_container span {
+  color: rgb(233, 128, 0);
+}
 .site_logo_container p,
 .site_logo_container span {
   font-size: 23px;
