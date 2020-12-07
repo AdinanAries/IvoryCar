@@ -268,6 +268,7 @@ main_menu_car_option.addEventListener("click", () => {
 
   flight_set_off_additional_options.style.display = "flex";
   hotel_set_off_additional_options.style.display = "none";
+  rental_cars_set_off_additional_options.style.display = "none";
   
   //site_motto.style.width = "auto";
 
@@ -910,3 +911,21 @@ function initialize_date_chooser(first_input_Id, second_input_id){
   $("#"+first_input_Id).datepicker({minDate: 0});
   $("#"+second_input_id).datepicker({minDate: 0});
 }
+
+
+//default onchange functions for input fields
+from_where_search_input_fld.addEventListener("change", ()=>{
+  from_where_search_input_fld.blur();
+})
+to_where_search_input_fld.addEventListener("change", ()=>{
+  to_where_search_input_fld.blur();
+})
+hotels_where_search_input_fld.addEventListener("change", ()=>{
+  hotels_where_search_input_fld.blur();
+})
+car_rentals_from_where_search_input_fld.addEventListener("change", ()=>{
+  car_rentals_from_where_search_input_fld.blur();
+})
+car_rentals_to_where_search_input_fld.addEventListener("change", ()=>{
+  car_rentals_to_where_search_input_fld.blur();
+})
