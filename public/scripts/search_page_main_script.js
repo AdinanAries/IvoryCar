@@ -188,6 +188,7 @@ main_menu_flights_option.addEventListener("click", () => {
 
   flight_set_off_additional_options.style.display = "flex";
   hotel_set_off_additional_options.style.display = "none";
+  rental_cars_set_off_additional_options.style.display = "none";
   //jumbotron_background.style.display = "block";
 });
 
@@ -207,6 +208,7 @@ mobile_menu_flights_option.addEventListener("click", () => {
 
   flight_set_off_additional_options.style.display = "flex";
   hotel_set_off_additional_options.style.display = "none";
+  rental_cars_set_off_additional_options.style.display = "none";
   //jumbotron_background.style.display = "block";
 });
 
@@ -226,6 +228,8 @@ main_menu_hotels_option.addEventListener("click", () => {
 
   flight_set_off_additional_options.style.display = "none";
   hotel_set_off_additional_options.style.display = "flex";
+  rental_cars_set_off_additional_options.style.display = "none";
+  
   //jumbotron_background.style.display = "block";
 });
 
@@ -244,6 +248,8 @@ mobile_menu_hotels_option.addEventListener("click", () => {
 
   flight_set_off_additional_options.style.display = "none";
   hotel_set_off_additional_options.style.display = "flex";
+  rental_cars_set_off_additional_options.style.display = "none";
+  
   //jumbotron_background.style.display = "block";
 });
 
@@ -260,6 +266,10 @@ main_menu_car_rentals_option.addEventListener("click", () => {
   set_all_main_menu_items_as_not_selected();
   main_menu_car_rentals_option.classList.add("active_top_nav_link");
   mobile_menu_car_rentals_option.classList.add("active_mobile_nav_link");
+
+  flight_set_off_additional_options.style.display = "none";
+  rental_cars_set_off_additional_options.style.display = "flex";
+  hotel_set_off_additional_options.style.display = "none";
   //jumbotron_background.style.display = "block";
 });
 
@@ -275,6 +285,10 @@ mobile_menu_car_rentals_option.addEventListener("click", () => {
   set_all_main_menu_items_as_not_selected();
   main_menu_car_rentals_option.classList.add("active_top_nav_link");
   mobile_menu_car_rentals_option.classList.add("active_mobile_nav_link");
+
+  flight_set_off_additional_options.style.display = "none";
+  rental_cars_set_off_additional_options.style.display = "flex";
+  hotel_set_off_additional_options.style.display = "none";
   //jumbotron_background.style.display = "block";
 });
 
@@ -472,7 +486,10 @@ var hero_section_container = document.querySelector(".hero_section_container");
 
               if(document.activeElement !== city_search_fieldset 
                 || document.activeElement !== date_search_fieldset){
-                  document.getElementById("additional_search_inputs_and_Options").style.display = "flex";
+
+                  //$("#additional_search_inputs_and_Options").slideDown("fast");
+                  document.getElementById("additional_search_inputs_and_Options").style.display = "block";
+                  
                 }
               //$("#multi_city_search_inputs_display").slideDown("fast");
             }
@@ -487,8 +504,10 @@ var hero_section_container = document.querySelector(".hero_section_container");
               mobile_search_change_type_of_service.style.paddingTop = "15px";
               document.body.style.paddingTop = "100px";
               $("#multi_city_search_inputs_display").slideUp("fast");
-              document.getElementById("additional_search_inputs_and_Options").style.display = "none";
 
+              //$("#additional_search_inputs_and_Options").slideUp("fast");
+              document.getElementById("additional_search_inputs_and_Options").style.display = "none";
+              
               if($(window).width() < 700){
                 document.body.style.paddingTop = "200px";
               }
@@ -520,7 +539,10 @@ var hero_section_container = document.querySelector(".hero_section_container");
               
               if(document.activeElement !== city_search_fieldset 
                 || document.activeElement !== date_search_fieldset){
-                  document.getElementById("additional_search_inputs_and_Options").style.display = "flex";
+                  
+                  //$("#additional_search_inputs_and_Options").slideDown("fast");
+                  document.getElementById("additional_search_inputs_and_Options").style.display = "block";
+                  
                 }
               //document.getElementById("additional_search_inputs_and_Options").style.display = "flex";
 
@@ -551,8 +573,9 @@ var hero_section_container = document.querySelector(".hero_section_container");
 
         MobilehowSearchFormInputsBtn.addEventListener("click", (evnt)=>{
 
-            document.getElementById("additional_search_inputs_and_Options").style.display = "flex";
-
+            $("#additional_search_inputs_and_Options").slideDown("fast");
+            //document.getElementById("additional_search_inputs_and_Options").style.display = "block";
+            
             $("#multi_city_search_inputs_display").slideDown("fast");
 
             city_search_fieldset.style.opacity = 0;
@@ -832,7 +855,8 @@ function edit_from_where_of_added_flight(number){
     $("#multi_city_search_inputs_display").slideUp("fast");
 
     if($(window).width() < 1026){
-      document.getElementById("additional_search_inputs_and_Options").style.display = "none";
+      $("#additional_search_inputs_and_Options").slideUp("fast");
+      //document.getElementById("additional_search_inputs_and_Options").style.display = "none";
     }
 
     from_where_search_input_fld.focus();
@@ -841,7 +865,8 @@ function edit_from_where_of_added_flight(number){
       each_added_flight_from_where_input.innerText = from_where_search_input_fld.value;
       from_where_search_input_fld.value = '';
       $("#multi_city_search_inputs_display").slideDown("fast");
-      document.getElementById("additional_search_inputs_and_Options").style.display = "block";
+      $("#additional_search_inputs_and_Options").slideDown("fast");
+      //document.getElementById("additional_search_inputs_and_Options").style.display = "block";
       from_where_search_input_fld.removeEventListener("focusout", current_focus_out_func);
     }
     current_onchange_func = function(){
@@ -865,7 +890,8 @@ function edit_to_where_of_added_flight(number){
   $("#multi_city_search_inputs_display").slideUp();
   
   if($(window).width() < 1026){
-    document.getElementById("additional_search_inputs_and_Options").style.display = "none";
+    $("#additional_search_inputs_and_Options").slideUp("fast");
+    //document.getElementById("additional_search_inputs_and_Options").style.display = "none";
   }
 
   to_where_search_input_fld.focus();
@@ -874,7 +900,8 @@ function edit_to_where_of_added_flight(number){
     each_added_flight_to_where_input.innerText = to_where_search_input_fld.value;
     to_where_search_input_fld.value = '';
     $("#multi_city_search_inputs_display").slideDown("fast");
-    document.getElementById("additional_search_inputs_and_Options").style.display = "block";
+    $("#additional_search_inputs_and_Options").slideDown("fast");
+    //document.getElementById("additional_search_inputs_and_Options").style.display = "block";
     to_where_search_input_fld.removeEventListener("focusout",current_focus_out_func);
   }
 

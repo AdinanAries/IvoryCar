@@ -307,6 +307,7 @@ mobile_menu_car_option.addEventListener("click", () => {
 
   flight_set_off_additional_options.style.display = "flex";
   hotel_set_off_additional_options.style.display = "none";
+  rental_cars_set_off_additional_options.style.display = "none";
 
   /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/flightsBg.jpg')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/travel-4.jpg')";
@@ -345,6 +346,7 @@ main_menu_hotels_option.addEventListener("click", () => {
   },100);
 
   flight_set_off_additional_options.style.display = "none";
+  rental_cars_set_off_additional_options.style.display = "none";
   hotel_set_off_additional_options.style.display = "flex";
   
   /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/HotelPic.jpg')";
@@ -381,6 +383,7 @@ mobile_menu_hotels_option.addEventListener("click", () => {
   },100);
 
   flight_set_off_additional_options.style.display = "none";
+  rental_cars_set_off_additional_options.style.display = "none";
   hotel_set_off_additional_options.style.display = "flex";
 
   /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/HotelPic.jpg')";
@@ -418,6 +421,10 @@ main_menu_car_rentals_option.addEventListener("click", () => {
     site_motto.style.transform = "rotate(0deg)";
   },100);
 
+  flight_set_off_additional_options.style.display = "none";
+  rental_cars_set_off_additional_options.style.display = "flex";
+  hotel_set_off_additional_options.style.display = "none";
+
   /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/CarRentals.png')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/CarRentals2.jpg')";
   document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/CarRentals3.jpg')";*/
@@ -451,6 +458,9 @@ mobile_menu_car_rentals_option.addEventListener("click", () => {
     site_motto.style.transform = "rotate(0deg)";
   },100);
 
+  flight_set_off_additional_options.style.display = "none";
+  rental_cars_set_off_additional_options.style.display = "flex";
+  hotel_set_off_additional_options.style.display = "none";
   
   /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/CarRentals.png')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/CarRentals2.jpg')";
