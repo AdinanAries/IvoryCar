@@ -1129,6 +1129,9 @@ footer a {
   section {
     overflow: initial !important;
   }
+  i {
+    overflow: initial !important;
+  }
   /*top navbar responsiveness*/
   #main_menu_language_submenu {
     position: absolute;
