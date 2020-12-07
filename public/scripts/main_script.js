@@ -265,6 +265,9 @@ main_menu_car_option.addEventListener("click", () => {
     site_motto.innerText = "Cheap tickets for your flights";
     site_motto.style.transform = "rotate(0deg)";
   },100);
+
+  flight_set_off_additional_options.style.display = "flex";
+  hotel_set_off_additional_options.style.display = "none";
   
   //site_motto.style.width = "auto";
 
@@ -302,6 +305,9 @@ mobile_menu_car_option.addEventListener("click", () => {
     site_motto.style.transform = "rotate(0deg)";
   },100);
 
+  flight_set_off_additional_options.style.display = "flex";
+  hotel_set_off_additional_options.style.display = "none";
+
   /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/flightsBg.jpg')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/travel-4.jpg')";
   document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/633637768_flight-attendant.jpg')";*/
@@ -337,6 +343,9 @@ main_menu_hotels_option.addEventListener("click", () => {
     site_motto.innerText = "Best prices on hotels";
     site_motto.style.transform = "rotate(0deg)";
   },100);
+
+  flight_set_off_additional_options.style.display = "none";
+  hotel_set_off_additional_options.style.display = "flex";
   
   /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/HotelPic.jpg')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/HotelPic2.jpg')";
@@ -370,6 +379,9 @@ mobile_menu_hotels_option.addEventListener("click", () => {
     site_motto.innerText = "Best prices on hotels";
     site_motto.style.transform = "rotate(0deg)";
   },100);
+
+  flight_set_off_additional_options.style.display = "none";
+  hotel_set_off_additional_options.style.display = "flex";
 
   /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/HotelPic.jpg')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/HotelPic2.jpg')";
@@ -439,6 +451,7 @@ mobile_menu_car_rentals_option.addEventListener("click", () => {
     site_motto.style.transform = "rotate(0deg)";
   },100);
 
+  
   /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/CarRentals.png')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/CarRentals2.jpg')";
   document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/CarRentals3.jpg')";*/

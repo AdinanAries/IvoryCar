@@ -184,7 +184,10 @@ main_menu_flights_option.addEventListener("click", () => {
   
   set_all_main_menu_items_as_not_selected();
   main_menu_flights_option.classList.add("active_top_nav_link");
-  mobile_menu_flights_option.classList.add("active_mobile_nav_link")
+  mobile_menu_flights_option.classList.add("active_mobile_nav_link");
+
+  flight_set_off_additional_options.style.display = "flex";
+  hotel_set_off_additional_options.style.display = "none";
   //jumbotron_background.style.display = "block";
 });
 
@@ -201,6 +204,9 @@ mobile_menu_flights_option.addEventListener("click", () => {
   set_all_main_menu_items_as_not_selected();
   main_menu_flights_option.classList.add("active_top_nav_link");
   mobile_menu_flights_option.classList.add("active_mobile_nav_link")
+
+  flight_set_off_additional_options.style.display = "flex";
+  hotel_set_off_additional_options.style.display = "none";
   //jumbotron_background.style.display = "block";
 });
 
@@ -217,6 +223,9 @@ main_menu_hotels_option.addEventListener("click", () => {
   set_all_main_menu_items_as_not_selected();
   main_menu_hotels_option.classList.add("active_top_nav_link");
   mobile_menu_hotels_option.classList.add("active_mobile_nav_link")
+
+  flight_set_off_additional_options.style.display = "none";
+  hotel_set_off_additional_options.style.display = "flex";
   //jumbotron_background.style.display = "block";
 });
 
@@ -232,6 +241,9 @@ mobile_menu_hotels_option.addEventListener("click", () => {
   set_all_main_menu_items_as_not_selected();
   main_menu_hotels_option.classList.add("active_top_nav_link");
   mobile_menu_hotels_option.classList.add("active_mobile_nav_link")
+
+  flight_set_off_additional_options.style.display = "none";
+  hotel_set_off_additional_options.style.display = "flex";
   //jumbotron_background.style.display = "block";
 });
 

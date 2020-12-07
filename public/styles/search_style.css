@@ -1108,7 +1108,7 @@ header {
 .current_search_results_filter_options:focus {
   outline: none;
 }
-#additional_search_inputs_and_Options {
+#additional_search_inputs_and_Options .each_set_off_additional_options {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   padding: 10px;
