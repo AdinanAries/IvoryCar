@@ -724,7 +724,8 @@ header li a i,
 #site_lower_section {
   min-height: 500px;
 }
-#most_searched_cities_list_container {
+#most_searched_cities_list_container,
+#events_and_cities_list_container {
   display: flex;
   justify-content: space-between;
 }
