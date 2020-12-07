@@ -1124,7 +1124,10 @@ footer a {
   }
   .wrapper {
     margin: 0 10px;
-    overflow-x: hidden !important;
+    overflow: initial !important;
+  }
+  section {
+    overflow: initial !important;
   }
   /*top navbar responsiveness*/
   #main_menu_language_submenu {
@@ -1159,7 +1162,11 @@ footer a {
     height: 150px !important;
   }
   .hero_section_container {
-    min-height: 560px;
+    overflow-x: initial !important;
+    overflow-y: initial !important;
+  }
+  section {
+    overflow: initial !important;
   }
   #hero_section_flex_container {
     flex-direction: column !important;
