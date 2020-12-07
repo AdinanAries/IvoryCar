@@ -1,6 +1,7 @@
 //getting dom elements
 
 var city_search_fieldset_done_btn = document.getElementById("city_search_fieldset_done_btn");
+var site_motto = document.getElementsByClassName("site_motto")[0];
 
 var hotels__search_form_container = document.getElementById("hotels__search_form_container");
 var flights_search_tickets_form_container = document.getElementById("flights_search_tickets_form_container");
@@ -259,6 +260,14 @@ main_menu_car_option.addEventListener("click", () => {
     jumbotron_background.style.opacity = 1;
   },700);
 
+  site_motto.style.transform = "rotate(360deg)";
+  setTimeout(()=>{
+    site_motto.innerText = "Cheap tickets for your flights";
+    site_motto.style.transform = "rotate(0deg)";
+  },100);
+  
+  //site_motto.style.width = "auto";
+
   /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/JFKAIR.jpg')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/travel-4.jpg')";
   document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/633637768_flight-attendant.jpg')";*/
@@ -286,6 +295,12 @@ mobile_menu_car_option.addEventListener("click", () => {
   main_menu_car_option.classList.add("active_top_nav_link");
   jumbotron_background.style.display = "block";
   render_cars_page();
+
+  site_motto.style.transform = "rotate(360deg)";
+  setTimeout(()=>{
+    site_motto.innerText = "Cheap tickets for your flights";
+    site_motto.style.transform = "rotate(0deg)";
+  },100);
 
   /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/flightsBg.jpg')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/travel-4.jpg')";
@@ -317,6 +332,12 @@ main_menu_hotels_option.addEventListener("click", () => {
     jumbotron_background.style.opacity = 1;
   },700);
   
+  site_motto.style.transform = "rotate(360deg)";
+  setTimeout(()=>{
+    site_motto.innerText = "Best prices on hotels";
+    site_motto.style.transform = "rotate(0deg)";
+  },100);
+  
   /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/HotelPic.jpg')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/HotelPic2.jpg')";
   document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/HotelPic3.jpg')";*/
@@ -343,6 +364,12 @@ mobile_menu_hotels_option.addEventListener("click", () => {
   main_menu_hotels_option.classList.add("active_top_nav_link");
   jumbotron_background.style.display = "block";
   render_cars_page();
+
+  site_motto.style.transform = "rotate(360deg)";
+  setTimeout(()=>{
+    site_motto.innerText = "Best prices on hotels";
+    site_motto.style.transform = "rotate(0deg)";
+  },100);
 
   /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/HotelPic.jpg')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/HotelPic2.jpg')";
@@ -373,6 +400,12 @@ main_menu_car_rentals_option.addEventListener("click", () => {
     jumbotron_background.style.opacity = 1;
   },700);
 
+  site_motto.style.transform = "rotate(360deg)";
+  setTimeout(()=>{
+    site_motto.innerText = "Best rental car prices";
+    site_motto.style.transform = "rotate(0deg)";
+  },100);
+
   /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/CarRentals.png')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/CarRentals2.jpg')";
   document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/CarRentals3.jpg')";*/
@@ -399,6 +432,12 @@ mobile_menu_car_rentals_option.addEventListener("click", () => {
   main_menu_car_rentals_option.classList.add("active_top_nav_link");
   jumbotron_background.style.display = "block";
   render_cars_page();
+
+  site_motto.style.transform = "rotate(360deg)";
+  setTimeout(()=>{
+    site_motto.innerText = "Best rental car prices";
+    site_motto.style.transform = "rotate(0deg)";
+  },100);
 
   /*document.getElementById("first_each_display_picture").style.backgroundImage = "url('../images/CarRentals.png')";
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/CarRentals2.jpg')";

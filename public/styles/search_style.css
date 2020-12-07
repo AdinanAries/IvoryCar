@@ -182,6 +182,7 @@ header {
 }
 .site_logo_container p,
 .site_logo_container span {
+  text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 1), 0px 0px 2.9px rgba(0, 0, 0, 1);
   font-family: "Audiowide";
   letter-spacing: 1px;
   font-weight: bolder;
