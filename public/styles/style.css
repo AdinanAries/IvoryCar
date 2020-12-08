@@ -124,14 +124,14 @@
   background-color: rgb(17, 45, 63);
   color: white;
 }
-.events_notification_div_content:hover #events_notification_more {
+/*.events_notification_div_content:hover #events_notification_more {
   height: auto;
   transform: rotate(0deg);
   overflow: visible !important;
 }
 .events_notification_div_content:hover #events_notification_show_more_btn {
   transform: rotate(180deg);
-}
+}*/
 #events_notification_show_more_btn {
   transition: all 0.5s;
 }

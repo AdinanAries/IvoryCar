@@ -951,3 +951,19 @@ function show_all_event_details(main_evnt_iD){
 function hide_all_event_details(){
   $("#main_each_popular_city_all_info").slideUp("fast");
 }
+
+//hide or show right side docker
+document.getElementById("events_notification_show_more_btn").addEventListener("click", ()=>{
+  //document.getElementById("events_notification_show_more_btn").style.transform = "rotate(180deg)";
+  if(document.getElementById("events_notification_more").style.height === ""){
+    document.getElementById("events_notification_more").style.transform = "rotate(0deg)";
+    document.getElementById("events_notification_more").style.overflow = "visible";
+    document.getElementById("events_notification_more").style.height = "auto";
+    document.getElementById("events_notification_show_more_btn").style.transform = "rotate(180deg)";
+  }else{
+    document.getElementById("events_notification_more").style.transform = "rotate(180deg)";
+    document.getElementById("events_notification_more").style.overflow = "hidden";
+    document.getElementById("events_notification_more").style.height = "";
+    document.getElementById("events_notification_show_more_btn").style.transform = "rotate(0deg)";
+  }
+});
