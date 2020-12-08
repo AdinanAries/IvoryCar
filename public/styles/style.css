@@ -1125,7 +1125,17 @@ footer a {
   padding-right: 0 !important;
 }
 @media only screen and (max-width: 1025px) {
-  /*top nav bar responsiveness*/
+  .wide_screen_ads_card {
+    height: 350px;
+  }
+  .wide_screen_ads_main_content .left_Side {
+    height: 45%;
+    width: 100%;
+  }
+  .wide_screen_ads_main_content .right_Side {
+    height: 55%;
+    width: 100%;
+  }
   .wrapper {
     margin: 0 30px;
   }
