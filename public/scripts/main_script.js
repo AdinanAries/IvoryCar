@@ -967,3 +967,55 @@ document.getElementById("events_notification_show_more_btn").addEventListener("c
     document.getElementById("events_notification_show_more_btn").style.transform = "rotate(0deg)";
   }
 });
+
+
+//travel quotes functions
+var quotes = [
+  {
+    quote: "The gladdest moment in human life is a departure into unknown lands",
+     authur: "Sir Richard Burton"
+  },
+  {
+    quote: "Be fearless in the pursuit of what sets your soul on fire",
+     authur: "Jennifer Lee"
+  },
+  {
+    quote: "Travel makes one modest. You see what a tiny place you occupy in the world",
+     authur: "Gustav Flaubert"
+  },
+  {
+    quote: "Traveling – it leaves you speechless, then turns you into a storyteller",
+     authur: "Ibn Battuta"
+  },
+  {
+    quote: "All you need to know is that it’s possible",
+     authur: "Wolf"
+  },
+  {
+    quote: "The journey not the arrival matters",
+     authur: "T.S. Eliot"
+  },
+  {
+    quote: "Travel and change of place impart new vigor to the mind",
+     authur: "Seneca"
+  }
+];
+
+setInterval(()=>{
+  show_a_quote();
+}, 5000);
+
+var show_a_quote = ()=>{
+  document.getElementById("quote_elem").style.opacity = 0;
+  let qouteObj = quotes[Math.floor(Math.random()*quotes.length)]
+  document.getElementById("quote_elem").innerHTML =
+  `
+  <p>${qouteObj.quote}</p>
+  <p style='font-size: 18px; margin-top: 20px; color: rgba(232,142,12)'>- ${qouteObj.authur}</p>
+  `;
+  setTimeout(()=>{
+    document.getElementById("quote_elem").style.opacity = 1;
+  }, 600);
+  
+}
+show_a_quote();

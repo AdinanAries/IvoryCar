@@ -4,6 +4,9 @@
   font-family: Roboto;
   font-size: 16px;
 }
+#quote_elem {
+  transition: all 0.5s;
+}
 .home_page_quotes {
   position: relative;
   max-width: 600px;
