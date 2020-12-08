@@ -509,7 +509,7 @@ var hero_section_container = document.querySelector(".hero_section_container");
               document.getElementById("additional_search_inputs_and_Options").style.display = "none";
               
               if($(window).width() < 700){
-                document.body.style.paddingTop = "200px";
+                document.body.style.paddingTop = "265px";
               }
 
               if($(window).width() < 700 && window.pageYOffset > (currStickyPos + 210)){

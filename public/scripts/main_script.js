@@ -262,7 +262,7 @@ main_menu_car_option.addEventListener("click", () => {
 
   site_motto.style.transform = "rotate(360deg)";
   setTimeout(()=>{
-    site_motto.innerText = "Cheap tickets for your flights";
+    site_motto.innerText = "Get cheap flight tickets";
     site_motto.style.transform = "rotate(0deg)";
   },100);
 
@@ -302,7 +302,7 @@ mobile_menu_car_option.addEventListener("click", () => {
 
   site_motto.style.transform = "rotate(360deg)";
   setTimeout(()=>{
-    site_motto.innerText = "Cheap tickets for your flights";
+    site_motto.innerText = "Get cheap flight tickets";
     site_motto.style.transform = "rotate(0deg)";
   },100);
 
@@ -929,3 +929,25 @@ car_rentals_from_where_search_input_fld.addEventListener("change", ()=>{
 car_rentals_to_where_search_input_fld.addEventListener("change", ()=>{
   car_rentals_to_where_search_input_fld.blur();
 })
+
+
+var top_noti_fication_close_btn = document.getElementById("top_noti_fication_close_btn");
+
+top_noti_fication_close_btn.addEventListener("click", ()=>{
+  $("#top_noti_fication_div").slideUp("fast");
+});
+
+$(document).ready(()=>{
+  setTimeout(()=>{
+    $("#top_noti_fication_div").slideDown("fast");
+  }, 300)
+});
+
+
+function show_all_event_details(main_evnt_iD){
+  $("#main_each_popular_city_all_info").slideDown("fast");
+}
+
+function hide_all_event_details(){
+  $("#main_each_popular_city_all_info").slideUp("fast");
+}

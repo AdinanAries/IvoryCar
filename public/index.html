@@ -29,6 +29,23 @@
     <title>Anidaso | Home</title>
   </head>
   <body>
+    <div id="top_noti_fication_div">
+      <div class="top_noti_fication_container">
+        <div class="wrapper">
+          <div class="top_noti_fication_main_content">
+            <div>
+              <p class="top_noti_fication_main_txt">
+                <i style="color:rgb(0, 177, 139); margin-right: 5px;" class="fa fa-info-circle" aria-hidden="true"></i>
+                <span style="margin-right: 5px; color:rgb(247, 140, 0); font-weight: bolder;">Create events for global attendants</span>
+                - Your events will be intgerated into our booking work flows...</p>
+            </div>
+            <div>
+              <i id="top_noti_fication_close_btn" style="color:rgb(197, 0, 0);" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="jumbotron_background"></div>
     <header>
       <div class="wrapper">
@@ -242,7 +259,7 @@
         <div class="hero_section_container">
           <div class="site_motto_container">
             <div id="hero_section_flex_container" style="display: flex; justify-content: space-between">
-              <h1 class="site_motto">Cheap tickets for your flights</h1>
+              <h1 class="site_motto">Get cheap flight tickets</h1>
             </div>
           </div>
           <p id="close_main_round_trip_type_options_btn">
@@ -979,6 +996,64 @@
           See events that may interest you
         </p>
         <div id="events_and_cities_list_container">
+          <div id="main_each_popular_city_all_info" class="each_popular_city_all_info">
+            
+            <div class="each_popular_city_all_info_content">
+              <div class="image_area">
+                <p
+                    style="font-weight: bolder; color: white; font-size: 16px; padding: 10px; background-color: #0000007e;"
+                  >
+                  Manhattan Tales
+                  </p>
+              </div>
+              <div class="info_area">
+                <div class="info_area_section info_area_section_main">
+                  <h1 style="font-size: 14px; margin-bottom: 15px; color:#667888;">Event Detail</h1>
+                  <div>
+                    <p>
+                      <i class="fa fa-map-marker" style="margin-right: 5px; font-size: 13px; color:rgb(74, 101, 112);" aria-hidden="true"></i>
+                      1212 Brian St. New York, USA
+                    </p>
+                    <p>
+                      <i class="fa fa-calendar" style="margin-right: 5px; font-size: 13px; color:rgb(74, 101, 112);" aria-hidden="true"></i>
+                      March 23 2021
+                    </p>
+                    <p>
+                      <i class="fa fa-clock-o" style="margin-right: 5px; font-size: 13px; color:rgb(74, 101, 112);" aria-hidden="true"></i>
+                      1pm to 4pm GMT
+                    </p>
+                    <p>
+                      <i class="fa fa-users" style="margin-right: 5px; font-size: 13px; color:rgb(74, 101, 112);" aria-hidden="true"></i>
+                       2000+ people
+                    </p>
+                    <p>
+                      <i class="fa fa-ticket" style="margin-right: 5px; font-size: 13px; color:rgb(74, 101, 112);" aria-hidden="true"></i>
+                       $ 99.9
+                    </p>
+                  </div>
+                </div>
+                <div class="info_area_section" style="display: flex; flex-direction: column; justify-content: space-between;">
+                  <div>
+                    <h1 style="font-size: 14px; margin-bottom: 15px; color:#667888;">Event Description</h1>
+                    <p style="font-size: 14px; color: #023057; letter-spacing: 1px;">
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                      Tempora labore quo pariatur ipsam esse eveniet? Sequi 
+                      praesentium repellendus voluptate accusamus laboriosam amet f
+                      ugiat ipsam recusandae, perferendis eius sit deserunt alias?
+                    </p>
+                  </div>
+                  <div style="cursor: pointer; overflow: hidden; display: flex; flex-direction: row !important; margin: 0 10px; margin-top: 10px; border-radius: 5px;">
+                    <div style="padding: 10px; background-color:rgb(8, 77, 122); color: white; width: 60%; text-align: center; font-size: 13px; font-weight: bolder;">
+                      Attend Event
+                    </div>
+                    <div onclick="hide_all_event_details();" style="padding: 10px; background-color: rgb(187, 8, 44); color: white; width: 40%; text-align: center; font-size: 13px; font-weight: bolder;">
+                      Close
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div style="background-color: #023057;" class="each_popular_city">
             <div class="each_popular_city_more_info">
               <p
@@ -1012,7 +1087,7 @@
                 <div style="padding: 10px; background-color:rgb(247, 140, 0); color: rgb(13, 74, 83); width: 60%; text-align: center; font-size: 13px; font-weight: bolder;">
                   Attend Event
                 </div>
-                <div style="padding: 10px; background-color:rgb(0, 52, 73); color: white; width: 40%; text-align: center; font-size: 13px; font-weight: bolder;">
+                <div onclick="show_all_event_details('eventID');"  style="padding: 10px; background-color:rgb(0, 52, 73); color: white; width: 40%; text-align: center; font-size: 13px; font-weight: bolder;">
                   Read More
                 </div>
               </div>
@@ -1204,6 +1279,9 @@
             </div>
           </div>
         </div>
+        <div>
+          <p style="cursor: pointer; font-size: 16px; margin-top: 20px; text-align: center; color: rgb(228, 190, 190);">more event...</p>
+        </div>
       <!--End Events Interested In-->
         <h1 class="sections_title_h1">
           Popular Cities
@@ -1287,6 +1365,9 @@
               </p>
             </div>
           </div>
+        </div>
+        <div>
+          <p style="cursor: pointer; font-size: 16px; margin-top: 20px; text-align: center; color: rgb(228, 190, 190);">more cities...</p>
         </div>
         <h1 class="sections_title_h1">
           Deals Available

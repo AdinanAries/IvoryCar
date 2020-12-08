@@ -4,6 +4,24 @@
   font-family: Roboto;
   font-size: 16px;
 }
+#top_noti_fication_div {
+  display: none;
+}
+.top_noti_fication_container {
+  background-color: #0d3357;
+}
+.top_noti_fication_main_content {
+  display: flex;
+  justify-content: space-between;
+  min-height: 60px;
+  cursor: pointer;
+}
+.top_noti_fication_main_content div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
 div:focus {
   outline: none !important;
 }
@@ -726,6 +744,7 @@ header li a i,
 }
 #most_searched_cities_list_container,
 #events_and_cities_list_container {
+  position: relative;
   display: flex;
   justify-content: space-between;
 }
@@ -745,7 +764,8 @@ header li a i,
 .each_popular_city:hover .each_popular_city_see_more_btn {
   display: none;
 }
-.each_popular_city_more_info {
+.each_popular_city_more_info,
+.each_popular_city_all_info {
   display: none;
   padding: 10px 0;
   position: absolute;
@@ -753,11 +773,54 @@ header li a i,
   right: 5px;
   min-height: 150px;
   bottom: 45px;
-  z-index: 3px;
+  z-index: 3;
   background-color: rgb(34, 90, 112);
   border-radius: 10px;
   box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
     0px 0px 2.9px rgba(0, 0, 0, 0.3);
+}
+.each_popular_city_all_info {
+  padding: 0;
+  background-color: white;
+  top: -10px;
+  right: 0;
+  height: 100%;
+  z-index: 10;
+  width: 100%;
+  overflow: hidden !important;
+  border-radius: 4px;
+}
+.each_popular_city_all_info_content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+.each_popular_city_all_info_content .image_area {
+  background-image: url("../images/NewYorkEvnt.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 30%;
+}
+.each_popular_city_all_info_content .info_area {
+  display: flex;
+  padding: 10px;
+  width: 70%;
+  background-color: #0d3357;
+}
+.each_popular_city_all_info_content .info_area_section {
+  min-width: 30%;
+  padding: 10px;
+  background-color: white;
+  border-radius: 4px;
+  margin: 0 5px;
+}
+.each_popular_city_all_info_content .info_area_section_main p {
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: #023057;
 }
 .each_popular_city img {
   width: 100%;
