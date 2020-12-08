@@ -4,6 +4,55 @@
   font-family: Roboto;
   font-size: 16px;
 }
+.events_notification_div {
+  position: fixed;
+  background-color: #003f7a;
+  right: 0;
+  top: 25vh;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
+    0px 0px 2.9px rgba(0, 0, 0, 0.23);
+}
+.events_notification_div_content {
+  padding: 10px;
+  padding-left: 5px;
+}
+.events_notification_counter {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  border-radius: 100%;
+  border: 3px solid #003f7a;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 15px;
+  padding: 2px;
+  min-width: 15px;
+  font-size: 11px;
+  background-color: rgb(17, 45, 63);
+  color: white;
+}
+.events_notification_div_content:hover #events_notification_more {
+  height: auto;
+  transform: rotate(0deg);
+  overflow: visible !important;
+}
+.events_notification_div_content:hover #events_notification_show_more_btn {
+  transform: rotate(180deg);
+}
+#events_notification_show_more_btn {
+  transition: all 0.5s;
+}
+#events_notification_more {
+  transform: rotate(180deg);
+  transition: all 0.5s;
+  height: 0;
+  overflow: hidden;
+}
+
 #top_noti_fication_div {
   display: none;
 }
