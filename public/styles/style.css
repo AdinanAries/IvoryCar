@@ -811,7 +811,7 @@ header li a i,
   background-color: #0d3357;
 }
 .each_popular_city_all_info_content .info_area_section {
-  min-width: 30%;
+  min-width: 29%;
   padding: 10px;
   background-color: white;
   border-radius: 4px;
@@ -990,6 +990,45 @@ footer a {
   }
   .header_menu_dropdowns {
     margin: 0 30px;
+  }
+  .top_noti_fication_container {
+    padding: 10px;
+  }
+  .top_noti_fication_container p,
+  .top_noti_fication_container span {
+    font-size: 12px;
+  }
+  .each_popular_city_all_info {
+    position: fixed;
+    top: 0px;
+    right: 0;
+    height: 100vh;
+    width: 10vw;
+    border-radius: 0;
+  }
+  .each_popular_city_all_info_content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+  }
+  .each_popular_city_all_info_content .image_area {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 150px;
+    width: auto;
+  }
+  .each_popular_city_all_info_content .info_area {
+    width: auto;
+    height: calc(100% - 150px);
+  }
+  .each_popular_city_all_info_content .info_area_section {
+    min-width: auto;
+    margin-bottom: 5px;
+  }
+  .info_area_section_main p {
+    margin-bottom: 5px !important;
   }
   #top_logo_as_menu_btn {
     cursor: pointer;
