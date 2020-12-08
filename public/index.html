@@ -21,6 +21,7 @@
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <!--link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'-->
+    <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoltHbe0FsMkNbMCAbY5dRYBjxwkdSVQQ&libraries=places"></script>
 
@@ -31,21 +32,21 @@
   <body>
     <div class="events_notification_div">
       <div  class="events_notification_div_content">
-        <div style="padding: 10px; position: relative;">
+        <div style="overflow: visible !important; padding: 10px; position: relative;">
           <div class="events_notification_counter">19</div>
           <i style="color: rgb(233, 128, 0); font-size: 22px;" class="fa fa-bell" aria-hidden="true"></i>
         </div>
         
-          <div style="color: white; padding: 10px; position: relative;">
+          <div style="overflow: visible !important; padding: 10px; position: relative;">
             <div class="events_notification_counter">5</div>
             <i style="color: white; font-size: 20px;" class="fa fa-briefcase" aria-hidden="true"></i>
           </div>
           <div id="events_notification_more">
-          <div style="position: relative; padding: 10px;">
+          <div style="overflow: visible !important; position: relative; padding: 10px;">
             <div class="events_notification_counter">0</div>
             <i style="color: rgb(233, 128, 0);; font-size: 22px;" class="fa fa-globe" aria-hidden="true"></i>
           </div>
-          <div style="color: white; padding: 10px; position: relative;">
+          <div style="overflow: visible !important; padding: 10px; position: relative;">
             <div class="events_notification_counter">3</div>
             <i style="color: white; font-size: 20px;" class="fa fa-suitcase" aria-hidden="true"></i>
           </div>
@@ -1058,7 +1059,7 @@
                     </p>
                   </div>
                 </div>
-                <div class="info_area_section">
+                <div style="display: flex; flex-direction: column; justify-content: space-between;" class="info_area_section">
                   <div>
                     <h1 style="font-size: 14px; margin-bottom: 15px; color:#667888;">Event Description</h1>
                     <p style="font-size: 14px; color: #023057;">
@@ -1068,10 +1069,6 @@
                       ugiat ipsam recusandae, perferendis eius sit deserunt alias?
                     </p>
                   </div>
-                </div>
-                <div class="info_area_section" style="display: flex; flex-direction: column; justify-content: space-between;">
-                    <h1 style="font-size: 14px; margin-bottom: 15px; color:#667888;">Event Anticipation</h1>
-                  
                   <div style="cursor: pointer; overflow: hidden; display: flex; flex-direction: row !important; margin: 0 10px; margin-top: 10px; border-radius: 4px;">
                     <div style="padding: 10px; background-color:rgb(8, 77, 122); color: white; width: 60% !important; text-align: center; font-size: 13px; font-weight: bolder;">
                       Attend Event
@@ -1313,6 +1310,46 @@
           <p style="cursor: pointer; font-size: 16px; margin-top: 20px; text-align: center; color: rgb(228, 190, 190);">more event...</p>
         </div>
       <!--End Events Interested In-->
+      <h1 class="ads_upper_title">Hotels to checkout</h1>
+        <div class="wide_screen_ads_card">
+          <p class="wide_screen_ads_card_corder_ads_indicator">Ad</p>
+          <div class="wide_screen_ads_main_content">
+            <div class="left_Side">
+              <div style="padding: 10px;">
+
+              </div>
+            </div>
+            <div class="right_Side">
+              <div style="padding: 10px;"></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 5px;" class="wide_screen_ads_card">
+          <p class="wide_screen_ads_card_corder_ads_indicator">Ad</p>
+          <div class="wide_screen_ads_main_content">
+            <div class="left_Side" style="background-image: url('./images/lHotelPic2.jpg');">
+              <div style="padding: 10px;">
+
+              </div>
+            </div>
+            <div class="right_Side">
+              <div style="padding: 10px;"></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 5px;" class="wide_screen_ads_card">
+          <p class="wide_screen_ads_card_corder_ads_indicator">Ad</p>
+          <div class="wide_screen_ads_main_content">
+            <div class="left_Side" style="background-image: url('./images/HotelPic3.jpg');">
+              <div style="padding: 10px;">
+
+              </div>
+            </div>
+            <div class="right_Side">
+              <div style="padding: 10px;"></div>
+            </div>
+          </div>
+        </div>
         <h1 class="sections_title_h1">
           Popular Cities
         </h1>
@@ -1619,6 +1656,15 @@
               </p>
             </div>
           </div>
+        </div>
+        <div class="home_page_quotes">
+          <div class="left_arrow">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+          </div>
+          <div class="right_arrow">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </div>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus dolorem.</p>
         </div>
       </div>
     </section>
