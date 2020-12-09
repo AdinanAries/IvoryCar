@@ -52,20 +52,20 @@ function set_flight_trip_round_for_search(f_trip_round){
     if(f_trip_round === "One-way"){
         document.getElementById("airports_exchange_search_fields_values_icon").style.display = "none";
         document.getElementById("to_where_city_input_container").style.display = "none";
-        document.getElementById("to_when_date_input_container").style.display = "none";
+        //document.getElementById("to_when_date_input_container").style.display = "none";
         document.getElementById("from_where_city_input_container").style.minWidth = "100%";
-        document.getElementById("from_when_date_input_container").style.minWidth = "100%";
+        //document.getElementById("from_when_date_input_container").style.minWidth = "100%";
         document.getElementById("from_where_search_input_fld").style.width = "calc(100% - 40px)";
-        document.getElementById("from_when_search_input").style.width = "calc(100% - 40px)";
+        //document.getElementById("from_when_search_input").style.width = "calc(100% - 40px)";
         document.getElementById("to_where_search_display_span").innerHTML = "";
     }else{
         document.getElementById("airports_exchange_search_fields_values_icon").style.display = "block";
         document.getElementById("to_where_city_input_container").style.display = "block";
-        document.getElementById("to_when_date_input_container").style.display = "block";
+        //document.getElementById("to_when_date_input_container").style.display = "block";
         document.getElementById("from_where_city_input_container").style.minWidth = "50%";
-        document.getElementById("from_when_date_input_container").style.minWidth = "50%";
+        //document.getElementById("from_when_date_input_container").style.minWidth = "50%";
         document.getElementById("from_where_search_input_fld").style.width = "calc(100% - 40px)";
-        document.getElementById("from_when_search_input").style.width = "calc(100% - 40px)";
+        //document.getElementById("from_when_search_input").style.width = "calc(100% - 40px)";
         document.getElementById("to_where_search_display_span").innerHTML = `<span style="font-size: 12px;">
                 and 
                 <span style="font-weight: bolder; font-size: 12px;">destination</span> above
