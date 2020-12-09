@@ -7,6 +7,7 @@
 #quote_elem {
   transition: all 0.5s;
 }
+
 .home_page_quotes {
   position: relative;
   max-width: 600px;
@@ -96,7 +97,30 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
-
+.events_notification_item:hover .events_notification_item_tooltip {
+  display: block;
+}
+.events_notification_item_tooltip {
+  display: none;
+  position: absolute;
+  background-color: #184e80;
+  top: -5px;
+  right: 0;
+  width: 120px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  min-width: fit-content;
+  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
+    0px 0px 2.9px rgba(0, 0, 0, 0.23);
+  padding: 15px 10px;
+  z-index: -1;
+}
+.events_notification_item_tooltip p {
+  font-size: 12px;
+  text-align: center;
+  margin-right: 40px;
+  color: white;
+}
 .events_notification_div {
   z-index: 11;
   position: fixed;
