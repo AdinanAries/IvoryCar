@@ -16,6 +16,10 @@
     <script src="scripts/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="./scripts/jquery-ui-1.12.1.custom/jquery-ui.min.css"/>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
     <script src="https://pagecdn.io/lib/chart/2.9.3/Chart.min.js" crossorigin="anonymous"  ></script>
     <link href="https://pagecdn.io/lib/chart/2.9.3/Chart.min.css" rel="stylesheet" crossorigin="anonymous"  >
 
@@ -490,18 +494,18 @@
               </div>
             </div>
             <div id="date_search_fieldset" class="search_fieldset">
-              <div id="from_when_date_input_container">
+              <div style="width: 100% !important;" id="from_when_date_input_container">
                 <i class="fa fa-calendar" aria-hidden="true"></i
-                ><input onclick="jqueryHelper1()" readonly="readonly" id="from_when_search_input" type="text" placeholder="Depature" />
-                <script>
+                ><input readonly="readonly" id="from_when_search_input" type="text" placeholder="Depature" />
+                <!--script>
                   function jqueryHelper1(){
                     if($(window).width() > 700){
                       document.getElementsByClassName('ui-datepicker')[0].classList.remove('secondJQuery');
                     }
                   }
-                </script>
+                </script-->
               </div>
-              <div id="to_when_date_input_container">
+              <!--div id="to_when_date_input_container">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
                 <input onclick="jqueryHelper2()" readonly="readonly" id="to_when_search_input" type="text" placeholder="Return" />
               <script>
@@ -510,7 +514,7 @@
                     document.getElementsByClassName('ui-datepicker')[0].classList.add('secondJQuery');
                 }
               </script>
-              </div>
+              </div-->
               <div style="padding-bottom: 0 !important;" id="main_from_when_date_show_container" class="from_when_date_show_container">
                 <div id="more_options_date_show_container">
                   <div id="dates_search_fieldset_done_btn" style="color: white; font-size: 14px; font-weight: bolder; background-color: #023057; border-radius: 4px;
@@ -607,16 +611,16 @@
             <div id="hotels_date_search_fieldset" class="search_fieldset">
               <div id="hotels_from_when_date_input_container">
                 <i class="fa fa-calendar" aria-hidden="true"></i
-                ><input onclick="jqueryHelper1()" readonly="readonly" id="hotels_from_when_search_input" type="text" placeholder="Checkin" />
-                <script>
+                ><input readonly="readonly" id="hotels_from_when_search_input" type="text" placeholder="Checkin" />
+                <!--script>
                   function jqueryHelper1(){
                     if($(window).width() > 700){
                       document.getElementsByClassName('ui-datepicker')[0].classList.remove('secondJQuery');
                     }
                   }
-                </script>
+                </script-->
               </div>
-              <div id="hotels_to_when_date_input_container">
+              <!--div id="hotels_to_when_date_input_container">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
                 <input onclick="jqueryHelper2()" readonly="readonly" id="hotels_to_when_search_input" type="text" placeholder="Checkout" />
               <script>
@@ -625,7 +629,7 @@
                     document.getElementsByClassName('ui-datepicker')[0].classList.add('secondJQuery');
                 }
               </script>
-              </div>
+              </div-->
               <div style="padding-bottom: 0 !important;" id="hotels_main_from_when_date_show_container" class="from_when_date_show_container">
                 <div id="hotels_more_options_date_show_container">
                   <div id="hotels_date_search_fieldset_done_btn" style="color: white; font-size: 14px; font-weight: bolder; background-color: #023057; border-radius: 4px;
@@ -737,19 +741,19 @@
               </div>
             </div>
             <div id="car_rentals_date_search_fieldset" class="search_fieldset">
-              <div id="car_rentals_from_when_date_input_container">
+              <div  style="width: 100% !important;" id="car_rentals_from_when_date_input_container">
                 <i class="fa fa-calendar" aria-hidden="true"></i
-                ><input onclick="jqueryHelper1()" readonly="readonly" id="car_rentals_from_when_search_input" type="text" placeholder="Pickup Date" />
-                <script>
+                ><input readonly="readonly" id="car_rentals_from_when_search_input" type="text" placeholder="Pickup Date" />
+                <!--script>
                   function jqueryHelper1(){
                     if($(window).width() > 700){
                       document.getElementsByClassName('ui-datepicker')[0].classList.remove('secondJQuery');
                     }
                   }
-                </script>
+                </script-->
               </div>
               
-              <div id="car_rentals_to_when_date_input_container">
+              <!--div id="car_rentals_to_when_date_input_container">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
                 <input onclick="jqueryHelper2()" readonly="readonly" id="car_rentals_to_when_search_input" type="text" placeholder="Drop-off Date" />
               <script>
@@ -758,7 +762,7 @@
                     document.getElementsByClassName('ui-datepicker')[0].classList.add('secondJQuery');
                 }
               </script>
-              </div>
+              </div-->
               <div style="padding-bottom: 0 !important;" id="car_rentals_main_from_when_date_show_container" class="from_when_date_show_container">
                 <div id="car_rentals_more_options_date_show_container">
                   <div id="car_rentals_date_fieldset_done_btn" style="color: white; font-size: 14px; font-weight: bolder; background-color: #023057; border-radius: 4px;

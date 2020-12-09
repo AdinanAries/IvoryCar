@@ -453,12 +453,36 @@ logo_as_home_btn.addEventListener("click", ()=>{
   window.location.href = "/";
 })
 
-$("#from_when_search_input").datepicker({minDate: 0});
+/*$("#from_when_search_input").datepicker({minDate: 0});
 $("#to_when_search_input").datepicker({minDate: 0});
 $("#hotels_from_when_search_input").datepicker({minDate: 0});
 $("#hotels_to_when_search_input").datepicker({minDate: 0});
 $("#car_rentals_from_when_search_input").datepicker({minDate: 0});
-$("#car_rentals_to_when_search_input").datepicker({minDate: 0});
+$("#car_rentals_to_when_search_input").datepicker({minDate: 0});*/
+
+$(function() {
+  $('#from_when_search_input').daterangepicker({
+    opens: 'left'
+  }, function(start, end, label) {
+    //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+  });
+});
+
+$(function() {
+  $('#hotels_from_when_search_input').daterangepicker({
+    opens: 'left'
+  }, function(start, end, label) {
+    //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+  });
+});
+
+$(function() {
+  $('#car_rentals_from_when_search_input').daterangepicker({
+    opens: 'left'
+  }, function(start, end, label) {
+    //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+  });
+});
 
 
 var hero_section_container = document.querySelector(".hero_section_container"); 
