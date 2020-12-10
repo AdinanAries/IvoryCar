@@ -822,7 +822,7 @@ function add_a_flight(setting_number){
           <div onclick="edit_from_where_of_added_flight(${globalFlightId});" style="margin-right: 15px;">
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
             <p style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
-            <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 5px; color: white;"></i>From </p>
+            <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 5px; color: white;"></i>From Where</p>
             <p id="each_added_flight_from_where_input${globalFlightId}" style="color: white; margin: 5px; font-size: 14px">
             City/Airport
             </p>
@@ -830,7 +830,7 @@ function add_a_flight(setting_number){
           <div onclick="edit_to_where_of_added_flight(${globalFlightId});" style="margin-right: 20px;">
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
             <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
-            <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 5px; color: white;"></i>To </p>
+            <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 5px; color: white;"></i>To Where</p>
             <p id="each_added_flight_to_where_input${globalFlightId}" style="color: white; margin: 5px; font-size: 14px">
             City/Airport
             </p>
@@ -841,9 +841,9 @@ function add_a_flight(setting_number){
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
             <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
-            <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 5px; color: white;"></i>Depature - Return </p>
+            <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 5px; color: white;"></i>Depature - Return Dates</p>
             <input type="text" id="each_added_flight_from_when_input${globalFlightId}" readonly="true"
-              style="min-width: 200px; color: white; margin: 5px; font-size: 14px;  background: none; border: none;" placeholder="Departure date" value="" />
+              style="min-width: 200px; color: white; margin: 5px; font-size: 14px;  background: none; border: none;" placeholder="Pick your dates" value="" />
           </div>
         </div>
         <div class="each_multi_city_search_inputs_display_close_edit_btns">
