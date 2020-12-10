@@ -833,16 +833,7 @@ function add_a_flight(setting_number){
             <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
             <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 5px; color: white;"></i>Depature </p>
             <input type="text" id="each_added_flight_from_when_input${globalFlightId}" readonly="true"
-              style="max-width: 100px; color: white; margin: 5px; font-size: 14px;  background: none; border: none;" placeholder="Departure date" value="" />
-            
-          </div>
-          <div onclick="edit_to_when_of_added_flight(${globalFlightId});">
-            <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
-            <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
-            <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 5px; color: white;"></i>Return </p>
-            <input type="text" id="each_added_flight_to_when_input${globalFlightId}" readonly="true"
-              style="max-width: 100px; color: white; margin: 5px; font-size: 14px; background: none; border: none;" placeholder="Return date" value="" />
-            
+              style="min-width: 200px; color: white; margin: 5px; font-size: 14px;  background: none; border: none;" placeholder="Departure date" value="" />
           </div>
         </div>
         <div class="each_multi_city_search_inputs_display_close_edit_btns">
@@ -861,7 +852,7 @@ function add_a_flight(setting_number){
     $("#"+div.id).slideDown("fast");
   }, 200);
 
-  initialize_date_chooser(("each_added_flight_from_when_input"+globalFlightId), ("each_added_flight_to_when_input"+globalFlightId));
+  initialize_date_chooser(("each_added_flight_from_when_input"+globalFlightId));
   
 }
 
@@ -948,9 +939,14 @@ function edit_to_when_of_added_flight(number){
   //flights_search_tickets_form_container.style.opacity = 0;
 }
 
-function initialize_date_chooser(first_input_Id, second_input_id){
-  $("#"+first_input_Id).datepicker({minDate: 0});
-  $("#"+second_input_id).datepicker({minDate: 0});
+function initialize_date_chooser(first_input_Id){
+  $(function() {
+    $("#"+first_input_Id).daterangepicker({
+      opens: 'left'
+    }, function(start, end, label) {
+      //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+    });
+  });
 }
 
 //default onchange functions for input fields
