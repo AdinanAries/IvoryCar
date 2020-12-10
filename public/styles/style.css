@@ -4,6 +4,9 @@
   font-family: Roboto;
   font-size: 16px;
 }
+#flights_auto_complete_list li {
+  list-style-type: none;
+}
 .ui-autocomplete {
   max-width: calc(100% - 50px) !important;
   background-color: white;
@@ -15,7 +18,6 @@
 .ui-menu-item {
   padding: 2px;
 }
-/*ui-autocomplete-input – the input element that the autocomplete widget is initiated with.*/
 #quote_elem {
   transition: all 0.5s;
 }
