@@ -601,6 +601,7 @@ city_search_fieldset_done_btn.addEventListener("click", ()=>{
 });*/
 
 car_rentals_city_search_fieldset.addEventListener("focusout", (evnt)=>{
+  
   $("#main_from_where_city_show_container").slideUp("fast");
   document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "block";
   document.getElementById("from_where_city_input_container").style.display = "block";
@@ -612,6 +613,7 @@ car_rentals_city_search_fieldset.addEventListener("focusout", (evnt)=>{
 })
 
 car_rentals_from_where_search_input_fld.addEventListener("focusin", ()=>{
+  document.getElementById("car_drop_off_input_fld_tile").style.display = "none";
     setTimeout(()=>{
       document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "90%";
       document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "10%";
@@ -622,6 +624,7 @@ car_rentals_from_where_search_input_fld.addEventListener("focusin", ()=>{
     }, 400);
 })
 car_rentals_to_where_search_input_fld.addEventListener("focusin", ()=>{
+  document.getElementById("car_pick_up_input_fld_tile").style.display = "none";
     setTimeout(()=>{
       document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "10%";
       document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "90%";
@@ -639,6 +642,9 @@ car_rentals_from_where_search_input_fld.addEventListener("focusout", ()=>{
       document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "42%";
       document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "42%";
     }, 100);
+    setTimeout(()=>{
+      document.getElementById("car_drop_off_input_fld_tile").style.display = "block";
+    },500)
 })
 car_rentals_to_where_search_input_fld.addEventListener("focusout", ()=>{
     document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "block";
@@ -648,6 +654,9 @@ car_rentals_to_where_search_input_fld.addEventListener("focusout", ()=>{
       document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "42%";
       document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "42%";
     }, 100);
+    setTimeout(()=>{
+      document.getElementById("car_pick_up_input_fld_tile").style.display = "block";
+    },500)
 })
 car_rentals_city_search_fieldset_done_btn.addEventListener("click", ()=>{
   document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "block";

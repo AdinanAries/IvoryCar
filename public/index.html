@@ -624,8 +624,8 @@
                 <p>
                   <i class="fa fa-calendar" aria-hidden="true"></i>
                    <span style="font-size: 12px; color:rgb(235, 86, 0); font-weight: bolder;">Depature - Return Dates</span>
-                  </p>
-                  <input readonly="readonly" id="from_when_search_input" type="text" placeholder="" />
+                </p>
+                  <input style="padding-left: 10px;" readonly="readonly" id="from_when_search_input" type="text" placeholder="" />
                 <!--script>
                   function jqueryHelper1(){
                     if($(window).width() > 700){
@@ -671,8 +671,11 @@
           <div style="display: none;" id="hotels__search_form_container" class="search_tickets_form_container">
             <div id="hotels_city_search_fieldset" class="search_fieldset">
               <div id="hotels_where_city_input_container">
-                <i class="fa fa-map-marker" aria-hidden="true"></i
-                ><input id="hotels_where_search_input_fld" type="text" placeholder="Where" />
+                <p style="padding-left: 5px;" id="from_where_input_fld_tile">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                   <span style="font-size: 12px; color:rgb(235, 86, 0); font-weight: bolder;">Hotels From Where?</span>
+                  </p>
+                  <input style="padding-left: 10px; width: 100%;" id="hotels_where_search_input_fld" type="text" placeholder="Enter city name here" />
               </div>
               <div id="hotels_main_where_city_show_container" class="from_where_city_show_container">
                 <div style="margin-top: 50px;">
@@ -686,51 +689,8 @@
                     </span>
                   </p>
 
-                  <p style="margin: 10px; margin-bottom: 0;margin-top: 20px; font-size: 12px; color:rgb(255, 102, 0); font-weight: bolder;">
-                    People from New York also searched:</p>
                   <div id="hotels_people_also_searched_list_div">
-                    <p class="people_also_searched_list_item">
-                      <i aria-hidden="true" class="fa fa-check"></i>
-                       hotel in <span>New York, USA</span>
-                       <span style="margin-left: 10px; color:rgb(0, 177, 139);">
-                        $
-                      </span>
-                    </p>
-                    <p class="people_also_searched_list_item">
-                      <i aria-hidden="true" class="fa fa-check"></i>
-                       hotels in <span>Ontario, Canada</span>
-                       <span style="margin-left: 10px; color:rgb(0, 177, 139); font-size: 12px;">
-                        $$
-                      </span>
-                    </p>
-                    <p class="people_also_searched_list_item">
-                      <i aria-hidden="true" style="color:rgb(197, 0, 0);" class="fa fa-times"></i>
-                       hotels in <span>Roma, Italy</span>
-                       <span style="margin-left: 10px; color:rgb(0, 177, 139); font-size: 12px;">
-                        $$$
-                      </span>
-                    </p>
-                    <p class="people_also_searched_list_item">
-                      <i aria-hidden="true" class="fa fa-check"></i>
-                       hotels in <span>Ciaro, Egypt</span>
-                       <span style="margin-left: 10px; color:rgb(197, 0, 0); font-size: 12px;">
-                        $$$$
-                      </span>
-                    </p>
-                    <p class="people_also_searched_list_item">
-                      <i aria-hidden="true" class="fa fa-check"></i>
-                       hotels in <span>Paris, France</span>
-                       <span style="margin-left: 10px; color:rgb(197, 0, 0); font-size: 12px;">
-                        $$$$
-                      </span>
-                    </p>
-                    <p class="people_also_searched_list_item">
-                      <i aria-hidden="true" class="fa fa-check"></i>
-                       hotels in <span>California, USA</span>
-                       <span style="margin-left: 10px; color:rgb(197, 0, 0); font-size: 12px;">
-                        $$$$
-                      </span>
-                    </p>
+                    
                     <div class="search_fieldset_done_btn" id="hotels_city_search_fieldset_done_btn">
                       <i class="fa fa-times" aria-hidden="true"></i>
                     </div>
@@ -740,8 +700,11 @@
             </div>
             <div id="hotels_date_search_fieldset" class="search_fieldset">
               <div style="width: 100% !important;" id="hotels_from_when_date_input_container">
-                <i class="fa fa-calendar" aria-hidden="true"></i
-                ><input readonly="readonly" id="hotels_from_when_search_input" type="text" placeholder="Checkin" />
+                <p style="padding-left: 5px;">
+                  <i class="fa fa-calendar" aria-hidden="true"></i>
+                   <span style="font-size: 12px; color:rgb(235, 86, 0); font-weight: bolder;">Checkin - Checkout Dates</span>
+                </p>
+                <input style="padding-left: 10px;" readonly="readonly" id="hotels_from_when_search_input" type="text" placeholder="Pick your dates here" />
                 <!--script>
                   function jqueryHelper1(){
                     if($(window).width() > 700){
@@ -786,83 +749,27 @@
           <div style="display: none;" id="car_rentals_search_form_container" class="search_tickets_form_container">
             <div id="car_rentals_city_search_fieldset" class="search_fieldset">
               <div id="car_rentals_from_where_city_input_container">
-                <i class="fa fa-map-marker" aria-hidden="true"></i
-                ><input id="car_rentals_from_where_search_input_fld" type="text" placeholder="Pickup" />
+                <p style="padding-left: 5px;" id="car_pick_up_input_fld_tile">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                   <span style="font-size: 12px; color:rgb(235, 86, 0); font-weight: bolder;">Pickup place</span>
+                </p>
+                <input style="padding-left: 10px;" id="car_rentals_from_where_search_input_fld" type="text" placeholder="City/Center" />
               </div>
               <div id="car_rentals_exchange_search_fields_values_icon" class="exchange_search_fields_values_icon">
                 <i style="color: white;" class="fa fa-exchange" aria-hidden="true"></i>
             </div>
               <div id="car_rentals_to_where_city_input_container">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <input id="car_rentals_to_where_search_input_fld" type="text" placeholder="Drop-off" />
+                <p style="padding-left: 5px;" id="car_drop_off_input_fld_tile">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                   <span style="font-size: 12px; color:rgb(235, 86, 0); font-weight: bolder;">Drop-off place</span>
+                </p>
+                <input style="padding-left: 10px;" id="car_rentals_to_where_search_input_fld" type="text" placeholder="City/Center" />
               </div>
               <div id="car_rentals_main_from_where_city_show_container" class="from_where_city_show_container">
                 <div style="margin-top: 50px;">
-                  <p style="margin: 10px; margin-bottom: 0; font-size: 12px; color:rgb(255, 102, 0); font-weight: bolder;">You've Entered:</p>
-                  <p style="margin: 10px; margin-top: 0; font-size: 11px; color:rgb(0, 127, 177);"> 
-                    <span id="car_rentalsfrom_where_search_display_span">
-                      <span style="font-size: 12px;">
-                        <i style="color: red; margin-right: 5px; font-size: 12px; text-shadow: none;" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                        Please enter <span style="font-weight: bolder; font-size: 12px;">where you're flying from</span> 
-                      </span>
-                    </span>
-                    <span id="car_rentals_to_where_search_display_span">
-                      <span style="font-size: 12px;">
-                        and 
-                        <span style="font-weight: bolder; font-size: 12px;">destination</span> above
-                    </span>
-                  </p>
-                  <p style="margin: 10px; margin-bottom: 0;margin-top: 20px; font-size: 12px; color:rgb(255, 102, 0); font-weight: bolder;">
-                    People from New York also searched:</p>
+                  
                   <div id="car_rentals_people_also_searched_list_div">
-                    <p class="people_also_searched_list_item">
-                      <i aria-hidden="true" class="fa fa-check"></i>
-                       from <span>New York, USA</span>
-                       to <span>Atlanta, USA</span>
-                       <span style="margin-left: 10px; color:rgb(0, 177, 139);">
-                        $
-                      </span>
-                    </p>
-                    <p class="people_also_searched_list_item">
-                      <i aria-hidden="true" class="fa fa-check"></i>
-                       from <span>New York, USA</span>
-                       to <span>California, USA</span>
-                       <span style="margin-left: 10px; color:rgb(0, 177, 139); font-size: 12px;">
-                        $$
-                      </span>
-                    </p>
-                    <p class="people_also_searched_list_item">
-                      <i aria-hidden="true" style="color:rgb(197, 0, 0);" class="fa fa-times"></i>
-                       from <span>New York, USA</span>
-                       to <span>Ontario, Canada</span>
-                       <span style="margin-left: 10px; color:rgb(0, 177, 139); font-size: 12px;">
-                        $$$
-                      </span>
-                    </p>
-                    <p class="people_also_searched_list_item">
-                      <i aria-hidden="true" class="fa fa-check"></i>
-                       from <span>New York, USA</span>
-                       to <span>Roma, Italy</span>
-                       <span style="margin-left: 10px; color:rgb(197, 0, 0); font-size: 12px;">
-                        $$$$
-                      </span>
-                    </p>
-                    <p class="people_also_searched_list_item">
-                      <i aria-hidden="true" class="fa fa-check"></i>
-                       from <span>New York, USA</span>
-                       to <span>Paris, France</span>
-                       <span style="margin-left: 10px; color:rgb(197, 0, 0); font-size: 12px;">
-                        $$$$
-                      </span>
-                    </p>
-                    <p class="people_also_searched_list_item">
-                      <i aria-hidden="true" class="fa fa-check"></i>
-                       from <span>New York, USA</span>
-                       to <span>Cairo, Egypt</span>
-                       <span style="margin-left: 10px; color:rgb(197, 0, 0); font-size: 12px;">
-                        $$$$
-                      </span>
-                    </p>
+                    
                     <div class="search_fieldset_done_btn" id="car_rentals_city_search_fieldset_done_btn">
                       <i class="fa fa-times" aria-hidden="true"></i>
                     </div>
@@ -872,8 +779,11 @@
             </div>
             <div id="car_rentals_date_search_fieldset" class="search_fieldset">
               <div style="width: 100% !important;" id="car_rentals_from_when_date_input_container">
-                <i class="fa fa-calendar" aria-hidden="true"></i
-                ><input readonly="readonly" id="car_rentals_from_when_search_input" type="text" placeholder="Pickup Date" />
+                <p style="padding-left: 5px;" id="from_where_input_fld_tile">
+                  <i class="fa fa-calendar" aria-hidden="true"></i>
+                   <span style="font-size: 12px; color:rgb(235, 86, 0); font-weight: bolder;">Pickup - Drop-off Dates</span>
+                </p>
+                <input style="padding-left: 10px;" readonly="readonly" id="car_rentals_from_when_search_input" type="text" placeholder="Pick your dates" />
                 <!--script>
                   function jqueryHelper1(){
                     if($(window).width() > 700){

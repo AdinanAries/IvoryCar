@@ -531,7 +531,7 @@ header li a i,
   background: none;
 }
 #hotels_where_city_input_container {
-  width: 100%;
+  width: calc(100% - 20px) !important;
 }
 #hotels_where_city_input_container input {
   width: calc(100% - 70px);
@@ -546,6 +546,7 @@ header li a i,
   width: 100% !important;
   padding-bottom: 10px;
   background-color: white;
+  top: -5px;
   min-height: 150px;
   position: absolute;
   z-index: -1 !important;
