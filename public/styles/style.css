@@ -1183,6 +1183,12 @@ footer a {
   padding-right: 0 !important;
 }
 @media only screen and (max-width: 1025px) {
+  .events_notification_div {
+    overflow: visible !important;
+  }
+  .events_notification_div_content {
+    overflow: visible !important;
+  }
   .wide_screen_ads_card {
     height: 350px;
   }

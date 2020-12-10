@@ -1,0 +1,4 @@
+theme: jekyll-theme-minimal
+logo: /assets/img/airportjs.png
+title: Aiport Autocomplete Package
+description: A lightweight implementation of aiport autocomplete package.
