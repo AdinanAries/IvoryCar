@@ -814,7 +814,7 @@ function add_a_flight(setting_number){
             <p style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
             <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 5px; color: white;"></i>From </p>
             <p id="each_added_flight_from_where_input${globalFlightId}" style="color: white; margin: 5px; font-size: 14px">
-            From where
+            City/Airport
             </p>
           </div>
           <div onclick="edit_to_where_of_added_flight(${globalFlightId})" style="margin-right: 20px;">
@@ -822,7 +822,7 @@ function add_a_flight(setting_number){
             <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
             <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 5px; color: white;"></i>To </p>
             <p id="each_added_flight_to_where_input${globalFlightId}" style="color: white; margin: 5px; font-size: 14px">
-            To where
+            City/Airport
             </p>
           </div>
         </div>

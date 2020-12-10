@@ -524,8 +524,9 @@ city_search_fieldset.addEventListener("focusin", (evnt)=>{
     $("#main_from_where_city_show_container").slideDown("fast");
 })
 city_search_fieldset.addEventListener("focusout", (evnt)=>{
+  //$(".autocomplete-results").slideUp("fast");
   $("#main_from_where_city_show_container").slideUp("fast");
-  document.getElementById("airports_exchange_search_fields_values_icon").style.display = "block";
+  document.getElementById("airports_exchange_search_fields_values_icon_container").style.display = "flex";
   document.getElementById("from_where_city_input_container").style.display = "block";
   document.getElementById("to_where_city_input_container").style.display = "block";
   setTimeout(()=>{
@@ -535,46 +536,59 @@ city_search_fieldset.addEventListener("focusout", (evnt)=>{
 })
 
 from_where_search_input_fld.addEventListener("focusin", ()=>{
+      //$(".autocomplete-results").slideDown("fast");
+      document.getElementById("to_where_input_fld_tile").style.display = "none";
       setTimeout(()=>{
           document.getElementById("from_where_city_input_container").style.minWidth = "90%";
-          document.getElementById("to_where_city_input_container").style.minWidth = "10%";
+          document.getElementById("to_where_city_input_container").style.minWidth = "1%";
       },200);
       setTimeout(()=>{
-        document.getElementById("airports_exchange_search_fields_values_icon").style.display = "none";
         document.getElementById("to_where_city_input_container").style.display = "none";
+        document.getElementById("airports_exchange_search_fields_values_icon_container").style.display = "none";
       }, 400);
     
 })
 to_where_search_input_fld.addEventListener("focusin", ()=>{
+  //$(".autocomplete-results").slideDown("fast");
+      document.getElementById("from_where_input_fld_tile").style.display = "none";
       setTimeout(()=>{
-        document.getElementById("from_where_city_input_container").style.minWidth = "10%";
+        document.getElementById("from_where_city_input_container").style.minWidth = "1%";
         document.getElementById("to_where_city_input_container").style.minWidth = "90%";
       },200);
       setTimeout(()=>{
-        document.getElementById("airports_exchange_search_fields_values_icon").style.display = "none";
         document.getElementById("from_where_city_input_container").style.display = "none";
+        document.getElementById("airports_exchange_search_fields_values_icon_container").style.display = "none";
       },600);
 })
 from_where_search_input_fld.addEventListener("focusout", ()=>{
-    document.getElementById("airports_exchange_search_fields_values_icon").style.display = "block";
-    document.getElementById("from_where_city_input_container").style.display = "block";
-    document.getElementById("to_where_city_input_container").style.display = "block";
+  //$(".autocomplete-results").slideUp("fast");
+    document.getElementById("airports_exchange_search_fields_values_icon_container").style.display = "flex";
+    document.getElementById("from_where_city_input_container").style.minWidth = "42%";
+    document.getElementById("to_where_city_input_container").style.minWidth = "42%";
     setTimeout(()=>{
-      document.getElementById("from_where_city_input_container").style.minWidth = "42%";
-      document.getElementById("to_where_city_input_container").style.minWidth = "42%";
+      document.getElementById("from_where_city_input_container").style.display = "block";
+      document.getElementById("to_where_city_input_container").style.display = "block";
     },100);
+    setTimeout(()=>{
+      document.getElementById("to_where_input_fld_tile").style.display = "block";
+    }, 500);
 })
 to_where_search_input_fld.addEventListener("focusout", ()=>{
-    document.getElementById("airports_exchange_search_fields_values_icon").style.display = "block";
+  //$(".autocomplete-results").slideUp("fast");
+    document.getElementById("airports_exchange_search_fields_values_icon_container").style.display = "flex";
     document.getElementById("from_where_city_input_container").style.display = "block";
     document.getElementById("to_where_city_input_container").style.display = "block";
     setTimeout(()=>{
       document.getElementById("from_where_city_input_container").style.minWidth = "42%";
       document.getElementById("to_where_city_input_container").style.minWidth = "42%";
     },100);
+    setTimeout(()=>{
+      document.getElementById("from_where_input_fld_tile").style.display = "block";
+    }, 500);
 })
 city_search_fieldset_done_btn.addEventListener("click", ()=>{
-  document.getElementById("airports_exchange_search_fields_values_icon").style.display = "block";
+  //$(".autocomplete-results").slideUp("fast");
+  document.getElementById("airports_exchange_search_fields_values_icon_container").style.display = "flex";
   document.getElementById("from_where_city_input_container").style.display = "block";
   document.getElementById("to_where_city_input_container").style.display = "block";
   setTimeout(()=>{
@@ -684,7 +698,7 @@ car_rentals_date_search_fieldset.addEventListener("focusout", (evnt)=>{
   //$("#car_rentals_main_from_when_date_show_container").slideUp("fast");
 })
 
-let autocomplete = new google.maps.places.Autocomplete(from_where_search_input_fld);
+/*let autocomplete = new google.maps.places.Autocomplete(from_where_search_input_fld);
 autocomplete.addListener('place_changed', function () {
   let place = autocomplete.getPlace();
   from_where_search_display_span.innerHTML = "<span style='font-size: 12px; color: rgb(255, 102, 0);'>from </span><span style='font-weight: bolder; font-size: 12px;'>"
@@ -696,7 +710,7 @@ autocomplete2.addListener('place_changed', function () {
     let place = autocomplete2.getPlace();
     to_where_search_display_span.innerHTML = "<span style='color: rgb(255, 102, 0); font-size: 12px;'>to </span><span style='font-weight: bolder; font-size: 12px;'>" 
                                               + to_where_search_input_fld.value + "</span>";
-});
+});*/
 
 let autocomplete3 = new google.maps.places.Autocomplete(hotels_where_search_input_fld);
 autocomplete3.addListener('place_changed', function () {
@@ -801,7 +815,7 @@ function add_a_flight(setting_number){
             <p style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
             <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 5px; color: white;"></i>From </p>
             <p id="each_added_flight_from_where_input${globalFlightId}" style="color: white; margin: 5px; font-size: 14px">
-            From where
+            City/Airport
             </p>
           </div>
           <div onclick="edit_to_where_of_added_flight(${globalFlightId});" style="margin-right: 20px;">
@@ -809,7 +823,7 @@ function add_a_flight(setting_number){
             <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
             <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 5px; color: white;"></i>To </p>
             <p id="each_added_flight_to_where_input${globalFlightId}" style="color: white; margin: 5px; font-size: 14px">
-            To where
+            City/Airport
             </p>
           </div>
         </div>

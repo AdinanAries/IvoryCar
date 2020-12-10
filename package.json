@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "amadeus": "^5.6.0",
     "express": "^4.17.1"
   }
 }

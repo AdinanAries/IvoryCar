@@ -4,6 +4,18 @@
   font-family: Roboto;
   font-size: 16px;
 }
+.ui-autocomplete {
+  max-width: calc(100% - 50px) !important;
+  background-color: white;
+  font-size: 14px !important;
+  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
+    0px 0px 2.9px rgba(0, 0, 0, 0.23);
+  border-radius: 4px;
+}
+.ui-menu-item {
+  padding: 2px;
+}
+/*ui-autocomplete-input – the input element that the autocomplete widget is initiated with.*/
 #quote_elem {
   transition: all 0.5s;
 }
@@ -494,25 +506,25 @@ header li a i,
   background-color: #00284e;
 }
 .search_tickets_form_container i {
-  font-size: 15px;
+  font-size: 20px;
   color: rgb(231, 124, 2);
   text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
     0px 0px 2.9px rgba(0, 0, 0, 0.23);
-  margin: 0 10px;
+  margin-right: 5px;
 }
 .exchange_search_fields_values_icon {
   cursor: pointer;
-  font-size: 20px;
-  margin: 5px 0;
-  margin-right: 35px;
-  padding: 5;
   border-radius: 4px;
   background-color: #003f7a;
   box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
     0px 0px 2.9px rgba(0, 0, 0, 0.23);
 }
+.exchange_search_fields_values_icon i {
+  margin: 5px;
+  font-size: 15px;
+}
 .search_tickets_form_container input {
-  width: calc(100% - 50px);
+  width: calc(100% - 20px);
   padding: 10px 0;
   margin: 0;
   border: none;
@@ -534,12 +546,34 @@ header li a i,
   width: 100% !important;
   padding-bottom: 10px;
   background-color: white;
+  min-height: 150px;
   position: absolute;
   z-index: -1 !important;
   border-radius: 5px;
   box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
     0px 0px 2.9px rgba(0, 0, 0, 0.23);
 }
+/*.autocomplete-results {
+  display: none;
+  min-height: 200px;
+  position: absolute !important;
+  padding-top: 60px;
+  padding-bottom: 10px;
+  padding-right: 5px;
+  top: -5px;
+  left: -5px;
+  width: 100% !important;
+  border-radius: 5px;
+  z-index: -2;
+  background-color: white;
+  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
+    0px 0px 2.9px rgba(0, 0, 0, 0.23);
+}
+.autocomplete-result {
+  padding: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}*/
 #people_also_searched_list_div {
   padding: 5px;
 }
