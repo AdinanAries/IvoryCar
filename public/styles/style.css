@@ -4,6 +4,26 @@
   font-family: Roboto;
   font-size: 16px;
 }
+#help_and_support_chat_box {
+  display: none;
+  position: fixed;
+  z-index: 13;
+  bottom: 15px;
+  right: 15px;
+  width: 300px;
+  height: 80vh;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
+    0px 0px 2.9px rgba(0, 0, 0, 0.23);
+}
+.help_support_chat_bot_head {
+  background-color: rgb(233, 128, 0);
+  padding: 15px 10px;
+  display: flex;
+  justify-content: space-between;
+}
 #flights_auto_complete_list li {
   list-style-type: none;
 }
