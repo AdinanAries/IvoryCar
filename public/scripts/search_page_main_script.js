@@ -779,8 +779,14 @@ var current_focus_out_func =function(){
 };
 
 //Add Flight functions
+var flight_search_data = {
+  number_of_flights: 1
+};
 
 function add_a_flight(setting_number){
+
+  flight_search_data.number_of_flights++;
+  document.getElementById("total_cities_for_flight_search").innerHTML = `(${flight_search_data.number_of_flights} flights)`;
 
   globalFlightId++;
 
@@ -857,6 +863,11 @@ function add_a_flight(setting_number){
 }
 
 function remove_a_flight(id){
+
+  flight_search_data.number_of_flights--;
+  let addedTxt = flight_search_data.number_of_flights > 1 ? `(${flight_search_data.number_of_flights} flights)` : `(${flight_search_data.number_of_flights} default)`
+  document.getElementById("total_cities_for_flight_search").innerHTML = `${addedTxt}`;
+
   let flight_id = "each_added_flight"+id;
   $("#"+flight_id).slideUp("fast");
 }

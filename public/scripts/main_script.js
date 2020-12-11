@@ -549,6 +549,11 @@ from_where_search_input_fld.addEventListener("focusin", ()=>{
     
 })
 to_where_search_input_fld.addEventListener("focusin", ()=>{
+
+    setTimeout(()=>{
+      document.getElementById("flights_auto_complete_list").innerHTML = "";
+    }, 500);
+  
   //$(".autocomplete-results").slideDown("fast");
       document.getElementById("from_where_input_fld_tile").style.display = "none";
       setTimeout(()=>{
@@ -561,6 +566,11 @@ to_where_search_input_fld.addEventListener("focusin", ()=>{
       },600);
 })
 from_where_search_input_fld.addEventListener("focusout", ()=>{
+    
+  setTimeout(()=>{
+    document.getElementById("flights_auto_complete_list").innerHTML = "";
+  }, 500);
+
   //$(".autocomplete-results").slideUp("fast");
     document.getElementById("airports_exchange_search_fields_values_icon_container").style.display = "flex";
     document.getElementById("from_where_city_input_container").style.minWidth = "42%";
@@ -789,8 +799,14 @@ var current_focus_out_func =function(){
 };
 
 //Add Flight functions
+var flight_search_data = {
+  number_of_flights: 1
+};
 
 function add_a_flight(setting_number){
+
+  flight_search_data.number_of_flights++;
+  document.getElementById("total_cities_for_flight_search").innerHTML = `(${flight_search_data.number_of_flights} flights)`;
 
   globalFlightId++;
 
@@ -867,6 +883,11 @@ function add_a_flight(setting_number){
 }
 
 function remove_a_flight(id){
+
+  flight_search_data.number_of_flights--;
+  let addedTxt = flight_search_data.number_of_flights > 1 ? `(${flight_search_data.number_of_flights} flights)` : `(${flight_search_data.number_of_flights} default)`
+  document.getElementById("total_cities_for_flight_search").innerHTML = `${addedTxt}`;
+
   let flight_id = "each_added_flight"+id;
   $("#"+flight_id).slideUp("fast");
 }

@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, "public")));
 const PORT = process.env.PORT || 5000;
 
 
-console.log(amadeus.location);
+console.log(amadeus);
 
 app.get('/airportSearch/', function(req,res,next){ 
     amadeus.referenceData.locations.get({ 
