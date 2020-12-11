@@ -304,6 +304,11 @@ city_search_fieldset.addEventListener("focusout", (evnt)=>{
 })
 
 from_where_search_input_fld.addEventListener("focusin", ()=>{
+
+    setTimeout(()=>{
+      document.getElementById("flights_auto_complete_list").innerHTML = "";
+    }, 500);
+
       setTimeout(()=>{
           document.getElementById("from_where_city_input_container").style.minWidth = "90%";
           document.getElementById("to_where_city_input_container").style.minWidth = "10%";
@@ -314,7 +319,12 @@ from_where_search_input_fld.addEventListener("focusin", ()=>{
       }, 400);
     
 })
-to_where_search_input_fld.addEventListener("focusin", ()=>{
+to_where_search_input_fld.addEventListener("focusin", ()=> {
+
+      setTimeout(()=>{
+        document.getElementById("flights_auto_complete_list").innerHTML = "";
+      }, 500);
+
       setTimeout(()=>{
         document.getElementById("from_where_city_input_container").style.minWidth = "10%";
         document.getElementById("to_where_city_input_container").style.minWidth = "90%";
