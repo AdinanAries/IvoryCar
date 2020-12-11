@@ -129,7 +129,7 @@ trip_type_param_round_trip_option_container.addEventListener("mouseleave", (evnt
 });
 
 city_search_fieldset.addEventListener("focusin", (evnt)=>{
-  $("#main_from_where_city_show_container").slideDown("fast");
+  document.getElementById("main_from_where_city_show_container").style.display = "block";
 })
 city_search_fieldset.addEventListener("focusout", (evnt)=>{
   $("#main_from_where_city_show_container").slideUp("fast");
@@ -415,7 +415,7 @@ car_rentals_city_search_fieldset_done_btn.addEventListener("click", ()=>{
 })
 
 
-let autocomplete = new google.maps.places.Autocomplete(from_where_search_input_fld);
+/*let autocomplete = new google.maps.places.Autocomplete(from_where_search_input_fld);
 autocomplete.addListener('place_changed', function () {
   let place = autocomplete.getPlace();
   from_where_search_display_span.innerHTML = "<span style='font-size: 12px; color: rgb(255, 102, 0);'>from </span><span style='font-weight: bolder; font-size: 12px;'>"
@@ -427,7 +427,7 @@ autocomplete2.addListener('place_changed', function () {
     let place = autocomplete2.getPlace();
     to_where_search_display_span.innerHTML = "<span style='color: rgb(255, 102, 0); font-size: 12px;'>to </span><span style='font-weight: bolder; font-size: 12px;'>" 
                                               + to_where_search_input_fld.value + "</span>";
-});
+});*/
 let autocomplete3 = new google.maps.places.Autocomplete(hotels_where_search_input_fld);
 autocomplete3.addListener('place_changed', function () {
     let place = autocomplete3.getPlace();
