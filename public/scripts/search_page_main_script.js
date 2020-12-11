@@ -877,17 +877,23 @@ function edit_from_where_of_added_flight(number){
     from_where_search_input_fld.focus();
 
     current_focus_out_func = function(){
-      each_added_flight_from_where_input.innerText = from_where_search_input_fld.value;
-      from_where_search_input_fld.value = '';
-      $("#multi_city_search_inputs_display").slideDown("fast");
-      $("#additional_search_inputs_and_Options").slideDown("fast");
-      //document.getElementById("additional_search_inputs_and_Options").style.display = "block";
-      from_where_search_input_fld.removeEventListener("focusout", current_focus_out_func);
+
+      let intervarId = setInterval(()=>{
+        each_added_flight_from_where_input.innerText = from_where_search_input_fld.value;
+      },1);
+      
+      setTimeout(()=>{
+        clearInterval(intervarId);
+        from_where_search_input_fld.value = '';
+        $("#multi_city_search_inputs_display").slideDown("fast");
+        $("#additional_search_inputs_and_Options").slideDown("fast");
+        from_where_search_input_fld.removeEventListener("change", current_onchange_func);
+        from_where_search_input_fld.removeEventListener("focusout", current_focus_out_func);
+      },200);
     }
     current_onchange_func = function(){
       //console.log(each_added_flight_from_where_input);
       from_where_search_input_fld.blur();
-      from_where_search_input_fld.removeEventListener("change", current_onchange_func);
     };
 
     from_where_search_input_fld.addEventListener("change", current_onchange_func);
@@ -906,24 +912,30 @@ function edit_to_where_of_added_flight(number){
   
   if($(window).width() < 1026){
     $("#additional_search_inputs_and_Options").slideUp("fast");
-    //document.getElementById("additional_search_inputs_and_Options").style.display = "none";
   }
 
   to_where_search_input_fld.focus();
 
   current_focus_out_func = function(){
-    each_added_flight_to_where_input.innerText = to_where_search_input_fld.value;
-    to_where_search_input_fld.value = '';
-    $("#multi_city_search_inputs_display").slideDown("fast");
-    $("#additional_search_inputs_and_Options").slideDown("fast");
-    //document.getElementById("additional_search_inputs_and_Options").style.display = "block";
-    to_where_search_input_fld.removeEventListener("focusout",current_focus_out_func);
+
+    let intervalId = setInterval(()=>{
+      each_added_flight_to_where_input.innerText = to_where_search_input_fld.value;
+    },1);
+    
+    setTimeout(()=>{
+      clearInterval(intervalId)
+      to_where_search_input_fld.value = '';
+      $("#multi_city_search_inputs_display").slideDown("fast");
+      $("#additional_search_inputs_and_Options").slideDown("fast");
+      to_where_search_input_fld.removeEventListener("change",current_onchange_func);
+      to_where_search_input_fld.removeEventListener("focusout",current_focus_out_func);
+    },200);
+    
   }
 
   current_onchange_func = function(){
     //console.log(each_added_flight_to_where_input);
     to_where_search_input_fld.blur();
-    to_where_search_input_fld.removeEventListener("change",current_onchange_func);
   }
 
   to_where_search_input_fld.addEventListener("change",current_onchange_func);
