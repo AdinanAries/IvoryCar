@@ -613,7 +613,7 @@ city_search_fieldset_done_btn.addEventListener("click", ()=>{
 car_rentals_city_search_fieldset.addEventListener("focusout", (evnt)=>{
   
   $("#main_from_where_city_show_container").slideUp("fast");
-  document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "block";
+  document.getElementById("car_rentals_exchange_search_fields_values_icon_container").style.display = "flex";
   document.getElementById("from_where_city_input_container").style.display = "block";
   document.getElementById("to_where_city_input_container").style.display = "block";
   setTimeout(()=>{
@@ -629,7 +629,7 @@ car_rentals_from_where_search_input_fld.addEventListener("focusin", ()=>{
       document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "10%";
     },200);
     setTimeout(()=>{
-      document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "none";
+      document.getElementById("car_rentals_exchange_search_fields_values_icon_container").style.display = "none";
       document.getElementById("car_rentals_to_where_city_input_container").style.display = "none";
     }, 400);
 })
@@ -640,12 +640,12 @@ car_rentals_to_where_search_input_fld.addEventListener("focusin", ()=>{
       document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "90%";
     }, 200);
     setTimeout(()=>{
-      document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "none";
+      document.getElementById("car_rentals_exchange_search_fields_values_icon_container").style.display = "none";
       document.getElementById("car_rentals_from_where_city_input_container").style.display = "none";
     },600);
 })
 car_rentals_from_where_search_input_fld.addEventListener("focusout", ()=>{
-    document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "block";
+    document.getElementById("car_rentals_exchange_search_fields_values_icon_container").style.display = "flex";
     document.getElementById("car_rentals_from_where_city_input_container").style.display = "block";
     document.getElementById("car_rentals_to_where_city_input_container").style.display = "block";
     setTimeout(()=>{
@@ -657,7 +657,7 @@ car_rentals_from_where_search_input_fld.addEventListener("focusout", ()=>{
     },500)
 })
 car_rentals_to_where_search_input_fld.addEventListener("focusout", ()=>{
-    document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "block";
+    document.getElementById("car_rentals_exchange_search_fields_values_icon_container").style.display = "flex";
     document.getElementById("car_rentals_from_where_city_input_container").style.display = "block";
     document.getElementById("car_rentals_to_where_city_input_container").style.display = "block";
     setTimeout(()=>{
@@ -669,7 +669,7 @@ car_rentals_to_where_search_input_fld.addEventListener("focusout", ()=>{
     },500)
 })
 car_rentals_city_search_fieldset_done_btn.addEventListener("click", ()=>{
-  document.getElementById("car_rentals_exchange_search_fields_values_icon").style.display = "block";
+  document.getElementById("car_rentals_exchange_search_fields_values_icon_container").style.display = "flex";
   document.getElementById("car_rentals_from_where_city_input_container").style.display = "block";
   document.getElementById("car_rentals_to_where_city_input_container").style.display = "block";
   setTimeout(()=>{
@@ -734,15 +734,15 @@ autocomplete2.addListener('place_changed', function () {
 let autocomplete3 = new google.maps.places.Autocomplete(hotels_where_search_input_fld);
 autocomplete3.addListener('place_changed', function () {
     let place = autocomplete3.getPlace();
-    hotels_from_where_search_display_span.innerHTML = "<span style='color: rgb(255, 102, 0); font-size: 12px;'>Hotels from </span><span style='font-weight: bolder; font-size: 12px;'>" 
-                                              + hotels_where_search_input_fld.value + "</span>";
+    /*hotels_from_where_search_display_span.innerHTML = "<span style='color: rgb(255, 102, 0); font-size: 12px;'>Hotels from </span><span style='font-weight: bolder; font-size: 12px;'>" 
+                                              + hotels_where_search_input_fld.value + "</span>";*/
 });
 
 let autocomplete4 = new google.maps.places.Autocomplete(car_rentals_from_where_search_input_fld);
 autocomplete4.addListener('place_changed', function () {
     let place = autocomplete4.getPlace();
-    from_where_search_display_span.innerHTML = "<span style='font-size: 12px; color: rgb(255, 102, 0);'>from </span><span style='font-weight: bolder; font-size: 12px;'>" 
-                                              + car_rentals_from_where_search_input_fld.value + "</span>";
+    /*from_where_search_display_span.innerHTML = "<span style='font-size: 12px; color: rgb(255, 102, 0);'>from </span><span style='font-weight: bolder; font-size: 12px;'>" 
+                                              + car_rentals_from_where_search_input_fld.value + "</span>";*/
 });
 
 let autocomplete5 = new google.maps.places.Autocomplete(car_rentals_to_where_search_input_fld);
