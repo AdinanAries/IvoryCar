@@ -806,7 +806,6 @@ var flight_search_data = {
 function add_a_flight(setting_number){
 
   flight_search_data.number_of_flights++;
-  document.getElementById("total_cities_for_flight_search").innerHTML = `(${flight_search_data.number_of_flights} flights)`;
 
   globalFlightId++;
 
@@ -814,18 +813,25 @@ function add_a_flight(setting_number){
 
   if(setting_number == 1){
     document.getElementById("multiple_city_search_option").checked = true;
+    document.getElementById("total_cities_for_flight_search").innerHTML = `(${flight_search_data.number_of_flights} flights)`;
   }
   if(setting_number == 0){
 
     if(document.getElementById("multiple_city_search_option").checked === true){
+
       //this is where to reset everything
+
+      flight_search_data.number_of_flights = 1;
+      
       $("#multi_city_search_inputs_display").slideUp("fast");
       setTimeout(()=>{
         multi_city_search_inputs_display.innerHTML = ``;
       })
-      
+      document.getElementById("total_cities_for_flight_search").innerHTML = `(${flight_search_data.number_of_flights} default)`;
       return null;
     }
+
+    document.getElementById("total_cities_for_flight_search").innerHTML = `(${flight_search_data.number_of_flights} flights)`;
   }
 
   let div = document.createElement("div");
