@@ -10,19 +10,41 @@
   z-index: 13;
   bottom: 15px;
   right: 15px;
-  width: 300px;
-  height: 80vh;
+  width: 400px;
+  height: 80vh !important;
   border-radius: 5px;
   overflow: hidden;
   background-color: white;
   box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
     0px 0px 2.9px rgba(0, 0, 0, 0.23);
 }
-.help_support_chat_bot_head {
+.help_support_chat_bot_head,
+.help_support_chat_bot_text_area {
   background-color: rgb(233, 128, 0);
-  padding: 15px 10px;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
+}
+.help_support_chat_bot_body {
+  height: calc(100% - 119px) !important;
+}
+.each_chat_box_row {
+  padding: 10px 0;
+}
+
+.each_chat_box {
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  width: 340px !important;
+}
+.each_chat_box_agent_msg {
+  background-color: #00284e;
+  margin-left: 5px;
+}
+.each_chat_box_user_msg {
+  background-color: #003f7a;
+  margin-left: 30px;
 }
 #flights_auto_complete_list li {
   list-style-type: none;
@@ -1420,6 +1442,20 @@ footer a {
     position: fixed;
     width: 100vw;
     top: 0;
+  }
+  #help_and_support_chat_box {
+    z-index: 13;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh !important;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .each_chat_box {
+    padding: 10px;
+    display: flex;
+    width: calc(100% - 50px) !important;
   }
   .jumbotron_background {
     display: none !important;

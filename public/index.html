@@ -36,24 +36,106 @@
   </head>
   <body>
     <div id="help_and_support_chat_box">
-      <div class="help_support_chat_bot_head">
+
+      <div style="flex-direction: row !important;" class="help_support_chat_bot_head">
         <div>
-          <p style="font-size: 14px; color:rgb(65, 24, 0)">How can we help ?</p>
+          <p style="font-size: 15px; color:rgb(65, 24, 0); font-weight: bolder;">How can we help?</p>
         </div>
-        <div><i style="color: #fff" class="fa fa-times" aria-hidden="true"></i></div>
+        <div onclick="toggle_show_help_and_support_div();">
+          <i style="color: #fff" class="fa fa-times" aria-hidden="true"></i>
+        </div>
       </div>
 
+      <div style="overflow-y: scroll !important;" class="help_support_chat_bot_body">
+        
+        <div style="overflow: visible !important; " class="each_chat_box_row">
+          <div style="flex-direction: row !important;" class="each_chat_box each_chat_box_agent_msg">
+            <div style="margin-right: 20px; min-width: fit-content !important;">
+              <div style="text-align: center; display: flex; flex-direction: column !important; justify-content: center;
+                  background-color:rgb(190, 190, 190); height: 40px; width: 40px; border-radius: 100%; overflow: hidden;">
+                <i class="fa fa-user" style="font-size: 30px; color:rgb(0, 127, 177)" aria-hidden="true"></i>
+              </div>
+              <p style="margin-left: 5px; margin-top: 5px; font-size: 11px; color: white;">Enock</p>
+            </div>
+            <div>
+              <p style="color: white;">Lorem ipsum dolor sit amet consectetur, architecto omnis exercitationem dolor.</p>
+              <p style="color: white; text-align: right; font-size: 10px; margin-top: 10px;">3:45 PM</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="overflow: visible !important;" class="each_chat_box_row">
+          <div style="flex-direction: row !important;" class="each_chat_box each_chat_box_user_msg">
+            <div>
+              <p style="color: white;">Lorem ipsum dolor sit amet consectetur, architecto omnis exercitationem dolor.</p>
+              <p style="color: white; font-size: 10px; margin-top: 10px;">3:45 PM</p>
+            </div>
+            <div style="margin-left: 20px; min-width: fit-content !important;">
+              <div style="text-align: center; display: flex; flex-direction: column !important; justify-content: center;
+                  background-color:rgb(190, 190, 190); height: 40px; width: 40px; border-radius: 100%; overflow: hidden;">
+                <i class="fa fa-user" style="font-size: 30px; color:rgb(0, 127, 177)" aria-hidden="true"></i>
+              </div>
+              <p style="margin: 0 5px; text-align: center; margin-top: 5px; font-size: 11px; color: white;">You</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="overflow: visible !important;" class="each_chat_box_row">
+          <div style="flex-direction: row !important;" class="each_chat_box each_chat_box_user_msg">
+            <div>
+              <p style="color: white;">Lorem ipsum dolor sit amet consectetur, architecto omnis exercitationem dolor.</p>
+              <p style="color: white; font-size: 10px; margin-top: 10px;">3:45 PM</p>
+            </div>
+            <div style="margin-left: 20px; min-width: fit-content !important;">
+              <div style="text-align: center; display: flex; flex-direction: column !important; justify-content: center;
+                  background-color:rgb(190, 190, 190); height: 40px; width: 40px; border-radius: 100%; overflow: hidden;">
+                <i class="fa fa-user" style="font-size: 30px; color:rgb(0, 127, 177)" aria-hidden="true"></i>
+              </div>
+              <p style="margin: 0 5px; text-align: center; margin-top: 5px; font-size: 11px; color: white;">You</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="overflow: visible !important; " class="each_chat_box_row">
+          <div style="flex-direction: row !important;" class="each_chat_box each_chat_box_agent_msg">
+            <div style="margin-right: 20px; min-width: fit-content !important;">
+              <div style="text-align: center; display: flex; flex-direction: column !important; justify-content: center;
+                  background-color:rgb(190, 190, 190); height: 40px; width: 40px; border-radius: 100%; overflow: hidden;">
+                <i class="fa fa-user" style="font-size: 30px; color:rgb(0, 127, 177)" aria-hidden="true"></i>
+              </div>
+              <p style="margin-left: 5px; margin-top: 5px; font-size: 11px; color: white;">Enock</p>
+            </div>
+            <div>
+              <p style="color: white;">Lorem ipsum dolor sit amet consectetur, architecto omnis exercitationem dolor.</p>
+              <p style="color: white; text-align: right; font-size: 10px; margin-top: 10px;">3:45 PM</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="help_support_chat_bot_text_area">
+        <div style="width: 30px; overflow: visible !important; text-align: center; display: flex; flex-direction: column !important; justify-content: center;">
+          <i style="color: white; font-size: 22px;" aria-hidden="true" class="fa fa-paperclip"></i>
+        </div>
+        <div>
+          <input style="padding: 10px; border: none; border-radius: 10px; background-color: rgb(236, 190, 134); width: 180px; font-size: 15px" 
+          placeholder="type your querries here" type="text" />
+        </div>
+        <div style="width: 30px; overflow: visible !important; text-align: center; display: flex; flex-direction: column !important; justify-content: center;">
+          <i style="color: white; font-size: 17px;" aria-hidden="true" class="fa fa-paper-plane"></i>
+        </div>
+      </div>
     </div>
+
     <div class="events_notification_div">
       <div  class="events_notification_div_content">
         <div id="events_notification_more">
-        <div class="events_notification_item" style="cursor: pointer; overflow: visible !important; padding: 10px; position: relative;">
-          <div class="events_notification_item_tooltip">
-            <p>Help/Support</p>
+          <div onclick="toggle_show_help_and_support_div();" class="events_notification_item" style="cursor: pointer; overflow: visible !important; padding: 10px; position: relative;">
+            <div class="events_notification_item_tooltip">
+              <p>Help/Support</p>
+            </div>
+            <i style="color: white; font-size: 20px;" class="fa fa-comments" aria-hidden="true"></i>
           </div>
-          <i style="color: white; font-size: 20px;" class="fa fa-comments" aria-hidden="true"></i>
-        </div>
-        
           <div class="events_notification_item" style="cursor: pointer; overflow: visible !important; padding: 10px; position: relative;">
             <div class="events_notification_item_tooltip">
                 <p>Price Alerts</p>

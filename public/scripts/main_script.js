@@ -1032,20 +1032,28 @@ function hide_all_event_details(){
 }
 
 //hide or show right side docker
+function show_notification_icons(){
+  document.getElementById("events_notification_more").style.transform = "rotate(0deg)";
+  document.getElementById("events_notification_more").style.overflow = "visible";
+  document.getElementById("events_notification_more").style.height = "auto";
+  document.getElementById("events_notification_show_more_btn").style.transform = "rotate(180deg)";
+  document.getElementById("events_notification_show_more_btn_container").style.borderTop = "1px solid #094470";
+}
+
+function hide_notification_icons(){
+  document.getElementById("events_notification_more").style.transform = "rotate(180deg)";
+  document.getElementById("events_notification_more").style.overflow = "hidden";
+  document.getElementById("events_notification_more").style.height = "";
+  document.getElementById("events_notification_show_more_btn").style.transform = "rotate(0deg)";
+  document.getElementById("events_notification_show_more_btn_container").style.borderTop = "none";
+}
+
 document.getElementById("events_notification_show_more_btn").addEventListener("click", ()=>{
   //document.getElementById("events_notification_show_more_btn").style.transform = "rotate(180deg)";
   if(document.getElementById("events_notification_more").style.height === ""){
-    document.getElementById("events_notification_more").style.transform = "rotate(0deg)";
-    document.getElementById("events_notification_more").style.overflow = "visible";
-    document.getElementById("events_notification_more").style.height = "auto";
-    document.getElementById("events_notification_show_more_btn").style.transform = "rotate(180deg)";
-    document.getElementById("events_notification_show_more_btn_container").style.borderTop = "1px solid #094470";
+    show_notification_icons();
   }else{
-    document.getElementById("events_notification_more").style.transform = "rotate(180deg)";
-    document.getElementById("events_notification_more").style.overflow = "hidden";
-    document.getElementById("events_notification_more").style.height = "";
-    document.getElementById("events_notification_show_more_btn").style.transform = "rotate(0deg)";
-    document.getElementById("events_notification_show_more_btn_container").style.borderTop = "none";
+    hide_notification_icons();
   }
 });
 
@@ -1100,3 +1108,10 @@ var show_a_quote = ()=>{
   
 }
 show_a_quote();
+
+
+//help and support scripts
+function toggle_show_help_and_support_div(){
+  $("#help_and_support_chat_box").toggle("up");
+  hide_notification_icons();
+}
