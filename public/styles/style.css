@@ -1276,7 +1276,7 @@ footer a {
     top: 0px;
     right: 0;
     height: 100vh;
-    width: 10vw;
+    min-width: 100vw;
     border-radius: 0;
   }
   .each_popular_city_all_info_content {
