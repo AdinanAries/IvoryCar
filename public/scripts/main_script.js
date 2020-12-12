@@ -1029,12 +1029,23 @@ top_noti_fication_close_btn.addEventListener("click", ()=>{
 });*/
 
 
-function show_all_event_details(main_evnt_iD){
-  $("#main_each_popular_city_all_info").slideDown("fast");
+function show_all_event_details(main_evnt_iD, number, img_url, name, timezone, date, price, info){
+  $("#main_each_popular_city_all_info"+ number).slideDown("fast");
+  document.getElementById("show_all_evnt_detail_image_"+number).style.backgroundImage = "url("+img_url+")";
+  document.getElementById("show_all_evnt_detail_event_name_"+number).innerText = name;
+  document.getElementById("show_all_evnt_detail_event_time_zone_"+number).innerText = timezone;
+  document.getElementById("show_all_evnt_detail_event_date_"+number).innerText = date
+  document.getElementById("show_all_evnt_detail_event_price_range_"+number).innerText = price;
+  if(info === 'undefined'){
+    document.getElementById("show_all_evnt_detail_event_info_"+number).innerHTML = "<i style='margin: 20px 5px 20px 0; color: red;' aria-hidden='true' class='fa fa-exclamation-triangle'></i> no information added to this event";
+  }else{
+    document.getElementById("show_all_evnt_detail_event_info_"+number).innerText = info;
+  }
+  
 }
 
-function hide_all_event_details(){
-  $("#main_each_popular_city_all_info").slideUp("fast");
+function hide_all_event_details(number){
+  $(("#main_each_popular_city_all_info"+number)).slideUp("fast");
 }
 
 //hide or show right side docker

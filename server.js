@@ -1,6 +1,9 @@
 const express = require("express");
 const path = require("path");
 const Amadeus = require("amadeus");
+const axios = require('axios');
+
+var all_events = [];
 
 var amadeus = new Amadeus({
   clientId: 'tMUIuRrYAgk0zLfDy1PCC4GXegGg0rYc',
@@ -25,7 +28,36 @@ app.use(express.static(path.join(__dirname, "public")));
 const PORT = process.env.PORT || 5000;
 
 
-console.log(amadeus);
+//console.log(amadeus);
+
+
+
+
+//Getting Events Data
+app.get('/publicevents/', function(request, response, next){
+
+    if(all_events.length === 0){
+      const listUsers = async () => {
+        try {
+            const res = await axios.get('https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=3zYxdvHT8NJzOWY01URK1nF5ltjjqB6b');
+            //console.log(res.data._embedded.events);
+            console.log("called api");
+            all_events = res.data._embedded.events;
+            response.send(all_events);
+        } catch (err) {
+            console.error(err);
+        }
+    }
+    listUsers();
+    
+  }else{
+    console.log("returning cached data");
+    response.send(all_events);
+  }
+
+});
+
+
 
 app.get('/airportSearch/', function(req,res,next){ 
     amadeus.referenceData.locations.get({ 

@@ -1000,7 +1000,7 @@ header li a i,
   min-height: 500px;
 }
 #most_searched_cities_list_container,
-#events_and_cities_list_container {
+.events_and_cities_list_container {
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -1012,7 +1012,6 @@ header li a i,
   flex-direction: column;
   height: 270px;
   border-radius: 5px;
-  overflow: hidden;
   background-color: rgb(230, 245, 92);
 }
 .each_popular_city:hover .each_popular_city_more_info {
@@ -1029,7 +1028,7 @@ header li a i,
   width: 95%;
   right: 5px;
   min-height: 150px;
-  bottom: 45px;
+  bottom: 50px;
   z-index: 3;
   background-color: rgb(34, 90, 112);
   border-radius: 10px;
@@ -1074,7 +1073,8 @@ header li a i,
   border-radius: 4px;
   margin: 0 5px;
 }
-.each_popular_city_all_info_content .info_area_section_main p {
+.each_popular_city_all_info_content .info_area_section_main p,
+.each_popular_city_all_info_content .info_area_section_main span {
   margin-bottom: 10px;
   font-size: 13px;
   color: #023057;
