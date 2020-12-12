@@ -1454,7 +1454,7 @@ footer a {
     bottom: 0;
     right: 0;
     width: 100vw;
-    height: 100vh !important;
+    height: 100% !important;
     border-radius: 0;
     box-shadow: none;
   }
