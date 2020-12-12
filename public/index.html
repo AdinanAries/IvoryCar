@@ -35,6 +35,28 @@
     <title>Anidaso | Home</title>
   </head>
   <body>
+    <div id="price_alerts_div">
+      <div style="flex-direction: row !important;" class="price_and_alerts_head">
+        <div>
+          <p style="font-size: 15px; color:rgb(65, 24, 0); font-weight: bolder;">Your Price Alerts</p>
+        </div>
+        <div onclick="toggle_show_price_alerts_div();">
+          <i style="color: #fff" class="fa fa-times" aria-hidden="true"></i>
+        </div>
+      </div>
+
+    </div>
+    <div id="your_bookings_div">
+        <div style="flex-direction: row !important;" class="your_bookings_head">
+          <div>
+            <p style="font-size: 15px; color:rgb(65, 24, 0); font-weight: bolder;">Your Bookings</p>
+          </div>
+          <div onclick="toggle_show_your_bookings_div();">
+            <i style="color: #fff" class="fa fa-times" aria-hidden="true"></i>
+          </div>
+        </div>
+    </div>
+
     <div id="help_and_support_chat_box">
 
       <div style="flex-direction: row !important;" class="help_support_chat_bot_head">
@@ -136,7 +158,7 @@
             </div>
             <i style="color: white; font-size: 20px;" class="fa fa-comments" aria-hidden="true"></i>
           </div>
-          <div class="events_notification_item" style="cursor: pointer; overflow: visible !important; padding: 10px; position: relative;">
+          <div onclick="toggle_show_price_alerts_div();" class="events_notification_item" style="cursor: pointer; overflow: visible !important; padding: 10px; position: relative;">
             <div class="events_notification_item_tooltip">
                 <p>Price Alerts</p>
             </div>
@@ -150,7 +172,7 @@
             <div class="events_notification_counter">0</div>
             <i style="color: rgb(233, 128, 0);; font-size: 22px;" class="fa fa-globe" aria-hidden="true"></i>
           </div>
-          <div class="events_notification_item" style="cursor: pointer; overflow: visible !important; padding: 10px; position: relative;">
+          <div onclick="toggle_show_your_bookings_div();" class="events_notification_item" style="cursor: pointer; overflow: visible !important; padding: 10px; position: relative;">
             <div class="events_notification_item_tooltip">
               <p>Your Bookings</p>
             </div>

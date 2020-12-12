@@ -4,7 +4,9 @@
   font-family: Roboto;
   font-size: 16px;
 }
-#help_and_support_chat_box {
+#help_and_support_chat_box,
+#price_alerts_div,
+#your_bookings_div {
   display: none;
   position: fixed;
   z-index: 13;
@@ -19,14 +21,16 @@
     0px 0px 2.9px rgba(0, 0, 0, 0.23);
 }
 .help_support_chat_bot_head,
-.help_support_chat_bot_text_area {
+.help_support_chat_bot_text_area,
+.price_and_alerts_head,
+.your_bookings_head {
   background-color: rgb(233, 128, 0);
   padding: 15px;
   display: flex;
   justify-content: space-between;
 }
 .help_support_chat_bot_body {
-  height: calc(100% - 119px) !important;
+  height: calc(100% - 118px) !important;
 }
 .each_chat_box_row {
   padding: 10px 0;
@@ -1443,7 +1447,9 @@ footer a {
     width: 100vw;
     top: 0;
   }
-  #help_and_support_chat_box {
+  #help_and_support_chat_box,
+  #price_alerts_div,
+  #your_bookings_div {
     z-index: 13;
     bottom: 0;
     right: 0;

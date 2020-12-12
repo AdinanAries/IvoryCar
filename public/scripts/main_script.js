@@ -1121,3 +1121,13 @@ function toggle_show_help_and_support_div(){
   $("#help_and_support_chat_box").toggle("up");
   hide_notification_icons();
 }
+
+function toggle_show_price_alerts_div(){
+  $("#price_alerts_div").toggle("up");
+  hide_notification_icons();
+}
+
+function toggle_show_your_bookings_div(){
+  $("#your_bookings_div").toggle("up");
+  hide_notification_icons();
+}
