@@ -81,7 +81,15 @@
             </div>
             <div>
               
-              <div class="loader loader--style6">
+              <div style="display: none; min-width: calc(100% - 60px);" id="chat_bot_response_msg">
+                <p style="color: white;">
+                  <br/>
+                  Hi! On behalf of Anidaso, I apologize for any inconviniences.
+                </p>
+                <p style="color: white; text-align: right; font-size: 10px; margin-top: 10px;">3:45 PM</p>
+              </div>
+
+              <div id="bot_is_thinking_loader" class="loader loader--style6">
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                    width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
                   <rect x="0" y="13" width="4" height="5" fill="#333">
@@ -109,47 +117,14 @@
                       begin="0.3s" dur="0.6s" repeatCount="indefinite" />
                   </rect>
                 </svg>
+                <p style="color: white; font-size: 11px; text-align: center;">getting to you in a second...</p>
               </div>
-
-              <p style="color: white;">Lorem ipsum dolor sit amet consectetur, architecto omnis exercitationem dolor.</p>
-              <p style="color: white; text-align: right; font-size: 10px; margin-top: 10px;">3:45 PM</p>
+              
             </div>
           </div>
         </div>
 
-        <div style="overflow: visible !important;" class="each_chat_box_row">
-          <div style="flex-direction: row !important;" class="each_chat_box each_chat_box_user_msg">
-            <div>
-              <p style="color: white;">Lorem ipsum dolor sit amet consectetur, architecto omnis exercitationem dolor.</p>
-              <p style="color: white; font-size: 10px; margin-top: 10px;">3:45 PM</p>
-            </div>
-            <div style="margin-left: 20px; min-width: fit-content !important;">
-              <div style="text-align: center; display: flex; flex-direction: column !important; justify-content: center;
-                  background-color:rgb(190, 190, 190); height: 40px; width: 40px; border-radius: 100%; overflow: hidden;">
-                <i class="fa fa-user" style="font-size: 30px; color:rgb(0, 127, 177)" aria-hidden="true"></i>
-              </div>
-              <p style="margin: 0 5px; text-align: center; margin-top: 5px; font-size: 11px; color: white;">You</p>
-            </div>
-          </div>
-        </div>
-
-        <div style="overflow: visible !important;" class="each_chat_box_row">
-          <div style="flex-direction: row !important;" class="each_chat_box each_chat_box_user_msg">
-            <div>
-              <p style="color: white;">Lorem ipsum dolor sit amet consectetur, architecto omnis exercitationem dolor.</p>
-              <p style="color: white; font-size: 10px; margin-top: 10px;">3:45 PM</p>
-            </div>
-            <div style="margin-left: 20px; min-width: fit-content !important;">
-              <div style="text-align: center; display: flex; flex-direction: column !important; justify-content: center;
-                  background-color:rgb(190, 190, 190); height: 40px; width: 40px; border-radius: 100%; overflow: hidden;">
-                <i class="fa fa-user" style="font-size: 30px; color:rgb(0, 127, 177)" aria-hidden="true"></i>
-              </div>
-              <p style="margin: 0 5px; text-align: center; margin-top: 5px; font-size: 11px; color: white;">You</p>
-            </div>
-          </div>
-        </div>
-
-        <div style="overflow: visible !important; " class="each_chat_box_row">
+        <div style="display: none;" id="how_many_i_help_you" style="overflow: visible !important; " class="each_chat_box_row">
           <div style="flex-direction: row !important;" class="each_chat_box each_chat_box_agent_msg">
             <div style="margin-right: 20px; min-width: fit-content !important;">
               <div style="text-align: center; display: flex; flex-direction: column !important; justify-content: center;
@@ -158,12 +133,48 @@
               </div>
               <p style="margin-left: 5px; margin-top: 5px; font-size: 11px; color: white;">Bot AD</p>
             </div>
-            <div>
-              <p style="color: white;">Lorem ipsum dolor sit amet consectetur, architecto omnis exercitationem dolor.</p>
+            <div style=" min-width: calc(100% - 60px);">
+              <p style="color: white;">
+                <br/>
+                How may I help you?
+              </p>
               <p style="color: white; text-align: right; font-size: 10px; margin-top: 10px;">3:45 PM</p>
             </div>
           </div>
         </div>
+
+        <div style="overflow: visible !important;" class="each_chat_box_row">
+          <div style="flex-direction: row !important;" class="each_chat_box each_chat_box_user_msg">
+            <div>
+              <p style="color: white;">Lorem ipsum dolor sit amet consectetur, architecto omnis exercitationem dolor.</p>
+              <p style="color: white; font-size: 10px; margin-top: 10px;">3:45 PM</p>
+            </div>
+            <div style="margin-left: 20px; min-width: fit-content !important;">
+              <div style="text-align: center; display: flex; flex-direction: column !important; justify-content: center;
+                  background-color:rgb(190, 190, 190); height: 40px; width: 40px; border-radius: 100%; overflow: hidden;">
+                <i class="fa fa-user" style="font-size: 30px; color:rgb(0, 127, 177)" aria-hidden="true"></i>
+              </div>
+              <p style="margin: 0 5px; text-align: center; margin-top: 5px; font-size: 11px; color: white;">You</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="overflow: visible !important;" class="each_chat_box_row">
+          <div style="flex-direction: row !important;" class="each_chat_box each_chat_box_user_msg">
+            <div>
+              <p style="color: white;">Lorem ipsum dolor sit amet consectetur, architecto omnis exercitationem dolor.</p>
+              <p style="color: white; font-size: 10px; margin-top: 10px;">3:45 PM</p>
+            </div>
+            <div style="margin-left: 20px; min-width: fit-content !important;">
+              <div style="text-align: center; display: flex; flex-direction: column !important; justify-content: center;
+                  background-color:rgb(190, 190, 190); height: 40px; width: 40px; border-radius: 100%; overflow: hidden;">
+                <i class="fa fa-user" style="font-size: 30px; color:rgb(0, 127, 177)" aria-hidden="true"></i>
+              </div>
+              <p style="margin: 0 5px; text-align: center; margin-top: 5px; font-size: 11px; color: white;">You</p>
+            </div>
+          </div>
+        </div>
+
 
       </div>
       <div class="help_support_chat_bot_text_area">
@@ -1571,7 +1582,7 @@
                 <a><p>Accra, Ghana <i style="color:rgb(233, 0, 202);" class="fa fa-arrows-h" aria-hidden="true"></i> California, USA</p></a>
                 <a><p>Ontario, Canada <i class="fa fa-long-arrow-right" aria-hidden="true"></i> Abijan, Ivory Coast</p></a>
                 <a><p>CountryC, citC <i style="color:rgb(233, 0, 202);" class="fa fa-arrows-h" aria-hidden="true"></i> ClountryC, cityD</p></a-->
-                  
+
               </div>
             </div>
             <div class="favorite_bus_company_list_column">

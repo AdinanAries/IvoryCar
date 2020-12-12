@@ -1120,6 +1120,13 @@ show_a_quote();
 function toggle_show_help_and_support_div(){
   $("#help_and_support_chat_box").toggle("up");
   hide_notification_icons();
+  setTimeout(()=>{
+    document.getElementById("chat_bot_response_msg").style.display = "block";
+    document.getElementById("bot_is_thinking_loader").style.display = "none";
+  },4000);
+  setTimeout(()=>{
+    document.getElementById("how_many_i_help_you").style.display = "block";
+  }, 4500);
 }
 
 function toggle_show_price_alerts_div(){
