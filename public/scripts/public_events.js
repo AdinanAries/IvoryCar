@@ -8,6 +8,7 @@ function getEvents(){
         type: "GET",
         url: "./publicevents",
         success: (data)=>{
+            console.log(data);
             all_public_events = data;
             display_events(each_loop_start, each_loop_limit, 0);
         }
@@ -43,12 +44,12 @@ function display_events(start, limit, number){
 
         render_event(number,all_public_events[i].name, event_name, all_public_events[i].images[1].url, stringdate.substring(0, 15), 
             (all_public_events[i].priceRanges[0].min + " to " + all_public_events[i].priceRanges[0].max + " " + all_public_events[i].priceRanges[0].currency),
-            all_public_events[i].classifications[0].genre.name, all_public_events[i].dates.timezone.replaceAll("_", " "), all_public_events[i].info);
+            all_public_events[i].classifications[0].genre.name, all_public_events[i].dates.timezone.replaceAll("_", " "), all_public_events[i].info, all_public_events[i].url);
 
     }
 }
 
-function render_event(number, evnt_name_in_full, evnt_name, evnt_pic_url, evnt_start_date, priceRanges, evnt_genre, evnt_TZ, evnt_info){
+function render_event(number, evnt_name_in_full, evnt_name, evnt_pic_url, evnt_start_date, priceRanges, evnt_genre, evnt_TZ, evnt_info, evnt_url){
 
     document.getElementById("events_and_cities_list_container"+number).innerHTML += `
     <div style="background-color: #023057; overflow: visible !important;" class="each_popular_city">
@@ -81,10 +82,10 @@ function render_event(number, evnt_name_in_full, evnt_name, evnt_pic_url, evnt_s
             </p>
         </div>
         <div style="cursor: pointer; overflow: hidden !important; display: flex; flex-direction: row !important; margin: 0 10px; margin-top: 10px; border-radius: 5px;">
-            <div style="padding: 10px; background-color:rgb(247, 140, 0); color: rgb(13, 74, 83); width: 60%; text-align: center; font-size: 13px; font-weight: bolder;">
+            <a href="${evnt_url}" target="__blank" style="text-decoration: none;"><div style="padding: 10px; background-color:rgb(247, 140, 0); color: rgb(13, 74, 83); width: 60%; text-align: center; font-size: 13px; font-weight: bolder;">
             Attend Event
-            </div>
-            <div onclick="show_all_event_details('eventID', ${number}, '${evnt_pic_url}', '${evnt_name_in_full}', '${evnt_TZ}', '${evnt_start_date}', '${priceRanges}', '${evnt_info}');"  style="border-top-right-radius: 5px; border-bottom-right-radius: 5px; padding: 10px; background-color:rgb(0, 52, 73); color: white; width: 40%; text-align: center; font-size: 13px; font-weight: bolder;">
+            </div></a>
+            <div onclick="show_all_event_details('eventID', ${number}, '${evnt_pic_url}', '${evnt_name_in_full}', '${evnt_TZ}', '${evnt_start_date}', '${priceRanges}', '${evnt_info}', '${evnt_url}');"  style="border-top-right-radius: 5px; border-bottom-right-radius: 5px; padding: 10px; background-color:rgb(0, 52, 73); color: white; width: 40%; text-align: center; font-size: 13px; font-weight: bolder;">
             Read More
             </div>
         </div>
@@ -170,8 +171,9 @@ function load_more_events(){
                     </p>
                 </div>
                 <div style="cursor: pointer; overflow: hidden; display: flex; flex-direction: row !important; margin: 0 10px; margin-top: 10px; border-radius: 4px;">
-                    <div style="padding: 10px; background-color:rgb(8, 77, 122); color: white; width: 60% !important; text-align: center; font-size: 13px; font-weight: bolder;">
-                    Attend Event
+                    <div style="padding: 10px; background-color:rgb(8, 77, 122); color: white; width: 60% !important; text-align: center; font-weight: bolder;">
+                    <a id="show_all_evnt_detail_attend_event_btn_${each_events_row_number}" href="" target="__blank" style="text-decoration: none; color: white; font-size: 13px;">
+                    Attend Event</a>
                     </div>
                     <div onclick="hide_all_event_details(${each_events_row_number});" style="padding: 10px; background-color: rgb(187, 8, 44); color: white; width: 40% !important; text-align: center; font-size: 13px; font-weight: bolder;">
                     Close
@@ -186,7 +188,7 @@ function load_more_events(){
     document.getElementById("load_more_events_container_div").appendChild(div);
 
     display_events(each_loop_start, each_loop_limit, each_events_row_number);
-    
+
     setTimeout(()=>{
         $("#events_and_cities_list_container"+each_events_row_number).slideDown("fast");
     },200)

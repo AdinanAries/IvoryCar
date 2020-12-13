@@ -1029,13 +1029,14 @@ top_noti_fication_close_btn.addEventListener("click", ()=>{
 });*/
 
 
-function show_all_event_details(main_evnt_iD, number, img_url, name, timezone, date, price, info){
+function show_all_event_details(main_evnt_iD, number, img_url, name, timezone, date, price, info, url){
   $("#main_each_popular_city_all_info"+ number).slideDown("fast");
   document.getElementById("show_all_evnt_detail_image_"+number).style.backgroundImage = "url("+img_url+")";
   document.getElementById("show_all_evnt_detail_event_name_"+number).innerText = name;
   document.getElementById("show_all_evnt_detail_event_time_zone_"+number).innerText = timezone;
   document.getElementById("show_all_evnt_detail_event_date_"+number).innerText = date
   document.getElementById("show_all_evnt_detail_event_price_range_"+number).innerText = price;
+  document.getElementById("show_all_evnt_detail_attend_event_btn_"+number).href = url;
   if(info === 'undefined'){
     document.getElementById("show_all_evnt_detail_event_info_"+number).innerHTML = 
                                                                       "<i style='margin-right: 5px; color: red;' aria-hidden='true' class='fa fa-exclamation-triangle'></i>"+
@@ -1121,7 +1122,7 @@ var show_a_quote = ()=>{
   let qouteObj = quotes[Math.floor(Math.random()*quotes.length)]
   document.getElementById("quote_elem").innerHTML =
   `
-  <p>${qouteObj.quote}</p>
+  <p>" ${qouteObj.quote} "</p>
   <p style='font-size: 18px; margin-top: 20px; color: rgba(232,142,12)'>- ${qouteObj.authur}</p>
   `;
   setTimeout(()=>{

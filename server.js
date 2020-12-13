@@ -39,7 +39,7 @@ app.get('/publicevents/', function(request, response, next){
     if(all_events.length === 0){
       const listUsers = async () => {
         try {
-            const res = await axios.get('https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=3zYxdvHT8NJzOWY01URK1nF5ltjjqB6b');
+            const res = await axios.get('https://app.ticketmaster.com/discovery/v2/events.json?apikey=3zYxdvHT8NJzOWY01URK1nF5ltjjqB6b');
             //console.log(res.data._embedded.events);
             console.log("called api");
             all_events = res.data._embedded.events;
