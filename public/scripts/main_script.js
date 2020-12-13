@@ -1037,7 +1037,10 @@ function show_all_event_details(main_evnt_iD, number, img_url, name, timezone, d
   document.getElementById("show_all_evnt_detail_event_date_"+number).innerText = date
   document.getElementById("show_all_evnt_detail_event_price_range_"+number).innerText = price;
   if(info === 'undefined'){
-    document.getElementById("show_all_evnt_detail_event_info_"+number).innerHTML = "<i style='margin: 20px 5px 20px 0; color: red;' aria-hidden='true' class='fa fa-exclamation-triangle'></i> no information added to this event";
+    document.getElementById("show_all_evnt_detail_event_info_"+number).innerHTML = 
+                                                                      "<i style='margin-right: 5px; color: red;' aria-hidden='true' class='fa fa-exclamation-triangle'></i>"+
+                                                                       "no information added to this event. <br/> <br/>" +
+                                                                      "This section will be used to show any additional notes the event organizers add to inform you";
   }else{
     document.getElementById("show_all_evnt_detail_event_info_"+number).innerText = info;
   }

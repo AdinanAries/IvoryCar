@@ -1001,6 +1001,7 @@ header li a i,
 }
 #most_searched_cities_list_container,
 .events_and_cities_list_container {
+  margin-top: 20px;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -1240,9 +1241,20 @@ footer a {
 #other_menu_languages_option {
   padding-right: 0 !important;
 }
+.show_all_evnt_detail_event_info_p {
+  max-height: 150px;
+  overflow: auto;
+}
 @media only screen and (max-width: 1025px) {
+  .show_all_evnt_detail_event_info_p {
+    max-height: 100px !important;
+    overflow: hidden !important;
+  }
   .events_notification_div {
     overflow: visible !important;
+  }
+  .events_and_cities_list_container {
+    margin-top: 0;
   }
   .events_notification_div_content {
     overflow: visible !important;
