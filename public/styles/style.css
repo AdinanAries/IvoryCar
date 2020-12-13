@@ -577,6 +577,8 @@ header li a i,
   margin: 0;
   border: none;
   background: none;
+  font-weight: bold;
+  color: #435668;
 }
 #hotels_where_city_input_container {
   width: calc(100% - 20px) !important;
