@@ -1058,6 +1058,7 @@ function show_notification_icons(){
   document.getElementById("events_notification_more").style.height = "auto";
   document.getElementById("events_notification_show_more_btn").style.transform = "rotate(180deg)";
   document.getElementById("events_notification_show_more_btn_container").style.borderTop = "1px solid #094470";
+  document.getElementById("top_level_notification_counter").style.display = "none";
 }
 
 function hide_notification_icons(){
@@ -1066,6 +1067,7 @@ function hide_notification_icons(){
   document.getElementById("events_notification_more").style.height = "";
   document.getElementById("events_notification_show_more_btn").style.transform = "rotate(0deg)";
   document.getElementById("events_notification_show_more_btn_container").style.borderTop = "none";
+  document.getElementById("top_level_notification_counter").style.display = "block";
 }
 
 document.getElementById("events_notification_show_more_btn").addEventListener("click", ()=>{
