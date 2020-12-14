@@ -497,7 +497,18 @@ function remove_person_from_flight_search(person_type){
 
 //Going to search page
 let search_for_flights = () =>{
-    window.location.href = "./search_results_page.html";
+    //window.location.href = "./search_results_page.html";
+    $.ajax({
+        type: "POST",
+        url: "/searchflight",
+        data: JSON.stringify(fligh_search_data),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: (data)=>{
+            console.log(data);
+        }
+
+    });
 }
 
 home_page_search_button.addEventListener("click", () =>{
@@ -505,5 +516,31 @@ home_page_search_button.addEventListener("click", () =>{
 });
 
 home_page_hotels_search_button.addEventListener("click", () =>{
-    search_for_flights();
+    //search_for_flights();
+    window.location.href = "./search_results_page.html";
+});
+
+
+//exchange flights inputs values
+let rotated = false;
+document.getElementById("airports_exchange_search_fields_values_icon").addEventListener('click', (evnt)=>{
+
+    let exchbtn = document.getElementById("airports_exchange_search_fields_values_icon");
+    
+    if(!rotated){
+        exchbtn.style.transform = "rotate(360deg)";
+        rotated = true;
+    }else{
+        exchbtn.style.transform = "rotate(0deg)";
+        rotated = false;
+    }
+
+    let tempValue = from_where_search_input_fld.value;
+    from_where_search_input_fld.value = to_where_search_input_fld.value;
+    to_where_search_input_fld.value = tempValue;
+
+    let tempIata = fligh_search_data.destination_iata;
+    fligh_search_data.destination_iata = fligh_search_data.origin_iata;
+    fligh_search_data.origin_iata = tempIata;
+
 });

@@ -11,6 +11,14 @@ var amadeus = new Amadeus({
   clientSecret: 'PAtVLCWxpRGsYPdU'
 });
 
+const app = express();
+
+// For parsing application/json 
+app.use(express.json()); 
+  
+// For parsing application/x-www-form-urlencoded 
+app.use(express.urlencoded({ extended: true }));
+
 /*amadeus.shopping.flightOffersSearch.get({
     originLocationCode: 'SYD',
     destinationLocationCode: 'BKK',
@@ -21,8 +29,6 @@ var amadeus = new Amadeus({
 }).catch(function(responseError){
   console.log(responseError.code);
 });*/
-
-const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -104,15 +110,20 @@ app.get('/airportSearch/', function(req,res,next){
     }); 
   });
 
-app.get('/searchflight/', (req, res, next)=>{
+app.post('/searchflight/', (req, res, next)=>{
+
+  console.log(req.body);
+  let origin = req.body.origin_iata;
+  let destination = req.body.destination_iata;
 
   amadeus.shopping.flightOffersSearch.get({
-      originLocationCode: 'SYD',
-      destinationLocationCode: 'BKK',
+      originLocationCode: origin,
+      destinationLocationCode: destination,
       departureDate: '2021-04-01',
       adults: '2'
   }).then(function(response){
-    console.log(response.data);
+    //console.log(response.data);
+    res.send(response.data);
   }).catch(function(responseError){
     console.log(responseError.code);
   });
