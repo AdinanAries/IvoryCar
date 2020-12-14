@@ -35,7 +35,7 @@ document.getElementById("from_where_search_input_fld").addEventListener("input",
             })
     }
     //console.log(flights);
-    document.getElementById("flights_auto_complete_list").innerHTML = flights.join(', ').replaceAll("false","");
+    document.getElementById("flights_auto_complete_list").innerHTML = flights.join('').replaceAll("false","");
 })
 
 
@@ -81,7 +81,7 @@ document.getElementById("to_where_search_input_fld").addEventListener("input", (
         });
     }
     //console.log(flights);
-    document.getElementById("flights_auto_complete_list").innerHTML = flights.join(', ').replaceAll("false","");
+    document.getElementById("flights_auto_complete_list").innerHTML = flights.join('').replaceAll("false","");
 })
 
 
