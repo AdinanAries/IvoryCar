@@ -50,26 +50,62 @@ function set_flight_trip_round_for_search(f_trip_round){
     <i class="fa fa-caret-down" aria-hidden="true"></i>`;
 
     if(f_trip_round === "One-way"){
-        document.getElementById("airports_exchange_search_fields_values_icon").style.display = "none";
+
+        document.getElementById("airportSearch_date_title_span").innerHTML = "Depature Date"
+        $(function() {
+            $("#from_when_search_input").daterangepicker({
+              singleDatePicker: true,
+              showDropdowns: true
+            }, function(start, end, label) {
+                
+                setTimeout(()=>{
+                    document.getElementById("from_when_search_input").value = start.toString().substring(0,11);
+                }, 100);
+
+              /*var years = moment().diff(start, 'years');
+              alert("You are " + years + " years old!");*/
+            });
+          });
+
+        /*document.getElementById("to_where_input_fld_tile").style.display = "none";
+        document.getElementById("airports_exchange_search_fields_values_icon_container").style.display = "none";
         document.getElementById("to_where_city_input_container").style.display = "none";
         //document.getElementById("to_when_date_input_container").style.display = "none";
         document.getElementById("from_where_city_input_container").style.minWidth = "100%";
         //document.getElementById("from_when_date_input_container").style.minWidth = "100%";
         document.getElementById("from_where_search_input_fld").style.width = "calc(100% - 40px)";
         //document.getElementById("from_when_search_input").style.width = "calc(100% - 40px)";
-        document.getElementById("to_where_search_display_span").innerHTML = "";
+        //document.getElementById("to_where_search_display_span").innerHTML = "";*/
     }else{
-        document.getElementById("airports_exchange_search_fields_values_icon").style.display = "block";
+
+        document.getElementById("airportSearch_date_title_span").innerHTML = "Depature - Return Dates"
+        $(function() {
+            $('#from_when_search_input').daterangepicker({
+              opens: 'left'
+            }, function(start, end, label) {
+                
+                setTimeout(()=>{
+                    document.getElementById("from_when_search_input").value = start.toString().substring(0,11) +" - "+ end.toString().substring(0,11);
+                }, 100);
+
+                //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+            });
+          });
+
+        /*setTimeout(()=>{
+            document.getElementById("to_where_input_fld_tile").style.display = "block";
+        },500)
+        document.getElementById("airports_exchange_search_fields_values_icon_container").style.display = "block";
         document.getElementById("to_where_city_input_container").style.display = "block";
         //document.getElementById("to_when_date_input_container").style.display = "block";
-        document.getElementById("from_where_city_input_container").style.minWidth = "50%";
+        document.getElementById("from_where_city_input_container").style.minWidth = "44%";
         //document.getElementById("from_when_date_input_container").style.minWidth = "50%";
         document.getElementById("from_where_search_input_fld").style.width = "calc(100% - 40px)";
         //document.getElementById("from_when_search_input").style.width = "calc(100% - 40px)";
-        document.getElementById("to_where_search_display_span").innerHTML = `<span style="font-size: 12px;">
+        /*document.getElementById("to_where_search_display_span").innerHTML = `<span style="font-size: 12px;">
                 and 
                 <span style="font-weight: bolder; font-size: 12px;">destination</span> above
-            </span>`;
+            </span>`;*/
     }
 }
 

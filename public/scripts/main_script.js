@@ -529,7 +529,14 @@ close_main_round_trip_type_options_btn.addEventListener("click", (evnt)=>{
 city_search_fieldset.addEventListener("focusin", (evnt)=>{
     $("#main_from_where_city_show_container").slideDown("fast");
 })
+
 city_search_fieldset.addEventListener("focusout", (evnt)=>{
+
+  /*if(flight_search_trip_round.t_round === "One-way"){
+    $("#main_from_where_city_show_container").slideUp("fast");
+    return null;
+  }*/
+
   //$(".autocomplete-results").slideUp("fast");
   $("#main_from_where_city_show_container").slideUp("fast");
   document.getElementById("airports_exchange_search_fields_values_icon_container").style.display = "flex";
@@ -572,6 +579,11 @@ to_where_search_input_fld.addEventListener("focusin", ()=>{
       },600);
 })
 from_where_search_input_fld.addEventListener("focusout", ()=>{
+
+  /*if(flight_search_trip_round.t_round === "One-way"){
+    $("#main_from_where_city_show_container").slideUp("fast");
+    return null;
+  }*/
     
   setTimeout(()=>{
     document.getElementById("flights_auto_complete_list").innerHTML = "";
@@ -590,6 +602,12 @@ from_where_search_input_fld.addEventListener("focusout", ()=>{
     }, 500);
 })
 to_where_search_input_fld.addEventListener("focusout", ()=>{
+
+  /*if(flight_search_trip_round.t_round === "One-way"){
+    $("#main_from_where_city_show_container").slideUp("fast");
+    return null;
+  }*/
+
   //$(".autocomplete-results").slideUp("fast");
     document.getElementById("airports_exchange_search_fields_values_icon_container").style.display = "flex";
     document.getElementById("from_where_city_input_container").style.display = "block";
@@ -601,8 +619,16 @@ to_where_search_input_fld.addEventListener("focusout", ()=>{
     setTimeout(()=>{
       document.getElementById("from_where_input_fld_tile").style.display = "block";
     }, 500);
+
 })
+
 city_search_fieldset_done_btn.addEventListener("click", ()=>{
+
+  /*if(flight_search_trip_round.t_round === "One-way"){
+    $("#main_from_where_city_show_container").slideUp("fast");
+    return null;
+  }*/
+
   //$(".autocomplete-results").slideUp("fast");
   document.getElementById("airports_exchange_search_fields_values_icon_container").style.display = "flex";
   document.getElementById("from_where_city_input_container").style.display = "block";
@@ -611,12 +637,18 @@ city_search_fieldset_done_btn.addEventListener("click", ()=>{
     document.getElementById("from_where_city_input_container").style.minWidth = "42%";
     document.getElementById("to_where_city_input_container").style.minWidth = "42%";
   },100);
+
 })
 /*ui_datepicker_div.addEventListener("mouseenter", (evnt)=>{
   $("#main_from_where_city_show_container").slideDown("fast");
 });*/
 
 car_rentals_city_search_fieldset.addEventListener("focusout", (evnt)=>{
+
+  /*if(flight_search_trip_round.t_round === "One-way"){
+    $("#main_from_where_city_show_container").slideUp("fast");
+    return null;
+  }*/
   
   $("#main_from_where_city_show_container").slideUp("fast");
   document.getElementById("car_rentals_exchange_search_fields_values_icon_container").style.display = "flex";
@@ -626,10 +658,12 @@ car_rentals_city_search_fieldset.addEventListener("focusout", (evnt)=>{
     document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "42%";
     document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "42%";
   }, 100);
+
 })
 
 car_rentals_from_where_search_input_fld.addEventListener("focusin", ()=>{
-  document.getElementById("car_drop_off_input_fld_tile").style.display = "none";
+
+    document.getElementById("car_drop_off_input_fld_tile").style.display = "none";
     setTimeout(()=>{
       document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "90%";
       document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "10%";
@@ -638,8 +672,10 @@ car_rentals_from_where_search_input_fld.addEventListener("focusin", ()=>{
       document.getElementById("car_rentals_exchange_search_fields_values_icon_container").style.display = "none";
       document.getElementById("car_rentals_to_where_city_input_container").style.display = "none";
     }, 400);
+
 })
 car_rentals_to_where_search_input_fld.addEventListener("focusin", ()=>{
+
   document.getElementById("car_pick_up_input_fld_tile").style.display = "none";
     setTimeout(()=>{
       document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "10%";
@@ -649,8 +685,14 @@ car_rentals_to_where_search_input_fld.addEventListener("focusin", ()=>{
       document.getElementById("car_rentals_exchange_search_fields_values_icon_container").style.display = "none";
       document.getElementById("car_rentals_from_where_city_input_container").style.display = "none";
     },600);
+
 })
 car_rentals_from_where_search_input_fld.addEventListener("focusout", ()=>{
+
+    /*if(flight_search_trip_round.t_round === "One-way"){
+      return null;
+    }*/
+
     document.getElementById("car_rentals_exchange_search_fields_values_icon_container").style.display = "flex";
     document.getElementById("car_rentals_from_where_city_input_container").style.display = "block";
     document.getElementById("car_rentals_to_where_city_input_container").style.display = "block";
@@ -660,9 +702,15 @@ car_rentals_from_where_search_input_fld.addEventListener("focusout", ()=>{
     }, 100);
     setTimeout(()=>{
       document.getElementById("car_drop_off_input_fld_tile").style.display = "block";
-    },500)
+    },500);
+
 })
 car_rentals_to_where_search_input_fld.addEventListener("focusout", ()=>{
+
+    /*if(flight_search_trip_round.t_round === "One-way"){
+      return null;
+    }*/
+
     document.getElementById("car_rentals_exchange_search_fields_values_icon_container").style.display = "flex";
     document.getElementById("car_rentals_from_where_city_input_container").style.display = "block";
     document.getElementById("car_rentals_to_where_city_input_container").style.display = "block";
@@ -672,9 +720,15 @@ car_rentals_to_where_search_input_fld.addEventListener("focusout", ()=>{
     }, 100);
     setTimeout(()=>{
       document.getElementById("car_pick_up_input_fld_tile").style.display = "block";
-    },500)
+    },500);
+
 })
 car_rentals_city_search_fieldset_done_btn.addEventListener("click", ()=>{
+
+  /*if(flight_search_trip_round.t_round === "One-way"){
+    return null;
+  }*/
+
   document.getElementById("car_rentals_exchange_search_fields_values_icon_container").style.display = "flex";
   document.getElementById("car_rentals_from_where_city_input_container").style.display = "block";
   document.getElementById("car_rentals_to_where_city_input_container").style.display = "block";
@@ -682,6 +736,7 @@ car_rentals_city_search_fieldset_done_btn.addEventListener("click", ()=>{
     document.getElementById("car_rentals_from_where_city_input_container").style.minWidth = "42%";
     document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "42%";
   }, 100);
+
 })
 
 hotels_city_search_fieldset.addEventListener("focusin", (evnt)=>{
@@ -769,6 +824,11 @@ $(function() {
   $('#from_when_search_input').daterangepicker({
     opens: 'left'
   }, function(start, end, label) {
+
+    setTimeout(()=>{
+      document.getElementById("from_when_search_input").value = start.toString().substring(0,11) +" - "+ end.toString().substring(0,11);
+    }, 100);
+    
     //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
   });
 });
@@ -777,6 +837,11 @@ $(function() {
   $('#hotels_from_when_search_input').daterangepicker({
     opens: 'left'
   }, function(start, end, label) {
+
+    setTimeout(()=>{
+      document.getElementById("hotels_from_when_search_input").value = start.toString().substring(0,11) +" - "+ end.toString().substring(0,11);
+    }, 100);
+
     //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
   });
 });
@@ -785,6 +850,12 @@ $(function() {
   $('#car_rentals_from_when_search_input').daterangepicker({
     opens: 'left'
   }, function(start, end, label) {
+
+    setTimeout(()=>{
+      document.getElementById("car_rentals_from_when_search_input").value = start.toString().substring(0,11) +" - "+ end.toString().substring(0,11);
+    }, 100);
+    
+
     //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
   });
 });
