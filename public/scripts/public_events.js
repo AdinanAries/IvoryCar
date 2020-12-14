@@ -123,7 +123,12 @@ function render_event(number, evnt_name_in_full, evnt_name, evnt_pic_url, evnt_s
 
 function load_more_events(){
 
-    if(each_loop_limit >= all_public_events.length || each_loop_start >= all_public_events.length){
+    /*if(each_loop_limit >= all_public_events.length || each_loop_start >= all_public_events.length){
+        document.getElementById("load_more_public_events_button").innerHTML = '<p style="cursor: pointer; font-size: 16px; margin-top: 20px; text-align: center; color: rgb(228, 190, 190);"><i class="fa fa-exclamation-triangle" aria-hidden="true" style="margin-right: 5px; color: red"></i> no more events to show</p>';
+        return null;
+    }*/
+
+    if(each_loop_start >= all_public_events.length){
         document.getElementById("load_more_public_events_button").innerHTML = '<p style="cursor: pointer; font-size: 16px; margin-top: 20px; text-align: center; color: rgb(228, 190, 190);"><i class="fa fa-exclamation-triangle" aria-hidden="true" style="margin-right: 5px; color: red"></i> no more events to show</p>';
         return null;
     }
