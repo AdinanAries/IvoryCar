@@ -518,6 +518,17 @@ header li a i,
   /*background-color: white;*/
   border-radius: 5px;
 }
+/*doubtable code*/
+#city_search_fieldset {
+  width: 57%;
+}
+#date_search_fieldset {
+  width: 27%;
+}
+/*doubtable code*/
+#from_where_city_input_container {
+  width: 50%;
+}
 .search_fieldset_done_btn i {
   font-size: 18px !important;
   font-weight: bolder;

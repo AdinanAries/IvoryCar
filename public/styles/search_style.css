@@ -769,6 +769,17 @@ header {
   /*background-color: white;*/
   border-radius: 5px;
 }
+/*doubtable code*/
+#city_search_fieldset {
+  width: 57%;
+}
+#date_search_fieldset {
+  width: 27%;
+}
+#from_where_city_input_container {
+  width: 50%;
+}
+/*doubtable code*/
 .search_fieldset_done_btn i {
   font-size: 18px !important;
   font-weight: bolder;
