@@ -104,6 +104,23 @@ app.get('/airportSearch/', function(req,res,next){
     }); 
   });
 
+app.get('/searchflight/', (req, res, next)=>{
+
+  amadeus.shopping.flightOffersSearch.get({
+      originLocationCode: 'SYD',
+      destinationLocationCode: 'BKK',
+      departureDate: '2021-04-01',
+      adults: '2'
+  }).then(function(response){
+    console.log(response.data);
+  }).catch(function(responseError){
+    console.log(responseError.code);
+  });
+
+});
+
+
+
 
 app.listen(PORT, () => {
   console.log("Server started on " + PORT);
