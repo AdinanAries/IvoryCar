@@ -4,6 +4,7 @@ const Amadeus = require("amadeus");
 const axios = require('axios');
 
 var all_events = [];
+var all_attractions = [];
 
 var amadeus = new Amadeus({
   clientId: 'tMUIuRrYAgk0zLfDy1PCC4GXegGg0rYc',
@@ -37,18 +38,22 @@ const PORT = process.env.PORT || 5000;
 app.get('/publicevents/', function(request, response, next){
 
     if(all_events.length === 0){
-      const listUsers = async () => {
+      
+      const getEvents = async () => {
         try {
-            const res = await axios.get('https://app.ticketmaster.com/discovery/v2/events.json?apikey=3zYxdvHT8NJzOWY01URK1nF5ltjjqB6b');
+            const res = await axios.get('https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=3zYxdvHT8NJzOWY01URK1nF5ltjjqB6b');
             //console.log(res.data._embedded.events);
             console.log("called api");
-            all_events = res.data._embedded.events;
+            all_events = [...all_events, ...res.data._embedded.events];
+
             response.send(all_events);
         } catch (err) {
             console.error(err);
         }
     }
-    listUsers();
+
+    getEvents();
+    
     
   }else{
     console.log("returning cached data");
@@ -57,7 +62,34 @@ app.get('/publicevents/', function(request, response, next){
 
 });
 
+app.get("/publicattractions", (request, response, next)=>{
 
+if(all_attractions.length === 0){
+
+      const getAttractions = async () => {
+
+          try {
+              const res = await axios.get('https://app.ticketmaster.com/discovery/v2/attractions.json?apikey=3zYxdvHT8NJzOWY01URK1nF5ltjjqB6b');
+              //console.log(res.data._embedded.events);
+              console.log("called api");
+              all_attractions = [...all_attractions, ...res.data._embedded.attractions];
+              //console.log(res);
+              response.send(all_attractions);
+
+          } catch (err) {
+              console.error(err);
+          }
+
+      }
+      
+      getAttractions();
+
+  }else{
+      console.log("returning cached data");
+      response.send(all_attractions);
+  }
+
+});
 
 app.get('/airportSearch/', function(req,res,next){ 
     amadeus.referenceData.locations.get({ 
