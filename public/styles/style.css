@@ -4,6 +4,9 @@
   font-family: Roboto;
   font-size: 16px;
 }
+.drp-selected {
+  display: none !important;
+}
 #help_and_support_chat_box,
 #price_alerts_div,
 #your_bookings_div {
@@ -525,10 +528,10 @@ header li a i,
 #date_search_fieldset {
   width: 27%;
 }
-/*doubtable code*/
 #from_where_city_input_container {
   width: 50%;
 }
+/*doubtable code*/
 .search_fieldset_done_btn i {
   font-size: 18px !important;
   font-weight: bolder;

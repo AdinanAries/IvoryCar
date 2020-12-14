@@ -474,6 +474,11 @@ $(function() {
   $('#from_when_search_input').daterangepicker({
     opens: 'left'
   }, function(start, end, label) {
+
+    setTimeout(()=>{
+      document.getElementById("from_when_search_input").value = start.toString().substring(0,11) +" - "+ end.toString().substring(0,11);
+    }, 100);
+
     //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
   });
 });
@@ -482,6 +487,11 @@ $(function() {
   $('#hotels_from_when_search_input').daterangepicker({
     opens: 'left'
   }, function(start, end, label) {
+
+    setTimeout(()=>{
+      document.getElementById("hotels_from_when_search_input").value = start.toString().substring(0,11) +" - "+ end.toString().substring(0,11);
+    }, 100);
+
     //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
   });
 });
@@ -490,6 +500,11 @@ $(function() {
   $('#car_rentals_from_when_search_input').daterangepicker({
     opens: 'left'
   }, function(start, end, label) {
+
+    setTimeout(()=>{
+      document.getElementById("car_rentals_from_when_search_input").value = start.toString().substring(0,11) +" - "+ end.toString().substring(0,11);
+    }, 100);
+
     //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
   });
 });

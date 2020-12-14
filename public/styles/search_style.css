@@ -4,6 +4,9 @@
   font-family: Roboto;
   font-size: 16px;
 }
+.drp-selected{
+  display: none !important;
+}
 a {
   text-decoration: none;
 }

@@ -1,16 +1,26 @@
 //dom elements
 var home_page_search_button = document.getElementById("home_page_search_button");
 var home_page_hotels_search_button = document.getElementById("home_page_hotels_search_button");
-//Global data
 
+//Global data
+//data to be forwarded to server
+var fligh_search_data = {
+    trip_round: "oneway",
+    origin_iata: "",
+    destination_iata: "",
+  };
+
+//data for client side processes
 var flight_search_flight_class = {
     f_class: "Economy"
 }
 
+//data for client side processes
 var flight_search_trip_round = {
     t_round: "Round-trip"
 }
 
+//data for client side processes
 var flight_search_number_of_people = {
     types_of_people_added: ["adults"],
     total_number_of_people: 1,
@@ -45,13 +55,24 @@ var flight_search_number_of_people = {
 }
 
 function set_flight_trip_round_for_search(f_trip_round){
+
     flight_search_trip_round.t_round = f_trip_round;
     document.getElementById("trip_type_param_round_trip_option").innerHTML = `${f_trip_round} 
     <i class="fa fa-caret-down" aria-hidden="true"></i>`;
 
     if(f_trip_round === "One-way"){
 
-        document.getElementById("airportSearch_date_title_span").innerHTML = "Depature Date"
+        document.getElementById("airportSearch_date_title_span").innerHTML = "Depature Date";
+
+        $(function() {
+            $('#from_when_search_input').daterangepicker({
+              opens: 'left'
+            }, function(start, end, label) {
+                
+                //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+            });
+          });
+
         $(function() {
             $("#from_when_search_input").daterangepicker({
               singleDatePicker: true,
@@ -78,7 +99,7 @@ function set_flight_trip_round_for_search(f_trip_round){
         //document.getElementById("to_where_search_display_span").innerHTML = "";*/
     }else{
 
-        document.getElementById("airportSearch_date_title_span").innerHTML = "Depature - Return Dates"
+        document.getElementById("airportSearch_date_title_span").innerHTML = "Depature - Return Dates";
         $(function() {
             $('#from_when_search_input').daterangepicker({
               opens: 'left'

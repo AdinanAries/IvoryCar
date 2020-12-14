@@ -1,11 +1,5 @@
 //getting dom elements
 
-var fligh_search_data = {
-  trip_round: "oneway",
-  origin_iata: "",
-  destination_iata: "",
-};
-
 var city_search_fieldset_done_btn = document.getElementById("city_search_fieldset_done_btn");
 var site_motto = document.getElementsByClassName("site_motto")[0];
 
