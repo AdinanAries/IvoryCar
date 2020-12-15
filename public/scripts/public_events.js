@@ -42,7 +42,13 @@ function display_events(start, limit, number){
 
         each_loop_limit++
 
-        let event_name = all_public_events[i].name;
+        let event_full_name = "Unavailable";
+        let event_name = "Unavailable";
+        if(all_public_events[i].name){
+            event_full_name = all_public_events[i].name
+            event_name = all_public_events[i].name;
+        }
+        
 
         if(all_public_events[i].name.length > 15){
             event_name = event_name.substring(0, 25) + "...";
@@ -51,9 +57,33 @@ function display_events(start, limit, number){
         let mydate = new Date(all_public_events[i].dates.start.localDate);
         let stringdate = mydate.toString("MMMM yyyy");
 
-        render_event(number,all_public_events[i].name, event_name, all_public_events[i].images[1].url, stringdate.substring(0, 15), 
-            (all_public_events[i].priceRanges[0].min + " to " + all_public_events[i].priceRanges[0].max + " " + all_public_events[i].priceRanges[0].currency),
-            all_public_events[i].classifications[0].genre.name, all_public_events[i].dates.timezone.replaceAll("_", " "), all_public_events[i].info, all_public_events[i].url);
+        let price_range = "Unavailable";
+        if(all_public_events[i].priceRanges){
+            price_range = (all_public_events[i].priceRanges[0].min + " to " + all_public_events[i].priceRanges[0].max + " " + all_public_events[i].priceRanges[0].currency);
+        }
+
+        let event_genre_name = "Unavailable";
+        if(all_public_events[i].classifications){
+            event_genre_name = all_public_events[i].classifications[0].genre.name
+        }
+
+        let event_time_zone = "Unavailable";
+        if(all_public_events[i].dates.timezone){
+            event_time_zone = all_public_events[i].dates.timezone.replaceAll("_", " ")
+        }
+
+        let event_information = "Unavailable";
+        if(all_public_events[i].info){
+            event_information = all_public_events[i].info
+        }
+
+        let event_url_address = "Unavailable";
+        if(all_public_events[i].url){
+            event_url_address = all_public_events[i].url
+        }
+
+        render_event(number, event_full_name, event_name, all_public_events[i].images[1].url, stringdate.substring(0, 15), 
+        price_range, event_genre_name, event_time_zone, event_information, event_url_address);
 
     }
 }
