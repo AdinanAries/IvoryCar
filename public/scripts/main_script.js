@@ -1063,6 +1063,11 @@ function initialize_date_chooser(first_input_Id){
     $('#'+first_input_Id).daterangepicker({
       opens: 'left'
     }, function(start, end, label) {
+
+      setTimeout(()=>{
+        document.getElementById(first_input_Id).value = start.toString().substring(0,11) +" - "+ end.toString().substring(0,11);
+      }, 100);
+
       //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
     });
   });

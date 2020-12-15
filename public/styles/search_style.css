@@ -4,7 +4,7 @@
   font-family: Roboto;
   font-size: 16px;
 }
-.drp-selected{
+.drp-selected {
   display: none !important;
 }
 a {
@@ -1261,6 +1261,9 @@ footer a {
 #other_menu_languages_option {
   padding-right: 0 !important;
 }
+#MobilehowSearchFormInputsBtn {
+  display: none;
+}
 @media only screen and (max-width: 1025px) {
   /*top nav bar responsiveness*/
   .wrapper {
@@ -1278,7 +1281,10 @@ footer a {
     margin-top: 10px;
   }
   #multi_city_search_inputs_display {
-    max-height: 300px;
+    max-height: 160px;
+  }
+  #MobilehowSearchFormInputsBtn {
+    display: block;
   }
 }
 
