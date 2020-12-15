@@ -1284,7 +1284,7 @@ footer a {
     max-height: 160px;
   }
   #MobilehowSearchFormInputsBtn {
-    display: block;
+    display: flex;
   }
 }
 
@@ -1329,6 +1329,7 @@ footer a {
   }
   #mobile_search_change_type_of_service div {
     padding: 5px;
+    padding-bottom: 10px;
   }
   #mobile_search_change_type_of_service div a {
     color: rgba(204, 241, 255, 0.603);
