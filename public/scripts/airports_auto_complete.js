@@ -42,6 +42,7 @@ document.getElementById("from_where_search_input_fld").addEventListener("input",
 function changeAirportsFromInput(airport, iata){
     from_where_search_input_fld.value = airport;
     fligh_search_data.origin_iata = iata;
+    window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
 }
 
 //Destination Airports Auto Completion
@@ -88,6 +89,7 @@ document.getElementById("to_where_search_input_fld").addEventListener("input", (
 function changeAirportsToInput(airport, iata){
     to_where_search_input_fld.value = airport;
     fligh_search_data.destination_iata = iata;
+    window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
 }
 
 

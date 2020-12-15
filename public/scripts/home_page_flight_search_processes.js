@@ -4,11 +4,25 @@ var home_page_hotels_search_button = document.getElementById("home_page_hotels_s
 
 //Global data
 //data to be forwarded to server
-var fligh_search_data = {
-    trip_round: "oneway",
-    origin_iata: "",
-    destination_iata: "",
-  };
+var fligh_search_data = {};
+
+if(window.localStorage.getItem("flights_post_data")){
+
+    fligh_search_data = JSON.parse(window.localStorage.getItem("flights_post_data"));
+
+}else{
+
+    fligh_search_data = {
+        trip_round: "oneway",
+        origin_iata: "",
+        destination_iata: "",
+      };
+
+    window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
+}
+
+
+
 
 //data for client side processes
 var flight_search_flight_class = {
@@ -554,18 +568,7 @@ function remove_person_from_flight_search(person_type){
 
 //Going to search page
 let search_for_flights = () =>{
-    //window.location.href = "./search_results_page.html";
-    $.ajax({
-        type: "POST",
-        url: "/searchflight",
-        data: JSON.stringify(fligh_search_data),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: (data)=>{
-            console.log(data);
-        }
-
-    });
+    window.location.href = "./search_results_page.html";
 }
 
 home_page_search_button.addEventListener("click", () =>{
@@ -573,8 +576,7 @@ home_page_search_button.addEventListener("click", () =>{
 });
 
 home_page_hotels_search_button.addEventListener("click", () =>{
-    //search_for_flights();
-    window.location.href = "./search_results_page.html";
+    search_for_flights();
 });
 
 
@@ -599,5 +601,7 @@ document.getElementById("airports_exchange_search_fields_values_icon").addEventL
     let tempIata = fligh_search_data.destination_iata;
     fligh_search_data.destination_iata = fligh_search_data.origin_iata;
     fligh_search_data.origin_iata = tempIata;
+
+    window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
 
 });
