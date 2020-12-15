@@ -681,9 +681,9 @@ function show_search_page_top_nav_form(){
   MobilehowSearchFormInputsBtn_i.classList.remove("fa-search");
   MobilehowSearchFormInputsBtn_i.classList.add("fa-chevron-down");
 
-  document.getElementById("car_rentals_search_form_container").style.marginBottom = "5px";
+  /*document.getElementById("car_rentals_search_form_container").style.marginBottom = "5px";
   document.getElementById("hotels__search_form_container").style.marginBottom = "5px";
-  document.getElementsByClassName("search_tickets_form_container")[0].style.marginBottom = "5px";
+  document.getElementsByClassName("search_tickets_form_container")[0].style.marginBottom = "5px";*/
 
   $("#additional_search_inputs_and_Options").slideDown("fast");
   $("#trip_type_param_round_trip_option_container").slideDown("fast");

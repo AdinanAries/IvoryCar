@@ -11,7 +11,6 @@ if(window.localStorage.getItem("flights_post_data")){
     fligh_search_data = JSON.parse(window.localStorage.getItem("flights_post_data"));
     
     let current_origin_airport = AirportsData.filter(each => (each.IATA.toLowerCase().includes(fligh_search_data.origin_iata.toLowerCase())));
-    console.log(current_origin_airport);
     from_where_search_input_fld.value = `(${current_origin_airport[0].IATA}) ${current_origin_airport[0].name} - ${current_origin_airport[0].city}`;
     
     let current_destination_airport = AirportsData.filter(each => (each.IATA.toLowerCase().includes(fligh_search_data.destination_iata.toLowerCase())));
@@ -612,3 +611,43 @@ document.getElementById("airports_exchange_search_fields_values_icon").addEventL
     window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
 
 });
+
+
+function set_site_currency(holding_currency, currency_needed, money_amount){
+
+    //'use strict';
+    //let money = Number(prompt("How much money do you have?."));
+    //let moneyCurrency = prompt("What currency are you using?.");
+    //let currencysys = prompt("What currency do you want to convert it to? EUR, JPY, GBP, USD, or  BRL");
+
+
+
+    let currentExchange = {
+    "USD": 1,
+    "EURO" : 0.91,
+    "JPY" : 124.17,
+    "GBP" : 0.65,
+    "BRL" : 3.51,
+    "GHC" : 5.85673
+    }
+
+    //steps
+    //1. Multiply currency needed by money amount
+    let currency_needed_rate = currentExchange[currency_needed];
+    let product = money_amount * currency_needed_rate;
+    console.log(currency_needed_rate)
+    console.log(product);
+
+    //2. Devide product from .1 by holding currency
+    let holding_currency_rate = currentExchange[holding_currency];
+    let exchange_amount = product / holding_currency_rate
+    console.log(holding_currency_rate)
+    console.log(exchange_amount);
+
+    //console.log("The converted amount is $ " + (exchange_value.toFixed(2)) + "in " + currencyNeeded+ ".");
+
+    return exchange_amount
+
+}
+
+console.log(set_site_currency("USD", "GHC", 2000));
