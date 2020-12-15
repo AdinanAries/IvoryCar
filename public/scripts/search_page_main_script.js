@@ -647,6 +647,10 @@ var hero_section_container = document.querySelector(".hero_section_container");
 function hide_search_page_top_nav_form(){
 
   if($(window).width() < 700){
+
+    MobilehowSearchFormInputsBtn_i.classList.add("fa-search");
+    MobilehowSearchFormInputsBtn_i.classList.remove("fa-chevron-down");
+
     $("#trip_type_param_round_trip_option_container").slideUp("fast");
     $("#multi_city_search_inputs_display").slideUp("fast");
     document.getElementById("additional_search_inputs_and_Options").style.display = "none";
@@ -659,7 +663,7 @@ function hide_search_page_top_nav_form(){
     home_page_search_button.style.display = "none";
     home_page_car_rentals_search_button.style.display = "none";
     home_page_hotels_search_button.style.display = "none";
-    MobilehowSearchFormInputsBtn.style.display = "none";
+    //MobilehowSearchFormInputsBtn.style.display = "none";
     MobilehowSearchFormInputsBtn.style.display = "flex";
     
     document.getElementsByClassName("search_tickets_form_container")[0].style.marginBottom = 0;
@@ -673,6 +677,9 @@ function hide_search_page_top_nav_form(){
 hide_search_page_top_nav_form();
 
 function show_search_page_top_nav_form(){
+
+  MobilehowSearchFormInputsBtn_i.classList.remove("fa-search");
+  MobilehowSearchFormInputsBtn_i.classList.add("fa-chevron-down");
 
   document.getElementById("car_rentals_search_form_container").style.marginBottom = "5px";
   document.getElementById("hotels__search_form_container").style.marginBottom = "5px";
@@ -734,13 +741,11 @@ function show_search_page_top_nav_form(){
 function MobilehowSearchFormInputsBtnFunc(){
   if(document.getElementById("additional_search_inputs_and_Options").style.display === "none"){
     MobilehowSearchFormInputsBtn.style.transform  = "rotate(-180deg)";
-    MobilehowSearchFormInputsBtn_i.classList.remove("fa-search");
-    MobilehowSearchFormInputsBtn_i.classList.add("fa-chevron-down");
+    
     show_search_page_top_nav_form();
   }else{
     MobilehowSearchFormInputsBtn.style.transform  = "rotate(0deg)";
-    MobilehowSearchFormInputsBtn_i.classList.add("fa-search");
-    MobilehowSearchFormInputsBtn_i.classList.remove("fa-chevron-down");
+    
     hide_search_page_top_nav_form();
     
   }
