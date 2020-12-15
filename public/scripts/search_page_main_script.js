@@ -562,7 +562,7 @@ var hero_section_container = document.querySelector(".hero_section_container");
               hero_section_container.style.position = "fixed"; 
               hero_section_container.style.top = "0px";
               mobile_search_change_type_of_service.style.paddingTop = "15px";
-              document.body.style.paddingTop = "70px";
+              document.body.style.paddingTop = "60px";
 
               if($(window).width() > 1025){
                 document.body.style.paddingTop = "115px";
