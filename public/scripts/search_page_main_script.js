@@ -551,7 +551,7 @@ var hero_section_container = document.querySelector(".hero_section_container");
               hero_section_container.style.position = "fixed"; 
               hero_section_container.style.top = "0px";
               mobile_search_change_type_of_service.style.paddingTop = "15px";
-              document.body.style.paddingTop = "100px";
+              document.body.style.paddingTop = "90px";
 
               if($(window).width() > 1025){
                 $("#multi_city_search_inputs_display").slideUp("fast");
