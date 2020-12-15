@@ -647,7 +647,7 @@ var hero_section_container = document.querySelector(".hero_section_container");
 function hide_search_page_top_nav_form(){
 
   if($(window).width() < 700){
-    
+    $("#trip_type_param_round_trip_option_container").slideUp("fast");
     $("#multi_city_search_inputs_display").slideUp("fast");
     document.getElementById("additional_search_inputs_and_Options").style.display = "none";
     city_search_fieldset.style.display = "none";
@@ -679,6 +679,7 @@ function show_search_page_top_nav_form(){
   document.getElementsByClassName("search_tickets_form_container")[0].style.marginBottom = "5px";
 
   $("#additional_search_inputs_and_Options").slideDown("fast");
+  $("#trip_type_param_round_trip_option_container").slideDown("fast");
   //document.getElementById("additional_search_inputs_and_Options").style.display = "block";
   
 

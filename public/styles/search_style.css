@@ -1327,6 +1327,9 @@ footer a {
     justify-content: space-between;
     padding: 0 10px;
   }
+  #mobile_search_change_type_of_service div {
+    padding: 5px;
+  }
   #mobile_search_change_type_of_service div a {
     color: rgba(204, 241, 255, 0.603);
     font-size: 12px;
