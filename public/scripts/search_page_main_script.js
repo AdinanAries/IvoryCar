@@ -733,10 +733,14 @@ function show_search_page_top_nav_form(){
 
 function MobilehowSearchFormInputsBtnFunc(){
   if(document.getElementById("additional_search_inputs_and_Options").style.display === "none"){
-    MobilehowSearchFormInputsBtn.style.transform  = "rotate(180deg)";
+    MobilehowSearchFormInputsBtn.style.transform  = "rotate(-180deg)";
+    MobilehowSearchFormInputsBtn_i.classList.remove("fa-search");
+    MobilehowSearchFormInputsBtn_i.classList.add("fa-chevron-down");
     show_search_page_top_nav_form();
   }else{
     MobilehowSearchFormInputsBtn.style.transform  = "rotate(0deg)";
+    MobilehowSearchFormInputsBtn_i.classList.add("fa-search");
+    MobilehowSearchFormInputsBtn_i.classList.remove("fa-chevron-down");
     hide_search_page_top_nav_form();
     
   }
