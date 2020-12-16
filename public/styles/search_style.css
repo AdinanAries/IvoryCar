@@ -211,9 +211,9 @@ header {
   width: 33%;
   padding: 20px 0;
   background-color: #ad310b;
-  -webkit-transition: background-color 500ms linear;
-  -ms-transition: background-color 500ms linear;
-  transition: background-color 500ms linear;
+  -webkit-transition: background-color 400ms linear;
+  -ms-transition: background-color 400ms linear;
+  transition: background-color 400ms linear;
 }
 .site_lower_section_tabs_option_content {
   min-height: 40px;
