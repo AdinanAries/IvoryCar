@@ -1147,7 +1147,7 @@ function hide_notification_icons(){
   document.getElementById("top_level_notification_counter").style.display = "block";
 }
 
-document.getElementById("events_notification_show_more_btn").addEventListener("click", ()=>{
+document.getElementById("events_notification_show_more_btn_container").addEventListener("click", ()=>{
   //document.getElementById("events_notification_show_more_btn").style.transform = "rotate(180deg)";
   if(document.getElementById("events_notification_more").style.height === ""){
     show_notification_icons();

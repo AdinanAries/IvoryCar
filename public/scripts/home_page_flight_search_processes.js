@@ -19,7 +19,7 @@ if(window.localStorage.getItem("flights_post_data")){
 }else{
 
     fligh_search_data = {
-        trip_round: "oneway",
+        trip_round: "roundtrip",
         origin_iata: "",
         destination_iata: "",
       };
@@ -624,7 +624,7 @@ function set_site_currency(holding_currency, currency_needed, money_amount){
 
     let currentExchange = {
     "USD": 1,
-    "EURO" : 0.91,
+    "EUR" : 0.91,
     "JPY" : 124.17,
     "GBP" : 0.65,
     "BRL" : 3.51,
@@ -635,19 +635,19 @@ function set_site_currency(holding_currency, currency_needed, money_amount){
     //1. Multiply currency needed by money amount
     let currency_needed_rate = currentExchange[currency_needed];
     let product = money_amount * currency_needed_rate;
-    console.log(currency_needed_rate)
-    console.log(product);
+    /*console.log(currency_needed_rate)
+    console.log(product);*/
 
     //2. Devide product from .1 by holding currency
     let holding_currency_rate = currentExchange[holding_currency];
     let exchange_amount = product / holding_currency_rate
-    console.log(holding_currency_rate)
-    console.log(exchange_amount);
+    /*console.log(holding_currency_rate)
+    console.log(exchange_amount);*/
 
     //console.log("The converted amount is $ " + (exchange_value.toFixed(2)) + "in " + currencyNeeded+ ".");
 
-    return exchange_amount
+    return exchange_amount.toFixed(2);
 
 }
 
-console.log(set_site_currency("USD", "GHC", 2000));
+//console.log(set_site_currency("EUR", "USD", 2000));

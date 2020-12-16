@@ -10,7 +10,13 @@ $.ajax({
         console.log(fligh_search_data);
         console.log(data);
 
-        for(var i = 0; i < 5; i++){
+        
+        for(var w = 0; w < 5; w++){
+
+            let flight_price = "unknown";
+            if(data[w].price){
+                flight_price = set_site_currency(data[w].price.currency, "USD", data[w].price.total);
+            }
 
             document.getElementById("main_tickets_section_list_container").innerHTML +=
                 `<div class="each_ticket_item">
@@ -37,7 +43,7 @@ $.ajax({
                 </div>
                 <div class="each_ticket_item_main_extra_container">
                 <div class="each_ticket_item_main_extra">
-                    <div onclick="toggle_show_flight_ticket_item_details(0)">
+                    <div onclick="toggle_show_flight_ticket_item_details(${w})">
                     <span style="background-color: #37a0f5;">Cheapest</span>
                     <span style="background-color: teal;">Flight + train</span>
                     <span class="COVID_policy_desktop" style="color: black;">
@@ -46,7 +52,7 @@ $.ajax({
                     </span>
                     <div style="padding-top: 15px; font-size: 14px; font-weight: bolder; color:rgb(65, 65, 65);">
                         See more details
-                        <i id="see_flight_details_angle_down0" style="margin-left: 5px;" class="fa fa-angle-down" aria-hidden="true"></i>
+                        <i id="see_flight_details_angle_down${w}" style="margin-left: 5px;" class="fa fa-angle-down" aria-hidden="true"></i>
                     </div>
                     </div>
                     <div class="each_ticket_item_emogi_and_rating">
@@ -56,7 +62,7 @@ $.ajax({
                     <div class="bubble_popup arrow_on_right_side"></div>
                     </div>
                 </div>
-                <div id="flight_ticket_item_details0" class="flight_ticket_item_details">
+                <div id="flight_ticket_item_details${w}" class="flight_ticket_item_details">
                     <div style="flex-direction: row !important;" class="flight_ticket_item_details_top_options">
                     <div style="display: flex; flex-direction: row !important;">
                         <div class="flight_ticket_item_details_each_top_option active">
@@ -155,7 +161,7 @@ $.ajax({
                     <p class="tickets_main_additional_text">Operated by Psa Airlines AS American Eagle, Republic Airways AS American Eagle</p>
                 </div>
                 <div class="each_ticket_item_main_right">
-                    <p class="ticket_item_price_display">$125</p>
+                    <p class="ticket_item_price_display">$${flight_price}</p>
                     <p style="color:rgb(104, 104, 104); font-size: 12px; margin-bottom: 5px; font-weight: bolder;">
                     American Airlines</p>
                     <div class="ticket_item_entitlements_display">

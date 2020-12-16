@@ -668,8 +668,8 @@ function hide_search_page_top_nav_form(){
     
     document.getElementsByClassName("search_tickets_form_container")[0].style.marginBottom = 0;
     document.getElementById("car_rentals_search_form_container").style.marginBottom = 0;
-  document.getElementById("hotels__search_form_container").style.marginBottom = 0;
-
+    document.getElementById("hotels__search_form_container").style.marginBottom = 0;
+    hero_section_container.style.paddingBottom = 0;
   }
 
 }
@@ -677,6 +677,10 @@ function hide_search_page_top_nav_form(){
 hide_search_page_top_nav_form();
 
 function show_search_page_top_nav_form(){
+
+  if($(window).width() < 1025){
+    hero_section_container.style.paddingBottom = "5px";
+  }
 
   MobilehowSearchFormInputsBtn_i.classList.remove("fa-search");
   MobilehowSearchFormInputsBtn_i.classList.add("fa-chevron-down");
