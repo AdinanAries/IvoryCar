@@ -21,7 +21,10 @@ $.ajax({
 
         });
 
-
+        if(data.length === 0){
+            return null;
+        }
+        
         document.getElementById("main_tickets_section_list_container").innerHTML = "";
         for(var w = 0; w < 5; w++){
 

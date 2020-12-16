@@ -1,8 +1,12 @@
+.footer_fld_cntn {
+  overflow: visible !important;
+}
 .site_language_select {
   min-width: 200px;
   padding: 5px;
   position: relative;
   cursor: pointer;
+  overflow: initial !important;
 }
 .active_selected_currency_option {
   display: flex;
@@ -16,8 +20,11 @@
   margin-right: 10px;
 }
 .site_language_select_options {
+  display: none;
+  z-index: 10;
   overflow: auto;
-  height: 300px;
+  height: 300px !important;
+  min-height: 300px !important;
   min-width: 250px;
   background-color: #ebf9ff;
   border: 1px solid #6ba2b9;
@@ -28,4 +35,21 @@
   left: -25px;
   padding: 10px;
   border-radius: 4px;
+}
+.site_language_select_options_list {
+  margin-top: 10px;
+}
+.each_site_language_select_option {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+}
+.each_site_language_select_option_currency {
+  color: rgb(235, 86, 0);
+  font-weight: bolder;
+}
+@media only screen and (max-width: 700px) {
+  .site_language_select_options {
+    left: -10px;
+  }
 }
