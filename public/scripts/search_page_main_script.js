@@ -564,6 +564,8 @@ var hero_section_container = document.querySelector(".hero_section_container");
               mobile_search_change_type_of_service.style.paddingTop = "15px";
               document.body.style.paddingTop = "20px";
 
+              document.getElementById("mobile_search_change_type_of_service").style.paddingBottom = "10px";
+
               if($(window).width() > 1025){
                 document.body.style.paddingTop = "115px";
                 $("#multi_city_search_inputs_display").slideUp("fast");
@@ -630,6 +632,7 @@ var hero_section_container = document.querySelector(".hero_section_container");
                 hero_section_container.style.minWidth = "calc(100vw - 20px)";
 
               mobile_search_change_type_of_service.style.paddingTop = 0;
+              document.getElementById("mobile_search_change_type_of_service").style.paddingBottom = 0;
               document.body.style.paddingTop = "0";
               hero_section_container.style.position = "initial"; 
               hero_section_container.style.top = "initial"; 
