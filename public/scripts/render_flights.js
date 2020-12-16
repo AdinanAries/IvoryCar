@@ -24,13 +24,13 @@ $.ajax({
         if(data.length === 0){
             return null;
         }
-        
+
         document.getElementById("main_tickets_section_list_container").innerHTML = "";
         for(var w = 0; w < 5; w++){
 
             let flight_price = "unknown";
             if(data[w].price){
-                flight_price = set_site_currency(data[w].price.currency, "USD", data[w].price.total);
+                flight_price = site_currency_coverter(data[w].price.currency, "USD", data[w].price.total);
             }
 
             document.getElementById("main_tickets_section_list_container").innerHTML +=

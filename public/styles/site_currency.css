@@ -21,6 +21,8 @@
 }
 .site_language_select_options {
   display: none;
+  opacity: 0;
+  transition: all 0.3s;
   z-index: 10;
   overflow: auto;
   height: 300px !important;
@@ -39,14 +41,25 @@
 .site_language_select_options_list {
   margin-top: 10px;
 }
+.site_language_select_options_list .active {
+  background-color: #8ad0ee;
+}
 .each_site_language_select_option {
   display: flex;
   justify-content: space-between;
-  padding: 5px 10px;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 3px 0;
+}
+.each_site_language_select_option:hover {
+  background-color: #8ad0ee;
 }
 .each_site_language_select_option_currency {
   color: rgb(235, 86, 0);
   font-weight: bolder;
+}
+#site_currency_chevron_up {
+  transition: opacity 0.3s;
 }
 @media only screen and (max-width: 700px) {
   .site_language_select_options {
