@@ -1,8 +1,8 @@
 //this function show each flight ticket main details
 function show_flight_ticket_item_main_details_set(number){
 
-    document.getElementById("flight_ticket_item_details_each_top_option_details_btn").classList.add("active");
-    document.getElementById("flight_ticket_item_details_each_top_option_fairs_btn").classList.remove("active");
+    document.getElementById("flight_ticket_item_details_each_top_option_details_btn"+number).classList.add("active");
+    document.getElementById("flight_ticket_item_details_each_top_option_fairs_btn"+number).classList.remove("active");
 
     $("#flight_ticket_item_details_section_content_set"+number).slideDown("fast");
     $("#flight_ticket_item_fairs_details_section_content_set"+number).slideUp("fast");
@@ -11,8 +11,8 @@ function show_flight_ticket_item_main_details_set(number){
 
 function show_flight_ticket_item_fair_details_set(number){
     
-    document.getElementById("flight_ticket_item_details_each_top_option_details_btn").classList.remove("active");
-    document.getElementById("flight_ticket_item_details_each_top_option_fairs_btn").classList.add("active");
+    document.getElementById("flight_ticket_item_details_each_top_option_details_btn"+number).classList.remove("active");
+    document.getElementById("flight_ticket_item_details_each_top_option_fairs_btn"+number).classList.add("active");
 
     $("#flight_ticket_item_details_section_content_set"+number).slideUp("fast");
     $("#flight_ticket_item_fairs_details_section_content_set"+number).slideDown("fast");

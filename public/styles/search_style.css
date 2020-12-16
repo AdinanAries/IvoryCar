@@ -4,6 +4,21 @@
   font-family: Roboto;
   font-size: 16px;
 }
+.loading_card_data_element {
+  background-color: rgb(160, 160, 160);
+  color: rgb(160, 160, 160);
+  animation: opacity 2s ease infinite;
+  opacity: 3;
+  /*transition: all 0.5s;*/
+}
+@keyframes opacity {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
 .drp-selected {
   display: none !important;
 }
@@ -235,6 +250,7 @@ header {
   border-radius: 4px;
   margin-top: 10px;
   overflow: hidden;
+  justify-content: space-between;
 }
 .site_lower_section_tabs .active {
   background-color: rgb(112, 2, 2);

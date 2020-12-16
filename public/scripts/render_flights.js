@@ -10,7 +10,19 @@ $.ajax({
         console.log(fligh_search_data);
         console.log(data);
 
-        
+        document.getElementById("progress_width").value = "100";
+    
+        $("#bar1").animate({width:"100%"}, 10, function(){
+
+        if(document.getElementById("bar1").style.width=="100%")
+        {
+            $(".progress").fadeOut("slow");
+        }			
+
+        });
+
+
+        document.getElementById("main_tickets_section_list_container").innerHTML = "";
         for(var w = 0; w < 5; w++){
 
             let flight_price = "unknown";
@@ -66,10 +78,10 @@ $.ajax({
 
                     <div style="flex-direction: row !important;" class="flight_ticket_item_details_top_options">
                         <div style="display: flex; flex-direction: row !important;">
-                            <div id="flight_ticket_item_details_each_top_option_details_btn" onclick="show_flight_ticket_item_main_details_set(${w})" class="flight_ticket_item_details_each_top_option active">
+                            <div id="flight_ticket_item_details_each_top_option_details_btn${w}" onclick="show_flight_ticket_item_main_details_set(${w})" class="flight_ticket_item_details_each_top_option active">
                                 Detials
                             </div>
-                            <div id="flight_ticket_item_details_each_top_option_fairs_btn" onclick="show_flight_ticket_item_fair_details_set(${w})" class="flight_ticket_item_details_each_top_option">
+                            <div id="flight_ticket_item_details_each_top_option_fairs_btn${w}" onclick="show_flight_ticket_item_fair_details_set(${w})" class="flight_ticket_item_details_each_top_option">
                                 Fairs
                             </div>
                         </div>
