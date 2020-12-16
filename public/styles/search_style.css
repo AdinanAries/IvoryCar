@@ -210,6 +210,10 @@ header {
 .site_lower_section_tabs_option {
   width: 33%;
   padding: 20px 0;
+  background-color: #ad310b;
+  -webkit-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
 }
 .site_lower_section_tabs_option_content {
   min-height: 40px;
@@ -227,13 +231,13 @@ header {
 .site_lower_section_tabs {
   width: 100%;
   display: flex;
-  background-color: rgb(192, 83, 83);
+  background-color: #ad310b;
   border-radius: 4px;
   margin-top: 10px;
   overflow: hidden;
 }
 .site_lower_section_tabs .active {
-  background-color: rgb(212, 48, 48);
+  background-color: rgb(112, 2, 2);
 }
 .site_lower_section_content {
   width: 100%;

@@ -911,26 +911,27 @@
           </div>
           <div class="site_lower_section_middle">
             <div class="site_lower_section_tabs">
-              <div class="site_lower_section_tabs_option  active">
+              <div onclick="getCheapFlights();" id="site_lower_section_tabs_cheapest_option" class="site_lower_section_tabs_option  active">
                 <div class="site_lower_section_tabs_option_content" style="border-right:#a32600 1px solid;">
                   <p><strong>Cheapest</strong></p>
                   <div style=" margin-top: 7px; display: flex; flex-direction: row !important; justify-content: center;">
                     <p style="font-size: 13px;">$157</p>
                     <p class="site_lower_section_tabs_option_content_middle_dot" style="font-size: 5px; margin: 0 6px; margin-top: 4px"><i  class="fa fa-circle" aria-hidden="true"></i></p>
                     <p style="font-size: 13px;">21h 20m</p>
-                </div>
+                  </div>
                 </div>
               </div>
-              <div class="site_lower_section_tabs_option">
+              <div onclick="getBestFlights();" id="site_lower_section_tabs_best_option" class="site_lower_section_tabs_option">
                 <div class="site_lower_section_tabs_option_content" style="border-right:#a32600 1px solid;">
                   <p><strong>Best</strong></p>
                   <div style=" margin-top: 7px; display: flex; flex-direction: row !important; justify-content: center;">
                     <p style="font-size: 13px;">$351</p>
                     <p class="site_lower_section_tabs_option_content_middle_dot" style="font-size: 5px; margin: 0 6px; margin-top: 4px"><i  class="fa fa-circle" aria-hidden="true"></i></p>
                     <p style="font-size: 13px;">4h 37m</p>
-                </div></div>
+                  </div>
+                </div>
               </div>
-              <div class="site_lower_section_tabs_option">
+              <div onclick="getLeastC02Flights();" id="site_lower_section_tabs_LeastC02_option" class="site_lower_section_tabs_option">
                 <div class="site_lower_section_tabs_option_content">
                   <p><strong>Least CO₂</strong></p>
                   <div style=" margin-top: 7px; display: flex; flex-direction: row !important; justify-content: center;">
@@ -1606,5 +1607,6 @@
     <script src="scripts/home_page_flight_search_processes.js" type="text/javascript"></script>
     <script src="scripts/data_charts.js" type="text/javascript"></script>
     <script src="scripts/render_flights.js" type="text/javascript"></script>
+    <script src="scripts/airflights_list_functions.js" type="text/javascript"></script>
   </body>
 </html>

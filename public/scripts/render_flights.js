@@ -63,49 +63,65 @@ $.ajax({
                     </div>
                 </div>
                 <div id="flight_ticket_item_details${w}" class="flight_ticket_item_details">
+
                     <div style="flex-direction: row !important;" class="flight_ticket_item_details_top_options">
-                    <div style="display: flex; flex-direction: row !important;">
-                        <div class="flight_ticket_item_details_each_top_option active">
-                        Detials
+                        <div style="display: flex; flex-direction: row !important;">
+                            <div id="flight_ticket_item_details_each_top_option_details_btn" onclick="show_flight_ticket_item_main_details_set(${w})" class="flight_ticket_item_details_each_top_option active">
+                                Detials
+                            </div>
+                            <div id="flight_ticket_item_details_each_top_option_fairs_btn" onclick="show_flight_ticket_item_fair_details_set(${w})" class="flight_ticket_item_details_each_top_option">
+                                Fairs
+                            </div>
                         </div>
-                        <div class="flight_ticket_item_details_each_top_option">
-                        Fairs
+                        <div onclick="toggle_show_flight_ticket_item_details(${w})">
+                            <span style="font-size: 25px; color: #5f5f5f;">
+                                <i class="fa fa-times-circle-o" aria-hidden="true"></i>
+                            </span>
                         </div>
                     </div>
-                    <div>
-                        <span style="font-size: 25px; color: #5f5f5f;">
-                        <i class="fa fa-times-circle-o" aria-hidden="true"></i>
-                        </span>
+
+                    <div id="flight_ticket_item_details_section_content_set${w}">
+                        <div style="flex-direction: row !important;" class="flight_ticket_item_details_section_content_title">
+                            <p>Airline Policy Updates</p>
+                        </div>
+                        <div class="flight_ticket_item_details_section_content">
+
+                        </div>
+
+                        <div style="flex-direction: row !important;" class="flight_ticket_item_details_section_content_title">
+                            <p>
+                                <input type="checkbox" />
+                                Depart <span>JAX - BDL</span>
+                            </p>
+                            <div>
+                                <span>
+                                16h 07m
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flight_ticket_item_details_section_content">
+
+                        </div>
+
+                        <div style="flex-direction: row !important;" class="flight_ticket_item_details_section_content_title">
+                            <p>
+                                <input type="checkbox" />
+                                Return <span>BDL - JAX</span>
+                            </p>
+                            <div>
+                                <span>
+                                19h 57m
+                                </span>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 20px;" class="flight_ticket_item_details_section_content">
+
+                        </div>
                     </div>
+
+                    <div id="flight_ticket_item_fairs_details_section_content_set${w}">
+                        <p>fairs</p>
                     </div>
-                    <div style="flex-direction: row !important;" class="flight_ticket_item_details_section_content_title">
-                    <p>Airline Policy Updates</p>
-                    </div>
-                    <div class="flight_ticket_item_details_section_content"></div>
-                    <div style="flex-direction: row !important;" class="flight_ticket_item_details_section_content_title">
-                    <p>
-                        <input type="checkbox" />
-                        Depart <span>JAX - BDL</span>
-                    </p>
-                    <div>
-                        <span>
-                        16h 07m
-                        </span>
-                    </div>
-                    </div>
-                    <div class="flight_ticket_item_details_section_content"></div>
-                    <div style="flex-direction: row !important;" class="flight_ticket_item_details_section_content_title">
-                    <p>
-                        <input type="checkbox" />
-                        Return <span>BDL - JAX</span>
-                    </p>
-                    <div>
-                        <span>
-                        19h 57m
-                        </span>
-                    </div>
-                    </div>
-                    <div style="margin-bottom: 20px;" class="flight_ticket_item_details_section_content"></div>
                 </div>
             </div>
                 <div class="each_ticket_item_main">
