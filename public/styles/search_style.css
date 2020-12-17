@@ -254,6 +254,17 @@ header {
   padding: 5px;
   background-color: #140028;
   padding-bottom: 10px;
+  animation: display_anim 1000ms ease-out;
+}
+@keyframes display_anim {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .site_lower_section_tabs {
   width: 100%;
@@ -263,6 +274,7 @@ header {
   margin-top: 10px;
   overflow: hidden;
   justify-content: space-between;
+  animation: display_anim 1000ms ease-out;
 }
 .site_lower_section_tabs .active {
   background-color: rgb(112, 2, 2);
