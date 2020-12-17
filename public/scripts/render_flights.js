@@ -104,13 +104,16 @@ $.ajax({
                             <p>Airline Policy Updates</p>
                         </div>
                         <div class="flight_ticket_item_details_section_content">
+                        
 
                         </div>
 
                         <div style="flex-direction: row !important;" class="flight_ticket_item_details_section_content_title">
                             <p>
-                                <input type="checkbox" />
-                                Depart <span>JAX - BDL</span>
+                                <input id="flight_ticket_item_details_section_content_Depature_check${w}" type="checkbox" />
+                                <label style="cursor: pointer;" for="flight_ticket_item_details_section_content_Depature_check${w}">
+                                    Depart <span>JAX - BDL</span>
+                                </label>
                             </p>
                             <div>
                                 <span>
@@ -120,12 +123,103 @@ $.ajax({
                         </div>
                         <div class="flight_ticket_item_details_section_content">
 
+                            <div style="display: flex; width: 100%;">
+
+                                <div>
+                                    <div style="min-width: 80px; padding: 20px;">
+                                        <p style="font-weight: bolder; text-align: right; font-size: 14px; opacity: 0.8;">Sun, Dec 20</p>
+                                    </div>
+                                </div>
+
+                                <div style="width: 85%;">
+
+                                    <div style="display: flex; justify-content: space-between; margin: 20px;">
+                                        <div>
+                                            <div style="margin-bottom: 10px; display: flex; justify-content: space-between;">
+                                                <p style="font-size: 13px; font-weight: bolder; opacity: 0.7;">
+                                                    <img src="" style="width: 15px; height: 15px; margin-right: 10px;" />
+                                                    7:40 pm — 10:39 pm
+                                                </p>
+                                                <p style="font-size: 13px; opacity: 0.5;">
+                                                    Economy
+                                                </p>
+                                            </div>
+                                            <p style="margin-bottom: 5px; font-size: 12px; opacity: 0.5;">
+                                                Hartford (BDL) - Tampa (TPA)
+                                            </p>
+                                            <p style="margin-bottom: 5px; font-size: 12px; opacity: 0.5;">Spirit Airlines 2679 · Narrow-body jet · Airbus A320 (sharklets)</p>
+                                            <p style="font-size: 12px; font-weight: bolder; color: #e25a00;">Carry-on baggage fees may apply to one or more segments of this trip</p>
+                                        </div>
+                                        <div style="min-width: 60px; margin-left: 10px;">
+                                            <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.8;">2h 59m</p>
+                                            <p style="font-size: 12px; opacity: 0.7; margin-top: 10px; text-align: right;">
+                                                <i class="fa fa-cutlery" aria-hidden="true"></i>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div style="display: flex;  justify-content: space-between; border-top: 1px solid rgb(0, 0, 0, 0.1); border-bottom: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px;">
+                                        <div>
+                                            <span style="opacity: 0.5; font-size: 12px;">Change planes in Tampa (TPA) </span>
+                                            <span style="font-size: 12px; font-weight: bolder; color: #e25a00;">
+                                                Self-transfer - Bag re-check may be required </span>
+                                        </div>
+                                        <div style="min-width: 60px; margin-left: 10px;">
+                                            <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.8;">13h 06m</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div style="display: flex; width: 100%;">
+
+                                <div>
+                                    <div style="min-width: 80px; padding: 20px;">
+                                        <p style="font-weight: bolder; text-align: right; font-size: 14px; opacity: 0.8;">Sun, Dec 20</p>
+                                    </div>
+                                </div>
+
+                                <div style="width: 85%;">
+
+                                    <div style="display: flex; justify-content: space-between; margin: 20px;">
+                                        <div>
+                                            <div style="margin-bottom: 10px; display: flex; justify-content: space-between;">
+                                                <p style="font-size: 13px; font-weight: bolder; opacity: 0.7;">
+                                                    <img src="" style="width: 15px; height: 15px; margin-right: 10px;" />
+                                                    7:40 pm — 10:39 pm
+                                                </p>
+                                                <p style="font-size: 13px; opacity: 0.5;">
+                                                    Economy
+                                                </p>
+                                            </div>
+                                            <p style="margin-bottom: 5px; font-size: 12px; opacity: 0.5;">
+                                                Hartford (BDL) - Tampa (TPA)
+                                            </p>
+                                            <p style="margin-bottom: 5px; font-size: 12px; opacity: 0.5;">Spirit Airlines 2679 · Narrow-body jet · Airbus A320 (sharklets)</p>
+                                            <p style="font-size: 12px; font-weight: bolder; color: #e25a00;">Carry-on baggage fees may apply to one or more segments of this trip</p>
+                                        </div>
+                                        <div style="min-width: 60px; margin-left: 10px;">
+                                            <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.8;">2h 59m</p>
+                                            <p style="font-size: 12px; opacity: 0.7; margin-top: 10px; text-align: right;">
+                                                <i class="fa fa-cutlery" aria-hidden="true"></i>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
                         </div>
 
                         <div style="flex-direction: row !important;" class="flight_ticket_item_details_section_content_title">
                             <p>
-                                <input type="checkbox" />
-                                Return <span>BDL - JAX</span>
+                                <input id="flight_ticket_item_details_section_content_Return_check${w}" type="checkbox" />
+                                <label style="cursor: pointer;" for="flight_ticket_item_details_section_content_Return_check${w}">
+                                    Return <span>BDL - JAX</span>
+                                </label>
                             </p>
                             <div>
                                 <span>
@@ -135,10 +229,99 @@ $.ajax({
                         </div>
                         <div style="margin-bottom: 20px;" class="flight_ticket_item_details_section_content">
 
+                            <div style="display: flex; width: 100%;">
+
+                                <div>
+                                    <div style="min-width: 80px; padding: 20px;">
+                                        <p style="font-weight: bolder; text-align: right; font-size: 14px; opacity: 0.8;">Sun, Dec 20</p>
+                                    </div>
+                                </div>
+
+                                <div style="width: 85%;">
+
+                                    <div style="display: flex; justify-content: space-between; margin: 20px;">
+                                        <div>
+                                            <div style="margin-bottom: 10px; display: flex; justify-content: space-between;">
+                                                <p style="font-size: 13px; font-weight: bolder; opacity: 0.7;">
+                                                    <img src="" style="width: 15px; height: 15px; margin-right: 10px;" />
+                                                    7:40 pm — 10:39 pm
+                                                </p>
+                                                <p style="font-size: 13px; opacity: 0.5;">
+                                                    Economy
+                                                </p>
+                                            </div>
+                                            <p style="margin-bottom: 5px; font-size: 12px; opacity: 0.5;">
+                                                Hartford (BDL) - Tampa (TPA)
+                                            </p>
+                                            <p style="margin-bottom: 5px; font-size: 12px; opacity: 0.5;">Spirit Airlines 2679 · Narrow-body jet · Airbus A320 (sharklets)</p>
+                                            <p style="font-size: 12px; font-weight: bolder; color: #e25a00;">Carry-on baggage fees may apply to one or more segments of this trip</p>
+                                        </div>
+                                        <div style="min-width: 60px; margin-left: 10px;">
+                                            <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.8;">2h 59m</p>
+                                            <p style="font-size: 12px; opacity: 0.7; margin-top: 10px; text-align: right;">
+                                                <i class="fa fa-cutlery" aria-hidden="true"></i>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div style="display: flex;  justify-content: space-between; border-top: 1px solid rgb(0, 0, 0, 0.1); border-bottom: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px;">
+                                        <div>
+                                            <span style="opacity: 0.5; font-size: 12px;">Change planes in Tampa (TPA) </span>
+                                            <span style="font-size: 12px; font-weight: bolder; color: #e25a00;">
+                                                Self-transfer - Bag re-check may be required </span>
+                                        </div>
+                                        <div style="min-width: 60px; margin-left: 10px;">
+                                            <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.8;">13h 06m</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div style="display: flex; width: 100%;">
+
+                                <div>
+                                    <div style="min-width: 80px; padding: 20px;">
+                                        <p style="font-weight: bolder; text-align: right; font-size: 14px; opacity: 0.8;">Sun, Dec 20</p>
+                                    </div>
+                                </div>
+
+                                <div style="width: 85%;">
+
+                                    <div style="display: flex; justify-content: space-between; margin: 20px;">
+                                        <div>
+                                            <div style="margin-bottom: 10px; display: flex; justify-content: space-between;">
+                                                <p style="font-size: 13px; font-weight: bolder; opacity: 0.7;">
+                                                    <img src="" style="width: 15px; height: 15px; margin-right: 10px;" />
+                                                    7:40 pm — 10:39 pm
+                                                </p>
+                                                <p style="font-size: 13px; opacity: 0.5;">
+                                                    Economy
+                                                </p>
+                                            </div>
+                                            <p style="margin-bottom: 5px; font-size: 12px; opacity: 0.5;">
+                                                Hartford (BDL) - Tampa (TPA)
+                                            </p>
+                                            <p style="margin-bottom: 5px; font-size: 12px; opacity: 0.5;">Spirit Airlines 2679 · Narrow-body jet · Airbus A320 (sharklets)</p>
+                                            <p style="font-size: 12px; font-weight: bolder; color: #e25a00;">Carry-on baggage fees may apply to one or more segments of this trip</p>
+                                        </div>
+                                        <div style="min-width: 60px; margin-left: 10px;">
+                                            <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.8;">2h 59m</p>
+                                            <p style="font-size: 12px; opacity: 0.7; margin-top: 10px; text-align: right;">
+                                                <i class="fa fa-cutlery" aria-hidden="true"></i>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
                         </div>
                     </div>
 
-                    <div id="flight_ticket_item_fairs_details_section_content_set${w}">
+                    <div style="display: none;" id="flight_ticket_item_fairs_details_section_content_set${w}">
                         <p>fairs</p>
                     </div>
                 </div>

@@ -215,7 +215,8 @@ header {
 .hero_section_container {
   padding-bottom: 10px;
   padding-top: 1px;
-  width: calc(100vw - 20px);
+  /*width: calc(100vw - 20px);*/
+  width: 100vw;
   z-index: 2;
   background-color: #140028;
 }
@@ -601,7 +602,6 @@ header {
   padding: 10px;
 }
 .flight_ticket_item_details_section_content {
-  min-height: 150px;
   border-radius: 4px;
   background-color: white;
   border: 1px solid #c9c9c9;

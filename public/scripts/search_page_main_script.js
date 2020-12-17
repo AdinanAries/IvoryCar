@@ -561,7 +561,6 @@ $(function() {
   });
 });
 
-
 var hero_section_container = document.querySelector(".hero_section_container"); 
         /* Gets the amount of height 
         of the element from the 
@@ -603,7 +602,13 @@ var hero_section_container = document.querySelector(".hero_section_container");
               hero_section_container.style.position = "fixed"; 
               hero_section_container.style.top = "0px";
               mobile_search_change_type_of_service.style.paddingTop = "15px";
-              document.body.style.paddingTop = "20px";
+
+              if((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 25 )){
+                document.body.style.marginTop = 0;
+              }else{
+                document.body.style.marginTop = "20px";
+              }
+              
 
               if(
                   city_search_fieldset.style.display === "flex" ||
@@ -615,9 +620,13 @@ var hero_section_container = document.querySelector(".hero_section_container");
                     document.getElementById("mobile_search_change_type_of_service").style.paddingBottom = "10px";
                   }
               
-
+                  
               if($(window).width() > 1025){
-                document.body.style.paddingTop = "115px";
+                if((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 120 )){
+                  document.body.style.marginTop = 0;
+                }else{
+                  document.body.style.marginTop = "115px";
+                }
                 $("#multi_city_search_inputs_display").slideUp("fast");
                 document.getElementById("additional_search_inputs_and_Options").style.display = "none";
               }
@@ -683,7 +692,7 @@ var hero_section_container = document.querySelector(".hero_section_container");
 
               mobile_search_change_type_of_service.style.paddingTop = 0;
               document.getElementById("mobile_search_change_type_of_service").style.paddingBottom = 0;
-              document.body.style.paddingTop = "0";
+              document.body.style.marginTop = "0";
               hero_section_container.style.position = "initial"; 
               hero_section_container.style.top = "initial"; 
 
