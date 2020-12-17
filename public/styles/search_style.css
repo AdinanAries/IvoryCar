@@ -4,6 +4,9 @@
   font-family: Roboto;
   font-size: 16px;
 }
+#search_settings_angle_down {
+  transition: all 0.3s;
+}
 .loading_card_data_element {
   background-color: rgb(160, 160, 160);
   color: rgb(160, 160, 160);
@@ -1403,10 +1406,18 @@ footer a {
   }
   #show_search_results_options_btn {
     display: block;
+    animation: mounting_ani 1000ms ease-out;
+  }
+  .site_lower_section_tabs {
+    animation-name: mounting_ani;
   }
   .site_lower_left_section_part,
   .site_lower_left_section_last_part {
     margin-right: 0;
+    animation: none;
+  }
+  .trip_advisor_card {
+    animation: none;
   }
   .site_lower_left_section_part_title {
     color: #e25a00;
