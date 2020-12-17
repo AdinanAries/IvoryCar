@@ -93,7 +93,7 @@ $.ajax({
                             </div>
                         </div>
                         <div onclick="toggle_show_flight_ticket_item_details(${w})">
-                            <span style="font-size: 25px; color: #5f5f5f;">
+                            <span style="font-size: 25px; opacity: 0.4">
                                 <i class="fa fa-times-circle-o" aria-hidden="true"></i>
                             </span>
                         </div>
@@ -127,7 +127,7 @@ $.ajax({
 
                                 <div>
                                     <div style="min-width: 80px; padding: 20px;">
-                                        <p style="font-weight: bolder; text-align: right; font-size: 14px; opacity: 0.8;">Sun, Dec 20</p>
+                                        <p style="font-weight: bolder; text-align: right; font-size: 14px; letter-spacing: 0.5px; opacity: 0.9;">Sun, Dec 20</p>
                                     </div>
                                 </div>
 
@@ -135,37 +135,39 @@ $.ajax({
 
                                     <div style="display: flex; justify-content: space-between; margin: 20px;">
                                         <div>
-                                            <div style="margin-bottom: 10px; display: flex; justify-content: space-between;">
-                                                <p style="font-size: 13px; font-weight: bolder; opacity: 0.7;">
+                                            <div style="margin-bottom: 10px; display: flex;  flex-direction: row !important; justify-content: space-between;">
+                                                <p style="font-size: 14px;  letter-spacing: 0.5px; font-weight: bolder; opacity: 0.8;">
                                                     <img src="" style="width: 15px; height: 15px; margin-right: 10px;" />
                                                     7:40 pm — 10:39 pm
                                                 </p>
-                                                <p style="font-size: 13px; opacity: 0.5;">
+                                                <p style="font-size: 14px;  letter-spacing: 0.6px; opacity: 0.5;">
                                                     Economy
                                                 </p>
                                             </div>
-                                            <p style="margin-bottom: 5px; font-size: 12px; opacity: 0.5;">
+                                            <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">
                                                 Hartford (BDL) - Tampa (TPA)
                                             </p>
-                                            <p style="margin-bottom: 5px; font-size: 12px; opacity: 0.5;">Spirit Airlines 2679 · Narrow-body jet · Airbus A320 (sharklets)</p>
-                                            <p style="font-size: 12px; font-weight: bolder; color: #e25a00;">Carry-on baggage fees may apply to one or more segments of this trip</p>
+                                            <p style="letter-spacing: 0.5px; opacity: 0.9; margin-bottom: 7px; font-size: 13px; font-weight: bolder; color: #003f7a;">Limited seats remaining at this price</p>
+                                            <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">Spirit Airlines 2679 · Narrow-body jet · Airbus A320 (sharklets)</p>
+                                            <p style="font-size: 13px; font-weight: bolder; color: #e25a00; opacity: 0.9; letter-spacing: 0.5px;">Carry-on baggage fees may apply to one or more segments of this trip</p>
                                         </div>
                                         <div style="min-width: 60px; margin-left: 10px;">
-                                            <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.8;">2h 59m</p>
-                                            <p style="font-size: 12px; opacity: 0.7; margin-top: 10px; text-align: right;">
+                                            <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; letter-spacing: 0.5px;">2h 59m</p>
+                                            <p style="font-size: 13px; opacity: 0.6; margin-top: 10px; text-align: right; letter-spacing: 0.5px;">
                                                 <i class="fa fa-cutlery" aria-hidden="true"></i>
                                             </p>
                                         </div>
                                     </div>
 
-                                    <div style="display: flex;  justify-content: space-between; border-top: 1px solid rgb(0, 0, 0, 0.1); border-bottom: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px;">
+                                    <div style="display: flex;  flex-direction: row !important; justify-content: space-between; border-top: 1px solid rgb(0, 0, 0, 0.1); border-bottom: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px;">
                                         <div>
-                                            <span style="opacity: 0.5; font-size: 12px;">Change planes in Tampa (TPA) </span>
-                                            <span style="font-size: 12px; font-weight: bolder; color: #e25a00;">
+                                            <span style="opacity: 0.6; font-size: 13px; letter-spacing: 0.5px;">Change planes in Tampa (TPA)</span>
+                                            <br/>
+                                            <span style="font-size: 13px; font-weight: bolder; opacity: 0.9; color: #e25a00; letter-spacing: 0.5px;">
                                                 Self-transfer - Bag re-check may be required </span>
                                         </div>
                                         <div style="min-width: 60px; margin-left: 10px;">
-                                            <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.8;">13h 06m</p>
+                                            <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; letter-spacing: 0.5px;">13h 06m</p>
                                         </div>
                                     </div>
 
@@ -177,7 +179,7 @@ $.ajax({
 
                                 <div>
                                     <div style="min-width: 80px; padding: 20px;">
-                                        <p style="font-weight: bolder; text-align: right; font-size: 14px; opacity: 0.8;">Sun, Dec 20</p>
+                                        <p style="font-weight: bolder; text-align: right; font-size: 14px; letter-spacing: 0.5px; opacity: 0.9;">Sun, Dec 20</p>
                                     </div>
                                 </div>
 
@@ -185,24 +187,25 @@ $.ajax({
 
                                     <div style="display: flex; justify-content: space-between; margin: 20px;">
                                         <div>
-                                            <div style="margin-bottom: 10px; display: flex; justify-content: space-between;">
-                                                <p style="font-size: 13px; font-weight: bolder; opacity: 0.7;">
+                                            <div style="margin-bottom: 10px; display: flex;  flex-direction: row !important; justify-content: space-between;">
+                                                <p style="font-size: 14px; letter-spacing: 0.5px; font-weight: bolder; opacity: 0.9;">
                                                     <img src="" style="width: 15px; height: 15px; margin-right: 10px;" />
                                                     7:40 pm — 10:39 pm
                                                 </p>
-                                                <p style="font-size: 13px; opacity: 0.5;">
+                                                <p style="font-size: 14px; opacity: 0.6; letter-spacing: 0.5px;">
                                                     Economy
                                                 </p>
                                             </div>
-                                            <p style="margin-bottom: 5px; font-size: 12px; opacity: 0.5;">
+                                            <p style="margin-bottom: 7px; font-size: 13px; letter-spacing: 0.5px; opacity: 0.6;">
                                                 Hartford (BDL) - Tampa (TPA)
                                             </p>
-                                            <p style="margin-bottom: 5px; font-size: 12px; opacity: 0.5;">Spirit Airlines 2679 · Narrow-body jet · Airbus A320 (sharklets)</p>
-                                            <p style="font-size: 12px; font-weight: bolder; color: #e25a00;">Carry-on baggage fees may apply to one or more segments of this trip</p>
+                                            <p style="letter-spacing: 0.5px; opacity: 0.9; font-size: 13px; margin-bottom: 7px; font-weight: bolder; color: #003f7a;">Limited seats remaining at this price</p>
+                                            <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">Spirit Airlines 2679 · Narrow-body jet · Airbus A320 (sharklets)</p>
+                                            <p style="font-size: 13px; font-weight: bolder; color: #e25a00; opacity: 0.9; letter-spacing: 0.5px;">Carry-on baggage fees may apply to one or more segments of this trip</p>
                                         </div>
                                         <div style="min-width: 60px; margin-left: 10px;">
-                                            <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.8;">2h 59m</p>
-                                            <p style="font-size: 12px; opacity: 0.7; margin-top: 10px; text-align: right;">
+                                            <p style="font-size: 13px; letter-spacing: 0.5px; font-weight: bolder; text-align: right; opacity: 0.9;">2h 59m</p>
+                                            <p style="font-size: 13px; letter-spacing: 0.5px; opacity: 0.6; margin-top: 10px; text-align: right;">
                                                 <i class="fa fa-cutlery" aria-hidden="true"></i>
                                             </p>
                                         </div>
@@ -241,7 +244,7 @@ $.ajax({
 
                                     <div style="display: flex; justify-content: space-between; margin: 20px;">
                                         <div>
-                                            <div style="margin-bottom: 10px; display: flex; justify-content: space-between;">
+                                            <div style="margin-bottom: 10px; display: flex;  flex-direction: row !important; justify-content: space-between;">
                                                 <p style="font-size: 13px; font-weight: bolder; opacity: 0.7;">
                                                     <img src="" style="width: 15px; height: 15px; margin-right: 10px;" />
                                                     7:40 pm — 10:39 pm
@@ -264,9 +267,10 @@ $.ajax({
                                         </div>
                                     </div>
 
-                                    <div style="display: flex;  justify-content: space-between; border-top: 1px solid rgb(0, 0, 0, 0.1); border-bottom: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px;">
+                                    <div style="display: flex;  flex-direction: row !important; justify-content: space-between; border-top: 1px solid rgb(0, 0, 0, 0.1); border-bottom: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px;">
                                         <div>
-                                            <span style="opacity: 0.5; font-size: 12px;">Change planes in Tampa (TPA) </span>
+                                            <span style="opacity: 0.5; font-size: 12px;">Change planes in Tampa (TPA)</span>
+                                            <br/>
                                             <span style="font-size: 12px; font-weight: bolder; color: #e25a00;">
                                                 Self-transfer - Bag re-check may be required </span>
                                         </div>
@@ -291,7 +295,7 @@ $.ajax({
 
                                     <div style="display: flex; justify-content: space-between; margin: 20px;">
                                         <div>
-                                            <div style="margin-bottom: 10px; display: flex; justify-content: space-between;">
+                                            <div style="margin-bottom: 10px; display: flex;  flex-direction: row !important; justify-content: space-between;">
                                                 <p style="font-size: 13px; font-weight: bolder; opacity: 0.7;">
                                                     <img src="" style="width: 15px; height: 15px; margin-right: 10px;" />
                                                     7:40 pm — 10:39 pm

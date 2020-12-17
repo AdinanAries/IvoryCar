@@ -59,7 +59,7 @@
   font-weight: bolder;
 }
 #site_currency_chevron_up {
-  transition: opacity 0.3s;
+  transition: all 0.3s;
 }
 @media only screen and (max-width: 700px) {
   .site_language_select_options {

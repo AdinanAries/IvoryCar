@@ -11,6 +11,17 @@
   opacity: 3;
   /*transition: all 0.5s;*/
 }
+.ticket_item_loader_card {
+  animation: mounting_ani 1s ease-out;
+}
+@keyframes mounting_ani {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 @keyframes opacity {
   0% {
     opacity: 0.1;
