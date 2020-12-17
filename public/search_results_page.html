@@ -29,6 +29,7 @@
     <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
 
     <link href="styles/search_style.css" type="text/css" rel="stylesheet" />
+    <link href="styles/site_currency.css" type="text/css" rel="stylesheet" />
     <link href="styles/page_loader.css" type="text/css" rel="stylesheet" />
     <script src="scripts/page_loader.js" type="text/javascript"></script>
 
@@ -1912,15 +1913,79 @@
               </p>
             </div>
             <div>
-              <p class="footer_section_header">Site/Language</p>
+              <p class="footer_section_header">Site/Currency</p>
               <div class="footer_fld_cntn">
-                <img
-                  class="footer_ivorycoast_flag"
-                  src="images/USflag2.png"
-                />
-                <select>
-                  <option value="">English - US</option>
-                </select>
+                <div class="site_language_select">
+                  <div id="site_language_select_options_as_id" class="site_language_select_options">
+                    <p style="color:rgb(0, 127, 177); text-align: center; font-weight: bolder;">Site/Currency</p>
+                    <div class="site_language_select_options_list">
+
+                      <div onclick="set_site_currency('United States', 'USflag2.png', 'USD', 'USD_each_site_language_select_option', '&#x24;');" id="USD_each_site_language_select_option"
+                      class="each_site_language_select_option active" style="flex-direction: row !important;">
+                        <p><img
+                          class="site_currency_flag"
+                          src="images/USflag2.png" alt=""
+                        /></p>
+                        <p>United States</p>
+                        <p class="each_site_language_select_option_currency">USD</p>
+                      </div>
+
+                      <div  onclick="set_site_currency('Europe', 'EuropeFlag.png', 'EUR', 'EUR_each_site_language_select_option', '&#x20AC;');" id="EUR_each_site_language_select_option"
+                       class="each_site_language_select_option" style="flex-direction: row !important;">
+                        <p><img
+                          class="site_currency_flag"
+                          src="images/EuropeFlag.png" alt=""
+                        /></p>
+                        <p>Europe</p>
+                        <p class="each_site_language_select_option_currency">EUR</p>
+                      </div>
+
+                      <div onclick="set_site_currency('Ghana', 'ghFlag.jpg', 'GHC', 'GHC_each_site_language_select_option', '&#x20B5;');" id="GHC_each_site_language_select_option" 
+                      class="each_site_language_select_option" style="flex-direction: row !important;">
+                        <p><img
+                          class="site_currency_flag"
+                          src="images/ghFlag.jpg" alt=""
+                        /></p>
+                        <p>Ghana</p>
+                        <p class="each_site_language_select_option_currency">GHC</p>
+                      </div>
+
+                      <div onclick="set_site_currency('Great Britain', 'GBTNFlag.png', 'GBP', 'GBP_each_site_language_select_option', '&#xa3;');" id="GBP_each_site_language_select_option"
+                       class="each_site_language_select_option" style="flex-direction: row !important;">
+                        <p><img
+                          class="site_currency_flag"
+                          src="images/GBTNFlag.png" alt=""
+                        /></p>
+                        <p>Great Britain</p>
+                        <p class="each_site_language_select_option_currency">GBP</p>
+                      </div>
+
+                      <div onclick="set_site_currency('China', 'china-flag.png', 'CNY', 'CNY_each_site_language_select_option','&#xa5;');" id="CNY_each_site_language_select_option" 
+                      class="each_site_language_select_option" style="flex-direction: row !important;">
+                        <p><img
+                          class="site_currency_flag"
+                          src="images/china-flag.png" alt=""
+                        /></p>
+                        <p>China</p>
+                        <p class="each_site_language_select_option_currency">CNY</p>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div onclick="show_site_currency_list();" style="flex-direction: row !important;" id="active_selected_currency_option_container" class="active_selected_currency_option">
+                    <div id="active_selected_currency_option_flag_and_name" style="display: flex; flex-direction: row !important;">
+                      <p><img
+                        class="site_currency_flag"
+                        src="images/USflag2.png" alt=""
+                      /></p>
+                      <p>United States (USD)</p>
+                    </div>
+                    <div>
+                      <i id="site_currency_chevron_up" class="fa fa-chevron-up" aria-hidden="true"></i>
+                    </div>
+                    
+                  </div>
+                </div>
               </div>
               <p
                 class="footer_section_header"

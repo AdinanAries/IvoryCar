@@ -4,21 +4,38 @@ var active_selected_currency_option_flag_and_name = document.getElementById("act
 var site_language_select_options_as_id = document.getElementById("site_language_select_options_as_id");
 var site_currency_chevron_up = document.getElementById("site_currency_chevron_up");
 
-var current_currency = "USD";
+var current_currency = {
+    currency: "USD",
+    country_flag:  "USflag2.png",
+    element_id:  "USD_each_site_language_select_option",
+    country_name: "United States",
+    sign: "&#x24;"
+};
 
 if(localStorage.getItem("site_current_currecy")){
-    current_currency = localStorage.getItem("site_current_currecy");
+    current_currency = JSON.parse(localStorage.getItem("site_current_currecy"));
 }else{
-    localStorage.setItem("site_current_currecy", "USD");
+    localStorage.setItem("site_current_currecy", JSON.stringify(current_currency));
 }
 
 
 
-function set_site_currency(country_name, flag_pic, currency){
+function set_site_currency(country_name, flag_pic, currency, element_Id, hex_code){
 
-    localStorage.setItem("site_current_currecy", currency);
-    current_currency = currency;
-    
+    Array.from(document.getElementsByClassName("each_site_language_select_option")).forEach((elem)=>{
+        elem.classList.remove("active");
+    });
+
+    document.getElementById(element_Id).classList.add('active');
+
+    current_currency.country_flag = flag_pic;
+    current_currency.country_name = country_name;
+    current_currency.currency = currency;
+    current_currency.element_id = element_Id;
+    current_currency.sign = hex_code;
+
+    localStorage.setItem("site_current_currecy", JSON.stringify(current_currency));
+
     active_selected_currency_option_flag_and_name.innerHTML = 
         `<p><img
             class="site_currency_flag"
@@ -75,6 +92,24 @@ function site_currency_coverter(holding_currency, currency_needed, money_amount)
     
     //console.log("The converted amount is $ " + (exchange_value.toFixed(2)) + "in " + currencyNeeded+ ".");
 
-    return exchange_amount.toFixed(2);
+    return addCommas(exchange_amount.toFixed(2));
 
 }
+
+
+$(document).ready(()=>{
+    set_site_currency(current_currency.country_name, current_currency.country_flag, current_currency.currency, current_currency.element_id, current_currency.sign);
+});
+
+//function to add commas to money values
+function addCommas(nStr){
+    nStr += '';
+    var x = nStr.split('.');
+    var x1 = x[0];
+    var x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+     x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+    return x1 + x2;
+   }

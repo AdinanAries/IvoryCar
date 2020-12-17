@@ -22,6 +22,10 @@ $.ajax({
         });
 
         if(data.length === 0){
+            document.getElementById("main_tickets_section_list_container").innerHTML =
+                `
+
+                `;
             return null;
         }
 
@@ -30,7 +34,7 @@ $.ajax({
 
             let flight_price = "unknown";
             if(data[w].price){
-                flight_price = site_currency_coverter(data[w].price.currency, "USD", data[w].price.total);
+                flight_price = site_currency_coverter(data[w].price.currency, current_currency.currency, data[w].price.total);
             }
 
             document.getElementById("main_tickets_section_list_container").innerHTML +=
@@ -192,7 +196,7 @@ $.ajax({
                     <p class="tickets_main_additional_text">Operated by Psa Airlines AS American Eagle, Republic Airways AS American Eagle</p>
                 </div>
                 <div class="each_ticket_item_main_right">
-                    <p class="ticket_item_price_display">$${flight_price}</p>
+                    <p class="ticket_item_price_display">${current_currency.sign} ${flight_price}</p>
                     <p style="color:rgb(104, 104, 104); font-size: 12px; margin-bottom: 5px; font-weight: bolder;">
                     American Airlines</p>
                     <div class="ticket_item_entitlements_display">
