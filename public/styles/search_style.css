@@ -158,6 +158,7 @@ body {
 }
 header {
   background-color: #140028;
+  animation: display_anim 1000ms ease-out;
 }
 .header_lang_flag {
   width: 15px;
@@ -230,6 +231,7 @@ header {
   width: 100vw;
   z-index: 2;
   background-color: #140028;
+  animation: display_anim 1000ms ease-out;
 }
 #site_lower_section {
   min-height: 500px;
@@ -258,11 +260,9 @@ header {
 }
 @keyframes display_anim {
   0% {
-    opacity: 0;
     transform: translateY(-100%);
   }
   100% {
-    opacity: 1;
     transform: translateY(0);
   }
 }
