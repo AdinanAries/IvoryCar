@@ -24,6 +24,15 @@ $.ajax({
         if(data.length === 0){
             document.getElementById("main_tickets_section_list_container").innerHTML =
                 `
+                    <div style=" background-color: white; border-radius: 4px; margin: 15px 0;
+                        padding: 50px 0; animation: display_anim 1000ms ease-out;">
+                        <p style="text-align: center;">
+                            <img src="/images/search_not_found.png" style="width: 60px; height: 60px;" alt=""/>
+                        </p>
+                        <p style="color: #00284e; font-weight: bolder; font-size: 13px; text-align: center;">
+                            Oops! nothing found for this search.
+                        </p>
+                    </div>
 
                 `;
             return null;
