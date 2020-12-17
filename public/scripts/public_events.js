@@ -72,7 +72,7 @@ function display_events(start, limit, number){
             event_time_zone = all_public_events[i].dates.timezone.replaceAll("_", " ")
         }
 
-        let event_information = "Unavailable";
+        let event_information = undefined;
         if(all_public_events[i].info){
             event_information = all_public_events[i].info
         }
