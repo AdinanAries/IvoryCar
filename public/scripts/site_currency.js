@@ -74,11 +74,12 @@ function site_currency_coverter(holding_currency, currency_needed, money_amount)
 
     let currentExchange = {
     "USD": 1,
-    "EUR" : 0.91,
-    "JPY" : 124.17,
-    "GBP" : 0.65,
+    "EUR" : 0.82,
+    "JPY" : 103.39,
+    "GBP" : 0.74,
     "BRL" : 3.51,
-    "GHC" : 5.85673
+    "GHC" : 5.85673,
+    "CNY" : 6.53
     }
 
     //steps
