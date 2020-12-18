@@ -38,7 +38,7 @@
   font-weight: bolder;
   color: rgb(74, 101, 112);
   font-size: 13px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   transition: all 0.2s ease-out;
 }
 .login_fld {
