@@ -29,6 +29,44 @@
   box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
     0px 0px 2.9px rgba(0, 0, 0, 0.23);
 }
+.login_fld_container {
+  border-radius: 5px;
+  transition: all 0.2s ease-out;
+}
+.login_fld_title {
+  font-size: 14px;
+  font-weight: bolder;
+  color: rgb(74, 101, 112);
+  font-size: 13px;
+  margin-bottom: 5px;
+  transition: all 0.2s ease-out;
+}
+.login_fld {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #d4d4d4;
+  width: calc(100% - 25px);
+  transition: all 0.2s ease-out;
+}
+#toggle_show_login_or_signup_formsbtn {
+  padding: 10px 0;
+  margin: 10px 20px;
+  font-size: 14px;
+  border-top: 1px solid rgb(209, 209, 209);
+  color: rgb(12, 41, 73);
+  cursor: pointer;
+}
+#toggle_show_login_or_signup_formsbtn i {
+  color: rgba(12, 41, 73, 0.61);
+  margin-right: 5px;
+}
+#login_and_signup_title {
+  padding: 12px 0;
+  margin: 10px 20px;
+  border-bottom: 1px solid rgb(209, 209, 209);
+  font-weight: bolder;
+  color: rgb(12, 41, 73);
+}
 /*--------------------------------*/
 .drp-selected {
   display: none !important;
@@ -1491,7 +1529,11 @@ footer a {
 
 @media only screen and (max-width: 700px) {
   .sign_in_elems {
-    min-width: 90vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100vw;
+    height: 100vh;
   }
   * {
     max-width: 100vw;

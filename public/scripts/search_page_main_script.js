@@ -1197,3 +1197,61 @@ document.getElementById("other_menu_languages_option").addEventListener("focusou
       document.getElementById("main_menu_language_submenu").style.opacity = 0;
    
 });
+
+//login functions
+
+function toggle_show_login_div(){
+  $("#sign_in_container").toggle("up");
+  if(document.getElementById("sign_in_container").style.display === "block"){
+    document.getElementById("sign_in_container").style.display = "flex";
+  }
+}
+
+function mobile_toggle_show_login_div(){
+
+  top_logo_menu_icon.style.transform = "rotate(360deg)";
+  top_logo_menu_icon.style.marginTop = "23px";
+  top_logo_menu_icon.style.marginBottom = "0"
+  header_menu_dropdowns.style.display = "none";
+  mobile_main_menu_items.style.visibility = "hidden";
+  mobile_main_menu_items.style.opacity = "0";
+
+  $("#sign_in_container").toggle("up");
+  if(document.getElementById("sign_in_container").style.display === "block"){
+    document.getElementById("sign_in_container").style.display = "flex";
+  }
+}
+
+function activate_login_fld(number){
+  document.getElementById(("login_fld_container_"+number)).style.border = "2px solid rgb(231, 124, 2)";
+  document.getElementById(("login_fld_title_"+number)).style.paddingTop = "10px";
+  document.getElementById(("login_fld_title_"+number)).style.paddingLeft = "10px";
+  document.getElementById(("login_fld_title_"+number)).style.color = "rgb(231, 124, 2)"
+  document.getElementById(("login_fld_"+number)).style.border = "none";
+ }
+ 
+ function de_activate_login_fld(number){
+  document.getElementById(("login_fld_"+number)).style.border = "1px solid #d4d4d4";
+  document.getElementById(("login_fld_container_"+number)).style.border = "none";
+  document.getElementById(("login_fld_title_"+number)).style.padding = 0;
+  document.getElementById(("login_fld_title_"+number)).style.color = "rgb(74, 101, 112)";
+ }
+
+ function toggle_show_login_or_signup_forms(){
+   let sign_up_form_container = document.getElementById("sign_up_form_container");
+   let toggle_show_login_or_signup_formsbtn = document.getElementById("toggle_show_login_or_signup_formsbtn");
+   let login_and_signup_title = document.getElementById("login_and_signup_title");
+
+   if(sign_up_form_container.style.display === "none"){
+    $("#login_form_container").slideUp("fast");
+    $("#sign_up_form_container").slideDown("fast");
+    toggle_show_login_or_signup_formsbtn.innerHTML = '<i class="fa fa-sign-in" aria-hidden="true"></i>Already have an account ? (login)';
+    login_and_signup_title.innerHTML = 'Sign Up';
+   }else{
+    $("#login_form_container").slideDown("fast");
+    $("#sign_up_form_container").slideUp("fast");
+    toggle_show_login_or_signup_formsbtn.innerHTML = '<i class="fa fa-user-plus" aria-hidden="true"></i>dont have an account ? (sign up)';
+    login_and_signup_title.innerHTML = "Login";
+   }
+   
+ }
