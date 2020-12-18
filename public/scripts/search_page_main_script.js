@@ -1176,4 +1176,24 @@ car_rentals_to_where_search_input_fld.addEventListener("change", ()=>{
   car_rentals_to_where_search_input_fld.blur();
 })
 
+document.getElementById("other_menu_languages_option").addEventListener("click", ()=>{
+  if(document.getElementById("main_menu_language_submenu").style.visibility === "visible"){
+    document.getElementById("main_menu_language_submenu").style.visibility = "hidden";
+    setTimeout(()=>{
+      document.getElementById("main_menu_language_submenu").style.opacity = 0;
+    }, 10);
+    
+  }else{
+    document.getElementById("main_menu_language_submenu").style.opacity = 1;
+      document.getElementById("main_menu_language_submenu").style.visibility = "visible";
+    
+  }
 
+});
+
+document.getElementById("other_menu_languages_option").addEventListener("focusout", ()=>{
+
+    document.getElementById("main_menu_language_submenu").style.visibility = "hidden";
+      document.getElementById("main_menu_language_submenu").style.opacity = 0;
+   
+});

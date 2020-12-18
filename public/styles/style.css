@@ -4,6 +4,31 @@
   font-family: Roboto;
   font-size: 16px;
 }
+/*-------------------------------*/
+#sign_in_container {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 15;
+  background-color: rgba(19, 12, 3, 0.74);
+  flex-direction: column;
+  justify-content: center;
+}
+.sign_in_div {
+  display: flex;
+  justify-content: center;
+}
+.sign_in_elems {
+  position: relative;
+  min-width: 400px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  height: 100%;
+  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
+    0px 0px 2.9px rgba(0, 0, 0, 0.23);
+}
+/*--------------------------------*/
 .drp-selected {
   display: none !important;
 }
@@ -367,7 +392,8 @@ header {
   opacity: 1;
 }
 #main_menu_language_submenu {
-  left: 753px;
+  left: 770px;
+  height: 105px;
   /*left: 68.4%;*/
 }
 #mobile_main_menu_items {

@@ -1231,3 +1231,25 @@ function toggle_show_your_bookings_div(){
   $("#your_bookings_div").toggle("up");
   hide_notification_icons();
 }
+
+function toggle_show_login_div(){
+  $("#sign_in_container").toggle("up");
+  if(document.getElementById("sign_in_container").style.display === "block"){
+    document.getElementById("sign_in_container").style.display = "flex";
+  }
+}
+
+function mobile_toggle_show_login_div(){
+
+  top_logo_menu_icon.style.transform = "rotate(360deg)";
+  top_logo_menu_icon.style.marginTop = "23px";
+  top_logo_menu_icon.style.marginBottom = "0"
+  header_menu_dropdowns.style.display = "none";
+  mobile_main_menu_items.style.visibility = "hidden";
+  mobile_main_menu_items.style.opacity = "0";
+
+  $("#sign_in_container").toggle("up");
+  if(document.getElementById("sign_in_container").style.display === "block"){
+    document.getElementById("sign_in_container").style.display = "flex";
+  }
+}
