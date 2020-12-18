@@ -79,7 +79,7 @@
   /*transition: all 0.5s;*/
 }
 .ticket_item_loader_card {
-  animation: mounting_ani 1s ease-out;
+  animation: mounting_ani 0.5s ease-out;
 }
 @keyframes mounting_ani {
   0% {
@@ -252,7 +252,7 @@ header {
   justify-content: space-between;
 }
 .top_nav_links {
-  animation: display_anim 1000ms ease-out;
+  animation: display_anim 500ms ease-out;
 }
 .top_nav_links ul {
   height: 100%;
@@ -294,7 +294,7 @@ header {
   font-size: 20px;
   color: white;
   cursor: pointer;
-  animation: display_anim 1000ms ease-out;
+  animation: display_anim 500ms ease-out;
 }
 .site_logo_container p,
 .site_logo_container span {
@@ -342,7 +342,7 @@ header {
   padding: 5px;
   background-color: #140028;
   padding-bottom: 10px;
-  animation: display_anim 1000ms ease-out;
+  animation: display_anim 500ms ease-out;
 }
 @keyframes display_anim {
   0% {
@@ -360,7 +360,7 @@ header {
   margin-top: 10px;
   overflow: hidden;
   justify-content: space-between;
-  animation: display_anim 1000ms ease-out;
+  animation: display_anim 500ms ease-out;
 }
 .site_lower_section_tabs .active {
   background-color: rgb(112, 2, 2);
@@ -379,12 +379,12 @@ header {
   padding: 10px 0;
   border-bottom: 1px solid #5d526d;
   margin-right: 20px;
-  animation: mounting_ani 1000ms ease-out;
+  animation: mounting_ani 500ms ease-out;
 }
 .site_lower_left_section_last_part {
   padding: 10px 0;
   margin-right: 20px;
-  animation: mounting_ani 1000ms ease-out;
+  animation: mounting_ani 500ms ease-out;
 }
 .site_lower_left_section_part_title_container {
   display: flex;
@@ -416,7 +416,7 @@ header {
   background-color: #4b2e68;
   border-radius: 5px;
   padding: 10px;
-  animation: mounting_ani 1000ms ease-out;
+  animation: mounting_ani 500ms ease-out;
 }
 .trip_advisor_card_top {
   min-height: 100px;
@@ -895,7 +895,7 @@ header {
   justify-content: space-between;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  animation: display_anim 1000ms ease-out;
+  animation: display_anim 500ms ease-out;
 }
 .search_tickets_form_container .search_fieldset {
   position: relative;
@@ -1141,7 +1141,7 @@ header {
   position: relative;
   z-index: 5;
   cursor: pointer;
-  animation: display_anim 1000ms ease-out;
+  animation: display_anim 500ms ease-out;
 }
 .round_trip_type_options {
   display: none;
@@ -1471,7 +1471,7 @@ footer a {
     flex-direction: row !important;
     justify-content: space-between;
     padding: 0 10px;
-    animation: display_anim 1500ms ease-out;
+    animation: display_anim 1000ms ease-out;
   }
   #mobile_search_change_type_of_service div {
     padding: 5px;
@@ -1498,7 +1498,7 @@ footer a {
   }
   #show_search_results_options_btn {
     display: block;
-    animation: mounting_ani 1000ms ease-out;
+    animation: mounting_ani 500ms ease-out;
   }
   .site_lower_section_tabs {
     animation-name: mounting_ani;
