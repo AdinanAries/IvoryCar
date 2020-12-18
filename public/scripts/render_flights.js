@@ -114,18 +114,66 @@ $.ajax({
                         </div>
                         <div class="flight_ticket_item_details_section_content">
 
-                            <div style="display: flex; cursor: pointer; flex-direction: row !important; justify-content: space-between; padding: 20px;">
+                            <div onclick="show_flight_ticket_added_policies_content(${w});" style="display: flex; cursor: pointer; flex-direction: row !important; justify-content: space-between; padding: 20px;">
                                 <div>
-                                    <p style="font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">Flexible cancellation options & additional safety measures</p>
-                                    <p style="margin-top: 7px; color: #00284e; font-size: 13px; opacity: 0.9; letter-spacing: 0.5px; font-weight: bolder;">Read More</p>
+                                    <p id="each_flight_ticket_added_policies_content_title${w}" style="display: none; font-size: 14px; opacity: 0.9; font-weight: bolder; margin: 10px 0;">American Airlines policies</p>
+                                    <p id="each_flight_ticket_added_policies_content_summary${w}" style="font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">Flexible cancellation options & additional safety measures</p>
+                                    <p id="each_flight_ticket_added_policies_content_read_more_txt${w}" style="margin-top: 7px; color: #00284e; font-size: 13px; opacity: 0.9; letter-spacing: 0.5px; font-weight: bolder;">Read More</p>
                                 </div>
                                 <div style="display: flex; flex-direction: column !important; justify-content: center;">
                                     <p style="opacity: 0.6;">
-                                        <i class="fa fa-chevron-down"></i>
+                                        <i id="each_flight_ticket_added_policies_content_chevron_icon${w}" style="transition: all 0.3s;" class="fa fa-chevron-down"></i>
                                     </p>
                                 </div>
                             </div>
-                            <div style="padding: 20px; display: none;">
+                            <div id="each_flight_ticket_added_policies_content${w}" style="padding: 0 20px; display: none;">
+
+                                <div style="display: flex; flex-direction: row !important; margin-bottom: 20px;">
+                                    <div style="margin-right: 10px;">
+                                        <i style="font-size: 22px; opacity: 0.7;" aria-hidden="true" class="fa fa-info"></i>
+                                    </div>
+                                    <div>
+                                        <p style="font-size: 13px; opacity: 0.7;">
+                                            American Basic Economy fares booked before December 31 can be changed without a fee once or
+                                            exchanged for travel credit. First, Business, Premium Economy and Main Cabin tickets for all
+                                            domestic and short-haul international flights are now always eligible for free changes.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex; flex-direction: row !important; margin-bottom: 20px;">
+                                    <div style="margin-right: 10px;">
+                                        <i style="font-size: 22px; opacity: 0.7;" aria-hidden="true" class="fa fa-info"></i>
+                                    </div>
+                                    <div>
+                                        <p style="font-size: 13px; opacity: 0.7;">
+                                            Pre-flight cleaning, installation of cabin HEPA filters.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div style="display: flex; flex-direction: row !important; margin-bottom: 20px;">
+                                    <div style="margin-right: 10px;">
+                                        <i style="font-size: 22px; opacity: 0.7;" aria-hidden="true" class="fa fa-info"></i>
+                                    </div>
+                                    <div>
+                                        <p style="font-size: 13px; opacity: 0.7;">
+                                            Masks required on board.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex; flex-direction: row !important; margin-bottom: 20px;">
+                                    <div style="margin-right: 10px;">
+                                        <i style="font-size: 22px; opacity: 0.7;" aria-hidden="true" class="fa fa-thermometer-half"></i>
+                                    </div>
+                                    <div>
+                                        <p style="font-size: 13px; opacity: 0.7;">
+                                            Pre-flight health screening questions.
+                                        </p>
+                                    </div>
+                                </div>
+
                             </div>
 
                         </div>

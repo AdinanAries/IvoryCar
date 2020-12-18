@@ -57,3 +57,26 @@ function getLeastC02Flights(){
     site_lower_section_tabs_best_option_content.style.borderColor = "#ad310b";
 
 }
+
+function show_flight_ticket_added_policies_content(number){
+    let read_more_txt = document.getElementById("each_flight_ticket_added_policies_content_read_more_txt"+number);
+    let chevron_icon = document.getElementById("each_flight_ticket_added_policies_content_chevron_icon"+number);
+    let content_div = document.getElementById("each_flight_ticket_added_policies_content"+number);
+    let title = document.getElementById("each_flight_ticket_added_policies_content_title"+number);
+    let summary = document.getElementById("each_flight_ticket_added_policies_content_summary"+number);
+
+    if(content_div.style.display === "none"){
+        $("#each_flight_ticket_added_policies_content"+number).slideDown("fast");
+        summary.style.display = "none";
+        title.style.display = "block";
+        chevron_icon.style.transform = "rotate(180deg)";
+        read_more_txt.style.display = "none";
+    }else{
+        $("#each_flight_ticket_added_policies_content"+number).slideUp("fast");
+        chevron_icon.style.transform = "rotate(0deg)";
+        read_more_txt.style.display = "block";
+        title.style.display = "none";
+        summary.style.display = "block";
+    }
+
+}
