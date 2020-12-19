@@ -80,3 +80,19 @@ function show_flight_ticket_added_policies_content(number){
     }
 
 }
+
+function covert_time_to_12_hour(time_param){
+    let timeArr = time_param.split(":");
+    let hours = timeArr[0];
+    let minutes = timeArr[1];
+    //var dt = new Date();
+    //var hours = dt.getHours() ; // gives the value in 24 hours format
+    var AmOrPm = hours >= 12 ? 'pm' : 'am';
+
+    hours = (hours % 12) || 12;
+    //var minutes = dt.getMinutes() ;
+
+    var finalTime = hours + ":" + minutes + " " + AmOrPm; 
+    //finalTime // final time Time - 22:10
+    return finalTime;
+}

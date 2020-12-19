@@ -1,5 +1,6 @@
 console.log(fligh_search_data);
 
+//One way trips
 function render_flights(){
 
     $.ajax({
@@ -41,11 +42,140 @@ function render_flights(){
             }
 
             document.getElementById("main_tickets_section_list_container").innerHTML = "";
+
             for(var w = 0; w < 5; w++){
 
                 let flight_price = "unknown";
                 if(data[w].price){
                     flight_price = site_currency_coverter(data[w].price.currency, current_currency.currency, data[w].price.total);
+                }
+
+                let departure_segments = "trip departure stops not available";
+                let return_segments = "trip return stops not available";
+                let total_departure_duration = "";
+                let total_return_duration = "";
+                let total_trip_start_and_end_time = "";
+                let trip_departure_from_and_airports = "";
+                let trip_departure_total_stops = 0;
+                let trip_departure_stops_airports = "";
+
+                if(data[w].itineraries){
+                    
+                    departure_segments = "";
+                    
+                    console.log(data[w].itineraries);
+
+                    for(var k = 0; k < data[w].itineraries.length; k++){
+
+                        total_departure_duration = data[w].itineraries[k].duration.substring(2, data[w].itineraries[k].duration.length);
+                        total_departure_duration = total_departure_duration.split("H");
+                        total_departure_duration = total_departure_duration[0].toLowerCase() + "h " + total_departure_duration[1].toLowerCase();
+                        
+                        trip_departure_total_stops = data[w].itineraries[k].segments.length - 1;
+                        trip_departure_total_stops = trip_departure_total_stops > 1 ? (trip_departure_total_stops + " stops") : (trip_departure_total_stops + " stop");
+
+
+                        for(var j = 0; j < data[w].itineraries[k].segments.length; j++){
+
+                            let departure_date_parts = data[w].itineraries[k].segments[j].departure.at.split("T")
+                            let departure_date = new Date(departure_date_parts[0]);
+                            let departure_string_date = departure_date.toString("MMMM yyyy"); 
+                            let departure_time = departure_date_parts[1].substring(0,5);
+
+                            total_trip_start_and_end_time += departure_time + " ";
+                            departure_time = covert_time_to_12_hour(departure_time);
+
+                            let departure_airport = AirportsData.filter(each => (each.IATA.toLowerCase().includes(data[w].itineraries[k].segments[j].departure.iataCode.toLowerCase())));
+                            let departure_airport_name = departure_airport[0].name;
+                            if(departure_airport_name.length > 14){
+                                departure_airport_name = departure_airport_name.split(" ")[0];
+                            }
+
+                            trip_departure_from_and_airports += (departure_airport[0].IATA + " ");
+                            departure_airport = `(${departure_airport[0].IATA}) ${departure_airport_name}`;
+                            
+                            let arrival_date_parts = data[w].itineraries[k].segments[j].arrival.at.split("T")
+                            let arrival_date = new Date(arrival_date_parts[0]);
+                            let arrival_string_date = arrival_date.toString("MMMM yyyy"); 
+                            let arrival_time = arrival_date_parts[1].substring(0,5);
+
+                            total_trip_start_and_end_time += arrival_time + " "
+                            arrival_time = covert_time_to_12_hour(arrival_time);
+
+                            let arrival_airport = AirportsData.filter(each => (each.IATA.toLowerCase().includes(data[w].itineraries[k].segments[j].arrival.iataCode.toLowerCase())));
+                            let arrival_airport_name = arrival_airport[0].name;
+                            if(arrival_airport_name.length > 14){
+                                arrival_airport_name = arrival_airport_name.split(" ")[0];
+                            }
+
+                            trip_departure_from_and_airports += (arrival_airport[0].IATA + " ");
+                            arrival_airport = `(${arrival_airport[0].IATA}) ${arrival_airport_name}`;
+                            
+                            let travel_duration = data[w].itineraries[k].segments[j].duration.substring(2, data[w].itineraries[k].segments[j].duration.length);
+                            travel_duration = travel_duration.split("H");
+                            travel_duration = travel_duration[0].toLowerCase() + "h " + travel_duration[1].toLowerCase();
+
+                            departure_segments += `
+                                <div style="display: flex; width: 100%;">
+                                    <div>
+                                        <div style="min-width: 80px; padding: 20px;">
+                                            <p style="font-weight: bolder; text-align: right; font-size: 14px; letter-spacing: 0.5px; opacity: 0.9;">${departure_string_date.substring(0, 10)}</p>
+                                        </div>
+                                    </div>
+
+                                    <div style="width: 85%;">
+
+                                        <div style="display: flex; justify-content: space-between; margin: 20px;">
+                                            <div>
+                                                <div style="margin-bottom: 10px; display: flex;  flex-direction: row !important; justify-content: space-between;">
+                                                    <p style="font-size: 14px;  letter-spacing: 0.5px; font-weight: bolder; opacity: 0.8;">
+                                                        <img src="" style="width: 15px; height: 15px; margin-right: 10px;" />
+                                                        ${departure_time} — ${arrival_time}
+                                                    </p>
+                                                    <p style="font-size: 14px;  letter-spacing: 0.6px; opacity: 0.5;">
+                                                        Economy
+                                                    </p>
+                                                </div>
+                                                <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">
+                                                    ${departure_airport} - ${arrival_airport}
+                                                </p>
+                                                <p style="letter-spacing: 0.5px; opacity: 0.9; margin-bottom: 7px; font-size: 13px; font-weight: bolder; color: #003f7a;">Limited seats remaining at this price</p>
+                                                <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">Spirit Airlines 2679 · Narrow-body jet · Airbus A320 (sharklets)</p>
+                                                <p style="font-size: 13px; font-weight: bolder; color: #e25a00; opacity: 0.9; letter-spacing: 0.5px;">Carry-on baggage fees may apply to one or more segments of this trip</p>
+                                            </div>
+                                            <div style="min-width: 60px; margin-left: 10px;">
+                                                <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; letter-spacing: 0.5px;">${travel_duration}</p>
+                                                <p style="font-size: 13px; opacity: 0.6; margin-top: 10px; text-align: right; letter-spacing: 0.5px;">
+                                                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div style="display: flex;  flex-direction: row !important; justify-content: space-between; border-top: 1px solid rgb(0, 0, 0, 0.1); border-bottom: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px;">
+                                            <div>
+                                                <span style="opacity: 0.6; font-size: 13px; letter-spacing: 0.5px;">Change planes in Tampa (TPA)</span>
+                                                <br/>
+                                                <span style="font-size: 13px; font-weight: bolder; opacity: 0.9; color: #e25a00; letter-spacing: 0.5px;">
+                                                    Self-transfer - Bag re-check may be required </span>
+                                            </div>
+                                            <div style="min-width: 60px; margin-left: 10px;">
+                                                <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; letter-spacing: 0.5px;">13h 06m</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                        `;
+                        }
+                    }
+
+                    total_trip_start_and_end_time = total_trip_start_and_end_time.split(" ");
+                    total_trip_start_and_end_time = covert_time_to_12_hour(total_trip_start_and_end_time[0]) + " - " + covert_time_to_12_hour(total_trip_start_and_end_time[(total_trip_start_and_end_time.length - 2)]);
+
+                    trip_departure_from_and_airports = trip_departure_from_and_airports.split(" ");
+                    trip_departure_stops_airports = trip_departure_from_and_airports[1];
+                    trip_departure_from_and_airports = trip_departure_from_and_airports[0] + " - " + trip_departure_from_and_airports[(trip_departure_from_and_airports.length - 2)];
+                    
                 }
 
                 document.getElementById("main_tickets_section_list_container").innerHTML +=
@@ -191,112 +321,22 @@ function render_flights(){
                                 <p>
                                     <input id="flight_ticket_item_details_section_content_Depature_check${w}" type="checkbox" />
                                     <label style="cursor: pointer;" for="flight_ticket_item_details_section_content_Depature_check${w}">
-                                        Depart <span>JAX - BDL</span>
+                                        Depart <span>${trip_departure_from_and_airports}</span>
                                     </label>
                                 </p>
                                 <div>
                                     <span>
-                                    16h 07m
+                                        ${total_departure_duration};
                                     </span>
                                 </div>
                             </div>
                             <div class="flight_ticket_item_details_section_content">
 
-                                <div style="display: flex; width: 100%;">
-
-                                    <div>
-                                        <div style="min-width: 80px; padding: 20px;">
-                                            <p style="font-weight: bolder; text-align: right; font-size: 14px; letter-spacing: 0.5px; opacity: 0.9;">Sun, Dec 20</p>
-                                        </div>
-                                    </div>
-
-                                    <div style="width: 85%;">
-
-                                        <div style="display: flex; justify-content: space-between; margin: 20px;">
-                                            <div>
-                                                <div style="margin-bottom: 10px; display: flex;  flex-direction: row !important; justify-content: space-between;">
-                                                    <p style="font-size: 14px;  letter-spacing: 0.5px; font-weight: bolder; opacity: 0.8;">
-                                                        <img src="" style="width: 15px; height: 15px; margin-right: 10px;" />
-                                                        7:40 pm — 10:39 pm
-                                                    </p>
-                                                    <p style="font-size: 14px;  letter-spacing: 0.6px; opacity: 0.5;">
-                                                        Economy
-                                                    </p>
-                                                </div>
-                                                <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">
-                                                    Hartford (BDL) - Tampa (TPA)
-                                                </p>
-                                                <p style="letter-spacing: 0.5px; opacity: 0.9; margin-bottom: 7px; font-size: 13px; font-weight: bolder; color: #003f7a;">Limited seats remaining at this price</p>
-                                                <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">Spirit Airlines 2679 · Narrow-body jet · Airbus A320 (sharklets)</p>
-                                                <p style="font-size: 13px; font-weight: bolder; color: #e25a00; opacity: 0.9; letter-spacing: 0.5px;">Carry-on baggage fees may apply to one or more segments of this trip</p>
-                                            </div>
-                                            <div style="min-width: 60px; margin-left: 10px;">
-                                                <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; letter-spacing: 0.5px;">2h 59m</p>
-                                                <p style="font-size: 13px; opacity: 0.6; margin-top: 10px; text-align: right; letter-spacing: 0.5px;">
-                                                    <i class="fa fa-cutlery" aria-hidden="true"></i>
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                        <div style="display: flex;  flex-direction: row !important; justify-content: space-between; border-top: 1px solid rgb(0, 0, 0, 0.1); border-bottom: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px;">
-                                            <div>
-                                                <span style="opacity: 0.6; font-size: 13px; letter-spacing: 0.5px;">Change planes in Tampa (TPA)</span>
-                                                <br/>
-                                                <span style="font-size: 13px; font-weight: bolder; opacity: 0.9; color: #e25a00; letter-spacing: 0.5px;">
-                                                    Self-transfer - Bag re-check may be required </span>
-                                            </div>
-                                            <div style="min-width: 60px; margin-left: 10px;">
-                                                <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; letter-spacing: 0.5px;">13h 06m</p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div style="display: flex; width: 100%;">
-
-                                    <div>
-                                        <div style="min-width: 80px; padding: 20px;">
-                                            <p style="font-weight: bolder; text-align: right; font-size: 14px; letter-spacing: 0.5px; opacity: 0.9;">Sun, Dec 20</p>
-                                        </div>
-                                    </div>
-
-                                    <div style="width: 85%;">
-
-                                        <div style="display: flex; justify-content: space-between; margin: 20px;">
-                                            <div>
-                                                <div style="margin-bottom: 10px; display: flex;  flex-direction: row !important; justify-content: space-between;">
-                                                    <p style="font-size: 14px; letter-spacing: 0.5px; font-weight: bolder; opacity: 0.9;">
-                                                        <img src="" style="width: 15px; height: 15px; margin-right: 10px;" />
-                                                        7:40 pm — 10:39 pm
-                                                    </p>
-                                                    <p style="font-size: 14px; opacity: 0.6; letter-spacing: 0.5px;">
-                                                        Economy
-                                                    </p>
-                                                </div>
-                                                <p style="margin-bottom: 7px; font-size: 13px; letter-spacing: 0.5px; opacity: 0.6;">
-                                                    Hartford (BDL) - Tampa (TPA)
-                                                </p>
-                                                <p style="letter-spacing: 0.5px; opacity: 0.9; font-size: 13px; margin-bottom: 7px; font-weight: bolder; color: #003f7a;">Limited seats remaining at this price</p>
-                                                <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">Spirit Airlines 2679 · Narrow-body jet · Airbus A320 (sharklets)</p>
-                                                <p style="font-size: 13px; font-weight: bolder; color: #e25a00; opacity: 0.9; letter-spacing: 0.5px;">Carry-on baggage fees may apply to one or more segments of this trip</p>
-                                            </div>
-                                            <div style="min-width: 60px; margin-left: 10px;">
-                                                <p style="font-size: 13px; letter-spacing: 0.5px; font-weight: bolder; text-align: right; opacity: 0.9;">2h 59m</p>
-                                                <p style="font-size: 13px; letter-spacing: 0.5px; opacity: 0.6; margin-top: 10px; text-align: right;">
-                                                    <i class="fa fa-cutlery" aria-hidden="true"></i>
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
+                                ${departure_segments}
 
                             </div>
 
-                            <div style="flex-direction: row !important; margin-top: 20px;" class="flight_ticket_item_details_section_content_title">
+                            <div style="display: none !important; flex-direction: row !important; margin-top: 20px;" class="flight_ticket_item_details_section_content_title">
                                 <p>
                                     <input id="flight_ticket_item_details_section_content_Return_check${w}" type="checkbox" />
                                     <label style="cursor: pointer;" for="flight_ticket_item_details_section_content_Return_check${w}">
@@ -309,7 +349,7 @@ function render_flights(){
                                     </span>
                                 </div>
                             </div>
-                            <div style="margin-bottom: 20px;" class="flight_ticket_item_details_section_content">
+                            <div style="display: none !important; margin-bottom: 20px;" class="flight_ticket_item_details_section_content">
 
                                 <div style="display: flex; width: 100%;">
 
@@ -326,7 +366,7 @@ function render_flights(){
                                                 <div style="margin-bottom: 10px; display: flex;  flex-direction: row !important; justify-content: space-between;">
                                                     <p style="font-size: 14px;  letter-spacing: 0.5px; font-weight: bolder; opacity: 0.8;">
                                                         <img src="" style="width: 15px; height: 15px; margin-right: 10px;" />
-                                                        7:40 pm — 10:39 pm
+                                                        5:58 pm – 11:18 pm
                                                     </p>
                                                     <p style="font-size: 14px;  letter-spacing: 0.6px; opacity: 0.5;">
                                                         Economy
@@ -412,7 +452,7 @@ function render_flights(){
                                 <div>
                                     <p style="font-weight: bolder; opacity: 0.8; font-size: 15px;">Booking Options</p>
                                 </div>
-                                <div style="display: flex; flex-direction: row !important;">
+                                <div style="display: flex; display: none; flex-direction: row !important;">
                                     <div style="margin-right: 15px; font-weight: bolder;">
                                         <input style="margin-right: 5px;" type="checkbox" /> <span style="opacity: 0.8; font-size: 14px;">Main Cabin</span>
                                     </div>
@@ -423,20 +463,21 @@ function render_flights(){
                             </div>
 
                             <div style="margin-bottom: 20px;" class="flight_ticket_item_details_section_content">
-                                <div style="display: flex; flex-direction: row !important; justify-content: space-between; padding: 20px;">
-                                    <div style="margin-right: 10px;">
+
+                                <div style="display: flex; justify-content: space-between; padding: 20px; padding-top: 0;">
+                                    <div style="margin-right: 10px; margin-top: 20px;">
                                         <p style="opacity: 0.8; font-weight: bolder; font-size: 14px;">
                                         <i style="margin-right: 5px;" aria-hidden="true" class="fa fa-ticket"></i>
-                                        Website</p>
+                                        Booking site</p>
                                         <p style="opacity: 0.7; font-size: 14px; margin-top: 5px;">American Airline</p>
                                     </div>
-                                    <div style="margin-right: 10px;">
+                                    <div style="margin-right: 10px; margin-top: 20px;">
                                         <p style="opacity: 0.8; font-weight: bolder; font-size: 14px;">
                                         <i style="margin-right: 5px;" aria-hidden="true" class="fa fa-info"></i>
                                         Cancellation</p>
                                         <p style="opacity: 0.7; font-size: 14px; margin-top: 5px;">24hr free cancellation</p>
                                     </div>
-                                    <div>
+                                    <div style="margin-top: 20px;">
                                         <p style="opacity: 0.8; font-weight: bolder; font-size: 14px;">
                                         Total Price</p>
                                         <p style="opacity: 0.7; font-size: 14px; margin-top: 5px;">$403</p>
@@ -445,6 +486,7 @@ function render_flights(){
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
 
                         </div>
@@ -461,22 +503,22 @@ function render_flights(){
                             <div style="flex-direction: row !important; width: 100%; justify-content: space-between;">
                             <div>
                                 <p style="font-weight: bolder; font-size: 14px; margin-bottom: 5px;">
-                                5:58 pm – 11:18 pm</p>
+                                ${total_trip_start_and_end_time}</p>
                                 <p style="color:rgb(148, 148, 148); font-size: 13px;">
                                 American Airlines</p>
                             </div>
                             <div>
-                                <p style="font-weight: bolder; font-size: 14px; margin-bottom: 5px;">1 stop</p>
-                                <p style="color:rgb(148, 148, 148); font-size: 13px;">PHL</p>
+                                <p style="font-weight: bolder; font-size: 14px; margin-bottom: 5px;">${trip_departure_total_stops}</p>
+                                <p style="color:rgb(148, 148, 148); font-size: 13px; text-align: center;">${trip_departure_stops_airports}</p>
                             </div>
                             <div>
-                                <p style="font-weight: bolder; font-size: 14px; margin-bottom: 5px;">5h 00m</p>
+                                <p style="font-weight: bolder; font-size: 14px; margin-bottom: 5px;">${total_departure_duration}</p>
                                 <p style="color:rgb(148, 148, 148); font-size: 13px;">
-                                BDL ‐ JAX</p>
+                                ${trip_departure_from_and_airports}</p>
                             </div>
                             </div>
                         </div>
-                        <div class="main_ticket_info_area_bottom">
+                        <div style="display: none !important;" class="main_ticket_info_area_bottom">
                             <div style="flex-direction: row !important;">
                             <div><input type="checkbox" /></div>
                             <div style="padding-left: 10px;"><img src="images/american-airlines-logo-vector-1.jpg" alt=""/></div>
