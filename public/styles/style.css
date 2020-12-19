@@ -12,7 +12,7 @@
   width: 100vw;
   height: 100vh;
   z-index: 15;
-  background-color: rgba(19, 12, 3, 0.74);
+  background-color: rgba(19, 12, 3, 0.877);
   flex-direction: column;
   justify-content: center;
 }
@@ -26,8 +26,7 @@
   background-color: rgb(255, 255, 255);
   border-radius: 5px;
   height: 100%;
-  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
-    0px 0px 2.9px rgba(0, 0, 0, 0.23);
+  box-shadow: 0px 3.6px 5.6px rgb(0, 0, 0), 0px 0px 3.9px rgb(0, 0, 0);
 }
 .login_fld_container {
   border-radius: 5px;
@@ -52,7 +51,7 @@
   padding: 10px 0;
   margin: 10px 20px;
   font-size: 14px;
-  border-top: 1px solid rgb(209, 209, 209);
+  /*border-top: 1px solid rgb(209, 209, 209);*/
   color: rgb(12, 41, 73);
   cursor: pointer;
 }
@@ -63,7 +62,7 @@
 #login_and_signup_title {
   padding: 12px 0;
   margin: 10px 20px;
-  border-bottom: 1px solid rgb(209, 209, 209);
+  /*border-bottom: 1px solid rgb(209, 209, 209);*/
   font-weight: bolder;
   color: rgb(12, 41, 73);
 }

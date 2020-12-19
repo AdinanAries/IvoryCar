@@ -1281,12 +1281,12 @@ function activate_login_fld(number){
     $("#login_form_container").slideUp("fast");
     $("#sign_up_form_container").slideDown("fast");
     toggle_show_login_or_signup_formsbtn.innerHTML = '<i class="fa fa-sign-in" aria-hidden="true"></i>Already have an account ? (login)';
-    login_and_signup_title.innerHTML = 'Sign Up';
+    login_and_signup_title.innerHTML = 'Sign Up and Save';
    }else{
     $("#login_form_container").slideDown("fast");
     $("#sign_up_form_container").slideUp("fast");
     toggle_show_login_or_signup_formsbtn.innerHTML = '<i class="fa fa-user-plus" aria-hidden="true"></i>dont have an account ? (sign up)';
-    login_and_signup_title.innerHTML = "Login";
+    login_and_signup_title.innerHTML = "Login and Save";
    }
    
  }
