@@ -1123,7 +1123,7 @@ header li a i,
   top: -10px;
   right: 0;
   height: 100%;
-  z-index: 10;
+  z-index: 15;
   width: 100%;
   overflow: hidden !important;
   border-radius: 4px;
