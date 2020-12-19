@@ -86,7 +86,7 @@ function render_flights(){
                         </div>
                         </div>
                         <div class="each_ticket_item_emogi_and_rating">
-                        <p style="font-size: 11px; opacity: 0.8; font-weight: bolder; margin-bottom: 10px; text-align: center;">
+                        <p style="font-size: 11px; opacity: 0.8; font-weight: bolder; margin-bottom: 10px; margin-left: 6px;">
                             Price/Travel Time
                         </p>
                         <p>
