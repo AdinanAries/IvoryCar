@@ -596,7 +596,7 @@ header {
 }
 .bubble_popup {
   display: none;
-  top: -13px;
+  top: 10px;
   left: -265px;
   position: absolute;
   z-index: 2;

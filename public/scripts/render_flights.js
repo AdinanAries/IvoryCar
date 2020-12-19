@@ -86,12 +86,16 @@ function render_flights(){
                         </div>
                         </div>
                         <div class="each_ticket_item_emogi_and_rating">
+                        <p style="font-size: 11px; opacity: 0.8; font-weight: bolder; margin-bottom: 10px; text-align: center;">
+                            Price/Travel Time
+                        </p>
                         <p>
-                            <span style="font-size: 14px; padding-right: 15px; color: white; border-radius: 50px; background-color:rgb(235, 86, 0); font-weight: bolder;">
+                            <span style="font-size: 14px; padding-right: 15px; color: white; border-radius: 50px; background-color:rgb(235, 86, 0); text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
+                            0px 0px 2.9px rgba(0, 0, 0, 0.23); font-weight: bolder;">
                                 &#9733; &#9733; &#9733; &#9733; &#9734;
                             </span>
                         </p>
-                        <p style="font-size: 11px; opacity: 0.8; font-weight: bolder; margin-top: 10px; text-align: center;">Price/Travel Time</p>
+                        
                         <div class="bubble_popup arrow_on_right_side"></div>
                         </div>
                     </div>
