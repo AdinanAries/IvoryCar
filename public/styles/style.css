@@ -386,7 +386,7 @@ body {
   background-position: bottom !important;
 }
 .wrapper {
-  max-width: 1024px;
+  max-width: 1200px;
   margin: auto;
 }
 header {
@@ -1325,6 +1325,11 @@ footer a {
 .show_all_evnt_detail_event_info_p {
   max-height: 150px;
   overflow: auto;
+}
+@media only screen and (max-width: 1220px) {
+  .wrapper {
+    margin: 0 30px;
+  }
 }
 @media only screen and (max-width: 1025px) {
   .show_all_evnt_detail_event_info_p {

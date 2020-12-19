@@ -74,8 +74,29 @@ function render_flights(){
                         trip_departure_total_stops = data[w].itineraries[k].segments.length - 1;
                         trip_departure_total_stops = trip_departure_total_stops > 1 ? (trip_departure_total_stops + " stops") : (trip_departure_total_stops + " stop");
 
+                        let change_flights_section = "";
 
                         for(var j = 0; j < data[w].itineraries[k].segments.length; j++){
+
+                            change_flights_section = "";
+
+                            if(j < (data[w].itineraries[k].segments.length - 1)){
+
+                                change_flights_section = `
+
+                                            <div style="display: flex;  flex-direction: row !important; justify-content: space-between; border-top: 1px solid rgb(0, 0, 0, 0.1); border-bottom: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px;">
+                                                <div>
+                                                    <span style="opacity: 0.6; font-size: 13px; letter-spacing: 0.5px;">Change planes in Tampa (TPA)</span>
+                                                    <br/>
+                                                    <span style="font-size: 13px; font-weight: bolder; opacity: 0.9; color: #e25a00; letter-spacing: 0.5px;">
+                                                        Self-transfer - Bag re-check may be required </span>
+                                                </div>
+                                                <div style="min-width: 60px; margin-left: 10px;">
+                                                    <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; letter-spacing: 0.5px;">13h 06m</p>
+                                                </div>
+                                            </div>
+                                `;
+                            }
 
                             let departure_date_parts = data[w].itineraries[k].segments[j].departure.at.split("T")
                             let departure_date = new Date(departure_date_parts[0]);
@@ -151,17 +172,7 @@ function render_flights(){
                                             </div>
                                         </div>
 
-                                        <div style="display: flex;  flex-direction: row !important; justify-content: space-between; border-top: 1px solid rgb(0, 0, 0, 0.1); border-bottom: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px;">
-                                            <div>
-                                                <span style="opacity: 0.6; font-size: 13px; letter-spacing: 0.5px;">Change planes in Tampa (TPA)</span>
-                                                <br/>
-                                                <span style="font-size: 13px; font-weight: bolder; opacity: 0.9; color: #e25a00; letter-spacing: 0.5px;">
-                                                    Self-transfer - Bag re-check may be required </span>
-                                            </div>
-                                            <div style="min-width: 60px; margin-left: 10px;">
-                                                <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; letter-spacing: 0.5px;">13h 06m</p>
-                                            </div>
-                                        </div>
+                                        ${change_flights_section}
 
                                     </div>
                                 </div>
@@ -174,6 +185,12 @@ function render_flights(){
 
                     trip_departure_from_and_airports = trip_departure_from_and_airports.split(" ");
                     trip_departure_stops_airports = trip_departure_from_and_airports[1];
+                    if(trip_departure_from_and_airports.length > 4){
+                        trip_departure_stops_airports = trip_departure_from_and_airports[1] + ", " + trip_departure_from_and_airports[(trip_departure_from_and_airports.length - 3)];
+                    }
+                    if(trip_departure_from_and_airports.length > 7){
+                        trip_departure_stops_airports = trip_departure_from_and_airports[1] + ", .., " + trip_departure_from_and_airports[(trip_departure_from_and_airports.length - 3)];
+                    }
                     trip_departure_from_and_airports = trip_departure_from_and_airports[0] + " - " + trip_departure_from_and_airports[(trip_departure_from_and_airports.length - 2)];
                     
                 }
@@ -326,7 +343,7 @@ function render_flights(){
                                 </p>
                                 <div>
                                     <span>
-                                        ${total_departure_duration};
+                                        ${total_departure_duration}
                                     </span>
                                 </div>
                             </div>

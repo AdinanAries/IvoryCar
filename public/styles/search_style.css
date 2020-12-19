@@ -219,7 +219,7 @@ body {
   background-size: cover;
 }
 .wrapper {
-  max-width: 1024px;
+  max-width: 1200px;
   margin: auto;
 }
 header {
@@ -1399,11 +1399,12 @@ footer a {
 #MobilehowSearchFormInputsBtn {
   display: none;
 }
-@media only screen and (max-width: 1025px) {
-  /*top nav bar responsiveness*/
+@media only screen and (max-width: 1220px) {
   .wrapper {
     margin: 0 30px;
   }
+}
+@media only screen and (max-width: 1025px) {
   #additional_search_inputs_and_Options {
     border-bottom: none;
   }
