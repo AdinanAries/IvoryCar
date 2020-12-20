@@ -76,31 +76,29 @@ function render_flights(){
 
                         let change_flights_section = "";
 
+                        let isfirstSegment = true;
+                        let isArrivalSegmentTime = "";
+                        let isDepartueSegmentTime = "";
+                        let transfer_duration = "";
+                        
                         for(var j = 0; j < data[w].itineraries[k].segments.length; j++){
+
+                            if(isfirstSegment){
+                                isArrivalSegmentTime = data[w].itineraries[k].segments[j].arrival.at;
+                                isfirstSegment = false;
+                            }else{
+                                isDepartueSegmentTime = data[w].itineraries[k].segments[j].departure.at;
+                                transfer_duration = get_transfer_duration(isArrivalSegmentTime, isDepartueSegmentTime);
+                                isArrivalSegmentTime = data[w].itineraries[k].segments[j].arrival.at;
+                            }
 
                             change_flights_section = "";
 
-                            if(j < (data[w].itineraries[k].segments.length - 1)){
-
-                                change_flights_section = `
-
-                                            <div style="display: flex;  flex-direction: row !important; justify-content: space-between; border-top: 1px solid rgb(0, 0, 0, 0.1); border-bottom: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px;">
-                                                <div>
-                                                    <span style="opacity: 0.6; font-size: 13px; letter-spacing: 0.5px;">Change planes in Tampa (TPA)</span>
-                                                    <br/>
-                                                    <span style="font-size: 13px; font-weight: bolder; opacity: 0.9; color: #e25a00; letter-spacing: 0.5px;">
-                                                        Self-transfer - Bag re-check may be required </span>
-                                                </div>
-                                                <div style="min-width: 60px; margin-left: 10px;">
-                                                    <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; letter-spacing: 0.5px;">13h 06m</p>
-                                                </div>
-                                            </div>
-                                `;
-                            }
-
                             let departure_date_parts = data[w].itineraries[k].segments[j].departure.at.split("T")
-                            let departure_date = new Date(departure_date_parts[0]);
-                            let departure_string_date = departure_date.toString("MMMM yyyy"); 
+                            let departure_date = new Date(parseInt(departure_date_parts[0].split("-")[0]), parseInt(departure_date_parts[0].split("-")[1]) - 1,
+                                                            parseInt(departure_date_parts[0].split("-")[2]));
+
+                            let departure_string_date = departure_date.toString(); 
                             let departure_time = departure_date_parts[1].substring(0,5);
 
                             total_trip_start_and_end_time += departure_time + " ";
@@ -116,8 +114,10 @@ function render_flights(){
                             departure_airport = `(${departure_airport[0].IATA}) ${departure_airport_name}`;
                             
                             let arrival_date_parts = data[w].itineraries[k].segments[j].arrival.at.split("T")
-                            let arrival_date = new Date(arrival_date_parts[0]);
-                            let arrival_string_date = arrival_date.toString("MMMM yyyy"); 
+                            let arrival_date = new Date(parseInt(arrival_date_parts[0].split("-")[0]), parseInt(arrival_date_parts[0].split("-")[1]) - 1,
+                                                            parseInt(arrival_date_parts[0].split("-")[2]));
+
+                            let arrival_string_date = arrival_date.toString(); 
                             let arrival_time = arrival_date_parts[1].substring(0,5);
 
                             total_trip_start_and_end_time += arrival_time + " "
@@ -136,8 +136,29 @@ function render_flights(){
                             travel_duration = travel_duration.split("H");
                             travel_duration = travel_duration[0].toLowerCase() + "h " + travel_duration[1].toLowerCase();
 
+                            if(j > 0){
+
+                                change_flights_section = `
+
+                                            <div style="display: flex;  flex-direction: row !important; justify-content: space-between; border-top: 1px solid rgb(0, 0, 0, 0.1); border-bottom: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px;">
+                                                <div>
+                                                    <span style="opacity: 0.6; font-size: 13px; letter-spacing: 0.5px;">Change planes in ${departure_airport}</span>
+                                                    <br/>
+                                                    <span style="font-size: 13px; font-weight: bolder; opacity: 0.9; color: #e25a00; letter-spacing: 0.5px;">
+                                                        Self-transfer - Bag re-check may be required </span>
+                                                </div>
+                                                <div style="min-width: 60px; margin-left: 10px;">
+                                                    <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; letter-spacing: 0.5px;">${transfer_duration}</p>
+                                                </div>
+                                            </div>
+                                `;
+                            }
+
                             departure_segments += `
                                 <div style="display: flex; width: 100%;">
+
+                                    ${change_flights_section}
+
                                     <div>
                                         <div style="min-width: 80px; padding: 20px;">
                                             <p style="font-weight: bolder; text-align: right; font-size: 14px; letter-spacing: 0.5px; opacity: 0.9;">${departure_string_date.substring(0, 10)}</p>
@@ -172,8 +193,6 @@ function render_flights(){
                                             </div>
                                         </div>
 
-                                        ${change_flights_section}
-
                                     </div>
                                 </div>
                         `;
@@ -185,7 +204,7 @@ function render_flights(){
 
                     trip_departure_from_and_airports = trip_departure_from_and_airports.split(" ");
                     trip_departure_stops_airports = trip_departure_from_and_airports[1];
-                    if(trip_departure_from_and_airports.length > 4){
+                    if(trip_departure_from_and_airports.length > 5){
                         trip_departure_stops_airports = trip_departure_from_and_airports[1] + ", " + trip_departure_from_and_airports[(trip_departure_from_and_airports.length - 3)];
                     }
                     if(trip_departure_from_and_airports.length > 7){

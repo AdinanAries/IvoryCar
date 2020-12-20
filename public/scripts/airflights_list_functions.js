@@ -96,3 +96,76 @@ function covert_time_to_12_hour(time_param){
     //finalTime // final time Time - 22:10
     return finalTime;
 }
+
+function timeConvert(n) {
+    let num = n;
+    let hours = (num / 60);
+    let rhours = Math.floor(hours);
+    let minutes = (hours - rhours) * 60;
+    let rminutes = Math.round(minutes);
+    return rhours + "h " + rminutes + "m";
+}
+
+function return_time_diff(firstTime, secondTime){
+    let first_hours = firstTime.split(":")[0];
+    //let first_minutes = firstTime.toLowerCase().split(":")[1].split(" ")[0].split("p")[0].split("a")[0];
+    let first_minutes = firstTime.split(":")[1];
+
+    first_hours = parseInt(first_hours);
+    first_minutes = parseInt(first_minutes);
+
+    let first_time_total_minutes = ((first_hours * 60) + first_minutes);
+
+    console.log("first H: " + first_hours + ", first M: " + first_minutes );
+
+    let second_hours = secondTime.split(":")[0];
+    //let second_minutes = secondTime.toLowerCase().split(":")[1].split(" ")[0].split("p")[0].split("a")[0];
+    let second_minutes = secondTime.split(":")[1];
+
+    second_hours = parseInt(second_hours);
+    second_minutes = parseInt(second_minutes);
+
+    let second_time_total_minutes = ((second_hours * 60) + second_minutes);
+
+    console.log("second H: " + second_hours + ", second M: " + second_minutes );
+
+    let minute_diff =  second_time_total_minutes - first_time_total_minutes
+    console.log(minute_diff);
+
+    return timeConvert(minute_diff);
+
+}
+
+//return_time_diff("9:00", "22:40");
+
+function get_transfer_duration(timeA, timeB){
+
+    let timeADate = timeA.split("T")[0];
+    let timeBDate = timeB.split("T")[0];
+    //console.log(timeADate);
+    //console.log(timeBDate);
+    
+    let timeATime = timeA.split("T")[1];
+    let timeBTime = timeB.split("T")[1];
+    //console.log(timeATime);
+    //console.log(timeBTime);
+
+    let firstDateObj = new Date(parseInt(timeADate.split("-")[0]), parseInt(timeADate.split("-")[1]) - 1,
+                                    parseInt(timeADate.split("-")[2]), timeATime.split(":")[0], 
+                                    timeATime.split(":")[1], 0, 0);
+
+    let secondDAteObj = new Date(parseInt(timeBDate.split("-")[0]), parseInt(timeBDate.split("-")[1]) - 1,
+                                    parseInt(timeBDate.split("-")[2]), timeBTime.split(":")[0], 
+                                    timeBTime.split(":")[1], 0, 0);
+    //console.log(firstDateObj);
+    let dif = (secondDAteObj - firstDateObj); 
+    dif = Math.round((dif/1000)/60);
+
+    console.log(dif);
+
+    return timeConvert(dif);
+
+
+}
+
+//console.log(get_transfer_duration("2021-04-01T21:00:00", "2021-04-01T22:40:00"));
