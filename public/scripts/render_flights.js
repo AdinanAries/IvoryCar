@@ -1,5 +1,5 @@
 console.log(fligh_search_data);
-
+console.log(airline_codes);
 //One way trips
 function render_flights(){
 
@@ -49,6 +49,10 @@ function render_flights(){
                 if(data[w].price){
                     flight_price = site_currency_coverter(data[w].price.currency, current_currency.currency, data[w].price.total);
                 }
+
+                let airline_name = "";
+                airline_name = airline_codes.filter(each => each.code.toLowerCase().includes(data[w].validatingAirlineCodes[0].toLowerCase()))
+                airline_name = airline_name[0].name;
 
                 let departure_segments = "trip departure stops not available";
                 let return_segments = "trip return stops not available";
@@ -134,13 +138,16 @@ function render_flights(){
                             
                             let travel_duration = data[w].itineraries[k].segments[j].duration.substring(2, data[w].itineraries[k].segments[j].duration.length);
                             travel_duration = travel_duration.split("H");
-                            travel_duration = travel_duration[0].toLowerCase() + "h " + travel_duration[1].toLowerCase();
+                            travel_duration = travel_duration[0].toLowerCase() + (travel_duration[1] ? ("h " + travel_duration[1].toLowerCase()) : "");
+                            if(travel_duration[travel_duration.length -1] !== "m" && travel_duration[travel_duration.length -1] !== "h"){
+                                travel_duration += "h";
+                            }
 
                             if(j > 0){
 
                                 change_flights_section = `
 
-                                            <div style="display: flex;  flex-direction: row !important; justify-content: space-between; border-top: 1px solid rgb(0, 0, 0, 0.1); border-bottom: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px;">
+                                            <div style="width: 85%; display: flex;  flex-direction: row !important; justify-content: space-between; border-top: 1px solid rgb(0, 0, 0, 0.1); border-bottom: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px;">
                                                 <div>
                                                     <span style="opacity: 0.6; font-size: 13px; letter-spacing: 0.5px;">Change planes in ${departure_airport}</span>
                                                     <br/>
@@ -155,9 +162,15 @@ function render_flights(){
                             }
 
                             departure_segments += `
-                                <div style="display: flex; width: 100%;">
+                                <div style="display: flex; width: 100%; justify-content: flex-end;">
+                                    <div style="min-width: 80px; padding: 0 20px;">
+                                    </div>
 
                                     ${change_flights_section}
+                                
+                                </div>
+
+                                <div style="display: flex; width: 100%;">
 
                                     <div>
                                         <div style="min-width: 80px; padding: 20px;">
@@ -505,7 +518,7 @@ function render_flights(){
                                         <p style="opacity: 0.8; font-weight: bolder; font-size: 14px;">
                                         <i style="margin-right: 5px;" aria-hidden="true" class="fa fa-ticket"></i>
                                         Booking site</p>
-                                        <p style="opacity: 0.7; font-size: 14px; margin-top: 5px;">American Airline</p>
+                                        <p style="opacity: 0.7; font-size: 14px; margin-top: 5px;">${airline_name}</p>
                                     </div>
                                     <div style="margin-right: 10px; margin-top: 20px;">
                                         <p style="opacity: 0.8; font-weight: bolder; font-size: 14px;">
@@ -541,7 +554,7 @@ function render_flights(){
                                 <p style="font-weight: bolder; font-size: 14px; margin-bottom: 5px;">
                                 ${total_trip_start_and_end_time}</p>
                                 <p style="color:rgb(148, 148, 148); font-size: 13px;">
-                                American Airlines</p>
+                                ${airline_name}</p>
                             </div>
                             <div>
                                 <p style="font-weight: bolder; font-size: 14px; margin-bottom: 5px;">${trip_departure_total_stops}</p>
@@ -583,7 +596,7 @@ function render_flights(){
                     <div class="each_ticket_item_main_right">
                         <p class="ticket_item_price_display">${current_currency.sign} ${flight_price}</p>
                         <p style="color:rgb(104, 104, 104); font-size: 12px; margin-bottom: 5px; font-weight: bolder;">
-                        American Airlines</p>
+                        ${airline_name}</p>
                         <div class="ticket_item_entitlements_display">
                         Main Cabin
                         <div class="ticket_item_entitlements_content_display"></div>

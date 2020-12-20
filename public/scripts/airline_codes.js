@@ -183,5 +183,6 @@ var airline_codes = [
     {number: 989, code: "IJ", name: "Great Wall Airlines"},
     {number: 996, code: "UX", name: "Air Europa Cargo"},
     {number: 997, code: "BG", name: "Biman Bangladesh"},
-    {number: 999, code: "CA", name: "Air China"}
+    {number: 999, code: "CA", name: "Air China"},
+    {number: 0, code: "WS", name: "WestJet"}
 ];
