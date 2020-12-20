@@ -45,7 +45,7 @@ function render_flights(){
 
             let limit = 0;
             for(var w = 0; w < data.length; w++){
-                
+
                 limit++;
                 if(limit > 10)
                     break;
@@ -534,8 +534,8 @@ function render_flights(){
                                     <div style="margin-top: 20px;">
                                         <p style="opacity: 0.8; font-weight: bolder; font-size: 14px;">
                                         Total Price</p>
-                                        <p style="opacity: 0.7; font-size: 14px; margin-top: 5px;">$403</p>
-                                        <div style="min-width: 60px; text-align: center; margin: 10px 0; padding: 10px; font-size: 14px; font-weight: bolder; background-color: #184e80; color: white; border-radius: 4px;">
+                                        <p style="opacity: 0.7; font-size: 14px; margin-top: 5px;">${current_currency.sign} ${flight_price}</p>
+                                        <div style="min-width: 60px; text-align: center; margin: 10px 0; padding: 10px; font-size: 14px; background-color: #184e80; color: white; border-radius: 4px;">
                                             view deal
                                         </div>
                                     </div>

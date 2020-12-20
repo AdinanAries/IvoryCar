@@ -2,6 +2,13 @@
 var home_page_search_button = document.getElementById("home_page_search_button");
 var home_page_hotels_search_button = document.getElementById("home_page_hotels_search_button");
 
+//Global Utilities
+var todays_date = new Date();
+var formatted_date = todays_date.getFullYear() + "-" + ( todays_date.getMonth() + 1 ) + "-" + todays_date.getDate();
+var future_date = new Date(todays_date.setMonth(todays_date.getMonth() + 2));
+var formatted_future_date = future_date.getFullYear() + "-" + ( future_date.getMonth() + 1 ) + "-" + future_date.getDate();
+
+
 //Global data
 //data to be forwarded to server
 var fligh_search_data = {};
@@ -35,6 +42,8 @@ if(window.localStorage.getItem("flights_post_data")){
         trip_round: "roundtrip",
         origin_iata: "",
         destination_iata: "",
+        departure_date: formatted_date,
+        arrival_date: formatted_future_date
       };
 
     window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
@@ -102,6 +111,10 @@ function set_flight_trip_round_for_search(f_trip_round){
               opens: 'left'
             }, function(start, end, label) {
                 
+                fligh_search_data.departure_date = start.format('YYYY-MM-DD');
+                fligh_search_data.arrival_date = end.format('YYYY-MM-DD');
+
+                window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
                 //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
             });
           });
@@ -115,6 +128,10 @@ function set_flight_trip_round_for_search(f_trip_round){
                 setTimeout(()=>{
                     document.getElementById("from_when_search_input").value = start.toString().substring(0,11);
                 }, 100);
+
+                fligh_search_data.departure_date = start.format('YYYY-MM-DD');
+
+                window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
 
               /*var years = moment().diff(start, 'years');
               alert("You are " + years + " years old!");*/
@@ -141,6 +158,11 @@ function set_flight_trip_round_for_search(f_trip_round){
                 setTimeout(()=>{
                     document.getElementById("from_when_search_input").value = start.toString().substring(0,11) +" - "+ end.toString().substring(0,11);
                 }, 100);
+
+                fligh_search_data.departure_date = start.format('YYYY-MM-DD');
+                fligh_search_data.arrival_date = end.format('YYYY-MM-DD');
+
+                window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
 
                 //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
             });

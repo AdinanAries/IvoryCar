@@ -1,46 +1,36 @@
 const express = require("express");
+const app = express();
 const path = require("path");
 const Amadeus = require("amadeus");
 const axios = require('axios');
 
+//Globals to store endpoint data
 var all_events = [];
 var all_attractions = [];
 
+//Middlewares
+// For parsing application/json 
+app.use(express.json()); 
+// For parsing application/x-www-form-urlencoded 
+app.use(express.urlencoded({ extended: true }));
+//Path to static assets
+app.use(express.static(path.join(__dirname, "public")));
+
+//Setting ports
+const PORT = process.env.PORT || 5000;
+
+
+
+//instantiating Amandues
 var amadeus = new Amadeus({
   clientId: 'tMUIuRrYAgk0zLfDy1PCC4GXegGg0rYc',
   clientSecret: 'PAtVLCWxpRGsYPdU'
 });
 
-const app = express();
 
-// For parsing application/json 
-app.use(express.json()); 
-  
-// For parsing application/x-www-form-urlencoded 
-app.use(express.urlencoded({ extended: true }));
+//Endpoints
 
-/*amadeus.shopping.flightOffersSearch.get({
-    originLocationCode: 'SYD',
-    destinationLocationCode: 'BKK',
-    departureDate: '2021-04-01',
-    adults: '2'
-}).then(function(response){
-  console.log(response.data);
-}).catch(function(responseError){
-  console.log(responseError.code);
-});*/
-
-app.use(express.static(path.join(__dirname, "public")));
-
-const PORT = process.env.PORT || 5000;
-
-
-//console.log(amadeus);
-
-
-
-
-//Getting Events Data
+//Ticket Master - Getting Public Events Data
 app.get('/publicevents/', function(request, response, next){
 
     if(all_events.length === 0){
@@ -68,6 +58,7 @@ app.get('/publicevents/', function(request, response, next){
 
 });
 
+//Ticket Master Getting Public Attractions
 app.get("/publicattractions", (request, response, next)=>{
 
 if(all_attractions.length === 0){
@@ -97,6 +88,7 @@ if(all_attractions.length === 0){
 
 });
 
+//Amadeus - Getting Airports and Cities
 app.get('/airportSearch/', function(req,res,next){ 
     amadeus.referenceData.locations.get({ 
       keyword: req.query.term, 
@@ -110,16 +102,18 @@ app.get('/airportSearch/', function(req,res,next){
     }); 
   });
 
+//Amadues - Searching Flight Offers (One-way)
 app.post('/searchflight/', (req, res, next)=>{
 
   console.log(req.body);
   let origin = req.body.origin_iata;
   let destination = req.body.destination_iata;
+  let depart_date = req.body.departure_date;
 
   amadeus.shopping.flightOffersSearch.get({
       originLocationCode: origin,
       destinationLocationCode: destination,
-      departureDate: '2021-04-01',
+      departureDate: depart_date,
       adults: '2'
   }).then(function(response){
     //console.log(response.data);
@@ -130,9 +124,58 @@ app.post('/searchflight/', (req, res, next)=>{
 
 });
 
+//Amadues - Airline Code Lookup
+app.get('/getairlinedata/:code', (req, res, next)=>{
+
+  let code = req.params.code;
+
+  amadeus.referenceData.airlines.get({
+    airlineCodes : code
+  }).then(data =>{
+    res.json(data.body);
+  })
+
+});
+
+//Amadues - Flight Most Traveled Destinations
+app.get('/mosttraveleddestinations/origin/:city/period/:date', (req, res, next)=>{
+  //MAD 2021-01
+  let _city = req.params.city;
+  let _date = req.params.date;
+
+  amadeus.travel.analytics.airTraffic.traveled.get({
+    originCityCode : _city,
+    period : _date
+  }).then(data =>{
+    res.json(data.body);
+  }).catch(err => {
+    console.log(err);
+  })
+});
+
+//Amadues - Price Flight Analysis
+app.get('/flight_price_metric/origin/:o_code/destination/:d_code/date/:date', (req, res, next) =>{
+
+  //'MAD', 'CDG', '2021-03-13'
+
+  let _o_code = req.params.o_code;
+  let _d_code = req.params.d_code;
+  let _date = req.params.date;
+
+  amadeus.analytics.itineraryPriceMetrics.get({
+    originIataCode: _o_code,
+    destinationIataCode: _d_code,
+    departureDate: _date,
+  }).then(data =>{
+    res.json(data);
+  }).catch(err =>{
+      console.log(err);
+  });
+
+});
 
 
-
+//Spinning the server here
 app.listen(PORT, () => {
   console.log("Server started on " + PORT);
 });
