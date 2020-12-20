@@ -10,6 +10,7 @@ function render_flights(){
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: (data)=>{
+
             console.log(fligh_search_data);
             console.log(data);
 
@@ -611,6 +612,10 @@ function render_flights(){
                     </div>
                 </div>`;
             }
+
+            //resetting adults
+            fligh_search_data.number_of_adults = default_adults;
+            window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
 
         }
 

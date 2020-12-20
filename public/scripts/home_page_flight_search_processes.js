@@ -7,6 +7,7 @@ var todays_date = new Date();
 var formatted_date = todays_date.getFullYear() + "-" + ( todays_date.getMonth() + 1 ) + "-" + todays_date.getDate();
 var future_date = new Date(todays_date.setMonth(todays_date.getMonth() + 2));
 var formatted_future_date = future_date.getFullYear() + "-" + ( future_date.getMonth() + 1 ) + "-" + future_date.getDate();
+var default_adults = 1;
 
 
 //Global data
@@ -16,7 +17,7 @@ var fligh_search_data = {};
 if(window.localStorage.getItem("flights_post_data")){
 
     fligh_search_data = JSON.parse(window.localStorage.getItem("flights_post_data"));
-    
+
     if(fligh_search_data.origin_iata.toLowerCase() !== ""){
         
         let current_origin_airport = AirportsData.filter(each => (each.IATA.toLowerCase().includes(fligh_search_data.origin_iata.toLowerCase())));
@@ -43,7 +44,8 @@ if(window.localStorage.getItem("flights_post_data")){
         origin_iata: "",
         destination_iata: "",
         departure_date: formatted_date,
-        arrival_date: formatted_future_date
+        arrival_date: formatted_future_date,
+        number_of_adults: default_adults
       };
 
     window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
@@ -300,6 +302,7 @@ function add_person_to_flight_search(person_type){
             document.getElementById("number_of_toddlers_count").innerText = flight_search_number_of_people.toddlers.number;
 
         }else if(person_type === "Infant"){
+
             flight_search_number_of_people.infants.number += 1;
             flight_search_number_of_people.total_number_of_people += 1;
 
@@ -374,6 +377,11 @@ function add_person_to_flight_search(person_type){
     }
     /*alert("number of people: " + flight_search_number_of_people.total_number_of_people)
     alert("types of people " +  flight_search_number_of_people.types_of_people_added)*/
+
+    fligh_search_data.number_of_adults = flight_search_number_of_people.adults.number + flight_search_number_of_people.seniors.number
+                                             + flight_search_number_of_people.students.number + flight_search_number_of_people.youth.number;
+    window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
+
 }
 
 
@@ -604,6 +612,11 @@ function remove_person_from_flight_search(person_type){
     }
     /*alert("number of people: " + flight_search_number_of_people.total_number_of_people)
     alert("types of people " +  flight_search_number_of_people.types_of_people_added)*/
+
+    fligh_search_data.number_of_adults = flight_search_number_of_people.adults.number + flight_search_number_of_people.seniors.number
+                                             + flight_search_number_of_people.students.number + flight_search_number_of_people.youth.number;
+    window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
+
 }
 
 

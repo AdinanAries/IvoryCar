@@ -106,20 +106,27 @@ app.get('/airportSearch/', function(req,res,next){
 app.post('/searchflight/', (req, res, next)=>{
 
   console.log(req.body);
+
   let origin = req.body.origin_iata;
   let destination = req.body.destination_iata;
   let depart_date = req.body.departure_date;
+  let num_of_adults = req.body.number_of_adults;
 
   amadeus.shopping.flightOffersSearch.get({
+
       originLocationCode: origin,
       destinationLocationCode: destination,
       departureDate: depart_date,
-      adults: '2'
+      adults: num_of_adults
+
   }).then(function(response){
     //console.log(response.data);
     res.send(response.data);
+
   }).catch(function(responseError){
+
     console.log(responseError.code);
+    
   });
 
 });
