@@ -13,11 +13,20 @@ if(window.localStorage.getItem("flights_post_data")){
     if(fligh_search_data.origin_iata.toLowerCase() !== ""){
         
         let current_origin_airport = AirportsData.filter(each => (each.IATA.toLowerCase().includes(fligh_search_data.origin_iata.toLowerCase())));
-        from_where_search_input_fld.value = `(${current_origin_airport[0].IATA}) ${current_origin_airport[0].name} - ${current_origin_airport[0].city}`;
+        if(current_origin_airport[0]){
+            from_where_search_input_fld.value = `(${current_origin_airport[0].IATA}) ${current_origin_airport[0].name} - ${current_origin_airport[0].city}`;
+        }else{
+            current_origin_airport = AirportsData.filter(each => (each.ICAO.toLowerCase().includes(fligh_search_data.origin_iata.toLowerCase())));
+            from_where_search_input_fld.value = `(${current_origin_airport[0].ICAO}) ${current_origin_airport[0].name} - ${current_origin_airport[0].city}`;
+        }
     
         let current_destination_airport = AirportsData.filter(each => (each.IATA.toLowerCase().includes(fligh_search_data.destination_iata.toLowerCase())));
-        to_where_search_input_fld.value = `(${current_destination_airport[0].IATA}) ${current_destination_airport[0].name} - ${current_destination_airport[0].city}`;
-
+        if(current_destination_airport[0]){
+            to_where_search_input_fld.value = `(${current_destination_airport[0].IATA}) ${current_destination_airport[0].name} - ${current_destination_airport[0].city}`;
+        }else{
+            current_destination_airport = AirportsData.filter(each => (each.ICAO.toLowerCase().includes(fligh_search_data.destination_iata.toLowerCase())));
+            to_where_search_input_fld.value = `(${current_destination_airport[0].ICAO}) ${current_destination_airport[0].name} - ${current_destination_airport[0].city}`;
+        }
     }
     
 }else{

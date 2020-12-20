@@ -161,7 +161,7 @@ function get_transfer_duration(timeA, timeB){
     let dif = (secondDAteObj - firstDateObj); 
     dif = Math.round((dif/1000)/60);
 
-    console.log(dif);
+    //console.log(dif);
 
     return timeConvert(dif);
 

@@ -16,7 +16,7 @@ document.getElementById("from_where_search_input_fld").addEventListener("input",
         flights = flights.map(elem => {
                 counter++;
                 return counter < 20 && `<li>
-                            <div onclick="changeAirportsFromInput('(${elem.IATA}) ${elem.name} - ${elem.city}', '${elem.IATA}');" style="padding: 10px 5px; cursor: pointer;">
+                            <div onclick="changeAirportsFromInput('(${elem.IATA}) ${elem.name} - ${elem.city}', '${elem.IATA}', '${elem.ICAO}');" style="padding: 10px 5px; cursor: pointer;">
                                 <p style="font-size: 14px">
                                     <i style="margin-right: 5px; font-size: 14px; overflow: visible !important; color: darkblue;"
                                             aria-hidden="true" class="fa fa-map-marker"></i>
@@ -39,9 +39,15 @@ document.getElementById("from_where_search_input_fld").addEventListener("input",
 })
 
 
-function changeAirportsFromInput(airport, iata){
+function changeAirportsFromInput(airport, iata, icao){
     from_where_search_input_fld.value = airport;
     fligh_search_data.origin_iata = iata;
+
+    if(iata === "\\N" || iata === "N"){
+        fligh_search_data.origin_iata = icao;
+        from_where_search_input_fld.value = "(" + icao + ") " + airport.split(")")[1];
+    }
+
     window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
 }
 
@@ -63,7 +69,7 @@ document.getElementById("to_where_search_input_fld").addEventListener("input", (
         flights = flights.map(elem => {
             counter++;
             return counter < 20 && `<li>
-                        <div onclick="changeAirportsToInput('(${elem.IATA}) ${elem.name} - ${elem.city}', '${elem.IATA}');" style="padding: 10px 5px; cursor: pointer;">
+                        <div onclick="changeAirportsToInput('(${elem.IATA}) ${elem.name} - ${elem.city}', '${elem.IATA}', '${elem.ICAO}');" style="padding: 10px 5px; cursor: pointer;">
                             <p style="font-size: 14px">
                                 <i style="margin-right: 5px; font-size: 14px; overflow: visible !important; color: darkblue;"
                                         aria-hidden="true" class="fa fa-map-marker"></i>
@@ -86,9 +92,15 @@ document.getElementById("to_where_search_input_fld").addEventListener("input", (
 })
 
 
-function changeAirportsToInput(airport, iata){
+function changeAirportsToInput(airport, iata, icao){
     to_where_search_input_fld.value = airport;
     fligh_search_data.destination_iata = iata;
+
+    if(iata === "\\N" || iata === "N"){
+        fligh_search_data.destination_iata = icao;
+        to_where_search_input_fld.value = "(" + icao + ") " + airport.split(")")[1];
+    }
+
     window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
 }
 

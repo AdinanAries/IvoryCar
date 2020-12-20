@@ -43,7 +43,12 @@ function render_flights(){
 
             document.getElementById("main_tickets_section_list_container").innerHTML = "";
 
-            for(var w = 0; w < 5; w++){
+            let limit = 0;
+            for(var w = 0; w < data.length; w++){
+                
+                limit++;
+                if(limit > 10)
+                    break;
 
                 let flight_price = "unknown";
                 if(data[w].price){
