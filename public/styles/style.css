@@ -394,7 +394,7 @@ header {
   position: sticky;
   top: 0;
   background-color: #140028;
-  z-index: 10;
+  z-index: 11;
 }
 .header_menu_dropdowns {
   display: none;
@@ -416,12 +416,15 @@ header {
   width: 100px;
   height: 70px;
   background-color: #140028;
-  left: 489px;
+  left: 569px;
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 0.5s linear;
 }
 #main_menu_more_submenu {
+  position: absolute;
+  left: 0px;
+  top: 54px;
   height: auto !important;
 }
 #main_menu_more_submenu:hover,
@@ -430,7 +433,9 @@ header {
   opacity: 1;
 }
 #main_menu_language_submenu {
-  left: 770px;
+  position: absolute;
+  left: 20px;
+  top: 54px;
   height: 105px;
   /*left: 68.4%;*/
 }
@@ -1356,9 +1361,6 @@ footer a {
     height: 55%;
     width: 100%;
   }
-  .wrapper {
-    margin: 0 30px;
-  }
   .header_menu_dropdowns {
     margin: 0 30px;
   }
@@ -1410,9 +1412,9 @@ footer a {
   .top_nav_main_links_container {
     display: none;
   }
-  #main_menu_language_submenu {
+  /*#main_menu_language_submenu {
     left: calc(100vw - 380px);
-  }
+  }*/
   /*.site_logo_container {
     margin-left: 30%;
   }*/
@@ -1553,6 +1555,10 @@ footer a {
     width: 100vw;
     top: 0;
     z-index: 12;
+    overflow: visible !important;
+  }
+  .header_content_container {
+    overflow: visible !important;
   }
   #help_and_support_chat_box,
   #price_alerts_div,
@@ -1670,10 +1676,10 @@ footer a {
     overflow: initial !important;
   }
   /*top navbar responsiveness*/
-  #main_menu_language_submenu {
+  /*#main_menu_language_submenu {
     position: absolute;
     left: calc(100vw - 153px) !important;
-  }
+  }*/
   .active_top_nav_link {
     border-bottom: none;
   }

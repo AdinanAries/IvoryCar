@@ -341,8 +341,8 @@
               aria-hidden="true"
             ></i>
           </div>
-          <div class="top_nav_main_links_container">
-            <ul>
+          <div style="overflow: visible !important;" class="top_nav_main_links_container">
+            <ul style="overflow: visible !important;">
               <li
                 id="main_menu_car_option"
                 class="top_nav_var_main_menu_item active_top_nav_link"
@@ -363,15 +363,63 @@
                   ><i class="fa fa-car" aria-hidden="true"></i>Cars</a
                 >
               </li>
-              <li id="main_menu_more_option" class="top_nav_var_main_menu_item">
+              <li style="overflow: visible !important; position: relative;" id="main_menu_more_option" class="top_nav_var_main_menu_item">
                 <a id="main_menu_more_option_a_tag" href="#"
                   ><i class="fa fa-list-ul" aria-hidden="true"></i>More</a
                 >
+                <!--Begin More Submenu-->
+                <div id="main_menu_more_submenu">
+                  <p style="padding: 10px 0; text-align: center"
+                        id="main_menu_packages_option"
+                        class="top_nav_var_main_menu_item"
+                      >
+                        <a href="#"
+                          style="color: white; text-decoration: none; font-size: 13px"
+                          >
+                          <i style="margin-right: 5px;" class="fa fa-suitcase" aria-hidden="true"></i>Packages</a
+                        >
+                  </p>
+                  <p style="padding-bottom: 10px; padding-top: 5px; text-align: center"
+                        id="main_menu_explore_option"
+                        class="top_nav_var_main_menu_item"
+                      >
+                        <a href="#"
+                          style="color: white; text-decoration: none; font-size: 13px"
+                          >
+                          <i style="margin-right: 5px;" class="fa fa-globe" aria-hidden="true"></i>Explore</a
+                        >
+                  </p>
+                  <p style="padding-bottom: 10px; padding-top: 5px; text-align: center"
+                    class="top_nav_var_main_menu_item"
+                  >
+                    <a
+                      href="#"
+                      style="color: white; text-decoration: none; font-size: 13px"
+                    >
+                      <i style="margin-right: 5px;" aria-hidden="true" class="fa fa-briefcase"></i>Deals
+                    </a>
+                  </p>
+                  <p
+                    style="
+                      padding: 10px; margin-top: 5px;
+                      border-top: 1px solid #2a4255;
+                      text-align: center;
+                    "
+                  >
+                    <a
+                      href="#"
+                      style="color: white; text-decoration: none; font-size: 13px"
+                    >
+                    <i style="margin-right: 5px;" class="fa fa-question" aria-hidden="true"></i>Help
+                    </a>
+                  </p>
+                </div>
+                <!--End More Submenu-->
               </li>
             </ul>
           </div>
-          <div class="top_nav_other_links_container">
-            <ul>
+          <div style="overflow: visible !important;" class="top_nav_other_links_container">
+            <ul style="overflow: visible !important;">
               <li id="top_nav_trip_btn">
                 <a href="#">Trips</a>
               </li>
@@ -380,7 +428,7 @@
                   ><i class="fa fa-sign-in" aria-hidden="true"></i>Sign in</a
                 >
               </li>
-              <li id="other_menu_languages_option">
+              <li style="position: relative; overflow: visible !important;" id="other_menu_languages_option">
                 <a href="#" style="color: #b12900; font-size: 14px"
                   >Lang:
                   <img
@@ -391,6 +439,46 @@
                     >Eng - US</span
                   >
                 </a>
+                <!--Begin Site Lang SubMenu-->
+                <div id="main_menu_language_submenu">
+                  <p style="padding-bottom: 10px; text-align: center">
+                    <a
+                      href="#"
+                      style="color: white; text-decoration: none; font-size: 13px"
+                    >
+                      English
+                    </a>
+                  </p>
+                  <p
+                    style="
+                      padding: 10px 0;
+                      border-top: 1px solid #2a4255;
+                      text-align: center;
+                    "
+                  >
+                    <a
+                      href="#"
+                      style="color:rgb(117, 117, 117); text-decoration: none; font-size: 13px"
+                    >
+                      Spanish
+                    </a>
+                  </p>
+                  <p
+                    style="
+                      padding-top: 10px;
+                      border-top: 1px solid #2a4255;
+                      text-align: center;
+                    "
+                  >
+                    <a
+                      href="#"
+                      style="color: rgb(117, 117, 117); text-decoration: none; font-size: 13px"
+                    >
+                      French
+                    </a>
+                  </p>
+                </div>
+                <!--End Site Lang SubMenu-->
               </li>
             </ul>
           </div>
@@ -453,94 +541,6 @@
           </ul>
         </div>
         <!--End Mobile DropDown-->
-        <!--Begin More Submenu-->
-        <div id="main_menu_more_submenu">
-          <p style="padding: 10px 0; text-align: center"
-                id="main_menu_packages_option"
-                class="top_nav_var_main_menu_item"
-              >
-                <a href="#"
-                   style="color: white; text-decoration: none; font-size: 13px"
-                  >
-                  <i style="margin-right: 5px;" class="fa fa-suitcase" aria-hidden="true"></i>Packages</a
-                >
-          </p>
-          <p style="padding-bottom: 10px; padding-top: 5px; text-align: center"
-                id="main_menu_explore_option"
-                class="top_nav_var_main_menu_item"
-              >
-                <a href="#"
-                   style="color: white; text-decoration: none; font-size: 13px"
-                  >
-                  <i style="margin-right: 5px;" class="fa fa-globe" aria-hidden="true"></i>Explore</a
-                >
-          </p>
-          <p style="padding-bottom: 10px; padding-top: 5px; text-align: center"
-             class="top_nav_var_main_menu_item"
-          >
-            <a
-              href="#"
-              style="color: white; text-decoration: none; font-size: 13px"
-            >
-              <i style="margin-right: 5px;" aria-hidden="true" class="fa fa-briefcase"></i>Deals
-            </a>
-          </p>
-          <p
-            style="
-              padding: 10px; margin-top: 5px;
-              border-top: 1px solid #2a4255;
-              text-align: center;
-            "
-          >
-            <a
-              href="#"
-              style="color: white; text-decoration: none; font-size: 13px"
-            >
-            <i style="margin-right: 5px;" class="fa fa-question" aria-hidden="true"></i>Help
-            </a>
-          </p>
-        </div>
-        <!--End More Submenu-->
-        <!--Begin Site Lang SubMenu-->
-        <div id="main_menu_language_submenu">
-          <p style="padding-bottom: 10px; text-align: center">
-            <a
-              href="#"
-              style="color: white; text-decoration: none; font-size: 13px"
-            >
-              English
-            </a>
-          </p>
-          <p
-            style="
-              padding: 10px 0;
-              border-top: 1px solid #2a4255;
-              text-align: center;
-            "
-          >
-            <a
-              href="#"
-              style="color:rgb(117, 117, 117); text-decoration: none; font-size: 13px"
-            >
-              Spanish
-            </a>
-          </p>
-          <p
-            style="
-              padding-top: 10px;
-              border-top: 1px solid #2a4255;
-              text-align: center;
-            "
-          >
-            <a
-              href="#"
-              style="color: rgb(117, 117, 117); text-decoration: none; font-size: 13px"
-            >
-              French
-            </a>
-          </p>
-        </div>
-        <!--End Site Lang SubMenu-->
       </div>
       <!--End DropDowns Container-->
     </div>
