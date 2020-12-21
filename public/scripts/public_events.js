@@ -54,8 +54,9 @@ function display_events(start, limit, number){
             event_name = event_name.substring(0, 25) + "...";
         }
 
-        let mydate = new Date(all_public_events[i].dates.start.localDate);
-        let stringdate = mydate.toString("MMMM yyyy");
+        let mydate = new Date(all_public_events[i].dates.start.localDate.split("-")[0], (all_public_events[i].dates.start.localDate.split("-")[1] - 1), all_public_events[i].dates.start.localDate.split("-")[2],0,0,0,0);
+        let stringdate = mydate.toString();
+        console.log(all_public_events[i].dates.start.localDate + " - " + stringdate);
 
         let price_range = "Unavailable";
         if(all_public_events[i].priceRanges){
