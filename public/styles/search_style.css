@@ -5,7 +5,74 @@
   font-size: 16px;
 }
 /*-------------------------------*/
-#sign_in_container {
+#order_ticket_form_content_container {
+  position: relative;
+  background-color: white;
+  border-radius: 4px;
+  margin: 0 10px;
+  max-width: 700px;
+  margin: auto;
+  height: 95%;
+  overflow: auto !important;
+}
+#forms_multi_step_indicator {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 25px;
+  margin-bottom: 20px;
+}
+#forms_multi_step_indicator .active {
+  border-bottom: 4px solid rgb(231, 124, 2);
+}
+#forms_multi_step_indicator .__active {
+  color: rgb(196, 104, 0);
+}
+.forms_each_step_indicator {
+  cursor: pointer;
+  display: flex;
+  border-bottom: 4px solid #00284e;
+  padding: 20px;
+  width: 80px;
+  position: relative;
+}
+.forms_each_step_indicator p {
+  color: #00284e;
+}
+.forms_each_step_indicator ._active {
+  background-color: rgb(231, 124, 2);
+}
+.forms_each_step_indicator_number {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  bottom: -15px;
+  left: -15px;
+  background-color: #00284e;
+  border-radius: 100%;
+  font-weight: bolder;
+  color: white;
+}
+.finish_booking_forms_next_previous {
+  position: absolute;
+  bottom: 0px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  right: 20px;
+  background-color: rgb(212, 78, 0);
+}
+#sign_in_container,
+#full_page_loader_container,
+#order_ticket_form_container {
   display: none;
   position: fixed;
   top: 0;
@@ -15,6 +82,11 @@
   background-color: rgba(19, 12, 3, 0.877);
   flex-direction: column;
   justify-content: center;
+}
+#full_page_loader_container {
+  opacity: 0;
+  transition: all 0.3s;
+  transition-delay: 0.2s;
 }
 .sign_in_div {
   display: flex;
@@ -1425,6 +1497,15 @@ footer a {
 }
 
 @media only screen and (max-width: 700px) {
+  #order_ticket_form_content_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: auto !important;
+    border-radius: 0;
+    height: 100vh;
+    width: 100vw;
+  }
   .sign_in_elems {
     position: fixed;
     top: 0;

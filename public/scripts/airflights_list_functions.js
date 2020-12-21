@@ -169,3 +169,36 @@ function get_transfer_duration(timeA, timeB){
 }
 
 //console.log(get_transfer_duration("2021-04-01T21:00:00", "2021-04-01T22:40:00"));
+
+function view_flight_deal(isAnidasoBookable, data_or_link){
+
+    document.getElementById("full_page_loader_container").style.display = "block";
+    document.getElementById("full_page_loader_container").style.opacity = 1;
+
+    //console.log(JSON.parse(data_or_link.replaceAll('*#*$#%','"')));
+    if(isAnidasoBookable){
+
+        let flightObj = JSON.parse(data_or_link.replaceAll('*#*$#%','"'));
+        
+        $.ajax({
+            type: "POST",
+            url: "/getfinalflightprice",
+            data: flightObj,
+            success: (res)=>{
+                document.getElementById("full_page_loader_container").style.display = "none";
+                document.getElementById("full_page_loader_container").style.opacity = 0;
+                console.log(res);
+                toggle_show_finish_booking_form();
+            },
+            error: (err)=>{
+                document.getElementById("full_page_loader_container").style.display = "none";
+                document.getElementById("full_page_loader_container").style.opacity = 0;
+                console.log(err);
+            }
+        });
+    }else{
+        let link = data_or_link;
+        //handle this later;
+    }
+
+}

@@ -124,7 +124,7 @@ trip_type_param_round_trip_option_container.addEventListener("click", (evnt)=>{
   if($(window).width() < 710){
     hide_trip_top_params.style.display = "block";
   }
-  
+
   $("#main_round_trip_type_options").slideDown("fast");
   $("#main_hotels_accommodations_parameters_options").slideDown("fast");
   $("#car_rentals_pickup_time_parameters_options").slideDown("fast");
@@ -1272,4 +1272,11 @@ function activate_login_fld(number){
     login_and_signup_title.innerHTML = "Login and Save";
    }
    
+ }
+
+ function toggle_show_finish_booking_form(){
+   $("#order_ticket_form_container").toggle("up");
+   if(document.getElementById("order_ticket_form_container").style.display === "block"){
+    document.getElementById("order_ticket_form_container").style.display = "flex";
+  }
  }

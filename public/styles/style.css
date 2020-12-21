@@ -137,8 +137,12 @@
 .home_page_quotes {
   position: relative;
   max-width: 600px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: auto;
-  padding: 0 20px;
+  padding: 0 50px;
   margin-top: 10px;
   margin-bottom: 50px;
 }

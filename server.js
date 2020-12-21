@@ -105,7 +105,7 @@ app.get('/airportSearch/', function(req,res,next){
 //Amadues - Searching Flight Offers (One-way)
 app.post('/searchflight/', (req, res, next)=>{
 
-  console.log(req.body);
+  //console.log(req.body);
 
   let origin = req.body.origin_iata;
   let destination = req.body.destination_iata;
@@ -126,8 +126,34 @@ app.post('/searchflight/', (req, res, next)=>{
   }).catch(function(responseError){
 
     console.log(responseError.code);
-    
+
   });
+
+});
+
+//Amadues - Getting Final Flight Price
+app.post('/getfinalflightprice/', async (req, res, next)=>{
+
+    //res.json(req.body);
+
+    let inputFlight = [req.body];
+
+    console.log(inputFlight)
+
+    const responsePricing = await amadeus.shopping.flightOffers.pricing.post(
+        JSON.stringify({
+          data: {
+            type: 'flight-offers-pricing',
+            flightOffers: inputFlight
+        }})).catch(err=>{
+          console.log(err)
+        });
+          
+    try {
+      await res.json(JSON.parse(responsePricing.body));
+    } catch (err) {
+      await res.json(err);
+    }
 
 });
 

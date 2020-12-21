@@ -47,6 +47,8 @@ function render_flights(){
             let limit = 0;
             for(var w = 0; w < data.length; w++){
 
+                let each_flight_data = JSON.stringify(data[w]);
+
                 limit++;
                 if(limit > 10)
                     break;
@@ -536,7 +538,7 @@ function render_flights(){
                                         <p style="opacity: 0.8; font-weight: bolder; font-size: 14px;">
                                         Total Price</p>
                                         <p style="opacity: 0.7; font-size: 14px; margin-top: 5px;">${current_currency.sign} ${flight_price}</p>
-                                        <div style="min-width: 60px; text-align: center; margin: 10px 0; padding: 10px; font-size: 14px; background-color: #184e80; color: white; border-radius: 4px;">
+                                        <div onclick="view_flight_deal(true, ${data[w]});" style="min-width: 60px; text-align: center; margin: 10px 0; padding: 10px; font-size: 14px; background-color: #184e80; color: white; border-radius: 4px;">
                                             view deal
                                         </div>
                                     </div>
@@ -607,7 +609,7 @@ function render_flights(){
                         Main Cabin
                         <div class="ticket_item_entitlements_content_display"></div>
                         </div>
-                        <div class="view_deal_button">View deal</div>
+                        <div  onclick="view_flight_deal(true, '${each_flight_data.replaceAll('"', '*#*$#%')}');" class="view_deal_button">View deal</div>
                     </div>
                     </div>
                 </div>`;
@@ -633,7 +635,7 @@ function render_flights(){
                         </div>
 
                     `;
-                    
+
             return null;
         } 
 

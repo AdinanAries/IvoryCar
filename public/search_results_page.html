@@ -37,6 +37,103 @@
   </head>
   <body>
 
+    <div id="full_page_loader_container">
+      <div style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
+        <p style="letter-spacing: 0.5px; max-width: 300px; margin: auto; text-align: center; font-weight: bolder; color: white;">
+          Confirming price availability</p>
+      </div>
+    </div>
+
+    <div id="order_ticket_form_container">
+      <div style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
+        <div id="order_ticket_form_content_container">
+          
+          <i onclick="toggle_show_finish_booking_form();" style="color: rgb(245, 151, 37); font-size: 18px; position: absolute; padding: 20px; top: 0; right: 0; cursor: pointer;" class="fa fa-times" aria-hidden="true"></i>
+          
+          <div style="padding: 20px;">
+            <p style="font-weight: bolder; font-size: 13px; letter-spacing: 0.5px; color:rgb(6, 62, 83);">Fill out the forms below</p>
+          </div>
+
+          <div style="height: 120px; width: 95px; margin: auto;  
+          background-image: url('./images/travelersBg.svg'); background-size: cover; background-repeat: no-repeat; "></div>
+
+          <div  id="forms_multi_step_indicator">
+
+            <div class="forms_each_step_indicator active">
+              <div class="forms_each_step_indicator_number _active">1</div>
+              <p class="__active" style="font-size: 12px; font-weight: bolder;">Personal Info</p>
+            </div>
+
+            <div class="forms_each_step_indicator">
+              <div class="forms_each_step_indicator_number">2</div>
+              <p style="font-size: 12px; font-weight: bolder;">Contacts</p>
+            </div>
+
+            <div class="forms_each_step_indicator">
+              <div class="forms_each_step_indicator_number">3</div>
+              <p style="font-size: 12px; font-weight: bolder;">Documents</p>
+            </div>
+            
+          </div>
+
+          <div id="order_ticket_form_container_personal_info" style="padding: 20px; position: relative; padding-bottom: 70px;">
+            
+            <div style="display: flex; flex-direction: row !important; justify-content: space-between; max-width: 395px !important;">
+              <div id="login_fld_container_5" style="width: calc(100% - 10px); margin-right: 10px;" class="login_fld_container">
+                <p id="login_fld_title_5" class="login_fld_title">
+                First Name</p>
+                <input onblur="de_activate_login_fld(5);" onclick="activate_login_fld(5);" id="login_fld_5" class="login_fld" type="text" placeholder="your full name here" />
+              </div>
+
+              <div style="width: calc(100% - 10px);" id="login_fld_container_8" class="login_fld_container">
+                <p id="login_fld_title_8" class="login_fld_title">
+                Last Name</p>
+                <input onblur="de_activate_login_fld(8);" onclick="activate_login_fld(8);" id="login_fld_8" class="login_fld" type="text" placeholder="your full name here" />
+              </div>
+            </div>
+
+            <div style="margin-top: 20px; display: flex; flex-direction: row !important; justify-content: space-between; max-width: 395px !important;">
+              <div id="login_fld_container_9" style="width: calc(100% - 10px); margin-right: 10px;" class="login_fld_container">
+                <p id="login_fld_title_9" class="login_fld_title">
+                Date of Birth</p>
+                <input onblur="de_activate_login_fld(9);" onclick="activate_login_fld(9);" id="login_fld_9" class="login_fld" type="text" placeholder="your full name here" />
+              </div>
+
+              <div style="width: calc(100% - 10px);" id="login_fld_container_10" class="login_fld_container">
+                <p id="login_fld_title_10" class="login_fld_title">
+                Gender</p>
+                <select onblur="de_activate_login_fld(10);" onclick="activate_login_fld(10);" id="login_fld_10" class="login_fld">
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="finish_booking_forms_next_previous">
+              <i aria-hidden="true" class="fa fa-chevron-right"></i>
+            </div>
+            
+
+            <!--div style="margin-top: 15px;" id="login_fld_container_6" class="login_fld_container">
+              <p id="login_fld_title_6" class="login_fld_title">
+              Email</p>
+              <input onblur="de_activate_login_fld(6);" onclick="activate_login_fld(6);" id="login_fld_6" class="login_fld" type="email" placeholder="your email here" />
+            </div>
+
+            <div style="margin-top: 15px;" id="login_fld_container_7" class="login_fld_container">
+              <p id="login_fld_title_7" class="login_fld_title">
+                Enter Your Password</p>
+              <input onblur="de_activate_login_fld(7);" onclick="activate_login_fld(7);" id="login_fld_7" class="login_fld" type="password" placeholder="your password here" />
+            </div>
+
+            <input style="margin-top: 10px; padding: 10px; border-radius: 4px; color: white; border: none; background-color: rgb(245, 151, 37); width: 100%;" 
+            type="submit" value="Submit" /-->
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
     <div id="sign_in_container">
       <div style="flex-direction: row !important;" class="sign_in_div">
         <div style="overflow-y: auto !important;" class="sign_in_elems">
