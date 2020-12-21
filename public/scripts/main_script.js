@@ -1194,13 +1194,16 @@ var quotes = [
   }
 ];
 
-setInterval(()=>{
+var quotesInterval = setInterval(()=>{
   show_a_quote();
 }, 5000);
 
 var show_a_quote = ()=>{
+
   document.getElementById("quote_elem").style.opacity = 0;
-  let qouteObj = quotes[Math.floor(Math.random()*quotes.length)]
+
+  let qouteObj = quotes[Math.floor(Math.random()*quotes.length)];
+
   document.getElementById("quote_elem").innerHTML =
   `
   <p>" ${qouteObj.quote} "</p>
@@ -1213,6 +1216,72 @@ var show_a_quote = ()=>{
 }
 show_a_quote();
 
+var current_qoute_index = 0;
+function show_next_quote(){
+
+  clearInterval(quotesInterval);
+
+  document.getElementById("quote_elem").style.opacity = 0;
+
+  current_qoute_index++;
+  if(current_qoute_index > (quotes.length - 1)){
+      current_qoute_index = 0;
+  }
+      
+  let qouteObj = quotes[current_qoute_index];
+  
+  document.getElementById("quote_elem").innerHTML =
+  `
+  <p>" ${qouteObj.quote} "</p>
+  <p style='font-size: 18px; margin-top: 20px; color: rgba(232,142,12)'>- ${qouteObj.authur}</p>
+  `;
+  setTimeout(()=>{
+    document.getElementById("quote_elem").style.opacity = 1;
+  }, 600);
+  
+  /*setTimeout(()=> {
+
+    quotesInterval = setInterval(()=>{
+      show_a_quote();
+    }, 5000);
+
+  },15000);*/
+  
+}
+
+function show_previous_quote(){
+  
+  clearInterval(quotesInterval);
+
+  document.getElementById("quote_elem").style.opacity = 0;
+
+  
+  current_qoute_index--;
+
+  if(current_qoute_index < 0){
+    current_qoute_index = (quotes.length - 1);
+  }
+  
+  let qouteObj = quotes[current_qoute_index];
+
+  document.getElementById("quote_elem").innerHTML =
+  `
+  <p>" ${qouteObj.quote} "</p>
+  <p style='font-size: 18px; margin-top: 20px; color: rgba(232,142,12)'>- ${qouteObj.authur}</p>
+  `;
+  setTimeout(()=>{
+    document.getElementById("quote_elem").style.opacity = 1;
+  }, 600);
+  
+  /*setTimeout(()=> {
+
+    quotesInterval = setInterval(()=>{
+      show_a_quote();
+    }, 5000);
+
+  },15000);*/
+
+}
 
 //help and support scripts
 function toggle_show_help_and_support_div(){
