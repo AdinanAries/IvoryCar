@@ -1204,12 +1204,14 @@ var show_a_quote = ()=>{
 
   let qouteObj = quotes[Math.floor(Math.random()*quotes.length)];
 
-  document.getElementById("quote_elem").innerHTML =
-  `
-  <p>" ${qouteObj.quote} "</p>
-  <p style='font-size: 18px; margin-top: 20px; color: rgba(232,142,12)'>- ${qouteObj.authur}</p>
-  `;
   setTimeout(()=>{
+
+    document.getElementById("quote_elem").innerHTML =
+      `
+      <p>" ${qouteObj.quote} "</p>
+      <p style='font-size: 18px; margin-top: 20px; color: rgba(232,142,12)'>- ${qouteObj.authur}</p>
+      `;
+
     document.getElementById("quote_elem").style.opacity = 1;
   }, 600);
   
@@ -1229,13 +1231,15 @@ function show_next_quote(){
   }
       
   let qouteObj = quotes[current_qoute_index];
-  
-  document.getElementById("quote_elem").innerHTML =
-  `
-  <p>" ${qouteObj.quote} "</p>
-  <p style='font-size: 18px; margin-top: 20px; color: rgba(232,142,12)'>- ${qouteObj.authur}</p>
-  `;
+
   setTimeout(()=>{
+
+    document.getElementById("quote_elem").innerHTML =
+      `
+      <p>" ${qouteObj.quote} "</p>
+      <p style='font-size: 18px; margin-top: 20px; color: rgba(232,142,12)'>- ${qouteObj.authur}</p>
+      `;
+      
     document.getElementById("quote_elem").style.opacity = 1;
   }, 600);
   
@@ -1255,7 +1259,6 @@ function show_previous_quote(){
 
   document.getElementById("quote_elem").style.opacity = 0;
 
-  
   current_qoute_index--;
 
   if(current_qoute_index < 0){
@@ -1264,12 +1267,14 @@ function show_previous_quote(){
   
   let qouteObj = quotes[current_qoute_index];
 
-  document.getElementById("quote_elem").innerHTML =
-  `
-  <p>" ${qouteObj.quote} "</p>
-  <p style='font-size: 18px; margin-top: 20px; color: rgba(232,142,12)'>- ${qouteObj.authur}</p>
-  `;
   setTimeout(()=>{
+
+    document.getElementById("quote_elem").innerHTML =
+      `
+      <p>" ${qouteObj.quote} "</p>
+      <p style='font-size: 18px; margin-top: 20px; color: rgba(232,142,12)'>- ${qouteObj.authur}</p>
+      `;
+
     document.getElementById("quote_elem").style.opacity = 1;
   }, 600);
   
