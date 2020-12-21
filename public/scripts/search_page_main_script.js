@@ -121,8 +121,10 @@ var ui_datepicker = document.getElementsByClassName("ui-datepicker")[0];
 
 trip_type_param_round_trip_option_container.addEventListener("click", (evnt)=>{
 
-  hide_trip_top_params.style.display = "block";
-
+  if($(window).width() < 710){
+    hide_trip_top_params.style.display = "block";
+  }
+  
   $("#main_round_trip_type_options").slideDown("fast");
   $("#main_hotels_accommodations_parameters_options").slideDown("fast");
   $("#car_rentals_pickup_time_parameters_options").slideDown("fast");
