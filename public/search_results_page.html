@@ -72,11 +72,14 @@
             <div id="forms_documents_step_indicator" class="forms_each_step_indicator">
               <div id="forms_documents_step_indicator_number" class="forms_each_step_indicator_number">3</div>
               <p id="forms_documents_step_indicator_title" style="font-size: 12px; font-weight: bolder;">Documents</p>
+              <div class="forms_each_step_indicator_number" style="background-color: #16528C; left: initial; right: -15px !important; overflow: hidden !important;">
+                <p style="text-align: center;"><img src="./images/taskList.png" style="width: 35px; height: 35px;" alt=""></p>
+              </div>
             </div>
             
           </div>
 
-          <div id="order_ticket_form_container_personal_info" style="opacity: 1; padding: 20px; position: relative; padding-bottom: 70px;">
+          <div id="order_ticket_form_container_personal_info" style="opacity: 1; padding: 20px; position: relative; padding-bottom: 70px; margin-bottom: 20px;">
             
             <div style="display: flex; flex-direction: row !important; justify-content: space-between; max-width: 395px !important;">
               <div id="login_fld_container_5" style="width: calc(100% - 10px); margin-right: 10px;" class="login_fld_container">
@@ -131,7 +134,7 @@
           </div>
 
 
-          <div id="order_ticket_form_container_contacts_info" style="display: none; padding: 20px; position: relative; padding-bottom: 70px;">
+          <div id="order_ticket_form_container_contacts_info" style="display: none; padding: 20px; position: relative; padding-bottom: 70px; margin-bottom: 20px;">
             
             <div id="login_fld_container_6" class="login_fld_container">
               <p id="login_fld_title_6" class="login_fld_title">
@@ -168,7 +171,7 @@
             
           </div>
 
-          <div id="order_ticket_form_container_documents_info" style="display: none; padding: 20px; position: relative; padding-bottom: 70px;">
+          <div id="order_ticket_form_container_documents_info" style="display: none; padding: 20px; position: relative; padding-bottom: 70px; margin-bottom: 20px;">
             
             <div style="display: flex; flex-direction: row !important; justify-content: space-between; max-width: 395px !important;">
               
@@ -252,6 +255,10 @@
               <i aria-hidden="true" class="fa fa-chevron-left"></i>
             </div>
 
+            <div onclick="show_finish_booking_form_documents_fieldset();" class="finish_booking_forms_next_previous">
+              <i aria-hidden="true" class="fa fa-chevron-right"></i>
+            </div>
+
           </div>
           
         </div>
@@ -273,13 +280,13 @@
             
             <div id="login_fld_container_0" class="login_fld_container">
               <p id="login_fld_title_0" class="login_fld_title">
-                Enter Your Email</p>
+                Email</p>
               <input onblur="de_activate_login_fld(0);" onclick="activate_login_fld(0);" id="login_fld_0" class="login_fld" type="email" placeholder="your email here" />
             </div>
 
             <div style="margin-top: 15px;" id="login_fld_container_1" class="login_fld_container">
               <p id="login_fld_title_1" class="login_fld_title">
-                Enter Your Password</p>
+                Password</p>
               <input onblur="de_activate_login_fld(1);" onclick="activate_login_fld(1);" id="login_fld_1" class="login_fld" type="password" placeholder="your password here" />
             </div>
 
@@ -289,21 +296,29 @@
 
           <div id="sign_up_form_container" style="padding: 20px; display: none;">
 
-            <div id="login_fld_container_2" class="login_fld_container">
-              <p id="login_fld_title_2" class="login_fld_title">
-                Enter Your Full Name</p>
-              <input onblur="de_activate_login_fld(2);" onclick="activate_login_fld(2);" id="login_fld_2" class="login_fld" type="text" placeholder="your full name here" />
+            <div style="display: flex; flex-direction: row !important; justify-content: space-between; max-width: 395px !important;">
+              <div id="login_fld_container_20" style="width: calc(100% - 10px); margin-right: 10px;" class="login_fld_container">
+                <p id="login_fld_title_20" class="login_fld_title">
+                First Name</p>
+                <input onblur="de_activate_login_fld(20);" onclick="activate_login_fld(20);" id="login_fld_20" class="login_fld" type="text" placeholder="your full name here" />
+              </div>
+
+              <div style="width: calc(100% - 10px);" id="login_fld_container_2" class="login_fld_container">
+                <p id="login_fld_title_2" class="login_fld_title">
+                Last Name</p>
+                <input onblur="de_activate_login_fld(2);" onclick="activate_login_fld(2);" id="login_fld_2" class="login_fld" type="text" placeholder="your full name here" />
+              </div>
             </div>
 
             <div style="margin-top: 15px;" id="login_fld_container_3" class="login_fld_container">
               <p id="login_fld_title_3" class="login_fld_title">
-                Enter Your Email</p>
+                Email</p>
               <input onblur="de_activate_login_fld(3);" onclick="activate_login_fld(3);" id="login_fld_3" class="login_fld" type="email" placeholder="your email here" />
             </div>
 
             <div style="margin-top: 15px;" id="login_fld_container_4" class="login_fld_container">
               <p id="login_fld_title_4" class="login_fld_title">
-                Enter Your Password</p>
+                Password</p>
               <input onblur="de_activate_login_fld(4);" onclick="activate_login_fld(4);" id="login_fld_4" class="login_fld" type="password" placeholder="your password here" />
             </div>
 
