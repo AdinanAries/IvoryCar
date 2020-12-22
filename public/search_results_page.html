@@ -102,7 +102,7 @@
               <div style="width: 100%;" id="login_fld_container_10" class="login_fld_container">
                 <p id="login_fld_title_10" class="login_fld_title">
                 Gender</p>
-                <select onblur="de_activate_login_fld(10);" onclick="activate_login_fld(10);" id="login_fld_10" class="login_fld">
+                <select id="login_fld_10" class="login_fld">
                   <option>Male</option>
                   <option>Female</option>
                 </select>
@@ -133,7 +133,7 @@
 
           <div id="order_ticket_form_container_contacts_info" style="display: none; padding: 20px; position: relative; padding-bottom: 70px;">
             
-            <div style="margin-top: 15px;" id="login_fld_container_6" class="login_fld_container">
+            <div id="login_fld_container_6" class="login_fld_container">
               <p id="login_fld_title_6" class="login_fld_title">
               Email</p>
               <input onblur="de_activate_login_fld(6);" onclick="activate_login_fld(6);" id="login_fld_6" class="login_fld" type="email" placeholder="your email here" />
@@ -170,29 +170,82 @@
 
           <div id="order_ticket_form_container_documents_info" style="display: none; padding: 20px; position: relative; padding-bottom: 70px;">
             
-            <div style="margin-top: 15px;" id="login_fld_container_6" class="login_fld_container">
-              <p id="login_fld_title_6" class="login_fld_title">
-              Email</p>
-              <input onblur="de_activate_login_fld(6);" onclick="activate_login_fld(6);" id="login_fld_6" class="login_fld" type="email" placeholder="your email here" />
-            </div>
-
-            <div style="margin-top: 20px; display: flex; flex-direction: row !important; justify-content: space-between; max-width: 395px !important;">
+            <div style="display: flex; flex-direction: row !important; justify-content: space-between; max-width: 395px !important;">
               
-              <div style="width: 170px !important;" id="login_fld_container_11" class="login_fld_container">
-                <p id="login_fld_title_11" class="login_fld_title">
-                Country Code</p>
-                <select id="login_fld_11" class="login_fld">
-                  <option>+1</option>
-                  <option>+233</option>
+              <div style="width: 100%;" id="login_fld_container_10" class="login_fld_container">
+                <p id="login_fld_title_10" class="login_fld_title">
+                Type</p>
+                <select id="login_fld_10" class="login_fld">
+                  <option>Passport</option>
+                  <option>Other</option>
                 </select>
               </div>
 
-              <div id="login_fld_container_7" style="width: 100%;" class="login_fld_container">
-                <p id="login_fld_title_7" class="login_fld_title">
-                  Mobile Number</p>
-                <input onblur="de_activate_login_fld(7);" onclick="activate_login_fld(7);" id="login_fld_7" class="login_fld" type="password" placeholder="your password here" />
+              <div id="login_fld_container_12" style="width: calc(100% - 10px); margin-right: 10px;" class="login_fld_container">
+                <p id="login_fld_title_12" class="login_fld_title">
+                Number</p>
+                <input onblur="de_activate_login_fld(12);" onclick="activate_login_fld(12);" id="login_fld_12" class="login_fld" type="text" placeholder="" />
               </div>
 
+            </div>
+
+            <div style="margin-top: 20px; display: flex; flex-direction: row !important; justify-content: space-between; max-width: 395px !important;">
+              <div id="login_fld_container_13" style="width: calc(100% - 10px); margin-right: 10px;" class="login_fld_container">
+                <p id="login_fld_title_13" class="login_fld_title">
+                Issuance Date</p>
+                <input onblur="de_activate_login_fld(13);" onclick="activate_login_fld(13);" id="login_fld_13" class="login_fld" type="text" placeholder="" />
+              </div>
+
+              <div style="width: calc(100% - 10px);" id="login_fld_container_14" class="login_fld_container">
+                <p id="login_fld_title_14" class="login_fld_title">
+                Expiry Date</p>
+                <input onblur="de_activate_login_fld(14);" onclick="activate_login_fld(14);" id="login_fld_14" class="login_fld" type="text" placeholder="" />
+              </div>
+            </div>
+
+            <div style="margin-top: 20px; display: flex; flex-direction: row !important; justify-content: space-between; max-width: 395px !important;">
+              <div id="login_fld_container_15" style="width: calc(100% - 10px); margin-right: 10px;" class="login_fld_container">
+                <p id="login_fld_title_15" class="login_fld_title">
+                Issuance Country</p>
+                <input onblur="de_activate_login_fld(15);" onclick="activate_login_fld(15);" id="login_fld_15" class="login_fld" type="text" placeholder="" />
+              </div>
+
+              <div style="width: calc(100% - 10px);" id="login_fld_container_16" class="login_fld_container">
+                <p id="login_fld_title_16" class="login_fld_title">
+                Validity Country</p>
+                <input onblur="de_activate_login_fld(16);" onclick="activate_login_fld(16);" id="login_fld_16" class="login_fld" type="text" placeholder="" />
+              </div>
+            </div>
+
+            <div style="margin-top: 20px; display: flex; flex-direction: row !important; justify-content: space-between; max-width: 395px !important;">
+              <div id="login_fld_container_17" style="width: calc(100% - 10px); margin-right: 10px;" class="login_fld_container">
+                <p id="login_fld_title_17" class="login_fld_title">
+                Nationality</p>
+                <input onblur="de_activate_login_fld(17);" onclick="activate_login_fld(17);" id="login_fld_17" class="login_fld" type="text" placeholder="" />
+              </div>
+
+              <div style="width: calc(100% - 10px);" id="login_fld_container_18" class="login_fld_container">
+                <p id="login_fld_title_18" class="login_fld_title">
+                Birth City</p>
+                <input onblur="de_activate_login_fld(18);" onclick="activate_login_fld(18);" id="login_fld_18" class="login_fld" type="text" placeholder="" />
+              </div>
+            </div>
+
+            <div style="margin-top: 20px; display: flex; flex-direction: row !important; justify-content: space-between; max-width: 395px !important;">
+              <div id="login_fld_container_19" style="width: calc(100% - 10px); margin-right: 10px;" class="login_fld_container">
+                <p id="login_fld_title_19" class="login_fld_title">
+                Issuance Location</p>
+                <input onblur="de_activate_login_fld(19);" onclick="activate_login_fld(19);" id="login_fld_19" class="login_fld" type="text" placeholder="" />
+              </div>
+
+              <div style="width: 100%;" id="login_fld_container_10" class="login_fld_container">
+                <p id="login_fld_title_10" class="login_fld_title">
+                Are you the holder</p>
+                <select id="login_fld_10" class="login_fld">
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </div>
             </div>
 
             <div onclick="show_finish_booking_form_contacts_fieldset();" style="left: 20px;" class="finish_booking_forms_next_previous">
