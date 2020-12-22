@@ -170,16 +170,66 @@ function get_transfer_duration(timeA, timeB){
 
 //console.log(get_transfer_duration("2021-04-01T21:00:00", "2021-04-01T22:40:00"));
 
+var booking_forms_current_travelers_index = 0;
+var booking_travelers = [];
+
 function view_flight_deal(isAnidasoBookable, data_or_link){
 
     document.getElementById("full_page_loader_container").style.display = "block";
     document.getElementById("full_page_loader_container").style.opacity = 1;
 
     //console.log(JSON.parse(data_or_link.replaceAll('*#*$#%','"')));
+    let flightObj = JSON.parse(data_or_link.replaceAll('*#*$#%','"'));
+
+    //creating user objects for form data collection and aggregation
+    
+
+    for(let q = 0; q < flightObj.travelerPricings.length; q++ ){
+
+        let eachTraveler = {
+            "id": (q+1),
+            "dateOfBirth": "N/A",
+            "name": {
+              "firstName": "Traveler "+ (q+1),
+              "lastName": "N/A"
+            },
+            "gender": "N/A",
+            "contact": {
+              "emailAddress": "N/A",
+              "phones": [
+                {
+                  "deviceType": "N/A",
+                  "countryCallingCode": "N/A",
+                  "number": "N/A"
+                }
+              ]
+            },
+            "documents": [
+              {
+                "documentType": "N/A",
+                "birthPlace": "N/A",
+                "issuanceLocation": "N/A",
+                "issuanceDate": "N/A",
+                "number": "N/A",
+                "expiryDate": "N/A",
+                "issuanceCountry": "N/A",
+                "validityCountry": "N/A",
+                "nationality": "N/A",
+                "holder": false
+              }
+            ]
+          };
+
+          booking_travelers.push(eachTraveler);
+
+        //booking_forms_render_each__travelers(q, JSON.stringify(eachTraveler).replaceAll('"','#@$%@#'));
+        
+    }
+    
+    console.log(booking_travelers);
+
     if(isAnidasoBookable){
 
-        let flightObj = JSON.parse(data_or_link.replaceAll('*#*$#%','"'));
-        
         $.ajax({
             type: "POST",
             url: "/getfinalflightprice",
@@ -196,9 +246,65 @@ function view_flight_deal(isAnidasoBookable, data_or_link){
                 console.log(err);
             }
         });
+
     }else{
         let link = data_or_link;
         //handle this later;
     }
 
+}
+
+function booking_forms_set_current_traveler(number){
+    show_finish_booking_form_personal_info_fieldset();
+    booking_forms_current_travelers_index = number;
+    console.log(number);
+    
+}
+
+function booking_forms_render_each_traveler(index, traveler){
+
+    let decoded_info = traveler.replaceAll('#@$%@#','"');
+    let the_traveler = JSON.parse(decoded_info);
+    //console.log(the_traveler);
+
+    if(the_traveler.dateOfBirth === "N/A"){
+        document.getElementById("order_ticket_form_container_review_and_submit_travelers_list").innerHTML +=
+        `
+            <div onclick="booking_forms_set_current_traveler(${index});" class="submit_each_traveler_review_info">
+                <p><i style="margin-right: 5px;" class="fa fa-user" aria-hidden="true"></i>${the_traveler.name.firstName}</p>
+                <p><i style="margin-right: 5px;" class="fa fa-envelope" aria-hidden="true"></i>${the_traveler.contact.emailAddress}</p>
+                <p><i style="margin-right: 5px;" class="fa fa-id-card" aria-hidden="true"></i>${the_traveler.documents[0].number}</p>
+                
+                <div style="font-size: 14px; padding: 20px; background-color: #0000001a; color: white; margin: 0; margin-top: 10px; display: flex; flex-direction: row !important;">
+                <div style="background-color: #af2a12; border-radius: 100%; text-align: center; width: 30px; height: 30px; display: flex; flex-direction: column; justify-content: center; margin-right: 10px;">
+                    <i style="color: white;" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                </div>
+                <div style="display: flex; font-size: 14px; flex-direction: column; justify-content: center;">Click on this card to add information</div>
+                </div>
+            </div>
+        `;
+    }else{
+        document.getElementById("order_ticket_form_container_review_and_submit_travelers_list").innerHTML +=
+        `
+            <div onclick="booking_forms_set_current_traveler(${index});" class="submit_each_traveler_review_info">
+                <p><i style="margin-right: 5px;" class="fa fa-user" aria-hidden="true"></i>${the_traveler.name.firstName} ${the_traveler.name.lastName}</p>
+                <p><i style="margin-right: 5px;" class="fa fa-envelope" aria-hidden="true"></i>${the_traveler.contact.emailAddress}</p>
+                <p><i style="margin-right: 5px;" class="fa fa-id-card" aria-hidden="true"></i>${the_traveler.documents[0].number}</p>
+                
+                <div style="font-size: 14px; padding: 20px; background-color: #0000001a; color: white; margin: 0; margin-top: 10px; display: flex; flex-direction: row !important;">
+                <div style="background-color: #12af8d;; border-radius: 100%; text-align: center; width: 30px; height: 30px; display: flex; flex-direction: column; justify-content: center; margin-right: 10px;">
+                    <i style="color: white;" class="fa fa-check" aria-hidden="true"></i>
+                </div>
+                <div style="display: flex; font-size: 14px; flex-direction: column; justify-content: center;">OK</div>
+                </div>
+            </div>
+        `;
+    }
+
+}
+
+function booking_forms_render_all_travelers(){
+    for(let qw = 0; qw < booking_travelers.length; qw++){
+        booking_forms_render_each_traveler(qw, JSON.stringify(booking_travelers[qw]).replaceAll('"','#@$%@#'));
+    }
 }

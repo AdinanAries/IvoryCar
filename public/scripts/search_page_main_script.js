@@ -1422,4 +1422,6 @@ function show_finish_booking_form_reivew_and_submit(){
     order_ticket_form_container_review_and_submit.style.opacity = 1;
   }, 10);
 
+  booking_forms_render_all_travelers();
+
 }
