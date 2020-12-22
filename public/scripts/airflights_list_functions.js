@@ -279,7 +279,7 @@ function booking_forms_render_each_traveler(index, traveler){
                 <div style="background-color: #af2a12; border-radius: 100%; text-align: center; width: 30px; height: 30px; display: flex; flex-direction: column; justify-content: center; margin-right: 10px;">
                     <i style="color: white;" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                 </div>
-                <div style="display: flex; font-size: 14px; flex-direction: column; justify-content: center;">Click on this card to add information</div>
+                <div style="display: flex; font-size: 14px; flex-direction: column; justify-content: center;">Uncompleted form. Click on this card...</div>
                 </div>
             </div>
         `;
@@ -304,6 +304,9 @@ function booking_forms_render_each_traveler(index, traveler){
 }
 
 function booking_forms_render_all_travelers(){
+    
+    document.getElementById("order_ticket_form_container_review_and_submit_travelers_list").innerHTML = "";
+
     for(let qw = 0; qw < booking_travelers.length; qw++){
         booking_forms_render_each_traveler(qw, JSON.stringify(booking_travelers[qw]).replaceAll('"','#@$%@#'));
     }
