@@ -1297,6 +1297,9 @@ var forms_documents_step_indicator_title = document.getElementById("forms_docume
 var order_ticket_form_container_personal_info = document.getElementById("order_ticket_form_container_personal_info");
 var order_ticket_form_container_contacts_info = document.getElementById("order_ticket_form_container_contacts_info");
 var order_ticket_form_container_documents_info = document.getElementById("order_ticket_form_container_documents_info");
+var order_ticket_form_container_review_and_submit = document.getElementById("order_ticket_form_container_review_and_submit");
+
+var order_ticket_form_container_review_and_submit_indicator = document.getElementById("order_ticket_form_container_review_and_submit_indicator");
 
 
 function show_finish_booking_form_personal_info_fieldset(){
@@ -1313,8 +1316,10 @@ function show_finish_booking_form_personal_info_fieldset(){
   forms_documents_step_indicator_number.classList.remove("_active");
   forms_documents_step_indicator_title.classList.remove("__active");
 
+  order_ticket_form_container_review_and_submit_indicator.style.borderColor = "white";
+
   order_ticket_form_container_personal_info.style.display = "block";
-  
+
   setTimeout(()=>{
   order_ticket_form_container_personal_info.style.opacity = 1;
   },10);
@@ -1323,6 +1328,8 @@ function show_finish_booking_form_personal_info_fieldset(){
   order_ticket_form_container_contacts_info.style.opacity = 0;
   order_ticket_form_container_documents_info.style.display = "none";
   order_ticket_form_container_documents_info.style.opacity = 0;
+  order_ticket_form_container_review_and_submit.style.display = "none";
+  order_ticket_form_container_review_and_submit.style.opacity = 0;
 
 }
 
@@ -1340,6 +1347,8 @@ function show_finish_booking_form_contacts_fieldset(){
   forms_documents_step_indicator_number.classList.remove("_active");
   forms_documents_step_indicator_title.classList.remove("__active");
 
+  order_ticket_form_container_review_and_submit_indicator.style.borderColor = "white";
+
   order_ticket_form_container_personal_info.style.display = "none";
   order_ticket_form_container_personal_info.style.opacity = 0;
   order_ticket_form_container_contacts_info.style.display = "block";
@@ -1350,6 +1359,8 @@ function show_finish_booking_form_contacts_fieldset(){
   
   order_ticket_form_container_documents_info.style.display = "none";
   order_ticket_form_container_documents_info.style.opacity = 0;
+  order_ticket_form_container_review_and_submit.style.display = "none";
+  order_ticket_form_container_review_and_submit.style.opacity = 0;
 
 }
 
@@ -1367,14 +1378,48 @@ function show_finish_booking_form_documents_fieldset(){
   forms_documents_step_indicator_number.classList.add("_active");
   forms_documents_step_indicator_title.classList.add("__active");
 
+  order_ticket_form_container_review_and_submit_indicator.style.borderColor = "white";
+
   order_ticket_form_container_personal_info.style.display = "none";
   order_ticket_form_container_personal_info.style.opacity = 0;
   order_ticket_form_container_contacts_info.style.display = "none";
   order_ticket_form_container_contacts_info.style.opacity = 0;
   order_ticket_form_container_documents_info.style.display = "block";
+  order_ticket_form_container_review_and_submit.style.display = "none";
+  order_ticket_form_container_review_and_submit.style.opacity = 0;
 
   setTimeout(()=>{
     order_ticket_form_container_documents_info.style.opacity = 1;
+  }, 10);
+
+}
+
+function show_finish_booking_form_reivew_and_submit(){
+
+  forms_personal_info_step_indicator.classList.add("active");
+  forms_personal_info_step_indicator_number.classList.add("_active");
+  forms_personal_info_step_indicator_title.classList.add("__active");
+
+  forms_contacts_step_indicator.classList.add("active");
+  forms_contacts_step_indicator_number.classList.add("_active");
+  forms_contacts_step_indicator_title.classList.add("__active");
+
+  forms_documents_step_indicator.classList.add("active");
+  forms_documents_step_indicator_number.classList.add("_active");
+  forms_documents_step_indicator_title.classList.add("__active");
+
+  order_ticket_form_container_review_and_submit_indicator.style.borderColor = "rgb(231, 124, 2)";
+
+  order_ticket_form_container_personal_info.style.display = "none";
+  order_ticket_form_container_personal_info.style.opacity = 0;
+  order_ticket_form_container_contacts_info.style.display = "none";
+  order_ticket_form_container_contacts_info.style.opacity = 0;
+  order_ticket_form_container_documents_info.style.display = "none";
+  order_ticket_form_container_documents_info.style.opacity = 0;
+  order_ticket_form_container_review_and_submit.style.display = "block";
+  
+  setTimeout(()=>{
+    order_ticket_form_container_review_and_submit.style.opacity = 1;
   }, 10);
 
 }

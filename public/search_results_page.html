@@ -44,7 +44,7 @@
       </div>
     </div>
 
-    <div id="order_ticket_form_container">
+    <div style="display: block;" id="order_ticket_form_container">
       <div style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
         <div id="order_ticket_form_content_container">
           
@@ -72,11 +72,45 @@
             <div id="forms_documents_step_indicator" class="forms_each_step_indicator">
               <div id="forms_documents_step_indicator_number" class="forms_each_step_indicator_number">3</div>
               <p id="forms_documents_step_indicator_title" style="font-size: 12px; font-weight: bolder;">Documents</p>
-              <div class="forms_each_step_indicator_number" style="background-color: #16528C; left: initial; right: -15px !important; overflow: hidden !important;">
-                <p style="text-align: center;"><img src="./images/taskList.png" style="width: 35px; height: 35px;" alt=""></p>
+              <div id="order_ticket_form_container_review_and_submit_indicator" class="forms_each_step_indicator_number">
+                <p style="margin-left: 0 !important; text-align: center;"><img src="./images/taskList.png" style="width: 35px; height: 35px;" alt=""></p>
               </div>
             </div>
             
+          </div>
+
+          <div style="display: none;" id="order_ticket_form_container_review_and_submit">
+            <p style="margin: 0 20px; margin-top: 25px;">Review Travelers and Submit</p>
+
+            <div style="padding: 10px;">
+
+              <div class="submit_each_traveler_review_info">
+                  <p><i style="margin-right: 5px;" class="fa fa-user" aria-hidden="true"></i>Mohammed Adinan</p>
+                  <p><i style="margin-right: 5px;" class="fa fa-envelope" aria-hidden="true"></i>adinanaries@outlook.com</p>
+                  <p><i style="margin-right: 5px;" class="fa fa-id-card" aria-hidden="true"></i>3429394932</p>
+                  
+                  <div style="font-size: 14px; padding: 20px; background-color: #0000001a; color: white; margin: 0; margin-top: 10px; display: flex; flex-direction: row !important;">
+                    <div style="background-color: #12af8d;; border-radius: 100%; text-align: center; width: 30px; height: 30px; display: flex; flex-direction: column; justify-content: center; margin-right: 10px;">
+                      <i style="color: white;" class="fa fa-check" aria-hidden="true"></i>
+                    </div>
+                    <div style="display: flex; font-size: 14px; flex-direction: column; justify-content: center;">OK</div>
+                  </div>
+              </div>
+
+              <div class="submit_each_traveler_review_info">
+                <p><i style="margin-right: 5px;" class="fa fa-user" aria-hidden="true"></i>Traveler 2</p>
+                <p><i style="margin-right: 5px;" class="fa fa-envelope" aria-hidden="true"></i>N/A</p>
+                <p><i style="margin-right: 5px;" class="fa fa-id-card" aria-hidden="true"></i>N/A</p>
+                
+                <div style="font-size: 14px; padding: 20px; background-color: #0000001a; color: white; margin: 0; margin-top: 10px; display: flex; flex-direction: row !important;">
+                  <div style="background-color: #af2a12; border-radius: 100%; text-align: center; width: 30px; height: 30px; display: flex; flex-direction: column; justify-content: center; margin-right: 10px;">
+                    <i style="color: white;" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                  </div>
+                  <div style="display: flex; font-size: 14px; flex-direction: column; justify-content: center;">Click on this card to add information</div>
+                </div>
+            </div>
+
+            </div>
           </div>
 
           <div id="order_ticket_form_container_personal_info" style="opacity: 1; padding: 20px; position: relative; padding-bottom: 70px; margin-bottom: 20px;">
@@ -255,7 +289,7 @@
               <i aria-hidden="true" class="fa fa-chevron-left"></i>
             </div>
 
-            <div onclick="show_finish_booking_form_documents_fieldset();" class="finish_booking_forms_next_previous">
+            <div onclick="show_finish_booking_form_reivew_and_submit();" class="finish_booking_forms_next_previous">
               <i aria-hidden="true" class="fa fa-chevron-right"></i>
             </div>
 

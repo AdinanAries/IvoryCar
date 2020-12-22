@@ -5,9 +5,25 @@
   font-size: 16px;
 }
 /*-------------------------------*/
+.submit_each_traveler_review_info {
+  overflow: hidden;
+  width: 100%;
+  padding-top: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
+  background-color: #37a0f5;
+  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
+    0px 0px 2.9px rgba(0, 0, 0, 0.23);
+}
+.submit_each_traveler_review_info p {
+  font-size: 14px;
+  color: white;
+  margin: 5px 10px;
+}
 #order_ticket_form_container_contacts_info,
 #order_ticket_form_container_personal_info,
-#order_ticket_form_container_documents_info {
+#order_ticket_form_container_documents_info,
+#order_ticket_form_container_review_and_submit {
   transition: all 0.3s ease-out;
   transition-delay: 0.2s;
   opacity: 0;
@@ -43,17 +59,19 @@
   cursor: pointer;
   display: flex;
   border-bottom: 4px solid #00284e;
-  padding: 20px;
-  width: 80px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  width: 100px;
   position: relative;
 }
 .forms_each_step_indicator p {
   transition: all 0.3s ease-out;
   transition-delay: 0.2s;
   color: #00284e;
+  margin-left: -15px;
 }
 .forms_each_step_indicator ._active {
-  background-color: rgb(231, 124, 2);
+  border: 3px solid rgb(231, 124, 2);
 }
 .forms_each_step_indicator_number {
   height: 30px;
@@ -71,6 +89,13 @@
   color: white;
   transition: all 0.3s ease-out;
   transition-delay: 0.2s;
+}
+#order_ticket_form_container_review_and_submit_indicator {
+  border: white 3px solid;
+  background-color: #16528c;
+  left: initial;
+  right: -15px !important;
+  overflow: hidden !important;
 }
 .finish_booking_forms_next_previous {
   position: absolute;
