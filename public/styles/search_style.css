@@ -5,6 +5,13 @@
   font-size: 16px;
 }
 /*-------------------------------*/
+#order_ticket_form_container_contacts_info,
+#order_ticket_form_container_personal_info,
+#order_ticket_form_container_documents_info {
+  transition: all 0.3s ease-out;
+  transition-delay: 0.2s;
+  opacity: 0;
+}
 #order_ticket_form_content_container {
   position: relative;
   background-color: white;
@@ -22,12 +29,18 @@
   margin-bottom: 20px;
 }
 #forms_multi_step_indicator .active {
+  transition: all 0.3s ease-out;
+  transition-delay: 0.2s;
   border-bottom: 4px solid rgb(231, 124, 2);
 }
 #forms_multi_step_indicator .__active {
+  transition: all 0.3s ease-out;
+  transition-delay: 0.2s;
   color: rgb(196, 104, 0);
 }
 .forms_each_step_indicator {
+  transition: all 0.3s ease-out;
+  transition-delay: 0.2s;
   cursor: pointer;
   display: flex;
   border-bottom: 4px solid #00284e;
@@ -36,6 +49,8 @@
   position: relative;
 }
 .forms_each_step_indicator p {
+  transition: all 0.3s ease-out;
+  transition-delay: 0.2s;
   color: #00284e;
 }
 .forms_each_step_indicator ._active {
@@ -55,6 +70,8 @@
   border-radius: 100%;
   font-weight: bolder;
   color: white;
+  transition: all 0.3s ease-out;
+  transition-delay: 0.2s;
 }
 .finish_booking_forms_next_previous {
   position: absolute;
