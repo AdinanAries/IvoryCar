@@ -193,7 +193,7 @@
 }
 .sign_in_elems {
   position: relative;
-  max-width: 415px;
+  min-width: 400px;
   background-color: rgb(255, 255, 255);
   border-radius: 5px;
   height: 100%;
