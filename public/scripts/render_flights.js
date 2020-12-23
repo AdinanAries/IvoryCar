@@ -278,7 +278,7 @@ function render_flights(){
                         </p>
                         <p>
                             <span style="font-size: 14px; padding-right: 15px; color: white; border-radius: 50px; background-color:rgb(235, 86, 0); text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
-                            0px 0px 2.9px rgba(0, 0, 0, 0.23); font-weight: bolder;">
+                            0px 0px 2.9px rgba(0, 0, 0, 0.23);">
                                 &#9733; &#9733; &#9733; &#9733; &#9734;
                             </span>
                         </p>

@@ -171,7 +171,7 @@ function get_transfer_duration(timeA, timeB){
 //console.log(get_transfer_duration("2021-04-01T21:00:00", "2021-04-01T22:40:00"));
 
 var booking_forms_current_travelers_index = 0;
-var booking_travelers = [];
+var booking_travelers;
 
 function view_flight_deal(isAnidasoBookable, data_or_link){
 
@@ -186,19 +186,23 @@ function view_flight_deal(isAnidasoBookable, data_or_link){
 
     for(let q = 0; q < flightObj.travelerPricings.length; q++ ){
 
+        booking_travelers = [];
+        reset_booking_forms_inputs();
+        show_finish_booking_form_personal_info_fieldset();
+
         let eachTraveler = {
             "id": (q+1),
-            "dateOfBirth": "N/A",
+            "dateOfBirth": document.getElementById("login_fld_9").value,
             "name": {
-              "firstName": "Traveler "+ (q+1),
-              "lastName": "N/A"
+              "firstName": "Traveler",
+              "lastName": (q+1)
             },
-            "gender": "N/A",
+            "gender": "MALE",
             "contact": {
               "emailAddress": "N/A",
               "phones": [
                 {
-                  "deviceType": "N/A",
+                  "deviceType": "Mobile",
                   "countryCallingCode": "N/A",
                   "number": "N/A"
                 }
@@ -206,12 +210,12 @@ function view_flight_deal(isAnidasoBookable, data_or_link){
             },
             "documents": [
               {
-                "documentType": "N/A",
+                "documentType": "Passport",
                 "birthPlace": "N/A",
                 "issuanceLocation": "N/A",
-                "issuanceDate": "N/A",
+                "issuanceDate": document.getElementById("login_fld_13").value,
                 "number": "N/A",
-                "expiryDate": "N/A",
+                "expiryDate": document.getElementById("login_fld_14").value,
                 "issuanceCountry": "N/A",
                 "validityCountry": "N/A",
                 "nationality": "N/A",
@@ -267,11 +271,11 @@ function booking_forms_render_each_traveler(index, traveler){
     let the_traveler = JSON.parse(decoded_info);
     //console.log(the_traveler);
 
-    if(the_traveler.dateOfBirth === "N/A"){
+    if(the_traveler.contact.emailAddress === "N/A"){
         document.getElementById("order_ticket_form_container_review_and_submit_travelers_list").innerHTML +=
         `
             <div onclick="booking_forms_set_current_traveler(${index});" class="submit_each_traveler_review_info">
-                <p><i style="margin-right: 5px;" class="fa fa-user" aria-hidden="true"></i>${the_traveler.name.firstName}</p>
+                <p><i style="margin-right: 5px;" class="fa fa-user" aria-hidden="true"></i>${the_traveler.name.firstName} ${the_traveler.name.lastName}</p>
                 <p><i style="margin-right: 5px;" class="fa fa-envelope" aria-hidden="true"></i>${the_traveler.contact.emailAddress}</p>
                 <p><i style="margin-right: 5px;" class="fa fa-id-card" aria-hidden="true"></i>${the_traveler.documents[0].number}</p>
                 
@@ -304,10 +308,136 @@ function booking_forms_render_each_traveler(index, traveler){
 }
 
 function booking_forms_render_all_travelers(){
-    
+
+    console.log(booking_travelers);
+
     document.getElementById("order_ticket_form_container_review_and_submit_travelers_list").innerHTML = "";
 
     for(let qw = 0; qw < booking_travelers.length; qw++){
         booking_forms_render_each_traveler(qw, JSON.stringify(booking_travelers[qw]).replaceAll('"','#@$%@#'));
     }
+}
+
+$(function() {
+    $("#login_fld_9").daterangepicker({
+      singleDatePicker: true,
+      showDropdowns: true
+    }, function(start, end, label) {
+        
+        booking_travelers[booking_forms_current_travelers_index].dateOfBirth = start.format('YYYY-MM-DD');
+
+      /*var years = moment().diff(start, 'years');
+      alert("You are " + years + " years old!");*/
+    });
+  });
+
+  $(function() {
+    $("#login_fld_13").daterangepicker({
+      singleDatePicker: true,
+      showDropdowns: true
+    }, function(start, end, label) {
+        
+        booking_travelers[booking_forms_current_travelers_index].documents.issuanceDate = start.format('YYYY-MM-DD');
+
+        //start.format('YYYY-MM-DD');
+
+      /*var years = moment().diff(start, 'years');
+      alert("You are " + years + " years old!");*/
+    });
+  });
+
+  $(function() {
+    $("#login_fld_14").daterangepicker({
+      singleDatePicker: true,
+      showDropdowns: true
+    }, function(start, end, label) {
+        
+        booking_travelers[booking_forms_current_travelers_index].documents.expiryDate = start.format('YYYY-MM-DD');
+
+        //start.format('YYYY-MM-DD');
+
+      /*var years = moment().diff(start, 'years');
+      alert("You are " + years + " years old!");*/
+    });
+  });
+
+//booking forms inputs onchange events
+
+document.getElementById("login_fld_5").addEventListener('input', (evnt) => {
+    booking_travelers[booking_forms_current_travelers_index].name.firstName = evnt.target.value;
+});
+
+document.getElementById("login_fld_8").addEventListener('input', (evnt) => {
+    booking_travelers[booking_forms_current_travelers_index].name.lastName = evnt.target.value;
+});
+
+document.getElementById("login_fld_10").addEventListener('change', (evnt) => {
+    booking_travelers[booking_forms_current_travelers_index].gender = evnt.target.value;
+});
+
+document.getElementById("login_fld_6").addEventListener('input', (evnt) => {
+    booking_travelers[booking_forms_current_travelers_index].contact.emailAddress = evnt.target.value;
+});
+
+document.getElementById("login_fld_11").addEventListener('change', (evnt) => {
+    booking_travelers[booking_forms_current_travelers_index].contact.phones[0].countryCallingCode = evnt.target.value;
+});
+
+document.getElementById("login_fld_7").addEventListener('input', (evnt) => {
+    booking_travelers[booking_forms_current_travelers_index].contact.phones[0].number = evnt.target.value;
+});
+
+document.getElementById("login_fld_110").addEventListener('change', (evnt) => {
+    booking_travelers[booking_forms_current_travelers_index].documents[0].documentType = evnt.target.value;
+});
+
+document.getElementById("login_fld_12").addEventListener('input', (evnt) => {
+    booking_travelers[booking_forms_current_travelers_index].documents[0].number = evnt.target.value;
+});
+
+document.getElementById("login_fld_15").addEventListener('input', (evnt) => {
+    booking_travelers[booking_forms_current_travelers_index].documents[0].issuanceCountry = evnt.target.value;
+});
+
+document.getElementById("login_fld_16").addEventListener('input', (evnt) => {
+    booking_travelers[booking_forms_current_travelers_index].documents[0].validityCountry = evnt.target.value;
+});
+
+document.getElementById("login_fld_17").addEventListener('input', (evnt) => {
+    booking_travelers[booking_forms_current_travelers_index].documents[0].nationality = evnt.target.value;
+});
+
+document.getElementById("login_fld_18").addEventListener('input', (evnt) => {
+    booking_travelers[booking_forms_current_travelers_index].documents[0].birthPlace = evnt.target.value;
+});
+
+document.getElementById("login_fld_19").addEventListener('input', (evnt) => {
+    booking_travelers[booking_forms_current_travelers_index].documents[0].issuanceLocation = evnt.target.value;
+});
+
+document.getElementById("login_fld_111").addEventListener('change', (evnt) => {
+    if(evnt.target.value === 'true'){
+        booking_travelers[booking_forms_current_travelers_index].documents[0].holder = true;
+    }else{
+        booking_travelers[booking_forms_current_travelers_index].documents[0].holder = false;
+    }
+});
+
+
+
+
+
+function reset_booking_forms_inputs(){
+    document.getElementById("login_fld_5").value = "";
+    document.getElementById("login_fld_8").value = "";
+    document.getElementById("login_fld_10").value = "";
+    document.getElementById("login_fld_6").value = "";
+    document.getElementById("login_fld_11").value = "";
+    document.getElementById("login_fld_7").value = "";
+    document.getElementById("login_fld_12").value = "";
+    document.getElementById("login_fld_15").value = "";
+    document.getElementById("login_fld_16").value = "";
+    document.getElementById("login_fld_17").value = "";
+    document.getElementById("login_fld_18").value = "";
+    document.getElementById("login_fld_19").value = "";
 }

@@ -807,6 +807,7 @@ autocomplete5.addListener('place_changed', function () {
                                               + car_rentals_to_where_search_input_fld.value + "</span>";
 });
 
+
 //$("#from_when_search_input").datepicker({minDate: 0});
 //$("#to_when_search_input").datepicker({minDate: 0});
 //$("#hotels_from_when_search_input").datepicker({minDate: 0});
@@ -1239,7 +1240,7 @@ function show_next_quote(){
       <p>" ${qouteObj.quote} "</p>
       <p style='font-size: 18px; margin-top: 20px; color: rgba(232,142,12)'>- ${qouteObj.authur}</p>
       `;
-      
+
     document.getElementById("quote_elem").style.opacity = 1;
   }, 600);
   
