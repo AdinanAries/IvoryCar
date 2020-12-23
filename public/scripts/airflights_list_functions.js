@@ -187,6 +187,10 @@ function view_flight_deal(isAnidasoBookable, data_or_link){
     reset_booking_forms_inputs();
     show_finish_booking_form_personal_info_fieldset();
 
+    submit_booking_travelers_info_containter.style.display = "none";
+    submit_booking_travelers_info_containter.style.opacity = 0;
+    submit_booking_travelers_info_containter.innerHTML = '';
+
     for(let q = 0; q < flightObj.travelerPricings.length; q++ ){
 
         let eachTraveler = {
@@ -261,6 +265,7 @@ function booking_forms_set_current_traveler(number){
 
     submit_booking_travelers_info_containter.style.display = "none";
     submit_booking_travelers_info_containter.style.opacity = 0;
+    submit_booking_travelers_info_containter.innerHTML = '';
 
     show_finish_booking_form_personal_info_fieldset();
     booking_forms_current_travelers_index = number;
@@ -508,7 +513,7 @@ function book_ticket(){
     }
 
     if(!foundACard){
-        
+
         submit_booking_travelers_info_containter.style.display = "block";
         submit_booking_travelers_info_containter.innerHTML = `
             <p style="text-align: center; font-size: 13px; color:rgb(6, 62, 83); font-weight: bolder; letter-spacing: 0.5px;">
@@ -523,6 +528,7 @@ function book_ticket(){
     }
 
     if(isClear){
+        submit_booking_travelers_info_containter.innerHTML = '';
         console.log("booking your flight");
     }else{
         
