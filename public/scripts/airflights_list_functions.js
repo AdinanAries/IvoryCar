@@ -169,6 +169,8 @@ function get_transfer_duration(timeA, timeB){
 }
 
 //console.log(get_transfer_duration("2021-04-01T21:00:00", "2021-04-01T22:40:00"));
+var submit_booking_travelers_info_status_containter = document.getElementById("submit_booking_travelers_info_status_containter");
+var submit_flight_ticket_booking_loader = document.getElementById("submit_flight_ticket_booking_loader");
 
 var booking_forms_current_travelers_index = 0;
 var booking_travelers;
@@ -187,9 +189,12 @@ function view_flight_deal(isAnidasoBookable, data_or_link){
     reset_booking_forms_inputs();
     show_finish_booking_form_personal_info_fieldset();
 
-    submit_booking_travelers_info_containter.style.display = "none";
-    submit_booking_travelers_info_containter.style.opacity = 0;
-    submit_booking_travelers_info_containter.innerHTML = '';
+    submit_booking_travelers_info_status_containter.style.display = "none";
+    submit_booking_travelers_info_status_containter.style.opacity = 0;
+    submit_booking_travelers_info_status_containter.innerHTML = '';
+
+    submit_flight_ticket_booking_loader.style.display = "none";
+    submit_flight_ticket_booking_loader.style.opacity = 0;
 
     for(let q = 0; q < flightObj.travelerPricings.length; q++ ){
 
@@ -263,9 +268,12 @@ function view_flight_deal(isAnidasoBookable, data_or_link){
 
 function booking_forms_set_current_traveler(number){
 
-    submit_booking_travelers_info_containter.style.display = "none";
-    submit_booking_travelers_info_containter.style.opacity = 0;
-    submit_booking_travelers_info_containter.innerHTML = '';
+    submit_booking_travelers_info_status_containter.style.display = "none";
+    submit_booking_travelers_info_status_containter.style.opacity = 0;
+    submit_booking_travelers_info_status_containter.innerHTML = '';
+
+    submit_flight_ticket_booking_loader.style.display = "none";
+    submit_flight_ticket_booking_loader.style.opacity = 0;
 
     show_finish_booking_form_personal_info_fieldset();
     booking_forms_current_travelers_index = number;
@@ -514,33 +522,46 @@ function book_ticket(){
 
     if(!foundACard){
 
-        submit_booking_travelers_info_containter.style.display = "block";
-        submit_booking_travelers_info_containter.innerHTML = `
+        submit_flight_ticket_booking_loader.style.display = "none";
+        submit_flight_ticket_booking_loader.style.opacity = 0;
+
+        submit_booking_travelers_info_status_containter.style.display = "block";
+        submit_booking_travelers_info_status_containter.innerHTML = `
             <p style="text-align: center; font-size: 13px; color:rgb(6, 62, 83); font-weight: bolder; letter-spacing: 0.5px;">
                 <i class="fa fa-exclamation-triangle" style="margin-right: 5px; color: red;"></i> You must have atleast one traveler to book a flight.
             </p>
         `;
         setTimeout(()=>{
-            submit_booking_travelers_info_containter.style.opacity = 1;
+            submit_booking_travelers_info_status_containter.style.opacity = 1;
         }, 100);
 
         return null;
     }
 
     if(isClear){
-        submit_booking_travelers_info_containter.innerHTML = '';
+
+        submit_flight_ticket_booking_loader.style.display = "flex";
+
+        setTimeout(()=>{
+            submit_flight_ticket_booking_loader.style.opacity = 1;
+        },100)
+        
+        submit_booking_travelers_info_status_containter.innerHTML = '';
         console.log("booking your flight");
     }else{
         
-        submit_booking_travelers_info_containter.style.display = "block";
-        submit_booking_travelers_info_containter.innerHTML = `
+        submit_booking_travelers_info_status_containter.style.display = "block";
+        submit_booking_travelers_info_status_containter.innerHTML = `
             <p style="text-align: center; font-size: 13px; color:rgb(6, 62, 83); font-weight: bolder; letter-spacing: 0.5px;">
                 <i class="fa fa-exclamation-triangle" style="margin-right: 5px; color: red;"></i> Uncompleted form(s) detected. Please check and fill out all forms.
             </p>
         `;
         setTimeout(()=>{
-            submit_booking_travelers_info_containter.style.opacity = 1;
+            submit_booking_travelers_info_status_containter.style.opacity = 1;
         }, 100);
+
+        submit_flight_ticket_booking_loader.style.display = "none";
+        submit_flight_ticket_booking_loader.style.opacity = 0;
         
     }
 }
