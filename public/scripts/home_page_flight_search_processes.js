@@ -621,16 +621,30 @@ function remove_person_from_flight_search(person_type){
 
 
 //Going to search page
-let search_for_flights = () =>{
+let search_trigger_func = () =>{
     window.location.href = "./search_results_page.html";
 }
 
 home_page_search_button.addEventListener("click", () =>{
-    search_for_flights();
+
+    if(from_where_search_input_fld.value === ""){
+
+        from_where_search_input_fld.placeholder = "please enter city/airport";
+        from_where_search_input_fld.focus();
+
+    }else if(to_where_search_input_fld.value === ""){
+
+        to_where_search_input_fld.placeholder = "please enter city/airport";
+        to_where_search_input_fld.focus();
+
+    }else{
+        search_trigger_func();
+    }
+    
 });
 
 home_page_hotels_search_button.addEventListener("click", () =>{
-    search_for_flights();
+    search_trigger_func();
 });
 
 

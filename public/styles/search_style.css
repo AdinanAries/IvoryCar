@@ -5,6 +5,11 @@
   font-size: 16px;
 }
 /*-------------------------------*/
+#submit_booking_travelers_info_containter {
+  transition: all 0.3s ease-out;
+  opacity: 0;
+  display: none;
+}
 .submit_each_traveler_review_info {
   overflow: hidden;
   width: 100%;

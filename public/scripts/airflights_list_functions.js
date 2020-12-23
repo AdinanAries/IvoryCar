@@ -258,6 +258,10 @@ function view_flight_deal(isAnidasoBookable, data_or_link){
 }
 
 function booking_forms_set_current_traveler(number){
+
+    submit_booking_travelers_info_containter.style.display = "none";
+    submit_booking_travelers_info_containter.style.opacity = 0;
+
     show_finish_booking_form_personal_info_fieldset();
     booking_forms_current_travelers_index = number;
     
@@ -310,7 +314,7 @@ function booking_forms_render_each_traveler(index, traveler){
 
         document.getElementById("order_ticket_form_container_review_and_submit_travelers_list").innerHTML +=
         `
-            <div onclick="booking_forms_set_current_traveler(${index});" class="submit_each_traveler_review_info">
+            <div data-completed="false" onclick="booking_forms_set_current_traveler(${index});" class="submit_each_traveler_review_info uncompleted_info">
                 <p><i style="margin-right: 5px;" class="fa fa-user" aria-hidden="true"></i>${the_traveler.name.firstName} ${the_traveler.name.lastName}</p>
                 <p><i style="margin-right: 5px;" class="fa fa-envelope" aria-hidden="true"></i>${the_traveler.contact.emailAddress}</p>
                 <p><i style="margin-right: 5px;" class="fa fa-id-card" aria-hidden="true"></i>${the_traveler.documents[0].number}</p>
@@ -326,7 +330,7 @@ function booking_forms_render_each_traveler(index, traveler){
     }else{
         document.getElementById("order_ticket_form_container_review_and_submit_travelers_list").innerHTML +=
         `
-            <div onclick="booking_forms_set_current_traveler(${index});" class="submit_each_traveler_review_info">
+            <div data-completed="true" onclick="booking_forms_set_current_traveler(${index});" class="submit_each_traveler_review_info">
                 <p><i style="margin-right: 5px;" class="fa fa-user" aria-hidden="true"></i>${the_traveler.name.firstName} ${the_traveler.name.lastName}</p>
                 <p><i style="margin-right: 5px;" class="fa fa-envelope" aria-hidden="true"></i>${the_traveler.contact.emailAddress}</p>
                 <p><i style="margin-right: 5px;" class="fa fa-id-card" aria-hidden="true"></i>${the_traveler.documents[0].number}</p>
@@ -476,4 +480,61 @@ function reset_booking_forms_inputs(){
     document.getElementById("login_fld_17").value = "";
     document.getElementById("login_fld_18").value = "";
     document.getElementById("login_fld_19").value = "";
+}
+
+
+//function to finish the booking process
+function book_ticket(){
+    
+    let isClear = true;
+    let foundACard = false;
+    let user_cards = document.getElementById("order_ticket_form_container_review_and_submit_travelers_list").childNodes;
+    
+
+    for(let usc = 0; usc < user_cards.length; usc++){
+
+        if(user_cards[usc].className){
+            if(user_cards[usc].className.includes("uncompleted_info")){
+                isClear = false;
+            }
+        }
+
+        if(user_cards[usc].className){
+            if(user_cards[usc].className.includes("submit_each_traveler_review_info")){
+                foundACard = true;
+            }
+        }
+
+    }
+
+    if(!foundACard){
+        
+        submit_booking_travelers_info_containter.style.display = "block";
+        submit_booking_travelers_info_containter.innerHTML = `
+            <p style="text-align: center; font-size: 13px; color:rgb(6, 62, 83); font-weight: bolder; letter-spacing: 0.5px;">
+                <i class="fa fa-exclamation-triangle" style="margin-right: 5px; color: red;"></i> You must have atleast one traveler to book a flight.
+            </p>
+        `;
+        setTimeout(()=>{
+            submit_booking_travelers_info_containter.style.opacity = 1;
+        }, 100);
+
+        return null;
+    }
+
+    if(isClear){
+        console.log("booking your flight");
+    }else{
+        
+        submit_booking_travelers_info_containter.style.display = "block";
+        submit_booking_travelers_info_containter.innerHTML = `
+            <p style="text-align: center; font-size: 13px; color:rgb(6, 62, 83); font-weight: bolder; letter-spacing: 0.5px;">
+                <i class="fa fa-exclamation-triangle" style="margin-right: 5px; color: red;"></i> Uncompleted form(s) detected. Please check and fill out all forms.
+            </p>
+        `;
+        setTimeout(()=>{
+            submit_booking_travelers_info_containter.style.opacity = 1;
+        }, 100);
+        
+    }
 }
