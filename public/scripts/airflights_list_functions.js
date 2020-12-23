@@ -182,13 +182,12 @@ function view_flight_deal(isAnidasoBookable, data_or_link){
     let flightObj = JSON.parse(data_or_link.replaceAll('*#*$#%','"'));
 
     //creating user objects for form data collection and aggregation
-    
+
+    booking_travelers = [];
+    reset_booking_forms_inputs();
+    show_finish_booking_form_personal_info_fieldset();
 
     for(let q = 0; q < flightObj.travelerPricings.length; q++ ){
-
-        booking_travelers = [];
-        reset_booking_forms_inputs();
-        show_finish_booking_form_personal_info_fieldset();
 
         let eachTraveler = {
             "id": (q+1),
@@ -219,7 +218,7 @@ function view_flight_deal(isAnidasoBookable, data_or_link){
                 "issuanceCountry": "N/A",
                 "validityCountry": "N/A",
                 "nationality": "N/A",
-                "holder": false
+                "holder": true
               }
             ]
           };
@@ -261,7 +260,39 @@ function view_flight_deal(isAnidasoBookable, data_or_link){
 function booking_forms_set_current_traveler(number){
     show_finish_booking_form_personal_info_fieldset();
     booking_forms_current_travelers_index = number;
-    console.log(number);
+    
+    if(booking_travelers[number].contact.emailAddress === "N/A" && booking_travelers[number].name.firstName === "Traveler" 
+        && booking_travelers[number].contact.phones[0].number === "N/A" && booking_travelers[number].contact.phones[0].countryCallingCode === "N/A"
+        && booking_travelers[number].documents[0].issuanceCountry === "N/A" && booking_travelers[number].documents[0].birthPlace === "N/A"
+        && booking_travelers[number].documents[0].issuanceLocation === "N/A" && booking_travelers[number].documents[0].validityCountry === "N/A"
+        && booking_travelers[number].documents[0].nationality === "N/A" && booking_travelers[number].documents[0].number === "N/A"){
+            reset_booking_forms_inputs();
+        }else{
+
+            document.getElementById("login_fld_5").value = booking_travelers[number].name.firstName === "Traveler" ? "" : booking_travelers[number].name.firstName;
+            document.getElementById("login_fld_8").value = booking_travelers[number].name.lastName;
+            document.getElementById("login_fld_10").value = booking_travelers[number].gender === "N/A" ? "" : booking_travelers[number].gender;
+            document.getElementById("login_fld_6").value = booking_travelers[number].contact.emailAddress === "N/A" ? "" : booking_travelers[number].contact.emailAddress;
+            document.getElementById("login_fld_11").value = booking_travelers[number].contact.phones[0].countryCallingCode === "N/A" ? "" : booking_travelers[number].contact.phones[0].countryCallingCode;
+            document.getElementById("login_fld_7").value = booking_travelers[number].contact.phones[0].number === "N/A" ? "" : booking_travelers[number].contact.phones[0].number;
+            document.getElementById("login_fld_110").value = booking_travelers[number].documents[0].documentType === "N/A" ? "" : booking_travelers[number].documents[0].documentType;
+            document.getElementById("login_fld_12").value = booking_travelers[number].documents[0].number === "N/A" ? "" : booking_travelers[number].documents[0].number;
+            document.getElementById("login_fld_15").value = booking_travelers[number].documents[0].issuanceCountry === "N/A" ? "" : booking_travelers[number].documents[0].issuanceCountry;
+            document.getElementById("login_fld_16").value = booking_travelers[number].documents[0].validityCountry === "N/A" ? "" : booking_travelers[number].documents[0].validityCountry;
+            document.getElementById("login_fld_17").value = booking_travelers[number].documents[0].nationality === "N/A" ? "" : booking_travelers[number].documents[0].nationality;
+            document.getElementById("login_fld_18").value = booking_travelers[number].documents[0].birthPlace === "N/A" ? "" : booking_travelers[number].documents[0].birthPlace;
+            document.getElementById("login_fld_19").value = booking_travelers[number].documents[0].issuanceLocation === "N/A" ? "" : booking_travelers[number].documents[0].issuanceLocation;
+            /*
+            document.getElementById("login_fld_111").addEventListener('change', (evnt) => {
+                if(evnt.target.value === 'true'){
+                    booking_travelers[booking_forms_current_travelers_index].documents[0].holder = true;
+                }else{
+                    booking_travelers[booking_forms_current_travelers_index].documents[0].holder = false;
+                }
+            });*/
+        }
+
+    //console.log(number);
     
 }
 
@@ -271,7 +302,12 @@ function booking_forms_render_each_traveler(index, traveler){
     let the_traveler = JSON.parse(decoded_info);
     //console.log(the_traveler);
 
-    if(the_traveler.contact.emailAddress === "N/A"){
+    if(the_traveler.contact.emailAddress === "N/A" || the_traveler.name.firstName === "Traveler" 
+        || the_traveler.contact.phones[0].number === "N/A" || the_traveler.contact.phones[0].countryCallingCode === "N/A"
+        || the_traveler.documents[0].issuanceCountry === "N/A" || the_traveler.documents[0].birthPlace === "N/A"
+        || the_traveler.documents[0].issuanceLocation === "N/A" || the_traveler.documents[0].validityCountry === "N/A"
+        || the_traveler.documents[0].nationality === "N/A" || the_traveler.documents[0].number === "N/A"){
+
         document.getElementById("order_ticket_form_container_review_and_submit_travelers_list").innerHTML +=
         `
             <div onclick="booking_forms_set_current_traveler(${index});" class="submit_each_traveler_review_info">
