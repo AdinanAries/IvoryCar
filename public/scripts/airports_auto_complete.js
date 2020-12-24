@@ -7,15 +7,21 @@ document.getElementById("from_where_search_input_fld").addEventListener("input",
 
         flights = AirportsData.filter(each => {
             return (
-               each.city.toLowerCase().includes(evnt.target.value.toLowerCase()) 
-            || each.name.toLowerCase().includes(evnt.target.value.toLowerCase())
-            || each.IATA.toLowerCase().includes(evnt.target.value.toLowerCase())
-            || each.country.toLowerCase().includes(evnt.target.value.toLowerCase())
+               each.city.toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", "")) 
+            || each.name.toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || each.IATA.toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || each.country.toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || (each.city + each.name).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || (each.city + each.country).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || (each.city + each.country + each.name + each.IATA).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || (each.country + each.city + each.name + each.IATA).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || (each.name + each.city + each.country + each.IATA).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || (each.IATA + each.name + each.city + each.country).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
             )
         });
         flights = flights.map(elem => {
                 counter++;
-                return counter < 20 && `<li>
+                return counter < 10 && `<li>
                             <div onclick="changeAirportsFromInput('(${elem.IATA}) ${elem.name} - ${elem.city}', '${elem.IATA}', '${elem.ICAO}');" style="padding: 10px 5px; cursor: pointer;">
                                 <p style="font-size: 14px">
                                     <i style="margin-right: 5px; font-size: 14px; overflow: visible !important; color: darkblue;"
@@ -60,15 +66,21 @@ document.getElementById("to_where_search_input_fld").addEventListener("input", (
     if(evnt.target.value){
         flights = AirportsData.filter(each =>
             (
-               each.city.toLowerCase().includes(evnt.target.value.toLowerCase()) 
-            || each.name.toLowerCase().includes(evnt.target.value.toLowerCase())
-            || each.IATA.toLowerCase().includes(evnt.target.value.toLowerCase())
-            || each.country.toLowerCase().includes(evnt.target.value.toLowerCase())
+               each.city.toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", "")) 
+            || each.name.toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || each.IATA.toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || each.country.toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || (each.city + each.name).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || (each.city + each.country).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || (each.city + each.country + each.name + each.IATA).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || (each.country + each.city + each.name + each.IATA).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || (each.name + each.city + each.country + each.IATA).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || (each.IATA + each.name + each.city + each.country).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
             )
         );
         flights = flights.map(elem => {
             counter++;
-            return counter < 20 && `<li>
+            return counter < 10 && `<li>
                         <div onclick="changeAirportsToInput('(${elem.IATA}) ${elem.name} - ${elem.city}', '${elem.IATA}', '${elem.ICAO}');" style="padding: 10px 5px; cursor: pointer;">
                             <p style="font-size: 14px">
                                 <i style="margin-right: 5px; font-size: 14px; overflow: visible !important; color: darkblue;"
