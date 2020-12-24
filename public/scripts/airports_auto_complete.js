@@ -21,7 +21,7 @@ document.getElementById("from_where_search_input_fld").addEventListener("input",
         });
         flights = flights.map(elem => {
                 counter++;
-                return counter < 10 && `<li>
+                return counter < 6 && `<li>
                             <div onclick="changeAirportsFromInput('(${elem.IATA}) ${elem.name} - ${elem.city}', '${elem.IATA}', '${elem.ICAO}');" style="padding: 10px 5px; cursor: pointer;">
                                 <p style="font-size: 14px">
                                     <i style="margin-right: 5px; font-size: 14px; overflow: visible !important; color: darkblue;"
@@ -80,7 +80,7 @@ document.getElementById("to_where_search_input_fld").addEventListener("input", (
         );
         flights = flights.map(elem => {
             counter++;
-            return counter < 10 && `<li>
+            return counter < 6 && `<li>
                         <div onclick="changeAirportsToInput('(${elem.IATA}) ${elem.name} - ${elem.city}', '${elem.IATA}', '${elem.ICAO}');" style="padding: 10px 5px; cursor: pointer;">
                             <p style="font-size: 14px">
                                 <i style="margin-right: 5px; font-size: 14px; overflow: visible !important; color: darkblue;"
