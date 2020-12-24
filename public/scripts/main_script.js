@@ -581,6 +581,8 @@ from_where_search_input_fld.addEventListener("focusout", ()=>{
     
   setTimeout(()=>{
     document.getElementById("flights_auto_complete_list").innerHTML = "";
+    $("html, body").animate({ scrollTop: 0 }, "fast");
+    //additional_search_inputs_and_Options.scrollIntoView();
   }, 500);
 
   //$(".autocomplete-results").slideUp("fast");
@@ -612,6 +614,8 @@ to_where_search_input_fld.addEventListener("focusout", ()=>{
     },100);
     setTimeout(()=>{
       document.getElementById("from_where_input_fld_tile").style.display = "block";
+      document.getElementById("flights_auto_complete_list").innerHTML = "";
+      $("html, body").animate({ scrollTop: 0 }, "fast");
     }, 500);
 
 })

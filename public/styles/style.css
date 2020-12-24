@@ -1538,6 +1538,13 @@ footer a {
 }
 
 @media only screen and (max-width: 700px) {
+  .daterangepicker {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    min-width: 100vw;
+    min-height: 100vh;
+  }
   .sign_in_elems {
     position: fixed;
     top: 0;

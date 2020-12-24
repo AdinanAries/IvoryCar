@@ -673,3 +673,72 @@ document.getElementById("airports_exchange_search_fields_values_icon").addEventL
     window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
 
 });
+
+/*from_where_search_input_fld.addEventListener('focus', ()=>{
+
+    if($(window).width() < 700){
+        flights_search_tickets_form_container.style.position = "fixed";
+        flights_search_tickets_form_container.style.top = 0;
+        flights_search_tickets_form_container.style.left = 0;
+        flights_search_tickets_form_container.style.zIndex = 100;
+        flights_search_tickets_form_container.style.minWidth = "calc(100vw - 20px)";
+        flights_search_tickets_form_container.style.minHeight = "100vh";
+
+        home_page_search_button.style.display = "none";
+        date_search_fieldset.style.display = "none";
+    }
+
+})
+
+from_where_search_input_fld.addEventListener('focusout', ()=>{
+
+    if($(window).width() < 700){
+        flights_search_tickets_form_container.style.position = "initial";
+        flights_search_tickets_form_container.style.top = 0;
+        flights_search_tickets_form_container.style.left = 0;
+        flights_search_tickets_form_container.style.zIndex = "initial";
+        flights_search_tickets_form_container.style.minWidth = "initial";
+        flights_search_tickets_form_container.style.minHeight = "initial";
+        home_page_search_button.style.display = "flex";
+        date_search_fieldset.style.display = "block";
+    }
+
+})
+
+to_where_search_input_fld.addEventListener('focus', ()=>{
+
+    if($(window).width() < 700){
+        flights_search_tickets_form_container.style.position = "fixed";
+        flights_search_tickets_form_container.style.top = 0;
+        flights_search_tickets_form_container.style.left = 0;
+        flights_search_tickets_form_container.style.zIndex = 100;
+        flights_search_tickets_form_container.style.minWidth = "calc(100vw - 20px)";
+        flights_search_tickets_form_container.style.minHeight = "100vh";
+
+        home_page_search_button.style.display = "none";
+        date_search_fieldset.style.display = "none";
+    }
+
+})
+
+to_where_search_input_fld.addEventListener('focusout', ()=>{
+    
+    if($(window).width() < 700){
+        flights_search_tickets_form_container.style.position = "initial";
+        flights_search_tickets_form_container.style.top = 0;
+        flights_search_tickets_form_container.style.left = 0;
+        flights_search_tickets_form_container.style.zIndex = "initial";
+        flights_search_tickets_form_container.style.minWidth = "initial";
+        flights_search_tickets_form_container.style.minHeight = "initial";
+        home_page_search_button.style.display = "flex";
+        date_search_fieldset.style.display = "block";
+    }
+
+})
+
+
+/*
+$("#clickable a").click(function(e) {
+  //do something
+  e.stopPropagation();
+})*/
