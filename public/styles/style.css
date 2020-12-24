@@ -1540,11 +1540,33 @@ footer a {
 @media only screen and (max-width: 700px) {
   .daterangepicker {
     position: fixed !important;
-    top: 0 !important;
+    top: -10px !important;
     left: 0 !important;
     min-width: 100vw;
     min-height: 100vh;
   }
+  .drp-calendar {
+    min-width: calc(100% - 20px) !important;
+  }
+  .drp-buttons {
+    border: none !important;
+    padding: 20px !important;
+  }
+  .table-condensed thead tr th {
+    padding-bottom: 10px !important;
+    color: #e25a00 !important;
+  }
+  .applyBtn,
+  .cancelBtn {
+    border: none !important;
+    color: white !important;
+    background-color: rgb(231, 124, 2);
+    padding: 10px !important;
+  }
+  .cancelBtn {
+    background-color: rgb(0, 127, 177);
+  }
+
   .sign_in_elems {
     position: fixed;
     top: 0;
