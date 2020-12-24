@@ -1620,10 +1620,11 @@ footer a {
     color: white !important;
     background-color: rgb(231, 124, 2);
     padding: 10px !important;
+    border-radius: 4px !important;
   }
   .cancelBtn {
     background-color: rgb(0, 127, 177);
-  }s
+  }
 
   #order_ticket_form_content_container {
     position: fixed;
