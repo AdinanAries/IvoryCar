@@ -89,7 +89,7 @@ function render_flights(){
                     ticket_rating_starts = "&#9733; &#9733; &#9733; &#9734; &#9734;";
                 }else if(each_traveler_price <= price_metrics_max && each_traveler_price > price_metrics_third){
                     ticket_rating_starts = "&#9733; &#9733; &#9734; &#9734; &#9734;";
-                }else if(each_traveler_price > price_metrics_max){
+                }else if(each_traveler_price > price_metrics_max && price_metrics_max !== 0){
                     ticket_rating_starts = "&#9733; &#9734; &#9734; &#9734; &#9734;";
                 }
 
