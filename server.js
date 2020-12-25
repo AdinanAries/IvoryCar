@@ -12,6 +12,7 @@ var querystring = require('querystring');
 var all_events = [];
 var all_attractions = [];
 var AmaduesOauthTokenExpires = 0;
+var AmadeusAccessToken = "";
 
 //Middlewares
 // For parsing application/json 
@@ -32,8 +33,6 @@ var amadeus = new Amadeus({
   clientSecret: 'PAtVLCWxpRGsYPdU'
 });
 
-
-//Endpoints
 
 //getting Amadues OAuth2 access token
 function Amadues_OAuth(){
@@ -63,7 +62,17 @@ function Amadues_OAuth(){
       result += chunk;
     });
     res.on('end', function () {
-      console.log(result);
+
+      let data = JSON.parse(result)
+      AmaduesOauthTokenExpires = data.expires_in;
+      AmadeusAccessToken = data.access_token;
+
+      setTimeout(()=>{
+        Amadues_OAuth();
+      },(data.expires_in * 1000));
+      
+      console.log("Gotten new access token from Amadues")
+      //console.log(result);
     });
     res.on('error', function (err) {
       console.log(err);
@@ -83,6 +92,9 @@ function Amadues_OAuth(){
 if(AmaduesOauthTokenExpires === 0){
   Amadues_OAuth();
 }
+
+
+//Endpoints
 
 //Ticket Master - Getting Public Events Data
 app.get('/publicevents/', function(request, response, next){
@@ -113,7 +125,7 @@ app.get('/publicevents/', function(request, response, next){
 });
 
 //Ticket Master Getting Public Attractions
-app.get("/publicattractions", (request, response, next)=>{
+app.get("/publicattractions/", (request, response, next)=>{
 
 if(all_attractions.length === 0){
 
@@ -261,6 +273,29 @@ app.get('/flight_price_metric/origin/:o_code/destination/:d_code/date/:date', (r
 
 });
 
+//Getting Flight Price Analysis
+app.post('/flightpriceanalysis/', (req, res, next)=>{
+
+  axios.get(
+    "https://test.api.amadeus.com/v1/analytics/itinerary-price-metrics?originIataCode=MAD&destinationIataCode=CDG&departureDate=2021-03-21&currencyCode=EUR&oneWay=false",
+    {
+      headers: {
+        "Authorization": ("Bearer "+ AmadeusAccessToken)
+      }
+  }).then(result =>{
+
+    res.send(result.data);
+    console.log(result.data);
+
+  }).catch(err =>{
+
+    console.log(err);
+
+  }).then(()=>{
+    //defaults
+  });
+
+})
 
 //Spinning the server here
 app.listen(PORT, () => {

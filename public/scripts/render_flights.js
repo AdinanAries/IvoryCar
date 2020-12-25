@@ -647,8 +647,8 @@ render_flights();
 
 var get_flight_price_analysis = async ()=>{
     return $.ajax({
-        url:"https://test.api.amadeus.com/v1/analytics/itinerary-price-metrics?originIataCode=MAD&destinationIataCode=CDG&departureDate=2021-03-21&currencyCode=EUR&oneWay=false",
-        type: "GET",
+        url:"/flightpriceanalysis",
+        type: "POST",
         success: (data)=>{
             return data;
         },
