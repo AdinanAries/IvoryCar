@@ -645,4 +645,25 @@ function render_flights(){
 
 render_flights();
 
+var get_flight_price_analysis = async ()=>{
+    return $.ajax({
+        url:"https://test.api.amadeus.com/v1/analytics/itinerary-price-metrics?originIataCode=MAD&destinationIataCode=CDG&departureDate=2021-03-21&currencyCode=EUR&oneWay=false",
+        type: "GET",
+        success: (data)=>{
+            return data;
+        },
+        error: (err)=>{
+            return err;
+        }
+    });
+}
 
+get_flight_price_analysis().then(data=>{
+    console.log(data);
+}).catch(err =>{
+    console.log(err);
+})
+
+function flights_search_co_ordinator_function(){
+
+}

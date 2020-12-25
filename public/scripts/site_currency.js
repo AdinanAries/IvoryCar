@@ -1,3 +1,7 @@
+//currency codes
+//CAD,HKD,ISK,PHP,DKK,HUF,CZK,AUD,RON,SEK,IDR,INR,BRL,RUB,HRK,JPY,THB,CHF,SGD,PLN,BGN,TRY,CNY,NOK,NZD,ZAR,USD,MXN,ILS,GBP,KRW,MYR
+
+
 //DOM
 var active_selected_currency_option_container = document.getElementById("active_selected_currency_option_container");
 var active_selected_currency_option_flag_and_name = document.getElementById("active_selected_currency_option_flag_and_name");

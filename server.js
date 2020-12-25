@@ -3,10 +3,15 @@ const app = express();
 const path = require("path");
 const Amadeus = require("amadeus");
 const axios = require('axios');
+const { default: Axios } = require("axios");
+const fetch = require("node-fetch");
+var https = require('https');
+var querystring = require('querystring');
 
 //Globals to store endpoint data
 var all_events = [];
 var all_attractions = [];
+var AmaduesOauthTokenExpires = 0;
 
 //Middlewares
 // For parsing application/json 
@@ -29,6 +34,55 @@ var amadeus = new Amadeus({
 
 
 //Endpoints
+
+//getting Amadues OAuth2 access token
+function Amadues_OAuth(){
+
+  //form data
+  let req_data = querystring.stringify({
+    grant_type: "client_credentials",
+    client_id: "tMUIuRrYAgk0zLfDy1PCC4GXegGg0rYc",
+    client_secret: "PAtVLCWxpRGsYPdU"
+  });
+
+  // request option
+  var options = {
+    host: 'test.api.amadeus.com',
+    method: 'POST',
+    path: '/v1/security/oauth2/token',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Content-Length': req_data.length
+    }
+  };
+
+  // request object
+  var req = https.request(options, function (res) {
+    var result = '';
+    res.on('data', function (chunk) {
+      result += chunk;
+    });
+    res.on('end', function () {
+      console.log(result);
+    });
+    res.on('error', function (err) {
+      console.log(err);
+    })
+  });
+
+  // req error
+  req.on('error', function (err) {
+    console.log(err);
+  });
+  
+  //send request with the req_data form
+  req.write(req_data);
+  req.end();
+}
+
+if(AmaduesOauthTokenExpires === 0){
+  Amadues_OAuth();
+}
 
 //Ticket Master - Getting Public Events Data
 app.get('/publicevents/', function(request, response, next){
