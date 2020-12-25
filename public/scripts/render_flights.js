@@ -79,7 +79,7 @@ function render_flights(){
                 let trip_departure_stops_airports = "";
 
                 let each_traveler_price = parseFloat((flight_price/data[w].travelerPricings.length).toFixed(2));
-                let ticket_rating_starts = "&#9733; &#9733; &#9733; &#9733; &#9734;";
+                let ticket_rating_starts = "<i aria-hidden='true' class='fa fa-exclamation-triangle' style='margin-right: 5px; color: yellow;'></i> unrated";
 
                 if(each_traveler_price <= price_metrics_min){
                     ticket_rating_starts = "&#9733; &#9733; &#9733; &#9733; &#9733;";
@@ -307,7 +307,23 @@ function render_flights(){
                             </span>
                         </p>
                         
-                        <div class="bubble_popup arrow_on_right_side"></div>
+                        <div class="bubble_popup arrow_on_right_side">
+                        <p style="font-size: 12px; text-align: justify; margin: 10px; opacity: 0.6;">
+                            Flight ticket prices fluctuate constantly – demand, availability,
+                            route, date and even search time all play a role in determining the price offered.
+                            this rating is based on historical flight prices for your chosen route(s) to help
+                            you understand if you're getting a good deal
+                         </p>
+                         <p style="font-size: 12px; font-weight: bolder; 10px; opacity: 0.8; color: #e25a00; margin: 0 10px; margin-top:15px;  margin-bottom: 5px;">Price Stats</p>
+
+                         <p style="font-size: 13px; margin: 3px 10px;">MINIMUM: 
+                         <span style="font-size: 14px; color: #e25a00;">${current_currency.currency} ${price_metrics_min}</span></p>
+                         <p style="font-size: 13px; margin: 3px 10px;">MEDIUM: 
+                         <span style="font-size: 14px; color: #e25a00;">${current_currency.currency} ${price_metrics_medium}</span></p>
+                         <p style="font-size: 13px; margin: 3px 10px;">MAXIMUM: 
+                         <span style="font-size: 14px; color: #e25a00;">${current_currency.currency} ${price_metrics_max}</span></p>
+
+                        </div>
                         </div>
                     </div>
                     <div id="flight_ticket_item_details${w}" class="flight_ticket_item_details">
