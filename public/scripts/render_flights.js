@@ -1,5 +1,12 @@
-console.log(fligh_search_data);
-console.log(airline_codes);
+/*console.log(fligh_search_data);
+console.log(airline_codes);*/
+
+var price_metrics_min = 0;
+var price_metrics_max = 0;
+var price_metrics_first = 0;
+var price_metrics_medium = 0;
+var price_metrics_third = 0;
+var price_metrices_currency = 0;
 //One way trips
 function render_flights(){
 
@@ -11,7 +18,7 @@ function render_flights(){
         dataType: "json",
         success: (data)=>{
 
-            console.log(fligh_search_data);
+            //console.log(fligh_search_data);
             console.log(data);
 
             document.getElementById("progress_width").value = "100";
@@ -70,6 +77,23 @@ function render_flights(){
                 let trip_departure_from_and_airports = "";
                 let trip_departure_total_stops = 0;
                 let trip_departure_stops_airports = "";
+
+                let each_traveler_price = parseFloat((flight_price/data[w].travelerPricings.length).toFixed(2));
+                let ticket_rating_starts = "&#9733; &#9733; &#9733; &#9733; &#9734;";
+
+                if(each_traveler_price <= price_metrics_min){
+                    ticket_rating_starts = "&#9733; &#9733; &#9733; &#9733; &#9733;";
+                }else if(each_traveler_price <= price_metrics_first && each_traveler_price > price_metrics_min){
+                    ticket_rating_starts = "&#9733; &#9733; &#9733; &#9733; &#9734;";
+                }else if(each_traveler_price <= price_metrics_third && each_traveler_price > price_metrics_first){
+                    ticket_rating_starts = "&#9733; &#9733; &#9733; &#9734; &#9734;";
+                }else if(each_traveler_price <= price_metrics_max && each_traveler_price > price_metrics_third){
+                    ticket_rating_starts = "&#9733; &#9733; &#9734; &#9734; &#9734;";
+                }else if(each_traveler_price > price_metrics_max){
+                    ticket_rating_starts = "&#9733; &#9734; &#9734; &#9734; &#9734;";
+                }
+
+
 
                 if(data[w].itineraries){
                     
@@ -279,7 +303,7 @@ function render_flights(){
                         <p>
                             <span style="font-size: 14px; padding-right: 15px; color: white; border-radius: 50px; background-color:rgb(235, 86, 0); text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
                             0px 0px 2.9px rgba(0, 0, 0, 0.23);">
-                                &#9733; &#9733; &#9733; &#9733; &#9734;
+                                ${ticket_rating_starts}
                             </span>
                         </p>
                         
@@ -643,14 +667,15 @@ function render_flights(){
 
 }
 
-render_flights();
-
 var get_flight_price_analysis = async ()=>{
     return $.ajax({
-        url:"/flightpriceanalysis",
         type: "POST",
-        success: (data)=>{
-            return data;
+        url: "/flightpriceanalysis",
+        data: JSON.stringify(fligh_search_data),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: (result)=>{
+            return result;
         },
         error: (err)=>{
             return err;
@@ -659,7 +684,25 @@ var get_flight_price_analysis = async ()=>{
 }
 
 get_flight_price_analysis().then(data=>{
-    console.log(data);
+    
+    price_metrics_min = parseFloat(site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[0].amount)));
+    price_metrics_first = parseFloat(site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[1].amount)));
+    price_metrics_medium = parseFloat(site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[2].amount)));
+    price_metrics_third = parseFloat(site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[3].amount)));
+    price_metrics_max = parseFloat(site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[4].amount)));
+
+    price_metrices_currency = data.data[0].currencyCode;
+
+    /*console.log("min: ", price_metrics_min);
+    console.log("first: ", price_metrics_first);
+    console.log("median: " + price_metrics_medium);
+    console.log("third: " + price_metrics_third);
+    console.log("max: ", price_metrics_max);
+    console.log("metrics currency: ", price_metrices_currency);
+    console.log(data);*/
+
+    render_flights();
+
 }).catch(err =>{
     console.log(err);
 })

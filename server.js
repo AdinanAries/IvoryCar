@@ -276,8 +276,18 @@ app.get('/flight_price_metric/origin/:o_code/destination/:d_code/date/:date', (r
 //Getting Flight Price Analysis
 app.post('/flightpriceanalysis/', (req, res, next)=>{
 
+  let origin = req.body.origin_iata;
+  let destination = req.body.destination_iata;
+  let depart_date = req.body.departure_date;
+  let num_of_adults = req.body.number_of_adults;
+
+  /*origin = "MAD";
+  destination = "CDG";*/
+
+  console.log(req.body);
+
   axios.get(
-    "https://test.api.amadeus.com/v1/analytics/itinerary-price-metrics?originIataCode=MAD&destinationIataCode=CDG&departureDate=2021-03-21&currencyCode=EUR&oneWay=false",
+    "https://test.api.amadeus.com/v1/analytics/itinerary-price-metrics?originIataCode="+origin+"&destinationIataCode="+destination+"&departureDate="+depart_date+"&currencyCode=USD&oneWay=false",
     {
       headers: {
         "Authorization": ("Bearer "+ AmadeusAccessToken)
@@ -285,7 +295,7 @@ app.post('/flightpriceanalysis/', (req, res, next)=>{
   }).then(result =>{
 
     res.send(result.data);
-    console.log(result.data);
+    //console.log(result.data);
 
   }).catch(err =>{
 

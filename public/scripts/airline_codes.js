@@ -28,7 +28,7 @@ var airline_codes = [
     {number: 70, code: "RB", name: "Syrian Arab Airlines"},
     {number: 71, code: "ET", name: "Ethiopian Airlines"},
     {number: 72, code: "GF", name: "Gulf Air"},
-    {number: 74, code: "KL", name: "	KLM Cargo"},
+    {number: 74, code: "KL", name: "KLM Cargo"},
     {number: 75, code: "IB", name: "Iberia"},
     {number: 76, code: "ME", name: "Middle East Airlines"},
     {number: 77, code: "MS", name: "Egyptair"},
@@ -81,8 +81,6 @@ var airline_codes = [
     {number: 230, code: "CM", name: "Copa Airlines Cargo"},
     {number: 231, code: "NG", name: "Lauda Air"},
     {number: 232, code: "MH", name: "Malaysian Airline System"},
-    {number: 232, code: "MH", name: " "},
-    {number: 232, code: "MH", name: "Homepage"},
     {number: 234, code: "JD", name: "Japan Air System"},
     {number: 235, code: "TK", name: "Turkish Airlines"},
     {number: 236, code: "BD", name: "British Midland Airways"},
@@ -186,5 +184,7 @@ var airline_codes = [
     {number: 999, code: "CA", name: "Air China"},
     {number: 0, code: "WS", name: "WestJet"},
     {number: 169, code: "HR", name: "Hahn Air"},
-    {number: 279, code: "B6", name: "JetBlue Airlines"}
+    {number: 279, code: "B6", name: "JetBlue Airlines"},
+    {number: 57, code: "AF", name: "Air France"},
+    {number: 30, code: "VY", name: "Vueling Airlines S.A."}
 ];
