@@ -721,7 +721,7 @@ header {
   margin: 10px 0;
   background-color: white;
   border-radius: 4px;
-  overflow: hidden !important;
+  overflow: visible !important;
 }
 .each_ticket_item:hover .share_each_ticket_item_btn {
   display: flex;
@@ -764,10 +764,11 @@ header {
 .each_ticket_item_emogi_and_rating:hover .bubble_popup {
   display: block;
 }
+/*------------------------------------------------------------------------------------*/
 .bubble_popup {
   display: none;
-  top: 10px;
-  left: -265px;
+  top: -30px;
+  left: -465px;
   position: absolute;
   z-index: 2;
   font-family: arial;
@@ -775,8 +776,8 @@ header {
   background: white;
   border-radius: 4px;
   padding: 10px;
-  width: 250px;
-  height: 150px;
+  max-width: 450px;
+  height: auto;
   box-shadow: 0px 1.6px 10.6px rgba(0, 0, 0, 0.2),
     0px 0px 10.9px rgba(0, 0, 0, 0.2);
   transition: all 0.5s;
@@ -824,7 +825,7 @@ header {
   border-right: 0;
   position: absolute;
   right: -8px;
-  top: 35px;
+  top: 75px;
   margin-top: -20px;
 }
 .each_ticket_item_top {
@@ -856,6 +857,8 @@ header {
   width: 100px;
 }
 .each_ticket_item_main_extra_container {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
   background-color: #e2e2e2;
   border-bottom: 1px solid #d1d1d1;
 }
@@ -1873,6 +1876,9 @@ footer a {
   }
   .site_lower_section_tabs_option_content span {
     font-size: 13px !important;
+  }
+  .each_ticket_item_main_right {
+    border-bottom-left-radius: 4px;
   }
   footer .wrapper div {
     flex-direction: column;

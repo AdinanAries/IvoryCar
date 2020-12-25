@@ -308,21 +308,25 @@ function render_flights(){
                         </p>
                         
                         <div class="bubble_popup arrow_on_right_side">
-                        <p style="font-size: 12px; text-align: justify; margin: 10px; opacity: 0.6;">
-                            Flight ticket prices fluctuate constantly – demand, availability,
-                            route, date and even search time all play a role in determining the price offered.<br/><br/>
-                            This rating is based on historical flight prices for your chosen route(s) to help
-                            you understand if you're getting a good deal
-                         </p>
-                         <p style="font-size: 12px; font-weight: bolder; 10px; opacity: 0.8; color: #e25a00; margin: 0 10px; margin-top:15px;  margin-bottom: 5px;">Price Stats For Each Adult</p>
+                            <p style="font-size: 12px; text-align: justify; margin: 10px; opacity: 0.8;">
+                                Flight ticket prices fluctuate constantly – demand, availability,
+                                route, date and even search time all play a role in determining the price offered.<br/><br/>
+                                This rating is based on historical flight prices for your chosen route(s) to help
+                                you understand if you're getting a good deal
+                            </p>
+                            <p style="letter-spacing: 0.5px; font-size: 12px; font-weight: bolder; 10px; opacity: 0.8; color: #e25a00; margin: 0 10px; margin-top:15px;  margin-bottom: 5px;">
+                                Price stats for each adult
+                            </p>
 
-                         <p style="font-size: 13px; margin: 3px 10px;">MINIMUM: 
-                         <span style="font-size: 14px; color: #e25a00;">${current_currency.sign} ${price_metrics_min.toFixed(2)}</span></p>
-                         <p style="font-size: 13px; margin: 3px 10px;">MEDIUM: 
-                         <span style="font-size: 14px; color: #e25a00;">${current_currency.sign} ${price_metrics_medium.toFixed(2)}</span></p>
-                         <p style="font-size: 13px; margin: 3px 10px;">MAXIMUM: 
-                         <span style="font-size: 14px; color: #e25a00;">${current_currency.sign} ${price_metrics_max.toFixed(2)}</span></p>
-
+                            <p style="font-size: 13px; text-align: left; display: block;">
+                                <span style="color: rgb(0, 127, 177); font-size: 11px; font-weight: bolder; margin: 0 !important; letter-spacing: 0.5px;">Minimum: <span style="font-size: 14px; color: #e25a00; font-weight: initial;">${current_currency.sign} ${price_metrics_min.toFixed(2)}</span></span>
+                            </p>
+                            <p>
+                                <span style="color: orangered; font-size: 11px; font-weight: bolder; letter-spacing: 0.5px;">Medium: <span style="font-size: 14px; color: #e25a00; font-weight: initial;">${current_currency.sign} ${price_metrics_medium.toFixed(2)}</span></span>
+                            </p>
+                            <p>
+                                <span style="color: crimson; font-size: 11px; font-weight: bolder; letter-spacing: 0.5px;">Maximum: <span style="font-size: 14px; color: #e25a00; font-weight: initial;">${current_currency.sign} ${price_metrics_max.toFixed(2)}</span></span>
+                            </p>
                         </div>
                         </div>
                     </div>
