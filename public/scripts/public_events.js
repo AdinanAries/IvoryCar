@@ -75,7 +75,7 @@ function display_events(start, limit, number){
 
         let event_information = undefined;
         if(all_public_events[i].info){
-            event_information = all_public_events[i].info
+            event_information = all_public_events[i].info.replaceAll("'",'#$@@#@$#')
         }
 
         let event_url_address = "Unavailable";

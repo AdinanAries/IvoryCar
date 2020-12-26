@@ -1129,7 +1129,7 @@ function show_all_event_details(main_evnt_iD, number, img_url, name, timezone, d
                                                                        "no information added to this event. <br/> <br/>" +
                                                                       "This section will be used to show any additional notes the event organizers add to inform you";
   }else{
-    document.getElementById("show_all_evnt_detail_event_info_"+number).innerText = info;
+    document.getElementById("show_all_evnt_detail_event_info_"+number).innerText = info.replaceAll("#$@@#@$#","'");
   }
   
 }
