@@ -287,7 +287,7 @@ app.post('/flightpriceanalysis/', (req, res, next)=>{
   console.log(req.body);
 
   axios.get(
-    "https://test.api.amadeus.com/v1/analytics/itinerary-price-metrics?originIataCode="+origin+"&destinationIataCode="+destination+"&departureDate="+depart_date+"&currencyCode=USD&oneWay=false",
+    "https://test.api.amadeus.com/v1/analytics/itinerary-price-metrics?originIataCode="+origin+"&destinationIataCode="+destination+"&departureDate="+depart_date+"&currencyCode=USD&oneWay=true",
     {
       headers: {
         "Authorization": ("Bearer "+ AmadeusAccessToken)

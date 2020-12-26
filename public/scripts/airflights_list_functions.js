@@ -565,3 +565,8 @@ function book_ticket(){
         
     }
 }
+
+
+function find_percentage_against_max_value(max_value, current_value){
+    return ((current_value * 100) / max_value)
+}
