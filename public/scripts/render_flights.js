@@ -84,7 +84,7 @@ function render_flights(){
                     current_price_percentage = Math.ceil(find_percentage_against_max_value(price_metrics_max, price_metrics_first,
                         price_metrics_medium, price_metrics_third, price_metrics_min, each_traveler_price));
 
-                    console.log(current_price_percentage);
+                    //console.log(current_price_percentage);
                 }
                 let ticket_rating_starts = "<i aria-hidden='true' class='fa fa-exclamation-triangle' style='margin-right: 5px; color: yellow;'></i> unrated";
 
