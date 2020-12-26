@@ -1843,8 +1843,8 @@ footer a {
   }
   .bubble_popup {
     left: -227px !important;
-    width: 230px !important;
-    height: 250px;
+    max-width: 230px !important;
+    height: auto;
   }
   #hero_section_flex_container {
     flex-direction: column !important;
