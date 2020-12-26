@@ -567,6 +567,19 @@ function book_ticket(){
 }
 
 
-function find_percentage_against_max_value(max_value, current_value){
-    return ((current_value * 100) / max_value)
+function find_percentage_against_max_value(max_value, first_value, middle_value, third_value, min_value, current_value){
+    if(current_value >= min_value && current_value < first_value){
+        return ((current_value * 25) / first_value);
+    }
+    if(current_value >= first_value && current_value < middle_value){
+        return ((current_value * 50) / middle_value);
+    }
+    if(current_value >= middle_value && current_value < third_value){
+        return ((current_value * 75) / third_value);
+    }
+    if(current_value >= third_value && current_value < max_value){
+        return ((current_value * 100) / max_value)
+    }else{
+        return 0;
+    }
 }
