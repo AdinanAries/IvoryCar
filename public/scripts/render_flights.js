@@ -330,7 +330,7 @@ function render_flights(){
                                 </p>
                                 <div style="display: flex; flex-direction: column !important; font-size: 12px; margin: 3px 10px; position: relative; z-index: 1;">
                                     <i style="margin-bottom: 5px; font-size: 10px; margin-left: 20px; opacity: 0;" class="fa fa-arrow-down" aria-hidden="true"></i>
-                                    <p style="font-size: 11px; color: rgba(204, 241, 255, 0.603); font-weight: bolder;">${current_currency.sign} ${price_metrics_first.toFixed(2)}</p>
+                                    <p style="font-size: 11px; color: rgba(204, 241, 255, 0.603);">${current_currency.sign} ${price_metrics_first.toFixed(2)}</p>
                                     <i style="margin-top: 5px; font-size: 10px; margin-left: 20px; opacity: 0;" class="fa fa-arrow-down" aria-hidden="true"></i>
                                 </div>
                                 <p style="position: relative; z-index: 1;">
@@ -338,7 +338,7 @@ function render_flights(){
                                 </p>
                                 <div style="display: flex; flex-direction: column !important; font-size: 12px; margin: 3px 10px; position: relative; z-index: 1;">
                                     <i style="margin-bottom: 5px; font-size: 10px; margin-left: 20px; opacity: 0;" class="fa fa-arrow-down" aria-hidden="true"></i>
-                                    <p style="font-size: 11px; color: rgba(204, 241, 255, 0.603); font-weight: bolder;">${current_currency.sign} ${price_metrics_third.toFixed(2)}</p>
+                                    <p style="font-size: 11px; color: rgba(204, 241, 255, 0.603);">${current_currency.sign} ${price_metrics_third.toFixed(2)}</p>
                                     <i style="margin-top: 5px; font-size: 10px; margin-left: 20px; opacity: 0;" class="fa fa-arrow-down" aria-hidden="true"></i>
                                 </div>
                                 <p style="position: relative; z-index: 1;">
