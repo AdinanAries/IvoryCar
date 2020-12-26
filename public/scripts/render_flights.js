@@ -324,9 +324,9 @@ function render_flights(){
                             <p style="letter-spacing: 0.5px; font-size: 12px; font-weight: bolder; 10px; opacity: 0.8; color: rgb(34, 90, 112); margin: 0 10px; margin-top:15px;  margin-bottom: 5px;">
                                 Price stats for each adult
                             </p>
-                            <div style=" background-color: rgba(0,0,0,0.08); position: relative; padding: 5px 0; margin: 10px; border-left: 10px solid; border-image-source: linear-gradient(orange, orangered, crimson); border-image-slice: 1;">
+                            <div style=" background-color: rgba(0,0,0,0.08); position: relative; padding: 5px 0; padding-left: 5px; margin: 10px; border-left: 10px solid; border-image-source: linear-gradient(orange, orangered, crimson); border-image-slice: 1;">
                                 <p style="font-size: 13px; text-align: left; position: relative; z-index: 1;">
-                                    <span style="opacity: 0.8; color: black; font-size: 11px; margin: 0 !important; letter-spacing: 0.5px;">Minimum: <span style="font-size: 11px; color: #194f81; font-weight: bolder;">${current_currency.sign} ${price_metrics_min.toFixed(2)}</span></span>
+                                    <span style="font-weight: bolder; opacity: 0.8; color: black; font-size: 11px; margin: 0 !important; letter-spacing: 0.5px; padding: 0 !important;">Minimum: <span style="font-size: 11px; color: #194f81; padding: 0 !important;">${current_currency.sign} ${price_metrics_min.toFixed(2)}</span></span>
                                 </p>
                                 <div style="display: flex; flex-direction: column !important; font-size: 12px; margin: 3px 10px; position: relative; z-index: 1;">
                                     <i style="margin-bottom: 5px; font-size: 10px; margin-left: 20px; opacity: 0.5;" class="fa fa-arrow-down" aria-hidden="true"></i>
@@ -334,7 +334,7 @@ function render_flights(){
                                     <i style="margin-top: 5px; font-size: 10px; margin-left: 20px; opacity: 0.5;" class="fa fa-arrow-down" aria-hidden="true"></i>
                                 </div>
                                 <p style="position: relative; z-index: 1;">
-                                    <span style="opacity: 0.8; color: black; font-size: 11px; letter-spacing: 0.5px;">Medium: <span style="font-size: 11px; font-weight: bolder; color: #194f81;">${current_currency.sign} ${price_metrics_medium.toFixed(2)}</span></span>
+                                    <span style="font-weight: bolder; opacity: 0.8; color: black; font-size: 11px; letter-spacing: 0.5px; padding: 0 !important;">Medium: <span style="font-size: 11px; color: #194f81; padding: 0 !important;">${current_currency.sign} ${price_metrics_medium.toFixed(2)}</span></span>
                                 </p>
                                 <div style="display: flex; flex-direction: column !important; font-size: 12px; margin: 3px 10px; position: relative; z-index: 1;">
                                     <i style="margin-bottom: 5px; font-size: 10px; margin-left: 20px; opacity: 0.5;" class="fa fa-arrow-down" aria-hidden="true"></i>
@@ -342,7 +342,7 @@ function render_flights(){
                                     <i style="margin-top: 5px; font-size: 10px; margin-left: 20px; opacity: 0.5;" class="fa fa-arrow-down" aria-hidden="true"></i>
                                 </div>
                                 <p style="position: relative; z-index: 1;">
-                                    <span style="opacity: 0.8; color: black; font-size: 11px; letter-spacing: 0.5px;">Maximum: <span style="font-size: 11px; color: #194f81; font-weight: bolder;">${current_currency.sign} ${price_metrics_max.toFixed(2)}</span></span>
+                                    <span style="font-weight: bolder; opacity: 0.8; color: black; font-size: 11px; letter-spacing: 0.5px; padding: 0 !important;">Maximum: <span style="font-size: 11px; color: #194f81; padding: 0 !important;">${current_currency.sign} ${price_metrics_max.toFixed(2)}</span></span>
                                 </p>
                                 
                                 <div style="position: absolute; left: 0; top: 0; height: 100% !important; width: 100% !important;
