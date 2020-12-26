@@ -324,31 +324,41 @@ function render_flights(){
                             <p style="letter-spacing: 0.5px; font-size: 12px; font-weight: bolder; 10px; opacity: 0.8; color: rgb(34, 90, 112); margin: 0 10px; margin-top:15px;  margin-bottom: 5px;">
                                 Price stats for each adult
                             </p>
-                            <div style="position: relative; padding: 5px 0; margin: 10px; border-left: 10px solid; border-image-source: linear-gradient(orange, orangered, crimson); border-image-slice: 1;">
-                                <p style="font-size: 13px; text-align: left;">
-                                    <span style="color: orange; font-size: 11px; font-weight: bolder; margin: 0 !important; letter-spacing: 0.5px;">Minimum: <span style="font-size: 11px; color: #194f81;">${current_currency.sign} ${price_metrics_min.toFixed(2)}</span></span>
+                            <div style=" background-color: rgba(0,0,0,0.08); position: relative; padding: 5px 0; margin: 10px; border-left: 10px solid; border-image-source: linear-gradient(orange, orangered, crimson); border-image-slice: 1;">
+                                <p style="font-size: 13px; text-align: left; position: relative; z-index: 1;">
+                                    <span style="opacity: 0.8; color: black; font-size: 11px; margin: 0 !important; letter-spacing: 0.5px;">Minimum: <span style="font-size: 11px; color: #194f81; font-weight: bolder;">${current_currency.sign} ${price_metrics_min.toFixed(2)}</span></span>
                                 </p>
-                                <div style="display: flex; flex-direction: column !important; font-size: 12px; margin: 3px 10px;">
+                                <div style="display: flex; flex-direction: column !important; font-size: 12px; margin: 3px 10px; position: relative; z-index: 1;">
                                     <i style="margin-bottom: 5px; font-size: 10px; margin-left: 20px; opacity: 0.5;" class="fa fa-arrow-down" aria-hidden="true"></i>
-                                    <p style="font-size: 11px; color: #194f81; font-weight: bolder;s">${current_currency.sign} ${price_metrics_first.toFixed(2)}</p>
+                                    <p style="font-size: 11px; color: #194f81; font-weight: bolder;">${current_currency.sign} ${price_metrics_first.toFixed(2)}</p>
                                     <i style="margin-top: 5px; font-size: 10px; margin-left: 20px; opacity: 0.5;" class="fa fa-arrow-down" aria-hidden="true"></i>
                                 </div>
-                                <p>
-                                    <span style="color: orangered; font-size: 11px; font-weight: bolder; letter-spacing: 0.5px;">Medium: <span style="font-size: 11px; color: #194f81;">${current_currency.sign} ${price_metrics_medium.toFixed(2)}</span></span>
+                                <p style="position: relative; z-index: 1;">
+                                    <span style="opacity: 0.8; color: black; font-size: 11px; letter-spacing: 0.5px;">Medium: <span style="font-size: 11px; font-weight: bolder; color: #194f81;">${current_currency.sign} ${price_metrics_medium.toFixed(2)}</span></span>
                                 </p>
-                                <div style="display: flex; flex-direction: column !important; font-size: 12px; margin: 3px 10px;">
+                                <div style="display: flex; flex-direction: column !important; font-size: 12px; margin: 3px 10px; position: relative; z-index: 1;">
                                     <i style="margin-bottom: 5px; font-size: 10px; margin-left: 20px; opacity: 0.5;" class="fa fa-arrow-down" aria-hidden="true"></i>
                                     <p style="font-size: 11px; color: #194f81; font-weight: bolder;">${current_currency.sign} ${price_metrics_third.toFixed(2)}</p>
                                     <i style="margin-top: 5px; font-size: 10px; margin-left: 20px; opacity: 0.5;" class="fa fa-arrow-down" aria-hidden="true"></i>
                                 </div>
-                                <p>
-                                    <span style="color: crimson; font-size: 11px; font-weight: bolder; letter-spacing: 0.5px;">Maximum: <span style="font-size: 11px; color: #194f81;">${current_currency.sign} ${price_metrics_max.toFixed(2)}</span></span>
+                                <p style="position: relative; z-index: 1;">
+                                    <span style="opacity: 0.8; color: black; font-size: 11px; letter-spacing: 0.5px;">Maximum: <span style="font-size: 11px; color: #194f81; font-weight: bolder;">${current_currency.sign} ${price_metrics_max.toFixed(2)}</span></span>
                                 </p>
-                                <div style="position: absolute; left: 0; top: 0; height: ${current_price_percentage}% !important; width: 100% !important; display: flex; flex-direction: column;
-                                    justify-content: flex-end; background-color: rgba(0,0,0,0.08); border-bottom: 1px solid rgba(0,0,0,0.1);">
-                                    <p style="text-align: right; font-weight: bolder; font-size: 11px; margin: 3px 10px; letter-spacing: 1; color: rgba(0,0,0,0.6)">
-                                    this price is here</p>
+                                
+                                <div style="position: absolute; left: 0; top: 0; height: 100% !important; width: 100% !important;
+                                    background-color: rgba(255, 1, 2, 0.6);">
+                                    
                                 </div>
+                                <div style="position: absolute; left: 0; top: 0; height: 60% !important; width: 100% !important; display: flex; flex-direction: column;
+                                    justify-content: flex-end; background-color: rgba(255, 255, 255, 0.3);">
+                                    
+                                </div>
+                                <div style="position: absolute; left: 0; top: 0; height: ${current_price_percentage}% !important; width: 100% !important; display: flex; flex-direction: column;
+                                    justify-content: flex-end; background-color: rgba(255, 255, 255, 0.5); border-bottom: 1px solid rgba(21, 142, 222, 0.5);">
+                                    <p style="text-align: right; font-weight: bolder; font-size: 11px; margin: 3px 10px; letter-spacing: 1; color: rgba(0,0,0,0.6)">
+                                    this price: <span style="font-size: 11px; color: #194f81; padding: 0 !important;">${current_currency.sign} ${each_traveler_price.toFixed(2)}</span></p>
+                                </div>
+
                             </div>
                         </div>
                         </div>
