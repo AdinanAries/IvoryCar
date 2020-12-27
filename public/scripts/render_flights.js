@@ -135,6 +135,25 @@ function render_flights(){
                                 isArrivalSegmentTime = data[w].itineraries[k].segments[j].arrival.at;
                             }
 
+                            let segment_aircraft = ""
+                            if(data[w].itineraries[k].segments[j]){
+                                segment_aircraft = data[w].itineraries[k].segments[j].aircraft.code;
+                                segment_aircraft = aircrats.filter(each => each.IATA.toLowerCase() === segment_aircraft.toLowerCase())[0];
+                                if(segment_aircraft){
+                                    segment_aircraft = segment_aircraft.Manufacturer + " " + segment_aircraft.Type_Model;
+                                    //console.log(segment_aircraft);
+                                }else{
+                                    console.log(data[w].itineraries[k].segments[j].aircraft.code);
+                                }
+                            }
+                            let segment_airline = "";
+                            if(data[w].itineraries[k].segments[j]){
+                                segment_airline = airline_codes.filter(each => each.code.toLowerCase() === data[w].itineraries[k].segments[j].carrierCode.toLowerCase())[0];
+                                if(segment_airline){
+                                    segment_airline = segment_airline.name;
+                                }
+                            }
+
                             change_flights_section = "";
 
                             let departure_date_parts = data[w].itineraries[k].segments[j].departure.at.split("T")
@@ -234,7 +253,7 @@ function render_flights(){
                                                     ${departure_airport} - ${arrival_airport}
                                                 </p>
                                                 <p style="letter-spacing: 0.5px; opacity: 0.9; margin-bottom: 7px; font-size: 13px; font-weight: bolder; color: #003f7a;">Limited seats remaining at this price</p>
-                                                <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">Spirit Airlines 2679 · Narrow-body jet · Airbus A320 (sharklets)</p>
+                                                <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">${segment_airline} · ${segment_aircraft}</p>
                                                 <p style="font-size: 13px; font-weight: bolder; color: #e25a00; opacity: 0.9; letter-spacing: 0.5px;">Carry-on baggage fees may apply to one or more segments of this trip</p>
                                             </div>
                                             <div style="min-width: 60px; margin-left: 10px;">
