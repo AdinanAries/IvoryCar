@@ -94,7 +94,7 @@ function site_currency_coverter(holding_currency, currency_needed, money_amount)
     //2. Devide product from .1 by holding currency
     let holding_currency_rate = currentExchange[holding_currency];
     let exchange_amount = product / holding_currency_rate
-    
+    //console.log(addCommas(exchange_amount.toFixed(2)));
     //console.log("The converted amount is $ " + (exchange_value.toFixed(2)) + "in " + currencyNeeded+ ".");
 
     return addCommas(exchange_amount.toFixed(2));

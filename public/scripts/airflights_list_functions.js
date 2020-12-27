@@ -578,6 +578,9 @@ function find_percentage_against_max_value(max_value, first_value, middle_value,
         return ((current_value * 75) / third_value);
     }
     if(current_value >= third_value && current_value < max_value){
+        if(((current_value * 100) / max_value) > 100){
+            return 100;
+        }
         return ((current_value * 100) / max_value)
     }else{
         return 0;

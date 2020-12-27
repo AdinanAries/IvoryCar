@@ -960,12 +960,13 @@ header {
 }
 .main_ticket_info_area_top div input[type="checkbox"],
 .main_ticket_info_area_bottom div input[type="checkbox"] {
+  display: none;
   width: 20px;
   height: 20px;
 }
 .main_ticket_info_area_top img,
 .main_ticket_info_area_bottom img {
-  width: 50px;
+  width: 80px;
   height: 50px;
   border-radius: 2px;
   object-fit: cover;
@@ -1599,6 +1600,10 @@ footer a {
 }
 
 @media only screen and (max-width: 700px) {
+  .each_ticket_aircraft_logo_area {
+    margin-bottom: 10px;
+    justify-content: flex-start !important;
+  }
   .daterangepicker {
     position: fixed !important;
     top: -10px !important;
