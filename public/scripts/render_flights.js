@@ -78,6 +78,8 @@ function render_flights(){
                 let trip_departure_total_stops = 0;
                 let trip_departure_stops_airports = "";
 
+                let number_of_travelers = data[w].travelerPricings.length > 1 ? data[w].travelerPricings.length + " travelers" : data[w].travelerPricings.length + " traveler";
+
                 let each_traveler_price = parseFloat((parseFloat(flight_price.replaceAll(",",""))/data[w].travelerPricings.length).toFixed(2));
                 let current_price_percentage = 0;
                 if(price_metrics_max !== 0){
@@ -326,7 +328,7 @@ function render_flights(){
                     <div class="each_ticket_item_main_extra_container">
                     <div class="each_ticket_item_main_extra">
                         <div onclick="toggle_show_flight_ticket_item_details(${w})">
-                        <span style="background-color: #37a0f5;">Cheapest</span>
+                        <span style="background-color: #37a0f5;">${number_of_travelers}</span>
                         <span style="background-color: teal;">Flight + train</span>
                         <span class="COVID_policy_desktop" style="color: black;">
                             <i style="color: rgb(182, 54, 182);" class="fa fa-medkit" aria-hidden="true"></i>
