@@ -155,6 +155,7 @@ function render_flights(){
                                     segment_aircraft = segment_aircraft.Manufacturer + " " + segment_aircraft.Type_Model;
                                     //console.log(segment_aircraft);
                                 }else{
+                                    segment_aircraft = "";
                                     console.log(data[w].itineraries[k].segments[j].aircraft.code);
                                 }
                             }
