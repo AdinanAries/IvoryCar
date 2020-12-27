@@ -329,7 +329,7 @@ function render_flights(){
                     <div class="each_ticket_item_main_extra">
                         <div onclick="toggle_show_flight_ticket_item_details(${w})">
                         <span style="background-color: #37a0f5;">${number_of_travelers}</span>
-                        <span style="background-color: teal;"><i style="margin-right: 5px; font-size: 12px; color: orange;" class="fa fa-suitcase" aria-hidden="true"></i>Only Flight</span>
+                        <span style="background-color: teal;"><i style="margin-right: 5px; font-size: 12px; color:rgba(255, 255, 255, 0.65);" class="fa fa-suitcase" aria-hidden="true"></i>Only Flight</span>
                         <span class="COVID_policy_desktop" style="color: black;">
                             <i style="color: rgb(182, 54, 182);" class="fa fa-medkit" aria-hidden="true"></i>
                             COVID-19 policies
