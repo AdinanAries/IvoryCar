@@ -632,7 +632,7 @@ function render_flights(){
                         <div class="main_ticket_info_area_top">
                             <div class="each_ticket_aircraft_logo_area" style="flex-direction: row !important;">
                                 <div><input type="checkbox" /></div>
-                                <div style=""><img src=" https://daisycon.io/images/airline/?width=80&height=50&color=ffffff&iata=${data[w].validatingAirlineCodes[0]}" alt=""/></div>
+                                <div style=""><img src=" https://daisycon.io/images/airline/?width=950&height=855&color=ffffff&iata=${data[w].validatingAirlineCodes[0]}" alt=""/></div>
                             </div>
                             <div style="flex-direction: row !important; width: 100%; justify-content: space-between;">
                             <div>
