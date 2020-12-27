@@ -126,6 +126,18 @@ function render_flights(){
                         
                         for(var j = 0; j < data[w].itineraries[k].segments.length; j++){
 
+                            let segment_cabin = "";
+                            if(data[w].travelerPricings[0]){
+                                segment_cabin = data[w].travelerPricings.filter(
+                                    pricing => pricing.fareDetailsBySegment.filter( segmentPrice => segmentPrice.segmentId === data[w].itineraries[k].segments[j].id));
+                                if(segment_cabin){
+                                    segment_cabin = segment_cabin[0].fareDetailsBySegment[0].cabin + " " + segment_cabin[0].fareDetailsBySegment[0].class;
+                                }else{
+                                    segment_cabin = "";
+                                }
+                                //console.log(segment_cabin);
+                            }
+
                             if(isfirstSegment){
                                 isArrivalSegmentTime = data[w].itineraries[k].segments[j].arrival.at;
                                 isfirstSegment = false;
@@ -240,14 +252,16 @@ function render_flights(){
 
                                         <div style="display: flex; justify-content: space-between; margin: 20px;">
                                             <div>
-                                                <div style="margin-bottom: 10px; display: flex;  flex-direction: row !important; justify-content: space-between;">
-                                                    <p style="font-size: 14px;  letter-spacing: 0.5px; font-weight: bolder; opacity: 0.8;">
-                                                        <img src="" style="width: 15px; height: 15px; margin-right: 10px;" />
-                                                        ${departure_time} — ${arrival_time}
+                                                <div>
+                                                    <p>
+                                                        <img src="https://daisycon.io/images/airline/?width=950&height=670&color=ffffff&iata=${data[w].itineraries[k].segments[j].carrierCode}" style="width: 70px; height: 50px;" />
                                                     </p>
-                                                    <p style="font-size: 14px;  letter-spacing: 0.6px; opacity: 0.5;">
-                                                        Economy
-                                                    </p>
+                                                    <div style="margin-bottom: 10px; display: flex;  flex-direction: row !important; justify-content: space-between;">
+                                                        <p style="font-size: 14px;  letter-spacing: 0.5px; font-weight: bolder; opacity: 0.8;">${departure_time} — ${arrival_time}</p>
+                                                        <p style="font-size: 12px;  letter-spacing: 0.8px; font-weight: bolder; opacity: 0.5;">
+                                                            ${segment_cabin}
+                                                        </p>
+                                                    </div>
                                                 </div>
                                                 <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">
                                                     ${departure_airport} - ${arrival_airport}
@@ -651,7 +665,7 @@ function render_flights(){
                         <div class="main_ticket_info_area_top">
                             <div class="each_ticket_aircraft_logo_area" style="flex-direction: row !important;">
                                 <div><input type="checkbox" /></div>
-                                <div style=""><img src=" https://daisycon.io/images/airline/?width=950&height=855&color=ffffff&iata=${data[w].validatingAirlineCodes[0]}" alt=""/></div>
+                                <div style=""><img src="https://daisycon.io/images/airline/?width=950&height=855&color=ffffff&iata=${data[w].validatingAirlineCodes[0]}" alt=""/></div>
                             </div>
                             <div style="flex-direction: row !important; width: 100%; justify-content: space-between;">
                             <div>
@@ -703,7 +717,7 @@ function render_flights(){
                         ${airline_name}</p>
                         <div class="ticket_item_entitlements_display">
                         Main Cabin
-                        <div class="ticket_item_entitlements_content_display"></div>
+                        <div class="ticket_item_entitlements_content_display arrow_on_bottom"></div>
                         </div>
                         <div  onclick="view_flight_deal(true, '${each_flight_data.replaceAll('"', '*#*$#%')}');" style="font-size: 14px;" class="view_deal_button">Book Flight</div>
                     </div>
