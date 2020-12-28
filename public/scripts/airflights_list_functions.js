@@ -590,7 +590,7 @@ function find_percentage_against_max_value(max_value, first_value, middle_value,
 var flight_stop = "default";//one, zero, default, two_plus, one_plus, zero_and_two_plus
 
 function filter_flights_by_stop(no_stop_option){
-
+    //alert("run");
     show_loader_flight_cards();
 /*if(no_stop_option){
         left_setting_no_stop_option.checked = false;
