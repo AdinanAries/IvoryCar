@@ -55,6 +55,32 @@ function render_flights(){
 
             let limit = 0;
 
+            let no_stop_set = false;
+            let one_stops_set = false;
+            let more_stops_set = false;
+            for(let tp = 0; tp < data.length; tp++){
+
+                for(let stlp = 0; stlp < data[tp].itineraries.length; stlp++){
+
+                    if(data[tp].itineraries[stlp].segments.length === 1 && !no_stop_set){
+                        document.getElementById("left_setting_no_stop_price_tag").innerText = current_currency.sign + " " + site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total);
+                        no_stop_set = true;
+                    }else
+                    if(data[tp].itineraries[stlp].segments.length === 2 && !one_stops_set){
+                        document.getElementById("left_setting_one_stop_price_tag").innerText = current_currency.sign + " " + site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total);
+                        one_stops_set = true;
+                    }else
+                    if(data[tp].itineraries[stlp].segments.length > 2 && !more_stops_set){
+                        document.getElementById("left_setting_many_stops_price_tag").innerText = current_currency.sign + " " + site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total);
+                        more_stops_set = true;
+                    }
+
+                }
+                if(no_stop_set && more_stops_set && one_stops_set){
+                    break;
+                }
+            }
+
             main_loop:
             for(var w = 0; w < data.length; w++){
 
