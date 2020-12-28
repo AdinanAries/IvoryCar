@@ -586,3 +586,147 @@ function find_percentage_against_max_value(max_value, first_value, middle_value,
         return 0;
     }
 }
+
+var flight_stop = "default";//one, zero, default, two_plus, one_plus, zero_and_two_plus
+
+function filter_flights_by_stop(no_stop_option){
+
+    show_loader_flight_cards();
+/*if(no_stop_option){
+        left_setting_no_stop_option.checked = false;
+    }*/
+    if(left_setting_one_stop_option.checked && left_setting_twoplus_stop_option.checked && left_setting_no_stop_option.checked){
+        flight_stop = "default";
+    }else
+    if(left_setting_one_stop_option.checked && left_setting_twoplus_stop_option.checked){
+        flight_stop = "one_plus";
+    }else
+    if(left_setting_no_stop_option.checked && left_setting_twoplus_stop_option.checked){
+        flight_stop = "zero_and_two_plus";
+    }else
+    if(left_setting_no_stop_option.checked && left_setting_one_stop_option.checked){
+        flight_stop = "zero_to_one";
+    }else
+    if(left_setting_no_stop_option.checked){
+        flight_stop = "zero";
+    }else
+    if(left_setting_one_stop_option.checked){
+        flight_stop = "one";
+    }else
+    if(left_setting_twoplus_stop_option.checked){
+        flight_stop = "two_plus";
+    }
+    else{
+        left_setting_no_stop_option.checked = true;
+        flight_stop = "zero";
+    }
+    render_flights();
+}
+
+function show_loader_flight_cards(){
+
+    document.getElementById("main_tickets_section_list_container").innerHTML = "";
+
+    for(let jww = 0; jww < 10; jww++){
+
+        document.getElementById("main_tickets_section_list_container").innerHTML += `<div class="each_ticket_item ticket_item_loader_card">
+            <div style="display: none !important;" class="each_ticket_item_top">
+            <div style="display: flex; flex-direction: row !important;">
+                <div style="margin-right: 15px;" class="loading_card_data_element">
+                <i style="font-size: 19px;" class="fa fa-plane" aria-hidden="true"></i>
+                <i style="margin-left: 20px;" class="fa fa-train" aria-hidden="true"></i>
+                </div>
+                <div>
+                    <p style="margin-bottom: 2px; font-weight: bolder;"  class="loading_card_data_element">Interested in flight + train prices?</p>
+                    <p  class="loading_card_data_element">Beat flight costs by including train connections.</p>
+                </div>
+            </div>
+            <div>
+                <div style="background-color: rgb(160, 160, 160); color: rgb(160, 160, 160); border: none;" class="each_ticket_item_top_show_more_btn loading_card_data_element">Show more</div>
+            </div>
+            </div>
+            <div class="each_ticket_item_main_extra_container">
+            <div class="each_ticket_item_main_extra">
+                <div>
+                <span style="color: rgb(160, 160, 160)"  class="loading_card_data_element">Cheapest</span>
+                <span style="color: rgb(160, 160, 160)"  class="loading_card_data_element">Flight + train</span>
+                <span class="COVID_policy_desktop loading_card_data_element" style="color: rgb(160, 160, 160)">
+                    <i style="color: rgb(160, 160, 160)" class="fa fa-medkit" aria-hidden="true"></i>
+                    COVID-19 policies
+                </span>
+                </div>
+                <div class="each_ticket_item_emogi_and_rating">
+                <span  class="loading_card_data_element" style="font-size: 14px; padding-right: 15px; border-radius: 50px; color: rgb(160, 160, 160); font-weight: bolder;">
+                    <i style="color: rgb(160, 160, 160)" class="fa fa-smile-o" aria-hidden="true"></i> 5
+                </span>
+                <div class="bubble_popup arrow_on_right_side"></div>
+                </div>
+            </div>
+        </div>
+            <div class="each_ticket_item_main">
+            <div class="each_ticket_item_main_left">
+                <div class="main_ticket_info_area">
+                <div class="main_ticket_info_area_top">
+                    <div  class="loading_card_data_element" style="flex-direction: row !important;">
+                    <div></div>
+                    <div style="padding-left: 10px;"></div>
+                    </div>
+                    <div style="flex-direction: row !important; width: 100%; justify-content: space-between;">
+                    <div>
+                        <p  class="loading_card_data_element" style="font-weight: bolder; font-size: 14px; margin-bottom: 5px; color: rgb(160, 160, 160)">
+                        5:58 pm – 11:18 pm</p>
+                        <p  class="loading_card_data_element" style="font-size: 13px; color: rgb(160, 160, 160)">
+                        American Airlines</p>
+                    </div>
+                    <div>
+                        <p  class="loading_card_data_element" style="font-weight: bolder; font-size: 14px; margin-bottom: 5px; color: rgb(160, 160, 160)">1 stop</p>
+                        <p  class="loading_card_data_element" style="font-size: 13px;color: rgb(160, 160, 160)">PHL</p>
+                    </div>
+                    <div>
+                        <p  class="loading_card_data_element" style="font-weight: bolder; font-size: 14px; margin-bottom: 5px; color: rgb(160, 160, 160)">5h 00m</p>
+                        <p  class="loading_card_data_element" style="font-size: 13px;color: rgb(160, 160, 160)">
+                        BDL ‐ JAX</p>
+                    </div>
+                    </div>
+                </div>
+                <div class="main_ticket_info_area_bottom">
+                    <div  class="loading_card_data_element" style="flex-direction: row !important;">
+                    <div></div>
+                    <div style="padding-left: 10px;"></div>
+                    </div>
+                    <div style="flex-direction: row !important; width: 100%; justify-content: space-between;">
+                    <div>
+                        <p  class="loading_card_data_element" style="font-weight: bolder; font-size: 14px; margin-bottom: 5px;color: rgb(160, 160, 160)">
+                        5:58 pm – 11:18 pm</p>
+                        <p  class="loading_card_data_element" style="font-size: 13px; color: rgb(160, 160, 160)">
+                        American Airlines</p>
+                    </div>
+                    <div>
+                        <p  class="loading_card_data_element" style="font-weight: bolder; font-size: 14px; margin-bottom: 5px; color: rgb(160, 160, 160)">1 stop</p>
+                        <p  class="loading_card_data_element" style="font-size: 13px; color: rgb(160, 160, 160)">CLT</p>
+                    </div>
+                    <div>
+                        <p  class="loading_card_data_element" style="font-weight: bolder; font-size: 14px; margin-bottom: 5px;color: rgb(160, 160, 160)">5h 15m</p>
+                        <p  class="loading_card_data_element" style="font-size: 13px;color: rgb(160, 160, 160)">
+                        JAX ‐ BDL</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <p class="tickets_main_additional_text loading_card_data_element" style="color: rgb(160, 160, 160)">Operated by Psa Airlines AS American Eagle, Republic Airways AS American Eagle</p>
+            </div>
+            <div class="each_ticket_item_main_right">
+                <p class="ticket_item_price_display loading_card_data_element" style="color: rgb(160, 160, 160);">$125</p>
+                <p  class="loading_card_data_element" style="font-size: 12px; margin-bottom: 5px; font-weight: bolder;color: rgb(160, 160, 160)">
+                American Airlines</p>
+                <div class="ticket_item_entitlements_display loading_card_data_element" style="color: rgb(160, 160, 160);">
+                Main Cabin
+                <div class="ticket_item_entitlements_content_display"></div>
+                </div>
+                <div style="font-size: 14px;" class="view_deal_button loading_card_data_element">Book Flight</div>
+            </div>
+            </div>
+        </div>`;
+
+    }
+}

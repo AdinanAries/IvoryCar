@@ -1,6 +1,8 @@
 /*console.log(fligh_search_data);
 console.log(airline_codes);*/
 
+
+
 var price_metrics_min = 0;
 var price_metrics_max = 0;
 var price_metrics_first = 0;
@@ -52,7 +54,68 @@ function render_flights(){
             document.getElementById("main_tickets_section_list_container").innerHTML = "";
 
             let limit = 0;
+
+            main_loop:
             for(var w = 0; w < data.length; w++){
+
+                //air flight stop filters
+                if(flight_stop === "zero"){
+
+                    for(let stlp = 0; stlp < data[w].itineraries.length; stlp++){
+
+                        if(data[w].itineraries[stlp].segments.length > 1){
+                                continue main_loop
+                        }
+                    }
+
+                }else
+                if(flight_stop === "one"){
+
+                    for(let stlp = 0; stlp < data[w].itineraries.length; stlp++){
+
+                        if(data[w].itineraries[stlp].segments.length !== 2){
+                                continue main_loop
+                        }
+                    }
+
+                }else
+                if(flight_stop === "one_plus"){
+
+                    for(let stlp = 0; stlp < data[w].itineraries.length; stlp++){
+
+                        if(data[w].itineraries[stlp].segments.length < 2){
+                                continue main_loop
+                        }
+                    }
+
+                }else
+                if(flight_stop === "two_plus"){
+
+                    for(let stlp = 0; stlp < data[w].itineraries.length; stlp++){
+
+                        if(data[w].itineraries[stlp].segments.length < 3){
+                                continue main_loop
+                        }
+                    }
+
+                }else
+                if(flight_stop === "zero_to_one"){
+                    for(let stlp = 0; stlp < data[w].itineraries.length; stlp++){
+
+                        if(data[w].itineraries[stlp].segments.length > 2){
+                                continue main_loop
+                        }
+                    }
+                }else
+                if(flight_stop === "zero_and_two_plus"){
+                    for(let stlp = 0; stlp < data[w].itineraries.length; stlp++){
+
+                        if(data[w].itineraries[stlp].segments.length === 2){
+                                continue main_loop
+                        }
+                    }
+                }
+                
 
                 let each_flight_data = JSON.stringify(data[w]);
 

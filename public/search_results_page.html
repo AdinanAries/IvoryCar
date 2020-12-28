@@ -1145,23 +1145,23 @@
               </div>
               <div id="main_stops_settings_container" class="site_lower_left_section_last_part_settings">
                 <div class="each_site_lower_left_section_last_part_setting">
-                  <div class="each_site_lower_left_section_last_part_setting_left">
-                    <input type="checkbox"/> 
-                    <span>No Stop</span>
+                  <div onclick="filter_flights_by_stop(false);" class="each_site_lower_left_section_last_part_setting_left">
+                    <input id="left_setting_no_stop_option" type="checkbox" checked="true"/> 
+                    <label for="left_setting_no_stop_option"><span>No Stop</span></label>
                   </div>
                   <p>$14,946</p>
                 </div>
                 <div class="each_site_lower_left_section_last_part_setting">
-                  <div class="each_site_lower_left_section_last_part_setting_left">
-                    <input type="checkbox" checked="true"/> 
-                    <span>1 Stop</span>
+                  <div onclick="filter_flights_by_stop(true);" class="each_site_lower_left_section_last_part_setting_left">
+                    <input id="left_setting_one_stop_option" type="checkbox" checked="true"/> 
+                    <label for="left_setting_one_stop_option"><span>1 Stop</span></label>
                   </div>
                   <p>$346</p>
                 </div>
                 <div class="each_site_lower_left_section_last_part_setting">
-                  <div class="each_site_lower_left_section_last_part_setting_left">
-                    <input type="checkbox" checked="true"/> 
-                    <span>2+ Stops</span>
+                  <div onclick="filter_flights_by_stop(true);" class="each_site_lower_left_section_last_part_setting_left">
+                    <input id="left_setting_twoplus_stop_option" type="checkbox" checked="true"/> 
+                    <label for="left_setting_twoplus_stop_option"><span>2+ Stops</span></label>
                   </div>
                   <p>$253</p>
                 </div>
