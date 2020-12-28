@@ -53,11 +53,11 @@ function render_flights(){
                 custom_tickets_departure_duration = data[0].itineraries[0].duration.substring(2, data[0].itineraries[0].duration.length);
                 custom_tickets_departure_duration = custom_tickets_departure_duration.split("H");
                 custom_tickets_departure_duration = custom_tickets_departure_duration[0].toLowerCase() + "h " + custom_tickets_departure_duration[1].toLowerCase();
-            }
-            document.getElementById("ticks_top_custom_categories_price").innerHTML = current_currency.sign + " " + (custom_price.includes("k") ? 
-            custom_price : parseFloat(custom_price.replaceAll(",","")).toFixed(0));
-            document.getElementById("ticks_top_custom_categories_time").innerHTML = custom_tickets_departure_duration;
             
+                document.getElementById("ticks_top_custom_categories_price").innerHTML = current_currency.sign + " " + (custom_price.includes("k") ? 
+                custom_price : parseFloat(custom_price.replaceAll(",","")).toFixed(0));
+                document.getElementById("ticks_top_custom_categories_time").innerHTML = custom_tickets_departure_duration;
+            }
             //console.log(fligh_search_data);
             console.log(data);
 
