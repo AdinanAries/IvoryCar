@@ -2,6 +2,8 @@
 console.log(airline_codes);*/
 
 var previous_search_adults;
+var no_fastest_travel_times = true;
+var no_custom_travels = true;
 
 var price_metrics_min = 0;
 var price_metrics_max = 0;
@@ -88,6 +90,8 @@ function render_flights(){
                 for(let stlp = 0; stlp < data[tp].itineraries.length; stlp++){
 
                     if(data[tp].itineraries[stlp].segments.length === 1 && !no_stop_set){
+
+                        no_fastest_travel_times = false;
                         
                         document.getElementById("left_setting_no_stop_price_tag").innerHTML = current_currency.sign + " " + addCommas(parseFloat(site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total).replaceAll(",","")).toFixed(0));
                         no_stop_set = true;
@@ -115,6 +119,7 @@ function render_flights(){
 
                     }else
                     if(data[tp].itineraries[stlp].segments.length === 2 && !one_stops_set){
+                        
                         document.getElementById("left_setting_one_stop_price_tag").innerHTML = current_currency.sign + " " + addCommas(parseFloat(site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total).replaceAll(",","")).toFixed(0));
                         one_stops_set = true;
 
@@ -171,6 +176,23 @@ function render_flights(){
                 if(no_stop_set && more_stops_set && one_stops_set){
                     break;
                 }
+            }
+
+            if(no_fastest_travel_times && flight_stop === "zero"){
+                document.getElementById("main_tickets_section_list_container").innerHTML =
+                        `
+                            <div style=" background-color: white; border-radius: 4px; margin: 15px 0;
+                                padding: 50px 0; animation: display_anim 1000ms ease-out;">
+                                <p style="text-align: center;">
+                                    <img src="/images/search_not_found.png" style="width: 60px; height: 60px;" alt=""/>
+                                </p>
+                                <p style="color: #00284e; font-weight: bolder; font-size: 13px; text-align: center;">
+                                    Oops! nothing found for this search.
+                                </p>
+                            </div>
+        
+                        `;
+               
             }
 
             document.getElementById("ticks_top_fastest_categories_price").innerHTML = current_currency.sign + " " + (fastest_price.includes("k") ? 
