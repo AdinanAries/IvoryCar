@@ -1,7 +1,7 @@
 /*console.log(fligh_search_data);
 console.log(airline_codes);*/
 
-
+var previous_search_adults;
 
 var price_metrics_min = 0;
 var price_metrics_max = 0;
@@ -33,7 +33,8 @@ function render_flights(){
             custom_tickets_departure_duration = custom_tickets_departure_duration.split("H");
             custom_tickets_departure_duration = custom_tickets_departure_duration[0].toLowerCase() + "h " + custom_tickets_departure_duration[1].toLowerCase();
 
-            document.getElementById("ticks_top_custom_categories_price").innerText = current_currency.sign + " " + parseFloat(custom_price.replaceAll(",","")).toFixed(0);;
+            document.getElementById("ticks_top_custom_categories_price").innerText = current_currency.sign + " " + (custom_price.includes("k") ? 
+            custom_price : parseFloat(custom_price.replaceAll(",","")).toFixed(0));
             document.getElementById("ticks_top_custom_categories_time").innerText = custom_tickets_departure_duration;
             
             //console.log(fligh_search_data);
@@ -121,7 +122,7 @@ function render_flights(){
                         let aminute = data[tp].itineraries[0].duration.substring(2, data[tp].itineraries[0].duration.length).split("H")[1].substring(0, (fastest_minutes_number.length - 1));
                         
                         if((parseInt(ahour) * 60) + parseInt(aminute) < fastest_minutes_number){
-                            
+
                             fastest_minutes_number = (parseInt(ahour) * 60) + parseInt(aminute);
                             
                             fastest_price = site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total);
@@ -172,7 +173,8 @@ function render_flights(){
                 }
             }
 
-            document.getElementById("ticks_top_fastest_categories_price").innerText = current_currency.sign + " " + parseFloat(fastest_price.replaceAll(",","")).toFixed(0);
+            document.getElementById("ticks_top_fastest_categories_price").innerText = current_currency.sign + " " + (fastest_price.includes("k") ? 
+            fastest_price : parseFloat(fastest_price.replaceAll(",","")).toFixed(0));
             document.getElementById("ticks_top_fastest_categories_time").innerText = fastest_tickets_departure_duration;
 
             main_loop:
@@ -916,6 +918,7 @@ function render_flights(){
             }
 
             //resetting adults
+            previous_search_adults = fligh_search_data.number_of_adults;
             fligh_search_data.number_of_adults = default_adults;
             window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
 

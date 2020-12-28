@@ -9,7 +9,6 @@ var future_date = new Date(todays_date.setMonth(todays_date.getMonth() + 2));
 var formatted_future_date = future_date.getFullYear() + "-" + ( future_date.getMonth() + 1 ) + "-" + future_date.getDate();
 var default_adults = 1;
 
-
 //Global data
 //data to be forwarded to server
 var fligh_search_data = {};

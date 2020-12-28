@@ -594,6 +594,11 @@ function find_percentage_against_max_value(max_value, first_value, middle_value,
 var flight_stop = "default";//one, zero, default, two_plus, one_plus, zero_and_two_plus
 
 function filter_flights_by_stop(){
+
+    
+    fligh_search_data.number_of_adults = previous_search_adults;
+    window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
+
     //alert("run");
     show_loader_flight_cards();
 
