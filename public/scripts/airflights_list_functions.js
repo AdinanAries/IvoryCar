@@ -1,4 +1,5 @@
 
+
 //this function show each flight ticket main details
 function show_flight_ticket_item_main_details_set(number){
 
@@ -633,7 +634,9 @@ function filter_flights_by_stop(){
 
 
 function show_only_fastest_travel_times(){
-
+    
+    show_fastest_travel_times_clicked = true;
+    
     left_setting_no_stop_option.checked = true;
     left_setting_one_stop_option.checked = false;
     left_setting_twoplus_stop_option.checked = false;

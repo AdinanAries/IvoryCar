@@ -3,6 +3,8 @@ console.log(airline_codes);*/
 
 var previous_search_adults;
 var no_fastest_travel_times = true;
+var no_fastest_travel_times_on_one_trip = true;
+var show_fastest_travel_times_clicked = false;
 var no_custom_travels = true;
 
 var price_metrics_min = 0;
@@ -119,6 +121,8 @@ function render_flights(){
 
                     }else
                     if(data[tp].itineraries[stlp].segments.length === 2 && !one_stops_set){
+
+                        no_fastest_travel_times_on_one_trip = false;
                         
                         document.getElementById("left_setting_one_stop_price_tag").innerHTML = current_currency.sign + " " + addCommas(parseFloat(site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total).replaceAll(",","")).toFixed(0));
                         one_stops_set = true;
@@ -177,7 +181,27 @@ function render_flights(){
                     break;
                 }
             }
+            
+            if(no_fastest_travel_times && flight_stop === "zero" && show_fastest_travel_times_clicked){
 
+                left_setting_no_stop_option.checked = false;
+                left_setting_one_stop_option.checked = true;
+                left_setting_twoplus_stop_option.checked = false;
+
+                filter_flights_by_stop();
+
+                show_fastest_travel_times_clicked = false;
+                
+            }else
+            if(no_fastest_travel_times && no_fastest_travel_times_on_one_trip && flight_stop === "one" && show_fastest_travel_times_clicked){
+
+                left_setting_no_stop_option.checked = false;
+                left_setting_one_stop_option.checked = true;
+                left_setting_twoplus_stop_option.checked = true;
+
+                filter_flights_by_stop();
+
+            }else
             if(no_fastest_travel_times && flight_stop === "zero"){
                 document.getElementById("main_tickets_section_list_container").innerHTML =
                         `
