@@ -25,18 +25,35 @@ function render_flights(){
         dataType: "json",
         success: (data)=>{
 
-            let custom_price = site_currency_coverter(data[0].price.currency, current_currency.currency, data[0].price.total);
-            
+            let custom_price = "";
+            if(data[0]){
+                custom_price = site_currency_coverter(data[0].price.currency, current_currency.currency, data[0].price.total);
+            }
+
+            if(parseFloat(custom_price.replaceAll(",","")) >= 100000 && (parseFloat(custom_price.replaceAll(",","")) % 10) === 0){
+                custom_price = custom_price.substring(0,3) + "k";
+            }else
+            if(parseFloat(custom_price.replaceAll(",","")) >= 100000 && (parseFloat(custom_price.replaceAll(",","")) % 10) > 0){
+                custom_price = custom_price.substring(0,3) + "k+";
+            }else
+            if(parseFloat(custom_price.replaceAll(",","")) >= 10000 && (parseFloat(custom_price.replaceAll(",","")) % 10) === 0){
+                custom_price = custom_price.substring(0,2) + "k";
+            }else
+            if(parseFloat(custom_price.replaceAll(",","")) >= 10000 && (parseFloat(custom_price.replaceAll(",","")) % 10) > 0){
+                custom_price = custom_price.substring(0,2) + "k+";
+            }else
             if(parseFloat(custom_price.replaceAll(",","")) >= 1000 && (parseFloat(custom_price.replaceAll(",","")) % 10) === 0){
                 custom_price = custom_price.substring(0,1) + "k";
             }else if(parseFloat(custom_price.replaceAll(",","")) >= 1000 && (parseFloat(custom_price.replaceAll(",","")) % 10) > 0){
                 custom_price = custom_price.substring(0,1) + "k+";
             }
 
-            let custom_tickets_departure_duration = data[0].itineraries[0].duration.substring(2, data[0].itineraries[0].duration.length);
-            custom_tickets_departure_duration = custom_tickets_departure_duration.split("H");
-            custom_tickets_departure_duration = custom_tickets_departure_duration[0].toLowerCase() + "h " + custom_tickets_departure_duration[1].toLowerCase();
-
+            let custom_tickets_departure_duration = "";
+            if(data[0]){
+                custom_tickets_departure_duration = data[0].itineraries[0].duration.substring(2, data[0].itineraries[0].duration.length);
+                custom_tickets_departure_duration = custom_tickets_departure_duration.split("H");
+                custom_tickets_departure_duration = custom_tickets_departure_duration[0].toLowerCase() + "h " + custom_tickets_departure_duration[1].toLowerCase();
+            }
             document.getElementById("ticks_top_custom_categories_price").innerHTML = current_currency.sign + " " + (custom_price.includes("k") ? 
             custom_price : parseFloat(custom_price.replaceAll(",","")).toFixed(0));
             document.getElementById("ticks_top_custom_categories_time").innerHTML = custom_tickets_departure_duration;
@@ -106,7 +123,19 @@ function render_flights(){
                             fastest_minutes_number = (parseInt(ahour) * 60) + parseInt(aminute);
                             
                             fastest_price = site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total);
-                                
+                            
+                            if(parseFloat(fastest_price.replaceAll(",","")) >= 100000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
+                                fastest_price = fastest_price.substring(0,3) + "k";
+                            }else
+                            if(parseFloat(fastest_price.replaceAll(",","")) >= 100000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
+                                fastest_price = fastest_price.substring(0,3) + "k+";
+                            }else
+                            if(parseFloat(fastest_price.replaceAll(",","")) >= 10000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
+                                fastest_price = fastest_price.substring(0,2) + "k";
+                            }else
+                            if(parseFloat(fastest_price.replaceAll(",","")) >= 10000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
+                                fastest_price = fastest_price.substring(0,2) + "k+";
+                            }else
                             if(parseFloat(fastest_price.replaceAll(",","")) >= 1000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
                                 fastest_price = fastest_price.substring(0,1) + "k";
                             }else if(parseFloat(fastest_price.replaceAll(",","")) >= 1000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
@@ -135,7 +164,19 @@ function render_flights(){
                             fastest_minutes_number = (parseInt(ahour) * 60) + parseInt(aminute);
                             
                             fastest_price = site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total);
-                                
+                            
+                            if(parseFloat(fastest_price.replaceAll(",","")) >= 100000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
+                                fastest_price = fastest_price.substring(0,3) + "k";
+                            }else
+                            if(parseFloat(fastest_price.replaceAll(",","")) >= 100000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
+                                fastest_price = fastest_price.substring(0,3) + "k+";
+                            }else
+                            if(parseFloat(fastest_price.replaceAll(",","")) >= 10000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
+                                fastest_price = fastest_price.substring(0,2) + "k";
+                            }else
+                            if(parseFloat(fastest_price.replaceAll(",","")) >= 10000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
+                                fastest_price = fastest_price.substring(0,2) + "k+";
+                            }else
                             if(parseFloat(fastest_price.replaceAll(",","")) >= 1000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
                                 fastest_price = fastest_price.substring(0,1) + "k";
                             }else if(parseFloat(fastest_price.replaceAll(",","")) >= 1000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
@@ -162,6 +203,18 @@ function render_flights(){
 
                             fastest_price = site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total);
 
+                            if(parseFloat(fastest_price.replaceAll(",","")) >= 100000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
+                                fastest_price = fastest_price.substring(0,3) + "k";
+                            }else
+                            if(parseFloat(fastest_price.replaceAll(",","")) >= 100000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
+                                fastest_price = fastest_price.substring(0,3) + "k+";
+                            }else
+                            if(parseFloat(fastest_price.replaceAll(",","")) >= 10000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
+                                fastest_price = fastest_price.substring(0,2) + "k";
+                            }else
+                            if(parseFloat(fastest_price.replaceAll(",","")) >= 10000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
+                                fastest_price = fastest_price.substring(0,2) + "k+";
+                            }else
                             if(parseFloat(fastest_price.replaceAll(",","")) >= 1000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
                                 fastest_price = fastest_price.substring(0,1) + "k";
                             }else if(parseFloat(fastest_price.replaceAll(",","")) >= 1000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
