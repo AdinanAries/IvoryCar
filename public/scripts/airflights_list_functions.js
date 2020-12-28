@@ -34,6 +34,8 @@ function getBestFlights(){
     site_lower_section_tabs_best_option_content.style.borderColor = "rgb(112, 2, 2)";
     site_lower_section_tabs_cheapest_option_content.style.borderColor = "#ad310b";
 
+    show_only_fastest_travel_times();
+
 }
 
 function getCheapFlights(){
@@ -44,6 +46,8 @@ function getCheapFlights(){
 
     site_lower_section_tabs_cheapest_option_content.style.borderColor = "rgb(112, 2, 2)";
     site_lower_section_tabs_best_option_content.style.borderColor = "#a32600";
+
+    show_only_custom_travel_times();
 
 }
 
@@ -589,12 +593,10 @@ function find_percentage_against_max_value(max_value, first_value, middle_value,
 
 var flight_stop = "default";//one, zero, default, two_plus, one_plus, zero_and_two_plus
 
-function filter_flights_by_stop(no_stop_option){
+function filter_flights_by_stop(){
     //alert("run");
     show_loader_flight_cards();
-/*if(no_stop_option){
-        left_setting_no_stop_option.checked = false;
-    }*/
+
     if(left_setting_one_stop_option.checked && left_setting_twoplus_stop_option.checked && left_setting_no_stop_option.checked){
         flight_stop = "default";
     }else
@@ -621,6 +623,27 @@ function filter_flights_by_stop(no_stop_option){
         flight_stop = "zero";
     }
     render_flights();
+}
+
+
+function show_only_fastest_travel_times(){
+
+    left_setting_no_stop_option.checked = true;
+    left_setting_one_stop_option.checked = false;
+    left_setting_twoplus_stop_option.checked = false;
+
+    filter_flights_by_stop();
+
+}
+
+function show_only_custom_travel_times(){
+
+    left_setting_no_stop_option.checked = true;
+    left_setting_one_stop_option.checked = true;
+    left_setting_twoplus_stop_option.checked = true;
+
+    filter_flights_by_stop();
+
 }
 
 function show_loader_flight_cards(){

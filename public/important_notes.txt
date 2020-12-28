@@ -1,0 +1,3 @@
+1. Pre-scanning of API data will help to get different pieces of information from the entire data in order to augment the rendering 
+of UI views and to facilitate conditions that affect what is rendered to the client. This can be achieved by including loops
+that do the preprocessing before running the main loop to render data views or html.
