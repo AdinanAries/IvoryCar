@@ -33,9 +33,9 @@ function render_flights(){
             custom_tickets_departure_duration = custom_tickets_departure_duration.split("H");
             custom_tickets_departure_duration = custom_tickets_departure_duration[0].toLowerCase() + "h " + custom_tickets_departure_duration[1].toLowerCase();
 
-            document.getElementById("ticks_top_custom_categories_price").innerText = current_currency.sign + " " + (custom_price.includes("k") ? 
+            document.getElementById("ticks_top_custom_categories_price").innerHTML = current_currency.sign + " " + (custom_price.includes("k") ? 
             custom_price : parseFloat(custom_price.replaceAll(",","")).toFixed(0));
-            document.getElementById("ticks_top_custom_categories_time").innerText = custom_tickets_departure_duration;
+            document.getElementById("ticks_top_custom_categories_time").innerHTML = custom_tickets_departure_duration;
             
             //console.log(fligh_search_data);
             console.log(data);
@@ -80,7 +80,7 @@ function render_flights(){
             let fastest_minutes_number = data[0].itineraries[0].duration.substring(2, data[0].itineraries[0].duration.length);
             fastest_minutes_number = fastest_minutes_number.split("H");
             fastest_minutes_number = (parseInt(fastest_minutes_number[0]) * 60) + fastest_minutes_number[1].substring(0, (fastest_minutes_number.length - 1));
-            console.log("initial",fastest_minutes_number);
+            //console.log("initial",fastest_minutes_number);
             let fastest_tickets_departure_duration = "";
 
             for(let tp = 0; tp < data.length; tp++){
@@ -89,7 +89,7 @@ function render_flights(){
 
                     if(data[tp].itineraries[stlp].segments.length === 1 && !no_stop_set){
                         
-                        document.getElementById("left_setting_no_stop_price_tag").innerText = current_currency.sign + " " + addCommas(parseFloat(site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total).replaceAll(",","")).toFixed(0));
+                        document.getElementById("left_setting_no_stop_price_tag").innerHTML = current_currency.sign + " " + addCommas(parseFloat(site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total).replaceAll(",","")).toFixed(0));
                         no_stop_set = true;
 
                         let ahour = data[tp].itineraries[0].duration.substring(2, data[tp].itineraries[0].duration.length).split("H")[0];
@@ -115,7 +115,7 @@ function render_flights(){
 
                     }else
                     if(data[tp].itineraries[stlp].segments.length === 2 && !one_stops_set){
-                        document.getElementById("left_setting_one_stop_price_tag").innerText = current_currency.sign + " " + addCommas(parseFloat(site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total).replaceAll(",","")).toFixed(0));
+                        document.getElementById("left_setting_one_stop_price_tag").innerHTML = current_currency.sign + " " + addCommas(parseFloat(site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total).replaceAll(",","")).toFixed(0));
                         one_stops_set = true;
 
                         let ahour = data[tp].itineraries[0].duration.substring(2, data[tp].itineraries[0].duration.length).split("H")[0];
@@ -141,7 +141,7 @@ function render_flights(){
 
                     }else
                     if(data[tp].itineraries[stlp].segments.length > 2 && !more_stops_set){
-                        document.getElementById("left_setting_many_stops_price_tag").innerText = current_currency.sign + " " + addCommas(parseFloat(site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total).replaceAll(",","")).toFixed(0));
+                        document.getElementById("left_setting_many_stops_price_tag").innerHTML = current_currency.sign + " " + addCommas(parseFloat(site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total).replaceAll(",","")).toFixed(0));
                         more_stops_set = true;
 
                         let ahour = data[tp].itineraries[0].duration.substring(2, data[tp].itineraries[0].duration.length).split("H")[0];
@@ -173,9 +173,9 @@ function render_flights(){
                 }
             }
 
-            document.getElementById("ticks_top_fastest_categories_price").innerText = current_currency.sign + " " + (fastest_price.includes("k") ? 
+            document.getElementById("ticks_top_fastest_categories_price").innerHTML = current_currency.sign + " " + (fastest_price.includes("k") ? 
             fastest_price : parseFloat(fastest_price.replaceAll(",","")).toFixed(0));
-            document.getElementById("ticks_top_fastest_categories_time").innerText = fastest_tickets_departure_duration;
+            document.getElementById("ticks_top_fastest_categories_time").innerHTML = fastest_tickets_departure_duration;
 
             main_loop:
             for(var w = 0; w < data.length; w++){
@@ -256,6 +256,7 @@ function render_flights(){
                     airline_name = airline_name[0].name;
                 }else{
                     console.log(data[w].validatingAirlineCodes[0]);
+                    airline_name = "Airline: " + data[w].validatingAirlineCodes[0];
                 }
 
                 let departure_segments = "trip departure stops not available";
@@ -355,6 +356,8 @@ function render_flights(){
                                 segment_airline = airline_codes.filter(each => each.code.toLowerCase() === data[w].itineraries[k].segments[j].carrierCode.toLowerCase())[0];
                                 if(segment_airline){
                                     segment_airline = segment_airline.name;
+                                }else{
+                                    segment_airline = "airline: " + data[w].itineraries[k].segments[j].carrierCode;
                                 }
                             }
 
