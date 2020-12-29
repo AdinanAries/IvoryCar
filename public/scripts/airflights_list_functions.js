@@ -62,6 +62,20 @@ function getLeastC02Flights(){
     site_lower_section_tabs_cheapest_option_content.style.borderColor = "#a32600";
     site_lower_section_tabs_best_option_content.style.borderColor = "#ad310b";
 
+    document.getElementById("main_tickets_section_list_container").innerHTML =
+                    `
+                        <div style=" background-color: white; border-radius: 4px; margin: 15px 0;
+                            padding: 50px 0; animation: display_anim 1000ms ease-out;">
+                            <p style="text-align: center;">
+                                <img src="/images/search_not_found.png" style="width: 60px; height: 60px;" alt=""/>
+                            </p>
+                            <p style="color: #00284e; font-weight: bolder; font-size: 13px; text-align: center;">
+                                Oops! nothing found for this search.
+                            </p>
+                        </div>
+
+                    `;
+
 }
 
 function show_flight_ticket_added_policies_content(number){
@@ -636,7 +650,7 @@ function filter_flights_by_stop(){
 function show_only_fastest_travel_times(){
     
     show_fastest_travel_times_clicked = true;
-    
+
     left_setting_no_stop_option.checked = true;
     left_setting_one_stop_option.checked = false;
     left_setting_twoplus_stop_option.checked = false;

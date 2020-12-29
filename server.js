@@ -163,6 +163,7 @@ app.get('/airportSearch/', function(req,res,next){
       res.json(response.data); 
       console.log(response.data.iataCode); 
     }).catch(function(error){ 
+      res.json([]); 
       console.log("error"); 
       console.log(error.response); 
     }); 
@@ -190,8 +191,8 @@ app.post('/searchflight/', (req, res, next)=>{
     res.send(response.data);
 
   }).catch(function(responseError){
-
-    console.log(responseError.code);
+    res.json([]);
+    console.log(responseError);
 
   });
 
@@ -298,7 +299,7 @@ app.post('/flightpriceanalysis/', (req, res, next)=>{
     //console.log(result.data);
 
   }).catch(err =>{
-
+    res.send([]);
     console.log(err);
 
   }).then(()=>{

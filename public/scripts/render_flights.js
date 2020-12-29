@@ -1,7 +1,7 @@
 /*console.log(fligh_search_data);
 console.log(airline_codes);*/
 
-var previous_search_adults;
+var previous_search_adults = 1;
 var no_fastest_travel_times = true;
 var no_fastest_travel_times_on_one_trip = true;
 var show_fastest_travel_times_clicked = false;
@@ -28,6 +28,8 @@ function render_flights(){
             let custom_price = "";
             if(data[0]){
                 custom_price = site_currency_coverter(data[0].price.currency, current_currency.currency, data[0].price.total);
+
+                document.getElementById("left_settings_total_number_of_found_flights").innerHTML = `found <span style="font-size: 14px; color: rgb(235, 86, 0);">${data.length}</span> total flights`;
             }
 
             if(parseFloat(custom_price.replaceAll(",","")) >= 100000 && (parseFloat(custom_price.replaceAll(",","")) % 10) === 0){
@@ -929,8 +931,9 @@ function render_flights(){
                                     <div style="margin-right: 10px; margin-top: 20px;">
                                         <p style="opacity: 0.8; font-weight: bolder; font-size: 14px;">
                                         <i style="margin-right: 5px;" aria-hidden="true" class="fa fa-ticket"></i>
-                                        Booking site</p>
+                                        Sold by</p>
                                         <p style="opacity: 0.7; font-size: 14px; margin-top: 5px;">${airline_name}</p>
+                                        <img style="margin: 0; width: 70px; height: 55px;" src="https://daisycon.io/images/airline/?width=950&height=855&color=ffffff&iata=${data[w].validatingAirlineCodes[0]}" alt=""/>
                                     </div>
                                     <div style="margin-right: 10px; margin-top: 20px;">
                                         <p style="opacity: 0.8; font-weight: bolder; font-size: 14px;">
@@ -942,7 +945,7 @@ function render_flights(){
                                         <p style="opacity: 0.8; font-weight: bolder; font-size: 14px;">
                                         Total Price</p>
                                         <p style="opacity: 0.7; font-size: 14px; margin-top: 5px;">${current_currency.sign} ${flight_price}</p>
-                                        <div onclick="view_flight_deal(true, ${data[w]});" style="min-width: 60px; text-align: center; margin: 10px 0; padding: 10px; font-size: 12px; background-color: #184e80; color: white; border-radius: 4px;">
+                                        <div onclick="view_flight_deal(true, '${each_flight_data.replaceAll('"', '*#*$#%')}');" style="cursor: pointer; min-width: 60px; text-align: center; margin: 10px 0; padding: 10px; font-size: 12px; background-color: #184e80; color: white; border-radius: 4px;">
                                             Book Flight
                                         </div>
                                     </div>
