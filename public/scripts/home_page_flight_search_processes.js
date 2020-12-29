@@ -673,6 +673,17 @@ document.getElementById("airports_exchange_search_fields_values_icon").addEventL
 
 });
 
+function add_all_airlines(){
+    airline_codes.forEach(each => {
+      document.getElementById("book_flights_filter_airlines_list").innerHTML +=
+      `
+        <option value="${each.code}">${each.name}</option>
+      `
+    })
+    
+ }
+ add_all_airlines();
+
 /*from_where_search_input_fld.addEventListener('focus', ()=>{
 
     if($(window).width() < 700){
