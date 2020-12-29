@@ -611,7 +611,6 @@ var flight_stop = "default";//one, zero, default, two_plus, one_plus, zero_and_t
 
 function filter_flights_by_stop(){
 
-    
     fligh_search_data.number_of_adults = previous_search_adults;
     window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
 
@@ -648,8 +647,9 @@ function filter_flights_by_stop(){
 
 
 function show_only_fastest_travel_times(){
-    
+
     show_fastest_travel_times_clicked = true;
+    done_skipping = false;
 
     left_setting_no_stop_option.checked = true;
     left_setting_one_stop_option.checked = false;
