@@ -1,4 +1,6 @@
-
+var show_fastest_travel_times_clicked = false;
+var done_skipping = false;
+var show_cheapest_travels_clicked = false;
 
 //this function show each flight ticket main details
 function show_flight_ticket_item_main_details_set(number){
@@ -55,6 +57,10 @@ function getCheapFlights(){
 
 function getLeastC02Flights(){
 
+    show_fastest_travel_times_clicked = false;
+    done_skipping = false;
+    show_cheapest_travels_clicked = true;
+
     site_lower_section_tabs_cheapest_option.classList.remove("active");
     site_lower_section_tabs_LeastC02_option.classList.add("active");
     site_lower_section_tabs_best_option.classList.remove("active");
@@ -62,7 +68,13 @@ function getLeastC02Flights(){
     site_lower_section_tabs_cheapest_option_content.style.borderColor = "#a32600";
     site_lower_section_tabs_best_option_content.style.borderColor = "#ad310b";
 
-    document.getElementById("main_tickets_section_list_container").innerHTML =
+    left_setting_no_stop_option.checked = true;
+    left_setting_one_stop_option.checked = true;
+    left_setting_twoplus_stop_option.checked = true;
+
+    filter_flights_by_stop();
+
+    /*document.getElementById("main_tickets_section_list_container").innerHTML =
                     `
                         <div style=" background-color: white; border-radius: 4px; margin: 15px 0;
                             padding: 50px 0; animation: display_anim 1000ms ease-out;">
@@ -74,7 +86,7 @@ function getLeastC02Flights(){
                             </p>
                         </div>
 
-                    `;
+                    `;*/
 
 }
 
@@ -645,11 +657,19 @@ function filter_flights_by_stop(){
     render_flights();
 }
 
+function flights_filter_func_with_cleanup(){
+
+    done_skipping = false;
+    show_fastest_travel_times_clicked = false;
+    show_cheapest_travels_clicked = false;
+
+    filter_flights_by_stop()
+
+};
 
 function show_only_fastest_travel_times(){
 
     show_fastest_travel_times_clicked = true;
-    done_skipping = false;
 
     left_setting_no_stop_option.checked = true;
     left_setting_one_stop_option.checked = false;
@@ -665,7 +685,7 @@ function show_only_custom_travel_times(){
     left_setting_one_stop_option.checked = true;
     left_setting_twoplus_stop_option.checked = true;
 
-    filter_flights_by_stop();
+    flights_filter_func_with_cleanup();
 
 }
 

@@ -194,10 +194,10 @@ function set_flight_class_for_search(f_class_param){
 
 
 function add_person_to_flight_search(person_type){
-    if(flight_search_number_of_people.total_number_of_people >= 15){
+    if(flight_search_number_of_people.total_number_of_people >= 9){
         document.getElementById("number_of_people_indicator").style.display = "block";
         document.getElementById("number_of_people_indicator").innerHTML = 
-        "<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> only maximum of 15 people allowed";
+        "<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> only maximum of 9 people allowed";
     }
     else{
         if(person_type === "Adult"){

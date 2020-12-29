@@ -4,8 +4,7 @@ console.log(airline_codes);*/
 var previous_search_adults = 1;
 var no_fastest_travel_times = true;
 var no_fastest_travel_times_on_one_trip = true;
-var show_fastest_travel_times_clicked = false;
-var done_skipping = false;
+
 var no_custom_travels = true;
 
 var price_metrics_min = 0;
@@ -102,7 +101,9 @@ function render_flights(){
             let limit = 0;
 
             let fastest_price = "";
+            let cheapest_price = "";
             let fastest_minutes_number = data[0].itineraries[0].duration.substring(2, data[0].itineraries[0].duration.length);
+            let current_cheapest_flights_cost = data[0].price.total;
             fastest_minutes_number = fastest_minutes_number.split("H");
             fastest_minutes_number = (parseInt(fastest_minutes_number[0]) * 60) + fastest_minutes_number[1].substring(0, (fastest_minutes_number.length - 1));
             
@@ -111,7 +112,9 @@ function render_flights(){
             let left_setting_many_stops_price = 0;
 
             let fastest_tickets_departure_duration = "";
+            let cheapest_tickets_departure_duration = "";
 
+            //first loop to get data filter values
             for(let tp = 0; tp < data.length; tp++){
                 
                 for(let stlp = 0; stlp < data[tp].itineraries.length; stlp++){
@@ -269,8 +272,41 @@ function render_flights(){
                     }
 
                 }
+
+                //save more condition here
+                if(parseFloat(data[tp].price.total) <= parseFloat(current_cheapest_flights_cost)){
+                    
+                    current_cheapest_flights_cost = data[tp].price.total;
+
+                    cheapest_price = site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total);
+
+                            if(parseFloat(cheapest_price.replaceAll(",","")) >= 100000 && (parseFloat(cheapest_price.replaceAll(",","")) % 10) === 0){
+                                cheapest_price = cheapest_price.substring(0,3) + "k";
+                            }else
+                            if(parseFloat(cheapest_price.replaceAll(",","")) >= 100000 && (parseFloat(cheapest_price.replaceAll(",","")) % 10) > 0){
+                                cheapest_price = cheapest_price.substring(0,3) + "k+";
+                            }else
+                            if(parseFloat(cheapest_price.replaceAll(",","")) >= 10000 && (parseFloat(cheapest_price.replaceAll(",","")) % 10) === 0){
+                                cheapest_price = cheapest_price.substring(0,2) + "k";
+                            }else
+                            if(parseFloat(cheapest_price.replaceAll(",","")) >= 10000 && (parseFloat(cheapest_price.replaceAll(",","")) % 10) > 0){
+                                cheapest_price = cheapest_price.substring(0,2) + "k+";
+                            }else
+                            if(parseFloat(cheapest_price.replaceAll(",","")) >= 1000 && (parseFloat(cheapest_price.replaceAll(",","")) % 10) === 0){
+                                cheapest_price = cheapest_price.substring(0,1) + "k";
+                            }else if(parseFloat(cheapest_price.replaceAll(",","")) >= 1000 && (parseFloat(cheapest_price.replaceAll(",","")) % 10) > 0){
+                                cheapest_price = cheapest_price.substring(0,1) + "k+";
+                            }
+                            
+                            cheapest_tickets_departure_duration = data[tp].itineraries[0].duration.substring(2, data[tp].itineraries[0].duration.length);
+                            cheapest_tickets_departure_duration = cheapest_tickets_departure_duration.split("H");
+                            cheapest_tickets_departure_duration = cheapest_tickets_departure_duration[0].toLowerCase() + "h " + cheapest_tickets_departure_duration[1].toLowerCase();
+
+
+                }
             }
-            
+
+            //
             if(no_fastest_travel_times && flight_stop === "zero" && show_fastest_travel_times_clicked){
 
                 left_setting_no_stop_option.checked = false;
@@ -311,16 +347,24 @@ function render_flights(){
             fastest_price : parseFloat(fastest_price.replaceAll(",","")).toFixed(0));
             document.getElementById("ticks_top_fastest_categories_time").innerHTML = fastest_tickets_departure_duration;
 
+            document.getElementById("ticks_top_cheapest_categories_price").innerHTML = current_currency.sign + " " + (cheapest_price.includes("k") ? 
+            cheapest_price : parseFloat(cheapest_price.replaceAll(",","")).toFixed(0));
+            document.getElementById("ticks_top_cheapest_categories_time").innerHTML = cheapest_tickets_departure_duration;
+
             main_loop:
             for(var w = 0; w < data.length; w++){
-
+                
                 //air flight stop filters
                 if(flight_stop === "zero"){
 
                     for(let stlp = 0; stlp < data[w].itineraries.length; stlp++){
 
                         if(data[w].itineraries[stlp].segments.length > 1){
-                            done_skipping = true;
+
+                            if(limit > 0){
+                                limit--;
+                            }
+
                             continue main_loop
                         }
                     }
@@ -331,7 +375,11 @@ function render_flights(){
                     for(let stlp = 0; stlp < data[w].itineraries.length; stlp++){
 
                         if(data[w].itineraries[stlp].segments.length !== 2){
-                            done_skipping = true
+
+                            if(limit > 0){
+                                limit--;
+                            }
+
                             continue main_loop
                         }
                     }
@@ -342,7 +390,11 @@ function render_flights(){
                     for(let stlp = 0; stlp < data[w].itineraries.length; stlp++){
 
                         if(data[w].itineraries[stlp].segments.length < 2){
-                            done_skipping = true
+
+                            if(limit > 0){
+                                limit--;
+                            }
+
                             continue main_loop
                         }
                     }
@@ -353,7 +405,11 @@ function render_flights(){
                     for(let stlp = 0; stlp < data[w].itineraries.length; stlp++){
 
                         if(data[w].itineraries[stlp].segments.length < 3){
-                            done_skipping = true;
+
+                            if(limit > 0){
+                                limit--;
+                            }
+
                             continue main_loop
                         }
                     }
@@ -363,7 +419,11 @@ function render_flights(){
                     for(let stlp = 0; stlp < data[w].itineraries.length; stlp++){
 
                         if(data[w].itineraries[stlp].segments.length > 2){
-                            done_skipping = true
+
+                            if(limit > 0){
+                                limit--;
+                            }
+
                             continue main_loop
                         }
                     }
@@ -372,11 +432,24 @@ function render_flights(){
                     for(let stlp = 0; stlp < data[w].itineraries.length; stlp++){
 
                         if(data[w].itineraries[stlp].segments.length === 2){
+
+                                if(limit > 0){
+                                    limit--;
+                                }
+
                                 continue main_loop
                         }
                     }
                 }
                 
+                if(show_cheapest_travels_clicked && parseFloat(data[w].price.total) > parseFloat(current_cheapest_flights_cost)){
+
+                    if(limit > 0){
+                        limit--;
+                    }
+
+                    continue main_loop
+                }
 
                 let each_flight_data = JSON.stringify(data[w]);
 
@@ -456,6 +529,11 @@ function render_flights(){
                         }
                         
                         if(show_fastest_travel_times_clicked && (((parseInt(ahour) * 60) + parseInt(aminute)) > fastest_minutes_number)){
+                            
+                            if(limit > 0){
+                                limit--;
+                            }
+                            
                             done_skipping = true;
                             continue main_loop;
                         }

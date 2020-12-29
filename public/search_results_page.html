@@ -1149,7 +1149,7 @@
               <div id="main_stops_settings_container" class="site_lower_left_section_last_part_settings">
                 <div class="each_site_lower_left_section_last_part_setting">
                   <div class="each_site_lower_left_section_last_part_setting_left">
-                    <input onclick="filter_flights_by_stop();" id="left_setting_no_stop_option" type="checkbox" checked="true"/> 
+                    <input onclick="flights_filter_func_with_cleanup();" id="left_setting_no_stop_option" type="checkbox" checked="true"/> 
                     <label for="left_setting_no_stop_option"><span>No Stop</span></label>
                   </div>
                   <p id="left_setting_no_stop_price_tag">
@@ -1158,7 +1158,7 @@
                 </div>
                 <div class="each_site_lower_left_section_last_part_setting">
                   <div class="each_site_lower_left_section_last_part_setting_left">
-                    <input onclick="filter_flights_by_stop();" id="left_setting_one_stop_option" type="checkbox" checked="true"/> 
+                    <input onclick="flights_filter_func_with_cleanup();" id="left_setting_one_stop_option" type="checkbox" checked="true"/> 
                     <label for="left_setting_one_stop_option"><span>1 Stop</span></label>
                   </div>
                   <p id="left_setting_one_stop_price_tag">
@@ -1167,7 +1167,7 @@
                 </div>
                 <div class="each_site_lower_left_section_last_part_setting">
                   <div class="each_site_lower_left_section_last_part_setting_left">
-                    <input onclick="filter_flights_by_stop();" id="left_setting_twoplus_stop_option" type="checkbox" checked="true"/> 
+                    <input onclick="flights_filter_func_with_cleanup();" id="left_setting_twoplus_stop_option" type="checkbox" checked="true"/> 
                     <label for="left_setting_twoplus_stop_option"><span>2+ Stops</span></label>
                   </div>
                   <p  id="left_setting_many_stops_price_tag">
@@ -1296,7 +1296,7 @@
             <div class="site_lower_section_tabs">
               <div onclick="getCheapFlights();" id="site_lower_section_tabs_cheapest_option" class="site_lower_section_tabs_option  active">
                 <div id="site_lower_section_tabs_cheapest_option_content" class="site_lower_section_tabs_option_content" style="border-right: rgb(112, 2, 2) 1px solid;">
-                  <p><strong>Custom</strong></p>
+                  <p><strong>Unfiltered</strong></p>
                   <div style=" margin-top: 7px; display: flex; flex-direction: row !important; justify-content: center;">
                     <p id="ticks_top_custom_categories_price" style="font-size: 13px;">0.00</p>
                     <p class="site_lower_section_tabs_option_content_middle_dot" style="font-size: 5px; margin: 0 6px; margin-top: 4px"><i  class="fa fa-circle" aria-hidden="true"></i></p>
@@ -1310,7 +1310,7 @@
                   <div style=" margin-top: 7px; display: flex; flex-direction: row !important; justify-content: center;">
                     <p id="ticks_top_fastest_categories_price" style="font-size: 13px;">0.00</p>
                     <p class="site_lower_section_tabs_option_content_middle_dot" style="font-size: 5px; margin: 0 6px; margin-top: 4px"><i  class="fa fa-circle" aria-hidden="true"></i></p>
-                    <p  id="ticks_top_fastest_categories_time" style="font-size: 13px;">0h 00m</p>
+                    <p id="ticks_top_fastest_categories_time" style="font-size: 13px;">0h 00m</p>
                   </div>
                 </div>
               </div>
@@ -1318,9 +1318,9 @@
                 <div class="site_lower_section_tabs_option_content">
                   <p><strong>Save Cash</strong></p>
                   <div style=" margin-top: 7px; display: flex; flex-direction: row !important; justify-content: center;">
-                    <p style="font-size: 13px;">0.00</p>
+                    <p id="ticks_top_cheapest_categories_price" style="font-size: 13px;">0.00</p>
                     <p class="site_lower_section_tabs_option_content_middle_dot" style="font-size: 5px; margin: 0 6px; margin-top: 4px"><i  class="fa fa-circle" aria-hidden="true"></i></p>
-                    <p style="font-size: 13px;">0h 00m</p>
+                    <p id="ticks_top_cheapest_categories_time" style="font-size: 13px;">0h 00m</p>
                 </div>
                 </div>
               </div>
@@ -2454,7 +2454,7 @@
     <script src="scripts/home_page_flight_search_processes.js" type="text/javascript"></script>
     <script src="scripts/data_charts.js" type="text/javascript"></script>
     <script src="scripts/site_currency.js" type="text/javascript"></script>
-    <script src="scripts/render_flights.js" type="text/javascript"></script>
     <script src="scripts/airflights_list_functions.js" type="text/javascript"></script>
+    <script src="scripts/render_flights.js" type="text/javascript"></script>
   </body>
 </html>
