@@ -11,7 +11,7 @@ var default_adults = 1;
 
 //Global data
 //data to be forwarded to server
-localStorage.setItem("is_multi_city_search", "yes")
+//localStorage.setItem("is_multi_city_search", "yes");
 var object_to_send = {};
 var fligh_search_data = {};
 var flight_multi_city_search_data = {};
@@ -681,10 +681,26 @@ function remove_person_from_flight_search(person_type){
 
 }
 
+var collection_multi_city_inputs = async ()=>{
+    //alert("here");
+    console.log()
+}
 
 //Going to search page
 let search_trigger_func = () =>{
-    window.location.href = "./search_results_page.html";
+    
+    if(document.getElementById("multiple_city_search_option").checked){
+        localStorage.setItem("is_multi_city_search", "yes");
+
+        collection_multi_city_inputs().then(()=> {
+            //window.location.href = "./search_results_page.html";
+        }).catch(err => console.log(err))
+        
+    }else{
+        localStorage.setItem("is_multi_city_search", "no");
+        window.location.href = "./search_results_page.html";
+    }
+
 }
 
 home_page_search_button.addEventListener("click", () =>{

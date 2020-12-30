@@ -882,7 +882,8 @@ var current_focus_out_func =function(){
 
 //Add Flight functions
 var flight_search_data = {
-  number_of_flights: 1
+  number_of_flights: 1,
+  itinerary: [] 
 };
 
 function add_a_flight(setting_number){
@@ -977,12 +978,23 @@ function add_a_flight(setting_number){
     $("#"+div.id).slideDown("fast");
   }, 200);
 
+  flight_search_data.itinerary.push({
+      id: globalFlightId, 
+      originLocationCode: "MAD", 
+      destinationLocationCode: "PAR", 
+      departureDateTimeRange: { 
+        date: "2021-04-03" 
+      }
+  });
+
   initialize_date_chooser(("each_added_flight_from_when_input"+globalFlightId));
   
 }
 
 function remove_a_flight(id){
-
+  
+  flight_search_data.itinerary = flight_search_data.itinerary.filter(each => each.id !== id);
+  
   flight_search_data.number_of_flights--;
   let addedTxt = flight_search_data.number_of_flights > 1 ? `(${flight_search_data.number_of_flights} flights)` : `(${flight_search_data.number_of_flights} default)`
   document.getElementById("total_cities_for_flight_search").innerHTML = `${addedTxt}`;
@@ -1010,7 +1022,24 @@ function edit_from_where_of_added_flight(number){
     current_focus_out_func = function(){
 
       let intervalID = setInterval(()=> {
+
         each_added_flight_from_where_input.innerText = from_where_search_input_fld.value;
+
+        let originIata = from_where_search_input_fld.value;
+        originIata = originIata.split(")")[0];
+        originIata = originIata.substring(1,originIata.length);
+
+        flight_search_data.itinerary = flight_search_data.itinerary.map(each => {
+
+          if(each.id === number){
+            each.originLocationCode = originIata;
+          }
+
+          return each;
+        });
+
+        //console.log(flight_search_data.itinerary)
+
       }, 1)
       
       setTimeout(()=> {
@@ -1051,6 +1080,21 @@ function edit_to_where_of_added_flight(number){
 
     let intervalID = setInterval(()=> {
       each_added_flight_to_where_input.innerText = to_where_search_input_fld.value;
+      
+      let destIata = to_where_search_input_fld.value;
+      destIata = destIata.split(")")[0];
+      destIata = destIata.substring(1,destIata.length);
+
+      flight_search_data.itinerary = flight_search_data.itinerary.map(each => {
+
+        if(each.id === number){
+          each.destinationLocationCode = destIata;
+        }
+
+        return each;
+      });
+
+      //console.log(flight_search_data.itinerary)
     }, 1);
 
     setTimeout(()=> {
