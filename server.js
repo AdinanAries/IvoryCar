@@ -179,14 +179,69 @@ app.post('/searchflight/', (req, res, next)=>{
   let depart_date = req.body.departure_date;
   let num_of_adults = req.body.number_of_adults;
 
-  amadeus.shopping.flightOffersSearch.get({
+  /*{
 
-      originLocationCode: origin,
-      destinationLocationCode: destination,
-      departureDate: depart_date,
-      adults: num_of_adults
+    originLocationCode: origin,
+    destinationLocationCode: destination,
+    departureDate: depart_date,
+    adults: num_of_adults
 
-  }).then(function(response){
+  }*/
+
+
+  let search_obj = { 
+      originDestinations: [ 
+        { 
+            id: 1, 
+            originLocationCode: "MAD", 
+            destinationLocationCode: "PAR", 
+            departureDateTimeRange: { 
+              date: "2021-04-03" 
+            } 
+        }, 
+        { 
+            id: 2, 
+            originLocationCode: "PAR", 
+            destinationLocationCode: "MUC", 
+            departureDateTimeRange: { 
+              date: "2021-04-05" 
+            } 
+        }, 
+        { 
+            id: "3", 
+            originLocationCode: "MUC", 
+            destinationLocationCode: "AMS", 
+            departureDateTimeRange: { 
+              date: "2021-04-08" 
+            } 
+        }, 
+        { 
+            id: 4, 
+            originLocationCode: "AMS", 
+            destinationLocationCode: "MAD", 
+            departureDateTimeRange: { 
+              date: "2021-04-11" 
+            } 
+        } 
+      ], 
+      travelers: [ 
+        { 
+            id: 1, 
+            travelerType: "ADULT", 
+            fareOptions: [ 
+              "STANDARD" 
+            ] 
+        } 
+      ], 
+      sources: [ 
+        "GDS" 
+      ], 
+      searchCriteria: { 
+        maxFlightOffers: 1 
+      } 
+    };
+
+  amadeus.shopping.flightOffersSearch.post(JSON.stringify(search_obj)).then(function(response){
     //console.log(response.data);
     res.send(response.data);
 
