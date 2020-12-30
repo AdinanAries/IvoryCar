@@ -706,7 +706,7 @@ var collection_multi_city_inputs = async ()=>{
         originLocationCode: originIata, 
         destinationLocationCode: destIata, 
         departureDateTimeRange: { 
-          date: "2021-04-03" 
+          date: fligh_search_data.departure_date 
         }
     });
 

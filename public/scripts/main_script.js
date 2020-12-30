@@ -957,7 +957,7 @@ function add_a_flight(setting_number){
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
             <p class="edit_icon"><i class="fa fa-pencil" aria-hidden="true"></i></p>
             <p  style="color:rgb(255, 102, 0); font-size: 12px; font-weight: bolder;">
-            <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 5px; color: white;"></i>Depature - Return Dates</p>
+            <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 5px; color: white;"></i>Depature Date</p>
             <input type="text" id="each_added_flight_from_when_input${globalFlightId}" readonly="true"
               style="min-width: 200px; color: white; margin: 5px; font-size: 14px;  background: none; border: none;" placeholder="Pick your dates" value="" />
           </div>
@@ -987,7 +987,7 @@ function add_a_flight(setting_number){
       }
   });
 
-  initialize_date_chooser(("each_added_flight_from_when_input"+globalFlightId));
+  initialize_date_chooser(globalFlightId);
   
 }
 
@@ -1124,14 +1124,30 @@ function edit_to_when_of_added_flight(number){
   //flights_search_tickets_form_container.style.opacity = 0;
 }
 
-function initialize_date_chooser(first_input_Id){
+function initialize_date_chooser(number){
+
+  let first_input_Id = "each_added_flight_from_when_input" + number;
+
   $(function() {
     $('#'+first_input_Id).daterangepicker({
-      opens: 'left'
+      singleDatePicker: true,
+      showDropdowns: true
     }, function(start, end, label) {
 
       setTimeout(()=>{
-        document.getElementById(first_input_Id).value = start.toString().substring(0,11) +" - "+ end.toString().substring(0,11);
+        document.getElementById(first_input_Id).value = start.toString().substring(0,11);
+
+        let adate = fligh_search_data.departure_date = start.format('YYYY-MM-DD');
+
+        flight_search_data.itinerary = flight_search_data.itinerary.map(each => {
+
+          if(each.id === number){
+            each.departureDateTimeRange.date = adate;
+          }
+
+          return each;
+        });
+
       }, 100);
 
       //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
