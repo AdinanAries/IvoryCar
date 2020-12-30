@@ -11,11 +11,15 @@ var default_adults = 1;
 
 //Global data
 //data to be forwarded to server
+localStorage.setItem("is_multi_city_search", "yes")
+var object_to_send = {};
 var fligh_search_data = {};
+var flight_multi_city_search_data = {};
 
 if(window.localStorage.getItem("flights_post_data")){
 
     fligh_search_data = JSON.parse(window.localStorage.getItem("flights_post_data"));
+    flight_multi_city_search_data = JSON.parse(window.localStorage.getItem("flight_multi_city_search_data"));
 
     if(fligh_search_data.origin_iata.toLowerCase() !== ""){
         
@@ -38,8 +42,9 @@ if(window.localStorage.getItem("flights_post_data")){
     
 }else{
 
+    //one origin and destination pair flight search data 
     fligh_search_data = {
-        trip_round: "roundtrip",
+        trip_round: "one-way",
         origin_iata: "",
         destination_iata: "",
         departure_date: formatted_date,
@@ -48,6 +53,64 @@ if(window.localStorage.getItem("flights_post_data")){
       };
 
     window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
+
+    //multi city searches data
+    flight_multi_city_search_data = {
+          trip_round: "multi-city",
+          itinerary: {
+            originDestinations: [ 
+                { 
+                    id: 1, 
+                    originLocationCode: "MAD", 
+                    destinationLocationCode: "PAR", 
+                    departureDateTimeRange: { 
+                      date: "2021-04-03" 
+                    } 
+                }, 
+                { 
+                  id: 2, 
+                  originLocationCode: "PAR", 
+                  destinationLocationCode: "MUC", 
+                  departureDateTimeRange: { 
+                    date: "2021-04-05" 
+                  } 
+                }, 
+                { 
+                  id: "3", 
+                  originLocationCode: "MUC", 
+                  destinationLocationCode: "AMS", 
+                  departureDateTimeRange: { 
+                    date: "2021-04-08" 
+                    } 
+                }, 
+                { 
+                    id: 4, 
+                    originLocationCode: "AMS", 
+                    destinationLocationCode: "MAD", 
+                    departureDateTimeRange: { 
+                      date: "2021-04-11" 
+                    } 
+                } 
+              ], 
+              travelers: [ 
+                { 
+                  id: 1, 
+                  travelerType: "ADULT", 
+                  fareOptions: [ 
+                    "STANDARD" 
+                  ] 
+                } 
+              ], 
+              sources: [ 
+                "GDS" 
+              ], 
+              searchCriteria: { 
+                maxFlightOffers: 1 
+              } 
+            }
+        };
+
+        window.localStorage.setItem("flight_multi_city_search_data", JSON.stringify(flight_multi_city_search_data));
 }
 
 

@@ -16,7 +16,13 @@ var price_metrices_currency = 0;
 
 //One way trips
 function render_flights(){
-    
+
+    if(localStorage.getItem("is_multi_city_search") === "yes"){
+        object_to_send = flight_multi_city_search_data;
+    }else{
+        object_to_send = fligh_search_data;
+    }
+
     if(show_fastest_travel_times_clicked && done_skipping){
         show_fastest_travel_times_clicked = false
         done_skipping = false;
@@ -25,7 +31,7 @@ function render_flights(){
     $.ajax({
         type: "POST",
         url: "/searchflight",
-        data: JSON.stringify(fligh_search_data),
+        data: JSON.stringify(object_to_send),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: (data)=>{
