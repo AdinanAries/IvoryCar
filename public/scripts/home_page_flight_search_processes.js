@@ -682,8 +682,34 @@ function remove_person_from_flight_search(person_type){
 }
 
 var collection_multi_city_inputs = async ()=>{
-    //alert("here");
-    console.log()
+    flight_search_data.itinerary = flight_search_data.itinerary.map((each, index) => {
+
+        each.id = (index+1);
+        return each;
+
+    })
+
+    flight_multi_city_search_data.itinerary.originDestinations = flight_search_data.itinerary;
+
+    //collecting final itinerary from main form inputs
+
+    let originIata = from_where_search_input_fld.value;
+    originIata = originIata.split(")")[0];
+    originIata = originIata.substring(1,originIata.length);
+
+    let destIata = to_where_search_input_fld.value;
+    destIata = destIata.split(")")[0];
+    destIata = destIata.substring(1,destIata.length);
+
+    flight_multi_city_search_data.itinerary.originDestinations.push({
+        id: (flight_multi_city_search_data.itinerary.originDestinations.length+1), 
+        originLocationCode: originIata, 
+        destinationLocationCode: destIata, 
+        departureDateTimeRange: { 
+          date: "2021-04-03" 
+        }
+    });
+
 }
 
 //Going to search page
@@ -693,6 +719,7 @@ let search_trigger_func = () =>{
         localStorage.setItem("is_multi_city_search", "yes");
 
         collection_multi_city_inputs().then(()=> {
+            console.log(flight_multi_city_search_data.itinerary.originDestinations);
             //window.location.href = "./search_results_page.html";
         }).catch(err => console.log(err))
         
