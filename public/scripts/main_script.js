@@ -893,12 +893,11 @@ function add_a_flight(setting_number){
       alert("only a total of 6 flights can be added!");
     }
   }else{
+    set_flight_trip_round_for_search("One-way");
     flight_search_data.number_of_flights++;
     globalFlightId++;
   }
   
-  
-
   let multi_city_search_inputs_display = document.getElementById("multi_city_search_inputs_display");
 
   if(setting_number == 1){
@@ -910,6 +909,8 @@ function add_a_flight(setting_number){
     if(document.getElementById("multiple_city_search_option").checked === true){
 
       //this is where to reset everything
+
+      set_flight_trip_round_for_search("Round-trip");
 
       flight_search_data.number_of_flights = 1;
       
