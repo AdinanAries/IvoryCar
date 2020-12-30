@@ -444,6 +444,19 @@ function add_person_to_flight_search(person_type){
                                              + flight_search_number_of_people.students.number + flight_search_number_of_people.youth.number;
     window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
 
+    flight_multi_city_search_data.itinerary.travelers = [];
+
+    for(let wck = 0; wck < fligh_search_data.number_of_adults; wck++){
+        flight_multi_city_search_data.itinerary.travelers.push({ 
+          id: (wck+1), 
+          travelerType: "ADULT", 
+          fareOptions: [ 
+            "STANDARD" 
+          ] 
+        });
+
+    }
+
 }
 
 
@@ -678,6 +691,19 @@ function remove_person_from_flight_search(person_type){
     fligh_search_data.number_of_adults = flight_search_number_of_people.adults.number + flight_search_number_of_people.seniors.number
                                              + flight_search_number_of_people.students.number + flight_search_number_of_people.youth.number;
     window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
+    
+    flight_multi_city_search_data.itinerary.travelers = [];
+
+    for(let wck = 0; wck < fligh_search_data.number_of_adults; wck++){
+        flight_multi_city_search_data.itinerary.travelers.push({ 
+          id: (wck+1), 
+          travelerType: "ADULT", 
+          fareOptions: [ 
+            "STANDARD" 
+          ] 
+        });
+
+    }
 
 }
 
@@ -720,6 +746,7 @@ let search_trigger_func = () =>{
 
         collection_multi_city_inputs().then(()=> {
             console.log(flight_multi_city_search_data.itinerary.originDestinations);
+            console.log(flight_multi_city_search_data.itinerary);
             //window.location.href = "./search_results_page.html";
         }).catch(err => console.log(err))
         
