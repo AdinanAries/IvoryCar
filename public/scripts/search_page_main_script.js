@@ -1127,7 +1127,7 @@ function edit_from_where_of_added_flight(number){
           return each;
         });
 
-        console.log(flight_search_data.itinerary)
+        //console.log(flight_search_data.itinerary)
 
       },1);
       
@@ -1183,7 +1183,7 @@ function edit_to_where_of_added_flight(number){
         return each;
       });
 
-      console.log(flight_search_data.itinerary)
+      //console.log(flight_search_data.itinerary)
     },1);
     
     setTimeout(()=>{
