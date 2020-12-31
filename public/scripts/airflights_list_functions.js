@@ -114,6 +114,7 @@ function show_flight_ticket_added_policies_content(number){
 }
 
 function covert_time_to_12_hour(time_param){
+    //console.log(time_param)
     let timeArr = time_param.split(":");
     let hours = timeArr[0];
     let minutes = timeArr[1];

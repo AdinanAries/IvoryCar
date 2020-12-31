@@ -511,7 +511,7 @@ function render_flights(){
                 
                 if(data[w].itineraries.length > 1){
                     each_traveler_price = each_traveler_price/data[w].itineraries.length;
-                    console.log(each_traveler_price);
+                    //console.log(each_traveler_price);
                 }
                 
                 let current_price_percentage = 0;
@@ -962,9 +962,10 @@ function render_flights(){
                     total_trip_start_and_end_time = total_trip_start_and_end_time.split(" ");
                     total_trip_start_and_end_time = covert_time_to_12_hour(total_trip_start_and_end_time[0]) + " - " + covert_time_to_12_hour(total_trip_start_and_end_time[(total_trip_start_and_end_time.length - 2)]);
 
-                    total_trip_return_start_and_end_time = total_trip_return_start_and_end_time.split(" ");
-                    total_trip_return_start_and_end_time = covert_time_to_12_hour(total_trip_return_start_and_end_time[0]) + " - " + covert_time_to_12_hour(total_trip_return_start_and_end_time[(total_trip_return_start_and_end_time.length - 2)]);
-
+                    if(total_trip_return_start_and_end_time){
+                        total_trip_return_start_and_end_time = total_trip_return_start_and_end_time.split(" ");
+                        total_trip_return_start_and_end_time = covert_time_to_12_hour(total_trip_return_start_and_end_time[0]) + " - " + covert_time_to_12_hour(total_trip_return_start_and_end_time[(total_trip_return_start_and_end_time.length - 2)]);
+                    }
 
                     trip_departure_from_and_airports = trip_departure_from_and_airports.split(" ");
                     trip_departure_stops_airports = trip_departure_from_and_airports[1];
@@ -976,16 +977,18 @@ function render_flights(){
                     }
                     trip_departure_from_and_airports = trip_departure_from_and_airports[0] + " - " + trip_departure_from_and_airports[(trip_departure_from_and_airports.length - 2)];
                     
-                    trip_return_from_and_to_airports = trip_return_from_and_to_airports.split(" ");
-                    trip_return_stops_airports = trip_return_from_and_to_airports[1];
-                    if(trip_return_from_and_to_airports.length > 5){
-                        trip_return_stops_airports = trip_return_from_and_to_airports[1] + ", " + trip_return_from_and_to_airports[(trip_return_from_and_to_airports.length - 3)];
+                    if(trip_return_from_and_to_airports){
+                        trip_return_from_and_to_airports = trip_return_from_and_to_airports.split(" ");
+                        trip_return_stops_airports = trip_return_from_and_to_airports[1];
+                        if(trip_return_from_and_to_airports.length > 5){
+                            trip_return_stops_airports = trip_return_from_and_to_airports[1] + ", " + trip_return_from_and_to_airports[(trip_return_from_and_to_airports.length - 3)];
+                        }
+                        if(trip_return_from_and_to_airports.length > 7){
+                            trip_return_stops_airports = trip_return_from_and_to_airports[1] + ", .., " + trip_return_from_and_to_airports[(trip_return_from_and_to_airports.length - 3)];
+                        }
+                        trip_return_from_and_to_airports = trip_return_from_and_to_airports[0] + " - " + trip_return_from_and_to_airports[(trip_return_from_and_to_airports.length - 2)];
                     }
-                    if(trip_return_from_and_to_airports.length > 7){
-                        trip_return_stops_airports = trip_return_from_and_to_airports[1] + ", .., " + trip_return_from_and_to_airports[(trip_return_from_and_to_airports.length - 3)];
-                    }
-                    trip_return_from_and_to_airports = trip_return_from_and_to_airports[0] + " - " + trip_return_from_and_to_airports[(trip_return_from_and_to_airports.length - 2)];
-                    
+
                 }
 
                 document.getElementById("main_tickets_section_list_container").innerHTML +=
