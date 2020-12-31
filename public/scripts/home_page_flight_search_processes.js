@@ -30,7 +30,11 @@ var default_adults = 1;
 
 //Global data
 //data to be forwarded to server
-localStorage.setItem("is_multi_city_search", "no");
+if(localStorage.getItem("is_multi_city_search")){
+    //do nothing
+}else{
+    localStorage.setItem("is_multi_city_search", "no");
+}
 
 var object_to_send = {};
 var fligh_search_data = {};
