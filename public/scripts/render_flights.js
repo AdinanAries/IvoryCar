@@ -1336,8 +1336,7 @@ function render_flights(){
             previous_search_adults = fligh_search_data.number_of_adults;
             fligh_search_data.number_of_adults = default_adults;
             window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
-            localStorage.setItem("is_round_trip", "yes");
-
+            
         },
         error: (err)=>{
 

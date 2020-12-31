@@ -664,6 +664,8 @@ function flights_filter_func_with_cleanup(){
     show_fastest_travel_times_clicked = false;
     show_cheapest_travels_clicked = false;
 
+    //localStorage.setItem("is_round_trip", "yes");
+
     filter_flights_by_stop()
 
 };

@@ -31,12 +31,7 @@ var default_adults = 1;
 //Global data
 //data to be forwarded to server
 localStorage.setItem("is_multi_city_search", "no");
-//prevents it from being automatically when search page loads. That way it maintains last set value until search results have been rendered
-if(localStorage.getItem("is_round_trip")){
-    //do nothing
-}else{
-    localStorage.setItem("is_round_trip", "yes");
-}
+
 var object_to_send = {};
 var fligh_search_data = {};
 var flight_multi_city_search_data = {};
@@ -183,6 +178,16 @@ var flight_search_number_of_people = {
         number: 0,
         price: 115000
     }
+}
+
+
+//prevents it from being automatically when search page loads. That way it maintains last set value until search results have been rendered
+if(localStorage.getItem("is_round_trip")){
+    if(localStorage.getItem("is_round_trip") === "no"){
+        set_flight_trip_round_for_search('One-way');
+    }
+}else{
+    localStorage.setItem("is_round_trip", "yes");
 }
 
 function set_flight_trip_round_for_search(f_trip_round){
