@@ -537,6 +537,7 @@ function render_flights(){
 
 
                 let return_flights_display = "none";
+                let main_return_flights_display = "none";
                 if(data[w].itineraries){
                     
                     departure_segments = "";
@@ -550,6 +551,7 @@ function render_flights(){
                         flights_itinerry_lenght = (data[w].itineraries.length - 1)
                         last_flights_itinerary_index = (data[w].itineraries.length-1);
                         return_flights_display = "flex";
+                        main_return_flights_display = "block";
                     }
 
                     for(let k = 0; k < flights_itinerry_lenght; k++){
@@ -639,6 +641,17 @@ function render_flights(){
 
                             change_flights_section = "";
 
+                            if(data[w].itineraries.length > 2){
+                                change_flights_section = `<div style="padding: 10px; background-color: rgba(0,0,0,0.1);">
+                                    <div style="font-weight: bolder; display: flex; flex-direction: row !important;">
+                                        <p><i class="fa fa-exclamation" style="margin-right: 10px; color: rgb(0, 177, 139);" aria-hidden="true"></i><p>
+                                        <p style="color: rgba(0,0,0,0.6); font-size: 12px;">
+                                        everything below this tag (until the next tag) show information for one complete city route of 
+                                        your multi-city searches  (including stops, if any)</p>
+                                    </div>
+                                </div>`;
+                            }
+
                             let departure_date_parts = data[w].itineraries[k].segments[j].departure.at.split("T")
                             let departure_date = new Date(parseInt(departure_date_parts[0].split("-")[0]), parseInt(departure_date_parts[0].split("-")[1]) - 1,
                                                             parseInt(departure_date_parts[0].split("-")[2]));
@@ -688,40 +701,46 @@ function render_flights(){
 
                                 change_flights_section = `
 
-                                            <div style="width: 85%; display: flex;  flex-direction: row !important; justify-content: space-between; border-top: 1px solid rgb(0, 0, 0, 0.1); border-bottom: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px;">
-                                                <div>
-                                                    <span style="opacity: 0.6; font-size: 13px; letter-spacing: 0.5px;">Change planes in ${departure_airport}</span>
-                                                    <br/>
-                                                    <span style="font-size: 13px; font-weight: bolder; opacity: 0.9; color: #e25a00; letter-spacing: 0.5px;">
-                                                        Self-transfer - Bag re-check may be required </span>
-                                                </div>
-                                                <div style="min-width: 60px; margin-left: 10px;">
-                                                    <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; letter-spacing: 0.5px;">${transfer_duration}</p>
+                                            <div style="width: calc(100% - 45px); border-radius: 4px; border: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px; background-color: #0d3357;">
+                                                <p style="font-size: 12px; font-weight: bolder; color: white; margin: 0 10px; margin-bottom: 10px;">
+                                                <i class="fa fa-exclamation-triangle" style="margin-right: 5px; color: red;" aria-hidden="true"></i>
+                                                Flight Stop</p>
+                                                <div style="display: flex;  flex-direction: row !important; justify-content: space-between; margin: 0 10px;">
+                                                    <div>
+                                                        <span style="opacity: 0.7; color: white; font-size: 13px; letter-spacing: 0.5px;">Change planes in ${departure_airport}</span>
+                                                        <br/>
+                                                        <span style="display: none; font-size: 13px; font-weight: bolder; opacity: 0.9; color: #e25a00; letter-spacing: 0.5px;">
+                                                            Self-transfer - Bag re-check may be required </span>
+                                                    </div>
+                                                    <div style="min-width: 60px; margin-left: 10px;">
+                                                        <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; color: white; letter-spacing: 0.5px;">${transfer_duration}</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                 `;
                             }
 
                             departure_segments += `
-                                <div style="display: flex; width: 100%; justify-content: flex-end;">
-                                    <div style="min-width: 80px; padding: 0 20px;">
-                                    </div>
-
+                                <div>
+                                    
                                     ${change_flights_section}
                                 
                                 </div>
 
+                                <div style="width: 100%; display: flex; flex-direction: row !important; justify-content: space-between;">
+                                    <div style="padding: 20px; padding-bottom: 0;">
+                                        <p style="font-weight: bolder; text-align: right; font-size: 14px; letter-spacing: 0.5px; opacity: 0.9;">${departure_string_date.substring(0, 10)}</p>
+                                    </div>
+                                    <div style="padding: 20px; padding-bottom: 0;">
+                                        <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; letter-spacing: 0.5px;">${travel_duration}</p>
+                                    </div>
+                                </div>
+
                                 <div style="display: flex; width: 100%;">
 
-                                    <div>
-                                        <div style="min-width: 80px; padding: 20px;">
-                                            <p style="font-weight: bolder; text-align: right; font-size: 14px; letter-spacing: 0.5px; opacity: 0.9;">${departure_string_date.substring(0, 10)}</p>
-                                        </div>
-                                    </div>
+                                    <div style="width: 100%;">
 
-                                    <div style="width: 85%;">
-
-                                        <div style="display: flex; justify-content: space-between; margin: 20px;">
+                                        <div style="display: flex; justify-content: space-between; margin: 0 20px; margin-bottom: 20px;">
                                             <div>
                                                 <div>
                                                     <p>
@@ -741,12 +760,7 @@ function render_flights(){
                                                 <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">${segment_airline} · ${segment_aircraft}</p>
                                                 <p style="font-size: 13px; font-weight: bolder; color: #e25a00; opacity: 0.9; letter-spacing: 0.5px;">Carry-on baggage fees may apply to one or more segments of this trip</p>
                                             </div>
-                                            <div style="min-width: 60px; margin-left: 10px;">
-                                                <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; letter-spacing: 0.5px;">${travel_duration}</p>
-                                                <p style="font-size: 13px; opacity: 0.6; margin-top: 10px; text-align: right; letter-spacing: 0.5px;">
-                                                    <i class="fa fa-cutlery" aria-hidden="true"></i>
-                                                </p>
-                                            </div>
+                                            
                                         </div>
 
                                     </div>
@@ -785,8 +799,16 @@ function render_flights(){
                         trip_return_total_stops = data[w].itineraries[flights_itinerry_lenght].segments.length - 1;
                         trip_return_total_stops = trip_return_total_stops > 1 ? (trip_return_total_stops + " stops") : (trip_return_total_stops + " stop");
                         
-                        let change_flights_section = "";
+                        //let change_flights_section = "";
                         let return_flights_change_flights_section = "";
+                        /*if(data[w].itineraries.length > 1){
+                            return_flights_change_flights_section = `<div style="padding: 10px; background-color: rgba(0,0,0,0.1);">
+                                <div style="font-weight: bolder; display: flex; flex-direction: row !important;">
+                                    <p><i class="fa fa-exclamation" style="margin-right: 10px; color: rgb(0, 177, 139);" aria-hidden="true"></i><p>
+                                    <p style="color: rgba(0,0,0,0.6); font-size: 12px;">everything below this tag shows information for one complete route until the next tag (including stops, if any)</p>
+                                </div>
+                            </div>`;
+                        }*/
 
                         let isfirstSegment = true;
                         let isArrivalSegmentTime = "";
@@ -892,40 +914,46 @@ function render_flights(){
 
                                 return_flights_change_flights_section = `
 
-                                            <div style="width: 85%; display: flex;  flex-direction: row !important; justify-content: space-between; border-top: 1px solid rgb(0, 0, 0, 0.1); border-bottom: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px;">
-                                                <div>
-                                                    <span style="opacity: 0.6; font-size: 13px; letter-spacing: 0.5px;">Change planes in ${departure_airport}</span>
-                                                    <br/>
-                                                    <span style="font-size: 13px; font-weight: bolder; opacity: 0.9; color: #e25a00; letter-spacing: 0.5px;">
-                                                        Self-transfer - Bag re-check may be required </span>
-                                                </div>
-                                                <div style="min-width: 60px; margin-left: 10px;">
-                                                    <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; letter-spacing: 0.5px;">${transfer_duration}</p>
+                                            <div style="width: calc(100% - 45px); border-radius: 4px; border: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px; background-color: #0d3357;">
+                                                <p style="font-size: 12px; font-weight: bolder; color: white; margin: 0 10px; margin-bottom: 10px;">
+                                                <i class="fa fa-exclamation-triangle" style="margin-right: 5px; color: red;" aria-hidden="true"></i>
+                                                Flight Stop</p>
+                                                <div style="display: flex;  flex-direction: row !important; justify-content: space-between; margin: 0 10px;">
+                                                    <div>
+                                                        <span style="opacity: 0.7; color: white; font-size: 13px; letter-spacing: 0.5px;">Change planes in ${departure_airport}</span>
+                                                        <br/>
+                                                        <span style="display: none; font-size: 13px; font-weight: bolder; opacity: 0.9; color: #e25a00; letter-spacing: 0.5px;">
+                                                            Self-transfer - Bag re-check may be required </span>
+                                                    </div>
+                                                    <div style="min-width: 60px; margin-left: 10px;">
+                                                        <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; color: white; letter-spacing: 0.5px;">${transfer_duration}</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                 `;
                             }
 
                             return_segments += `
-                                <div style="display: flex; width: 100%; justify-content: flex-end;">
-                                    <div style="min-width: 80px; padding: 0 20px;">
-                                    </div>
-
+                                <div>
+                                    
                                     ${return_flights_change_flights_section}
                                 
                                 </div>
 
+                                <div style="width: 100%; display: flex; flex-direction: row !important; justify-content: space-between;">
+                                    <div style="padding: 20px; padding-bottom: 0;">
+                                        <p style="font-weight: bolder; text-align: right; font-size: 14px; letter-spacing: 0.5px; opacity: 0.9;">${departure_string_date.substring(0, 10)}</p>
+                                    </div>
+                                    <div style="padding: 20px; padding-bottom: 0;">
+                                        <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; letter-spacing: 0.5px;">${travel_duration}</p>
+                                    </div>
+                                </div>
+
                                 <div style="display: flex; width: 100%;">
 
-                                    <div>
-                                        <div style="min-width: 80px; padding: 20px;">
-                                            <p style="font-weight: bolder; text-align: right; font-size: 14px; letter-spacing: 0.5px; opacity: 0.9;">${departure_string_date.substring(0, 10)}</p>
-                                        </div>
-                                    </div>
+                                    <div style="width: 100%;">
 
-                                    <div style="width: 85%;">
-
-                                        <div style="display: flex; justify-content: space-between; margin: 20px;">
+                                        <div style="display: flex; justify-content: space-between; margin: 0 20px; margin-bottom: 20px;">
                                             <div>
                                                 <div>
                                                     <p>
@@ -944,12 +972,6 @@ function render_flights(){
                                                 <p style="letter-spacing: 0.5px; opacity: 0.9; margin-bottom: 7px; font-size: 13px; font-weight: bolder; color: #003f7a;">Limited seats remaining at this price</p>
                                                 <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">${segment_airline} · ${segment_aircraft}</p>
                                                 <p style="font-size: 13px; font-weight: bolder; color: #e25a00; opacity: 0.9; letter-spacing: 0.5px;">Carry-on baggage fees may apply to one or more segments of this trip</p>
-                                            </div>
-                                            <div style="min-width: 60px; margin-left: 10px;">
-                                                <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; letter-spacing: 0.5px;">${travel_duration}</p>
-                                                <p style="font-size: 13px; opacity: 0.6; margin-top: 10px; text-align: right; letter-spacing: 0.5px;">
-                                                    <i class="fa fa-cutlery" aria-hidden="true"></i>
-                                                </p>
                                             </div>
                                         </div>
 
@@ -1208,7 +1230,7 @@ function render_flights(){
                                     </span>
                                 </div>
                             </div>
-                            <div style="display: ${return_flights_display} !important; margin-bottom: 20px;" class="flight_ticket_item_details_section_content">
+                            <div style="display: ${main_return_flights_display} !important; margin-bottom: 20px;" class="flight_ticket_item_details_section_content">
 
                                 ${return_segments}
 
@@ -1319,7 +1341,7 @@ function render_flights(){
                     <div class="each_ticket_item_main_right">
                         <p class="ticket_item_price_display">${current_currency.sign} ${flight_price}</p>
                         <p style="color:rgb(104, 104, 104); font-size: 12px; margin-bottom: 5px; font-weight: bolder;">
-                        ${airline_name}</p>
+                        ${validating_airline}</p>
                         <div class="ticket_item_entitlements_display">
                         Main Cabin
                         <div class="ticket_item_entitlements_content_display arrow_on_bottom"></div>
@@ -1379,7 +1401,7 @@ var get_flight_price_analysis = async ()=>{
 
 get_flight_price_analysis().then(data=>{
     
-    if(data.data.length > 0){
+    if(data.data){
         price_metrics_min = parseFloat((site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[0].amount))).replaceAll(",", ""));
         price_metrics_first = parseFloat((site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[1].amount))).replaceAll(",", ""));
         price_metrics_medium = parseFloat((site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[2].amount))).replaceAll(",", ""));

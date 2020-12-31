@@ -836,12 +836,12 @@ home_page_search_button.addEventListener("click", () =>{
 
     if(from_where_search_input_fld.value === ""){
 
-        from_where_search_input_fld.placeholder = "please enter city/airport";
+        from_where_search_input_fld.placeholder = "please enter origin city/airport";
         from_where_search_input_fld.focus();
 
     }else if(to_where_search_input_fld.value === ""){
 
-        to_where_search_input_fld.placeholder = "please enter city/airport";
+        to_where_search_input_fld.placeholder = "please enter destination city/airport";
         to_where_search_input_fld.focus();
 
     }else{
