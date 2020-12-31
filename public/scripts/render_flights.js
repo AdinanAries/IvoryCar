@@ -16,13 +16,15 @@ var price_metrices_currency = 0;
 
 //One way trips
 function render_flights(){
-    console.log(flight_multi_city_search_data);
-    if(localStorage.getItem("is_multi_city_search") === "yes"){
+    
+    if(localStorage.getItem("is_multi_city_search") === "yes" || localStorage.getItem("is_round_trip") === "yes"){
         object_to_send = flight_multi_city_search_data;
     }else{
         object_to_send = fligh_search_data;
     }
-
+    console.log("multi-city", localStorage.getItem("is_multi_city_search"));
+    console.log("round trip", localStorage.getItem("is_round_trip"))
+    console.log(object_to_send);
     if(show_fastest_travel_times_clicked && done_skipping){
         show_fastest_travel_times_clicked = false
         done_skipping = false;
@@ -468,6 +470,9 @@ function render_flights(){
                 }
 
                 let airline_name = "";
+                let return_airline_name = "";
+                let depature_airline_iata = "";
+                let return_airline_iata = "";
                 airline_name = airline_codes.filter(each => each.code.toLowerCase().includes(data[w].validatingAirlineCodes[0].toLowerCase()))
                 if(airline_name[0]){
                     airline_name = airline_name[0].name;
@@ -481,15 +486,23 @@ function render_flights(){
                 let total_departure_duration = "";
                 let total_return_duration = "";
                 let total_trip_start_and_end_time = "";
+                let total_trip_return_start_and_end_time = "";
                 let trip_departure_from_and_airports = "";
                 let trip_return_from_and_to_airports = "";
                 let trip_departure_total_stops = 0;
+                let trip_return_total_stops = 0;
                 let trip_departure_stops_airports = "";
                 let trip_return_stops_airports = "";
 
                 let number_of_travelers = data[w].travelerPricings.length > 1 ? data[w].travelerPricings.length + " travelers" : data[w].travelerPricings.length + " traveler";
 
                 let each_traveler_price = parseFloat((parseFloat(flight_price.replaceAll(",",""))/data[w].travelerPricings.length).toFixed(2));
+                
+                if(data[w].itineraries.length > 1){
+                    each_traveler_price = each_traveler_price/data[w].itineraries.length;
+                    console.log(each_traveler_price);
+                }
+                
                 let current_price_percentage = 0;
                 if(price_metrics_max !== 0){
                     current_price_percentage = Math.ceil(find_percentage_against_max_value(price_metrics_max, price_metrics_first,
@@ -609,6 +622,9 @@ function render_flights(){
                                     segment_airline = "airline: " + data[w].itineraries[k].segments[j].carrierCode;
                                 }
                             }
+
+                            depature_airline_iata = data[w].itineraries[k].segments[j].carrierCode;
+                            airline_name = segment_airline;
 
                             change_flights_section = "";
 
@@ -755,9 +771,9 @@ function render_flights(){
                             continue main_loop;
                         }
 
-                        /*trip_departure_total_stops = data[w].itineraries[k].segments.length - 1;
-                        trip_departure_total_stops = trip_departure_total_stops > 1 ? (trip_departure_total_stops + " stops") : (trip_departure_total_stops + " stop");
-                        */
+                        trip_return_total_stops = data[w].itineraries[flights_itinerry_lenght].segments.length - 1;
+                        trip_return_total_stops = trip_return_total_stops > 1 ? (trip_return_total_stops + " stops") : (trip_return_total_stops + " stop");
+                        
                         let change_flights_section = "";
                         let return_flights_change_flights_section = "";
 
@@ -811,6 +827,9 @@ function render_flights(){
                                 }
                             }
 
+                            return_airline_iata = data[w].itineraries[last_flights_itinerary_index].segments[j].carrierCode;
+                            return_airline_name = segment_airline;
+
                             change_flights_section = "";
 
                             let departure_date_parts = data[w].itineraries[last_flights_itinerary_index].segments[j].departure.at.split("T")
@@ -820,7 +839,7 @@ function render_flights(){
                             let departure_string_date = departure_date.toString(); 
                             let departure_time = departure_date_parts[1].substring(0,5);
 
-                            total_trip_start_and_end_time += departure_time + " ";
+                            total_trip_return_start_and_end_time += departure_time + " ";
                             departure_time = covert_time_to_12_hour(departure_time);
 
                             let departure_airport = AirportsData.filter(each => (each.IATA.toLowerCase().includes(data[w].itineraries[last_flights_itinerary_index].segments[j].departure.iataCode.toLowerCase())));
@@ -839,7 +858,7 @@ function render_flights(){
                             let arrival_string_date = arrival_date.toString(); 
                             let arrival_time = arrival_date_parts[1].substring(0,5);
 
-                            total_trip_start_and_end_time += arrival_time + " "
+                            total_trip_return_start_and_end_time += arrival_time + " "
                             arrival_time = covert_time_to_12_hour(arrival_time);
 
                             let arrival_airport = AirportsData.filter(each => (each.IATA.toLowerCase().includes(data[w].itineraries[last_flights_itinerary_index].segments[j].arrival.iataCode.toLowerCase())));
@@ -931,6 +950,10 @@ function render_flights(){
 
                     total_trip_start_and_end_time = total_trip_start_and_end_time.split(" ");
                     total_trip_start_and_end_time = covert_time_to_12_hour(total_trip_start_and_end_time[0]) + " - " + covert_time_to_12_hour(total_trip_start_and_end_time[(total_trip_start_and_end_time.length - 2)]);
+
+                    total_trip_return_start_and_end_time = total_trip_return_start_and_end_time.split(" ");
+                    total_trip_return_start_and_end_time = covert_time_to_12_hour(total_trip_return_start_and_end_time[0]) + " - " + covert_time_to_12_hour(total_trip_return_start_and_end_time[(total_trip_return_start_and_end_time.length - 2)]);
+
 
                     trip_departure_from_and_airports = trip_departure_from_and_airports.split(" ");
                     trip_departure_stops_airports = trip_departure_from_and_airports[1];
@@ -1231,7 +1254,7 @@ function render_flights(){
                         <div class="main_ticket_info_area_top">
                             <div class="each_ticket_aircraft_logo_area" style="flex-direction: row !important;">
                                 <div><input type="checkbox" /></div>
-                                <div style=""><img src="https://daisycon.io/images/airline/?width=950&height=855&color=ffffff&iata=${data[w].validatingAirlineCodes[0]}" alt=""/></div>
+                                <div style=""><img src="https://daisycon.io/images/airline/?width=950&height=855&color=ffffff&iata=${depature_airline_iata}" alt=""/></div>
                             </div>
                             <div style="flex-direction: row !important; width: 100%; justify-content: space-between;">
                             <div>
@@ -1251,26 +1274,26 @@ function render_flights(){
                             </div>
                             </div>
                         </div>
-                        <div style="display: none !important;" class="main_ticket_info_area_bottom">
-                            <div style="flex-direction: row !important;">
-                            <div><input type="checkbox" /></div>
-                            <div style="padding-left: 10px;"><img src="images/american-airlines-logo-vector-1.jpg" alt=""/></div>
+                        <div style="display: ${return_flights_display} !important;" class="main_ticket_info_area_bottom">
+                            <div class="each_ticket_aircraft_logo_area" style="flex-direction: row !important;">
+                                <div><input type="checkbox" /></div>
+                                <div style=""><img src="https://daisycon.io/images/airline/?width=950&height=855&color=ffffff&iata=${return_airline_iata}" alt=""/></div>
                             </div>
                             <div style="flex-direction: row !important; width: 100%; justify-content: space-between;">
                             <div>
                                 <p style="font-weight: bolder; font-size: 14px; margin-bottom: 5px;">
-                                5:58 pm – 11:18 pm</p>
+                                ${total_trip_return_start_and_end_time}</p>
                                 <p style="color:rgb(148, 148, 148); font-size: 13px;">
-                                American Airlines</p>
+                                ${return_airline_name}</p>
                             </div>
                             <div>
-                                <p style="font-weight: bolder; font-size: 14px; margin-bottom: 5px;">1 stop</p>
-                                <p style="color:rgb(148, 148, 148); font-size: 13px;">CLT</p>
+                                <p style="font-weight: bolder; font-size: 14px; margin-bottom: 5px;">${trip_return_total_stops}</p>
+                                <p style="color:rgb(148, 148, 148); font-size: 13px;">${trip_return_stops_airports}</p>
                             </div>
                             <div>
-                                <p style="font-weight: bolder; font-size: 14px; margin-bottom: 5px;">5h 15m</p>
+                                <p style="font-weight: bolder; font-size: 14px; margin-bottom: 5px;">${total_return_duration}</p>
                                 <p style="color:rgb(148, 148, 148); font-size: 13px;">
-                                JAX ‐ BDL</p>
+                                ${trip_return_from_and_to_airports}</p>
                             </div>
                             </div>
                         </div>
@@ -1297,7 +1320,8 @@ function render_flights(){
             previous_search_adults = fligh_search_data.number_of_adults;
             fligh_search_data.number_of_adults = default_adults;
             window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
-            
+            localStorage.setItem("is_round_trip", "yes");
+
         },
         error: (err)=>{
 

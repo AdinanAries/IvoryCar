@@ -830,7 +830,7 @@ $(function() {
     }, 100);
 
     fligh_search_data.departure_date = start.format('YYYY-MM-DD');
-    fligh_search_data.arrival_date = end.format('YYYY-MM-DD');
+    fligh_search_data.return_date = end.format('YYYY-MM-DD');
 
     window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
 

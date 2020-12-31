@@ -545,7 +545,7 @@ $(function() {
     }, 100);
 
     fligh_search_data.departure_date = start.format('YYYY-MM-DD');
-    fligh_search_data.arrival_date = end.format('YYYY-MM-DD');
+    fligh_search_data.return_date = end.format('YYYY-MM-DD');
 
     window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
 
@@ -677,7 +677,7 @@ var hero_section_container = document.querySelector(".hero_section_container");
               }*/
 
               if($(window).width() < 450){
-                hero_section_container.style.minWidth = "100vw";
+                hero_section_container.style.minWidth = "calc(100vw - 10px)";
               }
 
             } else { 
