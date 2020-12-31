@@ -461,7 +461,7 @@ function render_flights(){
 
                 let each_flight_data = JSON.stringify(data[w]);
 
-                if(limit > 10)
+                if(limit > 20)
                     break;
 
                 let flight_price = "unknown";
@@ -469,10 +469,12 @@ function render_flights(){
                     flight_price = site_currency_coverter(data[w].price.currency, current_currency.currency, data[w].price.total);
                 }
 
+                let validating_airline = "";
                 let airline_name = "";
                 let return_airline_name = "";
                 let depature_airline_iata = "";
                 let return_airline_iata = "";
+
                 airline_name = airline_codes.filter(each => each.code.toLowerCase().includes(data[w].validatingAirlineCodes[0].toLowerCase()))
                 if(airline_name[0]){
                     airline_name = airline_name[0].name;
@@ -480,6 +482,15 @@ function render_flights(){
                     console.log(data[w].validatingAirlineCodes[0]);
                     airline_name = "Airline: " + data[w].validatingAirlineCodes[0];
                 }
+
+                validating_airline = airline_codes.filter(each => each.code.toLowerCase().includes(data[w].validatingAirlineCodes[0].toLowerCase()))
+                if(validating_airline[0]){
+                    validating_airline = validating_airline[0].name;
+                }else{
+                    console.log(data[w].validatingAirlineCodes[0]);
+                    validating_airline = "Airline: " + data[w].validatingAirlineCodes[0];
+                }
+
 
                 let departure_segments = "trip departure stops not available";
                 let return_segments = "trip return stops not available";
@@ -1298,7 +1309,9 @@ function render_flights(){
                             </div>
                         </div>
                         </div>
-                        <p class="tickets_main_additional_text">Operated by Psa Airlines AS American Eagle, Republic Airways AS American Eagle</p>
+                        <p class="tickets_main_additional_text">
+                            <i class="fa fa-exclamation" style="margin-right: 5px; color: green;" aria-hidden="true"></i> this ticket is sold by ${validating_airline}
+                        </p>
                     </div>
                     <div class="each_ticket_item_main_right">
                         <p class="ticket_item_price_display">${current_currency.sign} ${flight_price}</p>

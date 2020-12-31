@@ -130,7 +130,7 @@ if(window.localStorage.getItem("flights_post_data")){
                 "GDS" 
               ], 
               searchCriteria: { 
-                maxFlightOffers: 10 
+                maxFlightOffers: 50 
               } 
             }
         };
