@@ -745,9 +745,8 @@ let search_trigger_func = () =>{
         localStorage.setItem("is_multi_city_search", "yes");
 
         collection_multi_city_inputs().then(()=> {
-            console.log(flight_multi_city_search_data.itinerary.originDestinations);
-            console.log(flight_multi_city_search_data.itinerary);
-            //window.location.href = "./search_results_page.html";
+            window.localStorage.setItem("flight_multi_city_search_data", JSON.stringify(flight_multi_city_search_data));
+            window.location.href = "./search_results_page.html";
         }).catch(err => console.log(err))
         
     }else{

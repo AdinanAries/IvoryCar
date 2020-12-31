@@ -172,6 +172,8 @@ app.get('/airportSearch/', function(req,res,next){
 //Amadues - Searching Flight Offers (One-way)
 app.post('/searchflight/', (req, res, next)=>{
 
+  console.log(req.body);
+  
   let search_obj = {};
 
   //console.log(req.body);
@@ -306,7 +308,7 @@ app.post('/flightpriceanalysis/', (req, res, next)=>{
   /*origin = "MAD";
   destination = "CDG";*/
 
-  console.log(req.body);
+  //console.log(req.body);
 
   axios.get(
     "https://test.api.amadeus.com/v1/analytics/itinerary-price-metrics?originIataCode="+origin+"&destinationIataCode="+destination+"&departureDate="+depart_date+"&currencyCode=USD&oneWay=true",

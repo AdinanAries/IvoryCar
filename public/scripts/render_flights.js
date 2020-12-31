@@ -16,7 +16,7 @@ var price_metrices_currency = 0;
 
 //One way trips
 function render_flights(){
-
+    console.log(flight_multi_city_search_data);
     if(localStorage.getItem("is_multi_city_search") === "yes"){
         object_to_send = flight_multi_city_search_data;
     }else{
@@ -482,8 +482,10 @@ function render_flights(){
                 let total_return_duration = "";
                 let total_trip_start_and_end_time = "";
                 let trip_departure_from_and_airports = "";
+                let trip_return_from_and_to_airports = "";
                 let trip_departure_total_stops = 0;
                 let trip_departure_stops_airports = "";
+                let trip_return_stops_airports = "";
 
                 let number_of_travelers = data[w].travelerPricings.length > 1 ? data[w].travelerPricings.length + " travelers" : data[w].travelerPricings.length + " traveler";
 
@@ -510,14 +512,23 @@ function render_flights(){
                 }
 
 
-
+                let return_flights_display = "none";
                 if(data[w].itineraries){
                     
                     departure_segments = "";
+                    return_segments = "";
                     
-                    console.log(data[w].itineraries);
+                    //console.log(data[w].itineraries);
+                    let flights_itinerry_lenght = 1;
+                    let last_flights_itinerary_index = 0;
+                    
+                    if(data[w].itineraries.length > 1){
+                        flights_itinerry_lenght = (data[w].itineraries.length - 1)
+                        last_flights_itinerary_index = (data[w].itineraries.length-1);
+                        return_flights_display = "flex";
+                    }
 
-                    for(var k = 0; k < data[w].itineraries.length; k++){
+                    for(let k = 0; k < flights_itinerry_lenght; k++){
 
                         total_departure_duration = data[w].itineraries[k].duration.substring(2, data[w].itineraries[k].duration.length);
                         total_departure_duration = total_departure_duration.split("H");
@@ -554,7 +565,7 @@ function render_flights(){
                         let isDepartueSegmentTime = "";
                         let transfer_duration = "";
                         
-                        for(var j = 0; j < data[w].itineraries[k].segments.length; j++){
+                        for(let j = 0; j < data[w].itineraries[k].segments.length; j++){
 
                             let segment_cabin = "";
                             if(data[w].travelerPricings[0]){
@@ -717,6 +728,207 @@ function render_flights(){
                         }
                     }
 
+                    if(last_flights_itinerary_index > 0){
+
+                        total_return_duration = data[w].itineraries[last_flights_itinerary_index].duration.substring(2, data[w].itineraries[last_flights_itinerary_index].duration.length);
+                        total_return_duration = total_return_duration.split("H");
+                        total_return_duration = total_return_duration[0].toLowerCase() + "h " + total_return_duration[1].toLowerCase();
+                        
+                        let ahour = total_return_duration.split("h")[0];
+                        let aminute =  total_return_duration.split("h")[1];
+                        aminute = aminute.substring(0, (aminute.length - 1));
+                        
+                        if(!ahour){
+                            ahour = 0;
+                        }
+                        if(!aminute){
+                            aminute = 0;
+                        }
+                        
+                        if(show_fastest_travel_times_clicked && (((parseInt(ahour) * 60) + parseInt(aminute)) > fastest_minutes_number)){
+                            
+                            if(limit > 0){
+                                limit--;
+                            }
+                            
+                            done_skipping = true;
+                            continue main_loop;
+                        }
+
+                        /*trip_departure_total_stops = data[w].itineraries[k].segments.length - 1;
+                        trip_departure_total_stops = trip_departure_total_stops > 1 ? (trip_departure_total_stops + " stops") : (trip_departure_total_stops + " stop");
+                        */
+                        let change_flights_section = "";
+                        let return_flights_change_flights_section = "";
+
+                        let isfirstSegment = true;
+                        let isArrivalSegmentTime = "";
+                        let isDepartueSegmentTime = "";
+                        let transfer_duration = "";
+                        
+                        for(let j = 0; j < data[w].itineraries[last_flights_itinerary_index].segments.length; j++){
+
+                            let segment_cabin = "";
+                            if(data[w].travelerPricings[0]){
+                                segment_cabin = data[w].travelerPricings.filter(
+                                    pricing => pricing.fareDetailsBySegment.filter( segmentPrice => segmentPrice.segmentId === data[w].itineraries[last_flights_itinerary_index].segments[j].id));
+                                if(segment_cabin){
+                                    segment_cabin = segment_cabin[0].fareDetailsBySegment[0].cabin + " " + segment_cabin[0].fareDetailsBySegment[0].class;
+                                }else{
+                                    segment_cabin = "";
+                                }
+                                //console.log(segment_cabin);
+                            }
+
+                            if(isfirstSegment){
+                                isArrivalSegmentTime = data[w].itineraries[last_flights_itinerary_index].segments[j].arrival.at;
+                                isfirstSegment = false;
+                            }else{
+                                isDepartueSegmentTime = data[w].itineraries[last_flights_itinerary_index].segments[j].departure.at;
+                                transfer_duration = get_transfer_duration(isArrivalSegmentTime, isDepartueSegmentTime);
+                                isArrivalSegmentTime = data[w].itineraries[last_flights_itinerary_index].segments[j].arrival.at;
+                            }
+
+                            let segment_aircraft = ""
+                            if(data[w].itineraries[last_flights_itinerary_index].segments[j]){
+                                segment_aircraft = data[w].itineraries[last_flights_itinerary_index].segments[j].aircraft.code;
+                                segment_aircraft = aircrats.filter(each => each.IATA.toLowerCase() === segment_aircraft.toLowerCase())[0];
+                                if(segment_aircraft){
+                                    segment_aircraft = segment_aircraft.Manufacturer + " " + segment_aircraft.Type_Model;
+                                    //console.log(segment_aircraft);
+                                }else{
+                                    segment_aircraft = "";
+                                    console.log(data[w].itineraries[last_flights_itinerary_index].segments[j].aircraft.code);
+                                }
+                            }
+                            let segment_airline = "";
+                            if(data[w].itineraries[last_flights_itinerary_index].segments[j]){
+                                segment_airline = airline_codes.filter(each => each.code.toLowerCase() === data[w].itineraries[last_flights_itinerary_index].segments[j].carrierCode.toLowerCase())[0];
+                                if(segment_airline){
+                                    segment_airline = segment_airline.name;
+                                }else{
+                                    segment_airline = "airline: " + data[w].itineraries[last_flights_itinerary_index].segments[j].carrierCode;
+                                }
+                            }
+
+                            change_flights_section = "";
+
+                            let departure_date_parts = data[w].itineraries[last_flights_itinerary_index].segments[j].departure.at.split("T")
+                            let departure_date = new Date(parseInt(departure_date_parts[0].split("-")[0]), parseInt(departure_date_parts[0].split("-")[1]) - 1,
+                                                            parseInt(departure_date_parts[0].split("-")[2]));
+
+                            let departure_string_date = departure_date.toString(); 
+                            let departure_time = departure_date_parts[1].substring(0,5);
+
+                            total_trip_start_and_end_time += departure_time + " ";
+                            departure_time = covert_time_to_12_hour(departure_time);
+
+                            let departure_airport = AirportsData.filter(each => (each.IATA.toLowerCase().includes(data[w].itineraries[last_flights_itinerary_index].segments[j].departure.iataCode.toLowerCase())));
+                            let departure_airport_name = departure_airport[0].name;
+                            if(departure_airport_name.length > 14){
+                                departure_airport_name = departure_airport_name.split(" ")[0];
+                            }
+
+                            trip_return_from_and_to_airports += (departure_airport[0].IATA + " ");
+                            departure_airport = `(${departure_airport[0].IATA}) ${departure_airport_name}`;
+                            
+                            let arrival_date_parts = data[w].itineraries[last_flights_itinerary_index].segments[j].arrival.at.split("T")
+                            let arrival_date = new Date(parseInt(arrival_date_parts[0].split("-")[0]), parseInt(arrival_date_parts[0].split("-")[1]) - 1,
+                                                            parseInt(arrival_date_parts[0].split("-")[2]));
+
+                            let arrival_string_date = arrival_date.toString(); 
+                            let arrival_time = arrival_date_parts[1].substring(0,5);
+
+                            total_trip_start_and_end_time += arrival_time + " "
+                            arrival_time = covert_time_to_12_hour(arrival_time);
+
+                            let arrival_airport = AirportsData.filter(each => (each.IATA.toLowerCase().includes(data[w].itineraries[last_flights_itinerary_index].segments[j].arrival.iataCode.toLowerCase())));
+                            let arrival_airport_name = arrival_airport[0].name;
+                            if(arrival_airport_name.length > 14){
+                                arrival_airport_name = arrival_airport_name.split(" ")[0];
+                            }
+
+                            trip_return_from_and_to_airports += (arrival_airport[0].IATA + " ");
+                            arrival_airport = `(${arrival_airport[0].IATA}) ${arrival_airport_name}`;
+                            
+                            let travel_duration = data[w].itineraries[last_flights_itinerary_index].segments[j].duration.substring(2, data[w].itineraries[last_flights_itinerary_index].segments[j].duration.length);
+                            travel_duration = travel_duration.split("H");
+                            travel_duration = travel_duration[0].toLowerCase() + (travel_duration[1] ? ("h " + travel_duration[1].toLowerCase()) : "");
+                            if(travel_duration[travel_duration.length -1] !== "m" && travel_duration[travel_duration.length -1] !== "h"){
+                                travel_duration += "h";
+                            }
+
+                            if(j > 0){
+
+                                return_flights_change_flights_section = `
+
+                                            <div style="width: 85%; display: flex;  flex-direction: row !important; justify-content: space-between; border-top: 1px solid rgb(0, 0, 0, 0.1); border-bottom: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px;">
+                                                <div>
+                                                    <span style="opacity: 0.6; font-size: 13px; letter-spacing: 0.5px;">Change planes in ${departure_airport}</span>
+                                                    <br/>
+                                                    <span style="font-size: 13px; font-weight: bolder; opacity: 0.9; color: #e25a00; letter-spacing: 0.5px;">
+                                                        Self-transfer - Bag re-check may be required </span>
+                                                </div>
+                                                <div style="min-width: 60px; margin-left: 10px;">
+                                                    <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; letter-spacing: 0.5px;">${transfer_duration}</p>
+                                                </div>
+                                            </div>
+                                `;
+                            }
+
+                            return_segments += `
+                                <div style="display: flex; width: 100%; justify-content: flex-end;">
+                                    <div style="min-width: 80px; padding: 0 20px;">
+                                    </div>
+
+                                    ${return_flights_change_flights_section}
+                                
+                                </div>
+
+                                <div style="display: flex; width: 100%;">
+
+                                    <div>
+                                        <div style="min-width: 80px; padding: 20px;">
+                                            <p style="font-weight: bolder; text-align: right; font-size: 14px; letter-spacing: 0.5px; opacity: 0.9;">${departure_string_date.substring(0, 10)}</p>
+                                        </div>
+                                    </div>
+
+                                    <div style="width: 85%;">
+
+                                        <div style="display: flex; justify-content: space-between; margin: 20px;">
+                                            <div>
+                                                <div>
+                                                    <p>
+                                                        <img src="https://daisycon.io/images/airline/?width=950&height=670&color=ffffff&iata=${data[w].itineraries[last_flights_itinerary_index].segments[j].carrierCode}" style="width: 70px; height: 50px;" />
+                                                    </p>
+                                                    <div style="margin-bottom: 10px; display: flex;  flex-direction: row !important; justify-content: space-between;">
+                                                        <p style="font-size: 14px;  letter-spacing: 0.5px; font-weight: bolder; opacity: 0.8;">${departure_time} — ${arrival_time}</p>
+                                                        <p style="font-size: 12px;  letter-spacing: 0.8px; font-weight: bolder; opacity: 0.5;">
+                                                            ${segment_cabin}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">
+                                                    ${departure_airport} - ${arrival_airport}
+                                                </p>
+                                                <p style="letter-spacing: 0.5px; opacity: 0.9; margin-bottom: 7px; font-size: 13px; font-weight: bolder; color: #003f7a;">Limited seats remaining at this price</p>
+                                                <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">${segment_airline} · ${segment_aircraft}</p>
+                                                <p style="font-size: 13px; font-weight: bolder; color: #e25a00; opacity: 0.9; letter-spacing: 0.5px;">Carry-on baggage fees may apply to one or more segments of this trip</p>
+                                            </div>
+                                            <div style="min-width: 60px; margin-left: 10px;">
+                                                <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; letter-spacing: 0.5px;">${travel_duration}</p>
+                                                <p style="font-size: 13px; opacity: 0.6; margin-top: 10px; text-align: right; letter-spacing: 0.5px;">
+                                                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                        `;
+                        }
+                    }
+
                     total_trip_start_and_end_time = total_trip_start_and_end_time.split(" ");
                     total_trip_start_and_end_time = covert_time_to_12_hour(total_trip_start_and_end_time[0]) + " - " + covert_time_to_12_hour(total_trip_start_and_end_time[(total_trip_start_and_end_time.length - 2)]);
 
@@ -729,6 +941,16 @@ function render_flights(){
                         trip_departure_stops_airports = trip_departure_from_and_airports[1] + ", .., " + trip_departure_from_and_airports[(trip_departure_from_and_airports.length - 3)];
                     }
                     trip_departure_from_and_airports = trip_departure_from_and_airports[0] + " - " + trip_departure_from_and_airports[(trip_departure_from_and_airports.length - 2)];
+                    
+                    trip_return_from_and_to_airports = trip_return_from_and_to_airports.split(" ");
+                    trip_return_stops_airports = trip_return_from_and_to_airports[1];
+                    if(trip_return_from_and_to_airports.length > 5){
+                        trip_return_stops_airports = trip_return_from_and_to_airports[1] + ", " + trip_return_from_and_to_airports[(trip_return_from_and_to_airports.length - 3)];
+                    }
+                    if(trip_return_from_and_to_airports.length > 7){
+                        trip_return_stops_airports = trip_return_from_and_to_airports[1] + ", .., " + trip_return_from_and_to_airports[(trip_return_from_and_to_airports.length - 3)];
+                    }
+                    trip_return_from_and_to_airports = trip_return_from_and_to_airports[0] + " - " + trip_return_from_and_to_airports[(trip_return_from_and_to_airports.length - 2)];
                     
                 }
 
@@ -936,112 +1158,22 @@ function render_flights(){
 
                             </div>
 
-                            <div style="display: none !important; flex-direction: row !important; margin-top: 20px;" class="flight_ticket_item_details_section_content_title">
+                            <div style="display: ${return_flights_display} !important; flex-direction: row !important; margin-top: 20px;" class="flight_ticket_item_details_section_content_title">
                                 <p>
                                     <input id="flight_ticket_item_details_section_content_Return_check${w}" type="checkbox" />
                                     <label style="cursor: pointer;" for="flight_ticket_item_details_section_content_Return_check${w}">
-                                        Return <span>BDL - JAX</span>
+                                        Return <span>${trip_return_from_and_to_airports}</span>
                                     </label>
                                 </p>
                                 <div>
                                     <span>
-                                    19h 57m
+                                    ${total_return_duration}
                                     </span>
                                 </div>
                             </div>
-                            <div style="display: none !important; margin-bottom: 20px;" class="flight_ticket_item_details_section_content">
+                            <div style="display: ${return_flights_display} !important; margin-bottom: 20px;" class="flight_ticket_item_details_section_content">
 
-                                <div style="display: flex; width: 100%;">
-
-                                    <div>
-                                        <div style="min-width: 80px; padding: 20px;">
-                                            <p style="font-weight: bolder; text-align: right; font-size: 14px; letter-spacing: 0.5px; opacity: 0.9;">Sun, Dec 20</p>
-                                        </div>
-                                    </div>
-
-                                    <div style="width: 85%;">
-
-                                        <div style="display: flex; justify-content: space-between; margin: 20px;">
-                                            <div>
-                                                <div style="margin-bottom: 10px; display: flex;  flex-direction: row !important; justify-content: space-between;">
-                                                    <p style="font-size: 14px;  letter-spacing: 0.5px; font-weight: bolder; opacity: 0.8;">
-                                                        <img src="" style="width: 15px; height: 15px; margin-right: 10px;" />
-                                                        5:58 pm – 11:18 pm
-                                                    </p>
-                                                    <p style="font-size: 14px;  letter-spacing: 0.6px; opacity: 0.5;">
-                                                        Economy
-                                                    </p>
-                                                </div>
-                                                <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">
-                                                    Hartford (BDL) - Tampa (TPA)
-                                                </p>
-                                                <p style="letter-spacing: 0.5px; opacity: 0.9; margin-bottom: 7px; font-size: 13px; font-weight: bolder; color: #003f7a;">Limited seats remaining at this price</p>
-                                                <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">Spirit Airlines 2679 · Narrow-body jet · Airbus A320 (sharklets)</p>
-                                                <p style="font-size: 13px; font-weight: bolder; color: #e25a00; opacity: 0.9; letter-spacing: 0.5px;">Carry-on baggage fees may apply to one or more segments of this trip</p>
-                                            </div>
-                                            <div style="min-width: 60px; margin-left: 10px;">
-                                                <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; letter-spacing: 0.5px;">2h 59m</p>
-                                                <p style="font-size: 13px; opacity: 0.6; margin-top: 10px; text-align: right; letter-spacing: 0.5px;">
-                                                    <i class="fa fa-cutlery" aria-hidden="true"></i>
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                        <div style="display: flex;  flex-direction: row !important; justify-content: space-between; border-top: 1px solid rgb(0, 0, 0, 0.1); border-bottom: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px;">
-                                            <div>
-                                                <span style="opacity: 0.6; font-size: 13px; letter-spacing: 0.5px;">Change planes in Tampa (TPA)</span>
-                                                <br/>
-                                                <span style="font-size: 13px; font-weight: bolder; opacity: 0.9; color: #e25a00; letter-spacing: 0.5px;">
-                                                    Self-transfer - Bag re-check may be required </span>
-                                            </div>
-                                            <div style="min-width: 60px; margin-left: 10px;">
-                                                <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; letter-spacing: 0.5px;">13h 06m</p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div style="display: flex; width: 100%;">
-
-                                    <div>
-                                        <div style="min-width: 80px; padding: 20px;">
-                                            <p style="font-weight: bolder; text-align: right; font-size: 14px; letter-spacing: 0.5px; opacity: 0.9;">Sun, Dec 20</p>
-                                        </div>
-                                    </div>
-
-                                    <div style="width: 85%;">
-
-                                        <div style="display: flex; justify-content: space-between; margin: 20px;">
-                                            <div>
-                                                <div style="margin-bottom: 10px; display: flex;  flex-direction: row !important; justify-content: space-between;">
-                                                    <p style="font-size: 14px; letter-spacing: 0.5px; font-weight: bolder; opacity: 0.9;">
-                                                        <img src="" style="width: 15px; height: 15px; margin-right: 10px;" />
-                                                        7:40 pm — 10:39 pm
-                                                    </p>
-                                                    <p style="font-size: 14px; opacity: 0.6; letter-spacing: 0.5px;">
-                                                        Economy
-                                                    </p>
-                                                </div>
-                                                <p style="margin-bottom: 7px; font-size: 13px; letter-spacing: 0.5px; opacity: 0.6;">
-                                                    Hartford (BDL) - Tampa (TPA)
-                                                </p>
-                                                <p style="letter-spacing: 0.5px; opacity: 0.9; font-size: 13px; margin-bottom: 7px; font-weight: bolder; color: #003f7a;">Limited seats remaining at this price</p>
-                                                <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">Spirit Airlines 2679 · Narrow-body jet · Airbus A320 (sharklets)</p>
-                                                <p style="font-size: 13px; font-weight: bolder; color: #e25a00; opacity: 0.9; letter-spacing: 0.5px;">Carry-on baggage fees may apply to one or more segments of this trip</p>
-                                            </div>
-                                            <div style="min-width: 60px; margin-left: 10px;">
-                                                <p style="font-size: 13px; letter-spacing: 0.5px; font-weight: bolder; text-align: right; opacity: 0.9;">2h 59m</p>
-                                                <p style="font-size: 13px; letter-spacing: 0.5px; opacity: 0.6; margin-top: 10px; text-align: right;">
-                                                    <i class="fa fa-cutlery" aria-hidden="true"></i>
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
+                                ${return_segments}
 
                             </div>
                         </div>
