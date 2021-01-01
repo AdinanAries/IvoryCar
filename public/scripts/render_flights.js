@@ -647,7 +647,7 @@ function render_flights(){
                                         <p><i class="fa fa-exclamation" style="margin-right: 10px; color: rgb(0, 177, 139);" aria-hidden="true"></i><p>
                                         <p style="color: rgba(0,0,0,0.6); font-size: 12px;">
                                         everything below this tag (until the next tag) show information for one complete city route of 
-                                        your multi-city searches  (including stops, if any)</p>
+                                        your multi-city search (including stops, if any)</p>
                                     </div>
                                 </div>`;
                             }

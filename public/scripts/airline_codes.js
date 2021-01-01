@@ -186,5 +186,6 @@ var airline_codes = [
     {number: 169, code: "HR", name: "Hahn Air"},
     {number: 279, code: "B6", name: "JetBlue Airlines"},
     {number: 57, code: "AF", name: "Air France"},
-    {number: 30, code: "VY", name: "Vueling Airlines S.A."}
+    {number: 30, code: "VY", name: "Vueling Airlines S.A."},
+    {number: 0, code: "DY", name: "Norwegian Air Shuttle"}
 ];
