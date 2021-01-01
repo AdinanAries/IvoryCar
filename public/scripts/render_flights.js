@@ -1401,7 +1401,7 @@ var get_flight_price_analysis = async ()=>{
 
 get_flight_price_analysis().then(data=>{
     
-    if(data.data){
+    if(data.data.length > 0){
         price_metrics_min = parseFloat((site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[0].amount))).replaceAll(",", ""));
         price_metrics_first = parseFloat((site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[1].amount))).replaceAll(",", ""));
         price_metrics_medium = parseFloat((site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[2].amount))).replaceAll(",", ""));
