@@ -68,9 +68,14 @@ function display_events(start, limit, number){
             event_genre_name = all_public_events[i].classifications[0].genre.name
         }
 
+        //this has been changed for actual event venue address
         let event_time_zone = "Unavailable";
-        if(all_public_events[i].dates.timezone){
-            event_time_zone = all_public_events[i].dates.timezone.replaceAll("_", " ")
+        if(all_public_events[i]._embedded.venues[0]){
+            let e_address = all_public_events[i]._embedded.venues[0].address.line1;
+            let acity = all_public_events[i]._embedded.venues[0].city.name;
+            let acountry = all_public_events[i]._embedded.venues[0].country.countryCode;
+            event_time_zone = e_address + " " + acity + ", " + acountry;
+            //event_time_zone = all_public_events[i].dates.timezone.replaceAll("_", " ")
         }
 
         let event_information = undefined;
@@ -83,13 +88,25 @@ function display_events(start, limit, number){
             event_url_address = all_public_events[i].url
         }
 
-        render_event(number, event_full_name, event_name, all_public_events[i].images[1].url, stringdate.substring(0, 15), 
-        price_range, event_genre_name, event_time_zone, event_information, event_url_address);
+        let event_venue = "";
+        if(all_public_events[i]._embedded.venues){
+            if(all_public_events[i]._embedded.venues.length > 0){
+                event_venue = all_public_events[i]._embedded.venues[0].name;
+            }
+        }
+
+        let event_promoters = "";
+        if(all_public_events[i].promoter){
+            event_promoters = all_public_events[i].promoter.name;
+        }
+
+        render_event(number, event_full_name, event_name, all_public_events[i].images[(all_public_events[i].images.length -1)].url, stringdate.substring(0, 15), 
+        price_range, event_genre_name, event_time_zone, event_information, event_url_address, event_venue, event_promoters);
 
     }
 }
 
-function render_event(number, evnt_name_in_full, evnt_name, evnt_pic_url, evnt_start_date, priceRanges, evnt_genre, evnt_TZ, evnt_info, evnt_url){
+function render_event(number, evnt_name_in_full, evnt_name, evnt_pic_url, evnt_start_date, priceRanges, evnt_genre, evnt_TZ, evnt_info, evnt_url, evnt_venue, evnt_promoters){
 
     document.getElementById("events_and_cities_list_container"+number).innerHTML += `
     <div style="background-color: #023057; overflow: visible !important;" class="each_popular_city">
@@ -109,16 +126,14 @@ function render_event(number, evnt_name_in_full, evnt_name, evnt_pic_url, evnt_s
             ${evnt_start_date}
             </p>
             <p style="margin-bottom: 3px; font-size: 12px; color: #023057;">
-            <i class="fa fa-clock-o" style="margin-right: 5px; font-size: 13px; color:rgb(74, 101, 112);" aria-hidden="true"></i>
-            1pm to 4pm GMT
-            </p>
-            <p style="margin-bottom: 3px; font-size: 12px; color: #023057;">
-            <i class="fa fa-users" style="margin-right: 5px; font-size: 13px; color:rgb(74, 101, 112);" aria-hidden="true"></i>
-            2000+ people
-            </p>
-            <p style="margin-bottom: 3px; font-size: 12px; color: #023057;">
-            <i class="fa fa-ticket" style="margin-right: 5px; font-size: 13px; color:rgb(74, 101, 112);" aria-hidden="true"></i>
+            <i class="fa fa-money" style="margin-right: 5px; font-size: 13px; color:rgb(74, 101, 112);" aria-hidden="true"></i>
             ${priceRanges}
+            </p>
+            <p style="font-size: 12px; color: orangered; margin-top: 15px; margin-bottom: 5px;">
+            Venue: ${evnt_venue}
+            </p>
+            <p style="margin-bottom: 3px; font-size: 12px; color: orangered;">
+            Promoted by ${evnt_promoters}
             </p>
         </div>
         <div style="cursor: pointer; overflow: hidden !important; display: flex; flex-direction: row !important; margin: 0 10px; margin-top: 10px; border-radius: 5px;">
@@ -126,7 +141,7 @@ function render_event(number, evnt_name_in_full, evnt_name, evnt_pic_url, evnt_s
                 <a href="${evnt_url}" target="__blank" style="text-decoration: none; font-size: 13px; color: rgb(13, 74, 83);">
                 Attend Event</a>
                 </div>
-            <div onclick="show_all_event_details('eventID', ${number}, '${evnt_pic_url}', '${evnt_name_in_full}', '${evnt_TZ}', '${evnt_start_date}', '${priceRanges}', '${evnt_info}', '${evnt_url}');"  style="border-top-right-radius: 5px; border-bottom-right-radius: 5px; padding: 10px; background-color:rgb(0, 52, 73); width: 40%; text-align: center; font-weight: bolder;">
+            <div onclick="show_all_event_details('eventID', ${number}, '${evnt_pic_url}', '${evnt_name_in_full}', '${evnt_TZ}', '${evnt_start_date}', '${priceRanges}', '${evnt_info}', '${evnt_url}', '${evnt_venue}', '${evnt_promoters}');"  style="border-top-right-radius: 5px; border-bottom-right-radius: 5px; padding: 10px; background-color:rgb(0, 52, 73); width: 40%; text-align: center; font-weight: bolder;">
                 <a style="text-decoration: none; font-size: 13px; color: white;">
                 Read More</a>
             </div>
@@ -140,9 +155,14 @@ function render_event(number, evnt_name_in_full, evnt_name, evnt_pic_url, evnt_s
         <i class="fa fa-calendar-check-o" style="margin-right: 5px; font-size: 13px; color:rgb(255, 102, 0)" aria-hidden="true"></i>
         ${evnt_name}
         </p>
+        <p style="color: rgb(233, 128, 0); font-size: 13px; text-align: justify; margin-bottom: 5px;">
+            <i class="fa fa-circle" style="margin-right: 5px; opacity: 0.6;"></i>${evnt_genre}
+        </p>
         <p style="color: rgb(233, 128, 0); font-size: 13px; text-align: justify; margin-bottom: 10px;">
-            ${evnt_genre} - ${evnt_TZ}
-            <br/><br />
+            <i class="fa fa-map-marker" style="margin-right: 5px; opacity: 0.6;"></i>${evnt_TZ}
+            <br/><br/>
+        </p>
+        <p style="color: rgb(233, 128, 0); font-size: 13px; text-align: justify; margin-bottom: 10px;">
             <span style="margin-top: 5px; margin-left: 5px; font-size: 13px; color: #b37400; font-weight: bolder;">
             - ${evnt_start_date} 
             <span class="each_popular_city_see_more_btn" style="cursor: pointer; color: white; font-size: 12px; margin-left: 25px;">See More...</span>
@@ -194,16 +214,14 @@ function load_more_events(){
                     <span  id="show_all_evnt_detail_event_date_${each_events_row_number}">March 23 2021</span>
                     </p>
                     <p>
-                    <i class="fa fa-clock-o" style="margin-right: 5px; font-size: 13px; color:rgb(74, 101, 112);" aria-hidden="true"></i>
-                    1pm to 4pm GMT
-                    </p>
-                    <p>
-                    <i class="fa fa-users" style="margin-right: 5px; font-size: 13px; color:rgb(74, 101, 112);" aria-hidden="true"></i>
-                    2000+ people
-                    </p>
-                    <p>
                     <i class="fa fa-ticket" style="margin-right: 5px; font-size: 13px; color:rgb(74, 101, 112);" aria-hidden="true"></i>
                     <span   id="show_all_evnt_detail_event_price_range_${each_events_row_number}">$ 99.99</span>
+                    </p>
+                    <p style="font-size: 12px; color: orangered; margin-top: 15px; margin-bottom: 5px;">
+                    This event takes place at <span style="color: orangered;" id="show_all_evnt_detail_venue_${each_events_row_number}">Yankee stadium</span>
+                    </p>
+                    <p style="color: orangered">
+                    This event is being promoted by <span style="color: orangered;" id="show_all_evnt_detail_promoter_${each_events_row_number}">The Reds Ent<span>
                     </p>
                 </div>
                 </div>
