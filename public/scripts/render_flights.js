@@ -65,12 +65,36 @@ function render_flights(){
 
             let custom_tickets_departure_duration = "";
             if(data[0]){
-                custom_tickets_departure_duration = data[0].itineraries[0].duration.substring(2, data[0].itineraries[0].duration.length);
+                /*custom_tickets_departure_duration = data[0].itineraries[0].duration.substring(2, data[0].itineraries[0].duration.length);
                 custom_tickets_departure_duration = custom_tickets_departure_duration.split("H");
                 custom_tickets_departure_duration = custom_tickets_departure_duration[0].toLowerCase() + "h " + custom_tickets_departure_duration[1].toLowerCase();
-            
+                */
+                let ahour = 0;
+                let aminute = 0;
+                
+                for(let itn = 0; itn < data[0].itineraries.length; itn++){
+                    ahour += parseInt(data[0].itineraries[itn].duration.substring(2, data[0].itineraries[itn].duration.length).split("H")[0]);
+                    let tempMin = data[0].itineraries[itn].duration.substring(2, data[0].itineraries[itn].duration.length).split("H")[1];
+                    aminute += parseInt(tempMin.substring(0, (tempMin.length - 1)));
+                }
+                        
+                if(!ahour){
+                    ahour = 0;
+                }
+                if(!aminute){
+                    aminute = 0;
+                }
+
                 document.getElementById("ticks_top_custom_categories_price").innerHTML = current_currency.sign + " " + (custom_price.includes("k") ? 
                 custom_price : parseFloat(custom_price.replaceAll(",","")).toFixed(0));
+                
+                while(aminute > 60){
+                    aminute -= 60;
+                    ahour += 1;
+                }
+
+                custom_tickets_departure_duration = (ahour === 0 ? "" : (ahour + "h ")) + (aminute === 0 ? "" : (aminute + "m"))
+
                 document.getElementById("ticks_top_custom_categories_time").innerHTML = custom_tickets_departure_duration;
             }
             //console.log(fligh_search_data);
@@ -110,10 +134,18 @@ function render_flights(){
 
             let fastest_price = "";
             let cheapest_price = "";
-            let fastest_minutes_number = data[0].itineraries[0].duration.substring(2, data[0].itineraries[0].duration.length);
+            let fastest_minutes_number = "";
             let current_cheapest_flights_cost = data[0].price.total;
-            fastest_minutes_number = fastest_minutes_number.split("H");
-            fastest_minutes_number = (parseInt(fastest_minutes_number[0]) * 60) + fastest_minutes_number[1].substring(0, (fastest_minutes_number.length - 1));
+            let fastest_minutes_h_number = 0;
+            let fastest_minutes_m_number = 0;
+
+            for(let itn = 0; itn < data[0].itineraries.length; itn++){
+                fastest_minutes_h_number += parseInt(data[0].itineraries[itn].duration.substring(2, data[0].itineraries[itn].duration.length).split("H")[0]);
+                let tempMin = data[0].itineraries[itn].duration.substring(2, data[0].itineraries[itn].duration.length).split("H")[1];
+                fastest_minutes_m_number += parseInt(tempMin.substring(0, (tempMin.length - 1)));
+            }
+
+            fastest_minutes_number = ((fastest_minutes_h_number * 60) + fastest_minutes_m_number);
             
             let left_setting_no_stop_price = 0;
             let left_setting_one_stop_price = 0;
@@ -125,8 +157,61 @@ function render_flights(){
             //first loop to get data filter values
             for(let tp = 0; tp < data.length; tp++){
                 
+                let ahour = 0;
+                let aminute = 0;
+
+                //go through all segments of current data collecting duration values
+                for(let stlp = 0; stlp < data[tp].itineraries.length; stlp++){
+                    
+                    ahour += parseInt(data[tp].itineraries[stlp].duration.substring(2, data[tp].itineraries[stlp].duration.length).split("H")[0]);
+                    let tempMin = data[tp].itineraries[stlp].duration.substring(2, data[tp].itineraries[stlp].duration.length).split("H")[1];
+                    aminute += parseInt(tempMin.substring(0, (tempMin.length - 1)));
+                    
+                }
+
+                if(!ahour){
+                    ahour = 0;
+                }
+                if(!aminute){
+                    aminute = 0;
+                }
+
+                if((parseInt(ahour) * 60) + parseInt(aminute) <= fastest_minutes_number){
+                    
+                    fastest_minutes_number = (parseInt(ahour) * 60) + parseInt(aminute);
+                    
+                    fastest_price = site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total);
+                    
+                    if(parseFloat(fastest_price.replaceAll(",","")) >= 100000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
+                        fastest_price = fastest_price.substring(0,3) + "k";
+                    }else
+                    if(parseFloat(fastest_price.replaceAll(",","")) >= 100000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
+                        fastest_price = fastest_price.substring(0,3) + "k+";
+                    }else
+                    if(parseFloat(fastest_price.replaceAll(",","")) >= 10000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
+                        fastest_price = fastest_price.substring(0,2) + "k";
+                    }else
+                    if(parseFloat(fastest_price.replaceAll(",","")) >= 10000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
+                        fastest_price = fastest_price.substring(0,2) + "k+";
+                    }else
+                    if(parseFloat(fastest_price.replaceAll(",","")) >= 1000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
+                        fastest_price = fastest_price.substring(0,1) + "k";
+                    }else if(parseFloat(fastest_price.replaceAll(",","")) >= 1000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
+                        fastest_price = fastest_price.substring(0,1) + "k+";
+                    }
+                    
+                    while(aminute > 60){
+                        aminute -= 60;
+                        ahour += 1;
+                    }
+
+                    fastest_tickets_departure_duration = (ahour === 0 ? "" : (ahour + "h ")) + (aminute === 0 ? "" : (aminute + "m"))
+                    
+                }
+
                 for(let stlp = 0; stlp < data[tp].itineraries.length; stlp++){
 
+                    //knowing the segments or stops in each itinerary
                     if(data[tp].itineraries[stlp].segments.length === 1){
 
                         no_fastest_travel_times = false;
@@ -134,47 +219,6 @@ function render_flights(){
                         if(left_setting_no_stop_price === 0){
                             document.getElementById("left_setting_no_stop_price_tag").innerHTML = current_currency.sign + " " + addCommas(parseFloat(site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total).replaceAll(",","")).toFixed(0));
                             left_setting_no_stop_price = 1;
-                        }
-
-                        let ahour = data[tp].itineraries[0].duration.substring(2, data[tp].itineraries[0].duration.length).split("H")[0];
-                        let aminute = data[tp].itineraries[0].duration.substring(2, data[tp].itineraries[0].duration.length).split("H")[1];
-                        aminute = aminute.substring(0, (aminute.length - 1));
-                        
-                        if(!ahour){
-                            ahour = 0;
-                        }
-                        if(!aminute){
-                            aminute = 0;
-                        }
-
-                        if((parseInt(ahour) * 60) + parseInt(aminute) < fastest_minutes_number){
-                            
-                            fastest_minutes_number = (parseInt(ahour) * 60) + parseInt(aminute);
-                            
-                            fastest_price = site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total);
-                            
-                            if(parseFloat(fastest_price.replaceAll(",","")) >= 100000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
-                                fastest_price = fastest_price.substring(0,3) + "k";
-                            }else
-                            if(parseFloat(fastest_price.replaceAll(",","")) >= 100000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
-                                fastest_price = fastest_price.substring(0,3) + "k+";
-                            }else
-                            if(parseFloat(fastest_price.replaceAll(",","")) >= 10000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
-                                fastest_price = fastest_price.substring(0,2) + "k";
-                            }else
-                            if(parseFloat(fastest_price.replaceAll(",","")) >= 10000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
-                                fastest_price = fastest_price.substring(0,2) + "k+";
-                            }else
-                            if(parseFloat(fastest_price.replaceAll(",","")) >= 1000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
-                                fastest_price = fastest_price.substring(0,1) + "k";
-                            }else if(parseFloat(fastest_price.replaceAll(",","")) >= 1000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
-                                fastest_price = fastest_price.substring(0,1) + "k+";
-                            }
-                            
-                            fastest_tickets_departure_duration = data[tp].itineraries[0].duration.substring(2, data[tp].itineraries[0].duration.length);
-                            fastest_tickets_departure_duration = fastest_tickets_departure_duration.split("H");
-                            fastest_tickets_departure_duration = fastest_tickets_departure_duration[0].toLowerCase() + "h " + fastest_tickets_departure_duration[1].toLowerCase();
-
                         }
 
                     }else
@@ -187,47 +231,6 @@ function render_flights(){
                             left_setting_one_stop_price = 1;
                         }
 
-                        let ahour = data[tp].itineraries[0].duration.substring(2, data[tp].itineraries[0].duration.length).split("H")[0];
-                        let aminute = data[tp].itineraries[0].duration.substring(2, data[tp].itineraries[0].duration.length).split("H")[1];
-                        aminute = aminute.substring(0, (aminute.length - 1));
-
-                        if(!ahour){
-                            ahour = 0;
-                        }
-                        if(!aminute){
-                            aminute = 0;
-                        }
-
-                        if((parseInt(ahour) * 60) + parseInt(aminute) < fastest_minutes_number){
-
-                            fastest_minutes_number = (parseInt(ahour) * 60) + parseInt(aminute);
-                            
-                            fastest_price = site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total);
-                            
-                            if(parseFloat(fastest_price.replaceAll(",","")) >= 100000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
-                                fastest_price = fastest_price.substring(0,3) + "k";
-                            }else
-                            if(parseFloat(fastest_price.replaceAll(",","")) >= 100000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
-                                fastest_price = fastest_price.substring(0,3) + "k+";
-                            }else
-                            if(parseFloat(fastest_price.replaceAll(",","")) >= 10000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
-                                fastest_price = fastest_price.substring(0,2) + "k";
-                            }else
-                            if(parseFloat(fastest_price.replaceAll(",","")) >= 10000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
-                                fastest_price = fastest_price.substring(0,2) + "k+";
-                            }else
-                            if(parseFloat(fastest_price.replaceAll(",","")) >= 1000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
-                                fastest_price = fastest_price.substring(0,1) + "k";
-                            }else if(parseFloat(fastest_price.replaceAll(",","")) >= 1000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
-                                fastest_price = fastest_price.substring(0,1) + "k+";
-                            }
-                            
-                            fastest_tickets_departure_duration = data[tp].itineraries[0].duration.substring(2, data[tp].itineraries[0].duration.length);
-                            fastest_tickets_departure_duration = fastest_tickets_departure_duration.split("H");
-                            fastest_tickets_departure_duration = fastest_tickets_departure_duration[0].toLowerCase() + "h " + fastest_tickets_departure_duration[1].toLowerCase();
-
-                        }
-
                     }else
                     if(data[tp].itineraries[stlp].segments.length > 2){
 
@@ -236,53 +239,28 @@ function render_flights(){
                             left_setting_many_stops_price = 1;
                         }
 
-                        let ahour = data[tp].itineraries[0].duration.substring(2, data[tp].itineraries[0].duration.length).split("H")[0];
-                        let aminute = data[tp].itineraries[0].duration.substring(2, data[tp].itineraries[0].duration.length).split("H")[1];
-                        aminute = aminute.substring(0, (aminute.length - 1));
-
-                        if(!ahour){
-                            ahour = 0;
-                        }
-                        if(!aminute){
-                            aminute = 0;
-                        }
-
-                        if((parseInt(ahour) * 60) + parseInt(aminute) < fastest_minutes_number){
-
-                            fastest_minutes_number = (parseInt(ahour) * 60) + parseInt(aminute);
-
-                            fastest_price = site_currency_coverter(data[tp].price.currency, current_currency.currency, data[tp].price.total);
-
-                            if(parseFloat(fastest_price.replaceAll(",","")) >= 100000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
-                                fastest_price = fastest_price.substring(0,3) + "k";
-                            }else
-                            if(parseFloat(fastest_price.replaceAll(",","")) >= 100000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
-                                fastest_price = fastest_price.substring(0,3) + "k+";
-                            }else
-                            if(parseFloat(fastest_price.replaceAll(",","")) >= 10000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
-                                fastest_price = fastest_price.substring(0,2) + "k";
-                            }else
-                            if(parseFloat(fastest_price.replaceAll(",","")) >= 10000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
-                                fastest_price = fastest_price.substring(0,2) + "k+";
-                            }else
-                            if(parseFloat(fastest_price.replaceAll(",","")) >= 1000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) === 0){
-                                fastest_price = fastest_price.substring(0,1) + "k";
-                            }else if(parseFloat(fastest_price.replaceAll(",","")) >= 1000 && (parseFloat(fastest_price.replaceAll(",","")) % 10) > 0){
-                                fastest_price = fastest_price.substring(0,1) + "k+";
-                            }
-                            
-                            fastest_tickets_departure_duration = data[tp].itineraries[0].duration.substring(2, data[tp].itineraries[0].duration.length);
-                            fastest_tickets_departure_duration = fastest_tickets_departure_duration.split("H");
-                            fastest_tickets_departure_duration = fastest_tickets_departure_duration[0].toLowerCase() + "h " + fastest_tickets_departure_duration[1].toLowerCase();
-
-                        }
-
                     }
 
                 }
 
                 //save more condition here
                 if(parseFloat(data[tp].price.total) <= parseFloat(current_cheapest_flights_cost)){
+
+                    let ahour = 0;
+                    let aminute = 0;
+
+                    for(let itn = 0; itn < data[tp].itineraries.length; itn++){
+                        ahour += parseInt(data[tp].itineraries[itn].duration.substring(2, data[tp].itineraries[itn].duration.length).split("H")[0]);
+                        let tempMin = data[tp].itineraries[itn].duration.substring(2, data[tp].itineraries[itn].duration.length).split("H")[1];
+                        aminute += parseInt(tempMin.substring(0, (tempMin.length - 1)));
+                    }
+
+                    if(!ahour){
+                        ahour = 0;
+                    }
+                    if(!aminute){
+                        aminute = 0;
+                    }
                     
                     current_cheapest_flights_cost = data[tp].price.total;
 
@@ -306,10 +284,16 @@ function render_flights(){
                                 cheapest_price = cheapest_price.substring(0,1) + "k+";
                             }
                             
-                            cheapest_tickets_departure_duration = data[tp].itineraries[0].duration.substring(2, data[tp].itineraries[0].duration.length);
+                            /*cheapest_tickets_departure_duration = data[tp].itineraries[0].duration.substring(2, data[tp].itineraries[0].duration.length);
                             cheapest_tickets_departure_duration = cheapest_tickets_departure_duration.split("H");
-                            cheapest_tickets_departure_duration = cheapest_tickets_departure_duration[0].toLowerCase() + "h " + cheapest_tickets_departure_duration[1].toLowerCase();
+                            cheapest_tickets_departure_duration = cheapest_tickets_departure_duration[0].toLowerCase() + "h " + cheapest_tickets_departure_duration[1].toLowerCase();*/
+                            
+                            while(aminute > 60){
+                                aminute -= 60;
+                                ahour += 1;
+                            }
 
+                            cheapest_tickets_departure_duration = (ahour === 0 ? "" : (ahour + "h ")) + (aminute === 0 ? "" : (aminute + "m"))
 
                 }
             }
@@ -554,23 +538,47 @@ function render_flights(){
                         main_return_flights_display = "block";
                     }
 
+                    //these lines of code will be used for overall duration in order to skip flights that exceed fastes flight times
+                    let ahour = 0;
+                    let aminute = 0;
+
+                    for(let itn = 0; itn < data[w].itineraries.length; itn++){
+                        ahour += parseInt(data[w].itineraries[itn].duration.substring(2, data[w].itineraries[itn].duration.length).split("H")[0]);
+                        let tempMin = data[w].itineraries[itn].duration.substring(2, data[w].itineraries[itn].duration.length).split("H")[1];
+                        aminute += parseInt(tempMin.substring(0, (tempMin.length - 1)));
+                    }
+
+                    if(!ahour){
+                        ahour = 0;
+                    }
+                    if(!aminute){
+                        aminute = 0;
+                    }
+
+                    let bhour = 0;
+                    let bminute = 0;
+
+                    //loop for rendering departure flights
                     for(let k = 0; k < flights_itinerry_lenght; k++){
 
-                        total_departure_duration = data[w].itineraries[k].duration.substring(2, data[w].itineraries[k].duration.length);
+                        /*total_departure_duration = data[w].itineraries[k].duration.substring(2, data[w].itineraries[k].duration.length);
                         total_departure_duration = total_departure_duration.split("H");
                         total_departure_duration = total_departure_duration[0].toLowerCase() + "h " + total_departure_duration[1].toLowerCase();
+                        */
+                        //this gets the summ for all 
                         
-                        let ahour = total_departure_duration.split("h")[0];
-                        let aminute =  total_departure_duration.split("h")[1];
-                        aminute = aminute.substring(0, (aminute.length - 1));
-                        
-                        if(!ahour){
-                            ahour = 0;
+                        bhour += parseInt(data[w].itineraries[k].duration.substring(2, data[w].itineraries[k].duration.length).split("H")[0]);
+                        let tempMin = data[w].itineraries[k].duration.substring(2, data[w].itineraries[k].duration.length).split("H")[1];
+                        bminute += parseInt(tempMin.substring(0, (tempMin.length - 1)));
+                    
+                        /*if(!bhour){
+                            bhour = 0;
                         }
-                        if(!aminute){
-                            aminute = 0;
-                        }
-                        
+                        if(!bminute){
+                            bminute = 0;
+                        }*/
+
+                        //skip rendering of flights with time greater than fastest times
                         if(show_fastest_travel_times_clicked && (((parseInt(ahour) * 60) + parseInt(aminute)) > fastest_minutes_number)){
                             
                             if(limit > 0){
@@ -768,6 +776,13 @@ function render_flights(){
                         `;
                         }
                     }
+
+                    while(bminute > 60){
+                        bminute -= 60;
+                        bhour += 1;
+                    }
+                    
+                    total_departure_duration = (bhour === 0 ? "" : (bhour + "h ")) + (bminute === 0 ? "" : (bminute + "m"))
 
                     if(last_flights_itinerary_index > 0){
 

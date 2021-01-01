@@ -189,6 +189,8 @@ var flight_search_number_of_people = {
 if(localStorage.getItem("is_round_trip")){
     if(localStorage.getItem("is_round_trip") === "no"){
         set_flight_trip_round_for_search('One-way');
+        document.getElementById("roundtrip_radio_option").checked = false;
+        document.getElementById("oneway_radio_option").checked = true;
     }
 }else{
     localStorage.setItem("is_round_trip", "yes");
