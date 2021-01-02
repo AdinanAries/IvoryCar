@@ -16,7 +16,11 @@ document.getElementById("from_where_search_input_fld").addEventListener("input",
             || (each.city + each.country + each.name + each.IATA).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
             || (each.country + each.city + each.name + each.IATA).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
             || (each.name + each.city + each.country + each.IATA).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || (each.name + each.IATA + each.city + each.country).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
             || (each.IATA + each.name + each.city + each.country).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || (each.IATA + each.city + each.name + each.country).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || (each.IATA + each.city + each.country + each.name).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || (each.IATA + each.country + each.city + each.name).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
             )
         });
         flights = flights.map(elem => {
@@ -75,7 +79,11 @@ document.getElementById("to_where_search_input_fld").addEventListener("input", (
             || (each.city + each.country + each.name + each.IATA).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
             || (each.country + each.city + each.name + each.IATA).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
             || (each.name + each.city + each.country + each.IATA).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || (each.name + each.IATA + each.city + each.country).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
             || (each.IATA + each.name + each.city + each.country).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || (each.IATA + each.city + each.name + each.country).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || (each.IATA + each.city + each.country + each.name).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
+            || (each.IATA + each.country + each.city + each.name).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
             )
         );
         flights = flights.map(elem => {
