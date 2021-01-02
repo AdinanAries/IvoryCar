@@ -73,9 +73,10 @@ function display_events(start, limit, number){
         if(all_public_events[i]._embedded.venues[0]){
             let e_address = all_public_events[i]._embedded.venues[0].address.line1;
             let acity = all_public_events[i]._embedded.venues[0].city.name;
+            let astate = all_public_events[i].dates.timezone.split("/")[1].replaceAll("_", " ");
             let acountry = all_public_events[i]._embedded.venues[0].country.countryCode;
-            event_time_zone = e_address + " " + acity + ", " + acountry;
-            //event_time_zone = all_public_events[i].dates.timezone.replaceAll("_", " ")
+            event_time_zone = e_address + ", " + acity + ", " + astate + ", " + acountry;
+            //event_time_zone = all_public_events[i].dates.timezone.replaceAll("_", " ");
         }
 
         let event_information = undefined;
@@ -156,7 +157,7 @@ function render_event(number, evnt_name_in_full, evnt_name, evnt_pic_url, evnt_s
         ${evnt_name}
         </p>
         <p style="color: rgb(233, 128, 0); font-size: 13px; text-align: justify; margin-bottom: 5px;">
-            <i class="fa fa-circle" style="margin-right: 5px; opacity: 0.6;"></i>${evnt_genre}
+            <i class="fa fa-circle" style="margin-right: 5px; opacity: 0.6; font-size: 9px;"></i>${evnt_genre}
         </p>
         <p style="color: rgb(233, 128, 0); font-size: 13px; text-align: justify; margin-bottom: 10px;">
             <i class="fa fa-map-marker" style="margin-right: 5px; opacity: 0.6;"></i>${evnt_TZ}

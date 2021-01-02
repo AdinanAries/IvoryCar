@@ -3,7 +3,10 @@ var home_page_search_button = document.getElementById("home_page_search_button")
 var home_page_hotels_search_button = document.getElementById("home_page_hotels_search_button");
 
 //Global Utilities
+//today
 var todays_date = new Date();
+//tomorrow. API works well with this date
+todays_date = new Date(todays_date.setDate(todays_date.getDate() + 1))
 var this_month = (todays_date.getMonth() + 1);
 var this_month_day = todays_date.getDate();
 
@@ -15,17 +18,17 @@ if(this_month < 10){
 }
 var formatted_date = todays_date.getFullYear() + "-" + this_month + "-" + this_month_day;
 
-var future_date = new Date(todays_date.setMonth(todays_date.getMonth() + 2));
-var next_month_day = future_date.getDate();
-var next_month = (future_date.getMonth() + 1);
+var future_date = new Date(todays_date.setDate(todays_date.getDate() + 5));
+var future_date_day = future_date.getDate();
+var future_date_month = (future_date.getMonth() + 1);
 
-if(next_month_day < 10){
-    next_month_day = "0"+ next_month_day;
+if(future_date_day < 10){
+    future_date_day = "0"+ future_date_day;
 }
-if(next_month < 10){
-    next_month = "0"+next_month;
+if(future_date_month < 10){
+    future_date_month = "0"+future_date_month;
 }
-var formatted_future_date = future_date.getFullYear() + "-" + next_month + "-" + next_month_day;
+var formatted_future_date = future_date.getFullYear() + "-" + future_date_month + "-" + future_date_day;
 var default_adults = 1;
 
 //Global data
@@ -129,7 +132,7 @@ if(window.localStorage.getItem("flights_post_data")){
                 "GDS" 
               ], 
               searchCriteria: { 
-                maxFlightOffers: 50 
+                maxFlightOffers: 100 
               } 
             }
         };
