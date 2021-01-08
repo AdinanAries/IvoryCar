@@ -831,8 +831,56 @@ let search_trigger_func = () =>{
         }).catch(err => console.log(err))
         
     }else{
-        localStorage.setItem("is_multi_city_search", "no");
-        window.location.href = "./search_results_page.html";
+        if(fligh_search_data.origin_iata === ""){
+
+            if(/\(...?.\)/.test(from_where_search_input_fld.value)){
+
+                let originIata = from_where_search_input_fld.value;
+                originIata = originIata.split(")")[0];
+                originIata = originIata.substring(1,originIata.length);
+
+                fligh_search_data.origin_iata = originIata;
+                window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
+
+                if(fligh_search_data.destination_iata !== "" && fligh_search_data.origin_iata !== ""){
+                    localStorage.setItem("is_multi_city_search", "no");
+                    window.location.href = "./search_results_page.html";
+                }
+
+            }else{
+                from_where_search_input_fld.value = "";
+                from_where_search_input_fld.placeholder = "please enter origin city/airport";
+                from_where_search_input_fld.focus();
+            }
+
+        }else if (fligh_search_data.destination_iata === ""){
+
+            if(/\(...?.\)/.test(to_where_search_input_fld.value)){
+
+                let destIata = to_where_search_input_fld.value;
+                destIata = destIata.split(")")[0];
+                destIata = destIata.substring(1,destIata.length);
+
+                fligh_search_data.destination_iata = destIata;
+                window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
+
+                if(fligh_search_data.destination_iata !== "" && fligh_search_data.origin_iata !== ""){
+                    localStorage.setItem("is_multi_city_search", "no");
+                    window.location.href = "./search_results_page.html";
+                }
+
+            }else{
+            
+                to_where_search_input_fld.value = "";
+                to_where_search_input_fld.placeholder = "please enter destination city/airport";
+                to_where_search_input_fld.focus();
+            }
+
+        }else{
+            localStorage.setItem("is_multi_city_search", "no");
+            window.location.href = "./search_results_page.html";
+        }
+        
     }
 
 }
