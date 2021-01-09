@@ -88,7 +88,7 @@ function success(position) {
             GoogleReturnedZipCode = CityZipCodeParts[2].trim();
             
             user_current_airport = AirportsData.filter(each => 
-                each.city.replaceAll(" ", "").toLowerCase().includes(GoogleReturnedTown.toLowerCase().replaceAll(" ", "")) ||
+                /*each.city.replaceAll(" ", "").toLowerCase().includes(GoogleReturnedTown.toLowerCase().replaceAll(" ", "")) ||*/
                 (each.lon ===  position.coords.longitude && each.lat === position.coords.latitude) ||
                 each.city.replaceAll(" ", "").toLowerCase().includes(GoogleReturnedCity.toLowerCase().replaceAll(" ", "")) ||
                 each.country.replaceAll(" ", "").toLowerCase().includes(GoogleCountry.toLowerCase().replaceAll(" ", "")) ||
@@ -98,7 +98,9 @@ function success(position) {
                 //now I have an array of airport objects. Need to narrow down to specific needed airport
                 let first_airport = user_current_airport[0];
                 user_current_airport = `(${first_airport.IATA}) ${first_airport.name} - ${first_airport.city}`;
-                
+
+                fligh_search_data.origin_iata = first_airport.IATA;
+                window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
                 document.getElementById("from_where_search_input_fld").value = user_current_airport;
                 //console.log(user_current_airport);
         }

@@ -240,7 +240,7 @@ main_menu_packages_option.addEventListener("click", (e) => {
 //function to show flights search form
 main_menu_car_option.addEventListener("click", () => {
   
-  if(document.getElementById("multi_city_search_inputs_display").hasChildNodes()){
+  if(document.getElementById("multi_city_search_inputs_display").contains(document.querySelector(".each_added_flight"))){
     setTimeout(()=>{
       $("#multi_city_search_inputs_display").slideDown("fast");
     },150)
@@ -287,7 +287,7 @@ main_menu_car_option.addEventListener("click", () => {
 
 mobile_menu_car_option.addEventListener("click", () => {
   
-  if(document.getElementById("multi_city_search_inputs_display").hasChildNodes()){
+  if(document.getElementById("multi_city_search_inputs_display").contains(document.querySelector(".each_added_flight"))){
     setTimeout(()=>{
       $("#multi_city_search_inputs_display").slideDown("fast");
     },150)
@@ -952,6 +952,7 @@ function add_a_flight(setting_number){
 
   let div = document.createElement("div");
   div.id = "each_added_flight" + globalFlightId;
+  div.classList.add("each_added_flight");
   div.style.display = "none";
 
   div.innerHTML = `
@@ -1023,6 +1024,21 @@ function remove_a_flight(id){
 
   let flight_id = "each_added_flight"+id;
   $("#"+flight_id).slideUp("fast");
+
+  setTimeout(()=>{
+    document.getElementById("multi_city_search_inputs_display").removeChild(document.getElementById(flight_id));
+    //console.log(document.getElementById("multi_city_search_inputs_display").contains(document.querySelector(".each_added_flight")))
+  }, 200);
+
+  setTimeout(()=>{
+  if(!document.getElementById("multi_city_search_inputs_display").contains(document.querySelector(".each_added_flight"))){
+
+      document.getElementById("multi_city_search_inputs_display").innerHTML = "";
+      $("#multi_city_search_inputs_display").slideUp("fast");
+      
+    }
+  },250);
+
 }
 
 function edit_from_where_of_added_flight(number){
