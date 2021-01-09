@@ -1486,3 +1486,125 @@ function activate_login_fld(number){
    }
    
  }
+
+ var most_searched_for_cities = [
+    [
+      {name: "Abuja", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
+      {name: "Honkon", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
+      {name: "Liverpool", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
+      {name: "Berlin", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"}
+    ],
+   
+    [
+      {name: "Abuja", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
+      {name: "Honkon", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
+      {name: "Liverpool", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
+      {name: "Berlin", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
+    ],
+
+    [
+      {name: "Abuja", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
+      {name: "Honkon", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
+      {name: "Liverpool", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
+      {name: "Berlin", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"}
+    ],
+
+    [
+      {name: "Abuja", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
+      {name: "Honkon", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
+      {name: "Liverpool", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
+      {name: "Berlin", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"}
+    ]
+ ];
+ var mcs_number = 0;
+ function load_more_popular_cities(){
+
+  let cities_row = most_searched_for_cities[mcs_number];
+
+   document.getElementById("load_more_popular_cities_container").innerHTML += `
+
+        <div id="more_popular_city_set${mcs_number}" style="display: none;" class="most_searched_cities_list_container">
+          <div class="each_popular_city">
+            <img style="border-top-right-radius: 5px; border-top-left-radius: 5px;" src="./images/Manhattan New York City 8.jpg" alt="" />
+            <div class="each_popular_city_desc">
+              <p
+                style="font-weight: bolder; color: #023057; margin: 10px 0;"
+              >
+              ${cities_row[0].name}
+              </p>
+              <p style="color: #3d5970; font-size: 13px; text-align: justify; margin-bottom: 10px;">
+                ${cities_row[0].quote}
+                <br/><br />
+                <span style="margin-top: 5px; margin-left: 20px; font-size: 13px; color: #855600; font-weight: bolder;">
+                  - ${cities_row[0].quote_author}
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="each_popular_city">
+            <img style="border-top-right-radius: 5px; border-top-left-radius: 5px;" src="./images/London.jpg"  alt=""/>
+            <div class="each_popular_city_desc">
+              <p
+                style="font-weight: bolder; color: #023057; margin: 10px 0;"
+              >
+              ${cities_row[1].name}
+              </p>
+              <p style="color: #3d5970; font-size: 13px; text-align: justify; margin-bottom: 10px;">
+                ${cities_row[1].quote}
+                <br/><br/>
+                <span style="margin-top: 5px; margin-left: 20px; font-size: 13px; color: #855600; font-weight: bolder;">
+                  - ${cities_row[1].quote_author}
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="each_popular_city">
+            <img style="border-top-right-radius: 5px; border-top-left-radius: 5px;" src="./images/AccraGhana.jpg" alt=""/>
+            <div class="each_popular_city_desc">
+              <p
+                style="font-weight: bolder; color: #023057; margin: 10px 0;"
+              >
+              ${cities_row[2].name}
+              </p>
+              <p style="color: #3d5970; font-size: 13px; text-align: justify; margin-bottom: 10px;">
+                ${cities_row[2].quote}
+                <br/><br/>
+                <span style="margin-top: 5px; margin-left: 20px; font-size: 13px; color: #855600; font-weight: bolder;">
+                  - ${cities_row[2].quote_author}
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="each_popular_city">
+            <img style="border-top-right-radius: 5px; border-top-left-radius: 5px;" src="./images/Paris.jpg" alt=""/>
+            <div class="each_popular_city_desc">
+              <p
+                style="font-weight: bolder; color: #023057; margin: 10px 0;"
+              >
+              ${cities_row[3].name}
+              </p>
+              <p style="color: #3d5970; font-size: 13px; text-align: justify; margin-bottom: 10px;">
+              ${cities_row[3].quote} 
+                <br/><br/>
+                <span style="margin-top: 5px; margin-left: 20px; font-size: 13px; color: #855600; font-weight: bolder;">
+                  - ${cities_row[3].quote_author}
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+   `;
+
+   setTimeout(()=>{
+     
+    $(("#more_popular_city_set"+mcs_number)).slideDown("fast");
+    mcs_number++;
+
+   }, 300);
+
+   
+ }
+
+ if($(window).width() > 1000){
+  load_more_popular_cities();
+ }
