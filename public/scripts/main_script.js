@@ -1519,6 +1519,12 @@ function activate_login_fld(number){
  var mcs_number = 0;
  function load_more_popular_cities(){
 
+  if(mcs_number+1 > most_searched_for_cities.length){
+    
+    document.getElementById("more_popular_cites_btn").style.display = "none";
+    return null;
+
+  }
   let cities_row = most_searched_for_cities[mcs_number];
 
    document.getElementById("load_more_popular_cities_container").innerHTML += `
