@@ -860,61 +860,11 @@
               </div>
               <div id="hotels_main_where_city_show_container" class="from_where_city_show_container">
                 <div style="margin-top: 50px;">
-                  <p style="margin: 10px; margin-bottom: 0; font-size: 12px; color:rgb(255, 102, 0); font-weight: bolder;">You've Entered:</p>
-                  <p style="margin: 10px; margin-top: 0; font-size: 11px; color:rgb(0, 127, 177);"> 
-                    <span id="hotels_from_where_search_display_span">
-                      <span style="font-size: 12px;">
-                        <i style="color: red; margin-right: 5px; font-size: 12px; text-shadow: none;" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                        Please enter <span style="font-weight: bolder; font-size: 12px;">where you're going to</span> 
-                      </span>
-                    </span>
-                  </p>
-
-                  <p style="margin: 10px; margin-bottom: 0;margin-top: 20px; font-size: 12px; color:rgb(255, 102, 0); font-weight: bolder;">
-                    People from New York also searched:</p>
+                  
                   <div id="hotels_people_also_searched_list_div">
-                    <p class="people_also_searched_list_item">
-                      <i aria-hidden="true" class="fa fa-check"></i>
-                       hotel in <span>New York, USA</span>
-                       <span style="margin-left: 10px; color:rgb(0, 177, 139);">
-                        $
-                      </span>
-                    </p>
-                    <p class="people_also_searched_list_item">
-                      <i aria-hidden="true" class="fa fa-check"></i>
-                       hotels in <span>Ontario, Canada</span>
-                       <span style="margin-left: 10px; color:rgb(0, 177, 139); font-size: 12px;">
-                        $$
-                      </span>
-                    </p>
-                    <p class="people_also_searched_list_item">
-                      <i aria-hidden="true" style="color:rgb(197, 0, 0);" class="fa fa-times"></i>
-                       hotels in <span>Roma, Italy</span>
-                       <span style="margin-left: 10px; color:rgb(0, 177, 139); font-size: 12px;">
-                        $$$
-                      </span>
-                    </p>
-                    <p class="people_also_searched_list_item">
-                      <i aria-hidden="true" class="fa fa-check"></i>
-                       hotels in <span>Ciaro, Egypt</span>
-                       <span style="margin-left: 10px; color:rgb(197, 0, 0); font-size: 12px;">
-                        $$$$
-                      </span>
-                    </p>
-                    <p class="people_also_searched_list_item">
-                      <i aria-hidden="true" class="fa fa-check"></i>
-                       hotels in <span>Paris, France</span>
-                       <span style="margin-left: 10px; color:rgb(197, 0, 0); font-size: 12px;">
-                        $$$$
-                      </span>
-                    </p>
-                    <p class="people_also_searched_list_item">
-                      <i aria-hidden="true" class="fa fa-check"></i>
-                       hotels in <span>California, USA</span>
-                       <span style="margin-left: 10px; color:rgb(197, 0, 0); font-size: 12px;">
-                        $$$$
-                      </span>
-                    </p>
+                    <ul style="margin-top: 10px;" id="list_of_cities_for_hotels_search">
+                      
+                    </ul>
                     <div class="search_fieldset_done_btn" id="hotels_city_search_fieldset_done_btn">
                       <i class="fa fa-times" aria-hidden="true"></i>
                     </div>
@@ -2146,6 +2096,7 @@
 
     <input type="hidden" id="progress_width" value="0">
 
+    <script src="scripts/city_codes.js"></script>
     <script src="scripts/Airports.js" type="text/javascript"></script>
     <script src="scripts/airline_codes.js" type="text/javascript"></script>
     <script src="scripts/aircraft_codes.js" type="text/javascript"></script>
@@ -2153,6 +2104,7 @@
     <script src="scripts/search_page_main_script.js" type="text/javascript"></script>
     <script src="scripts/hotel_number_of_rooms.js" type="text/javascript"></script>
     <script src="scripts/search_forms_airports.js" type="text/javascript"></script>
+    <script src="scripts/city_search_fld_autocomplete.js"></script>
     <script src="scripts/airports_auto_complete.js" type="text/javascript"></script>
     <script src="scripts/home_page_flight_search_processes.js" type="text/javascript"></script>
     <script src="scripts/data_charts.js" type="text/javascript"></script>

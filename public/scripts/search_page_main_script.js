@@ -502,13 +502,13 @@ autocomplete2.addListener('place_changed', function () {
     let place = autocomplete2.getPlace();
     to_where_search_display_span.innerHTML = "<span style='color: rgb(255, 102, 0); font-size: 12px;'>to </span><span style='font-weight: bolder; font-size: 12px;'>" 
                                               + to_where_search_input_fld.value + "</span>";
-});*/
+});
 let autocomplete3 = new google.maps.places.Autocomplete(hotels_where_search_input_fld);
 autocomplete3.addListener('place_changed', function () {
     let place = autocomplete3.getPlace();
     hotels_from_where_search_display_span.innerHTML = "<span style='color: rgb(255, 102, 0); font-size: 12px;'>Hotels from </span><span style='font-weight: bolder; font-size: 12px;'>" 
                                               + hotels_where_search_input_fld.value + "</span>";
-});
+});*/
 
 let autocomplete4 = new google.maps.places.Autocomplete(car_rentals_from_where_search_input_fld);
 autocomplete4.addListener('place_changed', function () {
