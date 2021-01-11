@@ -1449,33 +1449,35 @@ var get_flight_price_analysis = async ()=>{
     });
 }
 
-get_flight_price_analysis().then(data=>{
-    
-    if(data.data){
-        if(data.data.length > 0){
-            price_metrics_min = parseFloat((site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[0].amount))).replaceAll(",", ""));
-            price_metrics_first = parseFloat((site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[1].amount))).replaceAll(",", ""));
-            price_metrics_medium = parseFloat((site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[2].amount))).replaceAll(",", ""));
-            price_metrics_third = parseFloat((site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[3].amount))).replaceAll(",", ""));
-            price_metrics_max = parseFloat((site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[4].amount))).replaceAll(",", ""));
+if(localStorage.getItem("main_search_type") === "flight_search"){
+    get_flight_price_analysis().then(data=>{
+        
+        if(data.data){
+            if(data.data.length > 0){
+                price_metrics_min = parseFloat((site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[0].amount))).replaceAll(",", ""));
+                price_metrics_first = parseFloat((site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[1].amount))).replaceAll(",", ""));
+                price_metrics_medium = parseFloat((site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[2].amount))).replaceAll(",", ""));
+                price_metrics_third = parseFloat((site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[3].amount))).replaceAll(",", ""));
+                price_metrics_max = parseFloat((site_currency_coverter(data.data[0].currencyCode, current_currency.currency, parseFloat(data.data[0].priceMetrics[4].amount))).replaceAll(",", ""));
 
-            price_metrices_currency = data.data[0].currencyCode;
+                price_metrices_currency = data.data[0].currencyCode;
 
-            /*console.log("min: ", price_metrics_min);
-            console.log("first: ", price_metrics_first);
-            console.log("median: " + price_metrics_medium);
-            console.log("third: " + price_metrics_third);
-            console.log("max: ", price_metrics_max);
-            console.log("metrics currency: ", price_metrices_currency);
-            console.log(data);*/
+                /*console.log("min: ", price_metrics_min);
+                console.log("first: ", price_metrics_first);
+                console.log("median: " + price_metrics_medium);
+                console.log("third: " + price_metrics_third);
+                console.log("max: ", price_metrics_max);
+                console.log("metrics currency: ", price_metrices_currency);
+                console.log(data);*/
+            }
         }
-    }
 
-    render_flights();
+        render_flights();
 
-}).catch(err =>{
-    console.log(err);
-})
+    }).catch(err =>{
+        console.log(err);
+    })
+}
 
 function flights_search_co_ordinator_function(){
 

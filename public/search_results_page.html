@@ -1328,7 +1328,12 @@
                 </div>
               </div>
             </div>
-            <div style="display: none;" id="main_tickets_section_list_container" class="tickets_section_list_container">
+            <div id="main_tickets_section_list_container" class="tickets_section_list_container">
+              <script>
+                if(localStorage.getItem("main_search_type") === "hotel_search"){
+                  document.getElementById("main_tickets_section_list_container").style.display = "none";
+                }
+              </script>
               <div class="each_ticket_item ticket_item_loader_card">
                 <div style="display: none !important;" class="each_ticket_item_top">
                   <div style="display: flex; flex-direction: row !important;">
@@ -1715,6 +1720,11 @@
               </div>
             </div>
             <div id="hotels_tickets_section_list_container" class="tickets_section_list_container">
+              <script>
+                if(localStorage.getItem("main_search_type") === "flight_search"){
+                  document.getElementById("hotels_tickets_section_list_container").style.display = "none";
+                }
+              </script>
               <div class="each_ticket_item ticket_item_loader_card">
                 <div class="each_ticket_item_main">
                   <div class="each_ticket_item_main_left">

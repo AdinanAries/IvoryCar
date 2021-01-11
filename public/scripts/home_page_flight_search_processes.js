@@ -39,6 +39,13 @@ if(localStorage.getItem("is_multi_city_search")){
     localStorage.setItem("is_multi_city_search", "no");
 }
 
+//Search Type
+if(localStorage.getItem("main_search_type")){
+    //do nothing
+}else{
+    //flight_search or hotel_search or car_search or package_search
+    localStorage.setItem("main_search_type", "flight_search");
+}
 var object_to_send = {};
 var fligh_search_data = {};
 var flight_multi_city_search_data = {};
@@ -887,6 +894,9 @@ let search_trigger_func = () =>{
 
 home_page_search_button.addEventListener("click", () =>{
 
+    //flight_search or hotel_search or car_search or package_search
+    localStorage.setItem("main_search_type", "flight_search");
+
     if(from_where_search_input_fld.value === ""){
 
         from_where_search_input_fld.placeholder = "please enter origin city/airport";
@@ -904,6 +914,9 @@ home_page_search_button.addEventListener("click", () =>{
 });
 
 home_page_hotels_search_button.addEventListener("click", () =>{
+    //flight_search or hotel_search or car_search or package_search
+    localStorage.setItem("main_search_type", "hotel_search");
+
     search_trigger_func();
 });
 
