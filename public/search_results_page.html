@@ -453,6 +453,18 @@
         </div>
       </div>
     </header>
+
+    <!--script>
+      //flight_search or hotel_search or car_search or package_search
+      if(localStorage.getItem("main_search_type") === "hotel_search"){
+        let elemArr = Array.from(document.getElementsByClassName("top_nav_var_main_menu_item"));
+        elemArr.forEach(each => {
+          each.classList.remove("active_top_nav_link")
+        });
+        document.getElementById("main_menu_hotels_option").classList.add("active_top_nav_link")
+      }
+    </script-->
+
     <section>
       <div class="hero_section_container">
           
@@ -876,24 +888,7 @@
               <div id="hotels_from_when_date_input_container">
                 <i class="fa fa-calendar" aria-hidden="true"></i
                 ><input readonly="readonly" id="hotels_from_when_search_input" type="text" placeholder="Checkin" />
-                <!--script>
-                  function jqueryHelper1(){
-                    if($(window).width() > 700){
-                      document.getElementsByClassName('ui-datepicker')[0].classList.remove('secondJQuery');
-                    }
-                  }
-                </script-->
               </div>
-              <!--div id="hotels_to_when_date_input_container">
-                <i class="fa fa-calendar" aria-hidden="true"></i>
-                <input onclick="jqueryHelper2()" readonly="readonly" id="hotels_to_when_search_input" type="text" placeholder="Checkout" />
-              <script>
-                function jqueryHelper2(){
-                  if($(window).width() > 700)
-                    document.getElementsByClassName('ui-datepicker')[0].classList.add('secondJQuery');
-                }
-              </script>
-              </div-->
               <div style="padding-bottom: 0 !important;" id="hotels_main_from_when_date_show_container" class="from_when_date_show_container">
                 <div id="hotels_more_options_date_show_container">
                   <div id="hotels_date_search_fieldset_done_btn" style="color: white; font-size: 14px; font-weight: bolder; background-color: #023057; border-radius: 4px;
@@ -901,13 +896,6 @@
                         display: flex; flex-direction: column; justify-content: center; height: 40px; text-align: center; margin: 0 10px;">
                       Cancel
                     </div>
-                  <!--p>Estimated Prices</p>
-                  <div id="hotels_more_options_date_show_list" style="flex-direction: row !important;">
-                    <div style="background-color: rgb(0, 151, 211)" class="more_options_date_show_item">$212 +</div>
-                    <div style="background-color: rgb(255, 153, 0)" class="more_options_date_show_item">$324 +</div>
-                    <div style="background-color: rgb(255, 102, 0)" class="more_options_date_show_item">$465 +</div>
-                    <div style="background-color: red" class="more_options_date_show_item">$504 +</div>
-                </div-->
                 </div>
               </div>
             </div>
@@ -1058,7 +1046,11 @@
       <div class="site_lower_section_top_area">
         <div class="wrapper">
           <canvas style="width: 100%; height: 100%; min-height: 250px;" id="line-chart"></canvas>
-          
+          <script>
+            if(localStorage.getItem("main_search_type") !== "flight_search"){
+              document.getElementById("line-chart").style.display = "none";
+            }
+          </script>
         </div>
       </div>
       <div class="wrapper">
@@ -1246,7 +1238,7 @@
             </div>
           </div>
           <div class="site_lower_section_middle">
-            <div class="site_lower_section_tabs">
+            <div id="fights_site_lower_section_tabs" class="site_lower_section_tabs">
               <div onclick="getCheapFlights();" id="site_lower_section_tabs_cheapest_option" class="site_lower_section_tabs_option  active">
                 <div id="site_lower_section_tabs_cheapest_option_content" class="site_lower_section_tabs_option_content" style="border-right: rgb(112, 2, 2) 1px solid;">
                   <p><strong>Unfiltered</strong></p>
@@ -1278,6 +1270,13 @@
                 </div>
               </div>
             </div>
+
+            <script>
+              if(localStorage.getItem("main_search_type") !== "flight_search"){
+                document.getElementById("fights_site_lower_section_tabs").style.display = "none";
+              }
+            </script>
+
             <div id="main_tickets_section_list_container" class="tickets_section_list_container">
               <script>
                 if(localStorage.getItem("main_search_type") === "hotel_search"){
@@ -1715,7 +1714,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="each_ticket_item_main_right">
+                  <div class="each_ticket_item_main_right hotels_each_ticket_item_main_right">
                     <p class="ticket_item_price_display loading_card_data_element" style="color: rgb(160, 160, 160);">$125</p>
                     <p  class="loading_card_data_element" style="font-size: 12px; margin-bottom: 5px; font-weight: bolder;color: rgb(160, 160, 160)">
                       American Airlines</p>
@@ -1766,7 +1765,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="each_ticket_item_main_right">
+                  <div class="each_ticket_item_main_right hotels_each_ticket_item_main_right">
                     <p class="ticket_item_price_display">$125</p>
                     <p style="font-size: 12px; margin-bottom: 5px; font-weight: bolder;">
                       American Airlines</p>
@@ -2111,5 +2110,6 @@
     <script src="scripts/site_currency.js" type="text/javascript"></script>
     <script src="scripts/airflights_list_functions.js" type="text/javascript"></script>
     <script src="scripts/render_flights.js" type="text/javascript"></script>
+    <script src="scripts/render_hotels.js" type="text/javascript"></script>
   </body>
 </html>

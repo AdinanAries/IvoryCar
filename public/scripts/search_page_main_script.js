@@ -222,10 +222,7 @@ car_rentals_date_search_fieldset.addEventListener("focusout", (evnt)=>{
   //$("#car_rentals_main_from_when_date_show_container").slideUp("fast");
 })
 
-//function to show flights search form
-flights_search_tickets_form_container.style.display = "flex";
-main_menu_flights_option.addEventListener("click", () => {
-  
+function show_flights_forms_from_main_menu(){
   trip_type_parameters.style.display = "block";
   hotels_accommodations_parameters.style.display = "none";
   car_rentals_pickup_time_parameters.style.display = "none";
@@ -242,10 +239,15 @@ main_menu_flights_option.addEventListener("click", () => {
   hotel_set_off_additional_options.style.display = "none";
   rental_cars_set_off_additional_options.style.display = "none";
   //jumbotron_background.style.display = "block";
+}
+
+//function to show flights search form
+flights_search_tickets_form_container.style.display = "flex";
+main_menu_flights_option.addEventListener("click", () => {
+  show_flights_forms_from_main_menu();
 });
 
-mobile_menu_flights_option.addEventListener("click", () => {
-  
+function show_flights_forms_from_mobile_menu(){
   trip_type_parameters.style.display = "block";
   hotels_accommodations_parameters.style.display = "none";
   car_rentals_pickup_time_parameters.style.display = "none";
@@ -265,12 +267,13 @@ mobile_menu_flights_option.addEventListener("click", () => {
 
   MobilehowSearchFormInputsBtn.style.transform  = "rotate(180deg)";
   show_search_page_top_nav_form();
+}
 
+mobile_menu_flights_option.addEventListener("click", () => {
+  show_flights_forms_from_mobile_menu();
 });
 
-//function to show hotels search form
-main_menu_hotels_option.addEventListener("click", () => {
-  
+function show_hotels_forms_from_main_menu(){
   hotels_accommodations_parameters.style.display = "block";
   car_rentals_pickup_time_parameters.style.display = "none";
   trip_type_parameters.style.display = "none";
@@ -287,10 +290,14 @@ main_menu_hotels_option.addEventListener("click", () => {
   rental_cars_set_off_additional_options.style.display = "none";
   
   //jumbotron_background.style.display = "block";
+}
+
+//function to show hotels search form
+main_menu_hotels_option.addEventListener("click", () => {
+  show_hotels_forms_from_main_menu();
 });
 
-mobile_menu_hotels_option.addEventListener("click", () => {
-  
+function show_hotels_forms_from_mobile_menu(){
   hotels_accommodations_parameters.style.display = "block";
   car_rentals_pickup_time_parameters.style.display = "none";
   trip_type_parameters.style.display = "none";
@@ -311,6 +318,10 @@ mobile_menu_hotels_option.addEventListener("click", () => {
   $("#multi_city_search_inputs_display").slideUp("fast");
 
   //jumbotron_background.style.display = "block";
+}
+
+mobile_menu_hotels_option.addEventListener("click", () => {
+  show_hotels_forms_from_mobile_menu();
 });
 
 //function to show car rentals search form
@@ -677,7 +688,7 @@ var hero_section_container = document.querySelector(".hero_section_container");
               }*/
 
               if($(window).width() < 450){
-                hero_section_container.style.minWidth = "calc(100vw - 10px)";
+                hero_section_container.style.minWidth = "100vw";
               }
 
             } else { 
@@ -706,7 +717,7 @@ var hero_section_container = document.querySelector(".hero_section_container");
 
 
               if($(window).width() < 450)
-                hero_section_container.style.minWidth = "calc(100vw - 20px)";
+                hero_section_container.style.minWidth = "100vw";
 
               mobile_search_change_type_of_service.style.paddingTop = 0;
               document.getElementById("mobile_search_change_type_of_service").style.paddingBottom = 0;
@@ -1495,4 +1506,31 @@ function show_finish_booking_form_reivew_and_submit(){
 
   booking_forms_render_all_travelers();
 
+}
+
+
+if(localStorage.getItem("main_search_type") === "hotel_search"){
+  
+  if($(window).width > 700){
+
+    show_hotels_forms_from_main_menu();
+    
+  }else{
+
+    hotels_accommodations_parameters.style.display = "block";
+    car_rentals_pickup_time_parameters.style.display = "none";
+    trip_type_parameters.style.display = "none";
+
+    flights_search_tickets_form_container.style.display = "none";
+    hotels__search_form_container.style.display = "flex";
+    car_rentals_search_form_container.style.display = "none";
+    set_all_main_menu_items_as_not_selected();
+    main_menu_hotels_option.classList.add("active_top_nav_link");
+    mobile_menu_hotels_option.classList.add("active_mobile_nav_link")
+
+    flight_set_off_additional_options.style.display = "none";
+    hotel_set_off_additional_options.style.display = "flex";
+    rental_cars_set_off_additional_options.style.display = "none";
+    
+  }
 }

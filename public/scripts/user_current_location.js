@@ -102,7 +102,11 @@ function success(position) {
                 fligh_search_data.origin_iata = first_airport.IATA;
                 window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
                 document.getElementById("from_where_search_input_fld").value = user_current_airport;
-                //console.log(user_current_airport);
+                
+                hotel_search_data.city = first_airport.IATA;
+                document.getElementById("hotels_where_search_input_fld").value = first_airport.city;
+                window.localStorage.setItem("hotels_post_data", JSON.stringify(hotel_search_data));
+                console.log(user_current_airport);
         }
 
     });
@@ -131,15 +135,12 @@ function success(position) {
  title: ”you are here”    
 });*/    
 
-if(fligh_search_data.origin_iata === ""){
 
+if(fligh_search_data.origin_iata === "" || hotel_search_data.city === ""){
     if (navigator.geolocation) {    
-    navigator.geolocation.getCurrentPosition(success);    
+        navigator.geolocation.getCurrentPosition(success);    
     }   
     else {    
         error('Geo Location is not supported');    
     } 
-
 }
-
-

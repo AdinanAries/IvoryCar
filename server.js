@@ -331,6 +331,12 @@ app.post('/flightpriceanalysis/', (req, res, next)=>{
 
 })
 
+
+//Hotel Search End Points
+app.post("/get_hotels/", (req, res, next)=>{
+  res.json(req.body);
+})
+
 //Spinning the server here
 app.listen(PORT, () => {
   console.log("Server started on " + PORT);

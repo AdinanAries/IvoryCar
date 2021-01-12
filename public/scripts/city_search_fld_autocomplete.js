@@ -12,7 +12,7 @@ document.getElementById("hotels_where_search_input_fld").addEventListener("input
         if(k < 5){
 
             ul.innerHTML += `
-                <li>
+                <li style="cursor: pointer;">
                     <div onclick="set_city_for_hotel_search('${suggestedArr[k].code}')" style="padding: 5px;">
                         <p style="font-size: 13px; font-weight: bolder;">
                             <i style="color: orange; margin-right: 5px; font-size: 12px;" class="fa fa-map-marker" aria-hidden="true"></i>

@@ -49,6 +49,22 @@ if(localStorage.getItem("main_search_type")){
 var object_to_send = {};
 var fligh_search_data = {};
 var flight_multi_city_search_data = {};
+var hotel_search_data = {};
+
+if(window.localStorage.getItem("hotels_post_data")){
+
+    hotel_search_data = JSON.parse(window.localStorage.getItem("hotels_post_data"));
+
+}else{
+
+    hotel_search_data = {
+        city: "",
+        checkin: formatted_date,
+        checkout: formatted_future_date
+    }
+    window.localStorage.setItem("hotels_post_data", JSON.stringify(hotel_search_data));
+
+}
 
 if(window.localStorage.getItem("flights_post_data")){
 

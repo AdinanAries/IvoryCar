@@ -1389,6 +1389,8 @@ var aita_city_codes = [
     {city: "Chicago", code: "CHI"},
     {city: "Rio de Janeiro", code: "RIO"},
     {city: "Sao Paulo", code: "SAO"},
-    {city: "Tenerife", code: "TCI"}
+    {city: "Tenerife", code: "TCI"},
+    {city: "Madrid - Torrejon", code: "TOJ"},
+    {city: "Colima Miguel de la Madrid", code: "CLQ"}
 
 ]
