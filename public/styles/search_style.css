@@ -1582,6 +1582,25 @@ footer a {
   margin-left: -10px !important;
   margin-top: -10px !important;
   margin-bottom: -10px !important;
+  position: relative;
+}
+.hotels_card_pic_show_full_pic {
+  position: absolute;
+  right: 5px;
+  width: 40px;
+  height: 40px;
+  top: calc(50% - 20px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  border-radius: 100%;
+  text-align: center;
+  background-color: rgb(236, 236, 236);
+  border: 1px solid rgb(185, 185, 185);
+}
+.hotels_card_pic_show_full_pic i {
+  font-size: 14px;
+  color: rgb(212, 78, 0);
 }
 .hotels_each_ticket_item_main_right {
   border-top-right-radius: 5px;
