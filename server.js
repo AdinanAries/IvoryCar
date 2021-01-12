@@ -334,7 +334,27 @@ app.post('/flightpriceanalysis/', (req, res, next)=>{
 
 //Hotel Search End Points
 app.post("/get_hotels/", (req, res, next)=>{
-  res.json(req.body);
+
+  let city = req.body.city;
+  let checkinDate = req.body.checkin;
+  let checkoutDate = req.body.checkout;
+  let roomQuantity = req.body.roomQuantity;
+
+  axios.get(
+    "https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode="+city+"&checkInDate="+checkinDate+"&checkOutDate="+checkoutDate+"&roomQuantity="+roomQuantity,
+    {
+      headers: {
+        "Authorization": ("Bearer "+ AmadeusAccessToken)
+      }
+  }).then(data => {
+    //console.log(data);
+    res.send(data.data);
+  }).catch(err => {
+    console.log(err);
+  }).then(()=>{
+    //defaults
+  });
+  
 })
 
 //Spinning the server here

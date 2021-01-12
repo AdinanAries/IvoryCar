@@ -60,7 +60,8 @@ if(window.localStorage.getItem("hotels_post_data")){
     hotel_search_data = {
         city: "",
         checkin: formatted_date,
-        checkout: formatted_future_date
+        checkout: formatted_future_date,
+        roomQuantity: 1
     }
     window.localStorage.setItem("hotels_post_data", JSON.stringify(hotel_search_data));
 
