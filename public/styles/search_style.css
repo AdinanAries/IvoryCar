@@ -1583,6 +1583,7 @@ footer a {
   margin-top: -10px !important;
   margin-bottom: -10px !important;
   position: relative;
+  transition: all 0.5s ease-out;
 }
 .hotels_card_pic_show_full_pic {
   position: absolute;
@@ -1601,6 +1602,7 @@ footer a {
 .hotels_card_pic_show_full_pic i {
   font-size: 14px;
   color: rgb(212, 78, 0);
+  transition: all 0.5s ease-out;
 }
 .hotels_each_ticket_item_main_right {
   border-top-right-radius: 5px;
@@ -1643,6 +1645,9 @@ footer a {
     border-top-right-radius: 5px;
     box-shadow: 0px 1.6px 1.6px rgba(0, 0, 0, 0.26),
       0px 0px 1.9px rgba(0, 0, 0, 0.247);
+  }
+  .hotels_card_pic_show_full_pic {
+    display: none;
   }
   .hotels_each_ticket_item_main_right {
     border-top-right-radius: 0;

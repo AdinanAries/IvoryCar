@@ -1514,7 +1514,7 @@ if(localStorage.getItem("main_search_type") === "hotel_search"){
   if($(window).width > 700){
 
     show_hotels_forms_from_main_menu();
-    
+
   }else{
 
     hotels_accommodations_parameters.style.display = "block";
@@ -1533,4 +1533,42 @@ if(localStorage.getItem("main_search_type") === "hotel_search"){
     rental_cars_set_off_additional_options.style.display = "none";
     
   }
+}
+
+
+function show_full_hotel_list_pic(number){
+  let elem_height = $("#hotels_card_booking_desc"+number).height();
+  let desc_width = $("#hotels_card_booking_desc"+number).width();
+  
+  if(desc_width !== 2){
+    
+      document.getElementById("hotels_card_booking_desc"+number).style.maxHeight = elem_height+"px";
+      document.getElementById("hotels_card_booking_desc"+number).style.opacity = 0;
+      document.getElementById("hotels_card_booking_desc"+number).style.overflow = "hidden";
+      setTimeout(()=>{
+        document.getElementById("hotels_card_booking_desc"+number).style.minWidth = "1px";
+        document.getElementById("hotels_card_pic"+number).style.minWidth = "100%";
+        document.getElementById("hotels_card_pic_show_full_pic_icon"+number).style.transform = "rotate(180deg)";
+      }, 100);
+
+      setTimeout(()=>{
+        document.getElementById("hotels_card_pic_title"+number).style.opacity = 1;
+      }, 300);
+
+  }else{
+      
+      setTimeout(()=>{
+        document.getElementById("hotels_card_pic"+number).style.minWidth = "200px";
+        document.getElementById("hotels_card_booking_desc"+number).style.minWidth = "static";
+        document.getElementById("hotels_card_pic_show_full_pic_icon"+number).style.transform = "rotate(0deg)";
+      }, 100);
+
+      setTimeout(()=>{
+        document.getElementById("hotels_card_pic_title"+number).style.opacity = 0;
+        document.getElementById("hotels_card_booking_desc"+number).style.overflow = "initial";
+        document.getElementById("hotels_card_booking_desc"+number).style.opacity = 1;
+      }, 300);
+
+  }
+  
 }

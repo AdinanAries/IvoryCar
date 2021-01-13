@@ -106,7 +106,7 @@ function success(position) {
                 hotel_search_data.city = first_airport.IATA;
                 document.getElementById("hotels_where_search_input_fld").value = first_airport.city;
                 window.localStorage.setItem("hotels_post_data", JSON.stringify(hotel_search_data));
-                console.log(user_current_airport);
+                //console.log(user_current_airport);
         }
 
     });

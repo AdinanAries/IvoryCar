@@ -874,7 +874,7 @@
                 <div style="margin-top: 50px;">
                   
                   <div id="hotels_people_also_searched_list_div">
-                    <ul style="margin-top: 10px;" id="list_of_cities_for_hotels_search">
+                    <ul id="list_of_cities_for_hotels_search">
                       
                     </ul>
                     <div class="search_fieldset_done_btn" id="hotels_city_search_fieldset_done_btn">
@@ -1744,13 +1744,20 @@
                   <div class="each_ticket_item_main_left">
                     <div class="main_ticket_info_area">
                       <div class="main_ticket_info_area_top">
-                        <div class="hotels_card_pic" style="background-image: url(./images/lHotelPic2.jpg); background-size: cover; background-repeat: no-repeat; min-height: 150px;">
-                          <div class="hotels_card_pic_show_full_pic">
-                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                        <div id="hotels_card_pic0" class="hotels_card_pic" style="background-image: url(./images/lHotelPic2.jpg); background-size: cover; background-repeat: no-repeat; min-height: 150px;">
+                          <div id="hotels_card_pic_title0" style="opacity: 0; transition: 0.5s all; position: absolute; top: 0; left: 0; background-color:rgba(0, 0, 0, 0.4); padding: 10px; width: calc(100% - 20px);">
+                            <p style="color: white; font-weight: bolder; font-size: 12px; letter-spacing: 0.7px;">Hotel Name Here</p>
+                            <p style="color: white; font-size: 11px; letter-spacing: 0.7px;">
+                              Manhattan, New York, USA
+                            </p>
+                            <p style="color:rgb(0, 188, 235);">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+                          </div>
+                          <div onclick="show_full_hotel_list_pic(0);" class="hotels_card_pic_show_full_pic">
+                            <i id="hotels_card_pic_show_full_pic_icon0" class="fa fa-chevron-right" aria-hidden="true"></i>
                           </div>
                         </div>
-                        <div style="justify-content: flex-start;">
-                          <div>
+                        <div id="hotels_card_booking_desc0" style="margin-right: 0 !important; justify-content: flex-start; transition: all 0.5s ease-out;">
+                          <div style="margin-right: 0 !important;">
                             <h1 style="font-size: 20px; color:rgba(30, 63, 65, 0.9); letter-spacing: 0.5px; margin-bottom: 5px;
                               font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Hotel Name Here</h1>
                             <p style="color:rgba(30, 63, 65, 0.7); font-size: 13px; 
@@ -1770,14 +1777,14 @@
                               </span>
                             </p>
                           </div>
-                          <div style="flex-direction: row !important; width: 100%; justify-content: space-between; padding-top: 20px;">
+                          <div style="flex-direction: row !important; width: 100%; justify-content: space-between; padding-top: 20px; margin-right: 0 !important;">
                             <div>
                               <p style="font-weight: bolder; opacity: 0.6; font-size: 14px; margin-bottom: 5px;">
                                 Quantity:</p>
                               <p style="font-size: 13px;">
                                 3 Rooms</p>
                             </div>
-                            <div>
+                            <div  style="margin-right: 0 !important;">
                               <p style="font-weight: bolder; font-size: 14px; margin-bottom: 5px; opacity: 0.6;">Checkin</p>
                               <p style="font-size: 13px;">June 25, 2021</p>
                             </div>
