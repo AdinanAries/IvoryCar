@@ -1059,10 +1059,10 @@ function render_flights(){
                 document.getElementById("main_tickets_section_list_container").innerHTML +=
                     `<div class="each_ticket_item">
                     <div class="share_each_ticket_item_btn">
-                    <p>
+                        <p>
                         <i style="font-size: 20px; color:rgb(78, 78, 78);" class="fa fa-share-square-o" aria-hidden="true"></i>
-                    </p>
-                    <p class="share_each_ticket_item_btn_txt">share</p>
+                        </p>
+                        <p class="share_each_ticket_item_btn_txt">share</p>
                     </div>
                     <div style="display: none !important;" class="each_ticket_item_top">
                         <div style="display: flex; flex-direction: row !important;">
@@ -1386,15 +1386,15 @@ function render_flights(){
                         <p style="color:rgb(104, 104, 104); font-size: 12px; margin-bottom: 5px; font-weight: bolder;">
                         ${validating_airline}</p>
                         <div class="ticket_item_entitlements_display">
-                        ${displayed_cabin}
-                        <div class="ticket_item_entitlements_content_display arrow_on_bottom">
-                            <p style="opacity: 0.8; font-weight: bolder; font-size: 12px; padding: 10px;">
-                                All segments' airfare classes
-                            </p>
-                            <ul style="list-style-type: none; padding: 10px; margin-bottom: 10px; background-color: #140028;">
-                                ${all_segment_cabins}
-                            </ul>
-                        </div>
+                            ${displayed_cabin}
+                            <div class="ticket_item_entitlements_content_display arrow_on_bottom">
+                                <p style="opacity: 0.8; font-weight: bolder; font-size: 12px; padding: 10px;">
+                                    All segments' airfare classes
+                                </p>
+                                <ul style="list-style-type: none; padding: 10px; margin-bottom: 10px; background-color: #140028;">
+                                    ${all_segment_cabins}
+                                </ul>
+                            </div>
                         </div>
                         <div  onclick="view_flight_deal(true, '${each_flight_data.replaceAll('"', '*#*$#%')}');" style="font-size: 14px;" class="view_deal_button">Book Flight</div>
                     </div>

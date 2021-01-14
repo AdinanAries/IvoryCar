@@ -5,6 +5,30 @@
   font-size: 16px;
 }
 /*-------------------------------*/
+.hotel_description_show_all_btn {
+  color: orangered;
+  font-size: 12px;
+  margin-left: 10px;
+  position: relative;
+  z-index: 1;
+}
+.hotel_description_show_all_btn:hover .hotel_description_show_all_txt {
+  display: block;
+}
+.hotel_description_show_all_txt {
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  left: -100px;
+  background-color: white;
+  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
+    0px 0px 2.9px rgba(0, 0, 0, 0.23);
+  min-width: 500px;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
 
 .loader {
   box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
@@ -1633,6 +1657,10 @@ footer a {
 }
 
 @media only screen and (max-width: 700px) {
+  .hotel_description_show_all_txt {
+    left: -25px;
+    min-width: 380px;
+  }
   .hotels_card_pic {
     height: 200px;
     margin-left: -10px;
@@ -1641,13 +1669,13 @@ footer a {
     margin-top: -10px !important;
     min-width: 100% !important;
     border-radius: 0 !important;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 5px !important;
+    border-top-right-radius: 5px !important;
     box-shadow: 0px 1.6px 1.6px rgba(0, 0, 0, 0.26),
       0px 0px 1.9px rgba(0, 0, 0, 0.247);
   }
   .hotels_card_pic_show_full_pic {
-    display: none;
+    display: none !important;
   }
   .hotels_each_ticket_item_main_right {
     border-top-right-radius: 0;
@@ -1968,10 +1996,16 @@ footer a {
   .ui-datepicker {
     margin-left: -1.5em !important;
   }
+  .hotel_description_show_all_txt {
+    min-width: 350px;
+  }
 }
 @media only screen and (max-width: 377px) {
   .ui-datepicker {
     margin-left: -1.1em !important;
+  }
+  .hotel_description_show_all_txt {
+    min-width: 310px;
   }
 }
 @media only screen and (max-width: 360px) {
@@ -1980,6 +2014,9 @@ footer a {
   }
 }
 @media only screen and (max-width: 322px) {
+  .hotel_description_show_all_txt {
+    min-width: 260px;
+  }
   .ui-datepicker {
     margin-left: -1.1em !important;
     font-size: 10px !important;

@@ -1535,12 +1535,12 @@ if(localStorage.getItem("main_search_type") === "hotel_search"){
   }
 }
 
-
+var is_wide_hotels_card_pic = [];
 function show_full_hotel_list_pic(number){
   let elem_height = $("#hotels_card_booking_desc"+number).height();
   let desc_width = $("#hotels_card_booking_desc"+number).width();
   
-  if(desc_width !== 2){
+  if(!is_wide_hotels_card_pic[number]){
     
       document.getElementById("hotels_card_booking_desc"+number).style.maxHeight = elem_height+"px";
       document.getElementById("hotels_card_booking_desc"+number).style.opacity = 0;
@@ -1570,5 +1570,11 @@ function show_full_hotel_list_pic(number){
       }, 300);
 
   }
+
+  is_wide_hotels_card_pic[number] = !is_wide_hotels_card_pic[number];
   
+}
+
+function show_full_description(number){
+  alert(number);
 }
