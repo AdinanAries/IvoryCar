@@ -127,7 +127,7 @@
   width: 90%;
 }
 #order_room_form_hotel_infor_container {
-  min-width: 35%;
+  width: 35%;
   padding: 10px;
   background-color: rgb(221, 221, 221);
 }
@@ -141,7 +141,7 @@
   padding: 10px;
   min-width: 400px;
   min-height: 200px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   background-color: rgb(218, 218, 218);
   box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
     0px 0px 2.9px rgba(0, 0, 0, 0.23);
@@ -1694,6 +1694,9 @@ footer a {
 }
 
 @media only screen and (max-width: 700px) {
+  #order_room_form_hotel_infor_container {
+    width: calc(100% - 20px);
+  }
   #order_room_form_content_container {
     flex-direction: column;
     max-width: 100%;
