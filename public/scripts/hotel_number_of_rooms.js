@@ -111,6 +111,10 @@ function add_a_room(){
     number_of_rooms_count.innerText = hotel_rooms_and_travelers.total_rooms;
 
     render_total_rooms_and_travelers();
+
+    hotel_search_data.adults = hotel_rooms_and_travelers.total_adults;
+    hotel_search_data.roomQuantity = hotel_rooms_and_travelers.total_rooms;
+    window.localStorage.setItem("hotels_post_data", JSON.stringify(hotel_search_data));
 }
 
 function remov_a_room(){
@@ -137,6 +141,10 @@ function remov_a_room(){
         number_of_rooms_count.innerText = hotel_rooms_and_travelers.total_rooms;
 
         render_total_rooms_and_travelers();
+
+        hotel_search_data.adults = hotel_rooms_and_travelers.total_adults;
+        hotel_search_data.roomQuantity = hotel_rooms_and_travelers.total_rooms;
+        window.localStorage.setItem("hotels_post_data", JSON.stringify(hotel_search_data));
     }
 }
 
@@ -164,6 +172,10 @@ function add_a_adult(number, room_number){
         document.getElementById(hotels_number_of_adults_count).innerText = rooms_total_adults;
         render_total_rooms_and_travelers()
     }
+
+    hotel_search_data.roomQuantity = hotel_rooms_and_travelers.total_rooms;
+    hotel_search_data.adults = hotel_rooms_and_travelers.total_adults;
+    window.localStorage.setItem("hotels_post_data", JSON.stringify(hotel_search_data));
 }
 
 function remove_a_adult(number, room_number){
@@ -182,6 +194,11 @@ function remove_a_adult(number, room_number){
         document.getElementById(hotels_number_of_adults_count).innerText = rooms_total_adults;
         render_total_rooms_and_travelers()
     }
+
+    hotel_search_data.roomQuantity = hotel_rooms_and_travelers.total_rooms;
+    hotel_search_data.adults = hotel_rooms_and_travelers.total_adults;
+    window.localStorage.setItem("hotels_post_data", JSON.stringify(hotel_search_data));
+
 }
 
 function add_a_child(number, room_number){

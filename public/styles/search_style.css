@@ -11,6 +11,7 @@
   margin-left: 10px;
   position: relative;
   z-index: 1;
+  cursor: pointer;
 }
 .hotel_description_show_all_btn:hover .hotel_description_show_all_txt {
   display: block;
@@ -110,7 +111,8 @@
   transition-delay: 0.2s;
   opacity: 0;
 }
-#order_ticket_form_content_container {
+#order_ticket_form_content_container,
+#order_room_form_content_container {
   position: relative;
   background-color: white;
   border-radius: 4px;
@@ -119,18 +121,51 @@
   height: 95%;
   overflow: auto !important;
 }
-#forms_multi_step_indicator {
+#order_room_form_content_container {
+  display: flex;
+  max-width: 90%;
+  width: 90%;
+}
+#order_room_form_hotel_infor_container {
+  min-width: 35%;
+  padding: 10px;
+  background-color: rgb(221, 221, 221);
+}
+#order_room_form_inputs_container {
+  padding: 10px;
+  height: calc(100% - 20px);
+  overflow-y: auto;
+}
+.order_room_form_hotel_each_rate_content {
+  display: flex;
+  padding: 10px;
+  min-width: 400px;
+  min-height: 200px;
+  margin-bottom: 5px;
+  background-color: rgb(218, 218, 218);
+  box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2),
+    0px 0px 2.9px rgba(0, 0, 0, 0.23);
+  border-radius: 5px;
+}
+#forms_multi_step_indicator,
+#hotels_forms_multi_step_indicator {
   display: flex;
   justify-content: space-between;
   padding: 0 25px;
   margin-bottom: 20px;
 }
-#forms_multi_step_indicator .active {
+#hotels_forms_multi_step_indicator {
+  max-width: 390px;
+  margin: auto;
+}
+#forms_multi_step_indicator .active,
+#hotels_forms_multi_step_indicator .active {
   transition: all 0.3s ease-out;
   transition-delay: 0.2s;
   border-bottom: 4px solid rgb(231, 124, 2);
 }
-#forms_multi_step_indicator .__active {
+#forms_multi_step_indicator .__active,
+#hotels_forms_multi_step_indicator .__active {
   transition: all 0.3s ease-out;
   transition-delay: 0.2s;
   color: rgb(196, 104, 0);
@@ -172,7 +207,8 @@
   transition: all 0.3s ease-out;
   transition-delay: 0.2s;
 }
-#order_ticket_form_container_review_and_submit_indicator {
+#order_ticket_form_container_review_and_submit_indicator,
+#hotels_order_ticket_form_container_review_and_submit_indicator {
   border: white 3px solid;
   background-color: #16528c;
   left: initial;
@@ -195,7 +231,8 @@
 }
 #sign_in_container,
 #full_page_loader_container,
-#order_ticket_form_container {
+#order_ticket_form_container,
+#order_room_form_container {
   display: none;
   position: fixed;
   top: 0;
@@ -1657,6 +1694,16 @@ footer a {
 }
 
 @media only screen and (max-width: 700px) {
+  #order_room_form_content_container {
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+  }
+  #order_room_form_inputs_container {
+    height: initial;
+    overflow: initial;
+  }
   .hotel_description_show_all_txt {
     left: -25px;
     min-width: 380px;
@@ -1720,7 +1767,8 @@ footer a {
     border-radius: 4px;
   }
 
-  #order_ticket_form_content_container {
+  #order_ticket_form_content_container,
+  #order_room_form_content_container {
     position: fixed;
     top: 0;
     left: 0;

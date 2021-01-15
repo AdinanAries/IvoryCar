@@ -343,7 +343,7 @@ app.post("/get_hotels/", (req, res, next)=>{
   let ratings = req.body.ratings;
 
   axios.get(
-    "https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode="+city+"&checkInDate="+checkinDate+"&checkOutDate="+checkoutDate+"&roomQuantity="+roomQuantity+"&adults="+adults+"&radius=40&ratings="+ratings,
+    "https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode="+city+"&checkInDate="+checkinDate+"&checkOutDate="+checkoutDate+"&roomQuantity="+roomQuantity+"&adults="+adults,//+"&radius=40&ratings="+ratings+"&view=FULL&sort=PRICE",
     {
       headers: {
         "Authorization": ("Bearer "+ AmadeusAccessToken)
@@ -358,6 +358,29 @@ app.post("/get_hotels/", (req, res, next)=>{
     //defaults
   });
   
+})
+
+app.post("/get_hotel_rates/", (req, res, next)=>{
+
+  let all_params = req.body.all_params;
+  console.log(all_params);
+  //all_params = all_params.toString().replaceAll("^^and", "&").replaceAll("^^equal", "=").replaceAll("^^quo","'").replaceAll("^^quo2", '"');
+  
+  axios.get("https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?"+all_params,
+  {
+    headers: {
+      "Authorization": ("Bearer "+ AmadeusAccessToken)
+    }
+}).then(data => {
+  console.log(data.data);
+  res.send(data.data);
+}).catch(err =>{
+  console.log(err)
+  res.send({data: []});
+}).then(()=>{
+  //defaults
+});
+
 })
 
 //Spinning the server here

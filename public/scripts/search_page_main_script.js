@@ -573,6 +573,10 @@ $(function() {
       document.getElementById("hotels_from_when_search_input").value = start.toString().substring(0,11) +" - "+ end.toString().substring(0,11);
     }, 100);
 
+    hotel_search_data.checkin = start.format('YYYY-MM-DD');
+    hotel_search_data.checkout = end.format('YYYY-MM-DD');
+
+    window.localStorage.setItem("hotels_post_data", JSON.stringify(hotel_search_data));
     //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
   });
 });
@@ -1362,6 +1366,13 @@ function activate_login_fld(number){
     document.getElementById("order_ticket_form_container").style.display = "flex";
   }
  }
+
+ function toggle_show_hotel_booking_form(){
+  $("#order_room_form_container").toggle("up");
+  if(document.getElementById("order_room_form_container").style.display === "block"){
+   document.getElementById("order_room_form_container").style.display = "flex";
+ }
+}
 
 
 var forms_personal_info_step_indicator = document.getElementById("forms_personal_info_step_indicator");

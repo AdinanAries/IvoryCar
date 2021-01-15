@@ -26,6 +26,7 @@ function render_hotels(){
             <i aria-hidden="true" class="fa fa-exclamation-triangle" style="margin-right: 5px; color: orangered;"></i> nothing found.
         `;
             let booking_number_of_rooms = "";
+            let url_rates = "";
             let checkin_date = "June 25, 2021";
             let checkout_date = "July 5, 2021";
             let hotel_tel = "";
@@ -86,9 +87,9 @@ function render_hotels(){
                         </p>
                         `;
                     }
-                    if(data.data[p].hotel.media){
+                    /*if(data.data[p].hotel.media){
                         hotel_display_pic = data.data[p].hotel.media[0].uri;
-                    }
+                    }*/
 
                     if(data.data[p].hotel.rating){
 
@@ -140,7 +141,7 @@ function render_hotels(){
 
                         if(data.data[p].hotel.amenities.length > 6){
                             hotel_amenities += `
-                                <li style="padding: 5px; color: white;">
+                                <li style="padding: 5px; color: white; font-size: 12px; opacity: 0.6">
                                     many more...
                                 </li>
                             `;
@@ -162,8 +163,15 @@ function render_hotels(){
                             `${data.data[p].offers[0].roomQuantity} rooms` : `${data.data[p].offers[0].roomQuantity} room`;
                         }
                         if(data.data[p].offers[0].room.typeEstimated){
-                            room_category = data.data[p].offers[0].room.typeEstimated.category.toString().toLowerCase().replaceAll("_", " ");
+                            if(data.data[p].offers[0].room.typeEstimated.category){
+                                room_category = data.data[p].offers[0].room.typeEstimated.category.toString().toLowerCase().replaceAll("_", " ");
+                            }else if(data.data[p].offers[0].room.typeEstimated.bedType){
+                                room_category = data.data[p].offers[0].room.typeEstimated.bedType.toString().toLowerCase().replaceAll("_", " ") + " Bed";
+                            }
                         }
+                    }
+                    if(data.data[p].self){
+                        url_rates = data.data[p].self;
                     }
 
                     is_wide_hotels_card_pic.push(false);
@@ -254,7 +262,7 @@ function render_hotels(){
                                         </ul>
                                     </div>
                                 </div>
-                                <div style="font-size: 14px;" class="view_deal_button">Book Room</div>
+                                <div onclick="get_hotel_rates('${url_rates}')" style="font-size: 14px;" class="view_deal_button">View Rates</div>
                                 </div>
                             </div>
                             </div>
@@ -302,3 +310,28 @@ if(localStorage.getItem("main_search_type") === "hotel_search"){
     render_hotels();
 }
 
+function get_hotel_rates(url){
+    toggle_show_hotel_booking_form();
+    //alert(url);
+    let all_params = url.split("?")[1];
+    //console.log(all_params);
+    //let temp_params = all_params.replaceAll("&", "^^and").replaceAll("=", "^^equal").replaceAll("'", "^^quo").replaceAll('"', "^^quo2");
+    console.log(all_params);
+
+    $.ajax({
+        beforeSend: xhrObj =>{
+            xhrObj.setRequestHeader("Accept", "application/json");
+            xhrObj.setRequestHeader("Content-Type", "application/json");
+        },
+        type: "POST",
+        url: "./get_hotel_rates?all_params",
+        data: JSON.stringify({all_params: all_params}),
+        success: (data)=>{
+            console.log(data);
+        },
+        err: (err)=>{
+            console.log(err);
+        }
+
+    });
+}

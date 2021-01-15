@@ -44,6 +44,76 @@
       </div>
     </div>
 
+    <div id="order_room_form_container">
+      <div style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
+        <div id="order_room_form_content_container">
+
+          <i onclick="toggle_show_hotel_booking_form();" style="color: rgb(245, 151, 37); font-size: 18px; position: absolute; padding: 20px; top: 0; right: 0; cursor: pointer;" class="fa fa-times" aria-hidden="true"></i>
+          
+          <div id="order_room_form_hotel_infor_container">
+            
+            <div style="height: 300px; width: 100%; margin: auto;  
+              background-image: url('./images/HotelPic2.jpg'); background-size: cover; background-repeat: no-repeat; ">
+              <div style="background-color: rgba(0, 0, 0, 0.575); padding: 20px;">
+                <h1 style="font-weight: bolder; letter-spacing: 0.5px; color: white;">
+                  Hotel Name Here</h1>
+              </div>
+              </div>
+          </div>
+
+          <div id="order_room_form_inputs_container">
+
+            <div style="padding: 10px;">
+              <h1 style="font-weight: bolder; letter-spacing: 0.5px; color:rgb(6, 62, 83); color:rgb(6, 62, 83);">
+                Book your room here</h1>
+            </div>
+
+            <div  id="hotels_forms_multi_step_indicator">
+
+              <div id="hotels_forms_personal_info_step_indicator" class="forms_each_step_indicator active">
+                <div id="hotels_forms_personal_info_step_indicator_number" class="forms_each_step_indicator_number _active">1</div>
+                <p id="hotels_forms_personal_info_step_indicator_title" class="__active" style="font-size: 12px; font-weight: bolder;">Rates</p>
+              </div>
+
+              <div id="hotels_forms_contacts_step_indicator" class="forms_each_step_indicator">
+                <div id="hotels_forms_contacts_step_indicator_number" class="forms_each_step_indicator_number">2</div>
+                <p id="hotels_forms_contacts_step_indicator_title" style="font-size: 12px; font-weight: bolder;">Contacts</p>
+              </div>
+
+              <div id="hotels_forms_documents_step_indicator" class="forms_each_step_indicator">
+                <div id="hotels_forms_documents_step_indicator_number" class="forms_each_step_indicator_number">3</div>
+                <p id="hotels_forms_documents_step_indicator_title" style="font-size: 12px; font-weight: bolder;">Payments</p>
+                <div id="hotels_order_ticket_form_container_review_and_submit_indicator" class="forms_each_step_indicator_number">
+                  <p style="margin-left: 0 !important; text-align: center;"><img src="./images/taskList.png" style="width: 35px; height: 35px;" alt=""></p>
+                </div>
+              </div>
+              
+            </div>
+
+            <div style="padding-top: 30px; padding-left: 10px;">
+              <p style="font-weight: bolder; font-size: 13px; letter-spacing: 0.5px; color:rgb(6, 62, 83); color:rgb(6, 62, 83);">
+                Compare rooms and prices</p>
+            </div>
+
+            <div style="margin-top: 20px" id="order_room_form_hotel_rates_list_container">
+              
+              <div style="flex-direction: row !important;" class="order_room_form_hotel_each_rate_content">
+
+              </div>
+              <div style="flex-direction: row !important;" class="order_room_form_hotel_each_rate_content">
+
+              </div>
+              <div style="flex-direction: row !important;" class="order_room_form_hotel_each_rate_content">
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
     <div id="order_ticket_form_container">
       <div style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
         <div id="order_ticket_form_content_container">
