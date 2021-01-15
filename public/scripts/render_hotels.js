@@ -33,7 +33,7 @@ function render_hotels(){
             let hotel_fax = "";
             let hotel_email = "";
             let hotel_deal_price = "0.00";
-            let hotel_display_pic = "./images/lHotelPic2.jpg";
+            let hotel_display_pic = "./images/HotelPic2.jpg";
             let hotel_description = `
                 <p style="opacity: 0.8; color:rgb(0, 127, 177); margin-top: 15px; margin-bottom: 50px; font-size: 13px;">
                     <i class="fa fa-exclamation-triangle" style="margin-right: 5px; color: orangered;"></i>No description information found.    
@@ -82,7 +82,7 @@ function render_hotels(){
                     }
                     if(data.data[p].hotel.contact.email){
                         hotel_email = `
-                        <p style="margin-bottom: 10px; margin-top: 5px; color:rgb(117, 117, 117); font-size: 12px;">
+                        <p style="margin-bottom: 10px; color:rgb(117, 117, 117); font-size: 12px;">
                             <i style="color:rgb(212, 78, 0); margin-right: 5px;" aria-hidden="true" class="fa fa-envelope"></i>${data.data[p].hotel.contact.email}
                         </p>
                         `;
@@ -188,16 +188,16 @@ function render_hotels(){
                                 <div  style="min-height: 100%;" class="main_ticket_info_area">
                                 <div style="justify-content: flex-start !important;" class="main_ticket_info_area_top">
                                     <div id="hotels_card_pic${p}" class="hotels_card_pic" style="background-image: url(${hotel_display_pic}); background-size: cover; background-repeat: no-repeat; min-height: 150px;">
-                                    <div id="hotels_card_pic_title${p}" style="opacity: 0; transition: 0.5s all; position: absolute; top: 0; left: 0; background-color:rgba(0, 0, 0, 0.6); padding: 10px; width: calc(100% - 20px);">
-                                        <p style="color: white; font-weight: bolder; font-size: 12px; letter-spacing: 0.7px;">${hotel_name}</p>
-                                        <p style="color: white; font-size: 11px; letter-spacing: 0.7px;">
-                                        ${hotel_location}
-                                        </p>
-                                        <p style="color:rgb(0, 188, 235);">${hotel_rating}</p>
-                                    </div>
-                                    <div onclick="show_full_hotel_list_pic(${p});" class="hotels_card_pic_show_full_pic">
-                                        <i id="hotels_card_pic_show_full_pic_icon${p}" class="fa fa-chevron-right" aria-hidden="true"></i>
-                                    </div>
+                                        <div id="hotels_card_pic_title${p}" style="opacity: 0; transition: 0.5s all; position: absolute; top: 0; left: 0; background-color:rgba(0, 0, 0, 0.6); padding: 10px; width: calc(100% - 20px);">
+                                            <p style="color: white; font-weight: bolder; font-size: 12px; letter-spacing: 0.7px;">${hotel_name}</p>
+                                            <p style="color: white; font-size: 11px; letter-spacing: 0.7px;">
+                                            ${hotel_location}
+                                            </p>
+                                            <p style="color:rgb(0, 188, 235);">${hotel_rating}</p>
+                                        </div>
+                                        <div onclick="show_full_hotel_list_pic(${p});" class="hotels_card_pic_show_full_pic">
+                                            <i id="hotels_card_pic_show_full_pic_icon${p}" class="fa fa-chevron-right" aria-hidden="true"></i>
+                                        </div>
                                     </div>
                                     <div id="hotels_card_booking_desc${p}" style="margin-right: 0 !important; justify-content: flex-start; transition: all 0.5s ease-out;">
                                     <div style="margin-right: 0 !important;">

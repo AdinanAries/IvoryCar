@@ -133,11 +133,11 @@
 }
 #order_room_form_inputs_container {
   padding: 10px;
+  width: calc(65% - 40px);
   height: calc(100% - 20px);
   overflow-y: auto;
 }
 .order_room_form_hotel_each_rate_content {
-  display: flex;
   padding: 10px;
   min-width: 400px;
   min-height: 200px;
@@ -1703,6 +1703,11 @@ footer a {
   #order_room_form_inputs_container {
     height: initial;
     overflow: initial;
+    width: initial !important;
+  }
+  .order_room_form_hotel_each_rate_content {
+    min-width: initial;
+    width: calc(100% - 20px);
   }
   .hotel_description_show_all_txt {
     left: -25px;
