@@ -311,6 +311,53 @@ if(localStorage.getItem("main_search_type") === "hotel_search"){
 }
 
 function get_hotel_rates(url){
+
+    document.getElementById("order_room_form_hotel_infor_container").innerHTML = `
+                <div style="padding: 40px;">
+                <div style="width: 100%; text-align: center;" class="loader2 loader--style2" title="1">
+                <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+                    <animateTransform attributeType="xml"
+                    attributeName="transform"
+                    type="rotate"
+                    from="0 25 25"
+                    to="360 25 25"
+                    dur="0.6s"
+                    repeatCount="indefinite"/>
+                    </path>
+                </svg>
+                <p style="text-align: center; font-size: 14px; color:rgb(0, 60, 83);">
+                    <i style="color: orangered; margin-right: 5px;" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    getting hotel information
+                </p>
+                </div>
+            </div>
+    `;
+
+    document.getElementById("order_room_form_hotel_rates_list_container").innerHTML = `
+        <div style="padding: 40px;">
+        <div style="width: 100%; text-align: center;" class="loader2 loader--style2" title="1">
+        <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+        <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+            <animateTransform attributeType="xml"
+            attributeName="transform"
+            type="rotate"
+            from="0 25 25"
+            to="360 25 25"
+            dur="0.6s"
+            repeatCount="indefinite"/>
+            </path>
+        </svg>
+        <p style="text-align: center; font-size: 14px; color:rgb(0, 60, 83);">
+            <i style="color: orangered; margin-right: 5px;" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+            getting rooms and rates
+        </p>
+        </div>
+    </div>
+    `;
+
     toggle_show_hotel_booking_form();
     //alert(url);
     let all_params = url.split("?")[1];
@@ -328,6 +375,237 @@ function get_hotel_rates(url){
         data: JSON.stringify({all_params: all_params}),
         success: (data)=>{
             console.log(data);
+
+            let RR_hotel_name = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+            let RR_hotel_phone = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+            let RR_hotel_email = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+            let RR_hotel_fax = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+            let RR_hotel_rating = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+            let RR_hotel_address = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+            let RR_hotel_amenities = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+
+            if(data.data.hotel.rating){
+                if(data.data.hotel.rating === "5"){
+                    RR_hotel_rating = "&#9733; &#9733; &#9733; &#9733; &#9733;";
+                }else if(data.data.hotel.rating === "4"){
+                    RR_hotel_rating = "&#9733; &#9733; &#9733; &#9733; &#9734;";
+                }else if(data.data.hotel.rating === "3"){
+                    RR_hotel_rating = "&#9733; &#9733; &#9733; &#9734; &#9734;";
+                }else if(data.data.hotel.rating === "2"){
+                    RR_hotel_rating = "&#9733; &#9733; &#9734; &#9734; &#9734;";
+                }else {
+                    RR_hotel_rating = "&#9733; &#9734; &#9734; &#9734; &#9734;";
+                }
+            }
+            if(data.data.hotel.name){
+                RR_hotel_name = data.data.hotel.name;
+            }
+            if(data.data.hotel.address){
+                RR_hotel_address = data.data.hotel.address.cityName + ", " + data.data.hotel.address.countryCode;
+                if(data.data.hotel.address.lines[0]){
+                    RR_hotel_address = data.data.hotel.address.lines[0] + ", " + RR_hotel_address;
+                }
+            }
+
+            if(data.data.hotel.contact){
+                if(data.data.hotel.contact.phone){
+                    RR_hotel_phone = data.data.hotel.contact.phone;
+                }
+                if(data.data.hotel.contact.email){
+                    RR_hotel_email = data.data.hotel.contact.email;
+                }
+                if(data.data.hotel.contact.fax){
+                    RR_hotel_fax = data.data.hotel.contact.fax;
+                }
+            }
+
+            if(data.data.hotel.amenities){
+                RR_hotel_amenities = data.data.hotel.amenities.toString().replaceAll("_", " ").toLowerCase().replaceAll(",", ", ");
+                if(RR_hotel_amenities.length > 250){
+                    RR_hotel_amenities = RR_hotel_amenities.substring(0, 250) + " ...";
+                }
+            }
+            
+
+            if(data.data.hotel){
+                document.getElementById("order_room_form_hotel_infor_container").innerHTML = `
+                    <div style="height: 300px; width: 100%; margin: auto;  
+                    background-image: url('./images/HotelPic2.jpg'); background-size: cover; background-repeat: no-repeat; ">
+                    <div style="background-color: rgba(0, 0, 0, 0.575); padding: 20px;">
+                        <h1 style="font-weight: bolder; letter-spacing: 1px; color: white;">
+                        ${RR_hotel_name}
+                        </h1>
+                        <p style="color: white; font-size: 11px; letter-spacing: 0.7px;">
+                            ${RR_hotel_address}
+                        </p>
+                        <p style="color:rgb(0, 188, 235);">${RR_hotel_rating}</p>
+                    </div>
+                    </div>
+                    <div>
+                        <p style="font-size: 14px; color:rgb(0, 127, 177); font-weight: bolder; margin-bottom: 10px; margin-top: 20px;">Contacts:</p>
+                        <p style="margin-top: 10px; color:rgb(117, 117, 117); font-size: 14px;">
+                        <i style="color:rgb(212, 78, 0); margin-right: 5px;" aria-hidden="true" class="fa fa-phone"></i>
+                        ${RR_hotel_phone}
+                        </p>
+                        <p style="margin-bottom: 10px; margin-top: 5px; color:rgb(117, 117, 117); font-size: 14px;">
+                        <i style="color:rgb(212, 78, 0); margin-right: 5px;" aria-hidden="true" class="fa fa-fax"></i>
+                        ${RR_hotel_fax}
+                        </p>
+                        <p style="margin-bottom: 10px; color:rgb(117, 117, 117); font-size: 12px;">
+                        <i style="color:rgb(212, 78, 0); margin-right: 5px;" aria-hidden="true" class="fa fa-envelope"></i>
+                        ${RR_hotel_email}
+                        </p>
+                    </div>
+                    <div>
+                        <p style="font-size: 14px; color:rgb(0, 127, 177); font-weight: bolder; margin-bottom: 10px; margin-top: 20px;">Amenities</p>
+                        <p style="margin-top: 10px; color:rgb(117, 117, 117); font-size: 14px;">
+                            ${RR_hotel_amenities}
+                        </p>
+                    </div>
+                `;
+            }
+
+            document.getElementById("order_room_form_hotel_rates_list_container").innerHTML = "";
+
+            let RR_room_type = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+            let RR_bed_type = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+            let RR_room_desc = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+            let RR_checkin_date = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+            let RR_checkout_date = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+            let RR_guest_num = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+            let RR_rooms_num = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+            let RR_policy_type = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+            let RR_cancel_deadline = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+            let RR_cancl_amount = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+            let RR_booking_price = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+
+            for(let rr = 0; rr < data.data.offers.length; rr++){
+
+                if(data.data.offers[rr].guests){
+                    if(data.data.offers[rr].guests.adults){
+                        RR_guest_num = data.data.offers[rr].guests.adults > 1 ?
+                             `${data.data.offers[rr].guests.adults} adults` :`${data.data.offers[rr].guests.adults} adult`;
+                    }
+                }
+
+                if(data.data.offers[rr].checkInDate){
+                    RR_checkin_date = data.data.offers[rr].checkInDate;
+                }
+                if(data.data.offers[rr].checkOutDate){
+                    RR_checkout_date = data.data.offers[rr].checkOutDate;
+                }
+                if(data.data.offers[rr].price){
+                    RR_booking_price = site_currency_coverter(data.data.offers[rr].price.currency, current_currency.currency, data.data.offers[rr].price.total);
+                    RR_booking_price = current_currency.sign + " " + RR_booking_price
+                }
+                if(data.data.offers[rr].policies){
+                    if(data.data.offers[rr].policies.cancellation){
+                        RR_policy_type = "Cancellation"
+                        if(data.data.offers[rr].policies.cancellation.deadline){
+                            RR_cancel_deadline = data.data.offers[rr].policies.cancellation.deadline.split("T")[0] + ", ";
+                            RR_cancel_deadline += data.data.offers[rr].policies.cancellation.deadline.split("T")[1].substring(0,5);
+                        }
+                        if(data.data.offers[rr].policies.cancellation.amount){
+                            RR_cancl_amount = site_currency_coverter(data.data.offers[rr].price.currency, current_currency.currency, data.data.offers[rr].policies.cancellation.amount);
+                            RR_cancl_amount = current_currency.sign + " " + RR_cancl_amount;
+                        }
+                    }
+                }
+                if(data.data.offers[rr].room.typeEstimated){
+                    if(data.data.offers[rr].room.typeEstimated.category){
+                        RR_room_type = data.data.offers[rr].room.typeEstimated.category.toString().replaceAll("_", " ").toLowerCase();
+                    }
+                    if(data.data.offers[rr].room.typeEstimated.bedType){
+                        RR_bed_type = data.data.offers[rr].room.typeEstimated.bedType.toString().replaceAll("_", " ").toLowerCase();
+                    }
+                }
+                if(data.data.offers[rr].room.description){
+                    RR_room_desc = data.data.offers[rr].room.description.text;
+                }
+
+                if(data.data.offers[rr].roomQuantity){
+                    RR_rooms_num = data.data.offers[rr].roomQuantity > 1 ?
+                        `${data.data.offers[rr].roomQuantity} rooms` : `${data.data.offers[rr].roomQuantity} room`
+                }
+
+                document.getElementById("order_room_form_hotel_rates_list_container").innerHTML += `
+                    <div class="order_room_form_hotel_each_rate_content">
+                    <div>
+                    <p style="font-size: 14px; color:rgb(0, 127, 177); font-weight: bolder; margin-bottom: 10px;">Room Details</p>
+                    <div style="display: flex; flex-direction: row !important;">
+                        <div style="margin-right: 20px;">
+                        <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Room Type:</p>
+                        <p style="opacity: 0.8; font-size: 13px; margin-top: 5px">
+                            ${RR_room_type}
+                        </p>
+                        </div>
+                        <div>
+                        <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Bed Type:</p>
+                        <p style="opacity: 0.8; font-size: 13px; margin-top: 5px">${RR_bed_type}</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Description:</p>
+                        <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">
+                        ${RR_room_desc}
+                        </p>
+                    </div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                    <p style="font-size: 14px; color:rgb(0, 127, 177); font-weight: bolder; margin-bottom: 10px;">Booking Details</p>
+                    <div style="display: flex; flex-direction: row !important;">
+                        <div style="margin-right: 20px;">
+                        <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Checkin:</p>
+                        <p style="opacity: 0.8; font-size: 13px; margin-top: 5px">${RR_checkin_date}</p>
+                        </div>
+                        <div style="margin-right: 20px;">
+                        <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Checout:</p>
+                        <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">${RR_checkout_date}</p>
+                        </div>
+                        <div style="margin-right: 20px;">
+                        <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Guests:</p>
+                        <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">${RR_guest_num}</p>
+                        </div>
+                        <div>
+                        <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Rooms</p>
+                        <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">${RR_rooms_num}</p>
+                        </div>
+                    </div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                    <p style="font-size: 14px; color:rgb(0, 127, 177); font-weight: bolder; margin-bottom: 10px;">Hotel Policies</p>
+                    <div style="display: flex; flex-direction: row !important;">
+                        <div style="margin-right: 20px;">
+                        <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Type:</p>
+                        <p style="opacity: 0.8; font-size: 13px; margin-top: 5px">${RR_policy_type}</p>
+                        </div>
+                        <div style="margin-right: 20px;">
+                        <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Deadline:</p>
+                        <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">${RR_cancel_deadline}</p>
+                        </div>
+                        <div style="margin-right: 20px;">
+                        <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Amount: </p>
+                        <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">${RR_cancl_amount}</p>
+                        </div>
+                    </div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                    <p style="font-size: 14px; color:rgb(0, 127, 177); font-weight: bolder; margin-bottom: 10px;">Room Price</p>
+                    <div style="display: flex; flex-direction: row !important;">
+                        <div style="margin-right: 50px;">
+                        <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Total:</p>
+                        <p style="color: rgb(17, 95, 126); font-size: 17px; font-weight: bolder; margin-top: 10px; margin-left: 10px;">
+                            ${RR_booking_price}
+                        </p>
+                        </div>
+                        <div style="background-color: rgb(0, 127, 177); padding: 20px;">
+                        <p style="font-size: 13px; font-weight: bolder; color: white;">Book Room</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                `;
+            }
         },
         err: (err)=>{
             console.log(err);
