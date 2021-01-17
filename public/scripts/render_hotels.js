@@ -312,6 +312,9 @@ if(localStorage.getItem("main_search_type") === "hotel_search"){
 
 function get_hotel_rates(url){
 
+    //this shows the default div for displaying rates
+    show_hotels_booking_form_hotel_rates_fieldset();
+
     document.getElementById("order_room_form_hotel_infor_container").innerHTML = `
                 <div style="padding: 40px;">
                 <div style="width: 100%; text-align: center;" class="loader2 loader--style2" title="1">
@@ -478,8 +481,13 @@ function get_hotel_rates(url){
             let RR_cancel_deadline = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
             let RR_cancl_amount = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
             let RR_booking_price = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+            let RR_booking_self = "";
 
             for(let rr = 0; rr < data.data.offers.length; rr++){
+
+                if(data.data.offers[rr].self){
+                    RR_booking_self = data.data.offers[rr].self;
+                }
 
                 if(data.data.offers[rr].guests){
                     if(data.data.offers[rr].guests.adults){
@@ -598,8 +606,8 @@ function get_hotel_rates(url){
                             ${RR_booking_price}
                         </p>
                         </div>
-                        <div style="background-color: rgb(0, 127, 177); padding: 20px;">
-                        <p style="font-size: 13px; font-weight: bolder; color: white;">Book Room</p>
+                        <div onclick="get_final_price('${RR_booking_self}');" style="background-color: rgb(0, 127, 177); padding: 20px;">
+                        <p style="font-size: 13px; font-weight: bolder; color: white;">Choose</p>
                         </div>
                     </div>
                     </div>
@@ -611,5 +619,30 @@ function get_hotel_rates(url){
             console.log(err);
         }
 
+    });
+}
+
+
+function get_final_price(url){
+    show_hotels_booking_form_final_price_fieldset();
+    
+    //console.log(all_params);
+    //let temp_params = all_params.replaceAll("&", "^^and").replaceAll("=", "^^equal").replaceAll("'", "^^quo").replaceAll('"', "^^quo2");
+    console.log(url);
+
+    $.ajax({
+        beforeSend: xhrObj =>{
+            xhrObj.setRequestHeader("Accept", "application/json");
+            xhrObj.setRequestHeader("Content-Type", "application/json");
+        },
+        type: "POST",
+        url: "./get_room_final_price",
+        data: JSON.stringify({url: url}),
+        success: data => {
+            console.log(data);
+        },
+        error: err => {
+            console.log(err);
+        }
     });
 }

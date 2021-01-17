@@ -1374,7 +1374,7 @@ function activate_login_fld(number){
  }
 }
 
-
+//for flights booking forms
 var forms_personal_info_step_indicator = document.getElementById("forms_personal_info_step_indicator");
 var forms_personal_info_step_indicator_number = document.getElementById("forms_personal_info_step_indicator_number");
 var forms_personal_info_step_indicator_title = document.getElementById("forms_personal_info_step_indicator_title");
@@ -1395,6 +1395,27 @@ var order_ticket_form_container_review_and_submit = document.getElementById("ord
 var order_ticket_form_container_review_and_submit_indicator = document.getElementById("order_ticket_form_container_review_and_submit_indicator");
 
 
+//for hotels booking forms
+var order_room_form_hotel_rates_list_indicator = document.getElementById("order_room_form_hotel_rates_list_indicator");
+var order_room_form_hotel_rates_list_indicator_number = document.getElementById("order_room_form_hotel_rates_list_indicator_number");
+var order_room_form_hotel_rates_list_indicator_title = document.getElementById("order_room_form_hotel_rates_list_indicator_title");
+
+var hotels_final_price_step_indicator = document.getElementById("hotels_final_price_step_indicator");
+var hotels_final_price_step_indicator_number = document.getElementById("hotels_final_price_step_indicator_number");
+var hotels_final_price_step_indicator_title = document.getElementById("hotels_final_price_step_indicator_title");
+
+var hotels_forms_step_three_indicator = document.getElementById("hotels_forms_step_three_indicator");
+var hotels_forms_step_three_indicator_number = document.getElementById("hotels_forms_step_three_indicator_number");
+var hotels_forms_step_three_indicator_title = document.getElementById("hotels_forms_step_three_indicator_title");
+
+var order_room_form_hotel_rates_list_container = document.getElementById("order_room_form_hotel_rates_list_container");
+var order_room_form_final_price_container = document.getElementById("order_room_form_final_price_container");
+var order_room_form_step_three_container = document.getElementById("order_room_form_step_three_container");
+var hotels_order_ticket_form_container_review_and_submit_container = document.getElementById("hotels_order_ticket_form_container_review_and_submit_container");
+
+var hotels_order_ticket_form_container_review_and_submit_indicator = document.getElementById("hotels_order_ticket_form_container_review_and_submit_indicator");
+
+//flights
 function show_finish_booking_form_personal_info_fieldset(){
 
   forms_personal_info_step_indicator.classList.add("active");
@@ -1426,6 +1447,39 @@ function show_finish_booking_form_personal_info_fieldset(){
 
 }
 
+//hotels
+function show_hotels_booking_form_hotel_rates_fieldset(){
+
+  order_room_form_hotel_rates_list_indicator.classList.add("active");
+  order_room_form_hotel_rates_list_indicator_number.classList.add("_active");
+  order_room_form_hotel_rates_list_indicator_title.classList.add("__active");
+
+  hotels_final_price_step_indicator.classList.remove("active");
+  hotels_final_price_step_indicator_number.classList.remove("_active");
+  hotels_final_price_step_indicator_title.classList.remove("__active");
+
+  hotels_forms_step_three_indicator.classList.remove("active");
+  hotels_forms_step_three_indicator_number.classList.remove("_active");
+  hotels_forms_step_three_indicator_title.classList.remove("__active");
+
+  hotels_order_ticket_form_container_review_and_submit_indicator.style.borderColor = "white";
+
+  order_room_form_final_price_container.style.display = "none";
+  order_room_form_final_price_container.style.opacity = 0;
+  order_room_form_hotel_rates_list_container.style.display = "block";
+
+  setTimeout(()=>{
+    order_room_form_hotel_rates_list_container.style.opacity = 1;
+  }, 10);
+  
+  order_room_form_step_three_container.style.display = "none";
+  order_room_form_step_three_container.style.opacity = 0;
+  hotels_order_ticket_form_container_review_and_submit_container.style.display = "none";
+  hotels_order_ticket_form_container_review_and_submit_container.style.opacity = 0;
+
+}
+
+//flights
 function show_finish_booking_form_contacts_fieldset(){
 
   forms_personal_info_step_indicator.classList.add("active");
@@ -1454,6 +1508,38 @@ function show_finish_booking_form_contacts_fieldset(){
   order_ticket_form_container_documents_info.style.opacity = 0;
   order_ticket_form_container_review_and_submit.style.display = "none";
   order_ticket_form_container_review_and_submit.style.opacity = 0;
+
+}
+
+//hotels
+function show_hotels_booking_form_final_price_fieldset(){
+
+  order_room_form_hotel_rates_list_indicator.classList.add("active");
+  order_room_form_hotel_rates_list_indicator_number.classList.add("_active");
+  order_room_form_hotel_rates_list_indicator_title.classList.add("__active");
+
+  hotels_final_price_step_indicator.classList.add("active");
+  hotels_final_price_step_indicator_number.classList.add("_active");
+  hotels_final_price_step_indicator_title.classList.add("__active");
+
+  hotels_forms_step_three_indicator.classList.remove("active");
+  hotels_forms_step_three_indicator_number.classList.remove("_active");
+  hotels_forms_step_three_indicator_title.classList.remove("__active");
+
+  hotels_order_ticket_form_container_review_and_submit_indicator.style.borderColor = "white";
+
+  order_room_form_hotel_rates_list_container.style.display = "none";
+  order_room_form_hotel_rates_list_container.style.opacity = 0;
+  order_room_form_final_price_container.style.display = "block";
+
+  setTimeout(()=>{
+    order_room_form_final_price_container.style.opacity = 1;
+  }, 10);
+  
+  order_room_form_step_three_container.style.display = "none";
+  order_room_form_step_three_container.style.opacity = 0;
+  hotels_order_ticket_form_container_review_and_submit_container.style.display = "none";
+  hotels_order_ticket_form_container_review_and_submit_container.style.opacity = 0;
 
 }
 

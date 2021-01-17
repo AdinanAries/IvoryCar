@@ -383,6 +383,29 @@ app.post("/get_hotel_rates/", (req, res, next)=>{
 
 })
 
+app.post("/get_room_final_price/", (req, res, next)=>{
+
+  let url = req.body.url;
+  console.log(url);
+  //all_params = all_params.toString().replaceAll("^^and", "&").replaceAll("^^equal", "=").replaceAll("^^quo","'").replaceAll("^^quo2", '"');
+  
+  axios.get(url,
+  {
+    headers: {
+      "Authorization": ("Bearer "+ AmadeusAccessToken)
+    }
+}).then(data => {
+  console.log(data.data);
+  res.send(data.data);
+}).catch(err =>{
+  console.log(err)
+  res.send({data: []});
+}).then(()=>{
+  //defaults
+});
+
+})
+
 //Spinning the server here
 app.listen(PORT, () => {
   console.log("Server started on " + PORT);
