@@ -1,4 +1,33 @@
 
+var book_room_final_post_data = {
+    "data": {
+      "offerId": "NRPQNQBOJM",
+      "guests": [
+        {
+          "name": {
+            "title": "MR",
+            "firstName": "BOB",
+            "lastName": "SMITH"
+          },
+          "contact": {
+            "phone": "+33679278416",
+            "email": "bob.smith@email.com"
+          }
+        }
+      ],
+      "payments": [
+        {
+          "method": "creditCard",
+          "card": {
+            "vendorCode": "VI",
+            "cardNumber": "4111111111111111",
+            "expiryDate": "2023-01"
+          }
+        }
+      ]
+    }
+  }
+
 function render_hotels(){
     $.ajax({
         beforeSend: xhrObj =>{
