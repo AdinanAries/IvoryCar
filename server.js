@@ -331,7 +331,6 @@ app.post('/flightpriceanalysis/', (req, res, next)=>{
 
 })
 
-
 //Hotel Search End Points
 app.post("/get_hotels/", (req, res, next)=>{
 
