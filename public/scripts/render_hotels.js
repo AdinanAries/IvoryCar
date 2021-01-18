@@ -688,6 +688,34 @@ function get_final_price(url, first_url){
             let RR_cancl_amount = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
             let RR_booking_price = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
             let RR_booking_self = "";
+            let all_taxes = `
+                    <div style="display: flex; flex-direction: row !important;">
+                        <div style="margin-right: 20px;">
+                            <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Type of tax:</p>
+                            <p style="opacity: 0.8; font-size: 13px; margin-top: 5px">
+                                <i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable
+                            </p>
+                        </div>
+                        <div style="margin-right: 20px;">
+                            <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Frequency:</p>
+                            <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">
+                                <i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable
+                            </p>
+                        </div>
+                        <div style="margin-right: 20px;">
+                            <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Mode:</p>
+                            <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">
+                                <i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable
+                            </p>
+                        </div>
+                        <div>
+                            <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Amount:</p>
+                            <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">
+                                <i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable
+                            </p>
+                        </div>
+                    </div>
+            `
 
             for(let rr = 0; rr < data.data.offers.length; rr++){
 
@@ -740,6 +768,52 @@ function get_final_price(url, first_url){
                 if(data.data.offers[rr].roomQuantity){
                     RR_rooms_num = data.data.offers[rr].roomQuantity > 1 ?
                         `${data.data.offers[rr].roomQuantity} rooms` : `${data.data.offers[rr].roomQuantity} room`
+                }
+
+                if(data.data.offers[rr].price.taxes){
+
+                    all_taxes = '';
+
+                    for(let txes = 0; txes < data.data.offers[rr].price.taxes.length; txes++){
+
+                        let margin_top = "20px";
+
+                        if(txes < 1){
+                            margin_top = "0"
+                        }
+
+                        let tax_price = site_currency_coverter(data.data.offers[rr].price.taxes[txes].currency, current_currency.currency, data.data.offers[rr].price.taxes[txes].amount);
+                        tax_price = current_currency.sign + " " + tax_price;
+
+                        all_taxes += `
+                            <div style="display: flex; flex-direction: row !important; margin-top: ${margin_top};">
+                                <div style="margin-right: 20px;">
+                                    <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Type of tax:</p>
+                                    <p style="opacity: 0.8; font-size: 13px; margin-top: 5px">
+                                        ${data.data.offers[rr].price.taxes[txes].code.toString().replaceAll("_", " ").toLowerCase()}
+                                    </p>
+                                </div>
+                                <div style="margin-right: 20px;">
+                                    <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Frequency:</p>
+                                    <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">
+                                        ${data.data.offers[rr].price.taxes[txes].pricingFrequency.toString().replaceAll("_", " ").toLowerCase()}
+                                    </p>
+                                </div>
+                                <div style="margin-right: 20px;">
+                                    <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Mode:</p>
+                                    <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">
+                                        ${data.data.offers[rr].price.taxes[txes].pricingMode.toString().replaceAll("_", " ").toLowerCase()}
+                                    </p>
+                                </div>
+                                <div>
+                                    <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Amount:</p>
+                                    <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">
+                                        ${tax_price}
+                                    </p>
+                                </div>
+                            </div>
+                        `;
+                    }
                 }
 
                 document.getElementById("order_room_form_final_price_container").innerHTML += `
@@ -832,27 +906,12 @@ function get_final_price(url, first_url){
                         </div>
 
                         <div style="margin-top: 20px; padding: 10px; background-color: #d1d1d1; border-top: 1px solid #d3d2d2;">
-                        <p style="font-size: 15px; margin-top: 10px; margin-bottom: 20px; font-weight: bolder; color:rgb(0, 60, 83);">
-                            Room Price</p>
+                        <p style="font-size: 12px; margin-bottom: 20px; font-weight: bolder; color:rgb(0, 60, 83);">
+                            Room Price And Taxes</p>
                         <p style="font-size: 14px; color:rgb(0, 127, 177); font-weight: bolder; margin-bottom: 10px;">Taxes</p>
-                        <div style="display: flex; flex-direction: row !important;">
-                            <div style="margin-right: 20px;">
-                            <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Checkin:</p>
-                            <p style="opacity: 0.8; font-size: 13px; margin-top: 5px">${RR_checkin_date}</p>
-                            </div>
-                            <div style="margin-right: 20px;">
-                            <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Checout:</p>
-                            <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">${RR_checkout_date}</p>
-                            </div>
-                            <div style="margin-right: 20px;">
-                            <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Guests:</p>
-                            <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">${RR_guest_num}</p>
-                            </div>
-                            <div>
-                            <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Rooms</p>
-                            <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">${RR_rooms_num}</p>
-                            </div>
-                        </div>
+                        
+                        ${all_taxes}
+
                         <div style="display: flex; flex-direction: row !important; margin-top: 20px;">
                             <div style="margin-right: 50px;">
                             <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Total:</p>
