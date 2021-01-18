@@ -715,6 +715,28 @@ function get_final_price(url, first_url){
                             </p>
                         </div>
                     </div>
+            `;
+            let all_changes = `
+                    <div style="display: flex; flex-direction: row !important;">
+                        <div style="margin-right: 20px;">
+                            <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Start Date:</p>
+                            <p style="opacity: 0.8; font-size: 13px; margin-top: 5px">
+                                <i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable
+                            </p>
+                        </div>
+                        <div style="margin-right: 20px;">
+                            <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">End Date:</p>
+                            <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">
+                                <i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable
+                            </p>
+                        </div>
+                        <div style="margin-right: 20px;">
+                            <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Base Price:</p>
+                            <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">
+                                <i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable
+                            </p>
+                        </div>
+                    </div>
             `
 
             for(let rr = 0; rr < data.data.offers.length; rr++){
@@ -816,6 +838,46 @@ function get_final_price(url, first_url){
                     }
                 }
 
+                if(data.data.offers[rr].price.variations.changes){
+
+                    all_changes = '';
+
+                    for(let chnes = 0; chnes < data.data.offers[rr].price.variations.changes.length; chnes++){
+
+                        let margin_top = "20px";
+
+                        if(chnes < 1){
+                            margin_top = "0"
+                        }
+
+                        let change_price = site_currency_coverter(data.data.offers[rr].price.currency, current_currency.currency, data.data.offers[rr].price.variations.changes[chnes].base);
+                        change_price = current_currency.sign + " " + change_price;
+
+                        all_changes += `
+                            <div style="display: flex; flex-direction: row !important; margin-top: ${margin_top}">
+                                <div style="margin-right: 20px;">
+                                    <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Start Date:</p>
+                                    <p style="opacity: 0.8; font-size: 13px; margin-top: 5px">
+                                        ${data.data.offers[rr].price.variations.changes[chnes].startDate}
+                                    </p>
+                                </div>
+                                <div style="margin-right: 20px;">
+                                    <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">End Date:</p>
+                                    <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">
+                                        ${data.data.offers[rr].price.variations.changes[chnes].endDate}
+                                    </p>
+                                </div>
+                                <div style="margin-right: 20px;">
+                                    <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Base Price:</p>
+                                    <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">
+                                        ${change_price}
+                                    </p>
+                                </div>
+                            </div>
+                        `;
+                    }
+                }
+
                 document.getElementById("order_room_form_final_price_container").innerHTML += `
                         <div>
                         <p style="font-size: 14px; color:rgb(0, 127, 177); font-weight: bolder; margin-bottom: 20px;">Room Status:
@@ -888,41 +950,27 @@ function get_final_price(url, first_url){
                         </div>
 
                         <div style="margin-top: 20px;">
-                        <p style="font-size: 14px; color:rgb(0, 127, 177); font-weight: bolder; margin-bottom: 10px;">Booking Changes</p>
-                        <div style="display: flex; flex-direction: row !important;">
-                            <div style="margin-right: 20px;">
-                            <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Type:</p>
-                            <p style="opacity: 0.8; font-size: 13px; margin-top: 5px">${RR_policy_type}</p>
-                            </div>
-                            <div style="margin-right: 20px;">
-                            <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Deadline:</p>
-                            <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">${RR_cancel_deadline}</p>
-                            </div>
-                            <div style="margin-right: 20px;">
-                            <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Amount: </p>
-                            <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">${RR_cancl_amount}</p>
-                            </div>
-                        </div>
+                            <p style="font-size: 14px; color:rgb(0, 127, 177); font-weight: bolder; margin-bottom: 10px;">Booking Changes</p>
+                            ${all_changes}
                         </div>
 
                         <div style="margin-top: 20px; padding: 10px; background-color: #d1d1d1; border-top: 1px solid #d3d2d2;">
-                        <p style="font-size: 12px; margin-bottom: 20px; font-weight: bolder; color:rgb(0, 60, 83);">
-                            Room Price And Taxes</p>
-                        <p style="font-size: 14px; color:rgb(0, 127, 177); font-weight: bolder; margin-bottom: 10px;">Taxes</p>
-                        
-                        ${all_taxes}
+                            <p style="font-size: 12px; margin-bottom: 20px; font-weight: bolder; color:rgb(0, 60, 83);">
+                                Room Price And Taxes</p>
+                            <p style="font-size: 14px; color:rgb(0, 127, 177); font-weight: bolder; margin-bottom: 10px;">Taxes</p>
+                            ${all_taxes}
 
-                        <div style="display: flex; flex-direction: row !important; margin-top: 20px;">
-                            <div style="margin-right: 50px;">
-                            <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Total:</p>
-                            <p style="color: rgb(17, 95, 126); font-size: 17px; font-weight: bolder; margin-top: 10px; margin-left: 10px;">
-                                ${RR_booking_price}
-                            </p>
+                            <div style="display: flex; flex-direction: row !important; margin-top: 20px;">
+                                <div style="margin-right: 50px;">
+                                <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Total:</p>
+                                <p style="color: rgb(17, 95, 126); font-size: 17px; font-weight: bolder; margin-top: 10px; margin-left: 10px;">
+                                    ${RR_booking_price}
+                                </p>
+                                </div>
+                                <div onclick="room_booking_get_user_information();" style="background-color: rgb(0, 127, 177); padding: 20px;">
+                                <p style="font-size: 13px; font-weight: bolder; color: white;">Book Room</p>
+                                </div>
                             </div>
-                            <div onclick="get_final_price('${RR_booking_self}');" style="background-color: rgb(0, 127, 177); padding: 20px;">
-                            <p style="font-size: 13px; font-weight: bolder; color: white;">Book Room</p>
-                            </div>
-                        </div>
                         </div>
                         </div>
 
@@ -936,4 +984,8 @@ function get_final_price(url, first_url){
             console.log(err);
         }
     });
+}
+
+function room_booking_get_user_information(){
+    show_hotels_booking_user_info_forms()
 }
