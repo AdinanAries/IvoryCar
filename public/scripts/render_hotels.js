@@ -361,7 +361,9 @@ if(localStorage.getItem("main_search_type") === "hotel_search"){
 }
 
 function get_hotel_rates(url, is_going_back_from_final_price){
-    console.log(is_going_back_from_final_price);
+
+    book_hotel_forms_scroll_helper();
+
     //this shows the default div for displaying rates
     show_hotels_booking_form_hotel_rates_fieldset();
 
@@ -659,7 +661,7 @@ function get_hotel_rates(url, is_going_back_from_final_price){
                             ${RR_booking_price}
                         </p>
                         </div>
-                        <div onclick="get_final_price('${RR_booking_self}', '${url}');" style="background-color: rgb(0, 127, 177); padding: 20px;">
+                        <div onclick="get_final_price('${RR_booking_self}', '${url}');" style="cursor: pointer; background-color: rgb(0, 127, 177); padding: 20px;">
                         <p style="font-size: 13px; font-weight: bolder; color: white;">Choose</p>
                         </div>
                     </div>
@@ -677,7 +679,6 @@ function get_hotel_rates(url, is_going_back_from_final_price){
 
 
 function get_final_price(url, first_url){
-
 
     document.getElementById("order_room_form_final_price_container").innerHTML = 
     `
@@ -697,7 +698,7 @@ function get_final_price(url, first_url){
             </svg>
             <p style="text-align: center; font-size: 14px; color:rgb(0, 60, 83);">
                 <i style="color: orangered; margin-right: 5px;" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                getting rooms and rates
+                getting room and price information
             </p>
             </div>
         </div>
@@ -721,8 +722,8 @@ function get_final_price(url, first_url){
             console.log(data);
 
             document.getElementById("order_room_form_final_price_container").innerHTML = `
-                <div onclick="get_hotel_rates('${first_url}', true);" style="padding: 10px; margin-bottom: 15px; font-size: 14px; color: darkblue; font-weight: bolder;">
-                    <i style="margin-right: 10px; color: crimson;" aria-hidden="true" class="fa fa-chevron-left"></i>Back To Rates
+                <div onclick="get_hotel_rates('${first_url}', true);" style="cursor: pointer; background-color: darkslateblue; padding: 10px; margin-bottom: 15px; font-size: 14px; color: white; font-weight: bolder;">
+                    <i style="margin-right: 10px; color: skyblue;" aria-hidden="true" class="fa fa-chevron-left"></i>Back To Rates
                 </div>
             `;
 
@@ -1017,7 +1018,7 @@ function get_final_price(url, first_url){
                                     ${RR_booking_price}
                                 </p>
                                 </div>
-                                <div onclick="room_booking_get_user_information('${url}', '${first_url}');" style="background-color: rgb(0, 127, 177); padding: 20px;">
+                                <div onclick="room_booking_get_user_information('${url}', '${first_url}');" style="cursor: pointer; background-color: rgb(0, 127, 177); padding: 20px;">
                                 <p style="font-size: 13px; font-weight: bolder; color: white;">Book Room</p>
                                 </div>
                             </div>
@@ -1028,6 +1029,8 @@ function get_final_price(url, first_url){
                 `;
 
             }
+
+            book_hotel_forms_scroll_helper();
 
         },
         error: err => {
@@ -1106,6 +1109,7 @@ function room_booking_get_user_information(url, first_url){
     }
 
     show_hotels_booking_user_info_forms();
+
     document.getElementById("order_room_form_step_three_container").innerHTML = `
             <div>
                 <p style="font-size: 12px; letter-spacing: 1px; font-weight: bolder; margin-bottom: 20px; color:rgb(112, 41, 0);">Guests Information</p>
@@ -1153,13 +1157,24 @@ function room_booking_get_user_information(url, first_url){
                 </div>
             </div>
 
-            <div onclick="get_final_price('${url}', '${first_url}')" style="margin-top: 20px; display: flex; flex-direction: row !important; justify-content: space-between;">
-                <div style="padding: 20px; background-color: #571a02; color: white; font-size: 14px;">
-                <i style="margin-right: 10px" class="fa fa-chevron-left" aria-hidden="true"></i>Back
+            <div style="margin-top: 20px; display: flex; flex-direction: row !important; justify-content: space-between;">
+                <div onclick="get_final_price('${url}', '${first_url}');" style="cursor: pointer; padding: 20px; background-color: #571a02; color: white; font-size: 14px;">
+                    <i style="margin-right: 10px" class="fa fa-chevron-left" aria-hidden="true"></i>Back
                 </div>
-                <div style="padding: 20px; background-color: #023057; color: white; font-size: 14px;">
-                Next<i style="margin-left: 10px" class="fa fa-chevron-right" aria-hidden="true"></i>
+                <div style="cursor: pointer; padding: 20px; background-color: #023057; color: white; font-size: 14px;">
+                    Next<i style="margin-left: 10px" class="fa fa-chevron-right" aria-hidden="true"></i>
                 </div>
             </div>
     `;
+
+    book_hotel_forms_scroll_helper();
+}
+
+function book_hotel_forms_scroll_helper(){
+    
+ if($(document).width() > 700){
+    $("#order_room_form_inputs_container").scrollTop(0);
+ }else{
+    $("#order_room_form_content_container").stop().animate({scrollTop:450}, 500, 'swing');
+ }
 }
