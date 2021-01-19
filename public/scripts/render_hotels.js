@@ -1,27 +1,48 @@
-
 var book_room_final_post_data = {
-    "data": {
-      "offerId": "NRPQNQBOJM",
-      "guests": [
+    data: {
+      offerId: "NRPQNQBOJM",
+      guests: [
         {
-          "name": {
-            "title": "MR",
-            "firstName": "BOB",
-            "lastName": "SMITH"
+          name: {
+            title: "MR",
+            firstName: "BOB",
+            lastName: "SMITH"
           },
-          "contact": {
-            "phone": "+33679278416",
-            "email": "bob.smith@email.com"
+          contact: {
+            phone: "+33679278416",
+            email: "bob.smith@email.com"
           }
-        }
-      ],
-      "payments": [
+        },
         {
-          "method": "creditCard",
-          "card": {
-            "vendorCode": "VI",
-            "cardNumber": "4111111111111111",
-            "expiryDate": "2023-01"
+            name: {
+              title: "MR",
+              firstName: "BOB",
+              lastName: "SMITH"
+            },
+            contact: {
+              phone: "+33679278416",
+              email: "bob.smith@email.com"
+            }
+          },
+          {
+            name: {
+              title: "MR",
+              firstName: "BOB",
+              lastName: "SMITH"
+            },
+            contact: {
+              phone: "+33679278416",
+              email: "bob.smith@email.com"
+            }
+          }
+      ],
+      payments: [
+        {
+          method: "creditCard",
+          card: {
+            vendorCode: "VI",
+            cardNumber: "4111111111111111",
+            expiryDate: "2023-01"
           }
         }
       ]
@@ -996,7 +1017,7 @@ function get_final_price(url, first_url){
                                     ${RR_booking_price}
                                 </p>
                                 </div>
-                                <div onclick="room_booking_get_user_information();" style="background-color: rgb(0, 127, 177); padding: 20px;">
+                                <div onclick="room_booking_get_user_information('${url}', '${first_url}');" style="background-color: rgb(0, 127, 177); padding: 20px;">
                                 <p style="font-size: 13px; font-weight: bolder; color: white;">Book Room</p>
                                 </div>
                             </div>
@@ -1015,6 +1036,130 @@ function get_final_price(url, first_url){
     });
 }
 
-function room_booking_get_user_information(){
-    show_hotels_booking_user_info_forms()
+function room_booking_get_user_information(url, first_url){
+
+    let user_info_forms = "";
+    let form_input_counter = 40;
+
+    for(let inputnum = 0; inputnum < book_room_final_post_data.data.guests.length; inputnum++){
+
+        user_info_forms += `
+                <div style="border-radius: 4px; background-color: rgb(221, 221, 221); padding: 10px; margin-bottom: 10px;">
+
+                <p style="color:rgb(0, 127, 177); font-weight: bolder; font-size: 14px;">Guest ${inputnum+1}</p>
+                <div style="padding: 20px 0;">
+
+                <div style="max-width: 100px !important; margin-bottom: 20px;" id="login_fld_container_${form_input_counter}" class="login_fld_container">
+                    <p id="login_fld_title_${form_input_counter}" class="login_fld_title">
+                    Title</p>
+                    <select id="login_fld_${form_input_counter}" class="login_fld">
+                    <option value="MALE">Mr</option>
+                    <option value="FEMALE">Mrs</option>
+                    </select>
+                </div>
+                <div style="display: flex; flex-direction: row !important; justify-content: space-between; max-width: 395px !important;">
+                    <div id="login_fld_container_${(form_input_counter + 1)}" style="width: calc(100% - 10px); margin-right: 10px;" class="login_fld_container">
+                    <p id="login_fld_title_${(form_input_counter + 1)}" class="login_fld_title">
+                    First Name</p>
+                    <input onblur="de_activate_login_fld(${(form_input_counter + 1)});" onclick="activate_login_fld(${(form_input_counter + 1)});" id="login_fld_${(form_input_counter + 1)}" class="login_fld" type="text" />
+                    </div>
+
+                    <div style="width: calc(100% - 10px);" id="login_fld_container_${(form_input_counter + 2)}" class="login_fld_container">
+                    <p id="login_fld_title_${(form_input_counter + 2)}" class="login_fld_title">
+                    Last Name</p>
+                    <input onblur="de_activate_login_fld(${(form_input_counter + 2)});" onclick="activate_login_fld(${(form_input_counter + 2)});" id="login_fld_${(form_input_counter + 2)}" class="login_fld" type="text" />
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px; justify-content: space-between; max-width: 395px !important;">
+                    <div id="login_fld_container_${(form_input_counter + 3)}" class="login_fld_container">
+                    <p id="login_fld_title_${(form_input_counter + 3)}" class="login_fld_title">
+                    Email</p>
+                    <input onblur="de_activate_login_fld(${(form_input_counter + 3)});" onclick="activate_login_fld(${(form_input_counter + 3)});" id="login_fld_${(form_input_counter + 3)}" class="login_fld" type="email" />
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px; display: flex; flex-direction: row !important; justify-content: space-between; max-width: 395px !important;">
+                    
+                    <div style="width: 170px !important;" id="login_fld_container_${(form_input_counter + 4)}" class="login_fld_container">
+                    <p id="login_fld_title_${(form_input_counter + 4)}" class="login_fld_title">
+                    Country Code</p>
+                    <select id="login_fld_${(form_input_counter + 4)}" class="login_fld">
+                        <option>+1</option>
+                        <option>+233</option>
+                    </select>
+                    </div>
+                    <div id="login_fld_container_${(form_input_counter + 5)}" style="width: 100%;" class="login_fld_container">
+                    <p id="login_fld_title_${(form_input_counter + 5)}" class="login_fld_title">
+                        Mobile Number</p>
+                    <input onblur="de_activate_login_fld(${(form_input_counter + 5)});" onclick="activate_login_fld(${(form_input_counter + 5)});" id="login_fld_${(form_input_counter + 5)}" class="login_fld" type="text" />
+                    </div>
+                </div>
+
+                </div>
+                
+            </div>
+        `;
+
+        form_input_counter += 6;
+
+    }
+
+    show_hotels_booking_user_info_forms();
+    document.getElementById("order_room_form_step_three_container").innerHTML = `
+            <div>
+                <p style="font-size: 12px; letter-spacing: 1px; font-weight: bolder; margin-bottom: 20px; color:rgb(112, 41, 0);">Guests Information</p>
+                
+                <div id="finish_hotel_booking_guests_list">
+
+                    ${user_info_forms}
+
+                </div>
+
+            </div>
+
+            <div style="margin-top: 30px;">
+                <p style="font-size: 12px; letter-spacing: 1px; font-weight: bolder; margin-bottom: 20px; color:rgb(112, 41, 0);">Payments</p>
+                <div style="background-color: rgb(220, 238, 245); padding: 20px; border-radius: 4px;">
+                <div style="max-width: 250px !important; margin-bottom: 20px;" id="login_fld_container_30" class="login_fld_container">
+                    <p id="login_fld_title_300" class="login_fld_title">
+                    Method</p>
+                    <select id="login_fld_300" class="login_fld">
+                    <option value="MALE">Credit Card</option>
+                    <option value="FEMALE">Debit Card</option>
+                    </select>
+                </div>
+                <div style="display: flex; flex-direction: row !important; justify-content: space-between; max-width: 395px !important;">
+                    <div id="login_fld_container_301" style="width: calc(100% - 10px); margin-right: 10px;" class="login_fld_container">
+                    <p id="login_fld_title_301" class="login_fld_title">
+                    Vendor Code</p>
+                    <input onblur="de_activate_login_fld(301);" onclick="activate_login_fld(301);" id="login_fld_301" class="login_fld" type="text" />
+                    </div>
+
+                    <div style="width: calc(100% - 10px);" id="login_fld_container_302" class="login_fld_container">
+                    <p id="login_fld_title_302" class="login_fld_title">
+                    Expiration Date</p>
+                    <input onblur="de_activate_login_fld(302);" onclick="activate_login_fld(302);" id="login_fld_302" class="login_fld" type="text" />
+                    </div>
+                </div>
+                <div style="margin-top: 20px; justify-content: space-between; max-width: 395px !important;">
+                    <div id="login_fld_container_303" class="login_fld_container">
+                    <p id="login_fld_title_303" class="login_fld_title">
+                    Card Number</p>
+                    <input onblur="de_activate_login_fld(303);" onclick="activate_login_fld(303);" id="login_fld_303" class="login_fld" type="number" />
+                    </div>
+                </div>
+
+                </div>
+            </div>
+
+            <div onclick="get_final_price('${url}', '${first_url}')" style="margin-top: 20px; display: flex; flex-direction: row !important; justify-content: space-between;">
+                <div style="padding: 20px; background-color: #571a02; color: white; font-size: 14px;">
+                <i style="margin-right: 10px" class="fa fa-chevron-left" aria-hidden="true"></i>Back
+                </div>
+                <div style="padding: 20px; background-color: #023057; color: white; font-size: 14px;">
+                Next<i style="margin-left: 10px" class="fa fa-chevron-right" aria-hidden="true"></i>
+                </div>
+            </div>
+    `;
 }
