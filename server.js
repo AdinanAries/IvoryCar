@@ -405,6 +405,27 @@ app.post("/get_room_final_price/", (req, res, next)=>{
 
 })
 
+app.post('/finish_room_booking/', (req, res, next)=> {
+
+  console.log(req.body);
+
+  /*axios.post("test.api.amadeus.com/v1/booking/hotel-bookings",
+  {
+    data: req.body
+  },{
+    headers: {
+      "Authorization": ("Bearer "+ AmadeusAccessToken)
+    }
+}).then(data=>{
+    console.log(data);
+  }).catch(err=>{
+    console.log(err);
+  }).then(()=>{
+    //defaults
+  });*/
+
+});
+
 //Spinning the server here
 app.listen(PORT, () => {
   console.log("Server started on " + PORT);

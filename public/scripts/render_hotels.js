@@ -362,7 +362,7 @@ if(localStorage.getItem("main_search_type") === "hotel_search"){
 
 function get_hotel_rates(url, is_going_back_from_final_price){
 
-    book_hotel_forms_scroll_helper();
+    document.getElementById("view_rooms_and_rates_main_title").style.display = "block";
 
     //this shows the default div for displaying rates
     show_hotels_booking_form_hotel_rates_fieldset();
@@ -424,7 +424,7 @@ function get_hotel_rates(url, is_going_back_from_final_price){
     console.log(all_params);
 
     $.ajax({
-        beforeSend: xhrObj =>{
+        beforeSend: xhrObj => {
             xhrObj.setRequestHeader("Accept", "application/json");
             xhrObj.setRequestHeader("Content-Type", "application/json");
         },
@@ -669,6 +669,14 @@ function get_hotel_rates(url, is_going_back_from_final_price){
                 </div>
                 `;
             }
+
+            //book_hotel_forms_scroll_helper();
+            if($(document).width() > 700){
+                $("#order_room_form_inputs_container").scrollTop(0);
+             }else{
+                $("#order_room_form_content_container").stop().animate({scrollTop:0}, 500, 'swing');
+             }
+
         },
         err: (err)=>{
             console.log(err);
@@ -679,6 +687,8 @@ function get_hotel_rates(url, is_going_back_from_final_price){
 
 
 function get_final_price(url, first_url){
+
+    document.getElementById("view_rooms_and_rates_main_title").style.display = "none";
 
     document.getElementById("order_room_form_final_price_container").innerHTML = 
     `
@@ -719,14 +729,16 @@ function get_final_price(url, first_url){
         url: "./get_room_final_price",
         data: JSON.stringify({url: url}),
         success: data => {
+
             console.log(data);
 
             document.getElementById("order_room_form_final_price_container").innerHTML = `
-                <div onclick="get_hotel_rates('${first_url}', true);" style="cursor: pointer; background-color: darkslateblue; padding: 10px; margin-bottom: 15px; font-size: 14px; color: white; font-weight: bolder;">
+                <div onclick="get_hotel_rates('${first_url}', true);" style="cursor: pointer; background-color: darkslateblue; padding: 20px; margin-bottom: 20px; margin-top: 30px; font-size: 14px; color: white; font-weight: bolder;">
                     <i style="margin-right: 10px; color: skyblue;" aria-hidden="true" class="fa fa-chevron-left"></i>Back To Rates
                 </div>
             `;
 
+            let RR_room_availability = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
             let RR_room_type = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
             let RR_bed_type = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
             let RR_room_desc = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
@@ -738,6 +750,7 @@ function get_final_price(url, first_url){
             let RR_cancel_deadline = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
             let RR_cancl_amount = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
             let RR_booking_price = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+            let RR_booking_base_price = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
             let RR_booking_self = "";
             let all_taxes = `
                     <div style="display: flex; flex-direction: row !important;">
@@ -788,7 +801,25 @@ function get_final_price(url, first_url){
                             </p>
                         </div>
                     </div>
-            `
+            `;
+
+            if(data.data.available){
+                RR_room_availability = 
+                    `
+                        <span style="font-weight: initial; margin-left: 10px; font-size: 13px; color:rgb(148, 148, 148);">
+                            <i style="color:rgb(0, 177, 139); margin-right: 5px;" class="fa fa-check" aria-hidden="true"></i>
+                            Available to book
+                        </span>
+                    `;
+            }else{
+                RR_room_availability = 
+                    `
+                        <span style="font-weight: initial; margin-left: 10px; font-size: 13px; color:rgb(148, 148, 148);">
+                            <i style="color: crimson; margin-right: 5px;" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                            Unavailable (can't be booked)
+                        </span>
+                    `;
+            }
 
             for(let rr = 0; rr < data.data.offers.length; rr++){
 
@@ -843,6 +874,11 @@ function get_final_price(url, first_url){
                         `${data.data.offers[rr].roomQuantity} rooms` : `${data.data.offers[rr].roomQuantity} room`
                 }
 
+                if(data.data.offers[rr].price.base){
+                    RR_booking_base_price = site_currency_coverter(data.data.offers[rr].price.currency, current_currency.currency, data.data.offers[rr].price.base);
+                    RR_booking_base_price = current_currency.sign + " " + RR_booking_base_price;
+                }
+
                 if(data.data.offers[rr].price.taxes){
 
                     all_taxes = '';
@@ -855,27 +891,43 @@ function get_final_price(url, first_url){
                             margin_top = "0"
                         }
 
-                        let tax_price = site_currency_coverter(data.data.offers[rr].price.taxes[txes].currency, current_currency.currency, data.data.offers[rr].price.taxes[txes].amount);
-                        tax_price = current_currency.sign + " " + tax_price;
+                        let tax_price = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+                        let taxCode = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+                        let pricingFrequency = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+                        let pricingMode = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+
+                        if(data.data.offers[rr].price.taxes[txes].amount){
+                            tax_price = site_currency_coverter(data.data.offers[rr].price.taxes[txes].currency, current_currency.currency, data.data.offers[rr].price.taxes[txes].amount);
+                            tax_price = current_currency.sign + " " + tax_price;
+                        }
+                        if(data.data.offers[rr].price.taxes[txes].code){
+                            taxCode = data.data.offers[rr].price.taxes[txes].code.toString().replaceAll("_", " ").toLowerCase();
+                        }
+                        if(data.data.offers[rr].price.taxes[txes].pricingFrequency){
+                            pricingFrequency = data.data.offers[rr].price.taxes[txes].pricingFrequency.toString().replaceAll("_", " ").toLowerCase();
+                        }
+                        if(data.data.offers[rr].price.taxes[txes].pricingMode){
+                            pricingMode = data.data.offers[rr].price.taxes[txes].pricingMode.toString().replaceAll("_", " ").toLowerCase()
+                        }
 
                         all_taxes += `
                             <div style="display: flex; flex-direction: row !important; margin-top: ${margin_top};">
                                 <div style="margin-right: 20px;">
                                     <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Type of tax:</p>
                                     <p style="opacity: 0.8; font-size: 13px; margin-top: 5px">
-                                        ${data.data.offers[rr].price.taxes[txes].code.toString().replaceAll("_", " ").toLowerCase()}
+                                        ${taxCode}
                                     </p>
                                 </div>
                                 <div style="margin-right: 20px;">
                                     <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Frequency:</p>
                                     <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">
-                                        ${data.data.offers[rr].price.taxes[txes].pricingFrequency.toString().replaceAll("_", " ").toLowerCase()}
+                                        ${pricingFrequency}
                                     </p>
                                 </div>
                                 <div style="margin-right: 20px;">
                                     <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Mode:</p>
                                     <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">
-                                        ${data.data.offers[rr].price.taxes[txes].pricingMode.toString().replaceAll("_", " ").toLowerCase()}
+                                        ${pricingMode}
                                     </p>
                                 </div>
                                 <div>
@@ -932,10 +984,7 @@ function get_final_price(url, first_url){
                 document.getElementById("order_room_form_final_price_container").innerHTML += `
                         <div>
                         <p style="font-size: 14px; color:rgb(0, 127, 177); font-weight: bolder; margin-bottom: 20px;">Room Status:
-                        <span style="font-weight: initial; margin-left: 10px; font-size: 13px; color:rgb(148, 148, 148);">
-                            <i style="color:rgb(0, 177, 139); margin-right: 5px;" class="fa fa-check" aria-hidden="true"></i>
-                            Available
-                        </span>
+                            ${RR_room_availability}
                         </p>
 
                         <div>
@@ -1008,7 +1057,11 @@ function get_final_price(url, first_url){
                         <div style="margin-top: 20px; padding: 10px; background-color: #d1d1d1; border-top: 1px solid #d3d2d2;">
                             <p style="font-size: 12px; margin-bottom: 20px; font-weight: bolder; color:rgb(0, 60, 83);">
                                 Room Price And Taxes</p>
-                            <p style="font-size: 14px; color:rgb(0, 127, 177); font-weight: bolder; margin-bottom: 10px;">Taxes</p>
+
+                            <p style="font-size: 14px; color:rgb(0, 127, 177); font-weight: bolder; margin-bottom: 10px;">Base Price</p>
+                            <span style="opacity: 0.8; font-size: 14px;">${RR_booking_base_price}</span>
+
+                            <p style="font-size: 14px; color:rgb(0, 127, 177); font-weight: bolder; margin-bottom: 10px; margin-top: 20px;">Taxes</p>
                             ${all_taxes}
 
                             <div style="display: flex; flex-direction: row !important; margin-top: 20px;">
@@ -1040,6 +1093,8 @@ function get_final_price(url, first_url){
 }
 
 function room_booking_get_user_information(url, first_url){
+
+    document.getElementById("view_rooms_and_rates_main_title").style.display = "none";
 
     let user_info_forms = "";
     let form_input_counter = 40;
@@ -1161,14 +1216,37 @@ function room_booking_get_user_information(url, first_url){
                 <div onclick="get_final_price('${url}', '${first_url}');" style="cursor: pointer; padding: 20px; background-color: #571a02; color: white; font-size: 14px;">
                     <i style="margin-right: 10px" class="fa fa-chevron-left" aria-hidden="true"></i>Back
                 </div>
-                <div style="cursor: pointer; padding: 20px; background-color: #023057; color: white; font-size: 14px;">
-                    Next<i style="margin-left: 10px" class="fa fa-chevron-right" aria-hidden="true"></i>
+                <div onclick="submit_hotel_room_booking('offer_id');" style="cursor: pointer; padding: 20px; background-color: #023057; color: white; font-size: 14px;">
+                    Submit Booking<i style="margin-left: 10px" class="fa fa-ticket" aria-hidden="true"></i>
                 </div>
             </div>
     `;
 
     book_hotel_forms_scroll_helper();
 }
+
+function submit_hotel_room_booking(offer_id){
+    
+    book_room_final_post_data.data.offerId = offer_id;
+
+    $.ajax({
+        beforeSend: xhrObj =>{
+            xhrObj.setRequestHeader('Accept', 'application/json');
+            xhrObj.setRequestHeader('Content-Type', 'application/json');
+        },
+        type: "POST",
+        url: "./finish_room_booking",
+        data: JSON.stringify(book_room_final_post_data),
+        success: data => {
+            console.log(data);
+        },
+        error: err => {
+            console.log(err)
+        }
+    });
+
+}
+
 
 function book_hotel_forms_scroll_helper(){
     
