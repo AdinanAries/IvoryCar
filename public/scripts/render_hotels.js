@@ -1226,7 +1226,7 @@ function room_booking_get_user_information(url, first_url){
 }
 
 function submit_hotel_room_booking(offer_id){
-    
+    //show_hotels_review_booking_detials();
     book_room_final_post_data.data.offerId = offer_id;
 
     $.ajax({
@@ -1239,6 +1239,7 @@ function submit_hotel_room_booking(offer_id){
         data: JSON.stringify(book_room_final_post_data),
         success: data => {
             console.log(data);
+            show_hotels_review_booking_detials();
         },
         error: err => {
             console.log(err)
