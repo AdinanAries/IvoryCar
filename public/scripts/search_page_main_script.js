@@ -790,7 +790,6 @@ function show_search_page_top_nav_form(){
   $("#additional_search_inputs_and_Options").slideDown("fast");
   $("#trip_type_param_round_trip_option_container").slideDown("fast");
   //document.getElementById("additional_search_inputs_and_Options").style.display = "block";
-  
 
   city_search_fieldset.style.opacity = 0;
   car_rentals_city_search_fieldset.style.opacity = 0;
@@ -802,44 +801,44 @@ function show_search_page_top_nav_form(){
   home_page_car_rentals_search_button.style.opacity = 0;
   home_page_hotels_search_button.style.opacity = 0;
 
-    $("#city_search_fieldset").slideDown("fast");
-    $("#car_rentals_city_search_fieldset").slideDown("fast");
-    $("#hotels_city_search_fieldset").slideDown("fast");
-    $("#date_search_fieldset").slideDown("fast");
-    $("#car_rentals_date_search_fieldset").slideDown("fast");
-    $("#hotels_date_search_fieldset").slideDown("fast");
-    $("#home_page_search_button").slideDown("fast");
-    $("#home_page_car_rentals_search_button").slideDown("fast");
-    $("#home_page_hotels_search_button").slideDown("fast");
+  $("#city_search_fieldset").slideDown("fast");
+  $("#car_rentals_city_search_fieldset").slideDown("fast");
+  $("#hotels_city_search_fieldset").slideDown("fast");
+  $("#date_search_fieldset").slideDown("fast");
+  $("#car_rentals_date_search_fieldset").slideDown("fast");
+  $("#hotels_date_search_fieldset").slideDown("fast");
+  $("#home_page_search_button").slideDown("fast");
+  $("#home_page_car_rentals_search_button").slideDown("fast");
+  $("#home_page_hotels_search_button").slideDown("fast");
 
-    if(flights_search_tickets_form_container.style.display === "flex"){
-      $("#multi_city_search_inputs_display").slideDown("fast");
-    }
+  if(flights_search_tickets_form_container.style.display === "flex"){
+    $("#multi_city_search_inputs_display").slideDown("fast");
+  }
 
-    city_search_fieldset.style.display = "flex";
-    car_rentals_city_search_fieldset.style.display = "flex";
-    hotels_city_search_fieldset.style.display = "flex";
-    date_search_fieldset.style.display = "flex";
-    car_rentals_date_search_fieldset.style.display = "flex";
-    hotels_date_search_fieldset.style.display = "flex";
-    city_search_fieldset.style.transition = "opacity 2s";
-    car_rentals_city_search_fieldset.style.transition = "opacity 2s";
-    hotels_city_search_fieldset.style.transition = "opacity 2s";
-    date_search_fieldset.style.transition = "opacity 2s";
-    car_rentals_date_search_fieldset.style.transition = "opacity 2s";
-    hotels_date_search_fieldset.style.transition = "opacity 2s";
-    home_page_search_button.style.transition = "opacity 2s";
-    home_page_car_rentals_search_button.style.transition = "opacity 2s";
-    home_page_hotels_search_button.style.transition = "opacity 2s";
-    city_search_fieldset.style.opacity = 1;
-    car_rentals_city_search_fieldset.style.opacity = 1;
-    hotels_city_search_fieldset.style.opacity = 1;
-    date_search_fieldset.style.opacity = 1;
-    car_rentals_date_search_fieldset.style.opacity = 1;
-    hotels_date_search_fieldset.style.opacity = 1;
-    home_page_search_button.style.opacity = 1;
-    home_page_car_rentals_search_button.style.opacity = 1;
-    home_page_hotels_search_button.style.opacity = 1;
+  city_search_fieldset.style.display = "flex";
+  car_rentals_city_search_fieldset.style.display = "flex";
+  hotels_city_search_fieldset.style.display = "flex";
+  date_search_fieldset.style.display = "flex";
+  car_rentals_date_search_fieldset.style.display = "flex";
+  hotels_date_search_fieldset.style.display = "flex";
+  city_search_fieldset.style.transition = "opacity 2s";
+  car_rentals_city_search_fieldset.style.transition = "opacity 2s";
+  hotels_city_search_fieldset.style.transition = "opacity 2s";
+  date_search_fieldset.style.transition = "opacity 2s";
+  car_rentals_date_search_fieldset.style.transition = "opacity 2s";
+  hotels_date_search_fieldset.style.transition = "opacity 2s";
+  home_page_search_button.style.transition = "opacity 2s";
+  home_page_car_rentals_search_button.style.transition = "opacity 2s";
+  home_page_hotels_search_button.style.transition = "opacity 2s";
+  city_search_fieldset.style.opacity = 1;
+  car_rentals_city_search_fieldset.style.opacity = 1;
+  hotels_city_search_fieldset.style.opacity = 1;
+  date_search_fieldset.style.opacity = 1;
+  car_rentals_date_search_fieldset.style.opacity = 1;
+  hotels_date_search_fieldset.style.opacity = 1;
+  home_page_search_button.style.opacity = 1;
+  home_page_car_rentals_search_button.style.opacity = 1;
+  home_page_hotels_search_button.style.opacity = 1;
     
 }
 
@@ -859,123 +858,123 @@ MobilehowSearchFormInputsBtn.addEventListener("click", (evnt)=>{
   MobilehowSearchFormInputsBtnFunc()
 })
 
-        document.getElementById("show_search_results_options_btn").addEventListener("click", (evnt)=>{
-            if(document.getElementById("site_lower_section_left_container").style.display === "block"){
-              $("#site_lower_section_left_container").slideUp("fast");
-              document.getElementById("site_lower_section_left_container").style.display = "none";
-              document.getElementById("search_settings_angle_down").style.transform = "rotate(360deg)";
-            }else{
-              $("#site_lower_section_left_container").slideDown("fast");
-              document.getElementById("site_lower_section_left_container").style.display = "block";
-              document.getElementById("search_settings_angle_down").style.transform = "rotate(180deg)";
-            }
-        })
+document.getElementById("show_search_results_options_btn").addEventListener("click", (evnt)=>{
+    if(document.getElementById("site_lower_section_left_container").style.display === "block"){
+      $("#site_lower_section_left_container").slideUp("fast");
+      document.getElementById("site_lower_section_left_container").style.display = "none";
+      document.getElementById("search_settings_angle_down").style.transform = "rotate(360deg)";
+    }else{
+      $("#site_lower_section_left_container").slideDown("fast");
+      document.getElementById("site_lower_section_left_container").style.display = "block";
+      document.getElementById("search_settings_angle_down").style.transform = "rotate(180deg)";
+    }
+})
 
 
-        //Adding toggle functions for showing and hiding settings areas
+//Adding toggle functions for showing and hiding settings areas
 
-        //stop settings
-        var main_stops_settings_container = document.getElementById("main_stops_settings_container");
-        main_stops_settings_container.style.display = "none";
+//stop settings
+var main_stops_settings_container = document.getElementById("main_stops_settings_container");
+main_stops_settings_container.style.display = "none";
 
-        document.getElementById("toggle_show_stops_settings_btn").addEventListener("click", (evnt)=>{
-          
-          if(main_stops_settings_container.style.display === "none"){
-            document.getElementById("toggle_show_stops_settings_btn_i").style.transform = "rotate(360deg)";
-            $("#main_stops_settings_container").slideDown("fast");
-          }else{
-            document.getElementById("toggle_show_stops_settings_btn_i").style.transform = "rotate(180deg)";
-            $("#main_stops_settings_container").slideUp("fast");
-          }
-        })
+document.getElementById("toggle_show_stops_settings_btn").addEventListener("click", (evnt)=>{
+  
+  if(main_stops_settings_container.style.display === "none"){
+    document.getElementById("toggle_show_stops_settings_btn_i").style.transform = "rotate(360deg)";
+    $("#main_stops_settings_container").slideDown("fast");
+  }else{
+    document.getElementById("toggle_show_stops_settings_btn_i").style.transform = "rotate(180deg)";
+    $("#main_stops_settings_container").slideUp("fast");
+  }
+})
 
-        //flexible options settings
-        var main_flexible_options_settings_container = document.getElementById("main_flexible_options_settings_container");
-        main_flexible_options_settings_container.style.display = "none";
+//flexible options settings
+var main_flexible_options_settings_container = document.getElementById("main_flexible_options_settings_container");
+main_flexible_options_settings_container.style.display = "none";
 
-        document.getElementById("toggle_show_flexible_options_settings_btn").addEventListener("click", (evnt)=>{
-         
-          if(main_flexible_options_settings_container.style.display === "none"){
-            document.getElementById("toggle_show_flexible_options_settings_btn_i").style.transform = "rotate(360deg)";
-            $("#main_flexible_options_settings_container").slideDown("fast");
-          }else{
-            document.getElementById("toggle_show_flexible_options_settings_btn_i").style.transform = "rotate(180deg)";
-            $("#main_flexible_options_settings_container").slideUp("fast");
-          }
-        })
+document.getElementById("toggle_show_flexible_options_settings_btn").addEventListener("click", (evnt)=>{
+  
+  if(main_flexible_options_settings_container.style.display === "none"){
+    document.getElementById("toggle_show_flexible_options_settings_btn_i").style.transform = "rotate(360deg)";
+    $("#main_flexible_options_settings_container").slideDown("fast");
+  }else{
+    document.getElementById("toggle_show_flexible_options_settings_btn_i").style.transform = "rotate(180deg)";
+    $("#main_flexible_options_settings_container").slideUp("fast");
+  }
+})
 
-        //airports settings
-        var main_airports_settings_container = document.getElementById("main_airports_settings_container");
-        main_airports_settings_container.style.display = "none";
+//airports settings
+var main_airports_settings_container = document.getElementById("main_airports_settings_container");
+main_airports_settings_container.style.display = "none";
 
-        document.getElementById("toggle_airports_settings_btn").addEventListener("click", (evnt)=>{
-         
-          if(main_airports_settings_container.style.display === "none"){
-            document.getElementById("toggle_airports_settings_btn_i").style.transform = "rotate(360deg)";
-            $("#main_airports_settings_container").slideDown("fast");
-          }else{
-            document.getElementById("toggle_airports_settings_btn_i").style.transform = "rotate(180deg)";
-            $("#main_airports_settings_container").slideUp("fast");
-          }
-        })
+document.getElementById("toggle_airports_settings_btn").addEventListener("click", (evnt)=>{
+  
+  if(main_airports_settings_container.style.display === "none"){
+    document.getElementById("toggle_airports_settings_btn_i").style.transform = "rotate(360deg)";
+    $("#main_airports_settings_container").slideDown("fast");
+  }else{
+    document.getElementById("toggle_airports_settings_btn_i").style.transform = "rotate(180deg)";
+    $("#main_airports_settings_container").slideUp("fast");
+  }
+})
 
-        //transport types settings
-        var main_transport_types_settings_container = document.getElementById("main_transport_types_settings_container");
-        main_transport_types_settings_container.style.display = "none";
+//transport types settings
+var main_transport_types_settings_container = document.getElementById("main_transport_types_settings_container");
+main_transport_types_settings_container.style.display = "none";
 
-        document.getElementById("toggle_transport_types_settings_btn").addEventListener("click", (evnt)=>{
-         
-          if(main_transport_types_settings_container.style.display === "none"){
-            document.getElementById("toggle_transport_types_settings_btn_i").style.transform = "rotate(360deg)";
-            $("#main_transport_types_settings_container").slideDown("fast");
-          }else{
-            document.getElementById("toggle_transport_types_settings_btn_i").style.transform = "rotate(180deg)";
-            $("#main_transport_types_settings_container").slideUp("fast");
-          }
-        })
+document.getElementById("toggle_transport_types_settings_btn").addEventListener("click", (evnt)=>{
+  
+  if(main_transport_types_settings_container.style.display === "none"){
+    document.getElementById("toggle_transport_types_settings_btn_i").style.transform = "rotate(360deg)";
+    $("#main_transport_types_settings_container").slideDown("fast");
+  }else{
+    document.getElementById("toggle_transport_types_settings_btn_i").style.transform = "rotate(180deg)";
+    $("#main_transport_types_settings_container").slideUp("fast");
+  }
+})
 
-        //times settings
-        var main_times_settings_container = document.getElementById("main_times_settings_container");
-        main_times_settings_container.style.display = "none";
+//times settings
+var main_times_settings_container = document.getElementById("main_times_settings_container");
+main_times_settings_container.style.display = "none";
 
-        document.getElementById("toggle_times_settings_btn").addEventListener("click", (evnt)=>{
-         
-          if(main_times_settings_container.style.display === "none"){
-            document.getElementById("toggle_times_settings_btn_i").style.transform = "rotate(360deg)";
-            $("#main_times_settings_container").slideDown("fast");
-          }else{
-            document.getElementById("toggle_times_settings_btn_i").style.transform = "rotate(180deg)";
-            $("#main_times_settings_container").slideUp("fast");
-          }
-        })
+document.getElementById("toggle_times_settings_btn").addEventListener("click", (evnt)=>{
+  
+  if(main_times_settings_container.style.display === "none"){
+    document.getElementById("toggle_times_settings_btn_i").style.transform = "rotate(360deg)";
+    $("#main_times_settings_container").slideDown("fast");
+  }else{
+    document.getElementById("toggle_times_settings_btn_i").style.transform = "rotate(180deg)";
+    $("#main_times_settings_container").slideUp("fast");
+  }
+})
 
-        //airlines settings
-        var main_airlines_settings_container = document.getElementById("main_airlines_settings_container");
-        main_airlines_settings_container.style.display = "none";
+//airlines settings
+var main_airlines_settings_container = document.getElementById("main_airlines_settings_container");
+main_airlines_settings_container.style.display = "none";
 
-        document.getElementById("toggle_airlines_settings_btn").addEventListener("click", (evnt)=>{
-         
-          if(main_airlines_settings_container.style.display === "none"){
-            document.getElementById("toggle_airlines_settings_btn_i").style.transform = "rotate(360deg)";
-            $("#main_airlines_settings_container").slideDown("fast");
-          }else{
-            document.getElementById("toggle_airlines_settings_btn_i").style.transform = "rotate(180deg)";
-            $("#main_airlines_settings_container").slideUp("fast");
-          }
-        });
+document.getElementById("toggle_airlines_settings_btn").addEventListener("click", (evnt)=>{
+  
+  if(main_airlines_settings_container.style.display === "none"){
+    document.getElementById("toggle_airlines_settings_btn_i").style.transform = "rotate(360deg)";
+    $("#main_airlines_settings_container").slideDown("fast");
+  }else{
+    document.getElementById("toggle_airlines_settings_btn_i").style.transform = "rotate(180deg)";
+    $("#main_airlines_settings_container").slideUp("fast");
+  }
+});
 
-      function  toggle_show_flight_ticket_item_details(number){
-        let flight_ticket_item_details = ("flight_ticket_item_details" + number);
-        let see_flight_details_angle_down = ("see_flight_details_angle_down" + number)
-        if(document.getElementById(flight_ticket_item_details).style.display === "block"){
-          $("#"+flight_ticket_item_details).slideUp("fast");
-          document.getElementById(see_flight_details_angle_down).style.transform = "rotate(360deg)";
+function  toggle_show_flight_ticket_item_details(number){
+let flight_ticket_item_details = ("flight_ticket_item_details" + number);
+let see_flight_details_angle_down = ("see_flight_details_angle_down" + number)
+if(document.getElementById(flight_ticket_item_details).style.display === "block"){
+  $("#"+flight_ticket_item_details).slideUp("fast");
+  document.getElementById(see_flight_details_angle_down).style.transform = "rotate(360deg)";
 
-        }else{
-          $("#"+flight_ticket_item_details).slideDown("fast");
-          document.getElementById(see_flight_details_angle_down).style.transform = "rotate(180deg)";
-        }
-      }
+}else{
+  $("#"+flight_ticket_item_details).slideDown("fast");
+  document.getElementById(see_flight_details_angle_down).style.transform = "rotate(180deg)";
+}
+}
 
 
 
@@ -1303,7 +1302,6 @@ document.getElementById("other_menu_languages_option").addEventListener("focusou
 });
 
 //login functions
-
 function toggle_show_login_div(){
   $("#sign_in_container").toggle("up");
   if(document.getElementById("sign_in_container").style.display === "block"){
