@@ -407,7 +407,7 @@ app.post("/get_room_final_price/", (req, res, next)=>{
 
 app.post('/finish_room_booking/', (req, res, next)=> {
 
-  console.log(req.body);
+  res.send(req.body);
 
   /*axios.post("test.api.amadeus.com/v1/booking/hotel-bookings",
   {

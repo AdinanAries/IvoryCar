@@ -685,7 +685,6 @@ function get_hotel_rates(url, is_going_back_from_final_price){
     });
 }
 
-
 function get_final_price(url, first_url){
 
     document.getElementById("view_rooms_and_rates_main_title").style.display = "none";
@@ -1240,6 +1239,7 @@ function submit_hotel_room_booking(offer_id){
         success: data => {
             console.log(data);
             show_hotels_review_booking_detials();
+            book_hotel_forms_scroll_helper();
         },
         error: err => {
             console.log(err)
@@ -1247,7 +1247,6 @@ function submit_hotel_room_booking(offer_id){
     });
 
 }
-
 
 function book_hotel_forms_scroll_helper(){
     
