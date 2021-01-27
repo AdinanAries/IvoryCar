@@ -230,7 +230,7 @@ var aircrats = [
     {IATA: "DH8", Manufacturer: "De Havilland Canada", Type_Model: "DHC-8 Dash 8", Wake: "M"},
     {IATA: "DHB", Manufacturer: "De Havilland Canada", Type_Model: "DHC-2 Beaver / Turbo Bever", Wake: "L"},
     {IATA: "DHC", Manufacturer: "De Havilland Canada", Type_Model: "DHC-4 Caribou", Wake: "M"},
-    {IATA: "DHD", Manufacturer: "De Havilland", Type_Model: "DH.104 Dove", Type_Model: "L"},
+    {IATA: "DHD", Manufacturer: "De Havilland", Type_Model: "DH.104 Dove", Wake: "L"},
     {IATA: "DHH", Manufacturer: "De Havilland", Type_Model: "DH.114 Heron", Wake: "L"},
     {IATA: "DHL", Manufacturer: "De Havilland Canada", Type_Model: "DHC-3 Turbo Otter", Wake: "L"},
     {IATA: "DHO", Manufacturer: "De Havilland Canada", Type_Model: "DHC-3 Otter / Turbo Otter", Wake: "L"},

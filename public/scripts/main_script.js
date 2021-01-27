@@ -900,8 +900,6 @@ $(function() {
   });
 });
 
-
-
 /*var divs = document.getElementsByTagName('div');
 for (var i = 0, len = divs.length; i < len; i++){
     divs[i].setAttribute('tabindex', '0');
@@ -1092,16 +1090,18 @@ function edit_from_where_of_added_flight(number){
 
         //console.log(flight_search_data.itinerary)
 
-      }, 1)
-      
+      }, 1);
+        
       setTimeout(()=> {
         clearInterval(intervalID);
         $("#multi_city_search_inputs_display").slideDown("fast");
         from_where_search_input_fld.value = '';
         from_where_search_input_fld.removeEventListener("change", current_onchange_func);
         from_where_search_input_fld.removeEventListener("focusout", current_focus_out_func);
-      }, 200)
+      }, 200);
+    
     }
+    
     current_onchange_func = function(){
       //console.log(each_added_flight_from_where_input);
       from_where_search_input_fld.blur();

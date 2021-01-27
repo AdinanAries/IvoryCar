@@ -668,7 +668,7 @@ function flights_filter_func_with_cleanup(){
 
     filter_flights_by_stop()
 
-};
+}
 
 function show_only_fastest_travel_times(){
 
