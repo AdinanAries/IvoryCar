@@ -1049,7 +1049,7 @@ function remove_a_flight(id){
       $("#multi_city_search_inputs_display").slideUp("fast");
       
     }
-  },250);
+  }, 250);
 
 }
 
@@ -1101,7 +1101,7 @@ function edit_from_where_of_added_flight(number){
       }, 200);
     
     }
-    
+
     current_onchange_func = function(){
       //console.log(each_added_flight_from_where_input);
       from_where_search_input_fld.blur();

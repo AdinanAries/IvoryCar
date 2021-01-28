@@ -599,7 +599,7 @@ function book_ticket(){
     }
 }
 
-
+//this function helps calculate the height of flight historic prices insights chart bar
 function find_percentage_against_max_value(max_value, first_value, middle_value, third_value, min_value, current_value){
     if(current_value >= min_value && current_value < first_value){
         return ((current_value * 25) / first_value);
@@ -620,7 +620,7 @@ function find_percentage_against_max_value(max_value, first_value, middle_value,
     }
 }
 
-var flight_stop = "default";//one, zero, default, two_plus, one_plus, zero_and_two_plus
+var flight_stop = "default"; //one, zero, default, two_plus, one_plus, zero_and_two_plus
 
 function filter_flights_by_stop(){
 
