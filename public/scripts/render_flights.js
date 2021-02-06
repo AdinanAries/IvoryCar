@@ -714,12 +714,13 @@ function render_flights(){
                                     displayed_cabin = segment_cabin;
                                     
                                     let airfare = airfare_codes.filter(each => each.code.toLowerCase() === a_cabin[0].class.toLowerCase())[0];
+                                    let seg_airfair = airfare ? airfare.fare : "unavailable";
                                     all_segment_cabins += `
                                         <li style="padding: 5px 10px;">
                                             <p style="color: white; font-weight: bolder; letter-spacing: 0.5px; font-size: 10px; margin-bottom: 2px;">
                                             ${data[w].itineraries[last_flights_itinerary_index].segments[j].departure.iataCode} - 
                                             ${data[w].itineraries[last_flights_itinerary_index].segments[j].arrival.iataCode}</p>
-                                            <p style="color: rgb(255, 23, 166); font-size: 12px; letter-spacing: 0.5px; font-weight: bolder; margin-left: 5px;">${airfare.fare}</p>
+                                            <p style="color: rgb(255, 23, 166); font-size: 12px; letter-spacing: 0.5px; font-weight: bolder; margin-left: 5px;">${seg_airfair}</p>
                                         </li>`;
                                 }else{
                                     segment_cabin = "";
@@ -946,22 +947,22 @@ function render_flights(){
 
                                 return_flights_change_flights_section = `
 
-                                            <div style="width: calc(100% - 45px); border-radius: 4px; border: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px; background-color: #0d3357;">
-                                                <p style="font-size: 12px; font-weight: bolder; color: white; margin: 0 10px; margin-bottom: 10px;">
-                                                <i class="fa fa-exclamation-triangle" style="margin-right: 5px; color: red;" aria-hidden="true"></i>
-                                                Flight Stop</p>
-                                                <div style="display: flex;  flex-direction: row !important; justify-content: space-between; margin: 0 10px;">
-                                                    <div>
-                                                        <span style="opacity: 0.7; color: white; font-size: 13px; letter-spacing: 0.5px;">Change planes in ${departure_airport}</span>
-                                                        <br/>
-                                                        <span style="display: none; font-size: 13px; font-weight: bolder; opacity: 0.9; color: #e25a00; letter-spacing: 0.5px;">
-                                                            Self-transfer - Bag re-check may be required </span>
-                                                    </div>
-                                                    <div style="min-width: 60px; margin-left: 10px;">
-                                                        <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; color: white; letter-spacing: 0.5px;">${transfer_duration}</p>
-                                                    </div>
-                                                </div>
+                                    <div style="width: calc(100% - 45px); border-radius: 4px; border: 1px solid rgb(0, 0, 0, 0.1); padding: 10px 0; margin: 0 20px; background-color: #0d3357;">
+                                        <p style="font-size: 12px; font-weight: bolder; color: white; margin: 0 10px; margin-bottom: 10px;">
+                                        <i class="fa fa-exclamation-triangle" style="margin-right: 5px; color: red;" aria-hidden="true"></i>
+                                        Flight Stop</p>
+                                        <div style="display: flex;  flex-direction: row !important; justify-content: space-between; margin: 0 10px;">
+                                            <div>
+                                                <span style="opacity: 0.7; color: white; font-size: 13px; letter-spacing: 0.5px;">Change planes in ${departure_airport}</span>
+                                                <br/>
+                                                <span style="display: none; font-size: 13px; font-weight: bolder; opacity: 0.9; color: #e25a00; letter-spacing: 0.5px;">
+                                                    Self-transfer - Bag re-check may be required </span>
                                             </div>
+                                            <div style="min-width: 60px; margin-left: 10px;">
+                                                <p style="font-size: 13px; font-weight: bolder; text-align: right; opacity: 0.9; color: white; letter-spacing: 0.5px;">${transfer_duration}</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 `;
                             }
 

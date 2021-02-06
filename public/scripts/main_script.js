@@ -686,7 +686,7 @@ car_rentals_city_search_fieldset.addEventListener("focusout", (evnt)=>{
     document.getElementById("car_rentals_to_where_city_input_container").style.minWidth = "42%";
   }, 100);
 
-})
+});
 
 car_rentals_from_where_search_input_fld.addEventListener("focusin", ()=>{
 
