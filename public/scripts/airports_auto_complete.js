@@ -1,28 +1,36 @@
 
+//Array filter method wrapped in function to improve code reuse
+function filter_airports_array_based_input_value(elem_value){
+
+    return AirportsData.filter(each => {
+        return (
+           each.city.toLowerCase().replaceAll(" ", "").includes(elem_value.toLowerCase().replaceAll(" ", "")) 
+        || each.name.toLowerCase().replaceAll(" ", "").includes(elem_value.toLowerCase().replaceAll(" ", ""))
+        || each.IATA.toLowerCase().replaceAll(" ", "").includes(elem_value.toLowerCase().replaceAll(" ", ""))
+        || each.country.toLowerCase().replaceAll(" ", "").includes(elem_value.toLowerCase().replaceAll(" ", ""))
+        || (each.city + each.name).toLowerCase().replaceAll(" ", "").includes(elem_value.toLowerCase().replaceAll(" ", ""))
+        || (each.city + each.country).toLowerCase().replaceAll(" ", "").includes(elem_value.toLowerCase().replaceAll(" ", ""))
+        || (each.city + each.country + each.name + each.IATA).toLowerCase().replaceAll(" ", "").includes(elem_value.toLowerCase().replaceAll(" ", ""))
+        || (each.country + each.city + each.name + each.IATA).toLowerCase().replaceAll(" ", "").includes(elem_value.toLowerCase().replaceAll(" ", ""))
+        || (each.name + each.city + each.country + each.IATA).toLowerCase().replaceAll(" ", "").includes(elem_value.toLowerCase().replaceAll(" ", ""))
+        || (each.name + each.IATA + each.city + each.country).toLowerCase().replaceAll(" ", "").includes(elem_value.toLowerCase().replaceAll(" ", ""))
+        || (each.IATA + each.name + each.city + each.country).toLowerCase().replaceAll(" ", "").includes(elem_value.toLowerCase().replaceAll(" ", ""))
+        || (each.IATA + each.city + each.name + each.country).toLowerCase().replaceAll(" ", "").includes(elem_value.toLowerCase().replaceAll(" ", ""))
+        || (each.IATA + each.city + each.country + each.name).toLowerCase().replaceAll(" ", "").includes(elem_value.toLowerCase().replaceAll(" ", ""))
+        || (each.IATA + each.country + each.city + each.name).toLowerCase().replaceAll(" ", "").includes(elem_value.toLowerCase().replaceAll(" ", ""))
+        )
+    });
+
+}
+
 document.getElementById("from_where_search_input_fld").addEventListener("input", (evnt)=>{
     let counter = 0;
     document.getElementById("flights_auto_complete_list").innerHTML = "";
     let flights = [];
     if(evnt.target.value){
 
-        flights = AirportsData.filter(each => {
-            return (
-               each.city.toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", "")) 
-            || each.name.toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
-            || each.IATA.toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
-            || each.country.toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
-            || (each.city + each.name).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
-            || (each.city + each.country).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
-            || (each.city + each.country + each.name + each.IATA).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
-            || (each.country + each.city + each.name + each.IATA).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
-            || (each.name + each.city + each.country + each.IATA).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
-            || (each.name + each.IATA + each.city + each.country).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
-            || (each.IATA + each.name + each.city + each.country).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
-            || (each.IATA + each.city + each.name + each.country).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
-            || (each.IATA + each.city + each.country + each.name).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
-            || (each.IATA + each.country + each.city + each.name).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
-            )
-        });
+        flights = filter_airports_array_based_input_value(evnt.target.value);
+
         flights = flights.map(elem => {
                 counter++;
                 return counter < 6 && `<li>
@@ -68,7 +76,10 @@ document.getElementById("to_where_search_input_fld").addEventListener("input", (
     document.getElementById("flights_auto_complete_list").innerHTML = "";
     let flights = [];
     if(evnt.target.value){
-        flights = AirportsData.filter(each =>
+
+        flights = filter_airports_array_based_input_value(evnt.target.value);
+
+        /*AirportsData.filter(each =>
             (
                each.city.toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", "")) 
             || each.name.toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
@@ -85,7 +96,8 @@ document.getElementById("to_where_search_input_fld").addEventListener("input", (
             || (each.IATA + each.city + each.country + each.name).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
             || (each.IATA + each.country + each.city + each.name).toLowerCase().replaceAll(" ", "").includes(evnt.target.value.toLowerCase().replaceAll(" ", ""))
             )
-        );
+        );*/
+
         flights = flights.map(elem => {
             counter++;
             return counter < 6 && `<li>

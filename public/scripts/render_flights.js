@@ -36,7 +36,7 @@ function render_flights(){
 
     $.ajax({
         type: "POST",
-        url: "/searchflight",
+        url: "/searchflight"+localStorage.getItem("flights_trivials"),
         data: JSON.stringify(object_to_send),
         contentType: "application/json; charset=utf-8",
         dataType: "json",

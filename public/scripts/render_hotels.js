@@ -1,3 +1,9 @@
+if(localStorage.getItem("hotels_last_search_city")){
+    //do nothing
+}else{
+    localStorage.setItem("hotels_last_search_city", "");
+}
+
 var book_room_final_post_data = {
     data: {
       offerId: "NRPQNQBOJM",
@@ -50,13 +56,26 @@ var book_room_final_post_data = {
   }
 
 function render_hotels(){
+
+    if(JSON.parse(localStorage.getItem("hotels_post_data")).city !== ""){
+        localStorage.setItem("hotels_last_search_city", JSON.parse(localStorage.getItem("hotels_post_data")).city);
+    }
+
+    if(JSON.parse(localStorage.getItem("hotels_post_data")).city === ""){
+        if(localStorage.getItem("hotels_post_data") !== ""){
+            let hotels_item = JSON.parse(localStorage.getItem("hotels_post_data"));
+            hotels_item.city = localStorage.getItem("hotels_last_search_city");
+            localStorage.setItem("hotels_post_data", JSON.stringify(hotels_item));
+        }
+    }
+
     $.ajax({
         beforeSend: xhrObj =>{
             xhrObj.setRequestHeader("Accept", "application/json");
             xhrObj.setRequestHeader("Content-Type", "application/json");
         },
         type: "POST",
-        url: "./get_hotels",
+        url: "./get_hotels"+localStorage.getItem("hotels_trivials"),
         data: window.localStorage.getItem("hotels_post_data"),
         success: data =>{
             console.log(data);
@@ -335,6 +354,9 @@ function render_hotels(){
 
                     `; 
             }
+
+            hotel_search_data.city = "";
+            window.localStorage.setItem("hotels_post_data", JSON.stringify(hotel_search_data));
         },
         error: err =>{
             console.log(err);
@@ -1256,3 +1278,11 @@ function book_hotel_forms_scroll_helper(){
     $("#order_room_form_content_container").stop().animate({scrollTop:450}, 500, 'swing');
  }
 }
+
+function hide_flights_left_section_settings(){
+    Array.from(document.querySelectorAll(".flights_site_lower_left_section_part")).forEach(
+        elem => elem.style.display = "none"
+    )
+}
+
+//hide_flights_left_section_settings();

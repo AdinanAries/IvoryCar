@@ -138,7 +138,7 @@ function success(position) {
 
 if(fligh_search_data.origin_iata === "" || hotel_search_data.city === ""){
     if (navigator.geolocation) {    
-        navigator.geolocation.getCurrentPosition(success);    
+        //navigator.geolocation.getCurrentPosition(success);    
     }   
     else {    
         error('Geo Location is not supported');    

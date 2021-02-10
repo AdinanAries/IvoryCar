@@ -172,7 +172,8 @@ app.get('/airportSearch/', function(req,res,next){
 //Amadues - Searching Flight Offers (One-way)
 app.post('/searchflight/', (req, res, next)=>{
 
-  console.log(req.body);
+  //console.log(req.body);
+  console.log(req.query);
   
   let search_obj = {};
 
@@ -333,6 +334,8 @@ app.post('/flightpriceanalysis/', (req, res, next)=>{
 
 //Hotel Search End Points
 app.post("/get_hotels/", (req, res, next)=>{
+
+  console.log(req.query);
 
   let city = req.body.city;
   let checkinDate = req.body.checkin;

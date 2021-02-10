@@ -33,6 +33,52 @@ var default_adults = 1;
 
 //Global data
 //data to be forwarded to server
+
+//flights query
+var flights_include_cars = "false"
+var flights_include_rooms = "false";
+var filtered_by_airline = "All"
+var flights_trivials_query = "";
+
+//hotels query
+var hotels_include_flights = "false";
+var hotels_include_cars = "false";
+var is_hotels_multiple_rooms = "false";
+var hotels_trivials_query = "";
+
+function collect_flights_trivial_query(){
+
+    filtered_by_airline = document.getElementById("book_flights_filter_airlines_list").value;
+
+    if(document.getElementById("add_a_car_to_flight_search").checked){
+        flights_include_cars = "true";
+    }
+    if(document.getElementById("add_a_hotel_to_flight_search").checked){
+        flights_include_rooms = "true";
+    }
+
+    flights_trivials_query = `?include_cars=${flights_include_cars}&include_rooms=${flights_include_rooms}&airline_filter=${filtered_by_airline}`;
+    localStorage.setItem("flights_trivials", flights_trivials_query);
+
+}
+
+function collect_hotels_trivial_query(){
+
+    if(document.getElementById("add_a_flight_to_hotel_search").checked){
+        hotels_include_flights = "true";
+    }
+    if(document.getElementById("add_a_car_to_hotel_search").checked){
+        hotels_include_cars = "true";
+    }
+    if(document.getElementById("multiple_hotels_to_stay_check").checked){
+        is_hotels_multiple_rooms = "true";
+    }
+
+    hotels_trivials_query = `?include_flights=${hotels_include_flights}&include_cars=${hotels_include_cars}&is_multy_rooms=${is_hotels_multiple_rooms}`;
+    localStorage.setItem("hotels_trivials", hotels_trivials_query);
+
+}
+
 if(localStorage.getItem("is_multi_city_search")){
     //do nothing
 }else{
@@ -511,7 +557,7 @@ function add_person_to_flight_search(person_type){
                                              + flight_search_number_of_people.students.number + flight_search_number_of_people.youth.number;
     window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
 
-    flight_multi_city_search_data.itinerary.travelers = [];
+    /*flight_multi_city_search_data.itinerary.travelers = [];
 
     for(let wck = 0; wck < fligh_search_data.number_of_adults; wck++){
         flight_multi_city_search_data.itinerary.travelers.push({ 
@@ -522,7 +568,7 @@ function add_person_to_flight_search(person_type){
           ] 
         });
 
-    }
+    }*/
 
 }
 
@@ -773,28 +819,70 @@ function remove_person_from_flight_search(person_type){
     }
 
 }
+ var collect_number_of_travelers = async ()=> {
+
+    flight_multi_city_search_data.itinerary.travelers = [];
+
+    for(let wck = 0; wck < fligh_search_data.number_of_adults; wck++){
+        flight_multi_city_search_data.itinerary.travelers.push({ 
+          id: (wck+1), 
+          travelerType: "ADULT", 
+          fareOptions: [ 
+            "STANDARD" 
+          ] 
+        });
+    }
+
+    return flight_multi_city_search_data.itinerary.travelers.length;
+
+ }
 
 var collection_multi_city_inputs = async ()=>{
     if(flight_search_trip_round.t_round === "Round-trip" && document.getElementById("multiple_city_search_option").checked === false){
 
-        let originIata = from_where_search_input_fld.value;
-        originIata = originIata.split(")")[0];
-        originIata = originIata.substring(1,originIata.length);
+        if(/\(...?.\)/.test(from_where_search_input_fld.value)){
 
-        let destIata = to_where_search_input_fld.value;
-        destIata = destIata.split(")")[0];
-        destIata = destIata.substring(1,destIata.length);
+            let originIata = from_where_search_input_fld.value;
+            originIata = originIata.split(")")[0];
+            originIata = originIata.substring(1,originIata.length);
 
-        flight_multi_city_search_data.itinerary.originDestinations = [];
-        
-        flight_multi_city_search_data.itinerary.originDestinations.push({
-          id: 1, 
-          originLocationCode: originIata, 
-          destinationLocationCode: destIata, 
-          departureDateTimeRange: { 
-            date: fligh_search_data.departure_date 
-          }
-        });
+            let destIata = to_where_search_input_fld.value;
+            destIata = destIata.split(")")[0];
+            destIata = destIata.substring(1,destIata.length);
+
+            flight_multi_city_search_data.itinerary.originDestinations = [];
+            
+            flight_multi_city_search_data.itinerary.originDestinations.push({
+            id: 1, 
+              originLocationCode: originIata, 
+              destinationLocationCode: destIata, 
+              departureDateTimeRange: { 
+                date: fligh_search_data.departure_date 
+              }
+            });
+
+        }else{
+
+            let originIata = from_where_search_input_fld.value;
+            originIata = originIata.split(")")[0];
+            originIata = originIata.substring(1,originIata.length);
+
+            let destIata = to_where_search_input_fld.value;
+            destIata = destIata.split(")")[0];
+            destIata = destIata.substring(1,destIata.length);
+
+            flight_multi_city_search_data.itinerary.originDestinations = [];
+            
+            flight_multi_city_search_data.itinerary.originDestinations.push({
+            id: 1, 
+              originLocationCode: originIata, 
+              destinationLocationCode: destIata, 
+              departureDateTimeRange: { 
+                date: fligh_search_data.departure_date 
+              }
+            });
+            
+        }
         
         flight_multi_city_search_data.itinerary.originDestinations.push({
             id: 2, 
@@ -852,6 +940,14 @@ let search_trigger_func = () =>{
         }
 
         collection_multi_city_inputs().then(()=> {
+
+            //collecting number of travelers here
+            collect_number_of_travelers().then(number => {
+                console.log("number of travelers ", number);
+            }).catch(err => {
+                console.log(err);
+            });
+
             window.localStorage.setItem("flight_multi_city_search_data", JSON.stringify(flight_multi_city_search_data));
             window.location.href = "./search_results_page.html";
         }).catch(err => console.log(err))
@@ -913,6 +1009,8 @@ let search_trigger_func = () =>{
 
 home_page_search_button.addEventListener("click", () =>{
 
+    collect_flights_trivial_query();
+
     //flight_search or hotel_search or car_search or package_search
     localStorage.setItem("main_search_type", "flight_search");
 
@@ -934,9 +1032,37 @@ home_page_search_button.addEventListener("click", () =>{
 
 home_page_hotels_search_button.addEventListener("click", () =>{
     //flight_search or hotel_search or car_search or package_search
-    localStorage.setItem("main_search_type", "hotel_search");
 
-    search_trigger_func();
+    collect_hotels_trivial_query();
+
+    if(document.getElementById("hotels_where_search_input_fld").value === ""){
+        document.getElementById("hotels_where_search_input_fld").focus();
+     
+    }else{
+
+        localStorage.setItem("main_search_type", "hotel_search");
+
+        if(hotel_search_data.city === ""){
+
+            let cities = aita_city_codes.filter(item => 
+                (item.city.replaceAll(" ", "").toLowerCase().includes(document.getElementById("hotels_where_search_input_fld").value.replaceAll(" ", "").toLowerCase())) ||
+                (item.code.replaceAll(" ", "").toLowerCase().includes(document.getElementById("hotels_where_search_input_fld").value.replaceAll(" ", "").toLowerCase())));
+
+            if(cities.length > 0){
+
+                hotel_search_data.city = cities[0].code;
+                window.localStorage.setItem("hotels_post_data", JSON.stringify(hotel_search_data));
+
+            }else{
+                alert(document.getElementById("hotels_where_search_input_fld").value + " is not a recognized city");
+                document.getElementById("hotels_where_search_input_fld").focus();
+                return null;
+            }
+        }
+        search_trigger_func();
+
+    }
+    
 });
 
 
