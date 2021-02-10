@@ -840,49 +840,55 @@ function remove_person_from_flight_search(person_type){
 var collection_multi_city_inputs = async ()=>{
     if(flight_search_trip_round.t_round === "Round-trip" && document.getElementById("multiple_city_search_option").checked === false){
 
+        let destIata = "";
+        let originIata = "";
+
         if(/\(...?.\)/.test(from_where_search_input_fld.value)){
 
-            let originIata = from_where_search_input_fld.value;
+            originIata = from_where_search_input_fld.value;
             originIata = originIata.split(")")[0];
             originIata = originIata.substring(1,originIata.length);
-
-            let destIata = to_where_search_input_fld.value;
-            destIata = destIata.split(")")[0];
-            destIata = destIata.substring(1,destIata.length);
-
-            flight_multi_city_search_data.itinerary.originDestinations = [];
-            
-            flight_multi_city_search_data.itinerary.originDestinations.push({
-            id: 1, 
-              originLocationCode: originIata, 
-              destinationLocationCode: destIata, 
-              departureDateTimeRange: { 
-                date: fligh_search_data.departure_date 
-              }
-            });
 
         }else{
 
-            let originIata = from_where_search_input_fld.value;
-            originIata = originIata.split(")")[0];
-            originIata = originIata.substring(1,originIata.length);
+            let orgn_airport = filter_airports_array_based_input_value(from_where_search_input_fld.value);
+            if(orgn_airport.length > 0){
+                originIata = orgn_airport[0].IATA || orgn_airport[0].ICAO;
+            }else{
+                from_where_search_input_fld.placeholder = to_where_search_input_fld.value + " not a recognized city";
+                from_where_search_input_fld.value = "";
+                from_where_search_input_fld.focus();
+            }
 
-            let destIata = to_where_search_input_fld.value;
+        }
+
+        if(/\(...?.\)/.test(to_where_search_input_fld.value)){
+            destIata = to_where_search_input_fld.value;
             destIata = destIata.split(")")[0];
             destIata = destIata.substring(1,destIata.length);
+        }else{
 
-            flight_multi_city_search_data.itinerary.originDestinations = [];
-            
-            flight_multi_city_search_data.itinerary.originDestinations.push({
-            id: 1, 
-              originLocationCode: originIata, 
-              destinationLocationCode: destIata, 
-              departureDateTimeRange: { 
-                date: fligh_search_data.departure_date 
-              }
-            });
-            
+            let dstn_airport = filter_airports_array_based_input_value(to_where_search_input_fld.value);
+            if(dstn_airport.length > 0){
+                destIata = dstn_airport[0].IATA || dstn_airport[0].ICAO;
+            }else{
+                to_where_search_input_fld.placeholder = to_where_search_input_fld.value + " not a recognized city";
+                to_where_search_input_fld.value = "";
+                to_where_search_input_fld.focus();
+            }
+
         }
+
+        flight_multi_city_search_data.itinerary.originDestinations = [];
+            
+        flight_multi_city_search_data.itinerary.originDestinations.push({
+        id: 1, 
+          originLocationCode: originIata, 
+          destinationLocationCode: destIata, 
+          departureDateTimeRange: { 
+            date: fligh_search_data.departure_date 
+          }
+        });
         
         flight_multi_city_search_data.itinerary.originDestinations.push({
             id: 2, 
