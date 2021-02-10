@@ -1279,10 +1279,3 @@ function book_hotel_forms_scroll_helper(){
  }
 }
 
-function hide_flights_left_section_settings(){
-    Array.from(document.querySelectorAll(".flights_site_lower_left_section_part")).forEach(
-        elem => elem.style.display = "none"
-    )
-}
-
-//hide_flights_left_section_settings();

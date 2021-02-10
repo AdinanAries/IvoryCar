@@ -1522,6 +1522,20 @@
               </div>
             </div>
           </div>
+          <script>
+
+            function hide_flights_left_section_settings(){
+                Array.from(document.querySelectorAll(".flights_site_lower_left_section_part")).forEach(
+                    elem => elem.style.display = "none"
+                )
+            }
+
+            if(localStorage.getItem("main_search_type") !== "flight_search"){
+              hide_flights_left_section_settings();
+            }
+            
+          </script>
+          
           <div class="site_lower_section_middle">
             <div id="fights_site_lower_section_tabs" class="site_lower_section_tabs">
               <div onclick="getCheapFlights();" id="site_lower_section_tabs_cheapest_option" class="site_lower_section_tabs_option  active">

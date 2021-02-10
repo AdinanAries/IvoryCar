@@ -844,20 +844,21 @@ var collection_multi_city_inputs = async ()=>{
         let originIata = "";
 
         if(/\(...?.\)/.test(from_where_search_input_fld.value)){
-
+            
             originIata = from_where_search_input_fld.value;
             originIata = originIata.split(")")[0];
             originIata = originIata.substring(1,originIata.length);
 
         }else{
-
+            
             let orgn_airport = filter_airports_array_based_input_value(from_where_search_input_fld.value);
             if(orgn_airport.length > 0){
                 originIata = orgn_airport[0].IATA || orgn_airport[0].ICAO;
             }else{
-                from_where_search_input_fld.placeholder = to_where_search_input_fld.value + " not a recognized city";
+                from_where_search_input_fld.placeholder = "unrecognized city (" + from_where_search_input_fld.value + ")";
                 from_where_search_input_fld.value = "";
                 from_where_search_input_fld.focus();
+                throw new Error(from_where_search_input_fld.value + " not a recognized city")
             }
 
         }
@@ -872,9 +873,10 @@ var collection_multi_city_inputs = async ()=>{
             if(dstn_airport.length > 0){
                 destIata = dstn_airport[0].IATA || dstn_airport[0].ICAO;
             }else{
-                to_where_search_input_fld.placeholder = to_where_search_input_fld.value + " not a recognized city";
+                to_where_search_input_fld.placeholder = "unrecognized city (" + to_where_search_input_fld.value + ")";
                 to_where_search_input_fld.value = "";
                 to_where_search_input_fld.focus();
+                throw new Error(to_where_search_input_fld.value + " not a recognized city")
             }
 
         }
@@ -898,6 +900,9 @@ var collection_multi_city_inputs = async ()=>{
               date: fligh_search_data.return_date
             }
           });
+
+        fligh_search_data.origin_iata = originIata;
+        fligh_search_data.destination_iata = destIata;
 
     }else{
 
@@ -928,8 +933,13 @@ var collection_multi_city_inputs = async ()=>{
             date: fligh_search_data.departure_date 
           }
         });
-    }
 
+        fligh_search_data.origin_iata = originIata;
+        fligh_search_data.destination_iata = destIata;
+    }
+ 
+    window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
+    
 }
 
 //Going to search page
