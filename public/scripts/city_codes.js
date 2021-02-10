@@ -4,6 +4,7 @@ var aita_city_codes = [
     {city: "Aberdeen Ltd", code: "ABZ"},
     {city: "Abu Dhabi", code: "AUH"},
     {city: "Acapulco", code: "ACA"},
+    {city: "Accra", code: "ACC"},
     {city: "Adana-Sakirpasa", code: "ADA"},
     {city: "Addis Ababa-Bole", code: "ADD"},
     {city: "Adelaide", code: "ADL"},

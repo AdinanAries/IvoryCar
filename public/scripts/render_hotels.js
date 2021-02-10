@@ -62,7 +62,7 @@ function render_hotels(){
     }
 
     if(JSON.parse(localStorage.getItem("hotels_post_data")).city === ""){
-        if(localStorage.getItem("hotels_post_data") !== ""){
+        if(localStorage.getItem("hotels_last_search_city") !== ""){
             let hotels_item = JSON.parse(localStorage.getItem("hotels_post_data"));
             hotels_item.city = localStorage.getItem("hotels_last_search_city");
             localStorage.setItem("hotels_post_data", JSON.stringify(hotels_item));
@@ -123,6 +123,9 @@ function render_hotels(){
                         </div>
 
                     `;
+
+                hotel_search_data.city = "";
+                window.localStorage.setItem("hotels_post_data", JSON.stringify(hotel_search_data));
                 return null;
             }
 
@@ -360,6 +363,8 @@ function render_hotels(){
         },
         error: err =>{
             console.log(err);
+            hotel_search_data.city = "";
+            window.localStorage.setItem("hotels_post_data", JSON.stringify(hotel_search_data));
             document.getElementById("hotels_tickets_section_list_container").innerHTML =
                     `
                         <div style=" background-color: white; border-radius: 4px; margin: 15px 0;

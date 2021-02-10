@@ -1365,10 +1365,15 @@
                   </div>
                 </div>
               </div>
-              <p id="left_settings_total_number_of_found_flights" style="color: rgb(235, 210, 210); margin-top: 15px; font-size: 14px;">getting flights...</p>
-              <div style="margin-top: 10px; display: flex; flex-direction: row !important;">
+              <p class="flights_site_lower_left_section_part" id="left_settings_total_number_of_found_flights" style="color: rgb(235, 210, 210); margin-top: 15px; font-size: 14px;">getting flights...</p>
+              <div class="flights_site_lower_left_section_part" style="margin-top: 10px; display: flex; flex-direction: row !important;">
                 <p><i class="fa fa-exclamation" style="color:rgb(0, 177, 139); margin-right: 5px;" aria-hidden="true"></i></p>
                 <p style="font-size: 12px; color: white; ">we show only revant flights out of the total flights found.</p>
+              </div>
+              <p class="hotels_site_lower_left_section_part" id="left_settings_total_number_of_found_hotels" style="display: none; color: rgb(235, 210, 210); margin-top: 15px; font-size: 14px;">getting rooms...</p>
+              <div class="hotels_site_lower_left_section_part" id="hotels_number_of_hotels_found_info" style="display: none; margin-top: 10px; flex-direction: row !important;">
+                <p><i class="fa fa-exclamation" style="color:rgb(0, 177, 139); margin-right: 5px;" aria-hidden="true"></i></p>
+                <p style="font-size: 12px; color: white; ">we show only revant rooms out of the total rooms found.</p>
               </div>
             </div>
             <div class="site_lower_left_section_part flights_site_lower_left_section_part">
@@ -1521,17 +1526,71 @@
                 </div>
               </div>
             </div>
+            <div class="site_lower_left_section_part hotels_site_lower_left_section_part" style="display: none;">
+              <div  id="toggle_show_flexible_options_settings_btn" class="site_lower_left_section_part_title_container">
+                <p class="site_lower_left_section_part_title">Flexible options</p>
+                <i id="toggle_show_flexible_options_settings_btn_i" class="fa fa-angle-up" aria-hidden="true"></i>
+              </div>
+              <div id="main_flexible_options_settings_container" class="site_lower_left_section_last_part_settings">
+                <div class="each_site_lower_left_section_last_part_setting">
+                  <div class="each_site_lower_left_section_last_part_setting_left">
+                    <input type="checkbox"/> 
+                    <span>Hotel Settings</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="site_lower_left_section_part hotels_site_lower_left_section_part" style="display: none;">
+              <div  id="toggle_show_flexible_options_settings_btn" class="site_lower_left_section_part_title_container">
+                <p class="site_lower_left_section_part_title">Flexible options</p>
+                <i id="toggle_show_flexible_options_settings_btn_i" class="fa fa-angle-up" aria-hidden="true"></i>
+              </div>
+              <div id="main_flexible_options_settings_container" class="site_lower_left_section_last_part_settings">
+                <div class="each_site_lower_left_section_last_part_setting">
+                  <div class="each_site_lower_left_section_last_part_setting_left">
+                    <input type="checkbox"/> 
+                    <span>Hotel Settings</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="site_lower_left_section_part hotels_site_lower_left_section_part" style="display: none;">
+              <div  id="toggle_show_flexible_options_settings_btn" class="site_lower_left_section_part_title_container">
+                <p class="site_lower_left_section_part_title">Flexible options</p>
+                <i id="toggle_show_flexible_options_settings_btn_i" class="fa fa-angle-up" aria-hidden="true"></i>
+              </div>
+              <div id="main_flexible_options_settings_container" class="site_lower_left_section_last_part_settings">
+                <div class="each_site_lower_left_section_last_part_setting">
+                  <div class="each_site_lower_left_section_last_part_setting_left">
+                    <input type="checkbox"/> 
+                    <span>Hotel Settings</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <script>
 
             function hide_flights_left_section_settings(){
                 Array.from(document.querySelectorAll(".flights_site_lower_left_section_part")).forEach(
                     elem => elem.style.display = "none"
-                )
+                );
+            }
+
+            function show_hotels_left_section_settings(){
+                Array.from(document.querySelectorAll(".hotels_site_lower_left_section_part")).forEach(
+                    elem => elem.style.display = "block"
+                );
+                document.getElementById("hotels_number_of_hotels_found_info")
+                .style.display = "flex";
             }
 
             if(localStorage.getItem("main_search_type") !== "flight_search"){
               hide_flights_left_section_settings();
+            }
+
+            if(localStorage.getItem("main_search_type") === "hotel_search"){
+              show_hotels_left_section_settings();
             }
 
           </script>
