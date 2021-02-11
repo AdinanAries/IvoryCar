@@ -1503,31 +1503,31 @@ function activate_login_fld(number){
 
  var most_searched_for_cities = [
     [
-      {name: "Abuja", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
-      {name: "Honkon", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
-      {name: "Liverpool", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
-      {name: "Berlin", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"}
+      {name: "Abuja", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Honkon", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Liverpool", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Berlin", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"}
     ],
    
     [
-      {name: "Abuja", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
-      {name: "Honkon", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
-      {name: "Liverpool", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
-      {name: "Berlin", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
+      {name: "Abuja", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Honkon", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Liverpool", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Berlin", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
     ],
 
     [
-      {name: "Abuja", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
-      {name: "Honkon", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
-      {name: "Liverpool", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
-      {name: "Berlin", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"}
+      {name: "Abuja", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Honkon", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Liverpool", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Berlin", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"}
     ],
 
     [
-      {name: "Abuja", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
-      {name: "Honkon", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
-      {name: "Liverpool", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"},
-      {name: "Berlin", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author"}
+      {name: "Abuja", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Honkon", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Liverpool", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Berlin", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"}
     ]
  ];
  var mcs_number = 0;
@@ -1560,10 +1560,10 @@ function activate_login_fld(number){
                 </span>
               </p>
               <div style="cursor: pointer; margin-top: 20px; display: flex; flex-direction: row !important; border-radius: 4px; overflow: hidden !important;">
-                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(8, 77, 122);  color: white; font-size: 13px; text-align: center; font-weight: bolder;">
+                <div onclick="select_popular_city_for_flight_search('${cities_row[0].iata_code}', '${cities_row[0].input_city_name}');" style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(8, 77, 122);  color: white; font-size: 13px; text-align: center;">
                   Search Flights
                 </div>
-                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center; font-weight: bolder;">
+                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center;">
                   Search Hotels
                 </div>
               </div>
@@ -1585,10 +1585,10 @@ function activate_login_fld(number){
                 </span>
               </p>
               <div style="cursor: pointer; margin-top: 20px; display: flex; flex-direction: row !important; border-radius: 4px; overflow: hidden !important;">
-                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(8, 77, 122);  color: white; font-size: 13px; text-align: center; font-weight: bolder;">
+                <div onclick="select_popular_city_for_flight_search('${cities_row[1].iata_code}', '${cities_row[1].input_city_name}');" style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(8, 77, 122);  color: white; font-size: 13px; text-align: center;">
                   Search Flights
                 </div>
-                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center; font-weight: bolder;">
+                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center;">
                   Search Hotels
                 </div>
               </div>
@@ -1610,10 +1610,10 @@ function activate_login_fld(number){
                 </span>
               </p>
               <div style="cursor: pointer; margin-top: 20px; display: flex; flex-direction: row !important; border-radius: 4px; overflow: hidden !important;">
-                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(8, 77, 122);  color: white; font-size: 13px; text-align: center; font-weight: bolder;">
+                <div onclick="select_popular_city_for_flight_search('${cities_row[2].iata_code}', '${cities_row[2].input_city_name}');" style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(8, 77, 122);  color: white; font-size: 13px; text-align: center;">
                   Search Flights
                 </div>
-                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center; font-weight: bolder;">
+                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center;">
                   Search Hotels
                 </div>
               </div>
@@ -1635,10 +1635,10 @@ function activate_login_fld(number){
                 </span>
               </p>
               <div style="cursor: pointer; margin-top: 20px; display: flex; flex-direction: row !important; border-radius: 4px; overflow: hidden !important;">
-                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(8, 77, 122);  color: white; font-size: 13px; text-align: center; font-weight: bolder;">
+                <div onclick="select_popular_city_for_flight_search('${cities_row[3].iata_code}', '${cities_row[3].input_city_name}');" style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(8, 77, 122);  color: white; font-size: 13px; text-align: center;">
                   Search Flights
                 </div>
-                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center; font-weight: bolder;">
+                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center;">
                   Search Hotels
                 </div>
               </div>
@@ -1660,3 +1660,20 @@ function activate_login_fld(number){
  if($(window).width() > 1000){
   load_more_popular_cities();
  }
+
+function select_popular_city_for_flight_search(iata_code, city_name){
+
+  fligh_search_data.destination_iata = iata_code;
+  window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
+
+  to_where_search_input_fld.value = `(${iata_code}) - ${city_name}`;
+
+  from_where_search_input_fld.value = "";
+  from_where_search_input_fld.placeholder = "where are you flying from";
+  from_where_search_input_fld.focus();
+
+  $('html, body').animate({
+      scrollTop: 0
+    }, 500);
+  
+}
