@@ -963,6 +963,51 @@ document.getElementById("toggle_airlines_settings_btn").addEventListener("click"
   }
 });
 
+
+//left panel hotel settings
+var hotel_settings_container_1 = document.getElementById("hotel_settings_container_1");
+hotel_settings_container_1.style.display = "none";
+
+document.getElementById("toggle_hotel_settings_btn_1").addEventListener("click", (evnt)=>{
+  
+  if(hotel_settings_container_1.style.display === "none"){
+    document.getElementById("toggle_hotel_settings_btn_i_1").style.transform = "rotate(360deg)";
+    $("#hotel_settings_container_1").slideDown("fast");
+  }else{
+    document.getElementById("toggle_hotel_settings_btn_i_1").style.transform = "rotate(180deg)";
+    $("#hotel_settings_container_1").slideUp("fast");
+  }
+})
+
+var hotel_settings_container_2 = document.getElementById("hotel_settings_container_2");
+hotel_settings_container_2.style.display = "none";
+
+document.getElementById("toggle_hotel_settings_btn_2").addEventListener("click", (evnt)=>{
+  
+  if(hotel_settings_container_2.style.display === "none"){
+    document.getElementById("toggle_hotel_settings_btn_i_2").style.transform = "rotate(360deg)";
+    $("#hotel_settings_container_2").slideDown("fast");
+  }else{
+    document.getElementById("toggle_hotel_settings_btn_i_2").style.transform = "rotate(180deg)";
+    $("#hotel_settings_container_2").slideUp("fast");
+  }
+})
+
+var hotel_settings_container_3 = document.getElementById("hotel_settings_container_3");
+hotel_settings_container_3.style.display = "none";
+
+document.getElementById("toggle_hotel_settings_btn_3").addEventListener("click", (evnt)=>{
+  
+  if(hotel_settings_container_3.style.display === "none"){
+    document.getElementById("toggle_hotel_settings_btn_i_3").style.transform = "rotate(360deg)";
+    $("#hotel_settings_container_3").slideDown("fast");
+  }else{
+    document.getElementById("toggle_hotel_settings_btn_i_3").style.transform = "rotate(180deg)";
+    $("#hotel_settings_container_3").slideUp("fast");
+  }
+})
+
+
 function  toggle_show_flight_ticket_item_details(number){
 let flight_ticket_item_details = ("flight_ticket_item_details" + number);
 let see_flight_details_angle_down = ("see_flight_details_angle_down" + number)
