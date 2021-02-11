@@ -1682,7 +1682,7 @@ function select_popular_city_for_flight_search(iata_code, city_name){
   from_where_search_input_fld.focus();
 
   $('html, body').animate({
-      scrollTop: 0
+      scrollTop: 60
     }, 500);
   
 }
