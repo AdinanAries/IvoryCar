@@ -27,6 +27,12 @@ document.getElementById("from_where_search_input_fld").addEventListener("input",
     let counter = 0;
     document.getElementById("flights_auto_complete_list").innerHTML = "";
     let flights = [];
+
+    //if backspace has been pressed, don't auto-complete on input
+    if(!evnt.data){
+        return null;
+    }
+
     if(evnt.target.value){
 
         flights = filter_airports_array_based_input_value(evnt.target.value);
@@ -75,6 +81,12 @@ document.getElementById("to_where_search_input_fld").addEventListener("input", (
     let counter = 0;
     document.getElementById("flights_auto_complete_list").innerHTML = "";
     let flights = [];
+
+    //if backspace has been pressed, don't auto-complete on input
+    if(!evnt.data){
+        return null;
+    }
+
     if(evnt.target.value){
 
         flights = filter_airports_array_based_input_value(evnt.target.value);

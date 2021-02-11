@@ -1,5 +1,10 @@
 document.getElementById("hotels_where_search_input_fld").addEventListener("input", (e)=>{
 
+    //if backspace has been pressed, don't auto-complete on input
+    if(!e.data){
+        return null;
+    }
+
     let suggestedArr = aita_city_codes.filter(item => 
         (item.city.replaceAll(" ", "").toLowerCase().includes(e.target.value.replaceAll(" ", "").toLowerCase())) ||
         (item.code.replaceAll(" ", "").toLowerCase().includes(e.target.value.replaceAll(" ", "").toLowerCase())));
