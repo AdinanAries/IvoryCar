@@ -1484,5 +1484,8 @@ function flights_search_co_ordinator_function(){
 
 }
 
+function render_airports_to_left_settings(){
+    
+}
 
 // https://content.airhex.com/content/logos/airlines_${data[w].validatingAirlineCodes[0]}_50_50_t.png

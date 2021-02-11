@@ -1559,6 +1559,14 @@ function activate_login_fld(number){
                   - ${cities_row[0].quote_author}
                 </span>
               </p>
+              <div style="cursor: pointer; margin-top: 20px; display: flex; flex-direction: row !important; border-radius: 4px; overflow: hidden !important;">
+                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(8, 77, 122);  color: white; font-size: 13px; text-align: center; font-weight: bolder;">
+                  Search Flights
+                </div>
+                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center; font-weight: bolder;">
+                  Search Hotels
+                </div>
+              </div>
             </div>
           </div>
           <div class="each_popular_city">
@@ -1576,6 +1584,14 @@ function activate_login_fld(number){
                   - ${cities_row[1].quote_author}
                 </span>
               </p>
+              <div style="cursor: pointer; margin-top: 20px; display: flex; flex-direction: row !important; border-radius: 4px; overflow: hidden !important;">
+                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(8, 77, 122);  color: white; font-size: 13px; text-align: center; font-weight: bolder;">
+                  Search Flights
+                </div>
+                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center; font-weight: bolder;">
+                  Search Hotels
+                </div>
+              </div>
             </div>
           </div>
           <div class="each_popular_city">
@@ -1593,6 +1609,14 @@ function activate_login_fld(number){
                   - ${cities_row[2].quote_author}
                 </span>
               </p>
+              <div style="cursor: pointer; margin-top: 20px; display: flex; flex-direction: row !important; border-radius: 4px; overflow: hidden !important;">
+                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(8, 77, 122);  color: white; font-size: 13px; text-align: center; font-weight: bolder;">
+                  Search Flights
+                </div>
+                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center; font-weight: bolder;">
+                  Search Hotels
+                </div>
+              </div>
             </div>
           </div>
           <div class="each_popular_city">
@@ -1610,6 +1634,14 @@ function activate_login_fld(number){
                   - ${cities_row[3].quote_author}
                 </span>
               </p>
+              <div style="cursor: pointer; margin-top: 20px; display: flex; flex-direction: row !important; border-radius: 4px; overflow: hidden !important;">
+                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(8, 77, 122);  color: white; font-size: 13px; text-align: center; font-weight: bolder;">
+                  Search Flights
+                </div>
+                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center; font-weight: bolder;">
+                  Search Hotels
+                </div>
+              </div>
             </div>
           </div>
         </div>
