@@ -2024,6 +2024,9 @@ footer a {
   .each_ticket_item_main_right {
     border-bottom-left-radius: 4px;
   }
+  .search_fieldset_done_btn {
+    overflow: initial !important;
+  }
   footer .wrapper div {
     flex-direction: column;
     text-align: center !important;

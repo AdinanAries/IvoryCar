@@ -1772,6 +1772,9 @@ footer a {
   #home_page_reviews_list {
     padding-bottom: 0;
   }
+  .search_fieldset_done_btn {
+    overflow: initial !important;
+  }
   .each_review_info {
     overflow: initial;
     margin-bottom: 60px !important;
