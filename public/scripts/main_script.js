@@ -338,8 +338,7 @@ mobile_menu_car_option.addEventListener("click", () => {
 });
 
 //function to show hotels search form
-main_menu_hotels_option.addEventListener("click", () => {
-  
+function show_hotels_search_forms_from_main_menu(){
   $("#multi_city_search_inputs_display").slideUp("fast");
 
   hotels_accommodations_parameters.style.display = "block";
@@ -377,6 +376,10 @@ main_menu_hotels_option.addEventListener("click", () => {
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/HotelPic2.jpg')";
   document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/HotelPic3.jpg')";*/
 
+}
+
+main_menu_hotels_option.addEventListener("click", () => {
+  show_hotels_search_forms_from_main_menu();
 });
 
 mobile_menu_hotels_option.addEventListener("click", () => {
@@ -1570,7 +1573,7 @@ function activate_login_fld(number){
                 <div onclick="select_popular_city_for_flight_search('${cities_row[0].iata_code}', '${cities_row[0].input_city_name}');" style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(8, 77, 122);  color: white; font-size: 13px; text-align: center;">
                   Search Flights
                 </div>
-                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center;">
+                <div onclick="select_popular_city_for_hotel_search('NYC', 'New York');" style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center;">
                   Search Hotels
                 </div>
               </div>
@@ -1595,7 +1598,7 @@ function activate_login_fld(number){
                 <div onclick="select_popular_city_for_flight_search('${cities_row[1].iata_code}', '${cities_row[1].input_city_name}');" style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(8, 77, 122);  color: white; font-size: 13px; text-align: center;">
                   Search Flights
                 </div>
-                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center;">
+                <div onclick="select_popular_city_for_hotel_search('NYC', 'New York');" style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center;">
                   Search Hotels
                 </div>
               </div>
@@ -1620,7 +1623,7 @@ function activate_login_fld(number){
                 <div onclick="select_popular_city_for_flight_search('${cities_row[2].iata_code}', '${cities_row[2].input_city_name}');" style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(8, 77, 122);  color: white; font-size: 13px; text-align: center;">
                   Search Flights
                 </div>
-                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center;">
+                <div onclick="select_popular_city_for_hotel_search('NYC', 'New York');" style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center;">
                   Search Hotels
                 </div>
               </div>
@@ -1645,7 +1648,7 @@ function activate_login_fld(number){
                 <div onclick="select_popular_city_for_flight_search('${cities_row[3].iata_code}', '${cities_row[3].input_city_name}');" style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(8, 77, 122);  color: white; font-size: 13px; text-align: center;">
                   Search Flights
                 </div>
-                <div style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center;">
+                <div onclick="select_popular_city_for_hotel_search('NYC', 'New York');" style="padding: 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center;">
                   Search Hotels
                 </div>
               </div>
@@ -1677,9 +1680,27 @@ function select_popular_city_for_flight_search(iata_code, city_name){
 
   to_where_search_input_fld.value = `(${iata_code}) - ${city_name}`;
 
-  from_where_search_input_fld.value = "";
-  from_where_search_input_fld.placeholder = "where are you flying from";
-  from_where_search_input_fld.focus();
+  setTimeout(()=>{
+    from_where_search_input_fld.value = "";
+    from_where_search_input_fld.placeholder = "where are you flying from";
+    from_where_search_input_fld.focus();
+  }, 200);
+  
+
+  $('html, body').animate({
+      scrollTop: 60
+    }, 500);
+  
+}
+
+function select_popular_city_for_hotel_search(iata_code, city_name){
+
+  show_hotels_search_forms_from_main_menu();
+
+  hotel_search_data.city = iata_code;
+  window.localStorage.setItem("hotels_post_data", JSON.stringify(hotel_search_data));
+
+  hotels_where_search_input_fld.value = `${city_name}`;
 
   $('html, body').animate({
       scrollTop: 60
