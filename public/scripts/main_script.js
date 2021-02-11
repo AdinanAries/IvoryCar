@@ -238,8 +238,8 @@ main_menu_packages_option.addEventListener("click", (e) => {
 });
 
 //function to show flights search form
-main_menu_car_option.addEventListener("click", () => {
-  
+function show_flights_search_forms_from_main_menu(){
+
   if(document.getElementById("multi_city_search_inputs_display").contains(document.querySelector(".each_added_flight"))){
     setTimeout(()=>{
       $("#multi_city_search_inputs_display").slideDown("fast");
@@ -283,10 +283,13 @@ main_menu_car_option.addEventListener("click", () => {
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/travel-4.jpg')";
   document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/633637768_flight-attendant.jpg')";*/
 
+}
+main_menu_car_option.addEventListener("click", () => {
+  show_flights_search_forms_from_main_menu();
 });
 
-mobile_menu_car_option.addEventListener("click", () => {
-  
+function show_flights_search_forms_from_mobile_menu(){
+
   if(document.getElementById("multi_city_search_inputs_display").contains(document.querySelector(".each_added_flight"))){
     setTimeout(()=>{
       $("#multi_city_search_inputs_display").slideDown("fast");
@@ -328,6 +331,10 @@ mobile_menu_car_option.addEventListener("click", () => {
   document.getElementById("second_each_display_picture").style.backgroundImage = "url('../images/travel-4.jpg')";
   document.getElementById("third_each_display_picture").style.backgroundImage = "url('../images/633637768_flight-attendant.jpg')";*/
 
+}
+
+mobile_menu_car_option.addEventListener("click", () => {
+  show_flights_search_forms_from_mobile_menu();
 });
 
 //function to show hotels search form
@@ -1662,6 +1669,8 @@ function activate_login_fld(number){
  }
 
 function select_popular_city_for_flight_search(iata_code, city_name){
+
+  show_flights_search_forms_from_main_menu();
 
   fligh_search_data.destination_iata = iata_code;
   window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
