@@ -1513,35 +1513,40 @@ function activate_login_fld(number){
 
  var most_searched_for_cities = [
     [
-      {name: "Abuja", img: "./images/Nigerian-abuja-city.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Beijin", img: "./images/Beijin_China.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Liverpool", img: "./images/Liverpool-City.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Berlin", img: "./images/Berlin-City.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"}
+      {name: "Abuja", img: "./images/Nigerian-abuja-city.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Nnamdi Azikiwe Intl - Abuja", iata_code: "ABV"},
+      {name: "Beijin", img: "./images/Beijin_China.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Beijing Capital Intl - Beijing", iata_code: "PEK"},
+      {name: "Liverpool", img: "./images/Liverpool-City.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Liverpool John Lennon - Liverpool", iata_code: "LPL"},
+      {name: "Berlin", img: "./images/Berlin-City.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Berlin-Tempelhof Intl - Berlin", iata_code: "THF"}
     ],
    
     [
-      {name: "Toronto", img: "./images/Toronto-Canada.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Madrid", img: "./images/Madrid.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Riyadh", img: "./images/Riyadh.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Canberra", img: "./images/Canberra.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Toronto", img: "./images/Toronto-Canada.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Lester B. Pearson Intl - Toronto", iata_code: "YYZ"},
+      {name: "Madrid", img: "./images/Madrid.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Adolfo Suárez Madrid–Barajas - Madrid", iata_code: "MAD"},
+      {name: "Riyadh", img: "./images/Riyadh.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "King Khaled Intl - Riyadh", iata_code: "RUH"},
+      {name: "Canberra", img: "./images/Canberra.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Canberra Intl - Canberra", iata_code: "CBR"},
     ],
 
     [
-      {name: "Amsterdam", img: "./images/Amsterdam.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Rome", img: "./images/Rome.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Cairo", img: "./images/Cairo.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Milan", img: "./images/Milan.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"}
+      {name: "Amsterdam", img: "./images/Amsterdam.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Amsterdam  Schiphol - Amsterdam", iata_code: "AMS"},
+      {name: "Rome", img: "./images/Rome.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Ciampino–G. B. Pastine Intl - Rome", iata_code: "CIA"},
+      {name: "Cairo", img: "./images/Cairo.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Cairo Intl - Cairo", iata_code: "CAI"},
+      {name: "Milan", img: "./images/Milan.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Milano Linate - Milan", iata_code: "LIN"}
     ],
 
     [
-      {name: "Mumbai", img: "./images/Mumbai.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Cape Town", img: "./images/CapeTown.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Hong Kong", img: "./images/Hong_Kong.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Abidjan", img: "./images/Abidjan-Ivory-Coast.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"}
+      {name: "Mumbai", img: "./images/Mumbai.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Chhatrapati Shivaji Intl - Mumbai", iata_code: "BOM"},
+      {name: "Cape Town", img: "./images/CapeTown.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Cape Town Intl - Cape Town", iata_code: "CPT"},
+      {name: "Hong Kong", img: "./images/Hong_Kong.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Hong Kong Intl - Hong Kong", iata_code: "HKG"},
+      {name: "Abidjan", img: "./images/Abidjan-Ivory-Coast.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Port Bouet - Abidjan", iata_code: "ABJ"}
     ]
  ];
  var mcs_number = 0;
  function load_more_popular_cities(){
+
+  let margin_top = "0";
+  if($(window).width() > 1000){
+    margin_top = "20px";
+  }
 
   if(mcs_number+1 > most_searched_for_cities.length){
     
@@ -1553,7 +1558,7 @@ function activate_login_fld(number){
 
    document.getElementById("load_more_popular_cities_container").innerHTML += `
 
-        <div id="more_popular_city_set${mcs_number}" style="display: none;" class="most_searched_cities_list_container">
+        <div id="more_popular_city_set${mcs_number}" style="display: none; padding-top: ${margin_top} !important;" class="most_searched_cities_list_container">
           <div class="each_popular_city">
             <img style="border-top-right-radius: 5px; border-top-left-radius: 5px;" src="${cities_row[0].img}" alt="" />
             <div class="each_popular_city_desc">
@@ -1573,7 +1578,7 @@ function activate_login_fld(number){
                 <div onclick="select_popular_city_for_flight_search('${cities_row[0].iata_code}', '${cities_row[0].input_city_name}');" style="padding: 15px 10px; width: calc(50% - 20px) !important; background-color:rgb(8, 77, 122);  color: white; font-size: 13px; text-align: center;">
                   Search Flights
                 </div>
-                <div onclick="select_popular_city_for_hotel_search('NYC', 'New York');" style="padding: 15px 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center;">
+                <div onclick="select_popular_city_for_hotel_search('${cities_row[0].iata_code}', '${cities_row[0].input_city_name}');" style="padding: 15px 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center;">
                   Search Hotels
                 </div>
               </div>
@@ -1598,7 +1603,7 @@ function activate_login_fld(number){
                 <div onclick="select_popular_city_for_flight_search('${cities_row[1].iata_code}', '${cities_row[1].input_city_name}');" style="padding: 15px 10px; width: calc(50% - 20px) !important; background-color:rgb(8, 77, 122);  color: white; font-size: 13px; text-align: center;">
                   Search Flights
                 </div>
-                <div onclick="select_popular_city_for_hotel_search('NYC', 'New York');" style="padding: 15px 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center;">
+                <div onclick="select_popular_city_for_hotel_search('${cities_row[1].iata_code}', '${cities_row[1].input_city_name}');" style="padding: 15px 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center;">
                   Search Hotels
                 </div>
               </div>
@@ -1623,7 +1628,7 @@ function activate_login_fld(number){
                 <div onclick="select_popular_city_for_flight_search('${cities_row[2].iata_code}', '${cities_row[2].input_city_name}');" style="padding: 15px 10px; width: calc(50% - 20px) !important; background-color:rgb(8, 77, 122);  color: white; font-size: 13px; text-align: center;">
                   Search Flights
                 </div>
-                <div onclick="select_popular_city_for_hotel_search('NYC', 'New York');" style="padding: 15px 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center;">
+                <div onclick="select_popular_city_for_hotel_search('${cities_row[2].iata_code}', '${cities_row[2].input_city_name}');" style="padding: 15px 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center;">
                   Search Hotels
                 </div>
               </div>
@@ -1648,7 +1653,7 @@ function activate_login_fld(number){
                 <div onclick="select_popular_city_for_flight_search('${cities_row[3].iata_code}', '${cities_row[3].input_city_name}');" style="padding: 15px 10px; width: calc(50% - 20px) !important; background-color:rgb(8, 77, 122);  color: white; font-size: 13px; text-align: center;">
                   Search Flights
                 </div>
-                <div onclick="select_popular_city_for_hotel_search('NYC', 'New York');" style="padding: 15px 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center;">
+                <div onclick="select_popular_city_for_hotel_search('${cities_row[3].iata_code}', '${cities_row[3].input_city_name}');" style="padding: 15px 10px; width: calc(50% - 20px) !important; background-color:rgb(0, 177, 139); color: white; font-size: 13px; text-align: center;">
                   Search Hotels
                 </div>
               </div>
