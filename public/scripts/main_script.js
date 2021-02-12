@@ -1513,31 +1513,31 @@ function activate_login_fld(number){
 
  var most_searched_for_cities = [
     [
-      {name: "Abuja", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Honkon", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Liverpool", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Berlin", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"}
+      {name: "Abuja", img: "./images/Nigerian-abuja-city.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Beijin", img: "./images/Beijin_China.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Liverpool", img: "./images/Liverpool-City.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Berlin", img: "./images/Berlin-City.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"}
     ],
    
     [
-      {name: "Abuja", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Honkon", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Liverpool", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Berlin", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Toronto", img: "./images/Toronto-Canada.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Madrid", img: "./images/Madrid.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Riyadh", img: "./images/Riyadh.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Canberra", img: "./images/Canberra.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
     ],
 
     [
-      {name: "Abuja", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Honkon", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Liverpool", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Berlin", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"}
+      {name: "Amsterdam", img: "./images/Amsterdam.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Rome", img: "./images/Rome.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Cairo", img: "./images/Cairo.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Milan", img: "./images/Milan.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"}
     ],
 
     [
-      {name: "Abuja", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Honkon", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Liverpool", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
-      {name: "Berlin", img: "", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"}
+      {name: "Mumbai", img: "./images/Mumbai.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Cape Town", img: "./images/CapeTown.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Hong Kong", img: "./images/Hong_Kong.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"},
+      {name: "Abidjan", img: "./images/Abidjan-Ivory-Coast.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "La Guardia  - New York", iata_code: "JFK"}
     ]
  ];
  var mcs_number = 0;
@@ -1555,7 +1555,7 @@ function activate_login_fld(number){
 
         <div id="more_popular_city_set${mcs_number}" style="display: none;" class="most_searched_cities_list_container">
           <div class="each_popular_city">
-            <img style="border-top-right-radius: 5px; border-top-left-radius: 5px;" src="./images/Manhattan New York City 8.jpg" alt="" />
+            <img style="border-top-right-radius: 5px; border-top-left-radius: 5px;" src="${cities_row[0].img}" alt="" />
             <div class="each_popular_city_desc">
               <p
                 style="font-weight: bolder; color: #023057; margin: 10px 0;"
@@ -1580,7 +1580,7 @@ function activate_login_fld(number){
             </div>
           </div>
           <div class="each_popular_city">
-            <img style="border-top-right-radius: 5px; border-top-left-radius: 5px;" src="./images/London.jpg"  alt=""/>
+            <img style="border-top-right-radius: 5px; border-top-left-radius: 5px;" src="${cities_row[1].img}"  alt=""/>
             <div class="each_popular_city_desc">
               <p
                 style="font-weight: bolder; color: #023057; margin: 10px 0;"
@@ -1605,7 +1605,7 @@ function activate_login_fld(number){
             </div>
           </div>
           <div class="each_popular_city">
-            <img style="border-top-right-radius: 5px; border-top-left-radius: 5px;" src="./images/AccraGhana.jpg" alt=""/>
+            <img style="border-top-right-radius: 5px; border-top-left-radius: 5px;" src="${cities_row[2].img}" alt=""/>
             <div class="each_popular_city_desc">
               <p
                 style="font-weight: bolder; color: #023057; margin: 10px 0;"
@@ -1630,7 +1630,7 @@ function activate_login_fld(number){
             </div>
           </div>
           <div class="each_popular_city">
-            <img style="border-top-right-radius: 5px; border-top-left-radius: 5px;" src="./images/Paris.jpg" alt=""/>
+            <img style="border-top-right-radius: 5px; border-top-left-radius: 5px;" src="${cities_row[3].img}" alt=""/>
             <div class="each_popular_city_desc">
               <p
                 style="font-weight: bolder; color: #023057; margin: 10px 0;"
