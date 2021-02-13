@@ -1520,6 +1520,10 @@ function toggle_show_your_bookings_div(){
   hide_notification_icons();
 }
 
+function toggle_show_whats_new_div(){
+  $("#whats_new_div").toggle("up");
+  hide_notification_icons();
+}
 
 //login functions
 
@@ -1626,7 +1630,7 @@ function activate_login_fld(number){
 
    document.getElementById("load_more_popular_cities_container").innerHTML += `
 
-        <div id="more_popular_city_set${mcs_number}" style="display: none; padding-top: ${margin_top} !important;" class="most_searched_cities_list_container">
+        <div id="more_popular_city_set${mcs_number}" style="display: none; margin-top: ${margin_top} !important;" class="most_searched_cities_list_container">
           <div class="each_popular_city">
             <img style="border-top-right-radius: 5px; border-top-left-radius: 5px;" src="${cities_row[0].img}" alt="" />
             <div class="each_popular_city_desc">

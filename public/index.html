@@ -132,6 +132,17 @@
         </div>
     </div>
 
+    <div id="whats_new_div">
+      <div style="flex-direction: row !important;" class="whats_new_div_head">
+        <div>
+          <p style="font-size: 15px; color:rgb(65, 24, 0); font-weight: bolder;">What's New</p>
+        </div>
+        <div onclick="toggle_show_whats_new_div();">
+          <i style="color: #fff" class="fa fa-times" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+
     <div id="help_and_support_chat_box">
 
       <div style="flex-direction: row !important;" class="help_support_chat_bot_head">
@@ -282,12 +293,12 @@
             <div class="events_notification_counter">19</div>
             <i style="color: rgb(233, 128, 0); font-size: 22px;" class="fa fa-bell" aria-hidden="true"></i>
           </div>
-          <div class="events_notification_item" style="cursor: pointer; overflow: visible !important; position: relative; padding: 10px;">
+          <div onclick="toggle_show_whats_new_div();" class="events_notification_item" style="cursor: pointer; overflow: visible !important; position: relative; padding: 10px;">
             <div class="events_notification_item_tooltip">
-              <p>New Events</p>
+              <p>What's New</p>
             </div>
             <div class="events_notification_counter">0</div>
-            <i style="color: rgb(233, 128, 0);; font-size: 22px;" class="fa fa-globe" aria-hidden="true"></i>
+            <i style="color: rgb(233, 128, 0); font-size: 22px;" class="fa fa-globe" aria-hidden="true"></i>
           </div>
           <div onclick="toggle_show_your_bookings_div();" class="events_notification_item" style="cursor: pointer; overflow: visible !important; padding: 10px; position: relative;">
             <div class="events_notification_item_tooltip">
