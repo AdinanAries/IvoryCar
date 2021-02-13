@@ -137,6 +137,9 @@ var top_logo_as_menu_btn = document.getElementById("top_logo_as_menu_btn");
 var mobile_menu_hotels_option = document.getElementById("mobile_menu_hotels_option");
 var mobile_menu_car_rentals_option = document.getElementById("mobile_menu_car_rentals_option");
 var mobile_menu_car_option = document.getElementById("mobile_menu_car_option");
+var mobile_menu_packages_option = document.getElementById("mobile_menu_packages_option");
+var mobile_menu_explore_option = document.getElementById("mobile_menu_explore_option");
+var mobile_menu_deals_option = document.getElementById("mobile_menu_deals_option");
 
 //hover event for mobile main menu
 top_logo_as_menu_btn.addEventListener("click", () => {
@@ -231,6 +234,16 @@ function set_all_main_menu_items_as_not_selected() {
   });
 }
 
+//this sets the explore main menu option active
+main_menu_explore_option.addEventListener("click", () => {
+
+  set_all_main_menu_items_as_not_selected();
+  //main_menu_more_option.classList.add("active_top_nav_link");
+  main_menu_explore_option.classList.add("active_top_nav_submenu_link");
+  jumbotron_background.style.display = "none";
+  render_explore_page();
+});
+
 //this sets the packages main menu option active
 main_menu_packages_option.addEventListener("click", (e) => {
   set_all_main_menu_items_as_not_selected();
@@ -250,6 +263,50 @@ main_menu_deals_option.addEventListener("click", (e) => {
   render_deals_page();
   e.stopPropagation();
 });
+
+//this sets the packages main menu option active from mobile menu
+mobile_menu_packages_option.addEventListener("click", (e) => {
+  _hide_mobile_menu_();
+  set_all_main_menu_items_as_not_selected();
+  //main_menu_more_option.classList.add("active_top_nav_link");
+  main_menu_packages_option.classList.add("active_top_nav_submenu_link");
+  jumbotron_background.style.display = "none";
+  render_packages_page();
+  e.stopPropagation();
+});
+
+//this sets the explore main menu option active from mobile menu
+mobile_menu_explore_option.addEventListener("click", () => {
+  _hide_mobile_menu_();
+  set_all_main_menu_items_as_not_selected();
+  //main_menu_more_option.classList.add("active_top_nav_link");
+  main_menu_explore_option.classList.add("active_top_nav_submenu_link");
+  jumbotron_background.style.display = "none";
+  render_explore_page();
+});
+
+//this sets the deals main menu option active from mobile menu
+mobile_menu_deals_option.addEventListener("click", (e) => {
+  _hide_mobile_menu_();
+  set_all_main_menu_items_as_not_selected();
+  //main_menu_more_option.classList.add("active_top_nav_link");
+  main_menu_deals_option.classList.add("active_top_nav_submenu_link");
+  jumbotron_background.style.display = "none";
+  render_deals_page();
+  e.stopPropagation();
+});
+
+//this function hides mobile menu when an item is selected from its menu
+function _hide_mobile_menu_(){
+
+  top_logo_menu_icon.style.transform = "rotate(360deg)";
+  top_logo_menu_icon.style.marginTop = "23px";
+  top_logo_menu_icon.style.marginBottom = "0"
+  header_menu_dropdowns.style.display = "none";
+  mobile_main_menu_items.style.visibility = "hidden";
+  mobile_main_menu_items.style.opacity = "0";
+
+}
 
 //function to show flights search form
 function show_flights_search_forms_from_main_menu(){
@@ -311,12 +368,7 @@ function show_flights_search_forms_from_mobile_menu(){
     
   }
 
-  top_logo_menu_icon.style.transform = "rotate(360deg)";
-  top_logo_menu_icon.style.marginTop = "23px";
-  top_logo_menu_icon.style.marginBottom = "0"
-  header_menu_dropdowns.style.display = "none";
-  mobile_main_menu_items.style.visibility = "hidden";
-  mobile_main_menu_items.style.opacity = "0";
+  _hide_mobile_menu_();
 
   trip_type_parameters.style.display = "block";
   hotels_accommodations_parameters.style.display = "none";
@@ -515,15 +567,7 @@ mobile_menu_car_rentals_option.addEventListener("click", () => {
 
 });
 
-//this sets the cars main menu option active
-main_menu_explore_option.addEventListener("click", () => {
 
-  set_all_main_menu_items_as_not_selected();
-  //main_menu_more_option.classList.add("active_top_nav_link");
-  main_menu_explore_option.classList.add("active_top_nav_submenu_link");
-  jumbotron_background.style.display = "none";
-  render_explore_page();
-});
 
 //this function renders renders explore page
 function render_explore_page() {
