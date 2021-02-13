@@ -99,6 +99,9 @@ var ui_datepicker_div = document.getElementById("ui-datepicker-div");
 var main_menu_packages_option = document.getElementById(
   "main_menu_packages_option"
 );
+var main_menu_deals_option = document.getElementById(
+  "main_menu_deals_option"
+);
 var main_menu_explore_option = document.getElementById(
   "main_menu_explore_option"
 );
@@ -124,6 +127,7 @@ var hero_section_container = document.getElementsByClassName(
 )[0];
 var packages_section = document.getElementsByClassName("packages_section")[0];
 var explore_section = document.getElementsByClassName("explore_section")[0];
+var deals_section = document.getElementsByClassName("deals_section")[0];
 var jumbotron_background = document.getElementsByClassName(
   "jumbotron_background"
 )[0];
@@ -234,6 +238,16 @@ main_menu_packages_option.addEventListener("click", (e) => {
   main_menu_packages_option.classList.add("active_top_nav_submenu_link");
   jumbotron_background.style.display = "none";
   render_packages_page();
+  e.stopPropagation();
+});
+
+//this sets the deals main menu option active
+main_menu_deals_option.addEventListener("click", (e) => {
+  set_all_main_menu_items_as_not_selected();
+  //main_menu_more_option.classList.add("active_top_nav_link");
+  main_menu_deals_option.classList.add("active_top_nav_submenu_link");
+  jumbotron_background.style.display = "none";
+  render_deals_page();
   e.stopPropagation();
 });
 
@@ -515,6 +529,7 @@ main_menu_explore_option.addEventListener("click", () => {
 function render_explore_page() {
   packages_section.style.display = "none";
   hero_section_container.style.display = "none";
+  deals_section.style.display = "none";
   explore_section.style.display = "block";
 }
 
@@ -522,13 +537,22 @@ function render_explore_page() {
 function render_packages_page() {
   hero_section_container.style.display = "none";
   explore_section.style.display = "none";
+  deals_section.style.display = "none";
   packages_section.style.display = "block";
+}
+
+function render_deals_page(){
+  hero_section_container.style.display = "none";
+  explore_section.style.display = "none";
+  packages_section.style.display = "none";
+  deals_section.style.display = "block";
 }
 
 //this function renders cars page
 function render_cars_page() {
   packages_section.style.display = "none";
   explore_section.style.display = "none";
+  deals_section.style.display = "none";
   hero_section_container.style.display = "block";
 }
 
