@@ -73,7 +73,8 @@
 #help_and_support_chat_box,
 #price_alerts_div,
 #your_bookings_div,
-#whats_new_div {
+#whats_new_div,
+#your_trips_div {
   display: none;
   position: fixed;
   z-index: 13;
@@ -91,7 +92,8 @@
 .help_support_chat_bot_text_area,
 .price_and_alerts_head,
 .your_bookings_head,
-.whats_new_div_head {
+.whats_new_div_head,
+.your_trips_div_head {
   background-color: rgb(233, 128, 0);
   padding: 15px;
   display: flex;
@@ -1622,7 +1624,9 @@ footer a {
   }
   #help_and_support_chat_box,
   #price_alerts_div,
-  #your_bookings_div {
+  #your_bookings_div,
+  #whats_new_div,
+  #your_trips_div {
     z-index: 13;
     bottom: 0;
     right: 0;

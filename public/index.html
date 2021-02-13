@@ -143,6 +143,17 @@
       </div>
     </div>
 
+    <div id="your_trips_div">
+      <div style="flex-direction: row !important;" class="your_trips_div_head">
+        <div>
+          <p style="font-size: 15px; color:rgb(65, 24, 0); font-weight: bolder;">Your Trips</p>
+        </div>
+        <div onclick="toggle_show_your_trips_div();">
+          <i style="color: #fff" class="fa fa-times" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+
     <div id="help_and_support_chat_box">
 
       <div style="flex-direction: row !important;" class="help_support_chat_bot_head">
@@ -439,8 +450,8 @@
           </div>
           <div style="overflow: visible !important;" class="top_nav_other_links_container">
             <ul style="overflow: visible !important;">
-              <li id="top_nav_trip_btn">
-                <a href="#">Trips</a>
+              <li onclick="toggle_show_your_trips_div();" id="top_nav_trip_btn">
+                <a>Trips</a>
               </li>
               <li onclick="toggle_show_login_div();" id="top_nav_signin_btn">
                 <a href="#" style="color: goldenrod"
