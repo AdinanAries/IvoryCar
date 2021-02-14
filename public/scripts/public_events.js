@@ -104,7 +104,7 @@ function display_events(start, limit, number){
             event_promoters = all_public_events[i].promoter.name;
         }
 
-        render_event(number, event_full_name, event_name, all_public_events[i].images[(all_public_events[i].images.length -1)].url, stringdate.substring(0, 15), 
+        render_event(number, event_full_name, event_name, all_public_events[i].images[(Math.floor(all_public_events[i].images.length/2) +1)].url, stringdate.substring(0, 15), 
         price_range, event_genre_name, event_time_zone, event_information, event_url_address, event_venue, event_promoters);
 
     }
