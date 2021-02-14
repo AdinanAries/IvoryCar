@@ -101,6 +101,11 @@ if(window.localStorage.getItem("hotels_post_data")){
 
     hotel_search_data = JSON.parse(window.localStorage.getItem("hotels_post_data"));
 
+    /*/Resettig hotel search object date values to avoid confusion and maintain co
+    hotel_search_data.checkin = formatted_date;
+    hotel_search_data.checkout= formatted_future_date;
+    window.localStorage.setItem("hotels_post_data", JSON.stringify(hotel_search_data));*/
+
 }else{
 
     hotel_search_data = {
@@ -118,6 +123,12 @@ if(window.localStorage.getItem("hotels_post_data")){
 if(window.localStorage.getItem("flights_post_data")){
 
     fligh_search_data = JSON.parse(window.localStorage.getItem("flights_post_data"));
+
+    /*/resetting flights departure and return dates
+    fligh_search_data.departure_date = formatted_date;
+    fligh_search_data.return_date = formatted_future_date;
+    window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));*/
+
     flight_multi_city_search_data = JSON.parse(window.localStorage.getItem("flight_multi_city_search_data"));
 
     if(fligh_search_data.origin_iata.toLowerCase() !== ""){
