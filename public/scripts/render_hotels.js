@@ -519,17 +519,22 @@ function get_hotel_rates(url, is_going_back_from_final_price){
 
             if(data.data.hotel){
                 document.getElementById("order_room_form_hotel_infor_container").innerHTML = `
-                    <div style="height: 300px; width: 100%; margin: auto;  
+                    <div style="height: 300px; width: 100%; margin: auto; position: relative;
                     background-image: url('./images/HotelPic2.jpg'); background-size: cover; background-repeat: no-repeat; ">
-                    <div style="background-color: rgba(0, 0, 0, 0.575); padding: 20px;">
-                        <h1 style="font-weight: bolder; letter-spacing: 1px; color: white;">
-                        ${RR_hotel_name}
-                        </h1>
-                        <p style="color: white; font-size: 11px; letter-spacing: 0.7px;">
-                            ${RR_hotel_address}
-                        </p>
-                        <p style="color:rgb(0, 188, 235);">${RR_hotel_rating}</p>
-                    </div>
+                        <div style="background-color: rgba(0, 0, 0, 0.575); padding: 20px;">
+                            <h1 style="font-weight: bolder; letter-spacing: 1px; color: white;">
+                            ${RR_hotel_name}
+                            </h1>
+                            <p style="color: white; font-size: 11px; letter-spacing: 0.7px;">
+                                ${RR_hotel_address}
+                            </p>
+                            <p style="color:rgb(0, 188, 235);">${RR_hotel_rating}</p>
+                        </div>
+                        <div class="hotels_card_pic_items_points">
+                            <div class="hotels_card_pic_each_item_point selected"><p>1</p></div>
+                            <div class="hotels_card_pic_each_item_point"><p>2</p></div>
+                            <div class="hotels_card_pic_each_item_point"><p>3</p></div>
+                        </div>
                     </div>
                     <div>
                         <p style="font-size: 14px; color:rgb(0, 127, 177); font-weight: bolder; margin-bottom: 10px; margin-top: 20px;">Contacts:</p>
@@ -563,7 +568,7 @@ function get_hotel_rates(url, is_going_back_from_final_price){
             let RR_checkin_date = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
             let RR_checkout_date = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
             let RR_guest_num = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
-            let RR_rooms_num = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+            let RR_rooms_num = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unknown`;
             let RR_policy_type = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
             let RR_cancel_deadline = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
             let RR_cancl_amount = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
@@ -662,7 +667,7 @@ function get_hotel_rates(url, is_going_back_from_final_price){
                         <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">${RR_guest_num}</p>
                         </div>
                         <div>
-                        <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Rooms</p>
+                        <p style="opacity: 0.8; font-size: 13px; font-weight: bolder;">Rooms:</p>
                         <p style="opacity: 0.8; font-size: 13px; margin-top: 5px;">${RR_rooms_num}</p>
                         </div>
                     </div>
