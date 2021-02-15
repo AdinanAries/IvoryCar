@@ -270,6 +270,11 @@ function render_hotels(){
                                         <div onclick="show_full_hotel_list_pic(${p});" class="hotels_card_pic_show_full_pic">
                                             <i id="hotels_card_pic_show_full_pic_icon${p}" class="fa fa-chevron-right" aria-hidden="true"></i>
                                         </div>
+                                        <div class="hotels_card_pic_items_points">
+                                            <div class="hotels_card_pic_each_item_point selected"><p>1</p></div>
+                                            <div class="hotels_card_pic_each_item_point"><p>2</p></div>
+                                            <div class="hotels_card_pic_each_item_point"><p>3</p></div>
+                                        </div>
                                     </div>
                                     <div id="hotels_card_booking_desc${p}" style="margin-right: 0 !important; justify-content: flex-start; transition: all 0.5s ease-out;">
                                     <div style="margin-right: 0 !important;">
