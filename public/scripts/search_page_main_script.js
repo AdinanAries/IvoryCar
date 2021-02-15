@@ -548,7 +548,11 @@ $("#car_rentals_to_when_search_input").datepicker({minDate: 0});*/
 
 $(function() {
   $('#from_when_search_input').daterangepicker({
-    opens: 'left'
+    opens: 'left',
+    autoUpdateInput: false,
+    locale: {
+      cancelLabel: 'Clear'
+    }
   }, function(start, end, label) {
 
     setTimeout(()=>{
@@ -566,7 +570,11 @@ $(function() {
 
 $(function() {
   $('#hotels_from_when_search_input').daterangepicker({
-    opens: 'left'
+    opens: 'left',
+    autoUpdateInput: false,
+    locale: {
+      cancelLabel: 'Clear'
+    }
   }, function(start, end, label) {
 
     setTimeout(()=>{
@@ -583,7 +591,11 @@ $(function() {
 
 $(function() {
   $('#car_rentals_from_when_search_input').daterangepicker({
-    opens: 'left'
+    opens: 'left',
+    autoUpdateInput: false,
+    locale: {
+      cancelLabel: 'Clear'
+    }
   }, function(start, end, label) {
 
     setTimeout(()=>{

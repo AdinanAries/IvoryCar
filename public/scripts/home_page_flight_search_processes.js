@@ -6,7 +6,7 @@ var home_page_hotels_search_button = document.getElementById("home_page_hotels_s
 //today
 var todays_date = new Date();
 //tomorrow. API works well with this date
-todays_date = new Date(todays_date.setDate(todays_date.getDate() + 1))
+//todays_date = new Date(todays_date.setDate(todays_date.getDate() + 1))
 var this_month = (todays_date.getMonth() + 1);
 var this_month_day = todays_date.getDate();
 
