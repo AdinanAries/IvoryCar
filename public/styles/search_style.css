@@ -1695,7 +1695,7 @@ footer a {
   border-radius: 100%;
 }
 .hotels_card_pic_items_points .selected p {
-  background-color: rgb(33, 55, 65) !important;
+  background-color: rgb(196, 95, 0) !important;
 }
 @media only screen and (max-width: 1220px) {
   .wrapper {
