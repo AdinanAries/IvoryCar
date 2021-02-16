@@ -1673,7 +1673,8 @@ footer a {
   width: 100% !important;
   bottom: 0;
   left: 0;
-  padding: 0 10px;
+  padding: 10px 0;
+  margin: 0 !important;
   display: flex;
   flex-direction: row !important;
   justify-content: center;
@@ -1762,6 +1763,7 @@ footer a {
     display: none !important;
   }
   .hotels_card_pic_items_points {
+    margin: 0 !important;
     flex-direction: row !important;
   }
   .hotels_each_ticket_item_main_right {

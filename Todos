@@ -2,3 +2,14 @@
 2. Add buttons for photos carousel on hotel search results
 3. Add Our partners section on footer. (Amadues, Saber, TravelPort, Kayak, Momondo, Priceline, Booking.com, Expedia, etc.)
 4. Research and add qoutes on popular cities.
+
+Motif for trips API:
+    Amadeus Self-Service Trip APIs provide powerful functionalities to give your travelers a superior experience throughout the entire trip.
+    Discover APIs to help you build unified travel itineraries by parsing different supplier mails or AI-powered APIs that provide insight 
+    into your travelers’ motivations so you can deliver a more seamless, personalized experience.
+
+    To get instant access to our Self-Service APIs, just create an account and follow the steps in our Get Started section to get your 
+    API Key and API Secret. To make integration even easier, you can check out our SDKs on GitHub or visit our developer guides
+
+url: https://developers.amadeus.com/self-service/category/trip
+
