@@ -21,6 +21,7 @@
 }
 .book_direct_form_inputs {
   background-color: white;
+  max-width: 600px;
   border-radius: 4px;
   display: flex;
   flex-direction: row !important;
@@ -28,12 +29,12 @@
   overflow: hidden !important;
 }
 .book_direct_form_inputs input[type="text"] {
-  width: calc(70% - 13px);
+  width: calc(75% - 13px);
   padding: 10px;
   border: none;
 }
 .book_direct_form_inputs button {
-  width: calc(30% - 13px);
+  width: calc(25% - 13px);
   padding: 10px;
   border: none;
   border-radius: 0 !important;
