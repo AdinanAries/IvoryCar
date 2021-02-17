@@ -16,6 +16,33 @@
   flex-direction: column;
   justify-content: center;
 }
+.book_direct_location_form_container {
+  padding: 20px;
+}
+.book_direct_form_inputs {
+  background-color: white;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row !important;
+  justify-content: space-between;
+  overflow: hidden !important;
+}
+.book_direct_form_inputs input[type="text"] {
+  width: calc(70% - 13px);
+  padding: 10px;
+  border: none;
+}
+.book_direct_form_inputs button {
+  width: calc(30% - 13px);
+  padding: 10px;
+  border: none;
+  border-radius: 0 !important;
+  background-color: rgb(50, 78, 110);
+}
+.book_direct_form_inputs button i {
+  color: white;
+  font-weight: bolder;
+}
 .sign_in_div {
   display: flex;
   justify-content: center;
