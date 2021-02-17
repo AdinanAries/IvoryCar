@@ -1,5 +1,11 @@
-//getting dom elements
+/*Array.from(document.getElementsByClassName("hide_book_cheap_book_direct_hotels_full_pic_btn")).forEach(elem =>{
+  elem.addEventListener("click", e => {
+    alert("clicked");
+    e.stopPropagation();
+  })
+});*/
 
+//getting dom elements
 var city_search_fieldset_done_btn = document.getElementById("city_search_fieldset_done_btn");
 var site_motto = document.getElementsByClassName("site_motto")[0];
 

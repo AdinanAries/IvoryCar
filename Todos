@@ -4,6 +4,7 @@
 4. Research and add qoutes on popular cities.
 5. Find if cancellation information is included in current flights offer data returned from api.
 6. Add various search results filters.
+7. When you hover on book cheap/book direct hotel's picture, a popup should apear showing the picture in full dimension 
 
 Motif for trips API:
     Amadeus Self-Service Trip APIs provide powerful functionalities to give your travelers a superior experience throughout the entire trip.
