@@ -2,6 +2,8 @@
 2. Add buttons for photos carousel on hotel search results
 3. Add Our partners section on footer. (Amadues, Saber, TravelPort, Kayak, Momondo, Priceline, Booking.com, Expedia, etc.)
 4. Research and add qoutes on popular cities.
+5. Find if cancellation information is included in current flights offer data returned from api.
+6. Add various search results filters.
 
 Motif for trips API:
     Amadeus Self-Service Trip APIs provide powerful functionalities to give your travelers a superior experience throughout the entire trip.

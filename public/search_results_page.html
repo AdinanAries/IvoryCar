@@ -737,7 +737,7 @@
                 >
               </li>
               <li id="top_nav_trip_btn">
-                <a href="#">Trips</a>
+                <a style="color:rgba(0, 0, 0, 0)">Trips</a>
               </li>
               <li onclick="toggle_show_login_div();" id="top_nav_signin_btn">
                 <a href="#" style="color: goldenrod"
@@ -1330,7 +1330,7 @@
       
       <div class="site_lower_section_top_area">
         <div class="wrapper">
-          <canvas style="width: 100%; height: 100%; min-height: 250px;" id="line-chart"></canvas>
+          <canvas style="display: none; width: 100%; height: 100%; min-height: 250px;" id="line-chart"></canvas>
           <script>
             if(localStorage.getItem("main_search_type") !== "flight_search"){
               document.getElementById("line-chart").style.display = "none";
@@ -1411,7 +1411,7 @@
                 </div>
               </div>
             </div>
-            <div class="site_lower_left_section_part flights_site_lower_left_section_part">
+            <div style="display: none;" class="site_lower_left_section_part flights_site_lower_left_section_part">
               <div  id="toggle_show_flexible_options_settings_btn" class="site_lower_left_section_part_title_container">
                 <p class="site_lower_left_section_part_title">Flexible options</p>
                 <i id="toggle_show_flexible_options_settings_btn_i" class="fa fa-angle-up" aria-hidden="true"></i>
@@ -1425,7 +1425,7 @@
                 </div>
               </div>
             </div>
-            <div class="site_lower_left_section_part flights_site_lower_left_section_part">
+            <div style="display: none;" class="site_lower_left_section_part flights_site_lower_left_section_part">
               <div id="toggle_airports_settings_btn" class="site_lower_left_section_part_title_container">
                 <p class="site_lower_left_section_part_title">Airports</p>
                 <i id="toggle_airports_settings_btn_i" class="fa fa-angle-up" aria-hidden="true"></i>
@@ -1449,7 +1449,7 @@
                 </div>
               </div>
             </div>
-            <div class="site_lower_left_section_part flights_site_lower_left_section_part">
+            <div style="display: none;" class="site_lower_left_section_part flights_site_lower_left_section_part">
               <div id="toggle_transport_types_settings_btn" class="site_lower_left_section_part_title_container">
                 <p class="site_lower_left_section_part_title">Transportation types</p>
                 <i id="toggle_transport_types_settings_btn_i" class="fa fa-angle-up" aria-hidden="true"></i>
@@ -1471,7 +1471,7 @@
                 </div>
               </div>
             </div>
-            <div class="site_lower_left_section_part flights_site_lower_left_section_part">
+            <div style="display: none;" class="site_lower_left_section_part flights_site_lower_left_section_part">
               <div id="toggle_times_settings_btn" style="margin-bottom: 15px;" class="site_lower_left_section_part_title_container">
                 <p class="site_lower_left_section_part_title">Times</p>
                 <i id="toggle_times_settings_btn_i" class="fa fa-angle-up" aria-hidden="true"></i>
@@ -1511,7 +1511,7 @@
                 </div>
               </div>
             </div>
-            <div class="site_lower_left_section_last_part flights_site_lower_left_section_part">
+            <div style="display: none;" class="site_lower_left_section_last_part flights_site_lower_left_section_part">
               <div id="toggle_airlines_settings_btn" class="site_lower_left_section_part_title_container">
                 <p class="site_lower_left_section_part_title">Airlines</p>
                 <i id="toggle_airlines_settings_btn_i" class="fa fa-angle-up" aria-hidden="true"></i>
@@ -1526,6 +1526,7 @@
                 </div>
               </div>
             </div>
+            <div class="site_lower_section_right_top_ad general_adds_card" style="margin-left: 0; margin-right: 15px;"></div>
             <div class="site_lower_left_section_part hotels_site_lower_left_section_part" style="display: none;">
               <div  id="toggle_hotel_settings_btn_1" class="site_lower_left_section_part_title_container">
                 <p class="site_lower_left_section_part_title">Flexible options</p>
@@ -2390,12 +2391,8 @@
             </div>
           </div>
           <div class="site_lower_section_right">
-            <div class="site_lower_section_right_top_ad">
-
-            </div>
-            <div class="site_lower_section_right_bottom_ad">
-
-            </div>
+            <div class="site_lower_section_right_top_ad general_adds_card"></div>
+            <div class="site_lower_section_right_bottom_ad general_adds_card"></div>
           </div>
         </div>
         

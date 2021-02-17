@@ -1181,7 +1181,7 @@ function render_flights(){
                                 <div onclick="show_flight_ticket_added_policies_content(${w});" style="display: flex; cursor: pointer; flex-direction: row !important; justify-content: space-between; padding: 20px;">
                                     <div>
                                         <p id="each_flight_ticket_added_policies_content_title${w}" style="display: none; font-size: 14px; opacity: 0.9; font-weight: bolder; margin: 10px 0;">American Airlines policies</p>
-                                        <p id="each_flight_ticket_added_policies_content_summary${w}" style="font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">Flexible cancellation options & additional safety measures</p>
+                                        <p id="each_flight_ticket_added_policies_content_summary${w}" style="font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">View cancellation options & additional safety measures</p>
                                         <p id="each_flight_ticket_added_policies_content_read_more_txt${w}" style="margin-top: 7px; color: #00284e; font-size: 13px; opacity: 0.9; letter-spacing: 0.5px; font-weight: bolder;">Read More</p>
                                     </div>
                                     <div style="display: flex; flex-direction: column !important; justify-content: center;">
@@ -1192,7 +1192,18 @@ function render_flights(){
                                 </div>
                                 <div id="each_flight_ticket_added_policies_content${w}" style="padding: 0 20px; display: none;">
 
-                                    <div style="display: flex; flex-direction: row !important; margin-bottom: 20px;">
+                                <div style="display: flex; flex-direction: row !important; margin-bottom: 20px;">
+                                    <div style="margin-right: 10px;">
+                                        <i style="font-size: 22px; opacity: 0.7; color: orangered;" aria-hidden="true" class="fa fa-exclamation-triangle"></i>
+                                    </div>
+                                    <div>
+                                        <p style="font-size: 13px; opacity: 0.7;">
+                                            nothing found for this flight...
+                                        </p>
+                                    </div>
+                                </div>
+
+                                    <div style="display: flex; display: none; flex-direction: row !important; margin-bottom: 20px;">
                                         <div style="margin-right: 10px;">
                                             <i style="font-size: 22px; opacity: 0.7;" aria-hidden="true" class="fa fa-info"></i>
                                         </div>
@@ -1205,7 +1216,7 @@ function render_flights(){
                                         </div>
                                     </div>
 
-                                    <div style="display: flex; flex-direction: row !important; margin-bottom: 20px;">
+                                    <div style="display: flex; display: none; flex-direction: row !important; margin-bottom: 20px;">
                                         <div style="margin-right: 10px;">
                                             <i style="font-size: 22px; opacity: 0.7;" aria-hidden="true" class="fa fa-info"></i>
                                         </div>
@@ -1216,7 +1227,7 @@ function render_flights(){
                                         </div>
                                     </div>
                                     
-                                    <div style="display: flex; flex-direction: row !important; margin-bottom: 20px;">
+                                    <div style="display: flex; display: none; flex-direction: row !important; margin-bottom: 20px;">
                                         <div style="margin-right: 10px;">
                                             <i style="font-size: 22px; opacity: 0.7;" aria-hidden="true" class="fa fa-info"></i>
                                         </div>
@@ -1227,7 +1238,7 @@ function render_flights(){
                                         </div>
                                     </div>
 
-                                    <div style="display: flex; flex-direction: row !important; margin-bottom: 20px;">
+                                    <div style="display: flex; display: none; flex-direction: row !important; margin-bottom: 20px;">
                                         <div style="margin-right: 10px;">
                                             <i style="font-size: 22px; opacity: 0.7;" aria-hidden="true" class="fa fa-thermometer-half"></i>
                                         </div>
@@ -1244,7 +1255,7 @@ function render_flights(){
 
                             <div style="flex-direction: row !important; margin-top: 20px;" class="flight_ticket_item_details_section_content_title">
                                 <p>
-                                    <input id="flight_ticket_item_details_section_content_Depature_check${w}" type="checkbox" />
+                                    <input style="display: none;" id="flight_ticket_item_details_section_content_Depature_check${w}" type="checkbox" />
                                     <label style="cursor: pointer;" for="flight_ticket_item_details_section_content_Depature_check${w}">
                                         Depart <span>${trip_departure_from_and_airports}</span>
                                     </label>
@@ -1263,7 +1274,7 @@ function render_flights(){
 
                             <div style="display: ${return_flights_display} !important; flex-direction: row !important; margin-top: 20px;" class="flight_ticket_item_details_section_content_title">
                                 <p>
-                                    <input id="flight_ticket_item_details_section_content_Return_check${w}" type="checkbox" />
+                                    <input style="display: none;" id="flight_ticket_item_details_section_content_Return_check${w}" type="checkbox" />
                                     <label style="cursor: pointer;" for="flight_ticket_item_details_section_content_Return_check${w}">
                                         Return <span>${trip_return_from_and_to_airports}</span>
                                     </label>

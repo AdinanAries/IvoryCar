@@ -1604,30 +1604,30 @@ function activate_login_fld(number){
 
  var most_searched_for_cities = [
     [
-      {name: "Abuja", img: "./images/Nigerian-abuja-city.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Nnamdi Azikiwe Intl - Abuja", iata_code: "ABV"},
-      {name: "Beijin", img: "./images/Beijin_China.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Beijing Capital Intl - Beijing", iata_code: "PEK"},
-      {name: "Liverpool", img: "./images/Liverpool-City.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Liverpool John Lennon - Liverpool", iata_code: "LPL"},
-      {name: "Berlin", img: "./images/Berlin-City.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Berlin-Tempelhof Intl - Berlin", iata_code: "THF"}
+      {name: "Abuja", img: "./images/Nigerian-abuja-city.jpg", quote: "You cannot come to a Nigerian restaurant without having pepper soup.", quote_author: "Ben Okri", input_city_name: "Nnamdi Azikiwe Intl - Abuja", iata_code: "ABV"},
+      {name: "Beijing", img: "./images/Beijin_China.jpg", quote: "Beijing has a glut of charming and traditional or brash and luxurious places to stay.", quote_author: "Evan Osnos", input_city_name: "Beijing Capital Intl - Beijing", iata_code: "PEK"},
+      {name: "Liverpool", img: "./images/Liverpool-City.jpg", quote: "A good place to wash your hair, Liverpool. Good soft water.", quote_author: "John Lennon", input_city_name: "Liverpool John Lennon - Liverpool", iata_code: "LPL"},
+      {name: "Berlin", img: "./images/Berlin-City.jpg", quote: "Germans don't speak in a German accent, they just speak German.", quote_author: "Daniel Day-Lewis", input_city_name: "Berlin-Tempelhof Intl - Berlin", iata_code: "THF"}
     ],
    
     [
-      {name: "Toronto", img: "./images/Toronto-Canada.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Lester B. Pearson Intl - Toronto", iata_code: "YYZ"},
-      {name: "Madrid", img: "./images/Madrid.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Adolfo Suárez Madrid–Barajas - Madrid", iata_code: "MAD"},
-      {name: "Riyadh", img: "./images/Riyadh.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "King Khaled Intl - Riyadh", iata_code: "RUH"},
-      {name: "Canberra", img: "./images/Canberra.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Canberra Intl - Canberra", iata_code: "CBR"},
+      {name: "Toronto", img: "./images/Toronto-Canada.jpg", quote: "In Toronto, the film festival is like a carnival… entire families come to it.", quote_author: "Vetrimaaran", input_city_name: "Lester B. Pearson Intl - Toronto", iata_code: "YYZ"},
+      {name: "Madrid", img: "./images/Madrid.jpg", quote: "We're Real Madrid - and being successful is part of our DNA.", quote_author: "Toni Kroos", input_city_name: "Adolfo Suárez Madrid–Barajas - Madrid", iata_code: "MAD"},
+      {name: "Riyadh", img: "./images/Riyadh.jpg", quote: "I'm telling you, you can't compare Saudi Arabia to other countries.", quote_author: "Al-Waleed bin Talal", input_city_name: "King Khaled Intl - Riyadh", iata_code: "RUH"},
+      {name: "Canberra", img: "./images/Canberra.jpg", quote: "Canberra always had a great sense of community when I was there.", quote_author: "Ellyse Perry", input_city_name: "Canberra Intl - Canberra", iata_code: "CBR"},
     ],
 
     [
-      {name: "Amsterdam", img: "./images/Amsterdam.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Amsterdam  Schiphol - Amsterdam", iata_code: "AMS"},
-      {name: "Rome", img: "./images/Rome.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Ciampino–G. B. Pastine Intl - Rome", iata_code: "CIA"},
-      {name: "Cairo", img: "./images/Cairo.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Cairo Intl - Cairo", iata_code: "CAI"},
-      {name: "Milan", img: "./images/Milan.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Milano Linate - Milan", iata_code: "LIN"}
+      {name: "Amsterdam", img: "./images/Amsterdam.jpg", quote: "Amsterdam is like the rings of a tree: It gets older as you get closer to the centre.", quote_author: "John Green", input_city_name: "Amsterdam  Schiphol - Amsterdam", iata_code: "AMS"},
+      {name: "Rome", img: "./images/Rome.jpg", quote: "Rome is the city of echoes, the city of illusions, and the city of yearning.", quote_author: "Giotto di Bondone", input_city_name: "Ciampino–G. B. Pastine Intl - Rome", iata_code: "CIA"},
+      {name: "Cairo", img: "./images/Cairo.jpg", quote: "When we look back at the Mayans or ancient Egypt, we look at their art.", quote_author: "Robert Wilson", input_city_name: "Cairo Intl - Cairo", iata_code: "CAI"},
+      {name: "Milan", img: "./images/Milan.jpg", quote: "I grew up in Milan during the golden age of designers. There was fashion all around.", quote_author: "Fabio Lanzoni", input_city_name: "Milano Linate - Milan", iata_code: "LIN"}
     ],
 
     [
-      {name: "Mumbai", img: "./images/Mumbai.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Chhatrapati Shivaji Intl - Mumbai", iata_code: "BOM"},
-      {name: "Cape Town", img: "./images/CapeTown.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Cape Town Intl - Cape Town", iata_code: "CPT"},
-      {name: "Hong Kong", img: "./images/Hong_Kong.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Hong Kong Intl - Hong Kong", iata_code: "HKG"},
+      {name: "Mumbai", img: "./images/Mumbai.jpg", quote: "When I came to Mumbai, I had no experience in acting 'til I actually did it.", quote_author: "Shaheer Sheikh", input_city_name: "Chhatrapati Shivaji Intl - Mumbai", iata_code: "BOM"},
+      {name: "Cape Town", img: "./images/CapeTown.jpg", quote: "It's a blessing that South Africa has a man like Nelson Mandela.", quote_author: "Desmond Tutu", input_city_name: "Cape Town Intl - Cape Town", iata_code: "CPT"},
+      {name: "Hong Kong", img: "./images/Hong_Kong.jpg", quote: "Give Hong Kong to an Artist. He can use it. It can be poetised.", quote_author: "Baris Gencel", input_city_name: "Hong Kong Intl - Hong Kong", iata_code: "HKG"},
       {name: "Abidjan", img: "./images/Abidjan-Ivory-Coast.jpg", quote: "this is the test quote. Quite useful", quote_author: "test_author", input_city_name: "Port Bouet - Abidjan", iata_code: "ABJ"}
     ]
  ];
