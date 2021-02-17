@@ -239,6 +239,7 @@ button:focus {
 }
 .wide_screen_ads_card_corder_ads_indicator {
   position: absolute;
+  z-index: 1;
   top: 10px;
   left: 10px;
   padding: 5px 10px;
