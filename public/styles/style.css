@@ -324,9 +324,12 @@ button:focus {
   background-color: #1a5381;
   border: #131e24 1px solid;
   color: white;
-  height: 20px;
-  width: 20px;
+  height: 22px;
+  width: 22px;
   border-radius: 100%;
+  display: flex;
+  flex-direction: column !important;
+  justify-content: center;
   overflow: initial !important;
 }
 .each_wide_screen_ads_card_reviewer_stars p.unrated {
@@ -339,8 +342,8 @@ button:focus {
 }
 .book_cheap_hotels_main_ratings p {
   font-size: 12px;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border: 1px solid white;
 }
 .each_wide_screen_ads_card_reviewer_msg {
