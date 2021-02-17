@@ -40,9 +40,15 @@
   border-radius: 0 !important;
   background-color: rgb(50, 78, 110);
 }
+.book_direct_form_inputs button:hover {
+  background-color: rgb(44, 69, 99);
+}
 .book_direct_form_inputs button i {
   color: white;
   font-weight: bolder;
+}
+button:focus {
+  outline: none;
 }
 .sign_in_div {
   display: flex;
