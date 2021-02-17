@@ -327,6 +327,7 @@ button:focus {
   height: 20px;
   width: 20px;
   border-radius: 100%;
+  overflow: initial !important;
 }
 .each_wide_screen_ads_card_reviewer_stars p.unrated {
   background-color: #8893af;
