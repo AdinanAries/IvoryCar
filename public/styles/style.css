@@ -232,9 +232,10 @@ button:focus {
   position: relative;
   overflow: hidden !important;
   width: 100%;
-  height: 200px;
+  min-height: 200px;
   border-radius: 5px;
   background-color: white;
+  margin-bottom: 10px;
 }
 .wide_screen_ads_card_corder_ads_indicator {
   position: absolute;
@@ -259,11 +260,97 @@ button:focus {
   height: 100%;
 }
 .wide_screen_ads_main_content .left_Side {
+  position: relative;
   width: 30%;
-  height: 100%;
+  min-height: 200px;
   background-image: url("../images/HotelPic.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+}
+.hotels_card_pic_items_points {
+  position: absolute;
+  width: 100% !important;
+  bottom: 0;
+  left: 0;
+  padding: 10px 0;
+  margin: 0 !important;
+  display: flex;
+  flex-direction: row !important;
+  justify-content: center;
+}
+.hotels_card_pic_each_item_point {
+  padding: 5px;
+}
+.hotels_card_pic_each_item_point p {
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column !important;
+  justify-content: center;
+  font-size: 11px;
+  background-color: rgba(0, 0, 0, 0.562);
+  color: white;
+  border-radius: 100%;
+}
+.hotels_card_pic_items_points .selected p {
+  background-color: rgb(196, 95, 0) !important;
+}
+.wide_screen_ads_extra_content {
+  margin-top: 20px;
+  background-color: rgb(240, 240, 240);
+  padding: 20px;
+}
+.each_wide_screen_ads_card_reviewer_pic {
+  width: 70px !important;
+  height: 70px !important;
+  margin: auto !important;
+  border-radius: 100% !important;
+  overflow: hidden !important;
+}
+.each_wide_screen_ads_card_reviewer_pic img {
+  width: 70px !important;
+  min-height: 70px !important;
+  height: auto !important;
+}
+.each_wide_screen_ads_card_reviewer_stars {
+  margin-top: 10px;
+}
+.each_wide_screen_ads_card_reviewer_stars p {
+  text-align: center;
+  font-size: 14px;
+  margin: 2px;
+  background-color: #1a5381;
+  border: #131e24 1px solid;
+  color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+}
+.each_wide_screen_ads_card_reviewer_stars p.unrated {
+  background-color: #8893af;
+  border: rgb(87, 104, 124) 1px solid;
+  color: rgb(207, 207, 207);
+}
+.book_cheap_hotels_main_ratings {
+  margin-top: 5px;
+}
+.book_cheap_hotels_main_ratings p {
+  font-size: 12px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid white;
+}
+.each_wide_screen_ads_card_reviewer_msg {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+}
+.each_wide_screen_ads_card_reviewer_msg p {
+  font-size: 14px;
+  color: rgb(44, 69, 99);
+  text-align: center;
 }
 .events_notification_item:hover .events_notification_item_tooltip {
   display: block;
@@ -1411,14 +1498,15 @@ footer a {
     overflow: visible !important;
   }
   .wide_screen_ads_card {
-    height: 350px;
+    min-height: 350px;
   }
   .wide_screen_ads_main_content .left_Side {
-    height: 45%;
+    height: 220px;
     width: 100%;
   }
   .wide_screen_ads_main_content .right_Side {
-    height: 55%;
+    overflow: initial !important;
+    height: auto;
     width: 100%;
   }
   .header_menu_dropdowns {
