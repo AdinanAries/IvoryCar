@@ -1708,7 +1708,7 @@ footer a {
   /*main sections responsiveness*/
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 1025px) {
   .book_cheap_book_direct_hotels_full_pic {
     overflow: initial !important;
     background-color: rgb(0, 0, 0, 0.6);
