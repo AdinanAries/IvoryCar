@@ -787,9 +787,9 @@ function render_flights(){
                                                 <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">
                                                     ${departure_airport} - ${arrival_airport}
                                                 </p>
-                                                <p style="letter-spacing: 0.5px; opacity: 0.9; margin-bottom: 7px; font-size: 13px; font-weight: bolder; color: #003f7a;">Limited seats remaining at this price</p>
+                                                <p style="display: none; letter-spacing: 0.5px; opacity: 0.9; margin-bottom: 7px; font-size: 13px; font-weight: bolder; color: #003f7a;">Limited seats remaining at this price</p>
                                                 <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">${segment_airline} · ${segment_aircraft}</p>
-                                                <p style="font-size: 13px; font-weight: bolder; color: #e25a00; opacity: 0.9; letter-spacing: 0.5px;">Carry-on baggage fees may apply to one or more segments of this trip</p>
+                                                <p style="display: none; font-size: 13px; font-weight: bolder; color: #e25a00; opacity: 0.9; letter-spacing: 0.5px;">Carry-on baggage fees may apply to one or more segments of this trip</p>
                                             </div>
                                             
                                         </div>
@@ -1002,9 +1002,9 @@ function render_flights(){
                                                 <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">
                                                     ${departure_airport} - ${arrival_airport}
                                                 </p>
-                                                <p style="letter-spacing: 0.5px; opacity: 0.9; margin-bottom: 7px; font-size: 13px; font-weight: bolder; color: #003f7a;">Limited seats remaining at this price</p>
+                                                <p style="display: none; letter-spacing: 0.5px; opacity: 0.9; margin-bottom: 7px; font-size: 13px; font-weight: bolder; color: #003f7a;">Limited seats remaining at this price</p>
                                                 <p style="margin-bottom: 7px; font-size: 13px; opacity: 0.6; letter-spacing: 0.5px;">${segment_airline} · ${segment_aircraft}</p>
-                                                <p style="font-size: 13px; font-weight: bolder; color: #e25a00; opacity: 0.9; letter-spacing: 0.5px;">Carry-on baggage fees may apply to one or more segments of this trip</p>
+                                                <p style="display: none; font-size: 13px; font-weight: bolder; color: #e25a00; opacity: 0.9; letter-spacing: 0.5px;">Carry-on baggage fees may apply to one or more segments of this trip</p>
                                             </div>
                                         </div>
 
@@ -1322,7 +1322,10 @@ function render_flights(){
                                         <p style="opacity: 0.8; font-weight: bolder; font-size: 14px;">
                                         <i style="margin-right: 5px;" aria-hidden="true" class="fa fa-info"></i>
                                         Cancellation</p>
-                                        <p style="opacity: 0.7; font-size: 14px; margin-top: 5px;">24hr free cancellation</p>
+                                        <p style="opacity: 0.7; font-size: 14px; margin-top: 5px;">
+                                            <i style="margin-right: 5px; color: orangered;" class="fa fa-exclamation-triangle" aria-hidden="true;"></i>
+                                            not available
+                                        </p>
                                     </div>
                                     <div style="margin-top: 20px;">
                                         <p style="opacity: 0.8; font-weight: bolder; font-size: 14px;">
