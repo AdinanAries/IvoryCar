@@ -1,0 +1,19 @@
+data:
+    -hotel name
+    -total rating
+    -three pictures
+    -hotel url
+    -cheapest room Price
+    -hotel description
+    -hotel address
+        -street line
+        -town
+        -city
+        -country
+        -zipcode
+    -reviews
+        -reviewer name
+        -reviewer photo
+        -rated stars
+        -review message
+        -
