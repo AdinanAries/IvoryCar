@@ -18,12 +18,126 @@ var cheap_hotels_list = [
                 quam eum repellendus eligendi ipsum ac`
             }
         ]
+    },
+    {
+        name: "Despite Properties",
+        images: ["./images/HotelPic.jpg"],
+        location: "Accra Ghana",
+        rating: 5,
+        url: "https://somehotel.com:300/booknowpage",
+        description: `Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, 
+            voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa n
+            atus molestias in praesentium aut, tenetur r...`,
+        reviews: [
+            {
+                person: "Mohammed Adinan",
+                image: "./images/Anonymous_person3.jpg",
+                rated: 4,
+                message: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, 
+                quam eum repellendus eligendi ipsum ac`
+            }
+        ]
+    },
+    {
+        name: "Despite Properties",
+        images: ["./images/HotelPic.jpg"],
+        location: "Accra Ghana",
+        rating: 5,
+        url: "https://somehotel.com:300/booknowpage",
+        description: `Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, 
+            voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa n
+            atus molestias in praesentium aut, tenetur r...`,
+        reviews: [
+            {
+                person: "Mohammed Adinan",
+                image: "./images/Anonymous_person3.jpg",
+                rated: 4,
+                message: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, 
+                quam eum repellendus eligendi ipsum ac`
+            }
+        ]
+    },
+    {
+        name: "Despite Properties",
+        images: ["./images/HotelPic.jpg"],
+        location: "Accra Ghana",
+        rating: 5,
+        url: "https://somehotel.com:300/booknowpage",
+        description: `Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, 
+            voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa n
+            atus molestias in praesentium aut, tenetur r...`,
+        reviews: [
+            {
+                person: "Mohammed Adinan",
+                image: "./images/Anonymous_person3.jpg",
+                rated: 4,
+                message: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, 
+                quam eum repellendus eligendi ipsum ac`
+            }
+        ]
+    },
+    {
+        name: "Despite Properties",
+        images: ["./images/HotelPic.jpg"],
+        location: "Accra Ghana",
+        rating: 5,
+        url: "https://somehotel.com:300/booknowpage",
+        description: `Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, 
+            voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa n
+            atus molestias in praesentium aut, tenetur r...`,
+        reviews: [
+            {
+                person: "Mohammed Adinan",
+                image: "./images/Anonymous_person3.jpg",
+                rated: 4,
+                message: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, 
+                quam eum repellendus eligendi ipsum ac`
+            }
+        ]
+    },{
+        name: "Despite Properties",
+        images: ["./images/HotelPic.jpg"],
+        location: "Accra Ghana",
+        rating: 5,
+        url: "https://somehotel.com:300/booknowpage",
+        description: `Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, 
+            voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa n
+            atus molestias in praesentium aut, tenetur r...`,
+        reviews: [
+            {
+                person: "Mohammed Adinan",
+                image: "./images/Anonymous_person3.jpg",
+                rated: 4,
+                message: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, 
+                quam eum repellendus eligendi ipsum ac`
+            }
+        ]
+    }
+    ,{
+        name: "Despite Properties",
+        images: ["./images/HotelPic.jpg"],
+        location: "Accra Ghana",
+        rating: 5,
+        url: "https://somehotel.com:300/booknowpage",
+        description: `Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, 
+            voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa n
+            atus molestias in praesentium aut, tenetur r...`,
+        reviews: [
+            {
+                person: "Mohammed Adinan",
+                image: "./images/Anonymous_person3.jpg",
+                rated: 4,
+                message: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, 
+                quam eum repellendus eligendi ipsum ac`
+            }
+        ]
     }
 ]
 
 var book_cheap_book_direct_hotels_list = document.getElementById("book_cheap_book_direct_hotels_list");
 var book_cheap_book_direct_hotels_loader = document.getElementById("book_cheap_book_direct_hotels_loader");
 var book_cheap_book_direct_hotels_load_more_btn = document.getElementById("book_cheap_book_direct_hotels_load_more_btn");
+var no_more_cheap_hotels_status_msg = document.getElementById("no_more_cheap_hotels_status_msg");
 
 function render_a_cheap_hotels(name, pic_url, location, rating, hotel_site_url, hotel_description, recent_reviewer, reviewer_image, reviewer_rated, reviewer_message){
     
@@ -102,24 +216,41 @@ function load_more_cheap_hotels(){
     book_cheap_book_direct_hotels_loader.style.display = "flex";
 
     setTimeout(()=>{
-        let each_cheap_hotel = cheap_hotels_list[global_cheap_hotels_index];
-        let hotel_name = each_cheap_hotel.name;
-        let hotel_image = each_cheap_hotel.images[0];
-        let hotel_location = each_cheap_hotel.location;
-        let hotel_rating = each_cheap_hotel.rating;
-        let hotel_site_url = each_cheap_hotel.url;
-        let hotel_description = each_cheap_hotel.description;
-        let recent_reviewer = each_cheap_hotel.reviews[0].person;
-        let reviewer_image = each_cheap_hotel.reviews[0].image;
-        let reviewer_rated = each_cheap_hotel.reviews[0].rated;
-        let reviewer_message = each_cheap_hotel.reviews[0].message;
         
-        book_cheap_book_direct_hotels_list.innerHTML += render_a_cheap_hotels(hotel_name, hotel_image, hotel_location, hotel_rating,
-            hotel_site_url, hotel_description, recent_reviewer, reviewer_image, reviewer_rated, reviewer_message);
-        book_cheap_book_direct_hotels_load_more_btn.style.display = "block";
-        book_cheap_book_direct_hotels_loader.style.display = "none";
+        //always try loading 3 hotels
+        let rr = 0;
+        while(rr <= 3){
+            if(global_cheap_hotels_index < cheap_hotels_list.length){
 
-        //global_cheap_hotels_index++;
+                let each_cheap_hotel = cheap_hotels_list[global_cheap_hotels_index];
+                let hotel_name = each_cheap_hotel.name;
+                let hotel_image = each_cheap_hotel.images[0];
+                let hotel_location = each_cheap_hotel.location;
+                let hotel_rating = each_cheap_hotel.rating;
+                let hotel_site_url = each_cheap_hotel.url;
+                let hotel_description = each_cheap_hotel.description;
+                let recent_reviewer = each_cheap_hotel.reviews[0].person;
+                let reviewer_image = each_cheap_hotel.reviews[0].image;
+                let reviewer_rated = each_cheap_hotel.reviews[0].rated;
+                let reviewer_message = each_cheap_hotel.reviews[0].message;
+                
+                book_cheap_book_direct_hotels_list.innerHTML += render_a_cheap_hotels(hotel_name, hotel_image, hotel_location, hotel_rating,
+                    hotel_site_url, hotel_description, recent_reviewer, reviewer_image, reviewer_rated, reviewer_message);
+                
+                book_cheap_book_direct_hotels_load_more_btn.style.display = "block";
+                book_cheap_book_direct_hotels_loader.style.display = "none";
+
+                global_cheap_hotels_index += 1;
+
+            }else{
+                book_cheap_book_direct_hotels_load_more_btn.style.display = "none";
+                no_more_cheap_hotels_status_msg.style.display = "block";
+                book_cheap_book_direct_hotels_loader.style.display = "none";
+            }
+
+            rr++
+        }
+        
     }, 300)
     
 }
