@@ -1329,11 +1329,11 @@ top_noti_fication_close_btn.addEventListener("click", ()=>{
   $("#top_noti_fication_div").slideUp("fast");
 });
 
-/*$(document).ready(()=>{
+$(document).ready(()=>{
   setTimeout(()=>{
     $("#top_noti_fication_div").slideDown("fast");
   }, 300)
-});*/
+});
 
 
 function show_all_event_details(main_evnt_iD, number, img_url, name, timezone, date, price, info, url, venue, promoter){

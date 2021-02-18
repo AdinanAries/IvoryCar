@@ -464,6 +464,15 @@ button:focus {
   min-height: 60px;
   cursor: pointer;
 }
+.top_noti_fication_main_txt {
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-top: 5px;
+}
+.top_noti_fication_main_txt span {
+  font-size: 13px;
+  letter-spacing: 1px;
+}
 .top_noti_fication_main_content div {
   display: flex;
   flex-direction: column;
@@ -1710,6 +1719,9 @@ footer a {
 }
 
 @media only screen and (max-width: 1025px) {
+  .top_noti_fication_main_content_info_icon {
+    min-width: 20px !important;
+  }
   .book_cheap_book_direct_hotels_full_pic {
     overflow: initial !important;
     background-color: rgb(0, 0, 0, 0.6);
