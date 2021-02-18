@@ -150,12 +150,15 @@ function render_a_cheap_hotels(name, pic_url, location, rating, hotel_site_url, 
             <div class="wide_screen_ads_main_content">
             <div class="left_Side" style="background-image: url('${pic_url}'); overflow: initial !important;">
                 <div class="book_cheap_book_direct_hotels_full_pic">
-                <img src="${pic_url}" alt="hotels full pic"/>
+                <img  id="book_cheap_book_direct_hotels_full_pic_img${global_cheap_hotels_index}" src="${pic_url}" alt="hotels full pic"/>
                 </div>
                 <div class="hotels_card_pic_items_points">
-                <div class="hotels_card_pic_each_item_point selected"><p>1</p></div>
-                <div class="hotels_card_pic_each_item_point"><p>2</p></div>
-                <div class="hotels_card_pic_each_item_point"><p>3</p></div>
+                    <div id="hotels_card_pic_each_item_point${global_cheap_hotels_index}1" onclick="cheap_hotels_show_full_pic(${global_cheap_hotels_index}, 1);"
+                        class="hotels_card_pic_each_item_point hotels_card_pic_each_item_point${global_cheap_hotels_index} selected"><p>1</p></div>
+                    <div id="hotels_card_pic_each_item_point${global_cheap_hotels_index}2" onclick="cheap_hotels_show_full_pic(${global_cheap_hotels_index}, 2);"
+                    class="hotels_card_pic_each_item_point hotels_card_pic_each_item_point${global_cheap_hotels_index}"><p>2</p></div>
+                    <div id="hotels_card_pic_each_item_point${global_cheap_hotels_index}3" onclick="cheap_hotels_show_full_pic(${global_cheap_hotels_index}, 3);"
+                    class="hotels_card_pic_each_item_point hotels_card_pic_each_item_point${global_cheap_hotels_index}"><p>3</p></div>
                 </div>
             </div>
             <div class="right_Side">
@@ -320,4 +323,15 @@ function get_rating_stars(rating){
             </p>
         `;
     }
+}
+
+function remove_selected_from_all_picture_points(index){
+    Array.from(document.getElementsByClassName("hotels_card_pic_each_item_point"+index)).forEach(item =>{
+        item.classList.remove("selected");
+    });
+}
+
+function cheap_hotels_show_full_pic(index, number){
+    remove_selected_from_all_picture_points(index);
+    document.getElementById(("hotels_card_pic_each_item_point"+index+number)).classList.add("selected");
 }
