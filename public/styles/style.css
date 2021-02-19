@@ -4,8 +4,29 @@
   font-family: Roboto, sans-serif;
   font-size: 16px;
 }
+
 /*-------------------------------*/
-#sign_in_container {
+.page_popup_main_container {
+  height: 90%;
+  width: 95%;
+  margin: auto;
+  max-width: 900px;
+  border-radius: 4px;
+  background-color: white;
+  position: relative;
+}
+.page_popup_close_button {
+  position: absolute;
+  width: fit-content;
+  padding: 15px;
+  right: 0;
+  top: 0;
+}
+.page_popup_close_button i {
+  color: orangered;
+}
+#sign_in_container,
+.page_cover_for_popups {
   display: none;
   position: fixed;
   top: 0;
@@ -1720,6 +1741,12 @@ footer a {
 }
 
 @media only screen and (max-width: 1025px) {
+  .page_popup_main_container {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    border-radius: 0;
+  }
   .top_noti_fication_main_content_info_icon {
     min-width: 20px !important;
   }

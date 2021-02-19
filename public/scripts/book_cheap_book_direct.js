@@ -2,7 +2,11 @@ var global_cheap_hotels_index = 0;
 var cheap_hotels_list = [
     {
         name: "Despite Properties",
-        images: ["./images/HotelPic.jpg"],
+        images: [
+            "./images/HotelPic.jpg",
+            "./images/HotelPic2.jpg",
+            "./images/HotelPic3.jpg"
+        ],
         location: "Accra Ghana",
         rating: 5,
         url: "https://somehotel.com:300/booknowpage",
@@ -21,7 +25,11 @@ var cheap_hotels_list = [
     },
     {
         name: "Despite Properties",
-        images: ["./images/HotelPic.jpg"],
+        images: [
+            "./images/HotelPic.jpg",
+            "./images/HotelPic2.jpg",
+            "./images/HotelPic3.jpg",
+        ],
         location: "Accra Ghana",
         rating: 5,
         url: "https://somehotel.com:300/booknowpage",
@@ -40,7 +48,11 @@ var cheap_hotels_list = [
     },
     {
         name: "Despite Properties",
-        images: ["./images/HotelPic.jpg"],
+        images: [
+            "./images/HotelPic.jpg",
+            "./images/HotelPic2.jpg",
+            "./images/HotelPic3.jpg"
+        ],
         location: "Accra Ghana",
         rating: 5,
         url: "https://somehotel.com:300/booknowpage",
@@ -59,7 +71,11 @@ var cheap_hotels_list = [
     },
     {
         name: "Despite Properties",
-        images: ["./images/HotelPic.jpg"],
+        images: [
+            "./images/HotelPic.jpg",
+            "./images/HotelPic2.jpg",
+            "./images/HotelPic3.jpg"
+        ],
         location: "Accra Ghana",
         rating: 5,
         url: "https://somehotel.com:300/booknowpage",
@@ -78,7 +94,11 @@ var cheap_hotels_list = [
     },
     {
         name: "Despite Properties",
-        images: ["./images/HotelPic.jpg"],
+        images: [
+            "./images/HotelPic.jpg",
+            "./images/HotelPic2.jpg",
+            "./images/HotelPic3.jpg"
+        ],
         location: "Accra Ghana",
         rating: 5,
         url: "https://somehotel.com:300/booknowpage",
@@ -94,9 +114,14 @@ var cheap_hotels_list = [
                 quam eum repellendus eligendi ipsum ac`
             }
         ]
-    },{
+    },
+    {
         name: "Despite Properties",
-        images: ["./images/HotelPic.jpg"],
+        images: [
+            "./images/HotelPic.jpg",
+            "./images/HotelPic2.jpg",
+            "./images/HotelPic3.jpg"
+        ],
         location: "Accra Ghana",
         rating: 5,
         url: "https://somehotel.com:300/booknowpage",
@@ -112,10 +137,14 @@ var cheap_hotels_list = [
                 quam eum repellendus eligendi ipsum ac`
             }
         ]
-    }
-    ,{
+    },
+    {
         name: "Despite Properties",
-        images: ["./images/HotelPic.jpg"],
+        images: [
+            "./images/HotelPic.jpg",
+            "./images/HotelPic2.jpg",
+            "./images/HotelPic3.jpg"
+        ],
         location: "Accra Ghana",
         rating: 5,
         url: "https://somehotel.com:300/booknowpage",
@@ -148,7 +177,7 @@ function render_a_cheap_hotels(name, pic_url, location, rating, hotel_site_url, 
         <div class="wide_screen_ads_card">
             <p class="wide_screen_ads_card_corder_ads_indicator">$20.00</p>
             <div class="wide_screen_ads_main_content">
-            <div class="left_Side" style="background-image: url('${pic_url}'); overflow: initial !important;">
+            <div id="book_cheap_book_direct_hotels_main_pic_img${global_cheap_hotels_index}" class="left_Side" style="background-image: url('${pic_url}'); overflow: initial !important;">
                 <div class="book_cheap_book_direct_hotels_full_pic">
                 <img  id="book_cheap_book_direct_hotels_full_pic_img${global_cheap_hotels_index}" src="${pic_url}" alt="hotels full pic"/>
                 </div>
@@ -201,7 +230,7 @@ function render_a_cheap_hotels(name, pic_url, location, rating, hotel_site_url, 
                         <div class="each_wide_screen_ads_card_reviewer_msg">
                             <p>${reviewer_message}</p>
                         </div>
-                            <p style="color:rgb(235, 86, 0); text-align: center; cursor: pointer;">see more...</p>
+                            <p onclick="book_cheap_book_direct_show_all_review(${global_cheap_hotels_index});" style="color:rgb(235, 86, 0); text-align: center; cursor: pointer;">see more...</p>
                         </div>
                     </div>
                     </div>
@@ -334,4 +363,20 @@ function remove_selected_from_all_picture_points(index){
 function cheap_hotels_show_full_pic(index, number){
     remove_selected_from_all_picture_points(index);
     document.getElementById(("hotels_card_pic_each_item_point"+index+number)).classList.add("selected");
+    let pic_tag = document.getElementById("book_cheap_book_direct_hotels_full_pic_img"+index);
+    let main_pic_tag = document.getElementById("book_cheap_book_direct_hotels_main_pic_img"+index);
+
+    let cheap_hotel = cheap_hotels_list[index];
+
+    //decrement number so that it matches index value
+    let pic_index = (number - 1);
+    let pic_url = cheap_hotel.images[pic_index];
+    pic_tag.src = pic_url;
+    main_pic_tag.style.backgroundImage = `url(${pic_url})`;
+    
+}
+
+function book_cheap_book_direct_show_all_review(index){
+    
+    document.getElementById("book_cheap_book_direct_reviews_div").style.display = "block";
 }
