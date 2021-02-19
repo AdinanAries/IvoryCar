@@ -33,7 +33,7 @@
   width: 100vw;
   height: 100vh;
   z-index: 15;
-  background-color: rgba(19, 12, 3, 0.877);
+  background-color: rgba(19, 12, 3, 0.596);
   flex-direction: column;
   justify-content: center;
 }

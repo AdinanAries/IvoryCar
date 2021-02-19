@@ -49,24 +49,11 @@
           <div onclick="document.getElementById('book_cheap_book_direct_reviews_div').style.display='none';" class="page_popup_close_button">
             <i class="fa fa-times" aria-hidden="true"></i>
           </div>
-          <div style="height: 150px; background-color: #023057; display: flex; flex-direction: column !important; justify-content: center;">
-            <div style="margin-left: 20px;">
-              <p style="color: white; font-size: 15px; font-weight: bolder; letter-spacing: 1px;">Hotel Name</p>
-              <p style="color: white; font-size: 13px; margin-top: 5px; margin-bottom: 10px;">Accra, Ghana</p>
-              <div class="each_wide_screen_ads_card_reviewer_stars book_cheap_hotels_main_ratings">
-                <div style="display: flex; flex-direction: row !important; justify-content: center; width: fit-content !important;">
-                  <p>&#9733;</p> 
-                  <p>&#9733;</p>
-                  <p>&#9733;</p>
-                  <p class="unrated">&#9733;</p>
-                  <p class="unrated">&#9733;</p>
-              </div>
-              </div>
-            </div>
-            <p style="text-align: center; margin-top: 20px; color: white;">Reviews</p>
+          <div id="cheap_hotels_reveiws_hotel_info" style="height: 150px; background-color: #023057; display: flex; flex-direction: column !important; justify-content: center;">
+            
           </div>
           <div style="height: calc(100% - 200px); overflow: auto !important; padding: 20px 0;" id="book_cheap_book_direct_all_reviews_list">
-            <div style="margin-bottom: 20px;" class="each_wide_screen_ads_card_review">
+            <!--div style="margin-bottom: 20px;" class="each_wide_screen_ads_card_review">
               <div class="each_wide_screen_ads_card_reviewer_pic">
                 <img src="./images/Anonymous_person3.jpg" alt="review image">
               </div>
@@ -165,7 +152,7 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, 
                   quam eum repellendus eligendi ipsum ac</p>
               </div>
-            </div>
+            </div-->
           </div>
         </div>
       </div>
@@ -1672,10 +1659,10 @@
           are just as good but only cheaper than the popular brands and book directly on their sites.
         </p>
         <div class="book_direct_location_form_container">
-          <p style="color: white; font-size: 14px; margin-bottom: 10px;">Enter location to find cheapest hotels</p>
+          <p style="color: white; font-size: 14px; margin-bottom: 10px;">Enter city/country to find cheapest hotels</p>
           <div class="book_direct_form_inputs">
-            <input type="text" placeholder="Please enter location here"/>
-            <button><i class="fa fa-search" aria-hidden="true"></i></button>
+            <input id="search_cheap_hotels_by_location_text_field" type="text" placeholder="Please enter city/country here"/>
+            <button id="search_cheap_hotels_by_location_button"><i class="fa fa-search" aria-hidden="true"></i></button>
           </div>
         </div>
         <div id="book_cheap_book_direct_hotels_list">
@@ -1750,7 +1737,7 @@
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, 
                               quam eum repellendus eligendi ipsum ac</p>
                           </div>
-                          <p onclick="book_cheap_book_direct_show_all_review(0);" style="cursor: pointer; color:rgb(235, 86, 0); text-align: center; cursor: pointer;">see more...</p>
+                          <p onclick="book_cheap_book_direct_show_all_review(0, 'NYC Suites Inc', 'NY, USA', 4);" style="cursor: pointer; color:rgb(235, 86, 0); text-align: center; cursor: pointer;">see more...</p>
                         </div>
                       </div>
                     </div>
@@ -1829,7 +1816,7 @@
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, 
                               quam eum repellendus eligendi ipsum ac</p>
                           </div>
-                          <p  onclick="book_cheap_book_direct_show_all_review(0);" style="cursor: pointer; color:rgb(235, 86, 0); text-align: center; cursor: pointer;">see more...</p>
+                          <p  onclick="book_cheap_book_direct_show_all_review(0, 'NYC Suites Inc', 'NY, USA', 4);" style="cursor: pointer; color:rgb(235, 86, 0); text-align: center; cursor: pointer;">see more...</p>
                         </div>
                       </div>
                     </div>
@@ -1913,7 +1900,7 @@
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, 
                               quam eum repellendus eligendi ipsum ac</p>
                           </div>
-                          <p  onclick="book_cheap_book_direct_show_all_review(0);" style="cursor: pointer; color:rgb(235, 86, 0); text-align: center; cursor: pointer;">see more...</p>
+                          <p  onclick="book_cheap_book_direct_show_all_review(0, 'NYC Suites Inc', 'NY, USA', 4);" style="cursor: pointer; color:rgb(235, 86, 0); text-align: center; cursor: pointer;">see more...</p>
                         </div>
                       </div>
                     </div>

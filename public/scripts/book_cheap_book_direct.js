@@ -13,6 +13,8 @@ var cheap_hotels_list = [
         description: `Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, 
             voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa n
             atus molestias in praesentium aut, tenetur r...`,
+        price: 54.99,
+        currency: 'USD',
         reviews: [
             {
                 person: "Mohammed Adinan",
@@ -20,6 +22,12 @@ var cheap_hotels_list = [
                 rated: 4,
                 message: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, 
                 quam eum repellendus eligendi ipsum ac`
+            },
+            {
+                person: "Efya Splending",
+                image: "./images/Anonymous_person3.jpg",
+                rated: 3,
+                message: `This is a rating message from my love Efya Splending. I love Mohammed as she always says`
             }
         ]
     },
@@ -36,6 +44,8 @@ var cheap_hotels_list = [
         description: `Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, 
             voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa n
             atus molestias in praesentium aut, tenetur r...`,
+            price: 61.99,
+            currency: 'USD',
         reviews: [
             {
                 person: "Mohammed Adinan",
@@ -59,6 +69,8 @@ var cheap_hotels_list = [
         description: `Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, 
             voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa n
             atus molestias in praesentium aut, tenetur r...`,
+        price: 54.99,
+        currency: 'USD',
         reviews: [
             {
                 person: "Mohammed Adinan",
@@ -82,6 +94,8 @@ var cheap_hotels_list = [
         description: `Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, 
             voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa n
             atus molestias in praesentium aut, tenetur r...`,
+        price: 54.99,
+        currency: 'USD',
         reviews: [
             {
                 person: "Mohammed Adinan",
@@ -105,6 +119,8 @@ var cheap_hotels_list = [
         description: `Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, 
             voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa n
             atus molestias in praesentium aut, tenetur r...`,
+        price: 54.99,
+        currency: 'USD',
         reviews: [
             {
                 person: "Mohammed Adinan",
@@ -128,6 +144,8 @@ var cheap_hotels_list = [
         description: `Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, 
             voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa n
             atus molestias in praesentium aut, tenetur r...`,
+        price: 54.99,
+        currency: 'USD',
         reviews: [
             {
                 person: "Mohammed Adinan",
@@ -151,6 +169,8 @@ var cheap_hotels_list = [
         description: `Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, 
             voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa n
             atus molestias in praesentium aut, tenetur r...`,
+        price: 54.99,
+        currency: 'USD',
         reviews: [
             {
                 person: "Mohammed Adinan",
@@ -167,15 +187,33 @@ var book_cheap_book_direct_hotels_list = document.getElementById("book_cheap_boo
 var book_cheap_book_direct_hotels_loader = document.getElementById("book_cheap_book_direct_hotels_loader");
 var book_cheap_book_direct_hotels_load_more_btn = document.getElementById("book_cheap_book_direct_hotels_load_more_btn");
 var no_more_cheap_hotels_status_msg = document.getElementById("no_more_cheap_hotels_status_msg");
+var book_cheap_book_direct_all_reviews_list = document.getElementById("book_cheap_book_direct_all_reviews_list");
+var cheap_hotels_reveiws_hotel_info = document.getElementById("cheap_hotels_reveiws_hotel_info");
+var search_cheap_hotels_by_location_text_field = document.getElementById("search_cheap_hotels_by_location_text_field");
+var search_cheap_hotels_by_location_button = document.getElementById("search_cheap_hotels_by_location_button");
 
-function render_a_cheap_hotels(name, pic_url, location, rating, hotel_site_url, hotel_description, recent_reviewer, reviewer_image, reviewer_rated, reviewer_message){
+search_cheap_hotels_by_location_button.addEventListener("click", evnt =>{
+
+    if(search_cheap_hotels_by_location_text_field.value === ""){
+        search_cheap_hotels_by_location_text_field.focus();
+    }else{
+        book_cheap_book_direct_hotels_list.innerHTML = ``;
+        global_cheap_hotels_index = 0;
+        no_more_cheap_hotels_status_msg.style.display = "none";
+
+        //this simply display's hotels based on new data from search
+        load_more_cheap_hotels();
+    }
+});
+
+function render_a_cheap_hotels(name, pic_url, location, rating, hotel_site_url, hotel_description, recent_reviewer, reviewer_image, reviewer_rated, reviewer_message, current_price){
     
     let rate_stars = get_rating_stars(rating);
     let reviewer_rated_stars = get_rating_stars(reviewer_rated);
 
     return `
         <div class="wide_screen_ads_card">
-            <p class="wide_screen_ads_card_corder_ads_indicator">$20.00</p>
+            <p class="wide_screen_ads_card_corder_ads_indicator">${current_price}</p>
             <div class="wide_screen_ads_main_content">
             <div id="book_cheap_book_direct_hotels_main_pic_img${global_cheap_hotels_index}" class="left_Side" style="background-image: url('${pic_url}'); overflow: initial !important;">
                 <div class="book_cheap_book_direct_hotels_full_pic">
@@ -230,7 +268,7 @@ function render_a_cheap_hotels(name, pic_url, location, rating, hotel_site_url, 
                         <div class="each_wide_screen_ads_card_reviewer_msg">
                             <p>${reviewer_message}</p>
                         </div>
-                            <p onclick="book_cheap_book_direct_show_all_review(${global_cheap_hotels_index});" style="color:rgb(235, 86, 0); text-align: center; cursor: pointer;">see more...</p>
+                            <p onclick="book_cheap_book_direct_show_all_review(${global_cheap_hotels_index}, '${name}', '${location}', ${rating});" style="color:rgb(235, 86, 0); text-align: center; cursor: pointer;">see more...</p>
                         </div>
                     </div>
                     </div>
@@ -265,9 +303,12 @@ function load_more_cheap_hotels(){
                 let reviewer_image = each_cheap_hotel.reviews[0].image;
                 let reviewer_rated = each_cheap_hotel.reviews[0].rated;
                 let reviewer_message = each_cheap_hotel.reviews[0].message;
+                let price = site_currency_coverter(each_cheap_hotel.currency, current_currency.currency, each_cheap_hotel.price)
+                let current_price = `$${price}`;
+
                 
                 book_cheap_book_direct_hotels_list.innerHTML += render_a_cheap_hotels(hotel_name, hotel_image, hotel_location, hotel_rating,
-                    hotel_site_url, hotel_description, recent_reviewer, reviewer_image, reviewer_rated, reviewer_message);
+                    hotel_site_url, hotel_description, recent_reviewer, reviewer_image, reviewer_rated, reviewer_message, current_price);
                 
                 book_cheap_book_direct_hotels_load_more_btn.style.display = "block";
                 book_cheap_book_direct_hotels_loader.style.display = "none";
@@ -376,7 +417,48 @@ function cheap_hotels_show_full_pic(index, number){
     
 }
 
-function book_cheap_book_direct_show_all_review(index){
+function book_cheap_book_direct_show_all_review(index, hotel_name, hotel_location, rating_number){
+
+    let selected_hotel_reviews = cheap_hotels_list[index].reviews;
+    book_cheap_book_direct_all_reviews_list.innerHTML = "";
+
+    let hotel_rating_stars = get_rating_stars(rating_number);
+
+    cheap_hotels_reveiws_hotel_info.innerHTML = `
+        <div style="margin-left: 20px;">
+            <p style="color: white; font-size: 15px; font-weight: bolder; letter-spacing: 1px;">${hotel_name}</p>
+            <p style="color: white; font-size: 13px; margin-top: 5px; margin-bottom: 10px;">${hotel_location}</p>
+            <div  style="width: fit-content !important;" class="each_wide_screen_ads_card_reviewer_stars book_cheap_hotels_main_ratings">
+                ${hotel_rating_stars}
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 20px; color: white;">Reviews</p>
+    `;
+
+    selected_hotel_reviews.forEach(item=>{
+
+        let rated_stars = get_rating_stars(item.rated);
+        let person = item.person;
+        let image = item.image;
+        let message = item.message;
+
+        book_cheap_book_direct_all_reviews_list.innerHTML += `
+            <div style="margin-bottom: 20px;" class="each_wide_screen_ads_card_review">
+                <div class="each_wide_screen_ads_card_reviewer_pic">
+                <img src="${image}" alt="review image">
+                </div>
+                <p style="color:rgb(5, 94, 129); font-size: 13px; font-weight: bolder; margin-bottom: 10px; 
+                letter-spacing: 1px; text-align: center; margin-top: 10px;">${person}</p>
+                <div class="each_wide_screen_ads_card_reviewer_stars">
+                    ${rated_stars}
+                </div>
+                <div class="each_wide_screen_ads_card_reviewer_msg">
+                <p>${message}</p>
+                </div>
+            </div>
+        `;
+
+    })
     
     document.getElementById("book_cheap_book_direct_reviews_div").style.display = "block";
 }
