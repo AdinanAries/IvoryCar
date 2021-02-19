@@ -7,7 +7,7 @@ var cheap_hotels_list = [
             "./images/HotelPic2.jpg",
             "./images/HotelPic3.jpg"
         ],
-        location: "Accra Ghana",
+        location: "Accra, Ghana",
         rating: 5,
         url: "https://somehotel.com:300/booknowpage",
         description: `Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, 
@@ -38,7 +38,7 @@ var cheap_hotels_list = [
             "./images/HotelPic2.jpg",
             "./images/HotelPic3.jpg",
         ],
-        location: "Accra Ghana",
+        location: "Accra, Ghana",
         rating: 5,
         url: "https://somehotel.com:300/booknowpage",
         description: `Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, 
@@ -63,7 +63,7 @@ var cheap_hotels_list = [
             "./images/HotelPic2.jpg",
             "./images/HotelPic3.jpg"
         ],
-        location: "Accra Ghana",
+        location: "Accra, Ghana",
         rating: 5,
         url: "https://somehotel.com:300/booknowpage",
         description: `Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, 
@@ -88,7 +88,7 @@ var cheap_hotels_list = [
             "./images/HotelPic2.jpg",
             "./images/HotelPic3.jpg"
         ],
-        location: "Accra Ghana",
+        location: "Accra, Ghana",
         rating: 5,
         url: "https://somehotel.com:300/booknowpage",
         description: `Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, 
@@ -113,7 +113,7 @@ var cheap_hotels_list = [
             "./images/HotelPic2.jpg",
             "./images/HotelPic3.jpg"
         ],
-        location: "Accra Ghana",
+        location: "Accra, Ghana",
         rating: 5,
         url: "https://somehotel.com:300/booknowpage",
         description: `Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, 
@@ -138,7 +138,7 @@ var cheap_hotels_list = [
             "./images/HotelPic2.jpg",
             "./images/HotelPic3.jpg"
         ],
-        location: "Accra Ghana",
+        location: "Accra, Ghana",
         rating: 5,
         url: "https://somehotel.com:300/booknowpage",
         description: `Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, 
@@ -163,7 +163,7 @@ var cheap_hotels_list = [
             "./images/HotelPic2.jpg",
             "./images/HotelPic3.jpg"
         ],
-        location: "Accra Ghana",
+        location: "Accra, Ghana",
         rating: 5,
         url: "https://somehotel.com:300/booknowpage",
         description: `Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, 
