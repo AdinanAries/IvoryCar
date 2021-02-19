@@ -1326,10 +1326,12 @@ car_rentals_to_where_search_input_fld.addEventListener("change", ()=>{
 var top_noti_fication_close_btn = document.getElementById("top_noti_fication_close_btn");
 
 top_noti_fication_close_btn.addEventListener("click", ()=>{
+  close_main_round_trip_type_options_btn.style.top = "94px";
   $("#top_noti_fication_div").slideUp("fast");
 });
 
 $(document).ready(()=>{
+  close_main_round_trip_type_options_btn.style.top = "225px";
   setTimeout(()=>{
     $("#top_noti_fication_div").slideDown("fast");
   }, 300)
