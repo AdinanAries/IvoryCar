@@ -429,6 +429,35 @@ app.post('/finish_room_booking/', (req, res, next)=> {
 
 });
 
+
+//login and signup routes
+app.post("/login/", (req, res, next)=>{
+
+  let email = req.body.email;
+  let password = req.body.password;
+
+  res.send(req.body);
+  //reach database with credentials here
+  //I might need some library to provide for session managemet
+});
+
+app.post("/signup/", (req, res, next)=> {
+
+  let first_name = req.body.first_name;
+  let last_name = req.body.last_name;
+  let email = req.body.email;
+  let password = req.body.password;
+
+  res.send(req.body);
+
+})
+
+//user info routes
+app.get("/user/:id", (req, res, next) =>{
+  res.send(req.params.id);
+});
+
+
 //Spinning the server here
 app.listen(PORT, () => {
   console.log("Server started on " + PORT);
