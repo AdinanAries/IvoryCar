@@ -1724,6 +1724,9 @@ footer a {
 }
 
 @media only screen and (max-width: 700px) {
+  .no_needed_on_mobile {
+    display: none !important;
+  }
   #order_room_form_hotel_infor_container {
     width: calc(100% - 20px);
   }
@@ -1891,6 +1894,7 @@ footer a {
   }
   .site_lower_section_left {
     display: none;
+    min-height: auto;
   }
   #show_search_results_options_btn {
     display: block;
