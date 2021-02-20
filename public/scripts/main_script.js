@@ -1326,15 +1326,26 @@ car_rentals_to_where_search_input_fld.addEventListener("change", ()=>{
 var top_noti_fication_close_btn = document.getElementById("top_noti_fication_close_btn");
 
 top_noti_fication_close_btn.addEventListener("click", ()=>{
-  close_main_round_trip_type_options_btn.style.top = "94px";
+  close_main_round_trip_type_options_btn.style.top = "90px";
   $("#top_noti_fication_div").slideUp("fast");
 });
 
 $(document).ready(()=>{
-  close_main_round_trip_type_options_btn.style.top = "225px";
+  
   setTimeout(()=>{
     $("#top_noti_fication_div").slideDown("fast");
+    
   }, 300)
+
+  setTimeout(()=>{
+
+    let top_noti_height = document.getElementById("top_noti_fication_div").offsetHeight;
+    let top = (top_noti_height + 90);
+    //alert(top_noti_height)
+    //alert(top)
+    close_main_round_trip_type_options_btn.style.top = `${top}px`;
+    
+  },600)
 });
 
 
