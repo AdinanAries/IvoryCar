@@ -457,6 +457,10 @@ app.get("/user/:id", (req, res, next) =>{
   res.send(req.params.id);
 });
 
+//book cheap/book direct routes
+app.get("/cheap_hotels/", (req, res, next) =>{
+
+});
 
 //Spinning the server here
 app.listen(PORT, () => {
