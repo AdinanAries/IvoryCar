@@ -1,5 +1,7 @@
 var global_cheap_hotels_index = 0;
-var cheap_hotels_list = [
+var cheap_hotels_list = [];
+
+/*[
     {
         name: "Despite Properties",
         images: [
@@ -181,7 +183,12 @@ var cheap_hotels_list = [
             }
         ]
     }
-]
+];*/
+
+var search_cheap_hotels_post_data = {
+    city: "",
+    country: "",
+}
 
 var book_cheap_book_direct_hotels_list = document.getElementById("book_cheap_book_direct_hotels_list");
 var book_cheap_book_direct_hotels_loader = document.getElementById("book_cheap_book_direct_hotels_loader");
@@ -201,8 +208,24 @@ search_cheap_hotels_by_location_button.addEventListener("click", evnt =>{
         global_cheap_hotels_index = 0;
         no_more_cheap_hotels_status_msg.style.display = "none";
 
-        //this simply display's hotels based on new data from search
-        load_more_cheap_hotels();
+        $.ajax({
+            type: "POST",
+            url: "/cheap_hotels",
+            data: JSON.stringify(search_cheap_hotels_post_data),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: data =>{
+
+                console.log(data);
+                cheap_hotels_list = data;
+                //this simply display's hotels based on new data from search
+                load_more_cheap_hotels();
+            },
+            error: err =>{
+                console.log(err);
+            }
+        });
+        
     }
 });
 
@@ -304,7 +327,7 @@ function load_more_cheap_hotels(){
                 let reviewer_rated = each_cheap_hotel.reviews[0].rated;
                 let reviewer_message = each_cheap_hotel.reviews[0].message;
                 let price = site_currency_coverter(each_cheap_hotel.currency, current_currency.currency, each_cheap_hotel.price)
-                let current_price = `$${price}`;
+                let current_price = `${current_currency.sign}${price}`;
 
                 
                 book_cheap_book_direct_hotels_list.innerHTML += render_a_cheap_hotels(hotel_name, hotel_image, hotel_location, hotel_rating,

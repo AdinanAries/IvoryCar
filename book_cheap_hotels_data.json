@@ -1,0 +1,355 @@
+[
+    {
+        "name": "Despite Properties",
+        "images": [
+            "./images/HotelPic.jpg",
+            "./images/HotelPic2.jpg",
+            "./images/HotelPic3.jpg"
+        ],
+        "location": "Accra, Ghana",
+        "rating": 5,
+        "url": "https://somehotel.com:300/booknowpage",
+        "description": "Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa natus molestias in praesentium aut, tenetur r...",
+        "price": 54.99,
+        "currency": "USD",
+        "reviews": [
+            {
+                "person": "Mohammed Adinan",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 4,
+                "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quam eum repellendus eligendi ipsum ac"
+            },
+            {
+                "person": "Efya Splending",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 3,
+                "message": "This is a rating message from my love Efya Splending. I love Mohammed as she always says"
+            }
+        ]
+    },{
+        "name": "Despite Properties",
+        "images": [
+            "./images/HotelPic.jpg",
+            "./images/HotelPic2.jpg",
+            "./images/HotelPic3.jpg"
+        ],
+        "location": "Accra, Ghana",
+        "rating": 5,
+        "url": "https://somehotel.com:300/booknowpage",
+        "description": "Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa natus molestias in praesentium aut, tenetur r...",
+        "price": 54.99,
+        "currency": "USD",
+        "reviews": [
+            {
+                "person": "Mohammed Adinan",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 4,
+                "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quam eum repellendus eligendi ipsum ac"
+            },
+            {
+                "person": "Efya Splending",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 3,
+                "message": "This is a rating message from my love Efya Splending. I love Mohammed as she always says"
+            }
+        ]
+    },{
+        "name": "Despite Properties",
+        "images": [
+            "./images/HotelPic.jpg",
+            "./images/HotelPic2.jpg",
+            "./images/HotelPic3.jpg"
+        ],
+        "location": "Accra, Ghana",
+        "rating": 5,
+        "url": "https://somehotel.com:300/booknowpage",
+        "description": "Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa natus molestias in praesentium aut, tenetur r...",
+        "price": 54.99,
+        "currency": "USD",
+        "reviews": [
+            {
+                "person": "Mohammed Adinan",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 4,
+                "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quam eum repellendus eligendi ipsum ac"
+            },
+            {
+                "person": "Efya Splending",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 3,
+                "message": "This is a rating message from my love Efya Splending. I love Mohammed as she always says"
+            }
+        ]
+    },{
+        "name": "Despite Properties",
+        "images": [
+            "./images/HotelPic.jpg",
+            "./images/HotelPic2.jpg",
+            "./images/HotelPic3.jpg"
+        ],
+        "location": "Accra, Ghana",
+        "rating": 5,
+        "url": "https://somehotel.com:300/booknowpage",
+        "description": "Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa natus molestias in praesentium aut, tenetur r...",
+        "price": 54.99,
+        "currency": "USD",
+        "reviews": [
+            {
+                "person": "Mohammed Adinan",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 4,
+                "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quam eum repellendus eligendi ipsum ac"
+            },
+            {
+                "person": "Efya Splending",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 3,
+                "message": "This is a rating message from my love Efya Splending. I love Mohammed as she always says"
+            }
+        ]
+    },{
+        "name": "Despite Properties",
+        "images": [
+            "./images/HotelPic.jpg",
+            "./images/HotelPic2.jpg",
+            "./images/HotelPic3.jpg"
+        ],
+        "location": "Accra, Ghana",
+        "rating": 5,
+        "url": "https://somehotel.com:300/booknowpage",
+        "description": "Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa natus molestias in praesentium aut, tenetur r...",
+        "price": 54.99,
+        "currency": "USD",
+        "reviews": [
+            {
+                "person": "Mohammed Adinan",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 4,
+                "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quam eum repellendus eligendi ipsum ac"
+            },
+            {
+                "person": "Efya Splending",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 3,
+                "message": "This is a rating message from my love Efya Splending. I love Mohammed as she always says"
+            }
+        ]
+    },{
+        "name": "Despite Properties",
+        "images": [
+            "./images/HotelPic.jpg",
+            "./images/HotelPic2.jpg",
+            "./images/HotelPic3.jpg"
+        ],
+        "location": "Accra, Ghana",
+        "rating": 5,
+        "url": "https://somehotel.com:300/booknowpage",
+        "description": "Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa natus molestias in praesentium aut, tenetur r...",
+        "price": 54.99,
+        "currency": "USD",
+        "reviews": [
+            {
+                "person": "Mohammed Adinan",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 4,
+                "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quam eum repellendus eligendi ipsum ac"
+            },
+            {
+                "person": "Efya Splending",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 3,
+                "message": "This is a rating message from my love Efya Splending. I love Mohammed as she always says"
+            }
+        ]
+    },{
+        "name": "Despite Properties",
+        "images": [
+            "./images/HotelPic.jpg",
+            "./images/HotelPic2.jpg",
+            "./images/HotelPic3.jpg"
+        ],
+        "location": "Accra, Ghana",
+        "rating": 5,
+        "url": "https://somehotel.com:300/booknowpage",
+        "description": "Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa natus molestias in praesentium aut, tenetur r...",
+        "price": 54.99,
+        "currency": "USD",
+        "reviews": [
+            {
+                "person": "Mohammed Adinan",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 4,
+                "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quam eum repellendus eligendi ipsum ac"
+            },
+            {
+                "person": "Efya Splending",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 3,
+                "message": "This is a rating message from my love Efya Splending. I love Mohammed as she always says"
+            }
+        ]
+    },{
+        "name": "Despite Properties",
+        "images": [
+            "./images/HotelPic.jpg",
+            "./images/HotelPic2.jpg",
+            "./images/HotelPic3.jpg"
+        ],
+        "location": "Accra, Ghana",
+        "rating": 5,
+        "url": "https://somehotel.com:300/booknowpage",
+        "description": "Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa natus molestias in praesentium aut, tenetur r...",
+        "price": 54.99,
+        "currency": "USD",
+        "reviews": [
+            {
+                "person": "Mohammed Adinan",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 4,
+                "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quam eum repellendus eligendi ipsum ac"
+            },
+            {
+                "person": "Efya Splending",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 3,
+                "message": "This is a rating message from my love Efya Splending. I love Mohammed as she always says"
+            }
+        ]
+    },{
+        "name": "Despite Properties",
+        "images": [
+            "./images/HotelPic.jpg",
+            "./images/HotelPic2.jpg",
+            "./images/HotelPic3.jpg"
+        ],
+        "location": "Accra, Ghana",
+        "rating": 5,
+        "url": "https://somehotel.com:300/booknowpage",
+        "description": "Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa natus molestias in praesentium aut, tenetur r...",
+        "price": 54.99,
+        "currency": "USD",
+        "reviews": [
+            {
+                "person": "Mohammed Adinan",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 4,
+                "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quam eum repellendus eligendi ipsum ac"
+            },
+            {
+                "person": "Efya Splending",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 3,
+                "message": "This is a rating message from my love Efya Splending. I love Mohammed as she always says"
+            }
+        ]
+    },{
+        "name": "Despite Properties",
+        "images": [
+            "./images/HotelPic.jpg",
+            "./images/HotelPic2.jpg",
+            "./images/HotelPic3.jpg"
+        ],
+        "location": "Accra, Ghana",
+        "rating": 5,
+        "url": "https://somehotel.com:300/booknowpage",
+        "description": "Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa natus molestias in praesentium aut, tenetur r...",
+        "price": 54.99,
+        "currency": "USD",
+        "reviews": [
+            {
+                "person": "Mohammed Adinan",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 4,
+                "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quam eum repellendus eligendi ipsum ac"
+            },
+            {
+                "person": "Efya Splending",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 3,
+                "message": "This is a rating message from my love Efya Splending. I love Mohammed as she always says"
+            }
+        ]
+    },{
+        "name": "Despite Properties",
+        "images": [
+            "./images/HotelPic.jpg",
+            "./images/HotelPic2.jpg",
+            "./images/HotelPic3.jpg"
+        ],
+        "location": "Accra, Ghana",
+        "rating": 5,
+        "url": "https://somehotel.com:300/booknowpage",
+        "description": "Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa natus molestias in praesentium aut, tenetur r...",
+        "price": 54.99,
+        "currency": "USD",
+        "reviews": [
+            {
+                "person": "Mohammed Adinan",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 4,
+                "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quam eum repellendus eligendi ipsum ac"
+            },
+            {
+                "person": "Efya Splending",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 3,
+                "message": "This is a rating message from my love Efya Splending. I love Mohammed as she always says"
+            }
+        ]
+    },{
+        "name": "Despite Properties",
+        "images": [
+            "./images/HotelPic.jpg",
+            "./images/HotelPic2.jpg",
+            "./images/HotelPic3.jpg"
+        ],
+        "location": "Accra, Ghana",
+        "rating": 5,
+        "url": "https://somehotel.com:300/booknowpage",
+        "description": "Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa natus molestias in praesentium aut, tenetur r...",
+        "price": 54.99,
+        "currency": "USD",
+        "reviews": [
+            {
+                "person": "Mohammed Adinan",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 4,
+                "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quam eum repellendus eligendi ipsum ac"
+            },
+            {
+                "person": "Efya Splending",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 3,
+                "message": "This is a rating message from my love Efya Splending. I love Mohammed as she always says"
+            }
+        ]
+    },{
+        "name": "Despite Properties",
+        "images": [
+            "./images/HotelPic.jpg",
+            "./images/HotelPic2.jpg",
+            "./images/HotelPic3.jpg"
+        ],
+        "location": "Accra, Ghana",
+        "rating": 5,
+        "url": "https://somehotel.com:300/booknowpage",
+        "description": "Lorem ipsum dolo adipisicing elit. Corrupti  animi modi sint! Similique doloem quis, voluptas necessitatib Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ipsa temporibus eum voluptas error culpa natus molestias in praesentium aut, tenetur r...",
+        "price": 54.99,
+        "currency": "USD",
+        "reviews": [
+            {
+                "person": "Mohammed Adinan",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 4,
+                "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quam eum repellendus eligendi ipsum ac"
+            },
+            {
+                "person": "Efya Splending",
+                "image": "./images/Anonymous_person3.jpg",
+                "rated": 3,
+                "message": "This is a rating message from my love Efya Splending. I love Mohammed as she always says"
+            }
+        ]
+    }
+    
+]

@@ -4400,7 +4400,7 @@ function return_dom_for_all_wordl_cities(cities_arr){
     let dom_arr = cities_arr.map(each =>{
 
         return `
-        <li onclick="pick_selected_city_from_all_world_cities_autocomplete('${each.name}','${each.country}');" style="padding: 5px 10px; overflow: initial !important;" >
+        <li onclick="pick_selected_city_from_all_world_cities_autocomplete('${each.name}','${each.country}');" style="cursor: pointer; padding: 5px 10px; overflow: initial !important;" >
             <p style="font-size: 14px; color:rgb(8, 77, 122); overflow: initial !important;">
             <i style="margin-right: 5px; color:rgb(235, 86, 0);" class="fa fa-map-marker" aria-hidden="true"></i>
             ${each.name}, ${each.country}</p>
@@ -4426,6 +4426,8 @@ search_cheap_hotels_by_location_text_field.addEventListener("input", evnt =>{
 function pick_selected_city_from_all_world_cities_autocomplete(city, country){
 
     search_cheap_hotels_by_location_text_field.value = `${city}, ${country}`;
+    search_cheap_hotels_post_data.city = city;
+    search_cheap_hotels_post_data.country = country;
 
     $("#main_book_cheap_book_direct_location_input_autocomplete_section").slideUp("fast");
 }

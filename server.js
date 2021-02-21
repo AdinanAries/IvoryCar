@@ -7,6 +7,7 @@ const { default: Axios } = require("axios");
 const fetch = require("node-fetch");
 var https = require('https');
 var querystring = require('querystring');
+var fs = require('fs')
 
 //Globals to store endpoint data
 var all_events = [];
@@ -458,7 +459,20 @@ app.get("/user/:id", (req, res, next) =>{
 });
 
 //book cheap/book direct routes
-app.get("/cheap_hotels/", (req, res, next) =>{
+app.post("/cheap_hotels/", (req, res, next) =>{
+
+  let city = req.body.city;
+  let country = req.body.country;
+
+  //this code should be replaced with that to read data from DB
+  fs.readFile('./book_cheap_hotels_data.json', 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+    //this line of code is important
+    res.send(data);
+    //console.log(data);
+  });
 
 });
 

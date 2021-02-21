@@ -53,6 +53,9 @@ function login_function(){
             data: JSON.stringify(login_user_data),
             success: data =>{
                 console.log(data);
+            },
+            error: err =>{
+                
             }
         });
     }
