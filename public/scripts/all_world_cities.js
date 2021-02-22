@@ -4416,6 +4416,9 @@ function return_dom_for_all_wordl_cities(cities_arr){
 //book cheap/book direct
 search_cheap_hotels_by_location_text_field.addEventListener("input", evnt =>{
 
+    search_cheap_hotels_post_data.city = "";
+    search_cheap_hotels_post_data.country = "";
+
     $("#main_book_cheap_book_direct_location_input_autocomplete_section").slideDown("fast");
 
     let cities_arr = all_world_cities_auto_complete(evnt.target.value);

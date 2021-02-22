@@ -185,14 +185,20 @@ app.post('/searchflight/', (req, res, next)=>{
     let destination = req.body.destination_iata;
     let depart_date = req.body.departure_date;
     let num_of_adults = req.body.number_of_adults;
-
+    let num_of_children = req.body.number_of_children;
+    let num_of_infants = req.body.number_of_infants;
+    let flight_class = req.body.flight_class;
+    
     search_obj = {
 
       originLocationCode: origin,
       destinationLocationCode: destination,
       departureDate: depart_date,
-      adults: num_of_adults
-  
+      adults: num_of_adults,
+      children: num_of_children,
+      infants: num_of_infants,
+      travelClass: flight_class
+
     }
 
     amadeus.shopping.flightOffersSearch.get(search_obj).then(function(response){

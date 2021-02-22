@@ -129,6 +129,21 @@ function render_flights(){
                         </div>
 
                     `;
+
+                //resetting adults
+                previous_search_adults = fligh_search_data.number_of_adults;
+
+                fligh_search_data.number_of_adults = default_adults; //including youth, seniors, students
+                fligh_search_data.number_of_actual_adults = 1;
+                fligh_search_data.number_of_seniors = 0;
+                fligh_search_data.number_of_students = 0;
+                fligh_search_data.number_of_youth = 0;
+                fligh_search_data.number_of_children =  0;
+                fligh_search_data.number_of_infants = 0; //held infant
+                fligh_search_data.number_of_toddlers = 0; //seated infant
+
+                window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
+
                 return null;
             }
 
@@ -1421,7 +1436,16 @@ function render_flights(){
 
             //resetting adults
             previous_search_adults = fligh_search_data.number_of_adults;
-            fligh_search_data.number_of_adults = default_adults;
+
+            fligh_search_data.number_of_adults = default_adults; //including youth, seniors, students
+            fligh_search_data.number_of_actual_adults = 1;
+            fligh_search_data.number_of_seniors = 0;
+            fligh_search_data.number_of_students = 0;
+            fligh_search_data.number_of_youth = 0;
+            fligh_search_data.number_of_children =  0;
+            fligh_search_data.number_of_infants = 0; //held infant
+            fligh_search_data.number_of_toddlers = 0; //seated infant
+
             window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
             
         },
@@ -1440,6 +1464,20 @@ function render_flights(){
                         </div>
 
                     `;
+
+            //resetting adults
+            previous_search_adults = fligh_search_data.number_of_adults;
+
+            fligh_search_data.number_of_adults = default_adults; //including youth, seniors, students
+            fligh_search_data.number_of_actual_adults = 1;
+            fligh_search_data.number_of_seniors = 0;
+            fligh_search_data.number_of_students = 0;
+            fligh_search_data.number_of_youth = 0;
+            fligh_search_data.number_of_children =  0;
+            fligh_search_data.number_of_infants = 0; //held infant
+            fligh_search_data.number_of_toddlers = 0; //seated infant
+
+            window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
 
             return null;
         } 
