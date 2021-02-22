@@ -204,27 +204,45 @@ search_cheap_hotels_by_location_button.addEventListener("click", evnt =>{
     if(search_cheap_hotels_by_location_text_field.value === ""){
         search_cheap_hotels_by_location_text_field.focus();
     }else{
-        book_cheap_book_direct_hotels_list.innerHTML = ``;
-        global_cheap_hotels_index = 0;
-        no_more_cheap_hotels_status_msg.style.display = "none";
+        if(search_cheap_hotels_post_data.city === "" || search_cheap_hotels_post_data.country === ""){
+            
+            let cities_arr = all_world_cities_auto_complete(search_cheap_hotels_by_location_text_field.value);
 
-        $.ajax({
-            type: "POST",
-            url: "/cheap_hotels",
-            data: JSON.stringify(search_cheap_hotels_post_data),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: data =>{
-
-                console.log(data);
-                cheap_hotels_list = data;
-                //this simply display's hotels based on new data from search
-                load_more_cheap_hotels();
-            },
-            error: err =>{
-                console.log(err);
+            if(cities_arr.length > 0){
+                search_cheap_hotels_post_data.city = cities_arr[0].name;
+                search_cheap_hotels_post_data.country = cities_arr[0].country;
+            }else{
+                search_cheap_hotels_by_location_text_field.focus();
+                search_cheap_hotels_by_location_text_field.placeholder = "please enter a valid city/country";
+                search_cheap_hotels_by_location_text_field.value = "";
             }
-        });
+
+            //alert(search_cheap_hotels_post_data.city);
+            //alert(search_cheap_hotels_post_data.country);
+
+        }else{
+            book_cheap_book_direct_hotels_list.innerHTML = ``;
+            global_cheap_hotels_index = 0;
+            no_more_cheap_hotels_status_msg.style.display = "none";
+
+            $.ajax({
+                type: "POST",
+                url: "/cheap_hotels",
+                data: JSON.stringify(search_cheap_hotels_post_data),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: data =>{
+
+                    console.log(data);
+                    cheap_hotels_list = data;
+                    //this simply display's hotels based on new data from search
+                    load_more_cheap_hotels();
+                },
+                error: err =>{
+                    console.log(err);
+                }
+            });
+        }
         
     }
 });
