@@ -39,7 +39,7 @@
 }
 .book_direct_location_form_container {
   padding: 20px;
-  z-index: 11;
+  z-index: 10;
   position: relative;
 }
 .book_direct_form_inputs {
@@ -314,7 +314,7 @@ button:focus {
   display: block;
 }
 .book_cheap_book_direct_hotels_full_pic {
-  z-index: 10;
+  z-index: 9;
   display: none;
   position: absolute;
   background-color: #bec1c9;
@@ -600,7 +600,7 @@ header {
   position: sticky;
   top: 0;
   background-color: #140028;
-  z-index: 100;
+  z-index: 11;
 }
 .header_menu_dropdowns {
   display: none;
