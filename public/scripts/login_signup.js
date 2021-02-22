@@ -36,10 +36,12 @@ function login_function(){
 
     if(email === ""){
         email_elem.focus();
+        activate_login_fld(0);
         alert("please enter your email");
     }else if(password === ""){
         password_elem.focus();
-        alert("please enter your password")
+        activate_login_fld(1);
+        alert("please enter your password");
     }else{
 
         login_user_data.email = email;
@@ -55,7 +57,7 @@ function login_function(){
                 console.log(data);
             },
             error: err =>{
-                
+
             }
         });
     }
