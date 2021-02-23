@@ -46,7 +46,7 @@
     <div id="book_cheap_book_direct_reviews_div" class="page_cover_for_popups">
       <div style="width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center;">
         <div class="page_popup_main_container" style="overflow: hidden !important;">
-          <div onclick="document.getElementById('book_cheap_book_direct_reviews_div').style.display='none';" class="page_popup_close_button">
+          <div onclick="toggle_show_hide_book_cheap_book_direct_reviews_div();" class="page_popup_close_button">
             <i class="fa fa-times" aria-hidden="true"></i>
           </div>
           <div id="cheap_hotels_reveiws_hotel_info" style="height: 150px; background-color: #023057; display: flex; flex-direction: column !important; justify-content: center;">
@@ -158,126 +158,44 @@
       </div>
     </div>
 
-    <div id="book_cheap_book_direct_register_hotel_div" style="display:  block !important;" class="page_cover_for_popups">
+    <div id="book_cheap_book_direct_register_hotel_div" class="page_cover_for_popups">
       <div style="width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center;">
         <div class="page_popup_main_container" style="overflow: hidden !important;">
-          <div onclick="document.getElementById('book_cheap_book_direct_register_hotel_div').style.display='none';" class="page_popup_close_button">
+          <div onclick="toggle_show_hide_book_cheap_book_direct_register_hotel_div();" class="page_popup_close_button">
             <i class="fa fa-times" aria-hidden="true"></i>
           </div>
-          <div id="book_cheap_book_direct_add_hotel_header" style="height: 150px; background-color: #023057; display: flex; flex-direction: column !important; justify-content: center;">
-            <div style="margin-left: 20px; height: initial !important;" class="site_logo_container">
+          <div id="book_cheap_book_direct_add_hotel_header" style="overflow: initial !important; height: 120px; background-color: #023057; display: flex; flex-direction: column !important; justify-content: center;">
+            <div style="margin-left: 20px; height: initial !important; overflow: initial !important;" class="site_logo_container">
               <div style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
                 <p  style="text-shadow: none;"><span style="text-shadow: none;">An</span style="text-shadow: none;">i<span style="text-shadow: none;">d</span style="text-shadow: none;">a<span style="text-shadow: none;">s</span>o<sup style="font-size: 12px; text-shadow: none;">&reg;</sup></p>
               </div>
             </div>
-            <p style="margin-left: 20px; font-size: 11px; color: white; letter-spacing: 1px;">
+            <p style="overflow: initial !important; margin-left: 20px; font-size: 11px; color: white; letter-spacing: 1px;">
               Register Your Brand</p>
-            <p style="text-align: center; color: rgb(231, 231, 231); font-size: 16px; margin-top: 15px; font-weight: bolder; letter-spacing: 1px;">
+            <p style="overflow: initial !important; text-align: center; color: rgb(231, 231, 231); font-size: 14px; margin-top: 15px; font-weight: bolder; letter-spacing: 1px;">
               Add Hotel Information</p>
-            <p style="font-size: 11px; color: rgb(231, 228, 228); margin-top: 5px; letter-spacing: 1px; text-align: center;">
-              Your hotel is only a few steps aways from global recognition</p>
+              <p style="font-size: 11px; color:rgb(255, 173, 73); margin-top: 5px; letter-spacing: 1px; text-align: center;">
+                You are only a few steps away from global recognition</p>
           </div>
-          <div style="height: calc(100% - 200px); overflow: auto !important; padding: 20px 0;" id="book_cheap_book_direct_add_hotel_forms_section">
-            <!--div style="margin-bottom: 20px;" class="each_wide_screen_ads_card_review">
-              <div class="each_wide_screen_ads_card_reviewer_pic">
-                <img src="./images/Anonymous_person3.jpg" alt="review image">
-              </div>
-              <p style="color:rgb(5, 94, 129); font-size: 13px; font-weight: bolder; margin-bottom: 10px; 
-              letter-spacing: 1px; text-align: center; margin-top: 10px;">Mohammed Adinan</p>
-              <div class="each_wide_screen_ads_card_reviewer_stars">
-                <div style="display: flex; flex-direction: row !important; justify-content: center;">
-                  <p>&#9733;</p> 
-                  <p>&#9733;</p>
-                  <p>&#9733;</p>
-                  <p class="unrated">&#9733;</p>
-                  <p class="unrated">&#9733;</p>
+          <div style="height: calc(100% - 170px); overflow: auto !important; padding: 20px 0;" id="book_cheap_book_direct_add_hotel_forms_section">
+            <div style="padding: 0 10px;">
+              <p style="color:rgb(90, 90, 90); font-size: 14px; margin: auto; max-width: 500px; text-align: center;">
+                Anidaso helps people around the world to find your brand so that you can compete in the
+               global market with the major brands.</p>
+               <a style="text-decoration: none;" href="#">
+                 <div style="cursor: pointer; display: flex; flex-direction: row !important; margin-top: 10px; justify-content: center;">
+                  <p class="top_noti_fication_main_content_info_icon" style="font-size: 20px; margin-right: 10px; width: fit-content !important;">
+                    <i style="color:rgb(5, 94, 129); overflow: initial !important;" class="fa fa-phone" aria-hidden="true"></i>
+                  </p>
+                  <p class="top_noti_fication_main_txt" style="font-size: 13px; color:rgb(25, 77, 102); font-weight: bolder;">
+                    call on +1 732 799 9546 for more information</p>
                 </div>
+              </a>
               </div>
-              <div class="each_wide_screen_ads_card_reviewer_msg">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, 
-                  quam eum repellendus eligendi ipsum ac</p>
+              <div class="book_cheap_book_direct_register_hotel_main_forms">
+                <div class="each_side"></div>
+                <div class="each_side"></div>
               </div>
-            </div>
-            <div style="margin-bottom: 20px;" class="each_wide_screen_ads_card_review">
-              <div class="each_wide_screen_ads_card_reviewer_pic">
-                <img src="./images/Anonymous_person3.jpg" alt="review image">
-              </div>
-              <p style="color:rgb(5, 94, 129); font-size: 13px; font-weight: bolder; margin-bottom: 10px; 
-              letter-spacing: 1px; text-align: center; margin-top: 10px;">Mohammed Adinan</p>
-              <div class="each_wide_screen_ads_card_reviewer_stars">
-                <div style="display: flex; flex-direction: row !important; justify-content: center;">
-                  <p>&#9733;</p> 
-                  <p>&#9733;</p>
-                  <p>&#9733;</p>
-                  <p class="unrated">&#9733;</p>
-                  <p class="unrated">&#9733;</p>
-                </div>
-              </div>
-              <div class="each_wide_screen_ads_card_reviewer_msg">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, 
-                  quam eum repellendus eligendi ipsum ac</p>
-              </div>
-            </div>
-            <div style="margin-bottom: 20px;" class="each_wide_screen_ads_card_review">
-              <div class="each_wide_screen_ads_card_reviewer_pic">
-                <img src="./images/Anonymous_person3.jpg" alt="review image">
-              </div>
-              <p style="color:rgb(5, 94, 129); font-size: 13px; font-weight: bolder; margin-bottom: 10px; 
-              letter-spacing: 1px; text-align: center; margin-top: 10px;">Mohammed Adinan</p>
-              <div class="each_wide_screen_ads_card_reviewer_stars">
-                <div style="display: flex; flex-direction: row !important; justify-content: center;">
-                  <p>&#9733;</p> 
-                  <p>&#9733;</p>
-                  <p>&#9733;</p>
-                  <p class="unrated">&#9733;</p>
-                  <p class="unrated">&#9733;</p>
-                </div>
-              </div>
-              <div class="each_wide_screen_ads_card_reviewer_msg">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, 
-                  quam eum repellendus eligendi ipsum ac</p>
-              </div>
-            </div>
-            <div style="margin-bottom: 20px;" class="each_wide_screen_ads_card_review">
-              <div class="each_wide_screen_ads_card_reviewer_pic">
-                <img src="./images/Anonymous_person3.jpg" alt="review image">
-              </div>
-              <p style="color:rgb(5, 94, 129); font-size: 13px; font-weight: bolder; margin-bottom: 10px; 
-              letter-spacing: 1px; text-align: center; margin-top: 10px;">Mohammed Adinan</p>
-              <div class="each_wide_screen_ads_card_reviewer_stars">
-                <div style="display: flex; flex-direction: row !important; justify-content: center;">
-                  <p>&#9733;</p> 
-                  <p>&#9733;</p>
-                  <p>&#9733;</p>
-                  <p class="unrated">&#9733;</p>
-                  <p class="unrated">&#9733;</p>
-                </div>
-              </div>
-              <div class="each_wide_screen_ads_card_reviewer_msg">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, 
-                  quam eum repellendus eligendi ipsum ac</p>
-              </div>
-            </div>
-            <div style="margin-bottom: 20px;" class="each_wide_screen_ads_card_review">
-              <div class="each_wide_screen_ads_card_reviewer_pic">
-                <img src="./images/Anonymous_person3.jpg" alt="review image">
-              </div>
-              <p style="color:rgb(5, 94, 129); font-size: 13px; font-weight: bolder; margin-bottom: 10px; 
-              letter-spacing: 1px; text-align: center; margin-top: 10px;">Mohammed Adinan</p>
-              <div class="each_wide_screen_ads_card_reviewer_stars">
-                <div style="display: flex; flex-direction: row !important; justify-content: center;">
-                  <p>&#9733;</p> 
-                  <p>&#9733;</p>
-                  <p>&#9733;</p>
-                  <p class="unrated">&#9733;</p>
-                  <p class="unrated">&#9733;</p>
-                </div>
-              </div>
-              <div class="each_wide_screen_ads_card_reviewer_msg">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, 
-                  quam eum repellendus eligendi ipsum ac</p>
-              </div>
-            </div-->
           </div>
         </div>
       </div>
@@ -587,12 +505,8 @@
                   - Anidaso helps new/unpopular hoteliers to gain permanent access to the global market...
                 </p>
               </div>
-              <div style="display: flex; flex-direction: row !important; padding-bottom: 10px; justify-content: flex-start;">
-                <p class="top_noti_fication_main_content_info_icon" style="font-size: 20px; margin-right: 10px; width: fit-content !important;">
-                  <i style="color: rgba(255, 255, 255, 0.548); overflow: initial !important;" class="fa fa-phone" aria-hidden="true"></i>
-                </p>
-                <p class="top_noti_fication_main_txt" style="font-size: 13px; color:rgb(228, 190, 190);">
-                  call us on +1 732 799 9546 to get started</p>
+              <div onclick="toggle_show_hide_book_cheap_book_direct_register_hotel_div();" style="margin-bottom: 10px; margin-top: 10px; cursor: pointer; font-size: 12px; letter-spacing: 1px; padding: 10px; color: white; background-color:rgb(25, 77, 102); border-radius: 4px; text-align: center;">
+                Click here to get started
               </div>
             </div>
             <div style="overflow: visible; margin-left: 10px;">
@@ -1814,7 +1728,7 @@
           </div>
         </div>
         <div id="book_cheap_book_direct_hotels_list">
-          <div class="wide_screen_ads_card">
+          <!--sdiv class="wide_screen_ads_card">
             <p class="wide_screen_ads_card_corder_ads_indicator">$20.00</p>
             <div class="wide_screen_ads_main_content">
               <div class="left_Side" style="overflow: initial !important;">
@@ -1989,11 +1903,6 @@
                 </div>
               </div>
               <div class="right_Side">
-                <!--div class="hide_book_cheap_book_direct_hotels_full_pic_btn" style="position: absolute; width: fit-content; min-width: 60px;
-                  padding: 5px; left: 10px; top: 5px; background-color:rgb(187, 8, 44); border-radius: 4px;">
-                    <p style="text-align: center;"><i style="color: white;" class="fa fa-caret-up" aria-hidden="true"></i></p>
-                    <p style="color: white; text-align: center; font-size: 12px;">Hide</p>
-                  </div-->
                   <div style="height: 100%; display: flex; flex-direction: column !important; justify-content: space-between;">
                     <div style="overflow: hidden;">
                       <div style="background-color:#094470; padding: 10px; display: flex; flex-direction: row !important; justify-content: space-between;">
@@ -2055,7 +1964,7 @@
                   </div>
               </div>
             </div>
-          </div>
+          </div-->
         </div>
         <div id="book_cheap_book_direct_hotels_loader" style="padding: 20px; display: none; flex-direction: row !important; justify-content: center;">
           <div style="width: 100%; text-align: center;" class="loader loader--style2" title="1">

@@ -199,6 +199,26 @@ var cheap_hotels_reveiws_hotel_info = document.getElementById("cheap_hotels_reve
 var search_cheap_hotels_by_location_text_field = document.getElementById("search_cheap_hotels_by_location_text_field");
 var search_cheap_hotels_by_location_button = document.getElementById("search_cheap_hotels_by_location_button");
 
+function get_book_cheap_book_direct_hotels(){
+    $.ajax({
+        type: "POST",
+        url: "/cheap_hotels",
+        data: JSON.stringify(search_cheap_hotels_post_data),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: data =>{
+
+            console.log(data);
+            cheap_hotels_list = data;
+            //this simply display's hotels based on new data from search
+            load_more_cheap_hotels();
+        },
+        error: err =>{
+            console.log(err);
+        }
+    });
+}
+
 search_cheap_hotels_by_location_button.addEventListener("click", evnt =>{
 
     if(search_cheap_hotels_by_location_text_field.value === ""){
@@ -225,23 +245,8 @@ search_cheap_hotels_by_location_button.addEventListener("click", evnt =>{
             global_cheap_hotels_index = 0;
             no_more_cheap_hotels_status_msg.style.display = "none";
 
-            $.ajax({
-                type: "POST",
-                url: "/cheap_hotels",
-                data: JSON.stringify(search_cheap_hotels_post_data),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: data =>{
+            get_book_cheap_book_direct_hotels();
 
-                    console.log(data);
-                    cheap_hotels_list = data;
-                    //this simply display's hotels based on new data from search
-                    load_more_cheap_hotels();
-                },
-                error: err =>{
-                    console.log(err);
-                }
-            });
         }
         
     }
@@ -501,5 +506,19 @@ function book_cheap_book_direct_show_all_review(index, hotel_name, hotel_locatio
 
     })
     
-    document.getElementById("book_cheap_book_direct_reviews_div").style.display = "block";
+    //document.getElementById("book_cheap_book_direct_reviews_div").style.display = "block";
+    toggle_show_hide_book_cheap_book_direct_reviews_div();
+
 }
+
+function toggle_show_hide_book_cheap_book_direct_reviews_div(){
+    $("#book_cheap_book_direct_reviews_div").toggle("up");
+}
+
+function toggle_show_hide_book_cheap_book_direct_register_hotel_div(){
+    $("#book_cheap_book_direct_register_hotel_div").toggle("up");
+}
+
+$(document).ready(()=>{
+    get_book_cheap_book_direct_hotels();
+})
