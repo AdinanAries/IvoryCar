@@ -17,7 +17,22 @@
   border-radius: 4px;
   width: calc(50% - 25px);
   min-height: 1200px;
-  background-color: orange;
+  background-color: rgb(185, 74, 0);
+}
+.book_cheap_book_direct_register_hotel_main_forms_field {
+  padding: 10px;
+}
+.book_cheap_book_direct_register_hotel_main_forms_field p {
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: white;
+}
+.book_cheap_book_direct_register_hotel_main_forms_field input {
+  border-radius: 4px;
+  padding: 10px;
+  background-color: rgb(216, 102, 27);
+  width: calc(100% - 20px);
+  border: 1px solid rgb(230, 154, 104);
 }
 .page_popup_main_container {
   height: 90%;
