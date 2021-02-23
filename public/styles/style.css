@@ -6,6 +6,9 @@
 }
 
 /*-------------------------------*/
+textarea:focus {
+  outline: none;
+}
 .book_cheap_book_direct_register_hotel_main_forms {
   padding: 20px 10px;
   display: flex;
@@ -16,7 +19,6 @@
   padding: 10px;
   border-radius: 4px;
   width: calc(50% - 25px);
-  min-height: 1200px;
   background-color: rgb(185, 74, 0);
 }
 .book_cheap_book_direct_register_hotel_main_forms_field {
@@ -27,7 +29,8 @@
   font-size: 13px;
   color: white;
 }
-.book_cheap_book_direct_register_hotel_main_forms_field input {
+.book_cheap_book_direct_register_hotel_main_forms_field input,
+.book_cheap_book_direct_register_hotel_main_forms_field textarea {
   border-radius: 4px;
   padding: 10px;
   background-color: rgb(216, 102, 27);

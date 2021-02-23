@@ -522,3 +522,12 @@ function toggle_show_hide_book_cheap_book_direct_register_hotel_div(){
 $(document).ready(()=>{
     get_book_cheap_book_direct_hotels();
 })
+
+
+var book_cheap_book_direct_register_hotel_description_input = document.getElementById("book_cheap_book_direct_register_hotel_description_input");
+var heightLimit = 200; /* Maximum height: 200px */
+
+book_cheap_book_direct_register_hotel_description_input.oninput = function() {
+    book_cheap_book_direct_register_hotel_description_input.style.height = ""; /* Reset the height*/
+    book_cheap_book_direct_register_hotel_description_input.style.height = Math.min(book_cheap_book_direct_register_hotel_description_input.scrollHeight, heightLimit) + "px";
+};
