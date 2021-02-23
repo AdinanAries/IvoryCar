@@ -2,6 +2,8 @@
 console.log(airline_codes);*/
 
 var previous_search_adults = 1;
+var previous_search_chidren = 0;
+var previous_search_infant = 0;
 var no_fastest_travel_times = true;
 var no_fastest_travel_times_on_one_trip = true;
 var no_fastest_tavel_times_on_two_or_more_stops = true;
@@ -132,6 +134,8 @@ function render_flights(){
 
                 //resetting adults
                 previous_search_adults = fligh_search_data.number_of_adults;
+                previous_search_chidren = fligh_search_data.number_of_children;
+                previous_search_infant = fligh_search_data.number_of_infants;
 
                 fligh_search_data.number_of_adults = default_adults; //including youth, seniors, students
                 fligh_search_data.number_of_actual_adults = 1;
@@ -730,11 +734,21 @@ function render_flights(){
                                     
                                     let airfare = airfare_codes.filter(each => each.code.toLowerCase() === a_cabin[0].class.toLowerCase())[0];
                                     let seg_airfair = airfare ? airfare.fare : "unavailable";
+
+                                    let seg_dep_code = `
+                                        <i class="fa fa-excalmation-triangle" aria-hidden="true" style="margin-right: 5px; color: orangered;"></i>Unavailable`;
+                                    let seg_arvl_code = `
+                                        <i class="fa fa-excalmation-triangle" aria-hidden="true" style="margin-right: 5px; color: orangered;"></i>Unavailable`;
+                                    if(data[w].itineraries[last_flights_itinerary_index].segments[j]){
+                                        seg_dep_code = data[w].itineraries[last_flights_itinerary_index].segments[j].departure.iataCode;
+                                        seg_arvl_code = data[w].itineraries[last_flights_itinerary_index].segments[j].arrival.iataCode;
+                                    }
+
                                     all_segment_cabins += `
                                         <li style="padding: 5px 10px;">
                                             <p style="color: white; font-weight: bolder; letter-spacing: 0.5px; font-size: 10px; margin-bottom: 2px;">
-                                            ${data[w].itineraries[last_flights_itinerary_index].segments[j].departure.iataCode} - 
-                                            ${data[w].itineraries[last_flights_itinerary_index].segments[j].arrival.iataCode}</p>
+                                            ${seg_dep_code} - 
+                                            ${seg_arvl_code}</p>
                                             <p style="color: rgb(255, 23, 166); font-size: 12px; letter-spacing: 0.5px; font-weight: bolder; margin-left: 5px;">${seg_airfair}</p>
                                         </li>`;
                                 }else{
@@ -1436,6 +1450,8 @@ function render_flights(){
 
             //resetting adults
             previous_search_adults = fligh_search_data.number_of_adults;
+            previous_search_chidren = fligh_search_data.number_of_children;
+            previous_search_infant = fligh_search_data.number_of_infants;
 
             fligh_search_data.number_of_adults = default_adults; //including youth, seniors, students
             fligh_search_data.number_of_actual_adults = 1;
@@ -1467,6 +1483,8 @@ function render_flights(){
 
             //resetting adults
             previous_search_adults = fligh_search_data.number_of_adults;
+            previous_search_chidren = fligh_search_data.number_of_children;
+            previous_search_infant = fligh_search_data.number_of_infants;
 
             fligh_search_data.number_of_adults = default_adults; //including youth, seniors, students
             fligh_search_data.number_of_actual_adults = 1;

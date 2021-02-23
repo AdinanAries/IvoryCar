@@ -625,6 +625,8 @@ var flight_stop = "default"; //one, zero, default, two_plus, one_plus, zero_and_
 function filter_flights_by_stop(){
 
     fligh_search_data.number_of_adults = previous_search_adults;
+    fligh_search_data.number_of_children = previous_search_chidren;
+    fligh_search_data.number_of_infants = previous_search_infant;
     window.localStorage.setItem("flights_post_data", JSON.stringify(fligh_search_data));
 
     //alert("run");
