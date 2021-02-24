@@ -45,11 +45,15 @@ textarea:focus {
   margin-bottom: 10px;
 }
 .book_cheap_book_direct_add_hotel_add_pic_btn {
+  height: 150px;
+  width: calc(50% - 27px);
+}
+.book_cheap_book_direct_add_hotel_add_pic_btn label {
   display: flex;
   flex-direction: column !important;
   justify-content: center;
-  height: 150px;
-  width: calc(50% - 27px);
+  width: 100%;
+  height: 100%;
   cursor: pointer;
 }
 .book_cheap_book_direct_add_hotel_add_pic_btn p {
