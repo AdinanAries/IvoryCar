@@ -244,14 +244,13 @@
                   </p>
                   <div style="margin-top: 20px;" class="book_cheap_book_direct_add_hotel_add_pic_buttons">
                     <div class="book_cheap_book_direct_add_hotel_add_pic_buttons_row">
-                      
-                      <div class="book_cheap_book_direct_add_hotel_add_pic_btn">
+                      <div id="book_cheap_book_direct_add_hotel_add_pic_btn_1" class="book_cheap_book_direct_add_hotel_add_pic_btn">
                         <label for="book_cheap_book_direct_add_hotel_add_pic_input_1">
                           <p><i class="fa fa-plus" aria-hidden="true"></i></p>
                         </label>
                       </div>
 
-                      <div class="book_cheap_book_direct_add_hotel_add_pic_btn">
+                      <div id="book_cheap_book_direct_add_hotel_add_pic_btn_2" class="book_cheap_book_direct_add_hotel_add_pic_btn">
                         <label for="book_cheap_book_direct_add_hotel_add_pic_input_2">
                           <p><i class="fa fa-plus" aria-hidden="true"></i></p>
                         </label>
@@ -259,13 +258,13 @@
                     </div>
 
                     <div class="book_cheap_book_direct_add_hotel_add_pic_buttons_row">
-                      <div class="book_cheap_book_direct_add_hotel_add_pic_btn">
+                      <div id="book_cheap_book_direct_add_hotel_add_pic_btn_3" class="book_cheap_book_direct_add_hotel_add_pic_btn">
                         <label for="book_cheap_book_direct_add_hotel_add_pic_input_3">
                           <p><i class="fa fa-plus" aria-hidden="true"></i></p>
                         </label>
                       </div>
 
-                      <div class="book_cheap_book_direct_add_hotel_add_pic_btn">
+                      <div id="book_cheap_book_direct_add_hotel_add_pic_btn_4" class="book_cheap_book_direct_add_hotel_add_pic_btn">
                         <label for="book_cheap_book_direct_add_hotel_add_pic_input_4">
                           <p><i class="fa fa-plus" aria-hidden="true"></i></p>
                         </label>
@@ -276,10 +275,18 @@
                   background-color: rgb(5, 146, 116); border-radius: 4px; cursor: pointer;">
                     Register
                   </div>
-                  <input id="book_cheap_book_direct_add_hotel_add_pic_input_1" type="file" style="display: none;" />
-                  <input id="book_cheap_book_direct_add_hotel_add_pic_input_2" type="file" style="display: none;" />
-                  <input id="book_cheap_book_direct_add_hotel_add_pic_input_3" type="file" style="display: none;" />
-                  <input id="book_cheap_book_direct_add_hotel_add_pic_input_4" type="file" style="display: none;" />
+                  <input id="book_cheap_book_direct_add_hotel_add_pic_input_1" 
+                    onchange="cheap_hotel_preview_image(event,'book_cheap_book_direct_add_hotel_add_pic_btn_1')" 
+                    type="file" style="display: none;" />
+                  <input id="book_cheap_book_direct_add_hotel_add_pic_input_2" 
+                    onchange="cheap_hotel_preview_image(event,'book_cheap_book_direct_add_hotel_add_pic_btn_2')"
+                    type="file" style="display: none;" />
+                  <input id="book_cheap_book_direct_add_hotel_add_pic_input_3" 
+                    onchange="cheap_hotel_preview_image(event,'book_cheap_book_direct_add_hotel_add_pic_btn_3')"
+                    type="file" style="display: none;" />
+                  <input id="book_cheap_book_direct_add_hotel_add_pic_input_4" 
+                    onchange="cheap_hotel_preview_image(event,'book_cheap_book_direct_add_hotel_add_pic_btn_4')"
+                    type="file" style="display: none;" />
                 </div>
                 
               </div>

@@ -45,6 +45,9 @@ textarea:focus {
   margin-bottom: 10px;
 }
 .book_cheap_book_direct_add_hotel_add_pic_btn {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   height: 150px;
   width: calc(50% - 27px);
 }
