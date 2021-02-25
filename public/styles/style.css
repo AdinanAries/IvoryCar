@@ -61,10 +61,14 @@ textarea:focus {
   color: rgba(255, 255, 255, 0.623);
   text-align: center;
 }
-#book_cheap_book_direct_add_hotel_forms_section {
+#book_cheap_book_direct_add_hotel_forms_section,
+#book_cheap_book_direct_all_reviews_list {
   height: calc(100% - 180px);
   overflow: auto !important;
   padding: 20px 0;
+}
+#book_cheap_book_direct_all_reviews_list {
+  height: calc(100% - 200px);
 }
 .page_popup_main_container {
   height: 90%;
@@ -1821,7 +1825,8 @@ footer a {
 }
 
 @media only screen and (max-width: 1025px) {
-  #book_cheap_book_direct_add_hotel_forms_section {
+  #book_cheap_book_direct_add_hotel_forms_section,
+  #book_cheap_book_direct_all_reviews_list {
     height: auto !important;
     overflow: initial !important;
   }

@@ -4442,7 +4442,10 @@ function pick_selected_city_from_all_world_cities_autocomplete(city, country){
 }
 
 search_cheap_hotels_by_location_text_field.addEventListener("focusout", evnt =>{
-    $("#main_book_cheap_book_direct_location_input_autocomplete_section").slideUp("fast");
+    setTimeout(()=>{
+        $("#main_book_cheap_book_direct_location_input_autocomplete_section").slideUp("fast");
+    },100);
+    
 });
 
 
@@ -4491,5 +4494,8 @@ function register_hotels_pick_selected_city_from_all_world_cities_autocomplete(c
 }
 
 register_cheap_hotels_location_text_field.addEventListener("focusout", evnt =>{
-    $("#main_book_cheap_book_direct_register_hotel_location_input_autocomplete_section").slideUp("fast");
+    setTimeout(()=>{
+        $("#main_book_cheap_book_direct_register_hotel_location_input_autocomplete_section").slideUp("fast");
+    }, 100);
+    
 });
