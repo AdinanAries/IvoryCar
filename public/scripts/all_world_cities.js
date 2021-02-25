@@ -1,5 +1,7 @@
 var search_cheap_hotels_by_location_text_field = document.getElementById("search_cheap_hotels_by_location_text_field");
+var register_cheap_hotels_location_text_field = document.getElementById("register_cheap_hotels_location_text_field");
 var book_cheap_book_direct_location_input_autocomplete_list = document.getElementById("book_cheap_book_direct_location_input_autocomplete_list");
+var book_cheap_book_direct_register_hotel_location_input_autocomplete_list = document.getElementById("book_cheap_book_direct_register_hotel_location_input_autocomplete_list");
 
 var all_world_cities = [
     //A cities
@@ -4402,7 +4404,7 @@ function return_dom_for_all_wordl_cities(cities_arr){
         return `
         <li onclick="pick_selected_city_from_all_world_cities_autocomplete('${each.name.replaceAll('\'', '#$#$%$#098')}','${each.country.replaceAll('\'', '#$#$%$#098')}');" style="cursor: pointer; padding: 5px 10px; overflow: initial !important;" >
             <p style="font-size: 14px; color:rgb(8, 77, 122); overflow: initial !important;">
-            <i style="margin-right: 5px; color:rgb(235, 86, 0);" class="fa fa-map-marker" aria-hidden="true"></i>
+            <i style="margin-right: 5px; color: rgb(235, 86, 0);" class="fa fa-map-marker" aria-hidden="true"></i>
             ${each.name}, ${each.country}</p>
         </li>
         `;
@@ -4443,15 +4445,16 @@ search_cheap_hotels_by_location_text_field.addEventListener("focusout", evnt =>{
     $("#main_book_cheap_book_direct_location_input_autocomplete_section").slideUp("fast");
 });
 
-/*/book flights documents cities text field
-function book_flights_return_dom_for_all_wordl_cities(cities_arr){
+
+//book cheap/book direct register hotel
+function return_dom_for_register_hotel_all_wordl_cities(cities_arr){
 
     let dom_arr = cities_arr.map(each =>{
 
         return `
-        <li onclick="book_flights_pick_selected_city_from_all_world_cities_autocomplete('${each.name}','${each.country}');" style="cursor: pointer; padding: 5px 10px; overflow: initial !important;" >
-            <p style="font-size: 14px; color:rgb(8, 77, 122); overflow: initial !important;">
-            <i style="margin-right: 5px; color:rgb(235, 86, 0);" class="fa fa-map-marker" aria-hidden="true"></i>
+        <li onclick="register_hotels_pick_selected_city_from_all_world_cities_autocomplete('${each.name.replaceAll('\'', '#$#$%$#098')}','${each.country.replaceAll('\'', '#$#$%$#098')}');" style="cursor: pointer; padding: 5px 10px; overflow: initial !important;" >
+            <p style="font-size: 14px; color: black; overflow: initial !important;">
+            <i style="margin-right: 5px; color: rgb(5, 57, 99);" class="fa fa-map-marker" aria-hidden="true"></i>
             ${each.name}, ${each.country}</p>
         </li>
         `;
@@ -4460,26 +4463,33 @@ function book_flights_return_dom_for_all_wordl_cities(cities_arr){
 
     return dom_arr.join(' ');
 }
+//console.log(all_world_cities_auto_complete("Nicol"));
 
-search_cheap_hotels_by_location_text_field.addEventListener("input", evnt =>{
+register_cheap_hotels_location_text_field.addEventListener("input", evnt =>{
 
-    $("#main_book_cheap_book_direct_location_input_autocomplete_section").slideDown("fast");
+    //search_cheap_hotels_post_data.city = "";
+    //search_cheap_hotels_post_data.country = "";
+
+    $("#main_book_cheap_book_direct_register_hotel_location_input_autocomplete_section").slideDown("fast");
 
     let cities_arr = all_world_cities_auto_complete(evnt.target.value);
-    let elems = book_flights_return_dom_for_all_wordl_cities(cities_arr);
+    let elems = return_dom_for_register_hotel_all_wordl_cities(cities_arr);
     //console.log(elems);
-    book_cheap_book_direct_location_input_autocomplete_list.innerHTML = elems;
+    book_cheap_book_direct_register_hotel_location_input_autocomplete_list.innerHTML = elems;
 });
 
-function book_flights_pick_selected_city_from_all_world_cities_autocomplete(city, country){
+function register_hotels_pick_selected_city_from_all_world_cities_autocomplete(city, country){
 
-    search_cheap_hotels_by_location_text_field.value = `${city}, ${country}`;
-    search_cheap_hotels_post_data.city = city;
-    search_cheap_hotels_post_data.country = country;
+    let a_city = city.replaceAll('#$#$%$#098', "'");
+    let a_country = country.replaceAll('#$#$%$#098', "'");
 
-    $("#main_book_cheap_book_direct_location_input_autocomplete_section").slideUp("fast");
+    register_cheap_hotels_location_text_field.value = `${a_city}, ${a_country}`;
+    //search_cheap_hotels_post_data.city = a_city;
+    //search_cheap_hotels_post_data.country = a_country;
+
+    $("#main_book_cheap_book_direct_register_hotel_location_input_autocomplete_section").slideUp("fast");
 }
 
-search_cheap_hotels_by_location_text_field.addEventListener("focusout", evnt =>{
-    $("#main_book_cheap_book_direct_location_input_autocomplete_section").slideUp("fast");
-});*/
+register_cheap_hotels_location_text_field.addEventListener("focusout", evnt =>{
+    $("#main_book_cheap_book_direct_register_hotel_location_input_autocomplete_section").slideUp("fast");
+});
