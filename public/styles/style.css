@@ -61,6 +61,11 @@ textarea:focus {
   color: rgba(255, 255, 255, 0.623);
   text-align: center;
 }
+#book_cheap_book_direct_add_hotel_forms_section {
+  height: calc(100% - 180px);
+  overflow: auto !important;
+  padding: 20px 0;
+}
 .page_popup_main_container {
   height: 90%;
   width: 95%;
@@ -1816,6 +1821,13 @@ footer a {
 }
 
 @media only screen and (max-width: 1025px) {
+  #book_cheap_book_direct_add_hotel_forms_section {
+    height: auto !important;
+    overflow: initial !important;
+  }
+  #book_cheap_book_direct_register_hotel_div {
+    overflow: auto !important;
+  }
   .book_cheap_book_direct_register_hotel_main_forms {
     flex-direction: column;
     justify-content: center;
@@ -1828,6 +1840,7 @@ footer a {
     height: 100%;
     width: 100%;
     margin: auto;
+    overflow: auto !important;
     border-radius: 0;
   }
   .top_noti_fication_main_content_info_icon {
