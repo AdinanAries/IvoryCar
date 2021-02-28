@@ -186,6 +186,7 @@ var cheap_hotels_list = [];
 ];*/
 
 var search_cheap_hotels_post_data = {
+    search_type:"by_city", //by_city or by_name
     city: "",
     country: "",
 }

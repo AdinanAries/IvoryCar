@@ -9,6 +9,9 @@
 textarea:focus {
   outline: none;
 }
+select:focus {
+  outline: none;
+}
 .book_cheap_book_direct_register_hotel_main_forms {
   padding: 20px 10px;
   display: flex;
