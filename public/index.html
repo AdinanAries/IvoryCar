@@ -1840,20 +1840,27 @@
             Select search type below:</p>
           <div style="border: none; border-radius: 4px; background: none; color: white; font-size: 14px;">
             <div style="color: #37a0f5;">
-              <input id="main_cheap_hotel_by_city_search_type" style="margin-right: 5px;" type="radio" name="main_cheap_hotel_search_type" checked/>
+              <input onclick="cheap_hotels_search_pick_search_type('by_city');" id="main_cheap_hotel_by_city_search_type" style="margin-right: 5px;" type="radio" name="main_cheap_hotel_search_type" checked/>
               <label for="main_cheap_hotel_by_city_search_type">By city, country</label></div>
             <div style="color: #37a0f5; margin-top: 5px;">
-              <input id="main_cheap_hotel_by_name_search_type" style="margin-right: 5px;" type="radio" name="main_cheap_hotel_search_type" />
+              <input onclick="cheap_hotels_search_pick_search_type('by_name');" id="main_cheap_hotel_by_name_search_type" style="margin-right: 5px;" type="radio" name="main_cheap_hotel_search_type" />
               <label for="main_cheap_hotel_by_name_search_type">By hotel/brand name</label></div>
             <div style="color: #37a0f5; margin-top: 5px;">
-              <input id="main_cheap_hotel_by_city_and_name_search_type" style="margin-right: 5px;" type="radio" name="main_cheap_hotel_search_type" />
+              <input onclick="cheap_hotels_search_pick_search_type('by_city_and_name');" id="main_cheap_hotel_by_city_and_name_search_type" style="margin-right: 5px;" type="radio" name="main_cheap_hotel_search_type" />
               <label for="main_cheap_hotel_by_city_and_name_search_type">By city and hotel name</label></div>
           </div>
         </div>
         <div style="overflow: initial !important;" class="book_direct_location_form_container">
           <p style="color: white; font-size: 14px; margin-bottom: 10px;">Enter city/country to find cheapest hotels</p>
           <div class="book_direct_form_inputs">
-            <input id="search_cheap_hotels_by_location_text_field" type="text" autocomplete="off" placeholder="Please enter city/country here"/>
+            <div class="book_cheap_book_direct_all_inputs_container">
+              <p id="book_cheap_book_direct_search_form_name_input_title" style="display: none; opacity: 0; color:rgb(74, 101, 112); font-weight: bolder; letter-spacing: 1px; font-size: 12px; padding: 10px; padding-bottom: 0;">
+                Hotel name:</p>
+              <input style="display: none;" id="search_cheap_hotels_by_name_text_field" type="text" autocomplete="off" placeholder="Please enter hotel name here"/>
+              <p id="book_cheap_book_direct_search_form_city_input_title" style="display: none; opacity: 0; color:rgb(74, 101, 112); font-weight: bolder; letter-spacing: 1px; font-size: 12px; padding: 10px; padding-bottom: 0;">
+                Hotel city, country:</p>
+              <input id="search_cheap_hotels_by_location_text_field" type="text" autocomplete="off" placeholder="Please enter city/country here"/>
+            </div>
             <button id="search_cheap_hotels_by_location_button"><i class="fa fa-search" aria-hidden="true"></i></button>
             <div id="main_book_cheap_book_direct_location_input_autocomplete_section" class="book_cheap_book_direct_location_input_autocomplete_section">
               <ul id="book_cheap_book_direct_location_input_autocomplete_list" style="overflow: initial !important; list-style-type: none;">

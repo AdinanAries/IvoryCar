@@ -187,6 +187,7 @@ var cheap_hotels_list = [];
 
 var search_cheap_hotels_post_data = {
     search_type:"by_city", //values = ["by_city", "by_name", "by_city_and_name"]
+    hotel_name: "",
     city: "",
     country: "",
 }
@@ -198,41 +199,86 @@ var no_more_cheap_hotels_status_msg = document.getElementById("no_more_cheap_hot
 var book_cheap_book_direct_all_reviews_list = document.getElementById("book_cheap_book_direct_all_reviews_list");
 var cheap_hotels_reveiws_hotel_info = document.getElementById("cheap_hotels_reveiws_hotel_info");
 var search_cheap_hotels_by_location_text_field = document.getElementById("search_cheap_hotels_by_location_text_field");
+var search_cheap_hotels_by_name_text_field = document.getElementById("search_cheap_hotels_by_name_text_field");
 var search_cheap_hotels_by_location_button = document.getElementById("search_cheap_hotels_by_location_button");
 
 function get_book_cheap_book_direct_hotels(){
-    if(search_cheap_hotels_post_data.search_type === "by_city"){
-        $.ajax({
-            type: "POST",
-            url: "/cheap_hotels",
-            data: JSON.stringify(search_cheap_hotels_post_data),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: data =>{
+    
+    $.ajax({
+        type: "POST",
+        url: "/cheap_hotels",
+        data: JSON.stringify(search_cheap_hotels_post_data),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: data =>{
 
-                console.log(data);
-                cheap_hotels_list = data;
-                //this simply display's hotels based on new data from search
-                load_more_cheap_hotels();
-            },
-            error: err =>{
-                console.log(err);
-            }
-        });
-    }else if(search_cheap_hotels_post_data.search_type === "by_name"){
-        //search by hotel name here
-    }else if(search_cheap_hotels_post_data.search_type === "by_city_and_name"){
-        //search by city and hotel name here
-    }
+            console.log(data);
+            cheap_hotels_list = data;
+            //this simply display's hotels based on new data from search
+            load_more_cheap_hotels();
+        },
+        error: err =>{
+            console.log(err);
+        }
+    });
+
 }
 
 search_cheap_hotels_by_location_button.addEventListener("click", evnt =>{
 
-    if(search_cheap_hotels_by_location_text_field.value === ""){
-        search_cheap_hotels_by_location_text_field.focus();
-    }else{
-        if(search_cheap_hotels_post_data.city === "" || search_cheap_hotels_post_data.country === ""){
-            
+    if(search_cheap_hotels_post_data.search_type === "by_city"){
+
+        if(search_cheap_hotels_by_location_text_field.value === ""){
+            search_cheap_hotels_by_location_text_field.focus();
+        }else{
+            if(search_cheap_hotels_post_data.city === "" || search_cheap_hotels_post_data.country === ""){
+                
+                let cities_arr = all_world_cities_auto_complete(search_cheap_hotels_by_location_text_field.value);
+
+                if(cities_arr.length > 0){
+                    search_cheap_hotels_post_data.city = cities_arr[0].name;
+                    search_cheap_hotels_post_data.country = cities_arr[0].country;
+                }else{
+                    search_cheap_hotels_by_location_text_field.focus();
+                    search_cheap_hotels_by_location_text_field.placeholder = "please enter a valid city/country";
+                    search_cheap_hotels_by_location_text_field.value = "";
+                }
+
+                //alert(search_cheap_hotels_post_data.city);
+                //alert(search_cheap_hotels_post_data.country);
+
+            }else{
+                book_cheap_book_direct_hotels_list.innerHTML = ``;
+                global_cheap_hotels_index = 0;
+                no_more_cheap_hotels_status_msg.style.display = "none";
+
+                get_book_cheap_book_direct_hotels();
+
+            }
+        }
+        
+    }else if(search_cheap_hotels_post_data.search_type === "by_name"){
+
+        if(search_cheap_hotels_by_name_text_field.value === ""){
+            search_cheap_hotels_by_name_text_field.focus();
+            search_cheap_hotels_by_name_text_field.placeholder = "hotel name is required for search";
+        }else{
+            book_cheap_book_direct_hotels_list.innerHTML = ``;
+            global_cheap_hotels_index = 0;
+            no_more_cheap_hotels_status_msg.style.display = "none";
+
+            get_book_cheap_book_direct_hotels();
+        }
+        
+    }else if(search_cheap_hotels_post_data.search_type === "by_city_and_name"){
+
+        if(search_cheap_hotels_by_name_text_field.value === ""){
+            search_cheap_hotels_by_name_text_field.focus();
+            search_cheap_hotels_by_name_text_field.placeholder = "hotel name is required for search";
+        }else if(search_cheap_hotels_by_location_text_field.value === ""){
+            search_cheap_hotels_by_location_text_field.focus();
+        }else if(search_cheap_hotels_post_data.city === "" || search_cheap_hotels_post_data.country === ""){
+                
             let cities_arr = all_world_cities_auto_complete(search_cheap_hotels_by_location_text_field.value);
 
             if(cities_arr.length > 0){
@@ -253,9 +299,7 @@ search_cheap_hotels_by_location_button.addEventListener("click", evnt =>{
             no_more_cheap_hotels_status_msg.style.display = "none";
 
             get_book_cheap_book_direct_hotels();
-
         }
-        
     }
 });
 
@@ -266,7 +310,8 @@ function render_a_cheap_hotels(name, pic_url, location, rating, hotel_site_url, 
 
     return `
         <div class="wide_screen_ads_card">
-            <p class="wide_screen_ads_card_corder_ads_indicator">${current_price}</p>
+            <p class="wide_screen_ads_card_corder_ads_indicator">
+            <span style="color: rgb(216, 102, 27); font-size: 12px;">Average price:</span> ${current_price}</p>
             <div class="wide_screen_ads_main_content">
             <div id="book_cheap_book_direct_hotels_main_pic_img${global_cheap_hotels_index}" class="left_Side" style="background-image: url('${pic_url}'); overflow: initial !important;">
                 <div class="book_cheap_book_direct_hotels_full_pic">
@@ -545,11 +590,62 @@ function toggle_hide_show_cheap_hotel_payments_prompt(){
 
 
 function cheap_hotels_search_pick_search_type(search_type){
+
+    var name_input_title = document.getElementById("book_cheap_book_direct_search_form_name_input_title");
+    var city_input_title = document.getElementById("book_cheap_book_direct_search_form_city_input_title");
+
     if(search_type === "by_city"){
-        //set by city search here
+
+        name_input_title.style.opacity = 0;
+        city_input_title.style.opacity = 0;
+
+        setTimeout(()=>{
+            name_input_title.style.display = "none";
+            city_input_title.style.display = "none";
+            $("#search_cheap_hotels_by_name_text_field").slideUp("fast");
+        }, 300);
+
+        setTimeout(()=>{
+            $("#search_cheap_hotels_by_location_text_field").slideDown("fast");
+        },600);
+
+        //values = ["by_city", "by_name", "by_city_and_name"]
+        search_cheap_hotels_post_data.search_type = "by_city";
+
     }else if(search_type === "by_name"){
-        //set by name search here
+
+        name_input_title.style.opacity = 0;
+        city_input_title.style.opacity = 0;
+
+        setTimeout(()=>{
+            name_input_title.style.display = "none";
+            city_input_title.style.display = "none";
+            $("#search_cheap_hotels_by_location_text_field").slideUp("fast");
+        }, 300);
+
+        setTimeout(()=>{
+            $("#search_cheap_hotels_by_name_text_field").slideDown("fast");
+        },600);
+
+        //values = ["by_city", "by_name", "by_city_and_name"]
+        search_cheap_hotels_post_data.search_type = "by_name";
+
     }else if(search_type === "by_city_and_name"){
-        //set by city and name search here
+
+        $("#search_cheap_hotels_by_location_text_field").slideDown("fast");
+        $("#search_cheap_hotels_by_name_text_field").slideDown("fast");
+        
+        setTimeout(()=>{
+            name_input_title.style.display = "block";
+            city_input_title.style.display = "block";
+        },300);
+
+        setTimeout(()=>{
+            name_input_title.style.opacity = 1;
+            city_input_title.style.opacity = 1;
+        },600);
+
+        //values = ["by_city", "by_name", "by_city_and_name"]
+        search_cheap_hotels_post_data.search_type = "by_city_and_name";
     }
 }

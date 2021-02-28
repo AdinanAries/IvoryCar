@@ -123,11 +123,14 @@ select:focus {
   overflow: initial !important;
 }
 .book_direct_form_inputs input[type="text"] {
-  width: calc(75% - 13px);
+  width: calc(100% - 13px);
   padding: 10px;
   border: none;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
+}
+.book_direct_form_inputs .book_cheap_book_direct_all_inputs_container {
+  width: 75%;
 }
 .book_direct_form_inputs button {
   width: calc(25% - 13px);
@@ -160,6 +163,10 @@ select:focus {
 }
 button:focus {
   outline: none;
+}
+#book_cheap_book_direct_search_form_name_input_title,
+#book_cheap_book_direct_search_form_city_input_title {
+  transition: opacity 0.25s;
 }
 .sign_in_div {
   display: flex;
