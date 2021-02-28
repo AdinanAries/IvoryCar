@@ -542,3 +542,14 @@ book_cheap_book_direct_register_hotel_description_input.oninput = function() {
 function toggle_hide_show_cheap_hotel_payments_prompt(){
     $("#book_cheap_book_direct_payments_prompt").toggle("up");
 }
+
+
+function cheap_hotels_search_pick_search_type(search_type){
+    if(search_type === "by_city"){
+        //set by city search here
+    }else if(search_type === "by_name"){
+        //set by name search here
+    }else if(search_type === "by_city_and_name"){
+        //set by city and name search here
+    }
+}
