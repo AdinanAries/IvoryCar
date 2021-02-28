@@ -186,7 +186,7 @@ var cheap_hotels_list = [];
 ];*/
 
 var search_cheap_hotels_post_data = {
-    search_type:"by_city", //by_city or by_name
+    search_type:"by_city", //values = ["by_city", "by_name", "by_city_and_name"]
     city: "",
     country: "",
 }
@@ -201,23 +201,29 @@ var search_cheap_hotels_by_location_text_field = document.getElementById("search
 var search_cheap_hotels_by_location_button = document.getElementById("search_cheap_hotels_by_location_button");
 
 function get_book_cheap_book_direct_hotels(){
-    $.ajax({
-        type: "POST",
-        url: "/cheap_hotels",
-        data: JSON.stringify(search_cheap_hotels_post_data),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: data =>{
+    if(search_cheap_hotels_post_data.search_type === "by_city"){
+        $.ajax({
+            type: "POST",
+            url: "/cheap_hotels",
+            data: JSON.stringify(search_cheap_hotels_post_data),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: data =>{
 
-            console.log(data);
-            cheap_hotels_list = data;
-            //this simply display's hotels based on new data from search
-            load_more_cheap_hotels();
-        },
-        error: err =>{
-            console.log(err);
-        }
-    });
+                console.log(data);
+                cheap_hotels_list = data;
+                //this simply display's hotels based on new data from search
+                load_more_cheap_hotels();
+            },
+            error: err =>{
+                console.log(err);
+            }
+        });
+    }else if(search_cheap_hotels_post_data.search_type === "by_name"){
+        //search by hotel name here
+    }else if(search_cheap_hotels_post_data.search_type === "by_city_and_name"){
+        //search by city and hotel name here
+    }
 }
 
 search_cheap_hotels_by_location_button.addEventListener("click", evnt =>{
