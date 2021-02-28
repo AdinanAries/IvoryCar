@@ -531,3 +531,7 @@ book_cheap_book_direct_register_hotel_description_input.oninput = function() {
     book_cheap_book_direct_register_hotel_description_input.style.height = ""; /* Reset the height*/
     book_cheap_book_direct_register_hotel_description_input.style.height = Math.min(book_cheap_book_direct_register_hotel_description_input.scrollHeight, heightLimit) + "px";
 };
+
+function toggle_hide_show_cheap_hotel_payments_prompt(){
+    $("#book_cheap_book_direct_payments_prompt").toggle("up");
+}
