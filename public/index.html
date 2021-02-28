@@ -303,12 +303,9 @@
       </div>
     </div>
 
-    <div id="book_cheap_book_direct_payments_form_container" class="page_cover_for_popups">
+    <div id="book_cheap_book_direct_payments" class="page_cover_for_popups">
 
-    </div>
-
-    <div id="book_cheap_book_direct_payments_prompt" class="page_cover_for_popups">
-      <div style="display: flex; height: 100%; flex-direction: column !important; justify-content: center; padding: 0 10px;">
+      <div id="book_cheap_book_direct_payments_prompt" style="display: flex; height: 100%; flex-direction: column !important; justify-content: center; padding: 0 10px;">
         <div style="background: white; padding: 20px; max-width: 500px; margin: auto; border-radius: 4px;">
           <p style="font-size: 14px; font-weight: bolder; letter-spacing: 1px;">
             <i style="color: orangered; font-size: 22px; margin-right: 5px;" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
@@ -316,9 +313,61 @@
           <p style="margin: 20px; text-align: Justify; font-size: 14px; letter-spacing: 1px;">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam odio, culpa magnam nam ipsa officia asperiores, veritatis sed qui accusamus cupiditate error sequi sint! Distinctio aspernatur modi molestias eos. Iure.
           </p>
-          <div onclick="toggle_hide_show_cheap_hotel_payments_prompt();" style="text-align: center; font-size: 14px; padding: 15px; width: 100px; cursor: pointer; border-radius: 4px;
+          <div onclick="show_book_cheap_book_direct_payments_form();" style="text-align: center; font-size: 14px; padding: 15px; width: 100px; cursor: pointer; border-radius: 4px;
            background-color: #2a4255; color: white; margin: auto; margin-top: 20px;">
             OK
+          </div>
+        </div>
+      </div>
+
+      <div id="book_cheap_book_direct_payments_form_container" style="display: none; height: 100%; flex-direction: column !important; justify-content: center; padding: 0 10px;">
+        <div id="book_cheap_book_direct_payments_form_container_subscription" style="background: white; padding: 20px; width: 90%; max-width: 500px; margin: auto; border-radius: 4px;">
+          <p style="text-align: center; font-weight: bolder; font-size: 16px; letter-spacing: 1px; color:rgb(216, 102, 27);">Subscription</p>
+          <p style="text-align: center; font-size: 12p; color:rgb(90, 90, 90); margin-top: 5px;">pick your subscription plan below</p>
+          <div style="margin-top: 20px;">
+            <div style="display: flex; flex-direction: row i !important; justify-content: center;">
+              <div onclick="show_book_cheap_book_direct_payments_form_inputs();" style="margin-right: 10px; padding: 10px; background-color:rgb(5, 57, 99); border-radius: 4px; min-height: 100px; width: calc(50% - 25px); cursor: pointer;">
+                <div style="height: 100% !important; display: flex; flex-direction: column !important; justify-content: center;">
+                  <p style="color: white; font-size: 14px; font-weight: bolder; letter-spacing: 1px; margin-bottom: 10px; text-align: center;">Monthly</p>
+                  <p style="color:rgb(233, 214, 190); font-size: 18px; text-align: center;">$49.99</p>
+                </div>
+              </div>
+              <div onclick="show_book_cheap_book_direct_payments_form_inputs();" style="padding: 10px; background-color:rgb(5, 57, 99); border-radius: 4px; min-height: 100px; width: calc(50% - 25px); cursor: pointer;">
+                <div style="height: 100% !important; display: flex; flex-direction: column !important; justify-content: center;">
+                  <p style="color: white; font-size: 14px; font-weight: bolder; letter-spacing: 1px; margin-bottom: 15px; text-align: center;">3 Months</p>
+                  <p style="color:rgb(233, 214, 190); font-size: 18px; text-align: center;">$49.99</p>
+                  <p style="color:rgb(215, 224, 228); font-size: 13px; letter-spacing: 1px; text-align: center; margin-top: 5px;">Save $10.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: 20px;">
+            <div style="display: flex; flex-direction: row i !important; justify-content: center;">
+              <div onclick="show_book_cheap_book_direct_payments_form_inputs();" style="margin-right: 10px; padding: 10px; background-color:rgb(5, 57, 99); border-radius: 4px; min-height: 100px; width: calc(50% - 25px); cursor: pointer;">
+                <div style="height: 100% !important; display: flex; flex-direction: column !important; justify-content: center;">
+                  <p style="color: white; font-size: 14px; font-weight: bolder; letter-spacing: 1px; margin-bottom: 15px; text-align: center;">6 Months</p>
+                  <p style="color:rgb(233, 214, 190); font-size: 18px; text-align: center;">$49.99</p>
+                  <p style="color:rgb(215, 224, 228); font-size: 13px; letter-spacing: 1px; text-align: center; margin-top: 5px;">Save $10.00</p>
+                </div>
+              </div>
+              <div onclick="show_book_cheap_book_direct_payments_form_inputs();" style="padding: 10px; background-color:rgb(5, 57, 99); border-radius: 4px; min-height: 100px; width: calc(50% - 25px); cursor: pointer;">
+                <div style="height: 100% !important; display: flex; flex-direction: column !important; justify-content: center;">
+                  <p style="color: white; font-size: 14px; font-weight: bolder; letter-spacing: 1px; margin-bottom: 15px; text-align: center;">Yearly</p>
+                  <p style="color:rgb(233, 214, 190); font-size: 18px; text-align: center;">$49.99</p>
+                  <p style="color:rgb(215, 224, 228); font-size: 13px; letter-spacing: 1px; text-align: center; margin-top: 5px;">Save $10.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div onclick="toggle_hide_show_cheap_hotel_payments_prompt();" style="margin: auto; width: 300px; font-size: 14px; margin-top: 20px; text-align: center; color: white; background-color:rgb(197, 0, 0); padding: 10px; border-radius: 4px;">
+            cancel
+          </div>
+        </div>
+        <div id="book_cheap_book_direct_payments_form_container_inputs" style="display: none; background: white; padding: 20px; width: 90%; max-width: 500px; margin: auto; border-radius: 4px;">
+          <p style="text-align: center; font-weight: bolder; font-size: 16px; letter-spacing: 1px; color:rgb(216, 102, 27);">Payment</p>
+          <p style="text-align: center; font-size: 12p; color:rgb(90, 90, 90); margin-top: 5px;">add payment information below</p>
+          <div onclick="toggle_hide_show_cheap_hotel_payments_prompt();" style="margin: auto; width: 300px; font-size: 14px; margin-top: 20px; text-align: center; color: white; background-color:rgb(197, 0, 0); padding: 10px; border-radius: 4px;">
+            cancel
           </div>
         </div>
       </div>

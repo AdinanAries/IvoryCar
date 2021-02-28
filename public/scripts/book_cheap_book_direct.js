@@ -585,9 +585,18 @@ book_cheap_book_direct_register_hotel_description_input.oninput = function() {
 };
 
 function toggle_hide_show_cheap_hotel_payments_prompt(){
-    $("#book_cheap_book_direct_payments_prompt").toggle("up");
+    $("#book_cheap_book_direct_payments").toggle("up");
 }
 
+function show_book_cheap_book_direct_payments_form(){
+    document.getElementById('book_cheap_book_direct_payments_prompt').style.display = 'none'
+    document.getElementById('book_cheap_book_direct_payments_form_container').style.display = 'flex'
+}
+
+function show_book_cheap_book_direct_payments_form_inputs(){
+    document.getElementById("book_cheap_book_direct_payments_form_container_subscription").style.display = "none";
+    document.getElementById("book_cheap_book_direct_payments_form_container_inputs").style.display = "block";
+}
 
 function cheap_hotels_search_pick_search_type(search_type){
 
