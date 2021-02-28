@@ -586,13 +586,17 @@ book_cheap_book_direct_register_hotel_description_input.oninput = function() {
 
 function toggle_hide_show_cheap_hotel_payments_prompt(){
     $("#book_cheap_book_direct_payments").toggle("up");
+    show_book_cheap_book_direct_payments_form_subscription();
 }
 
 function show_book_cheap_book_direct_payments_form(){
-    document.getElementById('book_cheap_book_direct_payments_prompt').style.display = 'none'
-    document.getElementById('book_cheap_book_direct_payments_form_container').style.display = 'flex'
+    document.getElementById('book_cheap_book_direct_payments_prompt').style.display = 'none';
+    document.getElementById('book_cheap_book_direct_payments_form_container').style.display = 'flex';
 }
-
+function show_book_cheap_book_direct_payments_form_subscription(){
+    document.getElementById("book_cheap_book_direct_payments_form_container_subscription").style.display = "block";
+    document.getElementById("book_cheap_book_direct_payments_form_container_inputs").style.display = "none";
+}
 function show_book_cheap_book_direct_payments_form_inputs(){
     document.getElementById("book_cheap_book_direct_payments_form_container_subscription").style.display = "none";
     document.getElementById("book_cheap_book_direct_payments_form_container_inputs").style.display = "block";
