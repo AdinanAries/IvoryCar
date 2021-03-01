@@ -218,8 +218,32 @@
                     </div>
                     <div style="position: relative; overflow: initial !important" class="book_cheap_book_direct_register_hotel_main_forms_field">
                       <p>Hotel City, Country</p>
-                      <input autocomplete="off" id="register_cheap_hotels_location_text_field" type="text" />
-                      <div style="width: calc(100% - 18px) !important; left: auto; top: calc(100% - 15px); background-color: rgb(216, 102, 27);" 
+                      <div>
+                        <p style="color:rgb(228, 190, 190); font-size: 12px;">You may add all cities where your brand operates</p>
+                        <div style="display:  flex; flex-direction: row !important; flex-wrap: wrap;">
+                          <p style="margin-right: 5px; background-color:rgb(74, 101, 112); color: white; border-radius: 4px; padding: 10px; font-size: 11px;"
+                          >New York<span style="padding: 5px; padding-left: 15px;"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></span></p>
+                          
+                          <p style="margin-right: 5px; background-color:rgb(74, 101, 112); color: white; border-radius: 4px; padding: 10px; font-size: 11px;"
+                          >Ontario<span style="padding: 5px; padding-left: 15px;"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></span></p>
+                        
+                          <p style="margin-right: 5px; background-color:rgb(74, 101, 112); color: white; border-radius: 4px; padding: 10px; font-size: 11px;"
+                          >Liverpool<span style="padding: 5px; padding-left: 15px;"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></span></p>
+                        
+                          <p style="margin-right: 5px; background-color:rgb(74, 101, 112); color: white; border-radius: 4px; padding: 10px; font-size: 11px;"
+                          >California<span style="padding: 5px; padding-left: 15px;"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></span></p>
+                        
+                          <p style="margin-right: 5px; background-color:rgb(74, 101, 112); color: white; border-radius: 4px; padding: 10px; font-size: 11px;"
+                          >Accra<span style="padding: 5px; padding-left: 15px;"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></span></p>
+                        
+                        </div>
+                      </div>
+                      <div style="display: flex; flex-direction: row !important;">
+                        <input autocomplete="off" style="width: calc(75% - 10px); border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important;" 
+                        id="register_cheap_hotels_location_text_field" type="text" />
+                        <button style="width: calc(25% - 10px); padding: 10px; border: none; border-radius: 0; font-size: 14px; border-top-right-radius: 4px; border-bottom-right-radius: 4px;">Add</button>
+                      </div>
+                      <div style="width: calc(100% - 19px) !important; left: auto; top: calc(100% - 15px); background-color: rgb(216, 102, 27);" 
                         id="main_book_cheap_book_direct_register_hotel_location_input_autocomplete_section" class="book_cheap_book_direct_location_input_autocomplete_section">
                         <ul id="book_cheap_book_direct_register_hotel_location_input_autocomplete_list" style="overflow: initial !important; list-style-type: none;">
                           
@@ -235,7 +259,7 @@
                     </div>
                     <div class="book_cheap_book_direct_register_hotel_main_forms_field">
                       <p>Your Mobile/Telephone</p>
-                      <input id="book_cheap_book_direct_register_hotel_phone_input_fld" type="number" placeholder="+000 000 000 0000"/>
+                      <input id="book_cheap_book_direct_register_hotel_phone_input_fld" type="text" placeholder="+000 000 000 0000"/>
                     </div>
                     <div class="book_cheap_book_direct_register_hotel_main_forms_field">
                       <p>Hotel Description</p>
@@ -363,20 +387,20 @@
               </div>
             </div>
           </div>
-          <div onclick="toggle_hide_show_cheap_hotel_payments_prompt();" style="margin: auto; width: 300px; font-size: 14px; margin-top: 20px; text-align: center; color: white; background-color:rgb(197, 0, 0); padding: 10px; border-radius: 4px;">
+          <div onclick="toggle_hide_show_cheap_hotel_payments_prompt();" style="cursor: pointer; margin: auto; width: 300px; font-size: 14px; margin-top: 20px; text-align: center; color: white; background-color:rgb(197, 0, 0); padding: 10px; border-radius: 4px;">
             cancel
           </div>
         </div>
         <div id="book_cheap_book_direct_payments_form_container_inputs" style="display: none; background: white; padding: 20px; width: 90%; max-width: 500px; margin: auto; border-radius: 4px;">
           <p style="text-align: center; font-weight: bolder; font-size: 16px; letter-spacing: 1px; color:rgb(216, 102, 27);">Payment</p>
           <p style="text-align: center; font-size: 12p; color:rgb(90, 90, 90); margin-top: 5px;">add payment information below</p>
-          <p style="width: fit-content; font-size: 14px; padding: 10px; font-weight: bolder; letter-spacing: 1px; color:rgb(25, 77, 102)" onclick="show_book_cheap_book_direct_payments_form_subscription();">
+          <p style="cursor: pointer; width: fit-content; font-size: 14px; padding: 10px; font-weight: bolder; letter-spacing: 1px; color:rgb(25, 77, 102)" onclick="show_book_cheap_book_direct_payments_form_subscription();">
             <i class="fa fa-chevron-left" aria-hidden="true" style="margin-right: 7px; color:rgb(197, 0, 0);"></i>back
           </p>
           <div style="background-color: #d85d38; min-height: 100px; border-radius: 4px; margin: 10px;">
 
           </div>
-          <div onclick="toggle_hide_show_cheap_hotel_payments_prompt();" style="margin: auto; width: 300px; font-size: 14px; margin-top: 20px; text-align: center; color: white; background-color:rgb(197, 0, 0); padding: 10px; border-radius: 4px;">
+          <div onclick="toggle_hide_show_cheap_hotel_payments_prompt();" style="cursor: pointer; margin: auto; width: 300px; font-size: 14px; margin-top: 20px; text-align: center; color: white; background-color:rgb(197, 0, 0); padding: 10px; border-radius: 4px;">
             cancel
           </div>
         </div>
@@ -1913,7 +1937,7 @@
           <p style="color: white; font-size: 14px; margin-bottom: 10px;">Enter city/country to find cheapest hotels</p>
           <div class="book_direct_form_inputs">
             <div class="book_cheap_book_direct_all_inputs_container">
-              <p id="book_cheap_book_direct_search_form_name_input_title" style="display: none; opacity: 0; color:rgb(74, 101, 112); font-weight: bolder; letter-spacing: 1px; font-size: 12px; padding: 10px; padding-bottom: 0;">
+              <p id="book_cheap_book_direct_search_form_name_input_title" style="display: none; opacity: 0; color:rgb(74, 101, 112); font-weight: bolder; letter-spacing: 1px; font-size: 12px; padding: 10px; padding-bottom: 0; margin-top: 10px;">
                 Hotel name:</p>
               <input style="display: none;" id="search_cheap_hotels_by_name_text_field" type="text" autocomplete="off" placeholder="Please enter hotel name here"/>
               <p id="book_cheap_book_direct_search_form_city_input_title" style="display: none; opacity: 0; color:rgb(74, 101, 112); font-weight: bolder; letter-spacing: 1px; font-size: 12px; padding: 10px; padding-bottom: 0;">
