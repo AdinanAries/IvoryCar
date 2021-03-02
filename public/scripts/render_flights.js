@@ -1344,7 +1344,7 @@ function render_flights(){
                                         <p style="opacity: 0.8; font-weight: bolder; font-size: 14px;">
                                         <i style="margin-right: 5px;" aria-hidden="true" class="fa fa-ticket"></i>
                                         Sold by</p>
-                                        <p style="opacity: 0.7; font-size: 14px; margin-top: 5px;">${airline_name}</p>
+                                        <p style="opacity: 0.7; font-size: 14px; margin-top: 5px;">${validating_airline}</p>
                                         <img style="margin: 0; width: 70px; height: 55px;" src="https://daisycon.io/images/airline/?width=950&height=855&color=ffffff&iata=${data[w].validatingAirlineCodes[0]}" alt=""/>
                                     </div>
                                     <div style="margin-right: 10px; margin-top: 20px;">
