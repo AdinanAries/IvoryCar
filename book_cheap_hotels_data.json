@@ -53,16 +53,10 @@
         "currency": "USD",
         "reviews": [
             {
-                "person": "Mohammed Adinan",
-                "image": "./images/Anonymous_person3.jpg",
-                "rated": 4,
-                "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quam eum repellendus eligendi ipsum ac"
-            },
-            {
-                "person": "Efya Splending",
-                "image": "./images/Anonymous_person3.jpg",
-                "rated": 3,
-                "message": "This is a rating message from my love Efya Splending. I love Mohammed as she always says"
+                "person": "Anidaso Team",
+                "image": "./images/management_team_icon.png",
+                "rated": 5,
+                "message": "We have conducted checks on this hotel brand and we are satisfied by our findings."
             }
         ]
     },{

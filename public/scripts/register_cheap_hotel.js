@@ -1,13 +1,23 @@
 var register_cheap_hotel_post_data = {
-    hotel_name: "",
-    main_branch_location: "",
-    web_url: "",
-    avg_price: "",
+    name: "",
+    location: "",
+    url: "",
+    price: "",
+    currency: "USD",
     photos: [],
     cities_operating: [],
     email: "",
     mobile: "",
-    description: ""
+    description: "",
+    rating: 5,
+    reviews: [
+        {
+            person: "Anidaso Team",
+            image: "./images/management_team_icon.png",
+            rated: 5,
+            message: "We have conducted checks on this hotel brand and we are satisfied by our findings."
+        }
+    ]
 
 }
 
@@ -67,6 +77,9 @@ book_cheap_hotel_register_new_hotel_button.addEventListener("click", evnt => {
         book_cheap_hotel_register_new_hotel_button.style.backgroundColor = "orangered";
         book_cheap_hotel_register_new_hotel_button.style.borderColor = "orange";
     }else{
+        //1. Do validation on server first to make sure data can be saved
+        //2. Start subscription and payment process
+        //3. If payment is successul, save user's information to DB
         toggle_hide_show_cheap_hotel_payments_prompt();
     }
     

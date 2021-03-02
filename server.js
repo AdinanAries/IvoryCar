@@ -7,7 +7,18 @@ const { default: Axios } = require("axios");
 const fetch = require("node-fetch");
 var https = require('https');
 var querystring = require('querystring');
-var fs = require('fs')
+var fs = require('fs');
+var mongoose = require("mongoose");
+var dotenv = require("dotenv").config();
+
+//mongo db atlass stuff
+var mongo_db_url = process.env.MONGO_DB_URL;
+mongoose.connect(mongo_db_url, {useNewUrlParser: true, useUnifiedTopology: true}, ()=>{
+  console.log("connected to database successfully")
+});
+
+//data models
+var cheap_hotel = require("./models/cheap_hotel_model");
 
 //Globals to store endpoint data
 var all_events = [];
