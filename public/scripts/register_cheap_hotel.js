@@ -107,32 +107,45 @@ function register_cheap_hotel_add_city_to_operating_cities(){
 function register_cheap_hotel_add_city(city_country){
 
     let item_index = (register_cheap_hotel_post_data.cities_operating.length); //length is going to be one more than last index
+    
     let city_value = city_country.split(",")[0].trim();
     let country_value = city_country.split(",")[1].trim();
 
-    register_cheap_hotel_post_data.cities_operating.push({city: city_value, country: country_value});
+    let contains_array = register_cheap_hotel_post_data.cities_operating.filter(
+        each => ((each.city + each.country) === (city_value + country_value))
+    );
 
-    //Create Dom here
-    document.getElementById("register_cheap_hotels_cities_in_operation_list")
-    .innerHTML += `
-        <p id="register_cheap_hotels_city_in_operation_${item_index}" style="margin-right: 5px; background-color:rgb(74, 101, 112); color: white; border-radius: 4px; padding: 10px; font-size: 11px;"
-        >${city_value}
-            <span onclick="register_cheap_hotel_remove_city_from_operating_cities(${item_index}, '${city_value}', '${country_value}');" style="padding: 5px; padding-left: 15px;">
-                <i class="fa fa-times" aria-hidden="true" style="color: red"></i>
-            </span>
-        </p>
-    `;
-    
-    register_cheap_hotels_location_text_field.value = "";
-    register_cheap_hotels_location_text_field.placeholder = "";
-    console.log(register_cheap_hotel_post_data.cities_operating);
+    if(contains_array.length > 0){
+        register_cheap_hotels_location_text_field.focus();
+        register_cheap_hotels_location_text_field.value = "";
+        register_cheap_hotels_location_text_field.placeholder = "city already added";
+    }else{
+        register_cheap_hotel_post_data.cities_operating.push({city: city_value, country: country_value});
+
+        //Create Dom here
+        document.getElementById("register_cheap_hotels_cities_in_operation_list")
+        .innerHTML += `
+            <p id="register_cheap_hotels_city_in_operation_${item_index}" style="margin-right: 5px; background-color:rgb(74, 101, 112); color: white; border-radius: 4px; padding: 10px; font-size: 11px;"
+            >${city_value}
+                <span onclick="register_cheap_hotel_remove_city_from_operating_cities(${item_index}, '${city_value}', '${country_value}');" style="padding: 5px; padding-left: 15px;">
+                    <i class="fa fa-times" aria-hidden="true" style="color: red"></i>
+                </span>
+            </p>
+        `;
+        
+        register_cheap_hotels_location_text_field.value = "";
+        register_cheap_hotels_location_text_field.placeholder = "";
+        console.log(register_cheap_hotel_post_data.cities_operating);
+    }
 
 }
 
 function register_cheap_hotel_remove_city_from_operating_cities(index, city, country){
+    
     register_cheap_hotel_post_data.cities_operating = register_cheap_hotel_post_data.cities_operating.filter(
-        each => each.city !== city && each.country !== country
+        each => ((each.city + each.country) !== (city + country))
     );
     document.getElementById("register_cheap_hotels_city_in_operation_"+index).style.display = "none";
+    document.getElementById("register_cheap_hotels_city_in_operation_"+index).remove();
     console.log(register_cheap_hotel_post_data.cities_operating);
 }
