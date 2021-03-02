@@ -26,6 +26,7 @@ var book_cheap_book_direct_add_hotel_add_pic_input_3 = document.getElementById("
 var book_cheap_book_direct_add_hotel_add_pic_input_4 = document.getElementById("book_cheap_book_direct_add_hotel_add_pic_input_4");
 
 book_cheap_hotel_register_new_hotel_button.addEventListener("click", evnt => {
+    
     if(book_cheap_book_direct_register_hotel_name_input_fld.value === ""){
         book_cheap_hotel_register_new_hotel_button.innerText = "hotel name is required"
         book_cheap_hotel_register_new_hotel_button.style.backgroundColor = "orangered";
@@ -59,6 +60,10 @@ book_cheap_hotel_register_new_hotel_button.addEventListener("click", evnt => {
              book_cheap_book_direct_add_hotel_add_pic_input_3.value === "" ||
              book_cheap_book_direct_add_hotel_add_pic_input_4.value === ""){
         book_cheap_hotel_register_new_hotel_button.innerText = "add all four(4) photos"
+        book_cheap_hotel_register_new_hotel_button.style.backgroundColor = "orangered";
+        book_cheap_hotel_register_new_hotel_button.style.borderColor = "orange";
+    }else if(register_cheap_hotel_post_data.cities_operating.length < 1){
+        book_cheap_hotel_register_new_hotel_button.innerText = "add atleast one city"
         book_cheap_hotel_register_new_hotel_button.style.backgroundColor = "orangered";
         book_cheap_hotel_register_new_hotel_button.style.borderColor = "orange";
     }else{
@@ -102,6 +107,8 @@ function register_cheap_hotel_add_city_to_operating_cities(){
             register_cheap_hotel_add_city(register_cheap_hotels_location_text_field.value);
         }
     }
+
+    on_input_reset_func();
 }
 
 function register_cheap_hotel_add_city(city_country){
