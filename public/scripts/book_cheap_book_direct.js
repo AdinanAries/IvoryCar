@@ -238,6 +238,14 @@ search_cheap_hotels_by_location_button.addEventListener("click", evnt =>{
                 if(cities_arr.length > 0){
                     search_cheap_hotels_post_data.city = cities_arr[0].name;
                     search_cheap_hotels_post_data.country = cities_arr[0].country;
+
+                    book_cheap_book_direct_hotels_list.innerHTML = ``;
+                    global_cheap_hotels_index = 0;
+                    no_more_cheap_hotels_status_msg.style.display = "none";
+                    search_cheap_hotels_by_location_text_field.value = `${cities_arr[0].name}, ${cities_arr[0].country}`;
+
+                    get_book_cheap_book_direct_hotels();
+
                 }else{
                     search_cheap_hotels_by_location_text_field.focus();
                     search_cheap_hotels_by_location_text_field.placeholder = "please enter a valid city/country";
@@ -274,7 +282,7 @@ search_cheap_hotels_by_location_button.addEventListener("click", evnt =>{
 
         if(search_cheap_hotels_by_name_text_field.value === ""){
             search_cheap_hotels_by_name_text_field.focus();
-            search_cheap_hotels_by_name_text_field.placeholder = "hotel name is required for search";
+            search_cheap_hotels_by_name_text_field.placeholder = "hotel name is required";
         }else if(search_cheap_hotels_by_location_text_field.value === ""){
             search_cheap_hotels_by_location_text_field.focus();
         }else if(search_cheap_hotels_post_data.city === "" || search_cheap_hotels_post_data.country === ""){
@@ -284,6 +292,13 @@ search_cheap_hotels_by_location_button.addEventListener("click", evnt =>{
             if(cities_arr.length > 0){
                 search_cheap_hotels_post_data.city = cities_arr[0].name;
                 search_cheap_hotels_post_data.country = cities_arr[0].country;
+
+                book_cheap_book_direct_hotels_list.innerHTML = ``;
+                global_cheap_hotels_index = 0;
+                no_more_cheap_hotels_status_msg.style.display = "none";
+                search_cheap_hotels_by_location_text_field.value = `${cities_arr[0].name}, ${cities_arr[0].country}`;
+
+                get_book_cheap_book_direct_hotels();
             }else{
                 search_cheap_hotels_by_location_text_field.focus();
                 search_cheap_hotels_by_location_text_field.placeholder = "please enter a valid city/country";
