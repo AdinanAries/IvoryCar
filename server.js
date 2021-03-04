@@ -475,11 +475,25 @@ app.get("/user/:id", (req, res, next) =>{
   res.send(req.params.id);
 });
 
+
 //book cheap/book direct routes
+//getting cheap hotels by city or name
 app.post("/cheap_hotels/", (req, res, next) =>{
 
+  let search_type = req.body.search_type; //values = ["by_city", "by_name", "by_city_and_name"]
   let city = req.body.city;
   let country = req.body.country;
+  let hotel_name = req.body.hotel_name;
+
+  if(search_type === "by_city"){
+    let gotit = "got it";
+    //search by city and country
+  }else if(search_type === "by_name"){
+    //search by name
+  }
+  else{
+    //search by name, city and country
+  }
 
   //this code should be replaced with that to read data from DB
   fs.readFile('./book_cheap_hotels_data.json', 'utf8', function (err,data) {
@@ -490,6 +504,50 @@ app.post("/cheap_hotels/", (req, res, next) =>{
     res.send(data);
     //console.log(data);
   });
+
+});
+
+//validating cheap hotels
+app.post('/validate_cheap_hotel_data/', (req, res, next) => {
+
+  console.log(req.body)
+
+  try{
+
+    let new_cheap_hotel = new cheap_hotel({
+      name: req.body.name,
+      location: req.body.location,
+      url: req.body.url,
+      price: req.body.price,
+      currency: req.body.currency,
+      photos: req.body.photos,
+      cities_operating: req.body.cities_operating,
+      email: req.body.email,
+      mobile: req.body.mobile,
+      description: req.body.description,
+      rating: req.body.rating,
+      reviews: req.body.reviews,
+    });
+
+    res.send({success: true, data: new_cheap_hotel, msg: "input data validation succeeded"});
+
+  }catch(e){
+    res.status(400).send({success: false, data: e, msg: "input data validation failed"});
+  }
+  //res.send(req.body);
+});
+
+//registering new cheap hotel
+app.post('/register_cheap_hotel/', async (req, res, next) =>{
+
+  try{
+
+    let new_cheap_hotel = new cheap_hotel(req.body);
+    await new_cheap_hotel.save();
+
+  }catch(e){
+    res.status(400).send({success: false, data: e, msg: "input data validation failed"});
+  }
 
 });
 

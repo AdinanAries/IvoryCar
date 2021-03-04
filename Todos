@@ -6,6 +6,9 @@
 6. Add various search results filters.
 7. When you hover on book cheap/book direct hotel's picture, a popup should apear showing the picture in full dimension 
 8. Study the flights price analysis api to take account of flight class type (economy, premium economy, business, first, etc.)
+9. Look into how to design mongoose database for scalability
+10. Look into elastic search
+11. How to host pictures by url
 
 Motif for trips API:
     Amadeus Self-Service Trip APIs provide powerful functionalities to give your travelers a superior experience throughout the entire trip.

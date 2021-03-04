@@ -35,6 +35,41 @@ var book_cheap_book_direct_add_hotel_add_pic_input_2 = document.getElementById("
 var book_cheap_book_direct_add_hotel_add_pic_input_3 = document.getElementById("book_cheap_book_direct_add_hotel_add_pic_input_3");
 var book_cheap_book_direct_add_hotel_add_pic_input_4 = document.getElementById("book_cheap_book_direct_add_hotel_add_pic_input_4");
 
+
+async function collect_register_cheap_hotel_data(){
+    register_cheap_hotel_post_data.name = book_cheap_book_direct_register_hotel_name_input_fld.value;
+    register_cheap_hotel_post_data.price = book_cheap_book_direct_register_hotel_avg_price_input_fld.value;
+    register_cheap_hotel_post_data.url = book_cheap_book_direct_register_hotel_url_input_fld.value;
+    register_cheap_hotel_post_data.location = book_cheap_book_direct_register_main_location_input_fld.value;
+    register_cheap_hotel_post_data.email = book_cheap_book_direct_register_hotel_email_input_fld.value;
+    register_cheap_hotel_post_data.mobile = book_cheap_book_direct_register_hotel_phone_input_fld.value;
+    register_cheap_hotel_post_data.description = book_cheap_book_direct_register_hotel_description_input.value;
+
+    //adding user's selected photos
+    register_cheap_hotel_post_data.photos.push(book_cheap_book_direct_add_hotel_add_pic_input_1.value);
+    register_cheap_hotel_post_data.photos.push(book_cheap_book_direct_add_hotel_add_pic_input_2.value);
+    register_cheap_hotel_post_data.photos.push(book_cheap_book_direct_add_hotel_add_pic_input_3.value);
+    register_cheap_hotel_post_data.photos.push(book_cheap_book_direct_add_hotel_add_pic_input_4.value);
+
+}
+
+function validate_register_cheap_hotel_data(){
+
+    return $.ajax({
+        type: "POST",
+        url: "/validate_cheap_hotel_data",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(register_cheap_hotel_post_data),
+        success: res =>{
+            return res
+        },
+        error: err =>{
+            return res
+        }
+    });
+
+}
 book_cheap_hotel_register_new_hotel_button.addEventListener("click", evnt => {
     
     if(book_cheap_book_direct_register_hotel_name_input_fld.value === ""){
@@ -77,10 +112,40 @@ book_cheap_hotel_register_new_hotel_button.addEventListener("click", evnt => {
         book_cheap_hotel_register_new_hotel_button.style.backgroundColor = "orangered";
         book_cheap_hotel_register_new_hotel_button.style.borderColor = "orange";
     }else{
-        //1. Do validation on server first to make sure data can be saved
-        //2. Start subscription and payment process
-        //3. If payment is successul, save user's information to DB
-        toggle_hide_show_cheap_hotel_payments_prompt();
+
+        //collecting value from input into post data object
+        collect_register_cheap_hotel_data().then(()=>{
+            let validation_res = validate_register_cheap_hotel_data();
+
+            if(validation_res.statusText === "OK"){
+                //console.log(validation_res);
+                console.log(validation_res.responseJSON);
+                if(validation_res.responseJSON.success){
+                    toggle_hide_show_cheap_hotel_payments_prompt();
+
+                    //setting post data to validated data from server
+                    register_cheap_hotel_post_data = validation_res.responseJSON.data;
+                }else{
+                    book_cheap_hotel_register_new_hotel_button.innerText = validation_res.responseJSON.msg;
+                    book_cheap_hotel_register_new_hotel_button.style.backgroundColor = "orangered";
+                    book_cheap_hotel_register_new_hotel_button.style.borderColor = "orange";
+                }
+
+            }else{
+                book_cheap_hotel_register_new_hotel_button.innerText = "server error";
+                book_cheap_hotel_register_new_hotel_button.style.backgroundColor = "orangered";
+                book_cheap_hotel_register_new_hotel_button.style.borderColor = "orange";
+                console.log(validation_res);
+            }
+        }).catch(err =>{
+            console.log(err);
+        });
+
+        //1. Do validation on server first to make sure data can be saved - /validate_cheap_hotel_data/
+        
+        //2. Start subscription and payment process - /series of subscription and payments endpoints required by stripes payment gateway
+        //3. If payment is successul, save user's information to DB - /register_cheap_hotel/
+        
     }
     
 });
