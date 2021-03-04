@@ -17,7 +17,10 @@ const cheap_hotel_schema = new mongoose.Schema({
         required: true,
         index: true
     },
-    photos: Array, //arrays
+    photos: {
+        type: Array,
+        required: true
+    }, //arrays
     location: {
         type: String,
         required: true
@@ -42,8 +45,15 @@ const cheap_hotel_schema = new mongoose.Schema({
         type: String,
         required: true
     },
-    reviews: Array, //array
-    cities_operating: Array, //array
+    reviews: {
+        type: Array,
+        required: true
+    }, //array
+    cities_operating: {
+        type: Array,
+        required: true,
+        index: true
+    }, //array
     email: {
         type: String,
         required: true

@@ -215,9 +215,14 @@ function get_book_cheap_book_direct_hotels(){
             console.log(data);
             cheap_hotels_list = data;
             //this simply display's hotels based on new data from search
-            load_more_cheap_hotels();
+            if(data.length > 0){
+                load_more_cheap_hotels();
+            }else{
+                alert("no cheap hotel was found");
+            }
         },
         error: err =>{
+            alert("an error occured while searching");
             console.log(err);
         }
     });

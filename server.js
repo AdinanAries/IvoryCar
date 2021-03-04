@@ -19,6 +19,8 @@ mongoose.connect(mongo_db_url, {useNewUrlParser: true, useUnifiedTopology: true}
 
 //data models
 var cheap_hotel = require("./models/cheap_hotel_model");
+var login_user = require("./models/login_user_model");
+var signup_user = require("./models/signup_user_model");
 
 //Globals to store endpoint data
 var all_events = [];
@@ -451,22 +453,26 @@ app.post('/finish_room_booking/', (req, res, next)=> {
 //login and signup routes
 app.post("/login/", (req, res, next)=>{
 
-  let email = req.body.email;
-  let password = req.body.password;
+  let login_user = new login_user({
+    email: req.body.email,
+    password: req.body.password
+  });
 
-  res.send(req.body);
+  //res.send(req.body);
   //reach database with credentials here
   //I might need some library to provide for session managemet
 });
 
 app.post("/signup/", (req, res, next)=> {
 
-  let first_name = req.body.first_name;
-  let last_name = req.body.last_name;
-  let email = req.body.email;
-  let password = req.body.password;
+  let signup_user = new signup_user({
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    email: req.body.email,
+    password: req.body.password
+  });
 
-  res.send(req.body);
+  //res.send(req.body);
 
 })
 
@@ -537,12 +543,25 @@ app.post('/validate_cheap_hotel_data/', (req, res, next) => {
   //res.send(req.body);
 });
 
+app.post("/register_cheap_hotel_payment", (req, res, next)=> {
+  //1. this route takes care of payments
+  //some payment info has to be sent back to server for further check before allowing hotel information be saved
+});
+
+//uploading cheap hotels photos here
+app.post("/register_cheap_hotel_upload_photo/", (req, res, next)=> {
+    //2. upload photos and get urls for each upload
+    //this endpoint should return the photo url from aws s3 buckets to be collected on the clientside
+});
+
 //registering new cheap hotel
 app.post('/register_cheap_hotel/', async (req, res, next) =>{
-
+  
+  let cheap_hotel_post_data = req.body;
+  
   try{
 
-    let new_cheap_hotel = new cheap_hotel(req.body);
+    let new_cheap_hotel = new cheap_hotel(cheap_hotel_post_data);
     await new_cheap_hotel.save();
 
   }catch(e){
