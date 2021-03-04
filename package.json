@@ -17,7 +17,8 @@
     "express": "^4.17.1",
     "mongoose": "^5.11.18",
     "mongoose-type-url": "^2.1.0",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "stripe": "^8.137.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
