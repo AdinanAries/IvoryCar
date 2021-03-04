@@ -1,4 +1,6 @@
 var register_cheap_hotel_post_data = {
+    approved: false,
+    subscribed: false,
     name: "",
     location: "",
     url: "",

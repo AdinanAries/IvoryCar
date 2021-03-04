@@ -4,6 +4,14 @@ const mongoose = require("mongoose");
 require("mongoose-type-url");
 
 const cheap_hotel_schema = new mongoose.Schema({
+    approved: {
+        type: Boolean,
+        required: true
+    },
+    subscribed: {
+        type: Boolean,
+        required: true
+    },
     name: {
         type: String,
         required: true,
