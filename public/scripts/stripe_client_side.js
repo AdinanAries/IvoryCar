@@ -10,7 +10,7 @@ card.on('change', function (event) {
 
 function displayError(event) {
 
-    changeLoadingStatePrices(false);
+    //changeLoadingStatePrices(false);
     let displayErrorElement = document.getElementById('card-element-errors');
     if (event.error) {
         displayErrorElement.textContent = event.error.message;
@@ -20,7 +20,7 @@ function displayError(event) {
 
 }
 
-var form = document.getElementById('subscription-form');
+var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function (ev) {
   ev.preventDefault();
