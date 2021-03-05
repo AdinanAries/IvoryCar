@@ -166,15 +166,29 @@ function render_hotels(){
                     if(data.data[p].hotel.rating){
 
                         if(data.data[p].hotel.rating === "5"){
-                            hotel_rating = "&#9733; &#9733; &#9733; &#9733; &#9733;<span style='margin-left: 10px; color: orange;font-size: 13px;'>- Excellent<span>";
+                            hotel_rating = `
+                            &#9733; &#9733; &#9733; &#9733; &#9733;
+                            <span style='margin-left: 10px; color: orange;font-size: 11px; letter-spacing: 1px; font-weight: bolder; text-shadow: none;'>
+                            - Excellent<span>`;
                         }else if(data.data[p].hotel.rating === "4"){
-                            hotel_rating = "&#9733; &#9733; &#9733; &#9733; &#9734;<span style='margin-left: 10px; color: orange;font-size: 13px;'>- Very Good<span>";
+                            hotel_rating = `
+                            &#9733; &#9733; &#9733; &#9733; &#9734;
+                            <span style='margin-left: 10px; color: orange;font-size: 11px; letter-spacing: 1px; font-weight: bolder; text-shadow: none;'>
+                            - Very Good<span>`;
                         }else if(data.data[p].hotel.rating === "3"){
-                            hotel_rating = "&#9733; &#9733; &#9733; &#9734; &#9734;<span style='margin-left: 10px; color: orange;font-size: 13px;'>- Average<span>";
+                            hotel_rating = `
+                            &#9733; &#9733; &#9733; &#9734; &#9734;
+                            <span style='margin-left: 10px; color: orange;font-size: 11px; letter-spacing: 1px; font-weight: bolder; text-shadow: none;'>
+                            - Average<span>`;
                         }else if(data.data[p].hotel.rating === "2"){
-                            hotel_rating = "&#9733; &#9733; &#9734; &#9734; &#9734;<span style='margin-left: 10px; color: orange;font-size: 13px;'>- Not Good<span>";
+                            hotel_rating = `
+                            &#9733; &#9733; &#9734; &#9734; &#9734;
+                            <span style='margin-left: 10px; color: orange;font-size: 11px; letter-spacing: 1px; font-weight: bolder; text-shadow: none;'>
+                            - Not Good<span>`;
                         }else {
-                            hotel_rating = "&#9733; &#9734; &#9734; &#9734; &#9734;<span style='margin-left: 10px; color: orange;font-size: 13px;'>- Very Bad<span>";
+                            hotel_rating = `&#9733; &#9734; &#9734; &#9734; &#9734;
+                            <span style='margin-left: 10px; color: orange;font-size: 11px; letter-spacing: 1px; font-weight: bolder; text-shadow: none;'>
+                            - Very Bad<span>`;
                         }
                     }
 
@@ -278,14 +292,14 @@ function render_hotels(){
                                     </div>
                                     <div id="hotels_card_booking_desc${p}" style="margin-right: 0 !important; justify-content: flex-start; transition: all 0.5s ease-out;">
                                     <div style="margin-right: 0 !important;">
-                                        <h1 style="font-size: 14px; color:rgba(30, 63, 65, 0.9); letter-spacing: 0.5px; margin-bottom: 5px; padding: 10px; background-color:rgb(27, 18, 123); color: white; 
+                                        <h1 style="font-size: 13px; color:rgba(30, 63, 65, 0.9); letter-spacing: 1px; margin-bottom: 5px; padding: 10px; background-color:rgb(27, 18, 123); color: white; 
                                             margin-bottom: 0; border-top-left-radius: 10px; border-top-right-radius: 10px;">
                                             ${hotel_name}</h1>
-                                        <p style="font-size: 12px; color: rgb(196, 95, 0); font weight: bolder; padding: 10px; padding-left: 5px; border-left: 5px solid rgb(27, 18, 123);
-                                        font-weight: bolder; letter-spacing: 0.5px;">${hotel_location}</p>
+                                        <p style="font-size: 11px; color: rgb(196, 95, 0); font weight: bolder; padding: 10px; padding-left: 5px; border-left: 5px solid rgb(27, 18, 123);
+                                        font-weight: bolder; letter-spacing: 1px;">${hotel_location}</p>
                                         
                                         <p style="margin-top: 0;">
-                                            <span style="font-size: 16px; padding: 5px 10px; color: white; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; background-color:rgb(27, 18, 123); text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
+                                            <span style="font-size: 14px; padding: 5px 10px; color: white; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; background-color:rgb(27, 18, 123); text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
                                             0px 0px 2.9px rgba(0, 0, 0, 0.23);">
                                             ${hotel_rating}
                                             </span>
@@ -335,7 +349,7 @@ function render_hotels(){
                                         <p style="opacity: 0.8; font-weight: bolder; font-size: 12px; padding: 10px;">
                                             Hotels Amenities
                                         </p>
-                                        <ul style="list-style-type: none; padding: 10px; margin-bottom: 10px; background-color: #140028;">
+                                        <ul style="list-style-type: none; padding: 10px; margin-bottom: 10px; background-color: #140028; position: relative; z-index: 1;">
                                             ${hotel_amenities}
                                         </ul>
                                     </div>
