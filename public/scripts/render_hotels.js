@@ -261,9 +261,9 @@ function render_hotels(){
                                 <div style="justify-content: flex-start !important;" class="main_ticket_info_area_top">
                                     <div id="hotels_card_pic${p}" class="hotels_card_pic" style="background-image: url(${hotel_display_pic}); background-size: cover; background-repeat: no-repeat; min-height: 150px;">
                                         <div id="hotels_card_pic_title${p}" style="opacity: 0; transition: 0.5s all; position: absolute; top: 0; left: 0; background-color:rgba(0, 0, 0, 0.6); padding: 10px; width: calc(100% - 20px);">
-                                            <p style="color: white; font-weight: bolder; font-size: 13px; letter-spacing: 1px;">${hotel_name.toLowerCase()}</p>
+                                            <p style="color: white; font-weight: bolder; font-size: 13px; letter-spacing: 1px;">${hotel_name}</p>
                                             <p style="color: white; font-size: 11px; font-size: 12px; letter-spacing: 1px; margin-top: 5px;">
-                                            ${hotel_location.toLowerCase()}
+                                            ${hotel_location}
                                             </p>
                                             <p style="color:rgb(0, 188, 235); font-size: 17px;">${hotel_rating}</p>
                                         </div>
@@ -278,14 +278,14 @@ function render_hotels(){
                                     </div>
                                     <div id="hotels_card_booking_desc${p}" style="margin-right: 0 !important; justify-content: flex-start; transition: all 0.5s ease-out;">
                                     <div style="margin-right: 0 !important;">
-                                        <h1 style="font-size: 13px; color:rgba(30, 63, 65, 0.9); letter-spacing: 0.5px; margin-bottom: 5px; padding: 10px; background-color:rgb(27, 18, 123); color: white; 
+                                        <h1 style="font-size: 14px; color:rgba(30, 63, 65, 0.9); letter-spacing: 0.5px; margin-bottom: 5px; padding: 10px; background-color:rgb(27, 18, 123); color: white; 
                                             margin-bottom: 0; border-top-left-radius: 10px; border-top-right-radius: 10px;">
-                                            ${hotel_name.toLowerCase()}</h1>
-                                        <p style="font-size: 13px; color: rgb(196, 95, 0); font weight: bolder; padding: 5px; padding-bottom: 7px; border-left: 5px solid rgb(27, 18, 123);
-                                        font-weight: bolder; letter-spacing: 0.5px;">${hotel_location.toLowerCase()}</p>
+                                            ${hotel_name}</h1>
+                                        <p style="font-size: 12px; color: rgb(196, 95, 0); font weight: bolder; padding: 10px; padding-left: 5px; border-left: 5px solid rgb(27, 18, 123);
+                                        font-weight: bolder; letter-spacing: 0.5px;">${hotel_location}</p>
                                         
                                         <p style="margin-top: 0;">
-                                            <span style="font-size: 14px; padding: 5px 10px; color: white; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; background-color:rgb(27, 18, 123); text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
+                                            <span style="font-size: 16px; padding: 5px 10px; color: white; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; background-color:rgb(27, 18, 123); text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
                                             0px 0px 2.9px rgba(0, 0, 0, 0.23);">
                                             ${hotel_rating}
                                             </span>
