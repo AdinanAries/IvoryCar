@@ -138,26 +138,30 @@ function render_hotels(){
                     hotel_name = data.data[p].hotel.name;
                     hotel_location = data.data[p].hotel.address.cityName + ", " + data.data[p].hotel.address.countryCode
 
-                    if(data.data[p].hotel.contact.phone){
-                        hotel_tel = `
-                        <p style="margin-top: 10px; color:rgb(117, 117, 117); font-size: 14px;">
-                            <i style="color:rgb(212, 78, 0); margin-right: 5px;" aria-hidden="true" class="fa fa-phone"></i>${data.data[p].hotel.contact.phone}
-                        </p>
-                        `;
-                    }
-                    if(data.data[p].hotel.contact.fax){
-                        hotel_fax = `
-                        <p style="margin-bottom: 10px; margin-top: 5px; color:rgb(117, 117, 117); font-size: 14px;">
-                            <i style="color:rgb(212, 78, 0); margin-right: 5px;" aria-hidden="true" class="fa fa-fax"></i>${data.data[p].hotel.contact.fax}
-                        </p>
-                        `;
-                    }
-                    if(data.data[p].hotel.contact.email){
-                        hotel_email = `
-                        <p style="margin-bottom: 10px; color:rgb(117, 117, 117); font-size: 12px;">
-                            <i style="color:rgb(212, 78, 0); margin-right: 5px;" aria-hidden="true" class="fa fa-envelope"></i>${data.data[p].hotel.contact.email}
-                        </p>
-                        `;
+                    if(data.data[p].hotel.contact){
+
+                        if(data.data[p].hotel.contact.phone){
+                            hotel_tel = `
+                            <p style="margin-top: 10px; color:rgb(117, 117, 117); font-size: 14px;">
+                                <i style="color:rgb(212, 78, 0); margin-right: 5px;" aria-hidden="true" class="fa fa-phone"></i>${data.data[p].hotel.contact.phone}
+                            </p>
+                            `;
+                        }
+                        if(data.data[p].hotel.contact.fax){
+                            hotel_fax = `
+                            <p style="margin-bottom: 10px; margin-top: 5px; color:rgb(117, 117, 117); font-size: 14px;">
+                                <i style="color:rgb(212, 78, 0); margin-right: 5px;" aria-hidden="true" class="fa fa-fax"></i>${data.data[p].hotel.contact.fax}
+                            </p>
+                            `;
+                        }
+                        if(data.data[p].hotel.contact.email){
+                            hotel_email = `
+                            <p style="margin-bottom: 10px; color:rgb(117, 117, 117); font-size: 12px;">
+                                <i style="color:rgb(212, 78, 0); margin-right: 5px;" aria-hidden="true" class="fa fa-envelope"></i>${data.data[p].hotel.contact.email}
+                            </p>
+                            `;
+                        }
+
                     }
                     /*if(data.data[p].hotel.media){
                         hotel_display_pic = data.data[p].hotel.media[0].uri;
