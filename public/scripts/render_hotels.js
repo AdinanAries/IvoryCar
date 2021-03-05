@@ -104,8 +104,8 @@ function render_hotels(){
             let hotel_deal_price = "0.00";
             let hotel_display_pic = "./images/HotelPic2.jpg";
             let hotel_description = `
-                <p style="opacity: 0.8; color:rgb(0, 127, 177); margin-top: 15px; margin-bottom: 50px; font-size: 13px;">
-                    <i class="fa fa-exclamation-triangle" style="margin-right: 5px; color: orangered;"></i>No description information found.    
+                <p style="color:rgb(0, 127, 177); margin-top: 15px; margin-bottom: 50px; font-size: 13px;">
+                    <i class="fa fa-exclamation-triangle" style="margin-right: 5px; color: orangered;"></i>No description information found for this property.    
                 </p>
             `;
 
@@ -261,9 +261,9 @@ function render_hotels(){
                                 <div style="justify-content: flex-start !important;" class="main_ticket_info_area_top">
                                     <div id="hotels_card_pic${p}" class="hotels_card_pic" style="background-image: url(${hotel_display_pic}); background-size: cover; background-repeat: no-repeat; min-height: 150px;">
                                         <div id="hotels_card_pic_title${p}" style="opacity: 0; transition: 0.5s all; position: absolute; top: 0; left: 0; background-color:rgba(0, 0, 0, 0.6); padding: 10px; width: calc(100% - 20px);">
-                                            <p style="color: white; font-weight: bolder; font-size: 12px; letter-spacing: 0.7px;">${hotel_name}</p>
-                                            <p style="color: white; font-size: 11px; letter-spacing: 0.7px;">
-                                            ${hotel_location}
+                                            <p style="color: white; font-weight: bolder; font-size: 12px; letter-spacing: 1px;">${hotel_name.toLowerCase()}</p>
+                                            <p style="color: white; font-size: 11px; letter-spacing: 0.7px; margin-top: 5px;">
+                                            ${hotel_location.toLowerCase()}
                                             </p>
                                             <p style="color:rgb(0, 188, 235);">${hotel_rating}</p>
                                         </div>
@@ -278,13 +278,14 @@ function render_hotels(){
                                     </div>
                                     <div id="hotels_card_booking_desc${p}" style="margin-right: 0 !important; justify-content: flex-start; transition: all 0.5s ease-out;">
                                     <div style="margin-right: 0 !important;">
-                                        <h1 style="font-size: 20px; color:rgba(30, 63, 65, 0.9); letter-spacing: 0.5px; margin-bottom: 5px;
-                                        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">${hotel_name}</h1>
-                                        <p style="color:rgba(30, 63, 65, 0.7); font-size: 13px; 
-                                        font-weight: bolder; letter-spacing: 0.5px;">${hotel_location}</p>
+                                        <h1 style="font-size: 13px; color:rgba(30, 63, 65, 0.9); letter-spacing: 0.5px; margin-bottom: 5px; padding: 10px; background-color:rgb(27, 18, 123); color: white; 
+                                            margin-bottom: 5px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+                                            ${hotel_name.toLowerCase()}</h1>
+                                        <p style="font-size: 13px; color: rgb(196, 95, 0); font weight: bolder;
+                                        font-weight: bolder; letter-spacing: 0.5px;">${hotel_location.toLowerCase()}</p>
                                         
-                                        <p style="margin-top: 10px;">
-                                            <span style="font-size: 14px; padding: 5px 10px; color: white; border-radius: 50px; background-color:rgb(0, 188, 235); text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
+                                        <p style="margin-top: 7px;">
+                                            <span style="font-size: 14px; padding: 5px 10px; color: white; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; background-color:rgb(27, 18, 123); text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
                                             0px 0px 2.9px rgba(0, 0, 0, 0.23);">
                                             ${hotel_rating}
                                             </span>
@@ -292,17 +293,17 @@ function render_hotels(){
                                     </div>
                                     <div style="flex-direction: row !important; width: 100%; justify-content: space-between; padding-top: 20px; margin-right: 0 !important;">
                                         <div>
-                                        <p style="font-weight: bolder; opacity: 0.6; font-size: 14px; margin-bottom: 5px;">
+                                        <p style="font-weight: bolder; font-size: 14px; margin-bottom: 5px;">
                                             Quantity:</p>
                                         <p style="font-size: 13px;">
                                             ${booking_number_of_rooms}</p>
                                         </div>
                                         <div style="margin-right: 0 !important;">
-                                        <p style="font-weight: bolder; font-size: 14px; margin-bottom: 5px; opacity: 0.6;">Checkin</p>
+                                        <p style="font-weight: bolder; font-size: 14px; margin-bottom: 5px;">Checkin</p>
                                         <p style="font-size: 13px;">${checkin_date}</p>
                                         </div>
                                         <div>
-                                        <p style="font-weight: bolder; font-size: 14px; margin-bottom: 5px; opacity: 0.6;">Checkout</p>
+                                        <p style="font-weight: bolder; font-size: 14px; margin-bottom: 5px;">Checkout</p>
                                         <p style="font-size: 13px;">
                                             ${checkout_date}</p>
                                         </div>
@@ -556,6 +557,9 @@ function get_hotel_rates(url, is_going_back_from_final_price){
                         <p style="margin-top: 10px; color:rgb(117, 117, 117); font-size: 14px;">
                             ${RR_hotel_amenities}
                         </p>
+                    </div>
+                    <div style="font-size: 14px; color: white; background-color: rgb(76, 127, 237); border-radius: 4px; cursor: pointer; padding: 10px; width: fit-content; margin: auto; margin-top: 20px;">
+                        view full hotel profile
                     </div>
                 `;
             }

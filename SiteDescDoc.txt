@@ -5,3 +5,7 @@ And I also see myself doing this for long term
 I also want to be able to provide my customers insights from data analysis or machine learning
 My site, without violating any of the api rules, will contain additional functions beyond the provisions of the api.
 like -> ads on the site.
+
+New Business model.
+1. build anidaso platform to find cheap hotels
+2. then build reservation system for the individual hotels based on a template.
