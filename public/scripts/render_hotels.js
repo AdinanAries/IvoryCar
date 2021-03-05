@@ -279,12 +279,12 @@ function render_hotels(){
                                     <div id="hotels_card_booking_desc${p}" style="margin-right: 0 !important; justify-content: flex-start; transition: all 0.5s ease-out;">
                                     <div style="margin-right: 0 !important;">
                                         <h1 style="font-size: 13px; color:rgba(30, 63, 65, 0.9); letter-spacing: 0.5px; margin-bottom: 5px; padding: 10px; background-color:rgb(27, 18, 123); color: white; 
-                                            margin-bottom: 5px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+                                            margin-bottom: 0; border-top-left-radius: 10px; border-top-right-radius: 10px;">
                                             ${hotel_name.toLowerCase()}</h1>
-                                        <p style="font-size: 13px; color: rgb(196, 95, 0); font weight: bolder;
+                                        <p style="font-size: 13px; color: rgb(196, 95, 0); font weight: bolder; padding: 5px; padding-bottom: 7px; border-left: 5px solid rgb(27, 18, 123);
                                         font-weight: bolder; letter-spacing: 0.5px;">${hotel_location.toLowerCase()}</p>
                                         
-                                        <p style="margin-top: 7px;">
+                                        <p style="margin-top: 0;">
                                             <span style="font-size: 14px; padding: 5px 10px; color: white; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; background-color:rgb(27, 18, 123); text-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.3),
                                             0px 0px 2.9px rgba(0, 0, 0, 0.23);">
                                             ${hotel_rating}
@@ -558,7 +558,7 @@ function get_hotel_rates(url, is_going_back_from_final_price){
                             ${RR_hotel_amenities}
                         </p>
                     </div>
-                    <div style="font-size: 14px; color: white; background-color: rgb(76, 127, 237); border-radius: 4px; cursor: pointer; padding: 10px; width: fit-content; margin: auto; margin-top: 20px;">
+                    <div style="font-size: 14px; color: white; background-color: rgb(76, 127, 237); border-radius: 4px; cursor: pointer; padding: 10px; width: 150px; text-align: center; margin: auto; margin-top: 20px;">
                         view full hotel profile
                     </div>
                 `;
