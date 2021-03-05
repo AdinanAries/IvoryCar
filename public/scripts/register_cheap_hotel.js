@@ -55,7 +55,7 @@ async function collect_register_cheap_hotel_data(){
 
 }
 
-function validate_register_cheap_hotel_data(){
+async function validate_register_cheap_hotel_data(){
 
     return $.ajax({
         type: "POST",
@@ -72,6 +72,7 @@ function validate_register_cheap_hotel_data(){
     });
 
 }
+
 book_cheap_hotel_register_new_hotel_button.addEventListener("click", evnt => {
     
     if(book_cheap_book_direct_register_hotel_name_input_fld.value === ""){
@@ -117,28 +118,28 @@ book_cheap_hotel_register_new_hotel_button.addEventListener("click", evnt => {
 
         //collecting value from input into post data object
         collect_register_cheap_hotel_data().then(()=>{
-            let validation_res = validate_register_cheap_hotel_data();
 
-            if(validation_res.statusText === "OK"){
-                //console.log(validation_res);
-                console.log(validation_res.responseJSON);
-                if(validation_res.responseJSON.success){
+            validate_register_cheap_hotel_data().then((validation_res)=>{
+
+                console.log(validation_res);
+
+                if(validation_res.success){
                     toggle_hide_show_cheap_hotel_payments_prompt();
 
                     //setting post data to validated data from server
-                    register_cheap_hotel_post_data = validation_res.responseJSON.data;
+                    register_cheap_hotel_post_data = validation_res.data;
                 }else{
                     book_cheap_hotel_register_new_hotel_button.innerText = validation_res.responseJSON.msg;
                     book_cheap_hotel_register_new_hotel_button.style.backgroundColor = "orangered";
                     book_cheap_hotel_register_new_hotel_button.style.borderColor = "orange";
                 }
+    
 
-            }else{
-                book_cheap_hotel_register_new_hotel_button.innerText = "server error";
-                book_cheap_hotel_register_new_hotel_button.style.backgroundColor = "orangered";
-                book_cheap_hotel_register_new_hotel_button.style.borderColor = "orange";
-                console.log(validation_res);
-            }
+            }).catch(err=>{
+                console.log(err)
+            });
+
+            
         }).catch(err =>{
             console.log(err);
         });
@@ -236,3 +237,5 @@ function register_cheap_hotel_remove_city_from_operating_cities(index, city, cou
     document.getElementById("register_cheap_hotels_city_in_operation_"+index).remove();
     console.log(register_cheap_hotel_post_data.cities_operating);
 }
+
+toggle_hide_show_cheap_hotel_payments_prompt();
