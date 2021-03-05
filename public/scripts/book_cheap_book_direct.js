@@ -361,7 +361,7 @@ function render_a_cheap_hotels(name, pic_url, location, rating, hotel_site_url, 
                         </div>
                         <div onclick='go_to_cheap_hotel_book_page("${hotel_site_url}");' style="cursor: pointer; background-color:rgb(0, 127, 177); color: white; padding: 10px 20px; text-align: center;
                         display: flex; flex-direction: column; justify-content: center; font-size: 14px; border-radius: 4px;">
-                        Book Room(s)
+                        View Hotel
                         </div>
                     </div>
                     <div style="padding: 0 10px;">
@@ -447,7 +447,8 @@ function load_more_cheap_hotels(){
 }
 
 function go_to_cheap_hotel_book_page(url){
-    alert(url);
+    toggle_show_hide_cheap_hotel_view_full_profile_info();
+    //alert(url);
 }
 
 function get_rating_stars(rating){

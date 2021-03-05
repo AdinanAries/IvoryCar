@@ -48,7 +48,7 @@
       <div style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
         <div id="order_room_form_content_container">
 
-          <i onclick="toggle_show_hotel_booking_form();" style="color: rgb(245, 151, 37); font-size: 18px; position: absolute; z-index: 10; padding: 20px; top: 0; right: 0; cursor: pointer;" class="fa fa-times" aria-hidden="true"></i>
+          <i onclick="toggle_show_hotel_booking_form();" style="font-size: 18px; position: absolute; z-index: 10; padding: 20px; top: 0; right: 0; cursor: pointer; color: orangered;" class="fa fa-times" aria-hidden="true"></i>
           
           <div id="order_room_form_hotel_infor_container">
             
@@ -698,6 +698,26 @@
             <i class="fa fa-user-plus" aria-hidden="true"></i>dont have an account ? (sign up)
           </p>
         </div>
+      </div>
+    </div>
+
+    <div id="book_hotel_view_full_profile_info" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: white; z-index: 101; overflow: auto;">
+      <div onclick="toggle_show_hide_book_hotel_view_full_profile_info();" class="page_popup_close_button" style="margin-right: 10px;">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </div>
+      <div id="book_hotel_view_full_profile_header" style="overflow: initial !important; height: 130px; background-color: #023057; display: flex; flex-direction: column !important; justify-content: center;">
+        <div style="margin-left: 20px; height: initial !important; overflow: initial !important;" class="site_logo_container">
+          <div style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+            <p  style="text-shadow: none;"><span style="text-shadow: none;">An</span style="text-shadow: none;">i<span style="text-shadow: none;">d</span style="text-shadow: none;">a<span style="text-shadow: none;">s</span>o<sup style="font-size: 12px; text-shadow: none;">&reg;</sup></p>
+          </div>
+        </div>
+        <p style="overflow: initial !important; margin-left: 20px; font-size: 11px; color: white; letter-spacing: 1px;">
+          View Hotel Full Info.</p>
+        <p style="overflow: initial !important; text-align: center; color: rgb(231, 231, 231); font-size: 14px; margin-top: 25px; font-weight: bolder; letter-spacing: 1px;">
+          Hotel Name Here</p>
+          <p style="font-size: 11px; color:rgb(255, 173, 73); margin-top: 5px; letter-spacing: 1px; text-align: center;">
+            hotel location here
+          </p>
       </div>
     </div>
 

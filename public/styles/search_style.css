@@ -5,6 +5,16 @@
   font-size: 16px;
 }
 /*-------------------------------*/
+.page_popup_close_button {
+  position: absolute;
+  width: fit-content;
+  padding: 15px;
+  right: 0;
+  top: 0;
+}
+.page_popup_close_button i {
+  color: orangered;
+}
 .hotel_description_show_all_btn {
   color: orangered;
   font-size: 12px;

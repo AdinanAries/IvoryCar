@@ -238,4 +238,4 @@ function register_cheap_hotel_remove_city_from_operating_cities(index, city, cou
     console.log(register_cheap_hotel_post_data.cities_operating);
 }
 
-toggle_hide_show_cheap_hotel_payments_prompt();
+//toggle_hide_show_cheap_hotel_payments_prompt();

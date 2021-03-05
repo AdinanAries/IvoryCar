@@ -130,7 +130,7 @@ select:focus {
   border-bottom-left-radius: 4px;
 }
 .book_direct_form_inputs .book_cheap_book_direct_all_inputs_container {
-  width: 75%;
+  width: 75% !important;
 }
 .book_direct_form_inputs button {
   width: calc(25% - 13px);

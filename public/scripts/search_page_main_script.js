@@ -1794,3 +1794,7 @@ function show_full_hotel_list_pic(number){
 function show_full_description(number){
   alert(number);
 }
+
+function toggle_show_hide_book_hotel_view_full_profile_info(){
+  $("#book_hotel_view_full_profile_info").toggle("up");
+}

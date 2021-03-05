@@ -1822,3 +1822,7 @@ function select_popular_city_for_hotel_search(iata_code, city_name){
     }, 500);
   
 }
+
+function toggle_show_hide_cheap_hotel_view_full_profile_info(){
+  $("#cheap_hotel_view_full_profile_info").toggle("up");
+}

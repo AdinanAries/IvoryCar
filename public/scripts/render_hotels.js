@@ -576,8 +576,8 @@ function get_hotel_rates(url, is_going_back_from_final_price){
                             ${RR_hotel_amenities}
                         </p>
                     </div>
-                    <div style="font-size: 14px; color: white; background-color: rgb(76, 127, 237); border-radius: 4px; cursor: pointer; padding: 10px; width: 150px; text-align: center; margin: auto; margin-top: 20px;">
-                        view full hotel profile
+                    <div onclick="view_hotels_full_profile_info();" style="font-size: 14px; color: white; background-color: rgb(76, 127, 237); border-radius: 4px; cursor: pointer; padding: 10px; width: 150px; text-align: center; margin: auto; margin-top: 20px;">
+                        View Full Hotel Profile
                     </div>
                 `;
             }
@@ -1316,3 +1316,6 @@ function book_hotel_forms_scroll_helper(){
  }
 }
 
+function view_hotels_full_profile_info(){
+    toggle_show_hide_book_hotel_view_full_profile_info();
+}
