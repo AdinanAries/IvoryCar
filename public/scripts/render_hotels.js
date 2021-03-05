@@ -166,15 +166,15 @@ function render_hotels(){
                     if(data.data[p].hotel.rating){
 
                         if(data.data[p].hotel.rating === "5"){
-                            hotel_rating = "&#9733; &#9733; &#9733; &#9733; &#9733;";
+                            hotel_rating = "&#9733; &#9733; &#9733; &#9733; &#9733;<span style='margin-left: 10px; color: orange;font-size: 13px;'>- Excellent<span>";
                         }else if(data.data[p].hotel.rating === "4"){
-                            hotel_rating = "&#9733; &#9733; &#9733; &#9733; &#9734;";
+                            hotel_rating = "&#9733; &#9733; &#9733; &#9733; &#9734;<span style='margin-left: 10px; color: orange;font-size: 13px;'>- Very Good<span>";
                         }else if(data.data[p].hotel.rating === "3"){
-                            hotel_rating = "&#9733; &#9733; &#9733; &#9734; &#9734;";
+                            hotel_rating = "&#9733; &#9733; &#9733; &#9734; &#9734;<span style='margin-left: 10px; color: orange;font-size: 13px;'>- Average<span>";
                         }else if(data.data[p].hotel.rating === "2"){
-                            hotel_rating = "&#9733; &#9733; &#9734; &#9734; &#9734;";
+                            hotel_rating = "&#9733; &#9733; &#9734; &#9734; &#9734;<span style='margin-left: 10px; color: orange;font-size: 13px;'>- Not Good<span>";
                         }else {
-                            hotel_rating = "&#9733; &#9734; &#9734; &#9734; &#9734;";
+                            hotel_rating = "&#9733; &#9734; &#9734; &#9734; &#9734;<span style='margin-left: 10px; color: orange;font-size: 13px;'>- Very Bad<span>";
                         }
                     }
 
