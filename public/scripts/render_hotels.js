@@ -261,20 +261,20 @@ function render_hotels(){
                                 <div style="justify-content: flex-start !important;" class="main_ticket_info_area_top">
                                     <div id="hotels_card_pic${p}" class="hotels_card_pic" style="background-image: url(${hotel_display_pic}); background-size: cover; background-repeat: no-repeat; min-height: 150px;">
                                         <div id="hotels_card_pic_title${p}" style="opacity: 0; transition: 0.5s all; position: absolute; top: 0; left: 0; background-color:rgba(0, 0, 0, 0.6); padding: 10px; width: calc(100% - 20px);">
-                                            <p style="color: white; font-weight: bolder; font-size: 12px; letter-spacing: 1px;">${hotel_name.toLowerCase()}</p>
-                                            <p style="color: white; font-size: 11px; letter-spacing: 0.7px; margin-top: 5px;">
+                                            <p style="color: white; font-weight: bolder; font-size: 13px; letter-spacing: 1px;">${hotel_name.toLowerCase()}</p>
+                                            <p style="color: white; font-size: 11px; font-size: 12px; letter-spacing: 1px; margin-top: 5px;">
                                             ${hotel_location.toLowerCase()}
                                             </p>
-                                            <p style="color:rgb(0, 188, 235);">${hotel_rating}</p>
+                                            <p style="color:rgb(0, 188, 235); font-size: 17px;">${hotel_rating}</p>
                                         </div>
                                         <div onclick="show_full_hotel_list_pic(${p});" class="hotels_card_pic_show_full_pic">
                                             <i id="hotels_card_pic_show_full_pic_icon${p}" class="fa fa-chevron-right" aria-hidden="true"></i>
                                         </div>
-                                        <div class="hotels_card_pic_items_points">
+                                        <!--div class="hotels_card_pic_items_points">
                                             <div class="hotels_card_pic_each_item_point selected"><p>1</p></div>
                                             <div class="hotels_card_pic_each_item_point"><p>2</p></div>
                                             <div class="hotels_card_pic_each_item_point"><p>3</p></div>
-                                        </div>
+                                        </div-->
                                     </div>
                                     <div id="hotels_card_booking_desc${p}" style="margin-right: 0 !important; justify-content: flex-start; transition: all 0.5s ease-out;">
                                     <div style="margin-right: 0 !important;">
