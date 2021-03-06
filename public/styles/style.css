@@ -6,6 +6,43 @@
 }
 
 /*-------------------------------*/
+#book_hotel_view_full_profile_photos {
+  padding: 10px;
+  background-color: #252929;
+  display: flex;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.book_hotel_view_full_profile_each_photo {
+  margin: 0 5px;
+  overflow: hidden;
+}
+.book_hotel_view_full_profile_each_photo img {
+  border-radius: 4px;
+  height: 200px;
+  width: auto;
+}
+.book_hotel_view_full_profile_infor_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+}
+.book_hotel_view_full_profile_infor_row_set {
+  width: calc(50% - 5px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.book_hotel_view_full_profile_infor_row_set_item {
+  background-color: #b12900;
+  border-radius: 4px;
+  min-height: 200px;
+  width: calc(50% - 25px);
+  padding: 10px;
+}
+
 textarea:focus {
   outline: none;
 }
@@ -1838,6 +1875,26 @@ footer a {
 }
 
 @media only screen and (max-width: 1025px) {
+  .book_hotel_view_full_profile_each_photo {
+    margin: 2px !important;
+  }
+  .book_hotel_view_full_profile_each_photo img {
+    border-radius: 4px !important;
+    width: 100%;
+    height: auto;
+  }
+  .book_hotel_view_full_profile_infor_row {
+    flex-direction: column !important;
+  }
+  .book_hotel_view_full_profile_infor_row_set {
+    width: calc(100%) !important;
+    flex-direction: column !important;
+  }
+  .book_hotel_view_full_profile_infor_row_set_item {
+    width: calc(100% - 20px);
+    margin-bottom: 5px;
+  }
+
   #book_cheap_book_direct_add_hotel_forms_section,
   #book_cheap_book_direct_all_reviews_list {
     height: auto !important;
@@ -2160,6 +2217,9 @@ footer a {
   }
   .ui-datepicker {
     /*background: none !important;*/
+  }
+  #book_hotel_view_full_profile_info {
+    overflow: auto !important;
   }
 }
 @media only screen and (max-width: 413px) {
