@@ -701,6 +701,14 @@
       </div>
     </div>
 
+    <div id="full_page_picture_viewer">
+      <div onclick="" class="page_popup_close_button" style="width: 30px; text-align: center; padding: 5px 0; margin: 10px; margin-right: 15px; background-color: rgba(0, 0, 0, 0.568); border-radius: 4px;">
+        <i style="color: white;" class="fa fa-times" aria-hidden="true"></i>
+      </div>
+      <div style="width: fit-content; margin: auto;">
+        <img  src="./images/HotelPic2.jpg" alt=""/>
+      </div>
+    </div>
     <div id="book_hotel_view_full_profile_info" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: white; z-index: 101; overflow: auto !important;">
       <div onclick="toggle_show_hide_book_hotel_view_full_profile_info();" class="page_popup_close_button" style="margin-right: 10px;">
         <i class="fa fa-times" aria-hidden="true"></i>
@@ -722,12 +730,99 @@
       <div id="book_hotel_view_full_profile_body">
         <div class="book_hotel_view_full_profile_infor_row">
           <div class="book_hotel_view_full_profile_infor_row_set">
-            <div class="book_hotel_view_full_profile_infor_row_set_item"></div>
-            <div class="book_hotel_view_full_profile_infor_row_set_item"></div>
+            <div class="book_hotel_view_full_profile_infor_row_set_item">
+              <p style="color: white; font-size: 14px; text-align: center; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px;;">
+                Rating/Reviews</p>
+              <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                <p style="color: rgb(155, 238, 220); font-size: 14px;">Rating:</p>
+                <p style="color: rgb(250, 187, 187);">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+              </div>
+              <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                <p style="color: rgb(155, 238, 220); font-size: 14px;">Number of ratings:</p>
+                <p style="color: rgb(250, 187, 187);">121 Ratings</p>
+              </div>
+              <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                <p style="color: rgb(155, 238, 220); font-size: 14px;">Number of reviews:</p>
+                <p style="color: rgb(250, 187, 187);">145 Reviews</p>
+              </div>
+            </div>
+            <div class="book_hotel_view_full_profile_infor_row_set_item">
+              <p style="color: white; font-size: 14px; text-align: center; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px;;">
+                Amenities</p>
+                <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                  <p style="color: rgb(155, 238, 220); font-size: 14px;"><i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+                  <p style="color: rgb(250, 187, 187);">Wifi<i  style="margin-left: 5px;" class="fa fa-wifi" aria-hidden="true"></i></p>
+                </div>
+                <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                  <p style="color: rgb(155, 238, 220); font-size: 14px;"><i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+                  <p style="color: rgb(250, 187, 187);">Coffee<i  style="margin-left: 5px;" class="fa fa-coffee" aria-hidden="true"></i></p>
+                </div>
+                <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                  <p style="color: rgb(155, 238, 220); font-size: 14px;"><i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+                  <p style="color: rgb(250, 187, 187);">Laundry Service</p>
+                </div>
+                <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                  <p style="color: rgb(155, 238, 220); font-size: 14px;"><i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+                  <p style="color: rgb(250, 187, 187);">business center</p>
+                </div>
+            </div>
           </div>
           <div class="book_hotel_view_full_profile_infor_row_set">
-            <div class="book_hotel_view_full_profile_infor_row_set_item"></div>
-            <div class="book_hotel_view_full_profile_infor_row_set_item"></div>
+            <div class="book_hotel_view_full_profile_infor_row_set_item">
+              <p style="color: white; font-size: 14px; text-align: center; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px;;">
+                Sentiments</p>
+                <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                  <p style="color: rgb(155, 238, 220); font-size: 14px;">Sleep Quality:</p>
+                  <p style="color: rgb(250, 187, 187);">80%</p>
+                </div>
+                <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                  <p style="color: rgb(155, 238, 220); font-size: 14px;">Service:</p>
+                  <p style="color: rgb(250, 187, 187);">66%</p>
+                </div>
+                <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                  <p style="color: rgb(155, 238, 220); font-size: 14px;">Facilities:</p>
+                  <p style="color: rgb(250, 187, 187);">74%</p>
+                </div>
+                <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                  <p style="color: rgb(155, 238, 220); font-size: 14px;">Staff:</p>
+                  <p style="color: rgb(250, 187, 187);">60%</p>
+                </div>
+                <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                  <p style="color: rgb(155, 238, 220); font-size: 14px;">Internet:</p>
+                  <p style="color: rgb(250, 187, 187);">78%</p>
+                </div>
+                <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                  <p style="color: rgb(155, 238, 220); font-size: 14px;">Swimming Pool</p>
+                  <p style="color: rgb(250, 187, 187);">90%</p>
+                </div>
+                <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                  <p style="color: rgb(155, 238, 220); font-size: 14px;">Catering:</p>
+                  <p style="color: rgb(250, 187, 187);">60%</p>
+                </div>
+                <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                  <p style="color: rgb(155, 238, 220); font-size: 14px;">Points of Interest:</p>
+                  <p style="color: rgb(250, 187, 187);">56%</p>
+                </div>
+            </div>
+            <div class="book_hotel_view_full_profile_infor_row_set_item">
+              <p style="color: white; font-size: 14px; text-align: center; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px;;">
+                Contact</p>
+                <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                  <p style="color: rgb(155, 238, 220); font-size: 14px;">
+                    <i  style="margin-right: 5px;" class="fa fa-phone" aria-hidden="true"></i>Phone:</p>
+                  <p style="color: rgb(250, 187, 187);">1-212-7479222</p>
+                </div>
+                <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                  <p style="color: rgb(155, 238, 220); font-size: 14px;">
+                    <i  style="margin-right: 5px;" class="fa fa-fax" aria-hidden="true"></i>Fax:</p>
+                  <p style="color: rgb(250, 187, 187);">1-719-5479352</p>
+                </div>
+                <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                  <p style="color: rgb(155, 238, 220); font-size: 14px;">
+                    <i  style="margin-right: 5px;" class="fa fa-envelope" aria-hidden="true"></i>Email:</p>
+                  <p style="color: rgb(250, 187, 187);">somehotel@gmail.com</p>
+                </div>
+            </div>
           </div>
         </div>
         <div id="book_hotel_view_full_profile_body_content">

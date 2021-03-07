@@ -5,6 +5,23 @@
   font-size: 16px;
 }
 /*-------------------------------*/
+#full_page_picture_viewer {
+  position: fixed;
+  z-index: 1000;
+  background-color: #00000091;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  flex-direction: column !important;
+  justify-content: center;
+}
+#full_page_picture_viewer img {
+  width: 100%;
+  max-width: 850px;
+  height: auto;
+}
 #book_hotel_view_full_profile_photos {
   padding: 10px;
   background-color: #252929;
@@ -38,7 +55,6 @@
 .book_hotel_view_full_profile_infor_row_set_item {
   background-color: #b12900;
   border-radius: 4px;
-  min-height: 200px;
   width: calc(50% - 25px);
   padding: 10px;
 }
