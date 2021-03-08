@@ -1319,3 +1319,77 @@ function book_hotel_forms_scroll_helper(){
 function view_hotels_full_profile_info(){
     toggle_show_hide_book_hotel_view_full_profile_info();
 }
+
+function show_loading_card_on_book_hotel_view_full_profile_infor_row_set_item(){
+    Array.from(document.getElementsByClassName("book_hotel_view_full_profile_infor_row_set_item"))
+    .forEach(elem=>{
+        elem.innerHTML = `
+            <div style="padding: 40px;">
+                <div style="width: 100%; text-align: center;" class="loader2 loader--style2" title="1">
+                    <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                        <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+                            <animateTransform attributeType="xml"
+                            attributeName="transform"
+                            type="rotate"
+                            from="0 25 25"
+                            to="360 25 25"
+                            dur="0.6s"
+                            repeatCount="indefinite"/>
+                        </path>
+                    </svg>
+                    <p style="text-align: center; font-size: 14px; color: white;">
+                        <i style="color: orangered; margin-right: 5px;" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                        getting section information
+                    </p>
+                </div>
+            </div>
+        `;
+    });
+    document.getElementById("book_hotel_view_full_profile_photos").innerHTML = `
+        <div style="padding: 40px;">
+            <div style="width: 100%; text-align: center;" class="loader2 loader--style2" title="1">
+                <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                    <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+                        <animateTransform attributeType="xml"
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 25 25"
+                        to="360 25 25"
+                        dur="0.6s"
+                        repeatCount="indefinite"/>
+                    </path>
+                </svg>
+                <p style="text-align: center; font-size: 14px; color: white;">
+                    <i style="color: orangered; margin-right: 5px;" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    getting section information
+                </p>
+            </div>
+        </div>
+    `;
+    document.getElementById("view_full_hotel_profile_reviews").innerHTML = `
+        <div style="padding: 40px;">
+            <div style="width: 100%; text-align: center;" class="loader2 loader--style2" title="1">
+                <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                    <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+                        <animateTransform attributeType="xml"
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 25 25"
+                        to="360 25 25"
+                        dur="0.6s"
+                        repeatCount="indefinite"/>
+                    </path>
+                </svg>
+                <p style="text-align: center; font-size: 14px; color: #00284e;">
+                    <i style="color: orangered; margin-right: 5px;" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    getting section information
+                </p>
+            </div>
+        </div>
+    `;
+}
+
+//show_loading_card_on_book_hotel_view_full_profile_infor_row_set_item();

@@ -20,5 +20,6 @@ Motif for trips API:
 
 url: https://developers.amadeus.com/self-service/category/trip
 
+//hotel ratings and sentiments api docs url
 https://developers.amadeus.com/self-service/category/hotel/api-doc/hotel-ratings/api-reference
 
