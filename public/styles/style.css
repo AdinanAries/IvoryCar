@@ -65,7 +65,6 @@
 .book_hotel_view_full_profile_infor_row_set_item {
   background-color: #b12900;
   border-radius: 4px;
-  min-height: 200px;
   width: calc(50% - 25px);
   padding: 20px 10px;
 }

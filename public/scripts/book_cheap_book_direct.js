@@ -448,6 +448,7 @@ function load_more_cheap_hotels(){
 
 function go_to_cheap_hotel_book_page(url){
     toggle_show_hide_cheap_hotel_view_full_profile_info();
+    view_hotels_full_profile_info();
     //alert(url);
 }
 

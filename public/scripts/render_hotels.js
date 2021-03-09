@@ -535,6 +535,13 @@ function get_hotel_rates(url, is_going_back_from_final_price){
                 }
             }
             
+            let view_full_profile_hotel_info_json = {"nothing":"nothing"};
+            if(data.data){
+                if(data.data.hotel){
+                    view_full_profile_hotel_info_json = JSON.stringify(data.data.hotel);
+                    view_full_profile_hotel_info_json = view_full_profile_hotel_info_json.replaceAll('\'', '%^%^%').replaceAll('"', '#$#$#').replaceAll(',', '&*&*&*');
+                }
+            }
 
             if(data.data.hotel){
                 document.getElementById("order_room_form_hotel_infor_container").innerHTML = `
@@ -576,7 +583,7 @@ function get_hotel_rates(url, is_going_back_from_final_price){
                             ${RR_hotel_amenities}
                         </p>
                     </div>
-                    <div onclick="view_hotels_full_profile_info();" style="font-size: 14px; color: white; background-color: rgb(76, 127, 237); border-radius: 4px; cursor: pointer; padding: 10px; width: 150px; text-align: center; margin: auto; margin-top: 20px;">
+                    <div onclick="view_hotels_full_profile_info('${view_full_profile_hotel_info_json}');" style="font-size: 14px; color: white; background-color: rgb(76, 127, 237); border-radius: 4px; cursor: pointer; padding: 10px; width: 150px; text-align: center; margin: auto; margin-top: 20px;">
                         View Full Hotel Profile
                     </div>
                 `;
@@ -1316,12 +1323,107 @@ function book_hotel_forms_scroll_helper(){
  }
 }
 //all code below needs replicated to homepage
-function view_hotels_full_profile_info(){
+function view_hotels_full_profile_info(hotel_info){
+
+    let hotel_info_obj = hotel_info.replaceAll('%^%^%', '\'').replaceAll('#$#$#', '"').replaceAll('&*&*&*', ',');
+    hotel_info_obj = JSON.parse(hotel_info_obj);
+    console.log(hotel_info_obj);
+
+    let RR_hotel_name = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+    let RR_hotel_phone = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+    let RR_hotel_email = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+    let RR_hotel_fax = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+    let RR_hotel_rating = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+    let RR_hotel_address = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+    let RR_hotel_amenities = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+
+    if(hotel_info_obj.rating){
+        if(hotel_info_obj.rating === "5"){
+            RR_hotel_rating = "&#9733; &#9733; &#9733; &#9733; &#9733;";
+        }else if(hotel_info_obj.rating === "4"){
+            RR_hotel_rating = "&#9733; &#9733; &#9733; &#9733; &#9734;";
+        }else if(hotel_info_obj.rating === "3"){
+            RR_hotel_rating = "&#9733; &#9733; &#9733; &#9734; &#9734;";
+        }else if(hotel_info_obj.rating === "2"){
+            RR_hotel_rating = "&#9733; &#9733; &#9734; &#9734; &#9734;";
+        }else {
+            RR_hotel_rating = "&#9733; &#9734; &#9734; &#9734; &#9734;";
+        }
+    }
+    if(hotel_info_obj.name){
+        RR_hotel_name = hotel_info_obj.name;
+        document.getElementById("book_hotel_view_full_profile_hotel_name").innerText = RR_hotel_name;
+    }
+    if(hotel_info_obj.address){
+        RR_hotel_address = hotel_info_obj.address.cityName + ", " + hotel_info_obj.address.countryCode;
+        if(hotel_info_obj.address.lines[0]){
+            RR_hotel_address = hotel_info_obj.address.lines[0] + ", " + RR_hotel_address;
+            document.getElementById("book_hotel_view_full_profile_hotel_location").innerText = RR_hotel_address;
+        }
+    }
+
+    if(hotel_info_obj.contact){
+        if(hotel_info_obj.contact.phone){
+            RR_hotel_phone = hotel_info_obj.contact.phone;
+        }
+        if(hotel_info_obj.contact.email){
+            RR_hotel_email = hotel_info_obj.contact.email;
+        }
+        if(hotel_info_obj.contact.fax){
+            RR_hotel_fax = hotel_info_obj.contact.fax;
+        }
+    }
+
+    if(hotel_info_obj.amenities){
+        //hotel_info_obj.amenities.toString().replaceAll("_", " ").toLowerCase().replaceAll(",", ", ");
+        RR_hotel_amenities = hotel_info_obj.amenities.map(each => {
+            if(each.toLowerCase().includes("internet") || each.toLowerCase().includes("wi-fi") || each.toLowerCase().includes("wifi")){
+                return `<div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                    <p style="color: rgb(155, 238, 220); font-size: 14px;"><i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+                    <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${each.replaceAll("_", " ")}<i  style="margin-left: 5px;" class="fa fa-wifi" aria-hidden="true"></i></p>
+                </div>`
+            }else if(each.toLowerCase().includes("direct dial phone") || each.toLowerCase().includes("dial phone") || each.toLowerCase().includes("phone") || each.toLowerCase().includes("calls")){
+                return `<div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                    <p style="color: rgb(155, 238, 220); font-size: 14px;"><i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+                    <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${each.replaceAll("_", " ")}<i  style="margin-left: 5px;" class="fa fa-phone" aria-hidden="true"></i></p>
+                </div>`
+            }else if(each.toLowerCase().includes("coffee") || each.toLowerCase().includes("coffee shop")){
+                return `<div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                    <p style="color: rgb(155, 238, 220); font-size: 14px;"><i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+                    <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${each.replaceAll("_", " ")}<i  style="margin-left: 5px;" class="fa fa-coffee" aria-hidden="true"></i></p>
+                </div>`
+            }else if(each.toLowerCase().includes("television")){
+                return `<div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                    <p style="color: rgb(155, 238, 220); font-size: 14px;"><i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+                    <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${each.replaceAll("_", " ")}<i  style="margin-left: 5px;" class="fa fa-television" aria-hidden="true"></i></p>
+                </div>`
+            }else if(each.toLowerCase().includes("video")){
+                return `<div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                    <p style="color: rgb(155, 238, 220); font-size: 14px;"><i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+                    <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${each.replaceAll("_", " ")}<i  style="margin-left: 5px;" class="fa fa-video-camera" aria-hidden="true"></i></p>
+                </div>`
+            }else if(each.toLowerCase().includes("business")){
+                return `<div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                    <p style="color: rgb(155, 238, 220); font-size: 14px;"><i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+                    <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${each.replaceAll("_", " ")}<i  style="margin-left: 5px;" class="fa fa-briefcase" aria-hidden="true"></i></p>
+                </div>`
+            }else{
+                return `<div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                <p style="color: rgb(155, 238, 220); font-size: 14px;"><i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+                <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${each.replaceAll("_", " ")}</p>
+                </div>`;
+            }
+        });
+
+        RR_hotel_amenities = RR_hotel_amenities.toString().toLowerCase().replaceAll(",", "")
+        
+    }
+
     toggle_show_hide_book_hotel_view_full_profile_info();
     show_loading_card_on_book_hotel_view_full_profile_infor_row_set_item();
     setTimeout(()=>{
-        show_book_hotel_view_full_profile_ratings_infor();
-        show_book_hotel_view_full_profile_amenities_infor();
+        show_book_hotel_view_full_profile_ratings_infor(RR_hotel_rating);
+        show_book_hotel_view_full_profile_amenities_infor(RR_hotel_amenities);
         show_book_hotel_view_full_profile_sentiments_infor();
         show_book_hotel_view_full_profile_contacts_infor();
         show_book_hotel_view_full_profile_photos();
@@ -1334,21 +1436,21 @@ function view_hotels_full_profile_info(){
     
 }
 
-function show_book_hotel_view_full_profile_ratings_infor(){
+function show_book_hotel_view_full_profile_ratings_infor(rating){
     document.getElementById("book_hotel_view_full_profile_ratings_infor").innerHTML = `
         <p style="color: white; font-size: 14px; text-align: center; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px;;">
         Rating/Reviews</p>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
             <p style="color: rgb(155, 238, 220); font-size: 14px;">Rating:</p>
-            <p style="color: rgb(250, 187, 187);">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+            <p style="color: rgb(250, 187, 187);">${rating}</p>
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
             <p style="color: rgb(155, 238, 220); font-size: 14px;">Number of ratings:</p>
-            <p style="color: rgb(250, 187, 187);">121 Ratings</p>
+            <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">121 Ratings</p>
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
             <p style="color: rgb(155, 238, 220); font-size: 14px;">Number of reviews:</p>
-            <p style="color: rgb(250, 187, 187);">145 Reviews</p>
+            <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">145 Reviews</p>
         </div>
         <div style="padding: 10px; border-radius: 4px; margin-top: 15px; border:rgb(250, 187, 187) 1px solid;">
             <p style="font-size: 14px; margin-bottom: 10px; color:rgb(152, 197, 214); font-weight: bolder; letter-spacing: 1px;">
@@ -1367,27 +1469,12 @@ function show_book_hotel_view_full_profile_ratings_infor(){
     `;
 }
 
-function show_book_hotel_view_full_profile_amenities_infor(){
+function show_book_hotel_view_full_profile_amenities_infor(amenities){
     document.getElementById("book_hotel_view_full_profile_amenities_infor").innerHTML = `
         <p style="color: white; font-size: 14px; text-align: center; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px;;">
         Amenities</p>
-        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
-        <p style="color: rgb(155, 238, 220); font-size: 14px;"><i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
-        <p style="color: rgb(250, 187, 187);">Wifi<i  style="margin-left: 5px;" class="fa fa-wifi" aria-hidden="true"></i></p>
-        </div>
-        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
-        <p style="color: rgb(155, 238, 220); font-size: 14px;"><i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
-        <p style="color: rgb(250, 187, 187);">Coffee<i  style="margin-left: 5px;" class="fa fa-coffee" aria-hidden="true"></i></p>
-        </div>
-        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
-        <p style="color: rgb(155, 238, 220); font-size: 14px;"><i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
-        <p style="color: rgb(250, 187, 187);">Laundry Service</p>
-        </div>
-        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
-        <p style="color: rgb(155, 238, 220); font-size: 14px;"><i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
-        <p style="color: rgb(250, 187, 187);">business center</p>
-        </div>
     `;
+    document.getElementById("book_hotel_view_full_profile_amenities_infor").innerHTML += `${amenities}`;
 }
 
 function show_book_hotel_view_full_profile_sentiments_infor(){
@@ -1396,35 +1483,35 @@ function show_book_hotel_view_full_profile_sentiments_infor(){
         Sentiments</p>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
         <p style="color: rgb(155, 238, 220); font-size: 14px;">Sleep Quality:</p>
-        <p style="color: rgb(250, 187, 187);">80%</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">80%</p>
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
         <p style="color: rgb(155, 238, 220); font-size: 14px;">Service:</p>
-        <p style="color: rgb(250, 187, 187);">66%</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">66%</p>
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
         <p style="color: rgb(155, 238, 220); font-size: 14px;">Facilities:</p>
-        <p style="color: rgb(250, 187, 187);">74%</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">74%</p>
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
         <p style="color: rgb(155, 238, 220); font-size: 14px;">Staff:</p>
-        <p style="color: rgb(250, 187, 187);">60%</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">60%</p>
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
         <p style="color: rgb(155, 238, 220); font-size: 14px;">Internet:</p>
-        <p style="color: rgb(250, 187, 187);">78%</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">78%</p>
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
         <p style="color: rgb(155, 238, 220); font-size: 14px;">Swimming Pool</p>
-        <p style="color: rgb(250, 187, 187);">90%</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">90%</p>
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
         <p style="color: rgb(155, 238, 220); font-size: 14px;">Catering:</p>
-        <p style="color: rgb(250, 187, 187);">60%</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">60%</p>
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
         <p style="color: rgb(155, 238, 220); font-size: 14px;">Points of Interest:</p>
-        <p style="color: rgb(250, 187, 187);">56%</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">56%</p>
         </div>
     `;
 }
@@ -1435,17 +1522,17 @@ function show_book_hotel_view_full_profile_contacts_infor(){
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
         <p style="color: rgb(155, 238, 220); font-size: 14px;">
             <i  style="margin-right: 5px;" class="fa fa-phone" aria-hidden="true"></i>Phone:</p>
-        <p style="color: rgb(250, 187, 187);">1-212-7479222</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">1-212-7479222</p>
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
         <p style="color: rgb(155, 238, 220); font-size: 14px;">
             <i  style="margin-right: 5px;" class="fa fa-fax" aria-hidden="true"></i>Fax:</p>
-        <p style="color: rgb(250, 187, 187);">1-719-5479352</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">1-719-5479352</p>
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
         <p style="color: rgb(155, 238, 220); font-size: 14px;">
             <i  style="margin-right: 5px;" class="fa fa-envelope" aria-hidden="true"></i>Email:</p>
-        <p style="color: rgb(250, 187, 187);">somehotel@gmail.com</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">somehotel@gmail.com</p>
         </div>
     `;
 }
