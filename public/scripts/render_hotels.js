@@ -1315,9 +1315,310 @@ function book_hotel_forms_scroll_helper(){
     $("#order_room_form_content_container").stop().animate({scrollTop:450}, 500, 'swing');
  }
 }
-
+//all code below needs replicated to homepage
 function view_hotels_full_profile_info(){
     toggle_show_hide_book_hotel_view_full_profile_info();
+    show_loading_card_on_book_hotel_view_full_profile_infor_row_set_item();
+    setTimeout(()=>{
+        show_book_hotel_view_full_profile_ratings_infor();
+        show_book_hotel_view_full_profile_amenities_infor();
+        show_book_hotel_view_full_profile_sentiments_infor();
+        show_book_hotel_view_full_profile_contacts_infor();
+        show_book_hotel_view_full_profile_photos();
+        show_book_hotel_view_full_profile_child_policies_infor();
+        show_book_hotel_view_full_profile_whats_nearby_infor();
+        show_book_hotel_view_full_profile_public_transit_infor();
+        show_book_hotel_view_full_profile_other_infor();
+        show_view_full_hotel_profile_reviews_list();
+    }, 1000);
+    
+}
+
+function show_book_hotel_view_full_profile_ratings_infor(){
+    document.getElementById("book_hotel_view_full_profile_ratings_infor").innerHTML = `
+        <p style="color: white; font-size: 14px; text-align: center; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px;;">
+        Rating/Reviews</p>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+            <p style="color: rgb(155, 238, 220); font-size: 14px;">Rating:</p>
+            <p style="color: rgb(250, 187, 187);">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+            <p style="color: rgb(155, 238, 220); font-size: 14px;">Number of ratings:</p>
+            <p style="color: rgb(250, 187, 187);">121 Ratings</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+            <p style="color: rgb(155, 238, 220); font-size: 14px;">Number of reviews:</p>
+            <p style="color: rgb(250, 187, 187);">145 Reviews</p>
+        </div>
+        <div style="padding: 10px; border-radius: 4px; margin-top: 15px; border:rgb(250, 187, 187) 1px solid;">
+            <p style="font-size: 14px; margin-bottom: 10px; color:rgb(152, 197, 214); font-weight: bolder; letter-spacing: 1px;">
+            Perfect for a 1-week stay</p>
+            <div style="display: flex; flex-direction: row !important; margin-bottom: 5px;">
+            <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
+                <i style="color:rgb(86, 223, 193);" class="fa fa-map-marker" aria-hidden="true"></i></p>
+            <p style="color: rgb(250, 187, 187); font-size: 14px;">Located in the heart of New York, this hotel has an excellent location score of 9.5</p>
+            </div>
+            <div style="display: flex; flex-direction: row !important;">
+            <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
+                <i style="color:rgb(86, 223, 193);" class="fa fa-bed" aria-hidden="true"></i></p>
+            <p style="color: rgb(250, 187, 187); font-size: 14px;">Want a great night's sleep? This hotel was highly-rated for its very comfy beds.</p>
+            </div>
+        </div>
+    `;
+}
+
+function show_book_hotel_view_full_profile_amenities_infor(){
+    document.getElementById("book_hotel_view_full_profile_amenities_infor").innerHTML = `
+        <p style="color: white; font-size: 14px; text-align: center; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px;;">
+        Amenities</p>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px;"><i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+        <p style="color: rgb(250, 187, 187);">Wifi<i  style="margin-left: 5px;" class="fa fa-wifi" aria-hidden="true"></i></p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px;"><i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+        <p style="color: rgb(250, 187, 187);">Coffee<i  style="margin-left: 5px;" class="fa fa-coffee" aria-hidden="true"></i></p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px;"><i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+        <p style="color: rgb(250, 187, 187);">Laundry Service</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px;"><i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+        <p style="color: rgb(250, 187, 187);">business center</p>
+        </div>
+    `;
+}
+
+function show_book_hotel_view_full_profile_sentiments_infor(){
+    document.getElementById("book_hotel_view_full_profile_sentiments_infor").innerHTML = `
+        <p style="color: white; font-size: 14px; text-align: center; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px;;">
+        Sentiments</p>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px;">Sleep Quality:</p>
+        <p style="color: rgb(250, 187, 187);">80%</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px;">Service:</p>
+        <p style="color: rgb(250, 187, 187);">66%</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px;">Facilities:</p>
+        <p style="color: rgb(250, 187, 187);">74%</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px;">Staff:</p>
+        <p style="color: rgb(250, 187, 187);">60%</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px;">Internet:</p>
+        <p style="color: rgb(250, 187, 187);">78%</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px;">Swimming Pool</p>
+        <p style="color: rgb(250, 187, 187);">90%</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px;">Catering:</p>
+        <p style="color: rgb(250, 187, 187);">60%</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px;">Points of Interest:</p>
+        <p style="color: rgb(250, 187, 187);">56%</p>
+        </div>
+    `;
+}
+function show_book_hotel_view_full_profile_contacts_infor(){
+    document.getElementById("book_hotel_view_full_profile_contacts_infor").innerHTML = `
+        <p style="color: white; font-size: 14px; text-align: center; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px;;">
+        Contact</p>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px;">
+            <i  style="margin-right: 5px;" class="fa fa-phone" aria-hidden="true"></i>Phone:</p>
+        <p style="color: rgb(250, 187, 187);">1-212-7479222</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px;">
+            <i  style="margin-right: 5px;" class="fa fa-fax" aria-hidden="true"></i>Fax:</p>
+        <p style="color: rgb(250, 187, 187);">1-719-5479352</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px;">
+            <i  style="margin-right: 5px;" class="fa fa-envelope" aria-hidden="true"></i>Email:</p>
+        <p style="color: rgb(250, 187, 187);">somehotel@gmail.com</p>
+        </div>
+    `;
+}
+function show_book_hotel_view_full_profile_photos(){
+    document.getElementById("book_hotel_view_full_profile_photos").innerHTML = `
+        <div class="book_hotel_view_full_profile_each_photo">
+            <img src="images/hotelsBackground.jpg" alt="" />
+        </div>
+        <div class="book_hotel_view_full_profile_each_photo">
+            <img src="images/HotelPic3.jpg" alt="" />
+        </div>
+        <div class="book_hotel_view_full_profile_each_photo">
+            <img src="images/hotelsBackground2.jpg" alt="" />
+        </div>
+        <div class="book_hotel_view_full_profile_each_photo">
+            <img src="images/HotelPic2.jpg" alt="" />
+        </div>
+        <div class="book_hotel_view_full_profile_each_photo">
+            <img src="images/HotelPic.jpg" alt="" />
+        </div>
+        <div class="book_hotel_view_full_profile_each_photo">
+            <img src="images/lHotelPic2.jpg" alt="" />
+        </div>
+    `;
+
+    document.getElementById("book_hotel_view_full_profile_photos").innerHTML += `
+        <div id="book_hotel_view_full_profile_photos_load_more_btn">
+            <p style="font-weight: bolder; letter-spacing: 1px; font-size: 14px; text-align: center; color: white;">
+            load more photos</p>
+        </div>
+    `;
+}
+function show_book_hotel_view_full_profile_child_policies_infor(){
+    document.getElementById("book_hotel_view_full_profile_child_policies_infor").innerHTML = `
+        <p style="color: white; font-size: 14px; text-align: center; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px;;">
+        Child policies</p>
+        <div style="display: flex; flex-direction: row !important;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
+            <i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px;">Children of all ages are welcome.</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
+            <i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px;">Children 13 and above are considered adults at this property.</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
+            <i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px;">To see correct prices and occupancy info, add the number and ages of children in your group to your search.</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
+            <i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px;">This property doesn't offer extra beds</p>
+        </div>
+    `;
+}
+function show_book_hotel_view_full_profile_whats_nearby_infor(){
+    document.getElementById("book_hotel_view_full_profile_whats_nearby_infor").innerHTML = `
+        <p style="color: white; font-size: 14px; text-align: center; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px;;">
+        What's nearby</p>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
+            <i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px;">Restaurant Row</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
+            <i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px;">Richard Rodgers Theatre</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
+            <i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px;">The Majestic Theatre</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
+            <i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px;">Minskoff Theatre</p>
+        </div>
+    `;
+}
+function show_book_hotel_view_full_profile_public_transit_infor(){
+    document.getElementById("book_hotel_view_full_profile_public_transit_infor").innerHTML = `
+        <p style="color: white; font-size: 14px; text-align: center; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px;;">
+        Public transit</p>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
+            <i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px;">Subway - 50th Street Station</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
+            <i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px;">Subway - 42nd Street – Port Authority Bus Terminal</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
+            <i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px;">Subway - 50th Street Seventh Avenue Line</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
+            <i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px;">Subway - 49th Street Station</p>
+        </div>
+        <p style="color: white; font-size: 14px; text-align: center; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px; margin-top: 20px;">
+        Closest Airports</p>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+            <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
+            <i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+            <p style="color: rgb(250, 187, 187); font-size: 14px;">LaGuardia Airport</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+            <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
+            <i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+            <p style="color: rgb(250, 187, 187); font-size: 14px;">Newark Liberty International Airport</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+            <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
+            <i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+            <p style="color: rgb(250, 187, 187); font-size: 14px;">John F. Kennedy International Airport</p>
+        </div>
+    `;
+}
+function show_book_hotel_view_full_profile_other_infor(){
+    document.getElementById("book_hotel_view_full_profile_other_infor").innerHTML = `
+        <p style="color: white; font-size: 14px; text-align: center; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px;;">
+        Other</p>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between; margin-bottom: 5px;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px; min-width: fit-content;">
+            <i style="color:rgb(86, 223, 193); margin-right: 5px;" class="fa fa-user" aria-hidden="true"></i>Age restrictions:</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">The minimum age for check-in is 21.</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between; margin-bottom: 5px;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px; min-width: fit-content;">
+            <i style="color:rgb(86, 223, 193); margin-right: 5px;" class="fa fa-paw" aria-hidden="true"></i>Pets:</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">Pets are not allowed.</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between; margin-bottom: 5px;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px; min-width: fit-content;">
+            <i style="color:rgb(86, 223, 193); margin-right: 5px;" class="fa fa-users" aria-hidden="true"></i>Groups:</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">When booking more than 10 rooms, different policies and additional supplements may apply.</p>
+        </div>
+    `;
+}
+function show_view_full_hotel_profile_reviews_list(){
+    document.getElementById("view_full_hotel_profile_reviews_list").innerHTML = `
+        <div class="view_full_hotel_profile_reviews_list_item">
+        <div style="border-radius: 100%; width: 75px; height: 75px; overflow: hidden !important; margin: auto; border: 2px solid white;">
+        <img src="./images/Anonymous_person4.jpg" alt=""  style="width: 75px; min-height: 75px; height: aut;"/>
+        </div>
+        <p style="text-align: center; font-weight: bolder; font-size: 14px; letter-spacing: 1px; margin-top: 10px; color:rgb(255, 173, 73);">
+        Person Name Here</p>
+        <p style="text-align: center; color: white; font-size: 18px">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+        <p style="text-align: center; font-size: 14px; color: white; letter-spacing: 1px; max-width: 600px; margin: auto; margin-top: 20px;">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure quos impedit debitis dolorum fuga fugiat est ipsum doloribus non rem repudiandae, vero fugit reiciendis facere. Possimus similique laudantium provident illum.
+        </p>
+    </div>
+    <div class="view_full_hotel_profile_reviews_list_item">
+        <div style="border-radius: 100%; width: 75px; height: 75px; overflow: hidden !important; margin: auto; border: 2px solid white;">
+        <img src="./images/Anonymous_person4.jpg" alt=""  style="width: 75px; min-height: 75px; height: aut;"/>
+        </div>
+        <p style="text-align: center; font-weight: bolder; font-size: 14px; letter-spacing: 1px; margin-top: 10px; color:rgb(255, 173, 73);">
+        Person Name Here</p>
+        <p style="text-align: center; color: white; font-size: 18px">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+        <p style="text-align: center; font-size: 14px; color: white; letter-spacing: 1px; max-width: 600px; margin: auto; margin-top: 20px;">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure quos impedit debitis dolorum fuga fugiat est ipsum doloribus non rem repudiandae, vero fugit reiciendis facere. Possimus similique laudantium provident illum.
+        </p>
+    </div>
+    `;
 }
 
 function show_loading_card_on_book_hotel_view_full_profile_infor_row_set_item(){
@@ -1368,7 +1669,7 @@ function show_loading_card_on_book_hotel_view_full_profile_infor_row_set_item(){
             </div>
         </div>
     `;
-    document.getElementById("view_full_hotel_profile_reviews").innerHTML = `
+    document.getElementById("view_full_hotel_profile_reviews_list").innerHTML = `
         <div style="padding: 40px;">
             <div style="width: 100%; text-align: center;" class="loader2 loader--style2" title="1">
                 <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
