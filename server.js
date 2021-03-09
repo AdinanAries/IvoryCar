@@ -353,7 +353,30 @@ app.post('/flightpriceanalysis/', (req, res, next)=>{
     //defaults
   });
 
-})
+});
+
+//Hotel Sentiments End Points
+app.get('/get_hotel_sentiments/:hotelId', (req, res, next)=>{
+
+  let hotel_id = req.params.hotelId;
+
+  axios.get(
+    "https://test.api.amadeus.com/v2/e-reputation/hotel-sentiments?hotelIds="+hotel_id, 
+    {
+
+      headers: {
+        "Authorization": ("Bearer " + AmadeusAccessToken),
+        "Accept": "application/vnd.amadeus+json"
+      }
+  }).then(data => {
+    //console.log(data.data);
+    res.send(data.data);
+  }).catch(err =>{
+    console.log(err);
+  }).then(()=>{
+    //defaults
+  });
+});
 
 //Hotel Search End Points
 app.post("/get_hotels/", (req, res, next)=>{

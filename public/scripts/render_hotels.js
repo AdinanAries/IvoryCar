@@ -1419,12 +1419,51 @@ function view_hotels_full_profile_info(hotel_info){
         
     }
 
+    //getting hotel sentiments
+    let hotel_id = hotel_info_obj.hotelId
+    $.ajax({
+        type: "GET",
+        url: "/get_hotel_sentiments/SJNYCAJA",//+hotel_id
+        success: data => {
+            let not_found = `
+                    <i style="margin-right, 5px; color: orangered;" class="fa fa-exclamation-triangle"></i>
+                    unavailable
+            `;
+            let ratings_reccomendation = "Perfect for a 1-week stay";
+            ratings_reccomendation = ratings_reccomendation.replaceAll( "'", "#$#$#").replaceAll(",", "&*&*&*");
+
+            let location_msg = "Located in the heart of New York, this hotel has an excellent location score of 9.5";
+            location_msg = location_msg.replaceAll( "'", "#$#$#").replaceAll(",", "&*&*&*");
+
+            let highest_rating_factor_msg = "Want a great night's sleep? This hotel was highly-rated for its very comfy beds.";
+            highest_rating_factor_msg = highest_rating_factor_msg.replaceAll( "'", "#$#$#").replaceAll(",", "&*&*&*");
+            
+            console.log(data);
+            if(data.data){
+                if(data.data.length > 0){
+                    show_book_hotel_view_full_profile_ratings_infor(RR_hotel_rating, `${data.data[0].numberOfRatings} Ratings`, `${data.data[0].numberOfReviews} Reviews`, ratings_reccomendation, location_msg, highest_rating_factor_msg);
+                    show_book_hotel_view_full_profile_sentiments_infor(`${data.data[0].sentiments.sleepQuality}%`, `${data.data[0].sentiments.service}%`, `${data.data[0].sentiments.facilities}%`, `${data.data[0].sentiments.staff}%`, `${data.data[0].sentiments.internet}%`, `${data.data[0].sentiments.valueForMoney}%`, `${data.data[0].sentiments.catering}%`, `${data.data[0].sentiments.pointsOfInterest}%`, `${data.data[0].sentiments.roomComforts}%`);
+                }else{
+                    show_book_hotel_view_full_profile_ratings_infor(RR_hotel_rating, not_found, not_found, ratings_reccomendation, location_msg, highest_rating_factor_msg);
+                    show_book_hotel_view_full_profile_sentiments_infor(not_found, not_found, not_found, not_found, not_found, not_found, not_found, not_found, not_found);
+                }
+            }else{
+                show_book_hotel_view_full_profile_ratings_infor(RR_hotel_rating, not_found, not_found, ratings_reccomendation, location_msg, highest_rating_factor_msg);
+                show_book_hotel_view_full_profile_sentiments_infor(not_found, not_found, not_found, not_found, not_found, not_found, not_found, not_found, not_found);
+            }
+
+        },
+        error: err => {
+            console.log(err);
+        }
+
+    });
+
     toggle_show_hide_book_hotel_view_full_profile_info();
     show_loading_card_on_book_hotel_view_full_profile_infor_row_set_item();
     setTimeout(()=>{
-        show_book_hotel_view_full_profile_ratings_infor(RR_hotel_rating);
+        
         show_book_hotel_view_full_profile_amenities_infor(RR_hotel_amenities);
-        show_book_hotel_view_full_profile_sentiments_infor();
         show_book_hotel_view_full_profile_contacts_infor();
         show_book_hotel_view_full_profile_photos();
         show_book_hotel_view_full_profile_child_policies_infor();
@@ -1436,7 +1475,12 @@ function view_hotels_full_profile_info(hotel_info){
     
 }
 
-function show_book_hotel_view_full_profile_ratings_infor(rating){
+function show_book_hotel_view_full_profile_ratings_infor(rating, number_of_ratings, number_of_reviews, ratings_reccommendation, location_msg, highest_rating_factor_msg){
+
+    let rec_mn_dtion = ratings_reccommendation.replaceAll("#$#$#", "'").replaceAll("&*&*&*", ",");
+    let loc_msg = location_msg.replaceAll("#$#$#", "'").replaceAll("&*&*&*", ",");
+    let the_highest_rating_factor_msg = highest_rating_factor_msg.replaceAll("#$#$#", "'").replaceAll("&*&*&*", ",");
+
     document.getElementById("book_hotel_view_full_profile_ratings_infor").innerHTML = `
         <p style="color: white; font-size: 14px; text-align: center; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px;;">
         Rating/Reviews</p>
@@ -1446,24 +1490,24 @@ function show_book_hotel_view_full_profile_ratings_infor(rating){
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
             <p style="color: rgb(155, 238, 220); font-size: 14px;">Number of ratings:</p>
-            <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">121 Ratings</p>
+            <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${number_of_ratings}</p>
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
             <p style="color: rgb(155, 238, 220); font-size: 14px;">Number of reviews:</p>
-            <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">145 Reviews</p>
+            <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${number_of_reviews}</p>
         </div>
         <div style="padding: 10px; border-radius: 4px; margin-top: 15px; border:rgb(250, 187, 187) 1px solid;">
             <p style="font-size: 14px; margin-bottom: 10px; color:rgb(152, 197, 214); font-weight: bolder; letter-spacing: 1px;">
-            Perfect for a 1-week stay</p>
+            ${rec_mn_dtion}</p>
             <div style="display: flex; flex-direction: row !important; margin-bottom: 5px;">
             <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
                 <i style="color:rgb(86, 223, 193);" class="fa fa-map-marker" aria-hidden="true"></i></p>
-            <p style="color: rgb(250, 187, 187); font-size: 14px;">Located in the heart of New York, this hotel has an excellent location score of 9.5</p>
+            <p style="color: rgb(250, 187, 187); font-size: 14px;">${loc_msg}</p>
             </div>
             <div style="display: flex; flex-direction: row !important;">
             <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
                 <i style="color:rgb(86, 223, 193);" class="fa fa-bed" aria-hidden="true"></i></p>
-            <p style="color: rgb(250, 187, 187); font-size: 14px;">Want a great night's sleep? This hotel was highly-rated for its very comfy beds.</p>
+            <p style="color: rgb(250, 187, 187); font-size: 14px;">${the_highest_rating_factor_msg}</p>
             </div>
         </div>
     `;
@@ -1477,41 +1521,45 @@ function show_book_hotel_view_full_profile_amenities_infor(amenities){
     document.getElementById("book_hotel_view_full_profile_amenities_infor").innerHTML += `${amenities}`;
 }
 
-function show_book_hotel_view_full_profile_sentiments_infor(){
+function show_book_hotel_view_full_profile_sentiments_infor(sleep_qlt, service_qlt, facilities_qlt, staff_qlt, internet_qlt, value_for_money_qlt, catering_qlt, points_of_interest_qlt, room_comforts_qlt){
     document.getElementById("book_hotel_view_full_profile_sentiments_infor").innerHTML = `
         <p style="color: white; font-size: 14px; text-align: center; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px;;">
         Sentiments</p>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
         <p style="color: rgb(155, 238, 220); font-size: 14px;">Sleep Quality:</p>
-        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">80%</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${sleep_qlt}</p>
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
         <p style="color: rgb(155, 238, 220); font-size: 14px;">Service:</p>
-        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">66%</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${service_qlt}</p>
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
         <p style="color: rgb(155, 238, 220); font-size: 14px;">Facilities:</p>
-        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">74%</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${facilities_qlt}</p>
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
         <p style="color: rgb(155, 238, 220); font-size: 14px;">Staff:</p>
-        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">60%</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${staff_qlt}</p>
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
         <p style="color: rgb(155, 238, 220); font-size: 14px;">Internet:</p>
-        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">78%</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${internet_qlt}</p>
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
-        <p style="color: rgb(155, 238, 220); font-size: 14px;">Swimming Pool</p>
-        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">90%</p>
+        <p style="color: rgb(155, 238, 220); font-size: 14px;">Value for money:</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${value_for_money_qlt}</p>
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
         <p style="color: rgb(155, 238, 220); font-size: 14px;">Catering:</p>
-        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">60%</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${catering_qlt}</p>
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
         <p style="color: rgb(155, 238, 220); font-size: 14px;">Points of Interest:</p>
-        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">56%</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${points_of_interest_qlt}</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px;">Room Conforts:</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${room_comforts_qlt}</p>
         </div>
     `;
 }
