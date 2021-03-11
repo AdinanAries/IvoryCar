@@ -510,7 +510,10 @@ function get_hotel_rates(url, is_going_back_from_final_price){
                 RR_hotel_name = data.data.hotel.name;
             }
             if(data.data.hotel.address){
-                RR_hotel_address = data.data.hotel.address.cityName + ", " + data.data.hotel.address.countryCode;
+
+                let country = return_country_from_code(data.data.hotel.address.countryCode)[0].country;
+
+                RR_hotel_address = data.data.hotel.address.cityName + ", " + country.toUpperCase();
                 if(data.data.hotel.address.lines[0]){
                     RR_hotel_address = data.data.hotel.address.lines[0] + ", " + RR_hotel_address;
                 }
@@ -1325,6 +1328,9 @@ function book_hotel_forms_scroll_helper(){
 //all code below needs replicated to homepage
 function view_hotels_full_profile_info(hotel_info){
 
+    toggle_show_hide_book_hotel_view_full_profile_info();
+    show_loading_card_on_book_hotel_view_full_profile_infor_row_set_item();
+
     let hotel_info_obj = hotel_info.replaceAll('%^%^%', '\'').replaceAll('#$#$#', '"').replaceAll('&*&*&*', ',');
     hotel_info_obj = JSON.parse(hotel_info_obj);
     console.log(hotel_info_obj);
@@ -1336,6 +1342,13 @@ function view_hotels_full_profile_info(hotel_info){
     let RR_hotel_rating = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
     let RR_hotel_address = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
     let RR_hotel_amenities = `<i aria-hidden="true" class="fa fa-exclamation-triangle" style="color: orangered; margin-right: 5px;"></i>unavailable`;
+    let nearest_airports = `<div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+            <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
+            <i style="color: orangered;" class="fa fa-exclamation-triangle" aria-hidden="true"></i></p>
+            <p style="color: rgb(250, 187, 187); font-size: 14px;">no airports found</p>
+        </div>`;
+    //initially render airports with unavailable status
+    show_book_hotel_view_full_profile_public_transit_infor(nearest_airports);
 
     if(hotel_info_obj.rating){
         if(hotel_info_obj.rating === "5"){
@@ -1355,13 +1368,26 @@ function view_hotels_full_profile_info(hotel_info){
         document.getElementById("book_hotel_view_full_profile_hotel_name").innerText = RR_hotel_name;
     }
     if(hotel_info_obj.address){
-        RR_hotel_address = hotel_info_obj.address.cityName + ", " + hotel_info_obj.address.countryCode;
+
+        let country = return_country_from_code(hotel_info_obj.address.countryCode)[0].country;
+
+        RR_hotel_address = hotel_info_obj.address.cityName + ", " + country;
         if(hotel_info_obj.address.lines[0]){
             RR_hotel_address = hotel_info_obj.address.lines[0] + ", " + RR_hotel_address;
             document.getElementById("book_hotel_view_full_profile_hotel_location").innerText = RR_hotel_address;
         }
-    }
 
+        nearest_airports = filter_airports_array_based_input_value(hotel_info_obj.address.cityName+country);
+        
+        if(nearest_airports.length > 0){
+            return_nearest_airports_to_hotel_markup(nearest_airports).then(airports_markup_array =>{
+            let markup = airports_markup_array.toString().replaceAll(",", " ");
+            show_book_hotel_view_full_profile_public_transit_infor(markup);
+            });
+        }
+        
+    }
+    
     if(hotel_info_obj.contact){
         if(hotel_info_obj.contact.phone){
             RR_hotel_phone = hotel_info_obj.contact.phone;
@@ -1441,14 +1467,14 @@ function view_hotels_full_profile_info(hotel_info){
             console.log(data);
             if(data.data){
                 if(data.data.length > 0){
-                    show_book_hotel_view_full_profile_ratings_infor(RR_hotel_rating, `${data.data[0].numberOfRatings} Ratings`, `${data.data[0].numberOfReviews} Reviews`, ratings_reccomendation, location_msg, highest_rating_factor_msg);
+                    show_book_hotel_view_full_profile_ratings_infor(data.data[0].overallRating, RR_hotel_rating, `${data.data[0].numberOfRatings} Ratings`, `${data.data[0].numberOfReviews} Reviews`, ratings_reccomendation, location_msg, highest_rating_factor_msg, RR_hotel_phone, RR_hotel_fax, RR_hotel_email);
                     show_book_hotel_view_full_profile_sentiments_infor(`${data.data[0].sentiments.sleepQuality}%`, `${data.data[0].sentiments.service}%`, `${data.data[0].sentiments.facilities}%`, `${data.data[0].sentiments.staff}%`, `${data.data[0].sentiments.internet}%`, `${data.data[0].sentiments.valueForMoney}%`, `${data.data[0].sentiments.catering}%`, `${data.data[0].sentiments.pointsOfInterest}%`, `${data.data[0].sentiments.roomComforts}%`);
                 }else{
-                    show_book_hotel_view_full_profile_ratings_infor(RR_hotel_rating, not_found, not_found, ratings_reccomendation, location_msg, highest_rating_factor_msg);
+                    show_book_hotel_view_full_profile_ratings_infor(not_found, RR_hotel_rating, not_found, not_found, ratings_reccomendation, location_msg, highest_rating_factor_msg, RR_hotel_phone, RR_hotel_fax, RR_hotel_email);
                     show_book_hotel_view_full_profile_sentiments_infor(not_found, not_found, not_found, not_found, not_found, not_found, not_found, not_found, not_found);
                 }
             }else{
-                show_book_hotel_view_full_profile_ratings_infor(RR_hotel_rating, not_found, not_found, ratings_reccomendation, location_msg, highest_rating_factor_msg);
+                show_book_hotel_view_full_profile_ratings_infor(not_found, RR_hotel_rating, not_found, not_found, ratings_reccomendation, location_msg, highest_rating_factor_msg, RR_hotel_phone, RR_hotel_fax, RR_hotel_email);
                 show_book_hotel_view_full_profile_sentiments_infor(not_found, not_found, not_found, not_found, not_found, not_found, not_found, not_found, not_found);
             }
 
@@ -1459,8 +1485,6 @@ function view_hotels_full_profile_info(hotel_info){
 
     });
 
-    toggle_show_hide_book_hotel_view_full_profile_info();
-    show_loading_card_on_book_hotel_view_full_profile_infor_row_set_item();
     setTimeout(()=>{
         
         show_book_hotel_view_full_profile_amenities_infor(RR_hotel_amenities);
@@ -1468,14 +1492,27 @@ function view_hotels_full_profile_info(hotel_info){
         show_book_hotel_view_full_profile_photos();
         show_book_hotel_view_full_profile_child_policies_infor();
         show_book_hotel_view_full_profile_whats_nearby_infor();
-        show_book_hotel_view_full_profile_public_transit_infor();
         show_book_hotel_view_full_profile_other_infor();
         show_view_full_hotel_profile_reviews_list();
     }, 1000);
     
 }
 
-function show_book_hotel_view_full_profile_ratings_infor(rating, number_of_ratings, number_of_reviews, ratings_reccommendation, location_msg, highest_rating_factor_msg){
+async function return_nearest_airports_to_hotel_markup(nearest_airports){
+
+    return nearest_airports.map(each => {
+        return  `<div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+                <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
+                <i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
+                <p style="color: rgb(250, 187, 187); font-size: 14px;">${each.name}</p>
+            </div>`;
+    });
+
+}
+
+function show_book_hotel_view_full_profile_ratings_infor(overall_rating, rating, number_of_ratings, number_of_reviews, ratings_reccommendation, location_msg, highest_rating_factor_msg, telephone, fax, email){
+
+    let the_overall_rating = (parseFloat(overall_rating)/10).toFixed(2);
 
     let rec_mn_dtion = ratings_reccommendation.replaceAll("#$#$#", "'").replaceAll("&*&*&*", ",");
     let loc_msg = location_msg.replaceAll("#$#$#", "'").replaceAll("&*&*&*", ",");
@@ -1496,7 +1533,30 @@ function show_book_hotel_view_full_profile_ratings_infor(rating, number_of_ratin
             <p style="color: rgb(155, 238, 220); font-size: 14px;">Number of reviews:</p>
             <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${number_of_reviews}</p>
         </div>
-        <div style="padding: 10px; border-radius: 4px; margin-top: 15px; border:rgb(250, 187, 187) 1px solid;">
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+            <p style="color: rgb(155, 238, 220); font-size: 14px;">Overall Rating:</p>
+            <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${the_overall_rating} out of 10</p>
+        </div>
+
+        <p style="color: white; font-size: 14px; text-align: center; margin-top: 25px; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px;">
+        Contact</p>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px;">
+            <i  style="margin-right: 5px;" class="fa fa-phone" aria-hidden="true"></i>Phone:</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${telephone}</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px;">
+            <i  style="margin-right: 5px;" class="fa fa-fax" aria-hidden="true"></i>Fax:</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${fax}</p>
+        </div>
+        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
+        <p style="color: rgb(155, 238, 220); font-size: 14px;">
+            <i  style="margin-right: 5px;" class="fa fa-envelope" aria-hidden="true"></i>Email:</p>
+        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${email}</p>
+        </div>
+
+        <div style="padding: 10px; border-radius: 4px; margin-top: 25px; border:rgb(250, 187, 187) 1px solid;">
             <p style="font-size: 14px; margin-bottom: 10px; color:rgb(152, 197, 214); font-weight: bolder; letter-spacing: 1px;">
             ${rec_mn_dtion}</p>
             <div style="display: flex; flex-direction: row !important; margin-bottom: 5px;">
@@ -1510,6 +1570,7 @@ function show_book_hotel_view_full_profile_ratings_infor(rating, number_of_ratin
             <p style="color: rgb(250, 187, 187); font-size: 14px;">${the_highest_rating_factor_msg}</p>
             </div>
         </div>
+
     `;
 }
 
@@ -1565,23 +1626,7 @@ function show_book_hotel_view_full_profile_sentiments_infor(sleep_qlt, service_q
 }
 function show_book_hotel_view_full_profile_contacts_infor(){
     document.getElementById("book_hotel_view_full_profile_contacts_infor").innerHTML = `
-        <p style="color: white; font-size: 14px; text-align: center; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px;;">
-        Contact</p>
-        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
-        <p style="color: rgb(155, 238, 220); font-size: 14px;">
-            <i  style="margin-right: 5px;" class="fa fa-phone" aria-hidden="true"></i>Phone:</p>
-        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">1-212-7479222</p>
-        </div>
-        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
-        <p style="color: rgb(155, 238, 220); font-size: 14px;">
-            <i  style="margin-right: 5px;" class="fa fa-fax" aria-hidden="true"></i>Fax:</p>
-        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">1-719-5479352</p>
-        </div>
-        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
-        <p style="color: rgb(155, 238, 220); font-size: 14px;">
-            <i  style="margin-right: 5px;" class="fa fa-envelope" aria-hidden="true"></i>Email:</p>
-        <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">somehotel@gmail.com</p>
-        </div>
+        
     `;
 }
 function show_book_hotel_view_full_profile_photos(){
@@ -1665,7 +1710,8 @@ function show_book_hotel_view_full_profile_whats_nearby_infor(){
         </div>
     `;
 }
-function show_book_hotel_view_full_profile_public_transit_infor(){
+function show_book_hotel_view_full_profile_public_transit_infor(closest_airports){
+    
     document.getElementById("book_hotel_view_full_profile_public_transit_infor").innerHTML = `
         <p style="color: white; font-size: 14px; text-align: center; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px;;">
         Public transit</p>
@@ -1690,22 +1736,8 @@ function show_book_hotel_view_full_profile_public_transit_infor(){
         <p style="color: rgb(250, 187, 187); font-size: 14px;">Subway - 49th Street Station</p>
         </div>
         <p style="color: white; font-size: 14px; text-align: center; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px; margin-top: 20px;">
-        Closest Airports</p>
-        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
-            <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
-            <i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
-            <p style="color: rgb(250, 187, 187); font-size: 14px;">LaGuardia Airport</p>
-        </div>
-        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
-            <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
-            <i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
-            <p style="color: rgb(250, 187, 187); font-size: 14px;">Newark Liberty International Airport</p>
-        </div>
-        <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
-            <p style="color: rgb(155, 238, 220); font-size: 14px; margin-right: 10px;">
-            <i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
-            <p style="color: rgb(250, 187, 187); font-size: 14px;">John F. Kennedy International Airport</p>
-        </div>
+        Airports in the city</p>
+        ${closest_airports}
     `;
 }
 function show_book_hotel_view_full_profile_other_infor(){
