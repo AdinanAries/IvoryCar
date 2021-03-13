@@ -19,6 +19,29 @@ var register_cheap_hotel_post_data = {
             rated: 5,
             message: "We have conducted checks on this hotel brand and we are satisfied by our findings."
         }
+    ],
+    fax: "",
+    number_of_ratings: 1,
+    number_of_reviews: 1,
+    amenities: [],
+    sentiments: [],
+    policies_and_restrictions: [ //An array of objects, each object representing some type of policy and its information
+        {  
+            title: "Child Policies",
+            values: []
+        },
+        {  
+            title: "Cancellation Policies",
+            values: []
+        },
+        {  
+            title: "Age Restrictions",
+            values: []
+        },
+        {  
+            title: "Group Policies",
+            values: []
+        },
     ]
 
 }

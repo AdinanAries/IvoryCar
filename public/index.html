@@ -47,11 +47,11 @@
   <body>
 
     <div id="full_page_picture_viewer">
-      <div onclick="" class="page_popup_close_button" style="width: 30px; text-align: center; padding: 5px 0; margin: 10px; margin-right: 15px; background-color: rgba(0, 0, 0, 0.568); border-radius: 4px;">
+      <div onclick="close_full_Screen_photo_viewer();" class="page_popup_close_button" style="width: 30px; text-align: center; padding: 5px 0; margin: 10px; margin-right: 15px; background-color: rgba(0, 0, 0, 0.568); border-radius: 4px;">
         <i style="color: white" class="fa fa-times" aria-hidden="true"></i>
       </div>
       <div style="width: fit-content; margin: auto;">
-        <img  src="./images/HotelPic2.jpg" alt=""/>
+        <img id="full_page_picture_viewer_img"  src="./images/HotelPic2.jpg" alt=""/>
       </div>
     </div>
 
@@ -59,7 +59,7 @@
       <div onclick="toggle_show_hide_cheap_hotel_view_full_profile_info();" class="page_popup_close_button" style="margin-right: 10px;">
         <i class="fa fa-times" aria-hidden="true"></i>
       </div>
-      <div id="book_hotel_view_full_profile_header" style="overflow: initial !important; height: 130px; background-color: #023057; display: flex; flex-direction: column !important; justify-content: center;">
+      <div id="book_hotel_view_full_profile_header" style="overflow: initial !important; background-color: #023057; padding: 10px 0;">
         <div style="margin-left: 20px; height: initial !important; overflow: initial !important;" class="site_logo_container">
           <div style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
             <p  style="text-shadow: none;"><span style="text-shadow: none;">An</span style="text-shadow: none;">i<span style="text-shadow: none;">d</span style="text-shadow: none;">a<span style="text-shadow: none;">s</span>o<sup style="font-size: 12px; text-shadow: none;">&reg;</sup></p>
@@ -72,6 +72,9 @@
           <p style="font-size: 11px; color:rgb(255, 173, 73); margin-top: 5px; letter-spacing: 1px; text-align: center;">
             hotel location here
           </p>
+          <div style="width: 150px; margin: auto; padding: 20px 0; text-align: center; font-size: 14px; color: white; background-color:rgb(5, 146, 116); margin-top: 10px;">
+            Book Hotel
+          </div>
       </div>
       <div id="book_hotel_view_full_profile_body">
         <div class="book_hotel_view_full_profile_infor_row">
@@ -2448,19 +2451,19 @@
             margin-bottom: 20px;
           "
         >
-          Checkout the flight deals today
+          Checkout hotel deals today
         </p>
         <div id="favorite_bus_company_list">
           <div class="favorite_bus_company_list_row">
             <div class="favorite_bus_company_list_column">
               <div class="favorite_bus_company_title_text">
-                <p>America and Europe</p>
+                <p>Hotel Name Here</p>
                 <p style="font-size: 11px; color:rgb(233, 128, 0);">
                   Nov 12 - Jan 11, 2021</p>
               </div>
               <div class="favorite_bus_company_info">
 
-                <div style="width: 100%; text-align: center;" class="loader loader--style2" title="1">
+                <div style="display: none; width: 100%; text-align: center;" class="loader loader--style2" title="1">
                   <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
                   <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
@@ -2479,11 +2482,32 @@
                   </p>
                 </div>
 
-                <!--a><p>New York, USA <i class="fa fa-long-arrow-right" aria-hidden="true"></i> Abuja, Nigeria</p></a>
-                <a><p>Accra, Ghana <i style="color:rgb(233, 0, 202);" class="fa fa-arrows-h" aria-hidden="true"></i> California, USA</p></a>
-                <a><p>Ontario, Canada <i style="color:rgb(0, 177, 139);" class="fa fa-long-arrow-left" aria-hidden="true"></i> Abijan, Ivory Coast</p></a>
-                <a><p>CountryC, citC <i style="color:rgb(233, 0, 202);" class="fa fa-arrows-h" aria-hidden="true"></i> ClountryC, cityD</p></a>
-                <a><p>CountryA, cityA <i class="fa fa-long-arrow-right" aria-hidden="true"></i> CountryB, CityB</p></a-->
+                <div>
+                  <p style="font-weight: bolder; width: fit-content; margin-left: 10px; font-size: 12px; color:rgb(0, 60, 83); letter-spacing: 1px;">
+                    Reviews</p>
+                  <p style="color:rgb(0, 26, 43); font-size: 13px;">
+                    <span style="color:rgb(235, 86, 0); margin-right: 5px; font-size: 20px;">
+                      &#9733; &#9733; &#9733; &#9733; &#9734;</span>(150 reviews)</p>
+                  <p style="font-weight: bolder; width: fit-content; margin-left: 10px; margin-top: 10px; font-size: 12px; color:rgb(0, 60, 83); letter-spacing: 1px;">
+                    Location</p>
+                  <p style="color:rgb(0, 26, 43); font-size: 14px;">
+                    1543 manhattan avenue, NY, USA, 1233</p>
+                    
+                  <p style="font-weight: bolder; width: fit-content; margin-left: 10px; margin-top: 10px; font-size: 12px; color:rgb(0, 60, 83); letter-spacing: 1px;">
+                    Price</p>
+                  <p style="color:rgb(0, 26, 43); font-size: 14px;">
+                    <span style="font-size: 14px; text-decoration: line-through; color: crimson; margin-right: 5px;">$342</span>$222</p>
+                  <p style="font-weight: bolder; width: fit-content; margin-left: 10px; margin-top: 10px; font-size: 12px; color:rgb(0, 60, 83); letter-spacing: 1px;">
+                    Room-Type:</p>
+                  <p style="color:rgb(0, 26, 43); font-size: 14px;">
+                    Delux</p>
+                  <p style="font-weight: bolder; width: fit-content; margin-left: 10px; margin-top: 10px; font-size: 12px; color:rgb(0, 60, 83); letter-spacing: 1px;">
+                    Description</p>
+                  <p style="color:rgb(0, 26, 43); font-size: 14px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores rem ratione consectetur sit nulla, eaque laborum quas nesciunt, itaque culpa aspernatur magni,</p>
+                  <div style="text-align: center; width: 100px !important; margin: auto; margin-top: 20px; color: rgb(35, 95, 136); font-weight: bolder; border: rgb(35, 95, 136) 1px solid; font-size: 14px; padding: 10px 0; border-radius: 4px;">
+                    View Deal
+                  </div>
+                </div>
 
               </div>
             </div>

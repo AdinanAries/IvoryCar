@@ -136,7 +136,8 @@ function render_hotels(){
                 for(let p = 0; p < data.data.length; p++){
 
                     hotel_name = data.data[p].hotel.name;
-                    hotel_location = data.data[p].hotel.address.cityName + ", " + data.data[p].hotel.address.countryCode
+                    let country = return_country_from_code(data.data[p].hotel.address.countryCode)[0].country;
+                    hotel_location = data.data[p].hotel.address.cityName + ", " + country.toUpperCase();
 
                     if(data.data[p].hotel.contact){
 
@@ -1371,7 +1372,7 @@ function view_hotels_full_profile_info(hotel_info){
 
         let country = return_country_from_code(hotel_info_obj.address.countryCode)[0].country;
 
-        RR_hotel_address = hotel_info_obj.address.cityName + ", " + country;
+        RR_hotel_address = hotel_info_obj.address.cityName + ", " + country.toUpperCase();
         if(hotel_info_obj.address.lines[0]){
             RR_hotel_address = hotel_info_obj.address.lines[0] + ", " + RR_hotel_address;
             document.getElementById("book_hotel_view_full_profile_hotel_location").innerText = RR_hotel_address;
@@ -1403,7 +1404,7 @@ function view_hotels_full_profile_info(hotel_info){
     if(hotel_info_obj.amenities){
         //hotel_info_obj.amenities.toString().replaceAll("_", " ").toLowerCase().replaceAll(",", ", ");
         RR_hotel_amenities = hotel_info_obj.amenities.map(each => {
-            if(each.toLowerCase().includes("internet") || each.toLowerCase().includes("wi-fi") || each.toLowerCase().includes("wifi")){
+            if(each.toLowerCase().includes("internet") || each.toLowerCase().includes("wi-fi") || each.toLowerCase().includes("wifi") || each.toLowerCase().includes("wireless")){
                 return `<div style="display: flex; flex-direction: row !important; justify-content: space-between;">
                     <p style="color: rgb(155, 238, 220); font-size: 14px;"><i style="color:rgb(86, 223, 193);" class="fa fa-check" aria-hidden="true"></i></p>
                     <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${each.replaceAll("_", " ")}<i  style="margin-left: 5px;" class="fa fa-wifi" aria-hidden="true"></i></p>
@@ -1512,7 +1513,7 @@ async function return_nearest_airports_to_hotel_markup(nearest_airports){
 
 function show_book_hotel_view_full_profile_ratings_infor(overall_rating, rating, number_of_ratings, number_of_reviews, ratings_reccommendation, location_msg, highest_rating_factor_msg, telephone, fax, email){
 
-    let the_overall_rating = (parseFloat(overall_rating)/10).toFixed(2);
+    let the_overall_rating = (parseFloat(overall_rating)/10).toFixed(1);
 
     let rec_mn_dtion = ratings_reccommendation.replaceAll("#$#$#", "'").replaceAll("&*&*&*", ",");
     let loc_msg = location_msg.replaceAll("#$#$#", "'").replaceAll("&*&*&*", ",");
@@ -1535,7 +1536,7 @@ function show_book_hotel_view_full_profile_ratings_infor(overall_rating, rating,
         </div>
         <div style="display: flex; flex-direction: row !important; justify-content: space-between;">
             <p style="color: rgb(155, 238, 220); font-size: 14px;">Overall Rating:</p>
-            <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${the_overall_rating} out of 10</p>
+            <p style="color: rgb(250, 187, 187); font-size: 14px; text-align: right;">${the_overall_rating} out of 10.0</p>
         </div>
 
         <p style="color: white; font-size: 14px; text-align: center; margin-top: 25px; margin-bottom: 20px; font-weight: bolder; letter-spacing: 1px;">

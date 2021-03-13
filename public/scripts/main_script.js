@@ -2204,3 +2204,13 @@ function show_loading_card_on_book_hotel_view_full_profile_infor_row_set_item(){
       </div>
   `;
 }
+
+function view_full_photo_on_full_screen(photo_url){
+  $("#full_page_picture_viewer").slideDown("fast");
+  document.getElementById("full_page_picture_viewer_img").src = photo_url
+}
+
+function close_full_Screen_photo_viewer(){
+  $("#full_page_picture_viewer").slideUp("fast");
+  document.getElementById("full_page_picture_viewer_img").src = "";
+}

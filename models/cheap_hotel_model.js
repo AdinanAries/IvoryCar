@@ -4,6 +4,11 @@ const mongoose = require("mongoose");
 require("mongoose-type-url");
 
 const cheap_hotel_schema = new mongoose.Schema({
+    id: {
+        type: mongoose.Schema.ObjectId,
+        reqiured: true,
+        index: true
+    },
     approved: {
         type: Boolean,
         required: true
@@ -62,6 +67,30 @@ const cheap_hotel_schema = new mongoose.Schema({
         type: String,
         required: true
     },
+    fax: {
+        type: String,
+        reqiured: true
+    },
+    number_of_ratings: {
+        type: Number,
+        required: true
+    },
+    number_of_reviews: {
+        type :Number,
+        required: true
+    },
+    amenities: {
+        type: Array,
+        required: true
+    },
+    sentiments: {
+        type: Array,
+        reqiured: true
+    },
+    policies_and_restrictions: {  //An array of objects, each object representing some type of policy and its information
+        type: Array,
+        reqiured: true
+    }
 });
 
 
