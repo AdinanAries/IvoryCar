@@ -65,19 +65,27 @@ function display_events(start, limit, number){
 
         let event_genre_name = "Unavailable";
         if(all_public_events[i].classifications){
-            event_genre_name = all_public_events[i].classifications[0].genre.name
+            if(all_public_events[i].classifications[0].genre.name)
+                event_genre_name = all_public_events[i].classifications[0].genre.name;
+            if(event_genre_name === "Undefined")
+                event_genre_name = "Unspecified Genre";
         }
 
         //this has been changed for actual event venue address
         let event_time_zone = "Unavailable";
         if(all_public_events[i]._embedded.venues[0]){
-            let e_address = all_public_events[i]._embedded.venues[0].address.line1;
+
+            let e_address = "";
+
+            if(all_public_events[i]._embedded.venues[0].address)
+                e_address = all_public_events[i]._embedded.venues[0].address.line1;
+
             let acity = all_public_events[i]._embedded.venues[0].city.name;
             let astate = all_public_events[i]._embedded.venues[0].city.name;
             if(all_public_events[i].dates.timezone){
                 astate = all_public_events[i].dates.timezone.split("/")[1].replaceAll("_", " ");
             }
-            let acountry = all_public_events[i]._embedded.venues[0].country.countryCode;
+            let acountry = return_country_from_code(all_public_events[i]._embedded.venues[0].country.countryCode)[0].country;
             event_time_zone = e_address + ", " + acity + ", " + astate + ", " + acountry;
             //event_time_zone = all_public_events[i].dates.timezone.replaceAll("_", " ");
         }

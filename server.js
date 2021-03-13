@@ -120,7 +120,7 @@ app.get('/publicevents/', function(request, response, next){
       
       const getEvents = async () => {
         try {
-            const res = await axios.get('https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=3zYxdvHT8NJzOWY01URK1nF5ltjjqB6b');
+            const res = await axios.get('https://app.ticketmaster.com/discovery/v2/events.json?apikey=3zYxdvHT8NJzOWY01URK1nF5ltjjqB6b&size=100&sort=relevance,asc');
             //console.log(res.data._embedded.events);
             console.log("called api");
             all_events = [...all_events, ...res.data._embedded.events];
@@ -149,7 +149,7 @@ if(all_attractions.length === 0){
       const getAttractions = async () => {
 
           try {
-              const res = await axios.get('https://app.ticketmaster.com/discovery/v2/attractions.json?apikey=3zYxdvHT8NJzOWY01URK1nF5ltjjqB6b');
+              const res = await axios.get('https://app.ticketmaster.com/discovery/v2/attractions.json?apikey=F7RYAvaz0LtW0I55jTJibyZy3SaEnzw1');
               //console.log(res.data._embedded.events);
               console.log("called api");
               all_attractions = [...all_attractions, ...res.data._embedded.attractions];
