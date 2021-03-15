@@ -6,6 +6,19 @@
 }
 
 /*-------------------------------*/
+.todays_hotel_deals_view_deal_section_set {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+}
+.todays_hotel_deals_view_deal_each_section {
+  background-color: rgb(235, 86, 0);
+  width: calc(50% - 25px);
+  border-radius: 4px;
+  min-height: 250px;
+  padding: 10px;
+}
 #full_page_picture_viewer {
   position: fixed;
   z-index: 1000;
@@ -1715,6 +1728,13 @@ footer a {
   }
 }
 @media only screen and (max-width: 1025px) {
+  .todays_hotel_deals_view_deal_section_set {
+    flex-direction: column !important;
+  }
+  .todays_hotel_deals_view_deal_each_section {
+    width: calc(100% - 20px);
+    margin-bottom: 5px;
+  }
   .show_all_evnt_detail_event_info_p {
     max-height: 100px !important;
     overflow: hidden !important;

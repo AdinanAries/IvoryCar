@@ -2214,3 +2214,11 @@ function close_full_Screen_photo_viewer(){
   $("#full_page_picture_viewer").slideUp("fast");
   document.getElementById("full_page_picture_viewer_img").src = "";
 }
+
+function toggle_show_hide_todays_hotel_deals_view_deal_container(){
+  $("#todays_hotel_deals_view_deal_container").toggle("up");
+}
+
+function todays_hotel_deals_view_deal_func(){
+  toggle_show_hide_todays_hotel_deals_view_deal_container();
+}
