@@ -95,6 +95,7 @@ function signup_function(){
         confirm_password_input.focus();
     }else if(!password_complexity_result.pass){
         password_input.placeholder = password_complexity_result.msg;
+        confirm_password_input.value = "";
         password_input.value = "";
         password_input.focus();
     }else{
@@ -127,7 +128,8 @@ function password_complexity_checker(password){
         if(!isNaN(password.charAt(i))){
             contains_number = true;
         }
-        if(password.charAt(i) == password.charAt(i).toUpperCase()){
+        if(password.charAt(i) === password.charAt(i).toUpperCase()
+            && password.charAt(i) !== password.charAt(i).toLowerCase()){
             contains_uppercase = true
         }
     }
@@ -143,7 +145,7 @@ function password_complexity_checker(password){
             pass: false,
             msg: "password must contain at least one number"
         }
-    }else if(contains_uppercase){
+    }else if(!contains_uppercase){
         return {
             pass: false,
             msg: "password must contain atleast one uppercase letter"
