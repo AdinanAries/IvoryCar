@@ -6,6 +6,61 @@
 }
 
 /*-------------------------------*/
+.logged_in_user_nav_info {
+  display: flex;
+  flex-direction: row !important;
+  position: relative;
+  width: 200px;
+}
+.logged_in_user_nav_info:hover .logged_in_user_nav_profile_picture_container {
+  border: #d85d38 2px solid;
+}
+.logged_in_user_nav_info:hover .logged_in_user_nav_info_drop_down {
+  display: block;
+}
+.logged_in_user_nav_profile_picture {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column !important;
+  justify-content: center;
+}
+.logged_in_user_nav_profile_picture_container {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  overflow: hidden;
+  margin-right: 5px;
+}
+.logged_in_user_nav_profile_picture_container img {
+  width: 30px;
+  height: auto;
+  min-height: 30px;
+}
+.logged_in_user_nav_profile_name {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column !important;
+  justify-content: flex-end;
+  padding-bottom: 17px;
+}
+.logged_in_user_nav_profile_name p {
+  color: white;
+  font-size: 11px;
+  font-weight: bolder;
+  letter-spacing: 1px;
+}
+.logged_in_user_nav_info_drop_down {
+  display: none;
+  position: absolute;
+  top: calc(100% - 5px);
+  left: 0;
+  border-bottom-left-radius: 4px;
+  width: 100%;
+  border-top: #d85d38 4px solid;
+  border-bottom-right-radius: 4px;
+  background-color: white;
+}
+
 .todays_hotel_deals_view_deal_section_set {
   display: flex;
   flex-direction: row;
@@ -1933,6 +1988,9 @@ footer a {
 }
 
 @media only screen and (max-width: 1025px) {
+  #logged_in_user_main_top_nav_info{
+    display: none;
+  }
   .book_hotel_view_full_profile_each_photo {
     margin: 2px !important;
   }

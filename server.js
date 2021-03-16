@@ -477,9 +477,16 @@ app.post('/finish_room_booking/', (req, res, next)=> {
 
 
 //login and signup routes
+app.get("/login/", (req, res, next)=>{
+  res.sendFile(path.join(__dirname + "/public/index.html"))
+})
+app.get("/signup/", (req, res, next)=>{
+  res.sendFile(path.join(__dirname + "/public/index.html"))
+})
+
 app.post("/login/", (req, res, next)=>{
 
-  let login_user = new login_user({
+  let user = new login_user({
     email: req.body.email,
     password: req.body.password
   });
@@ -491,13 +498,16 @@ app.post("/login/", (req, res, next)=>{
 
 app.post("/signup/", (req, res, next)=> {
 
-  let signup_user = new signup_user({
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
+  let user = new signup_user({
+    first_name: req.body.firstname,
+    last_name: req.body.lastname,
     email: req.body.email,
     password: req.body.password
   });
 
+  user.save().then( result =>{
+    res.send(result)
+  });
   //res.send(req.body);
 
 })

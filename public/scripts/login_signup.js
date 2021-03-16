@@ -4,6 +4,8 @@ var email_input = document.getElementById("login_fld_3");
 var password_input = document.getElementById("login_fld_4");
 var confirm_password_input = document.getElementById("login_fld_199");
 
+var page_url = new URL(document.URL);
+
 //types of travels on Anidaso for content personalization
  var travel_types = [
      "Leisure",
@@ -12,7 +14,6 @@ var confirm_password_input = document.getElementById("login_fld_199");
      "family Visit"
  ];
  var login_user_data = {
-    id: "",
     email: "",
     password: ""
 };
@@ -61,6 +62,7 @@ function login_function(){
             data: JSON.stringify(login_user_data),
             success: data =>{
                 console.log(data);
+                login_success_function();
             },
             error: err =>{
 
@@ -102,7 +104,40 @@ function signup_function(){
 
         collect_user_signup_data().then(()=>{
             //do ajax here after collecting post data into post object
-            console.log(signup_user_data)
+            //console.log(signup_user_data)
+            $.ajax({
+                type: "POST",
+                data: JSON.stringify(signup_user_data),
+                url: "/signup",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: data =>{
+
+                    console.log(data)
+                    //login user here 
+                    $.ajax({
+                        type: "POST",
+                        url: "/login",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        data: JSON.stringify({
+                            email: data.email,
+                            password: data.password
+                        }),
+                        success: result =>{
+                            console.log(result);
+                            login_success_function();
+                        },
+                        error: er =>{
+                            console.log(er);
+                        }
+                    });
+
+                },
+                error: err =>{
+                    console.log(err)
+                }
+            });
         }).catch( err => {
             console.log(err)
         });
@@ -160,4 +195,20 @@ function password_complexity_checker(password){
 
 document.getElementById("sign_up_anidaso_user_btn").addEventListener("click", evnt => {
     signup_function();
+});
+
+//this function runs when user successfully logs in and also with the login that happens after signup
+function login_success_function(){
+    toggle_show_login_div();
+}
+
+
+$(document).ready(function(){
+    if(page_url.pathname === "/login"){
+        toggle_show_login_div();
+    }
+    if(page_url.pathname === "/signup"){
+        toggle_show_login_or_signup_forms();
+        toggle_show_login_div();
+    }
 })
