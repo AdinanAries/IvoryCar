@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const Amadeus = require("amadeus");
-const bcrypt = require("bcrypt");
+//const bcrypt = require("bcrypt");
 const axios = require('axios');
 const { default: Axios } = require("axios");
 const fetch = require("node-fetch");
@@ -500,7 +500,7 @@ app.post("/login/", (req, res, next)=>{
 app.post("/signup/", async (req, res, next)=> {
 
   try{
-    let encrypted_password = await bcrypt.hash(req.body.password, 10);
+    let encrypted_password = ""//await bcrypt.hash(req.body.password, 10);
     let user = new signup_user({
       first_name: req.body.firstname,
       last_name: req.body.lastname,
