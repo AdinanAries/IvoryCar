@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const Amadeus = require("amadeus");
+const bcrypt = require("bcrypt");
 const axios = require('axios');
 const { default: Axios } = require("axios");
 const fetch = require("node-fetch");
@@ -491,23 +492,28 @@ app.post("/login/", (req, res, next)=>{
     password: req.body.password
   });
 
-  //res.send(req.body);
+  res.send(req.body);
   //reach database with credentials here
   //I might need some library to provide for session managemet
 });
 
-app.post("/signup/", (req, res, next)=> {
+app.post("/signup/", async (req, res, next)=> {
 
-  let user = new signup_user({
-    first_name: req.body.firstname,
-    last_name: req.body.lastname,
-    email: req.body.email,
-    password: req.body.password
-  });
+  try{
+    let encrypted_password = await bcrypt.hash(req.body.password, 10);
+    let user = new signup_user({
+      first_name: req.body.firstname,
+      last_name: req.body.lastname,
+      email: req.body.email,
+      password: encrypted_password
+    });
 
-  user.save().then( result =>{
-    res.send(result)
-  });
+    user.save().then( result =>{
+      res.send(result)
+    });
+  }catch(e){
+    res.send({error: e})
+  }
   //res.send(req.body);
 
 })

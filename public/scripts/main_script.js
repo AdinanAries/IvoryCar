@@ -1567,9 +1567,14 @@ function toggle_show_your_trips_div(){
 
 function toggle_show_login_div(){
   $("#sign_in_container").toggle("up");
+  change_page_url("");
+  
   if(document.getElementById("sign_in_container").style.display === "block"){
     document.getElementById("sign_in_container").style.display = "flex";
+    show_login_forms();
+    change_page_url("login");
   }
+
 }
 
 function mobile_toggle_show_login_div(){
@@ -1582,9 +1587,13 @@ function mobile_toggle_show_login_div(){
   mobile_main_menu_items.style.opacity = "0";
 
   $("#sign_in_container").toggle("up");
+  show_login_forms();
+  change_page_url("login");
+
   if(document.getElementById("sign_in_container").style.display === "block"){
     document.getElementById("sign_in_container").style.display = "flex";
   }
+
 }
 
 function activate_login_fld(number){
@@ -1602,25 +1611,42 @@ function activate_login_fld(number){
   document.getElementById(("login_fld_title_"+number)).style.color = "rgb(74, 101, 112)";
  }
 
+ var toggle_show_login_or_signup_formsbtn = document.getElementById("toggle_show_login_or_signup_formsbtn");
+ var login_and_signup_title = document.getElementById("login_and_signup_title");
+ var sign_up_form_container = document.getElementById("sign_up_form_container");
+
  function toggle_show_login_or_signup_forms(){
-   let sign_up_form_container = document.getElementById("sign_up_form_container");
-   let toggle_show_login_or_signup_formsbtn = document.getElementById("toggle_show_login_or_signup_formsbtn");
-   let login_and_signup_title = document.getElementById("login_and_signup_title");
 
    if(sign_up_form_container.style.display === "none"){
-    $("#login_form_container").slideUp("fast");
-    $("#sign_up_form_container").slideDown("fast");
-    toggle_show_login_or_signup_formsbtn.innerHTML = '<i class="fa fa-sign-in" aria-hidden="true"></i>Already have an account ? (login)';
-    login_and_signup_title.innerHTML = 'Sign Up and Save';
+    show_signup_forms()
    }else{
-    $("#login_form_container").slideDown("fast");
-    $("#sign_up_form_container").slideUp("fast");
-    toggle_show_login_or_signup_formsbtn.innerHTML = '<i class="fa fa-user-plus" aria-hidden="true"></i>dont have an account ? (sign up)';
-    login_and_signup_title.innerHTML = "Login and Save";
+    show_login_forms()
    }
    
  }
 
+ function show_signup_forms(){
+    $("#login_form_container").slideUp("fast");
+    $("#sign_up_form_container").slideDown("fast");
+    toggle_show_login_or_signup_formsbtn.innerHTML = '<i class="fa fa-sign-in" aria-hidden="true"></i>Already have an account ? (login)';
+    login_and_signup_title.innerHTML = 'Sign Up and Save';
+    change_page_url("signup");
+ }
+
+ function show_login_forms(){
+    $("#login_form_container").slideDown("fast");
+    $("#sign_up_form_container").slideUp("fast");
+    toggle_show_login_or_signup_formsbtn.innerHTML = '<i class="fa fa-user-plus" aria-hidden="true"></i>dont have an account ? (sign up)';
+    login_and_signup_title.innerHTML = "Login and Save";
+    change_page_url("login")
+ }
+
+ function change_page_url(path){
+  let url = new URL(document.URL);
+  console.log(url)
+  let signup_url = url.origin + "/"+ path;
+  history.pushState("Anidaso " + path, path, signup_url);
+ }
  var most_searched_for_cities = [
     [
       {name: "Abuja", img: "./images/Nigerian-abuja-city.jpg", quote: "You cannot come to a Nigerian restaurant without having pepper soup.", quote_author: "Ben Okri", input_city_name: "Nnamdi Azikiwe Intl - Abuja", iata_code: "ABV"},

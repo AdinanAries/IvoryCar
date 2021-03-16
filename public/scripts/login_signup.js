@@ -44,11 +44,11 @@ function login_function(){
     if(email === ""){
         email_elem.focus();
         activate_login_fld(0);
-        alert("please enter your email");
+        email_elem.placeholder = "please enter your email";
     }else if(password === ""){
         password_elem.focus();
         activate_login_fld(1);
-        alert("please enter your password");
+        password_elem.placeholder = "please enter your password";
     }else{
 
         login_user_data.email = email;
@@ -73,7 +73,6 @@ function login_function(){
 
 document.getElementById("main_login_submit_btn").addEventListener("click", evnt =>{
     login_function();
-    login_success_function();
 });
 
 function signup_function(){
@@ -196,13 +195,13 @@ function password_complexity_checker(password){
 
 document.getElementById("sign_up_anidaso_user_btn").addEventListener("click", evnt => {
     signup_function();
-    login_success_function();
 });
 
 //this function runs when user successfully logs in and also with the login that happens after signup
 function login_success_function(){
 
     toggle_show_login_div();
+
     document.getElementById("mobile_top_nav_signin_btn").style.display = "none";
     document.getElementById("mobile_menu_logged_in_user_info").style.display = "block";
 
@@ -210,6 +209,7 @@ function login_success_function(){
         document.getElementById("top_nav_signin_btn").style.display = "none";
         document.getElementById("logged_in_user_main_top_nav_info").style.display = "flex";
     }
+
 }
 
 
@@ -221,4 +221,4 @@ $(document).ready(function(){
         toggle_show_login_or_signup_forms();
         toggle_show_login_div();
     }
-})
+});
