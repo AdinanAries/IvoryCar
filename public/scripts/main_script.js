@@ -1577,6 +1577,7 @@ function toggle_show_login_div(){
 
 }
 
+//this function show login from mobile menu
 function mobile_toggle_show_login_div(){
 
   top_logo_menu_icon.style.transform = "rotate(360deg)";
