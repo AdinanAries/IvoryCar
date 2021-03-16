@@ -73,6 +73,7 @@ function login_function(){
 
 document.getElementById("main_login_submit_btn").addEventListener("click", evnt =>{
     login_function();
+    login_success_function();
 });
 
 function signup_function(){
@@ -195,11 +196,20 @@ function password_complexity_checker(password){
 
 document.getElementById("sign_up_anidaso_user_btn").addEventListener("click", evnt => {
     signup_function();
+    login_success_function();
 });
 
 //this function runs when user successfully logs in and also with the login that happens after signup
 function login_success_function(){
+
     toggle_show_login_div();
+    document.getElementById("mobile_top_nav_signin_btn").style.display = "none";
+    document.getElementById("mobile_menu_logged_in_user_info").style.display = "block";
+
+    if($(window).width() > 1025){
+        document.getElementById("top_nav_signin_btn").style.display = "none";
+        document.getElementById("logged_in_user_main_top_nav_info").style.display = "flex";
+    }
 }
 
 

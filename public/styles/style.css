@@ -911,7 +911,7 @@ header {
   height: 100%;
 }
 #mobile_top_nav_signin_btn {
-  display: none !important;
+  display: none;
 }
 header ul,
 #mobile_main_menu_items ul {
@@ -1988,7 +1988,7 @@ footer a {
 }
 
 @media only screen and (max-width: 1025px) {
-  #logged_in_user_main_top_nav_info{
+  #logged_in_user_main_top_nav_info {
     display: none;
   }
   .book_hotel_view_full_profile_each_photo {
@@ -2252,7 +2252,7 @@ footer a {
     border-bottom: none;
   }
   #mobile_top_nav_signin_btn {
-    display: block !important;
+    display: block;
   }
   #top_nav_signin_btn {
     display: none !important;

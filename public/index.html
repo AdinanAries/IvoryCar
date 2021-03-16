@@ -1054,7 +1054,7 @@
               <li onclick="toggle_show_your_trips_div();" id="top_nav_trip_btn" style="display: none;">
                 <a>Trips</a>
               </li>
-              <li style="display: none;" onclick="toggle_show_login_div();" id="top_nav_signin_btn">
+              <li onclick="toggle_show_login_div();" id="top_nav_signin_btn">
                 <a href="#" style="color: goldenrod"
                   ><i class="fa fa-sign-in" aria-hidden="true"></i>Sign in</a
                 >
@@ -1113,7 +1113,7 @@
               </li>
             </ul>
           </div>
-          <div id="logged_in_user_main_top_nav_info" class="logged_in_user_nav_info">
+          <div style="display: none;" id="logged_in_user_main_top_nav_info" class="logged_in_user_nav_info">
             <div class="logged_in_user_nav_profile_picture">
             <div class="logged_in_user_nav_profile_picture_container">
               <img src="images/Anonymous_person3.jpg" alt="logged in user avatar"/>
@@ -1180,13 +1180,13 @@
             <li>
               <a href="#"> <i class="fa fa-info-circle" aria-hidden="true"></i>Help </a>
             </li>
-            <li onclick="mobile_toggle_show_login_div();" style="display: none !important;" id="mobile_top_nav_signin_btn">
+            <li onclick="mobile_toggle_show_login_div();" id="mobile_top_nav_signin_btn">
               <a href="#" style="color: goldenrod"
                 ><i class="fa fa-sign-in" aria-hidden="true"></i>Sign in</a
               >
             </li>
           </ul>
-          <div id="mobile_menu_logged_in_user_info" style="padding: 15px; overflow: initial !important; background-color: white;">
+          <div style="display: none;" id="mobile_menu_logged_in_user_info">
             <div style="display: flex; flex-direction: row !important; padding: 10px; padding-top: 0;">
               <div class="logged_in_user_nav_profile_picture">
                 <div style="border:rgb(235, 86, 0) 2px solid" class="logged_in_user_nav_profile_picture_container">
@@ -1197,7 +1197,7 @@
                 <p style="font-size: 13px; font-weight: bolder; color: rgb(235, 86, 0); letter-spacing: 1px;">Mohammed Adinan</p>
               </div>
             </div>
-            <div style="cursor: pointer; padding: 10px; background-color: rgb(139, 18, 44); color: white; font-size: 14px; text-align: center; margin: auto;">
+            <div style="border-radius: 4px; margin: 0 10px; cursor: pointer; padding: 10px; background-color: rgb(139, 18, 44); color: white; font-size: 14px; text-align: center;">
               logout
             </div>
           </div>
